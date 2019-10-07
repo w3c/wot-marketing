@@ -2,7 +2,7 @@
 Images suitable for use in posts.
 
 ## General
-* ![](wot-abstract-arch.png | width=50)
+* ![](wot-abstract-arch.png|width=50)
 
 ## From WoT Workshop, Munich June 2019
 * ![](DSC_3147.jpg | width=50)
