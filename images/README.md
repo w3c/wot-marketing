@@ -3,6 +3,7 @@ Images suitable for use in posts.
 
 ## General
 * <a href="wot-abstract-arch.png">WoT Abstract Architecture Diagram: <img src="wot-abstract-arch.png" height="100"></img></a>
+* <a href="example-TD.png">Example TD: <img src="example-TD.png" height="100"></img></a>
 
 ## From WoT Workshop, Munich June 2019
 * <a href="DSC_3147.jpg">DSC_3147: <img src="DSC_3147.jpg" height="100"></img></a>
@@ -11,6 +12,7 @@ Images suitable for use in posts.
 * <a href="DSC_3266.jpg">DSC_3266: <img src="DSC_3266.jpg" height="100"></img></a>
 
 ## From TPAC, Fukuoka Sept 2019
+* <a href="tpac-demos.jpg">TPAC Demos: <img src="tpac-demos.jpg" height="100"></img></a>
 * <a href="IMG_1676.jpg">IMG_1676: <img src="IMG_1676.jpg" height="100"></img></a>
 * <a href="IMG_1677.jpg">IMG_1677: <img src="IMG_1677.jpg" height="100"></img></a>
 * <a href="IMG_1681.jpg">IMG_1681: <img src="IMG_1681.jpg" height="100"></img></a>
