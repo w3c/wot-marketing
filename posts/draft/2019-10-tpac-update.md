@@ -14,8 +14,20 @@ using data embedded in television broadcasts to drive contextual IoT services,
 such as adapting lighting to specific content.
 
 <figure>
-    <a href="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/tpac-demos.jpg"><img alt="TPAC2019 WoT Demo" src="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/tpac-demos.jpg" width=250 /><a>
+    <a href="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/tpac-demos.jpg"><img alt="TPAC2019 WoT Demo" src="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/tpac-demos.jpg" width=512 /><a>
     <figcaption>WoT Demonstration Systems at TPAC2019 in Fukuoka</figcaption>
+</figure>
+    
+The following figure gives a concrete example of the main deliverable to date of the WoT WG: the
+WoT Thing Description.
+A WoT Thing Description is simply a standardized data format, based on JSON-LD, for providing the metadata for
+a Thing so that the services and data it provides can be understood and so that it can be accessed by authorized users.
+It can be used to describe existing devices and services as well as supporting the development of new IoT systems.
+The intention is to support the integration of IoT systems by allowing a common means for metadata to be 
+exchanged and a common high-level abstraction for network interactions based on properties, events, and actions.
+<figure>
+    <a href="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/example-TD.png"><img alt="WoT Thing Description" src="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/example-TD.png" width=250 /><a>
+  <figcaption>Example WoT Thing Description</figcaption>
 </figure>
         
 While putting the finishing touches on the 
@@ -28,8 +40,6 @@ and
 charters.
 Candidate work items for future work include topics such
 as discovery and ad-hoc interoperability in constrained environments.
+We encourage readers interested in these topics to reach out and engage with us in this exciting work!
 
-<figure>
-    <a href="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/example-TD.png"><img alt="WoT Thing Description" src="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/example-TD.png" width=250 /><a>
-  <figcaption>Example WoT Thing Description</figcaption>
-</figure>
+
