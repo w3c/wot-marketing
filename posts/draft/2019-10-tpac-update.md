@@ -14,7 +14,7 @@ using data embedded in television broadcasts to drive contextual IoT services,
 such as adapting lighting to specific content.
 <figure>
     <a href="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/tpac-demos.jpg"><img alt="TPAC2019 WoT Demo" src="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/tpac-demos.jpg" width="100%" /><a>
-    <figcaption>WoT Demonstration Systems at TPAC2019 in Fukuoka</figcaption>
+    <figcaption><a href="https://github.com/w3c/wot/blob/master/f2f/2019/09-fukuoka/2019-09_WoT-Plugfest.pdf">WoT Demonstration Systems at TPAC2019 in Fukuoka</a></figcaption>
 </figure>
 </p>
 <p>The following figure gives a concrete example of the main deliverable to date of the WoT WG: the
@@ -26,7 +26,7 @@ The intention is to support the integration of IoT systems by allowing a common 
 exchanged and a common high-level abstraction for network interactions based on properties, events, and actions.
 <figure>
     <a href="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/example-TD.png"><img alt="WoT Thing Description" src="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/example-TD.png" width=400 /><a>
-  <figcaption>Example WoT Thing Description</figcaption>
+    <figcaption><a href="https://github.com/w3c/wot/blob/master/f2f/2019/09-fukuoka/2019-09_WoT-AC.pdf">Example WoT Thing Description</a></figcaption>
 </figure>
 </p>
 <p>While putting the finishing touches on the 
