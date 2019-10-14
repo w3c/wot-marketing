@@ -25,7 +25,7 @@ It can be used to describe existing devices and services as well as supporting t
 The intention is to support the integration of IoT systems by allowing a common means for metadata to be 
 exchanged and a common high-level abstraction for network interactions based on properties, events, and actions.
 <figure>
-    <a href="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/example-TD.png"><img alt="WoT Thing Description" src="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/example-TD.png" width=400 /><a>
+    <a href="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/example-TD.png"><img alt="WoT Thing Description Example" src="https://raw.githubusercontent.com/w3c/wot-marketing/master/images/example-TD.png" width=50% /><a>
     <figcaption><a href="https://github.com/w3c/wot/blob/master/f2f/2019/09-fukuoka/2019-09_WoT-AC.pdf">Example WoT Thing Description</a></figcaption>
 </figure>
 </p>
