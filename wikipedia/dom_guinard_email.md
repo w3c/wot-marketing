@@ -1,4 +1,4 @@
-## Email from Dom Guinard about updating the Wikipedia for WoT (edited to fit markdown)
+## Email from Dominique Guinard about updating the Wikipedia for WoT (edited to fit markdown)
 
 Good points as this page is indeed out of date. We did write parts of it (unlike the french version which was written 100%
 independently) as you can guess and wrote this a long time ago. It would absolutely make sense to see it complemented with the work from the WoT WG indeed and to rewrite it.
