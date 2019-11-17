@@ -234,7 +234,7 @@ In 2011 Dominique Guinard and Vlad Trifa together with Niall Murphy and Andy Hob
 
 In 2014, the W3C showed an increased interest in the Web of Things and organised the W3C Workshop on the Web of Things,<ref>{{cite web|url=http://www.w3.org/2014/02/wot/ |title=W3C Workshop on the Web of Things}}</ref> under the lead of Dave Raggett together with [[Siemens]] and the COMPOSE European project. This workshop lead to the creation of the Web of Things Interest Group at [[W3C]]<ref name="wot-w3c"/> and the submission of the Web Thing Model.<ref>{{cite web|url=http://www.w3.org/Submission/2015/01/ |title=Web Thing Model}}</ref>.
 
-The same year, Siemens announced the creation of a research group dedicated to the Web of Things.<ref>{{cite web|url=http://www.usa.siemens.com/en/about_us/research/web-of-things.htm |title=Siemens Web of Things Research Group}}</ref> In October 2014, Google also announced their interested in these ideas by launching the Physical Web GitHub project.<ref>{{Cite web|url=https://github.com/google/physical-web|title=The Physical Web|last=|first=|date=|website=GitHub|language=en|archive-date=|dead-url=|access-date=2017-02-08}}</ref>
+The same year, Siemens announced the creation of a research group dedicated to the Web of Things.<ref>{{cite web|url=http://www.usa.siemens.com/en/about_us/research/web-of-things.htm |title=Siemens Web of Things Research Group}}</ref> In October 2014, Google also announced their interested in these ideas by launching the Physical Web GitHub project.<ref>{{Cite web|url=https://github.com/google/physical-web|title=The Physical Web|website=GitHub|language=en|access-date=2017-02-08}}</ref>
 
 The Web of Things Interest Group has identified the required set of standards needed for the Web of Things in February 2017 
 <ref>
@@ -412,3 +412,4 @@ The [[Constrained Application Protocol]] (CoAP) is also quite often cited as an 
 [[Category:Web 2.0 neologisms]]
 [[Category:World Wide Web]]
 [[Category:Internet of things]]
+[[Category:World Wide Web Consortium]]
