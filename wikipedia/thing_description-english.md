@@ -8,7 +8,7 @@ Thing Description (TD)<ref name=":0">{{Cite web|url=https://www.w3.org/TR/2019/C
 | name = Thing Description
 | icon = [[File:ThingDescription.svg|ThingDescription]]
 | iconcaption = The logo of the latest version, [[Thing Description]]
-| extension = .td .json
+| extension = .jsontd
 | mime = application/td+json
 | developer = [[W3C]]
 | type = [[JSON-LD]]
