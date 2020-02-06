@@ -1,0 +1,29 @@
+name: WoT
+markdown: kramdown
+
+# uncomment if in root
+# baseurl: "/wot-pages"
+
+navigation:
+# - title: W3C
+#   url: /wot-pages/w3c/
+ - title: Working Group
+   url: /wg/
+ - title: Interest Group
+   url: /ig/
+ - title: Community Group
+   url: /cg/
+# - title: News & Events
+#   url: /wot-pages/news-and-events/
+# - title: Getting Started
+#   url: /wot-pages/getting-started/
+ - title: Developers
+   url: /developers/
+# - title: Members
+#   url: /wot-pages/members/
+# - title: Liasons & Testimonals
+#   url: /wot-pages/liasons/
+# - title: Specifications
+#   url: /wot-pages/specifications/
+# - title: Contact
+#   url: /wot-pages/contact/
