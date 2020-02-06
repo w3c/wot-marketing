@@ -8,17 +8,17 @@ navigation:
 # - title: W3C
 #   url: /wot-pages/w3c/
  - title: Working Group
-   url: /wg/
+   url: /wot-marketing/wg/
  - title: Interest Group
-   url: /ig/
+   url: /wot-marketing/ig/
  - title: Community Group
-   url: /cg/
+   url: /wot-marketing/cg/
 # - title: News & Events
 #   url: /wot-pages/news-and-events/
 # - title: Getting Started
 #   url: /wot-pages/getting-started/
  - title: Developers
-   url: /developers/
+   url: /wot-marketing/developers/
 # - title: Members
 #   url: /wot-pages/members/
 # - title: Liasons & Testimonals
