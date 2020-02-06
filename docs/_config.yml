@@ -2,7 +2,7 @@ name: WoT
 markdown: kramdown
 
 # uncomment if in root
-# baseurl: "/wot-pages"
+baseurl: "/wot-marketing"
 
 navigation:
 # - title: W3C
