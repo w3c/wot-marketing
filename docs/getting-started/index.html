@@ -14,7 +14,11 @@ group: "navigation"
 	<p>A Thing is an abstraction of a physical or virtual entity that provides interactions to and participates 
 		in the Web of Things. </p>
 	<h3>Interaction Affordances: Properties, Actions, Events</h3>
-	<p> </p>
+	<p>The Interaction Model of W3C WoT introduces an intermediate abstraction that formalizes the mapping from application 
+		intent to concrete protocol operations and also narrows the possibilities how Interaction Affordances can be modeled.
+		So, Things may offer three other types of Interaction Affordances defined by this specification: 
+		Properties, Actions, and Events. 
+	</p>
 	<h3>Thing Description</h3>
 	<p>The WoT Thing Description (TD) is a central building block in the W3C Web of Things and can be 
 		considered as the entry point of a Thing (much like the index.html of a Web site). Thing descriptions 
@@ -22,11 +26,19 @@ group: "navigation"
 		configuration and protocol bindings. 
         </p>
 	<h3>Binding Templates</h3>
-	<p> </p>
+	<p>A Protocol Binding is the mapping from an Interaction Affordance to concrete messages of a specific protocol 
+	such as HTTP, CoAP, or MQTT. It informs the client how to activate the Interaction Affordance through a 
+		network-facing interface. The Protocol Bindings follow the Uniform Interface constraint of REST to support 
+		interoperability. </p>
 	<h3>Scripting API</h3>
-	<p> </p>
-	<h3>Security</h3>
-	<p> </p>
+	<p>The WoT Scripting API building block defines an ECMAScript API that closely follows the WoT Thing Description 
+		specification. It defines the interface between behavior implementations and a 
+		scripting-based WoT Runtime. Other, simpler APIs may be implemented on top of it, 
+		similar to, for instance, jQuery for the Web browser APIs. The Web of Things is not limited to a scripting evorenment. 
+	        Programming languages such as Java or C/C++ can be derived from the Scripting API.</p>
+	<h3>Security and Privacy Guidelines</h3>
+	<p>Web of Things provides guidance on Web of Things (WoT) security and privacy that is applied to WoT's asset such as
+		the Thing Description and Scripting API. </p>
 	
 	<h2>Various Materials</h2>
 	<p>Below you will find various materials to give you further introduction to the W3C Web of Things and its 
