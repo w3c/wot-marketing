@@ -25,4 +25,4 @@ Your issues will be discussed in the weekly meeting and will be brought to W3C P
 #### Bug Reports
 
 ### Press Releases
-* [DRAFT - REC 2020](https://cdn.statically.io/gh/w3c/wot-marketing/65ebf830/docs/pressrelease-wot-rec.html)
+* [DRAFT - REC 2020](https://cdn.statically.io/gh/w3c/wot-marketing/65ebf830/docs/pressrelease-wot-rec.html?env=dev)
