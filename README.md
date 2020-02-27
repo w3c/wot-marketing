@@ -23,3 +23,6 @@ Please use the [issue template for feature requests](feature-issueTemplate.md) t
 Your issues will be discussed in the weekly meeting and will be brought to W3C Project Management if it requires a substantial change.
 
 #### Bug Reports
+
+### Press Releases
+* [DRAFT - REC 2020](https://cdn.statically.io/gh/w3c/wot-marketing/65ebf830/docs/pressrelease-wot-rec.html)
