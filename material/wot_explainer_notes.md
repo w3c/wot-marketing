@@ -3,6 +3,7 @@
 [Original slides](https://github.com/w3c/wot-marketing/blob/master/material/wot_explainer_script.pdf)
 
 ## Scene 1
+![Scene01](script_images/Scene01.png)
 * Text: 
    - A winegrower is looking for possibilities to increase (his) productivity while keeping the excellent quality of (his) products
        - Alt: A winemaker is looking for ways to increase productivity while keeping excellent product quality
@@ -19,6 +20,7 @@
 
 
 ## Scene 2
+![Scene02](script_images/Scene02.png)
 * Text:
    - To constantly control the quality of (his) plants (he) is willing to install humidity and temperature sensors, and a sprinkler system.
        - Alt: To constantly control quality, the winemaker is willing to install humidity and temperature sensors and a sprinkler system.
@@ -30,6 +32,7 @@
    - Show data coming from cloud (since it's weather data, can be from an actual cloud...)
    
 ## Scene 3
+![Scene03](script_images/Scene03.png)
 * Text: 
    - Lost in programming and connecting the devices (he) decides to engage (his) preferred IT consultant - who programmed (his) web presence - for realizing (his) IoT solution
        - Alt: Lost in programming and connecting devices, the winemaker decides to engage the IT consultant - who programmed the winemaker's web presence - to realize an IoT solution
@@ -40,6 +43,7 @@
    - Image in original shows a messy breadboard, but a more "professional" picture that relates to software (perhaps a circle-and-line graph that explodes in complexity) would be better.
    
 ## Scene 4
+![Scene04](script_images/Scene04.png)
 * Text:
    - Web Agency
    - Rosental 7, Munich, Germany
@@ -51,6 +55,7 @@
    - Suggest deleting "personal and business", "personal" is weird, and phrase does not add value; put in paras above
 
 ## Scene 5
+![Scene05](script_images/Scene05.png)
 * Text:
     - (Joe), the lead developer at Web Agency likes the new challenge and is willing to broaden (his) IoT knowledge
          - Alt: The developers at Web Agency like the new challenge and are willing to broaden their IoT knowledge
@@ -66,6 +71,7 @@
     - To avoid making "their" weird, could just have multiple developers (The lead developer -> The developers)
     
 ## Scene 6
+![Scene06](script_images/Scene06.png)
 * Text: 
     - Googling for a while for a better solution (he -> the consultant) finds information about the Web of Things (WoT)
     - WoT is a W3C activity that (promises -> enables) Web developers to become IoT developers using the tools and frameworks they love
@@ -77,6 +83,7 @@
     - "like" is also more natural as "such"; changed above
     
 ## Scene 7
+![Scene07](script_images/Scene07.png)
 * Text:
     - ((Joe) starts off and -> The consultant) is happy to find a bunch of WoT tutorials on thingweb.io, YouTube, and GitHub
     - With node-wot, the various protocol bindings like HTTP, MQTT, and CoAP, and browser bundle (he -> the consultant) easily creates a full stack IoT solution that connects all the devices and features a great user interface
@@ -88,6 +95,7 @@
     - Should we also mention Node-RED?
     
 ## Scene 8
+![Scene08](script_images/Scene08.png)
 * Text:
     - Instead of creating a proprietary solution (he) leverages the WoT methodology to create IoT building blocks that extend his already existing Web technologies portfolio
     - Thing Descriptions, application templates, and semantics are now same class portfolio members as HTML pages, Javascript snippets, or CSS from his former projects
@@ -95,6 +103,7 @@
     - Show a structure being built from a collection of blocks
     
 ## Scene 9
+![Scene09](script_images/Scene09.png)
 * Text:
     - As the main element of the WoT methodology the Thing Description (TD) is comparable to an index.html for Things
     - WoT TDs addresses several questions... 
@@ -105,6 +114,7 @@
 * Comment: existing picture not that great, final step of zoom
 
 ## Scene 10
+![Scene10](script_images/Scene10.png)
 * Text: (various questions in circular array around TD logo; do not need to be spoken)
     Spoken: Various questions can be answered by the information in the TD
     Questions (written only):
@@ -126,6 +136,7 @@
     - small English fixes
     
 ## Scene 11
+![Scene11](script_images/Scene11.png)
 * Text:
     - Not fiddling around for months, (Joe) creates the IoT solution in just a few sprints combining WoT TD, WoT protocol bindings, WoT scripting, and his web expertise
          - Alt: Instead of filling around for months, the developers create the IoT solution in just a few sprints by combining WoT TDs, WoT protocol bindings, and WoT scripting with their web expertise
@@ -137,6 +148,7 @@
     - Alternatives given have both gender-neutral language (using plurals) and fix some English issues
     
 ## Scene 12
+![Scene12](script_images/Scene12.png)
 * Text:
     - spoken: Now Joe is ready to tackle his next IoT challenge
         - Alt: Now the developers are ready to tackle their next IoT challenge
@@ -149,7 +161,8 @@
     - Zoom to WoT logo when talk about methodology
     
 ## Scene 13
+![Scene13](script_images/Scene13.png)
 * Staging:
-    - WoT logo
+    - zoom into WoT logo, hold
 
    
