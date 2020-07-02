@@ -4,7 +4,7 @@
 
 ## Scene 1
 ![Scene01](script_images/Scene01.png)
-* Text: 
+* Spoken: 
    - A winegrower is looking for possibilities to increase (his) productivity while keeping the excellent quality of (his) products
        - Alt: A winemaker is looking for ways to increase productivity while keeping excellent product quality
 * Staging: Far-away view of vineyard (maybe animation that zooms in from clouds...)
@@ -28,18 +28,28 @@
      so a combination that makes sense in the US may just be odd in Singapore, and vice-versa.
    - We could avoid the whole bias issue by using non-gender-and-race specific animal characters (eg cat and rabbits...).
 
-## Scene 2
+## Scene 2a
 ![Scene02](script_images/Scene02.png)
-* Text:
+* Spoken:
    - To constantly control the quality of (his) plants (he) is willing to install humidity and temperature sensors, and a sprinkler system.
-       - Alt: To constantly control quality, the winemaker is willing to install humidity and temperature sensors and a sprinkler system.
-   - In addition (he) wants to to receive weather forecasts from an online web service
-       - Alt: Weather forecasts from an online web service would also be useful
+       - Alt: To better control quality, the winemaker is willing to install humidity and temperature sensors, and a sprinkler system.
 * Staging: 
    - Keep zooming in, stop on a closeup of some grapes on the vine
    - Show addition of sensors and sprinkler system
-   - Show data coming from cloud (since it's weather data, can be from an actual cloud...)
    
+## Scene 2b
+* Spoken:
+   - In addition (he) wants to to receive weather forecasts from an online web service
+       - Alt: Weather forecast data from an online web service would also be useful
+* Staging: 
+   - Show data coming from cloud
+   - Since it's weather data, can be from an actual cloud...
+   - Data can be 0's and 1's falling as rain...
+   
+Comment: 
+   - Maybe "Weather" should be "Rain" to be more specific and match the visual?
+   
+
 ## Scene 3
 ![Scene03](script_images/Scene03.png)
 * Text: 
