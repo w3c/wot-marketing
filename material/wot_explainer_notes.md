@@ -6,7 +6,7 @@
 ![Scene01](script_images/Scene01.png)
 * Spoken: 
    - A winegrower is looking for possibilities to increase (his) productivity while keeping the excellent quality of (his) products
-       - Alt: A winemaker is looking for ways to increase productivity while keeping excellent product quality
+       - Alt: A winemaker is looking for ways to increase productivity while keeping excellent product quality.
 * Staging: Far-away view of vineyard (maybe animation that zooms in from clouds...)
 * Comments: 
    - Should gender-specific "his" be changed to gender-neutral "their" or perhaps to "her"?
@@ -40,7 +40,7 @@
 ## Scene 2b
 * Spoken:
    - In addition (he) wants to to receive weather forecasts from an online web service
-       - Alt: Weather forecast data from an online web service would also be useful
+       - Alt: Weather forecast data from an online web service would also be useful.
 * Staging: 
    - Show data coming from cloud
    - Since it's weather data, can be from an actual cloud...
@@ -52,74 +52,114 @@ Comment:
 
 ## Scene 3
 ![Scene03](script_images/Scene03.png)
-* Text: 
+* Spoken: 
    - Lost in programming and connecting the devices (he) decides to engage (his) preferred IT consultant - who programmed (his) web presence - for realizing (his) IoT solution
-       - Alt: Lost in programming and connecting devices, the winemaker decides to engage the IT consultant - who programmed the winemaker's web presence - to realize an IoT solution
+       - Alt: After quickly getting lost programming and connecting devices, the winemaker decides to engage an IT consultant.
+       - Second half moved to voice-over of Scene 4, which shows a search for an IT consultant.
 * Staging: 
     - Show a "development system" that explodes in complexity
     - Winemaker has an idea (maybe a thought bubble) of asking the consultant that was used for the web presence for help with IoT
 * Comments: 
    - Image in original shows a messy breadboard, but a more "professional" picture that relates to software (perhaps a circle-and-line graph that explodes in complexity) would be better.
+   - Spoken text is quite long and complex (may loose non-native English speakers).
+   - I have suggested alt text that breaks it up a bit (and is also gender neutral).
    
 ## Scene 4
 ![Scene04](script_images/Scene04.png)
-* Text:
+* Spoken:
+   - Alt: The winemaker would like to use the consultant who programmed the winemaker's web presence to realize an IoT solution.
+* Text (it and the map should be "built" as the result of a simulated online search):
    - Web Agency
    - Rosental 7, Munich, Germany
    - phone: +49 89 12345678
    - twitter: @webagency
    - The Web Agency is your solution provider when it comes to realizing your (personal or business) web and social media presence
-* Staging: Show the result of an online search for a web solution provider
+       - Alt: The Web Agency provides solutions for your web and social media presence
+* Staging: "Build" the result of an online search for a web solution provider
 * Comments: 
    - Suggest deleting "personal and business", "personal" is weird, and phrase does not add value; put in paras above
+   - I know it's an add for the agency, but it should be simplified; maybe could even be simplified futher; see Alt
 
 ## Scene 5
 ![Scene05](script_images/Scene05.png)
-* Text:
+* Spoken:
     - (Joe), the lead developer at Web Agency likes the new challenge and is willing to broaden (his) IoT knowledge
          - Alt: The developers at Web Agency like the new challenge and are willing to broaden their IoT knowledge
     - (He) is an expert in Web technologies and does programming of both frontend as well as backend with Node JS
-         - Alt: They like the new challenge and are willing to broaden their IoT knowledge
+         - Alt: They are experts in both web frontend and backend technologies using Node JS
     - However, (he) only has a vague idea how to integrate hardware and fears the interoperability dilemma that he experienced in a former IoT project
-         - Alt: However, they only have a vague idea how to integrate hardware and fear the interoperability dilemma that they experienced in a former IoT project
+         - Alt: However, they only have a vague idea how to integrate IoT hardware.
+         - Alt: They are worried about the interoperability problems that they experienced in a former IoT project.
 * Staging:
     - Show picture of a developer hacking away, scratching his/her/their head, shuddering a little at some bad memories of a past project (maybe a thought bubble showing the consultant vainly trying to plug together two incompatible connectors)
 * Comment
     - "Joe" is another male... consider mixing it up a little, at least.
+      For example, make winemaker female if developer is male, or vice-versa, or make them both gender-neutral.
     - Also, we should avoid making all the characters white...
-    - To avoid making "their" weird, could just have multiple developers (The lead developer -> The developers)
+    - If we want to make the developer gender neutral, to avoid making "their" weird,
+      we could just have multiple developers (The lead developer -> The developers)
+    - I'm not sure the "vague idea" text is needed.  Either they have experience, or they don't.
+      The second sentence implies they have experience, but know it's hard.
+      I think we should use only the second sentence.
+    - I also broke up the second long sentence into two shorter sentences.
     
 ## Scene 6
 ![Scene06](script_images/Scene06.png)
-* Text: 
+* Spoken: 
     - Googling for a while for a better solution (he -> the consultant) finds information about the Web of Things (WoT)
+         - Alt: After searching online for a solution, the developers find information on the Web of Things, also known as Double-U-oh-Tee: "WoT".
     - WoT is a W3C activity that (promises -> enables) Web developers to become IoT developers using the tools and frameworks they love
+         - Alt: WoT is a W3C activity that enables Web developers to become IoT developers using the tools and frameworks they love.
     - WoT can be applied to different domains, (like -> such) as Industry or Building Automation
+         - Alt: WoT can be applied to many different IoT domains,
+           such as Manufacturing or Building Automation,
+           but is also applicable to the winemaker's problem.
 * Staging:
-    - Google search, some results pop up (represented as icons and logos)
+    - Google search, typing in "IoT interoperability solution using web technology" -> some results pop up (represented as icons and logos)
+    - WoT logo popping up should co-incide with narration speaking "WoT"
+    - Other logos (JS, etc) should pop up with the phrase "tools and frameworks they love"
 * Comments:
-    - "Promises" is weird English.  "Allows" or "Enables" would be more natural
-    - "like" is also more natural as "such"; changed above
+    - Is a search, so let's state the problem in the search text...
+    - "Promises" is weird English.  "Allows" or "Enables" would be more natural.
+    - Also "like" is also more natural as "such"; changed above.
+    - When spoken, introduction of the WoT acronym needs to be explicit.
+    - Last phrase needs to emphasize is applicable to winemaker's problem.
+    - Also changed "Industry" to "Manufacturing" to be more concrete; "Industry" is too broad.
+    - Also got rid of "Googling": we should avoid a specific company name.  Changed to "searching online"
     
 ## Scene 7
 ![Scene07](script_images/Scene07.png)
-* Text:
+* Spoken:
     - ((Joe) starts off and -> The consultant) is happy to find a bunch of WoT tutorials on thingweb.io, YouTube, and GitHub
+        - Alt: The developers are happy to find a bunch of WoT tutorials on thingweb.io, YouTube, and GitHub.
     - With node-wot, the various protocol bindings like HTTP, MQTT, and CoAP, and browser bundle (he -> the consultant) easily creates a full stack IoT solution that connects all the devices and features a great user interface
+       - Alt: With node-wot, various protocol bindings like HTTP, MQTT, and CoAP, and a browser bundle, the developers easily create a full stack IoT solution.
+         This solution connects all the devices and features a great user interface.
 * Staging:
-    - Show code rapidly being built, user interface popping up, etc.
+    - Show code rapidly being built, user interface popping up
+    - User interface mock-up should have a set of icons for watering (water drop) and weather sensing functions (sun, rain, etc) on a web page, and a map of the vineyard.
+    - Maybe a representation of "tutorials" should also flow down the right side of the screen (representation of videos, documents, etc)
 * Comments:
     - Small fixes to original text included ("starts of" changed to "starts off", "connecting" to "that connects", etc).
     - We should provide some real code for the animator to use in a "build"
+    - Simplified text by getting rid of "that" relative pronoun (confusing to non-native speakers...).  
+      Breaking up the sentence also makes the timing easier for popping up a "user interface"
     - Should we also mention Node-RED?
     
 ## Scene 8
 ![Scene08](script_images/Scene08.png)
-* Text:
+* Spoken:
     - Instead of creating a proprietary solution (he) leverages the WoT methodology to create IoT building blocks that extend his already existing Web technologies portfolio
+       - Alt: Instead of creating a proprietary solution, the developers use the WoT methodology to create IoT building blocks.
+       - Alt: These building blocks extend their existing Web technologies portfolio
     - Thing Descriptions, application templates, and semantics are now same class portfolio members as HTML pages, Javascript snippets, or CSS from his former projects
+       - Alt: Thing Descriptions, application templates, and IoT semantics are now in the same portfolio of reusable modules as
+         HTML pages, Javascript snippets, or CSS from former projects
 * Staging: 
     - Show a structure being built from a collection of blocks
+    - Intel is not allowed to use the word "leverage" in communication...
+    - "Already" is redundant
+    - Breaking up into shorter sentences, fixing gender issues
     
 ## Scene 9
 ![Scene09](script_images/Scene09.png)
