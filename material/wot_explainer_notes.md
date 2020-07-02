@@ -1,6 +1,8 @@
 # Notes for Explainer Video Script
 
-[Original slides](https://github.com/w3c/wot-marketing/blob/master/material/wot_explainer_script.pdf)
+Here are the [original storyboard slides](https://github.com/w3c/wot-marketing/blob/master/material/wot_explainer_script.pdf),
+screenshots of which are shown below.  However, the images in the storyboard are only meant to be suggestive, and the text may
+not match the current script, below.
 
 ## Scene 1
 ![Scene01](script_images/Scene01.png)
