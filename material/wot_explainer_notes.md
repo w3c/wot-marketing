@@ -163,26 +163,32 @@ Comment:
     
 ## Scene 9
 ![Scene09](script_images/Scene09.png)
-* Text:
-    - As the main element of the WoT methodology the Thing Description (TD) is comparable to an index.html for Things
+* Spoken:
+    - As the main element of the WoT methodology the Thing Description is comparable to an index.html for Things
+        - Alt: The main element of the WoT methodology is the Thing Description, also known as a Tee-Dee.
+        - Alt: The TD is comparable to an index.html for Things
     - WoT TDs addresses several questions... 
+        - Alt: (nothing; in next scene)
 * Staging: 
     - Show a thing (perhaps a sprinkler or sensor from the opening)
     - Show a "tag" attached to it (perhaps with a WoT TD logo, which we should provide)
     - Open tag, zoom in, see JSON of TD (which we should provide...)
-* Comment: existing picture not that great, final step of zoom
+* Comment: 
+    - existing picture not that great, final step of zoom
+    - The TD acronym needs to be explicitly introduced, maybe also include "WoT TD" in text superimposed on top of the screen, along with the TD logo
+    - Last bit of text can be removed, overlaps with the voice-over in the next scene
 
 ## Scene 10
 ![Scene10](script_images/Scene10.png)
-* Text: (various questions in circular array around TD logo; do not need to be spoken)
-    Spoken: Various questions can be answered by the information in the TD
+* Spoken: Various questions can be answered by the information in the TD
+* Text: (various questions pop up sequentially in a circular array around WoT TD logo; do not need to be spoken)
     Questions (written only):
     - What kind of data do you serve?
     - Who are you?
     - How does the payload structure look like?
     - How can I access the data or function?
     - What kinds of products and serializations do you support?
-    - Is there context I need to understand (units, kinds of sensors, etc)
+    - Is there context I need to understand, such as units, or the various kinds of sensors?
     - What kinds of functions to you have?
     - Are there some security constraints?
     - Do you have relationships to other Things?
@@ -190,17 +196,19 @@ Comment:
     - Developer has a thought bubble, zoom into it to set stage...
     - Questions should show up one by one, get "checked off"
 * Comments: 
-    - to save time, suggest not reading out the questions individually
-    - The "context" question is a little vague, I suggest replacing it with a couple more concrete questions: what units do you use, are you an instance of a class of devices, et.
+    - to save time, suggest NOT reading out the questions individually
+    - The "context" question is a little vague, I suggest replacing it with a couple more concrete questions: what units do you use, are you an instance of a class of devices.  It could perhaps be replaced with more concrete questions ("What kinds of units are values in?" etc)
     - small English fixes
     
 ## Scene 11
 ![Scene11](script_images/Scene11.png)
-* Text:
+* Spoken:
     - Not fiddling around for months, (Joe) creates the IoT solution in just a few sprints combining WoT TD, WoT protocol bindings, WoT scripting, and his web expertise
-         - Alt: Instead of filling around for months, the developers create the IoT solution in just a few sprints by combining WoT TDs, WoT protocol bindings, and WoT scripting with their web expertise
+         - Alt: Instead of fiddling around for months,
+           the developers create the IoT solution in just a few sprints by combining WoT TDs,
+           WoT protocol bindings, and WoT scripting with their web expertise
     - (He) gains confidence in IoT and from now on considers (him)self as an expert in both IT and IoT 
-         - Alt: The developers gain confidence in IoT and from now on consider themselves experts in both Web and IoT technologies
+         - Alt: The developers gain confidence in IoT and from now on consider themselves experts in both Web and IoT technologies.
 * Staging:
     - Imaging showing high-speed development, maybe playing off "sprint" (eg show developers running down a track)
 * Comments:
@@ -208,12 +216,13 @@ Comment:
     
 ## Scene 12
 ![Scene12](script_images/Scene12.png)
-* Text:
+* Spoken:
     - spoken: Now Joe is ready to tackle his next IoT challenge
         - Alt: Now the developers are ready to tackle their next IoT challenge
-    - written: Extend a hotel's building automation system with home automation components and give the house technician a nice user interface for operating it
     - spoken: And yes, Web of Things is THE methodology (he)'ll choose
         - Alt: And yes, Web of Things is THE methodology they'll choose
+* Text (on job posting): 
+    - Extend a hotel's building automation system with home automation components and give the house technician a nice user interface for operating it
 * Staging:
     - Show job board
     - Zoom in on a job posting with the above written text, picture of a hotel
