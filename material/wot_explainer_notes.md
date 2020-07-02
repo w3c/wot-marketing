@@ -65,7 +65,7 @@ Comment:
     - Winemaker has an idea (maybe a thought bubble) of asking the consultant that was used for the web presence for help with IoT
 * Comments: 
    - Image in original shows a messy breadboard, but a more "professional" picture that relates to software (perhaps a circle-and-line graph that explodes in complexity) would be better.
-   - Spoken text is quite long and complex (may loose non-native English speakers).
+   - Spoken text is quite long and complex (may confuse non-native English speakers).
    - I have suggested alt text that breaks it up a bit (and is also gender neutral).
    
 ## Scene 4
