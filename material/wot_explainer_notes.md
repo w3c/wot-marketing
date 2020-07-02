@@ -10,14 +10,23 @@
 * Staging: Far-away view of vineyard (maybe animation that zooms in from clouds...)
 * Comments: 
    - Should gender-specific "his" be changed to gender-neutral "their" or perhaps to "her"?
-     We could also use "the winegrower" etc.  BTW is "winegrower" standard usage in English?  Or is "winemaker" better?
-     There are also multiple people (winegrower, consultant) - these could be different genders.  BTW text uses both "developer" and "consultant"; maybe we should pick one?
-     This issue applies to the entire text.
-     To highlight this issue I have put all gender-specific pronouns in parenthesis, and suggested some alternative text that avoids the issue.
+     We could also use "the winegrower" etc, use plural "developers" (and "their" instead of "he"), etc.
+     To highlight this issue I have put all gender-specific names and pronouns in parenthesis,
+     and suggested some alternative text that avoids the issue.
+   - Is "winegrower" standard usage in English?
+     Or is "winemaker" better?
+     Later slides use "winemaker" and I think it's better.
+   - There are also multiple people (winegrower/winemaker, consultant/developer) - these could be different genders.
+   - Later text also uses both "developer" and "consultant"; maybe we should pick one?
+     This stakeholder name inconsistency issue applies to the entire text.
    - The original draft script had a female winegrower.  What happened?
    - There is also the issue of race.
-   - We could maybe avoid the whole issue by using animal characters (eg cat and rabbits...)
-
+     While it would be relatively easy to balance genders by having one male and one females since we have two stakeholders,
+     race is not so easy since there are only two,
+     and assigning specific races may have a polarizing effect instead.
+     Also racial mixes are different in different parts of the world,
+     so a combination that makes sense in the US may just be odd in Singapore, and vice-versa.
+   - We could avoid the whole bias issue by using non-gender-and-race specific animal characters (eg cat and rabbits...).
 
 ## Scene 2
 ![Scene02](script_images/Scene02.png)
