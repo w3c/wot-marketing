@@ -6,6 +6,15 @@ not match the current script, below.
 
 The original text had some issues so some revised text is suggested below in "Alt" sub-bullets.
 
+* Oracle Comments:
+Several key messages should be emphasized:
+- Integration of multiple devices from different manufacturers without on-device development
+- Leveraging 3rd party work, i.e. TDs for existing devices (cerated by him, or some open source activities)
+- (In the future) getting TDs from device manufacturers
+- Using an existing open source X-protocol reference implementation
+- Devices should be professional, i.e. no hobby-like Raspberry stuff, rather industry grade sensors, ...
+- Use case should be elaborated and diversified, i.e. not only more" but also "better", "easier", "reduce energy consumption and waste". Also be to increase quality, e.g. by determining the exact  time for harvesting, optimizing the use of his harvesting equipment, wine press, quality assurance and predictions
+
 ## Scene 1
 ![Scene01](script_images/Scene01.png)
 * Spoken: 
@@ -53,6 +62,8 @@ The original text had some issues so some revised text is suggested below in "Al
 Comment: 
    - Maybe "Weather" should be "Rain" to be more specific and match the visual?
    
+Oracle Comment:
+   - The user scenario should be explained more with different variants in increasing complexity, e.g. initially only monitoring of soil and weather conditions, a dashboard, alerting. Later on he installs an irrigation system, has active control based on measurements.
 
 ## Scene 3
 ![Scene03](script_images/Scene03.png)
@@ -67,6 +78,9 @@ Comment:
    - Image in original shows a messy breadboard, but a more "professional" picture that relates to software (perhaps a circle-and-line graph that explodes in complexity) would be better.
    - Spoken text is quite long and complex (may confuse non-native English speakers).
    - I have suggested alt text that breaks it up a bit (and is also gender neutral).
+   
+* Oracle Comments: I don't think a wine grower has leisure time to learn programming, install, set up and configure devices, ... at all. It is not realistic that he even thinks about developing sth. by himeself, he's looking for a turnkey solution.
+   - 
    
 ## Scene 4
 ![Scene04](script_images/Scene04.png)
@@ -83,6 +97,8 @@ Comment:
 * Comments: 
    - Suggest deleting "personal and business", "personal" is weird, and phrase does not add value; put in paras above
    - I know it's an add for the agency, but it should be simplified; maybe could even be simplified futher; see Alt
+   
+* Oracle comments: Not sure that a Web developer is the right choice for this kind of integration.
 
 ## Scene 5
 ![Scene05](script_images/Scene05.png)
@@ -107,6 +123,9 @@ Comment:
       I think we should use only the second sentence.
     - I also broke up the second long sentence into two shorter sentences.
     
+* Oracle Comments:
+   - What are the pain points to IoT? Interoperability? Compatibility? Why is Web of Things making it easier to integrate IoT devices? What does the developer actually develop? A device? A gateway? A cloud application?
+    
 ## Scene 6
 ![Scene06](script_images/Scene06.png)
 * Spoken: 
@@ -130,6 +149,11 @@ Comment:
     - Last phrase needs to emphasize is applicable to winemaker's problem.
     - Also changed "Industry" to "Manufacturing" to be more concrete; "Industry" is too broad.
     - Also got rid of "Googling": we should avoid a specific company name.  Changed to "searching online"
+    
+* Oracle comments: 
+- Perhaps we can find a better "discovery of WoT" story than "he googles and stumbles over WoT", such as for some of the devices he gets thing descriptions that describe the device interfaces in a common way.
+- If the benefits are finding a Node.js based reference implementation there's no difference / advantage of WoT to other open IoT software projects. Why should he use a W3C standard?
+- I believe one answer we should provide is that he can save a lot of time for the integration of "off-the-shelf" devices that are compliant to the standard. I.e. Use TDs that are provided by manufacturers / 3rd parties and have low integration efforts. For many brown field devices he can obtain/write TDs and use a common framework (node-WoT) for integration without significant coding of protocol adapters (assuming node-WoT supports the protocol(s).)
     
 ## Scene 7
 ![Scene07](script_images/Scene07.png)
@@ -164,6 +188,9 @@ Comment:
     - Intel is not allowed to use the word "leverage" in communication...
     - "Already" is redundant
     - Breaking up into shorter sentences, fixing gender issues
+    
+* Oracle Comments:
+- Motivate for why a standardised solution. Reuse of existing parts for future projects, faster integration, out of the box adaptation to future devices, ...
     
 ## Scene 9
 ![Scene09](script_images/Scene09.png)
