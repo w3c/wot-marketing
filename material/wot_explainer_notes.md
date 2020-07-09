@@ -141,7 +141,7 @@ Oracle Comment:
     - WoT logo popping up should co-incide with narration speaking "WoT"
     - Other logos (JS, etc) should pop up with the phrase "tools and frameworks they love"
     - example logos: HTML, JSON, JS/TS, node-red, angular, RDF, react, Vue,...
-    - animated domains: Smart home, manufactor, smart grid, smart city, healthcare, agriculture, cloud systems
+    - animated domains: Smart home, manufactor, smart grid, smart city, healthcare, agriculture, cloud systems... 
     
 * Comments:
     - Is a search, so let's state the problem in the search text...
@@ -179,12 +179,12 @@ Oracle Comment:
 ## Scene 8
 ![Scene08](script_images/Scene08.png)
 * Spoken:
-    - Instead of creating a proprietary solution (he) leverages the WoT methodology to create IoT building blocks that extend his already existing Web technologies portfolio
+    - Instead of creating a proprietary solution (he) leverages the WoT methodology to create IoT building blocks that extend (his) already existing Web technologies portfolio
        - Alt: Instead of creating a proprietary solution, the developers use the WoT methodology to create IoT building blocks.
-       - Alt: These building blocks extend their existing Web technologies portfolio
+       - Alt: These building blocks extend their existing Web technologies portfolio.
     - Thing Descriptions, application templates, and semantics are now same class portfolio members as HTML pages, Javascript snippets, or CSS from his former projects
-       - Alt: Thing Descriptions, application templates, and IoT semantics are now in the same portfolio of reusable modules as
-         HTML pages, Javascript snippets, or CSS from former projects
+       - Alt: Thing Descriptions, WoT application templates, and IoT semantics are now in the same portfolio of reusable modules as
+         HTML pages, Javascript packages, or CSS from former projects
 * Staging: 
     - Show a structure being built from a collection of blocks
     - Intel is not allowed to use the word "leverage" in communication...
@@ -216,15 +216,16 @@ Oracle Comment:
 * Spoken: Various questions can be answered by the information in the TD
 * Text: (various questions pop up sequentially in a circular array around WoT TD logo; do not need to be spoken)
     Questions (written only):
-    - What kind of data do you serve?
-    - Who are you?
-    - How does the payload structure look like?
-    - How can I access the data or function?
-    - What kinds of products and serializations do you support?
-    - Is there context I need to understand, such as units, or the various kinds of sensors?
-    - What kinds of functions to you have?
-    - Are there some security constraints?
-    - Do you have relationships to other Things?
+    - What kind of data do you serve? X
+    - Who are you? (Identification) 
+    - How does the payload structure look like? (Payload structure)
+    - How can I access the data or function? (Data access)  (Function invocation) X
+    - What kinds of products and serializations do you support?  (Serialization support) X
+    - Is there context I need to understand, such as units, or the various kinds of sensors?  (Units)  (Sensor types)
+    - What kinds of functions to you have?  (Available interactions)
+    - Are there some security constraints?  (Security constraints)
+    - Do you have relationships to other Things?  (Relationships to other Things)
+    FEEDBACK (Ege): simplify: eg "Payload structure"
 * Staging: 
     - Developer has a thought bubble, zoom into it to set stage...
     - Questions should show up one by one, get "checked off"
@@ -237,11 +238,11 @@ Oracle Comment:
 ![Scene11](script_images/Scene11.png)
 * Spoken:
     - Not fiddling around for months, (Joe) creates the IoT solution in just a few sprints combining WoT TD, WoT protocol bindings, WoT scripting, and his web expertise
-         - Alt: Instead of fiddling around for months,
+         - Alt (OK): Instead of fiddling around for months,
            the developers create the IoT solution in just a few sprints by combining WoT TDs,
-           WoT protocol bindings, and WoT scripting with their web expertise
+           WoT protocol bindings, and WoT scripting with their web expertise.
     - (He) gains confidence in IoT and from now on considers (him)self as an expert in both IT and IoT 
-         - Alt: The developers gain confidence in IoT and from now on consider themselves experts in both Web and IoT technologies.
+         - Alt (OK): The developers gain confidence in IoT and from now on consider themselves experts in both Web and IoT technologies.
 * Staging:
     - Imaging showing high-speed development, maybe playing off "sprint" (eg show developers running down a track)
 * Comments:
@@ -251,9 +252,7 @@ Oracle Comment:
 ![Scene12](script_images/Scene12.png)
 * Spoken:
     - spoken: Now Joe is ready to tackle his next IoT challenge
-        - Alt: Now the developers are ready to tackle their next IoT challenge
-    - spoken: And yes, Web of Things is THE methodology (he)'ll choose
-        - Alt: And yes, Web of Things is THE methodology they'll choose
+        - Alt (OK): Now the developers are ready to tackle their next IoT challenge.
 * Text (on job posting): 
     - Extend a hotel's building automation system with home automation components and give the house technician a nice user interface for operating it
 * Staging:
@@ -262,6 +261,8 @@ Oracle Comment:
     - Zoom to WoT logo when talk about methodology
     
 ## Scene 13
+Spoken:
+  - And yes, WoT is THE methodlogy they will use.
 ![Scene13](script_images/Scene13.png)
 * Staging:
     - zoom into WoT logo, hold
