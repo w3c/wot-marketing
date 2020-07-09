@@ -140,7 +140,9 @@ Oracle Comment:
     - Google search, typing in "IoT interoperability solution using web technology" -> some results pop up (represented as icons and logos)
     - WoT logo popping up should co-incide with narration speaking "WoT"
     - Other logos (JS, etc) should pop up with the phrase "tools and frameworks they love"
-    - example logos: HTML, JS/TS, node-red, angular, RDF, react, Vue,...
+    - example logos: HTML, JSON, JS/TS, node-red, angular, RDF, react, Vue,...
+    - animated domains: Smart home, manufactor, smart grid, smart city, healthcare, agriculture, cloud systems
+    
 * Comments:
     - Is a search, so let's state the problem in the search text...
     - "Promises" is weird English.  "Allows" or "Enables" would be more natural.
