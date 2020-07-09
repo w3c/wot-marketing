@@ -19,7 +19,7 @@ Several key messages should be emphasized:
 ![Scene01](script_images/Scene01.png)
 * Spoken: 
    - A winegrower is looking for possibilities to increase (his) productivity while keeping the excellent quality of (his) products
-       - Alt: A winemaker is looking for ways to increase productivity while keeping excellent product quality.
+       - Alt (OK): A winemaker is looking for ways to increase productivity while keeping excellent product quality.
 * Staging: Far-away view of vineyard (maybe animation that zooms in from clouds...)
 * Comments: 
    - Should gender-specific "his" be changed to gender-neutral "their" or perhaps to "her"?
@@ -45,7 +45,7 @@ Several key messages should be emphasized:
 ![Scene02](script_images/Scene02.png)
 * Spoken:
    - To constantly control the quality of (his) plants (he) is willing to install humidity and temperature sensors, and a sprinkler system.
-       - Alt: To better control quality, the winemaker is willing to install humidity and temperature sensors, and a sprinkler system.
+       - Alt (OK): To better control quality, the winemaker is willing to install humidity and temperature sensors, and a sprinkler system.
 * Staging: 
    - Keep zooming in, stop on a closeup of some grapes on the vine
    - Show addition of sensors and sprinkler system
@@ -53,7 +53,7 @@ Several key messages should be emphasized:
 ## Scene 2b
 * Spoken:
    - In addition (he) wants to to receive weather forecasts from an online web service
-       - Alt: Weather forecast data from an online web service would also be useful.
+       - Alt (OK): Weather forecast data from an online web service would also be useful in order to predict water requirements.
 * Staging: 
    - Show data coming from cloud
    - Since it's weather data, can be from an actual cloud...
@@ -69,7 +69,7 @@ Oracle Comment:
 ![Scene03](script_images/Scene03.png)
 * Spoken: 
    - Lost in programming and connecting the devices (he) decides to engage (his) preferred IT consultant - who programmed (his) web presence - for realizing (his) IoT solution
-       - Alt: After quickly getting lost programming and connecting devices, the winemaker decides to engage an IT consultant.
+       - Alt (we will skip this scene): After quickly getting lost programming and connecting devices, the winemaker decides to engage an IT consultant.
        - Second half moved to voice-over of Scene 4, which shows a search for an IT consultant.
 * Staging: 
     - Show a "development system" that explodes in complexity
@@ -85,14 +85,14 @@ Oracle Comment:
 ## Scene 4
 ![Scene04](script_images/Scene04.png)
 * Spoken:
-   - Alt: The winemaker would like to use the consultant who programmed the winemaker's web presence to realize an IoT solution.
+   - Alt (OK, but needs revision): The winemaker decides to engage an IT consultant. The winemaker would like to use the consultant who programmed the winemaker's web presence to realize an IoT solution.
 * Text (it and the map should be "built" as the result of a simulated online search):
    - Web Agency
    - Rosental 7, Munich, Germany
    - phone: +49 89 12345678
    - twitter: @webagency
    - The Web Agency is your solution provider when it comes to realizing your (personal or business) web and social media presence
-       - Alt: The Web Agency provides solutions for your web and social media presence
+       - Alt (OK): The Web Agency provides solutions for your web and social media presence
 * Staging: "Build" the result of an online search for a web solution provider
 * Comments: 
    - Suggest deleting "personal and business", "personal" is weird, and phrase does not add value; put in paras above
@@ -104,12 +104,11 @@ Oracle Comment:
 ![Scene05](script_images/Scene05.png)
 * Spoken:
     - (Joe), the lead developer at Web Agency likes the new challenge and is willing to broaden (his) IoT knowledge
-         - Alt: The developers at Web Agency like the new challenge and are willing to broaden their IoT knowledge
+         - Alt (OK): The developers at Web Agency like the new challenge and are willing to broaden their IoT knowledge
     - (He) is an expert in Web technologies and does programming of both frontend as well as backend with Node JS
-         - Alt: They are experts in both web frontend and backend technologies using Node JS
+         - Alt (OK): They are experts in both web frontend and backend technologies using Node JS
     - However, (he) only has a vague idea how to integrate hardware and fears the interoperability dilemma that he experienced in a former IoT project
-         - Alt: However, they only have a vague idea how to integrate IoT hardware.
-         - Alt: They are worried about the interoperability problems that they experienced in a former IoT project.
+         - Alt (OK): However, they are worried about the interoperability problems that they experienced in a former IoT project.
 * Staging:
     - Show picture of a developer hacking away, scratching his/her/their head, shuddering a little at some bad memories of a past project (maybe a thought bubble showing the consultant vainly trying to plug together two incompatible connectors)
 * Comment
@@ -130,17 +129,18 @@ Oracle Comment:
 ![Scene06](script_images/Scene06.png)
 * Spoken: 
     - Googling for a while for a better solution (he -> the consultant) finds information about the Web of Things (WoT)
-         - Alt: After searching online for a solution, the developers find information on the Web of Things, also known as Double-U-oh-Tee: "WoT".
+         - Alt (OK): After searching online for a solution, the developers find information on the Web of Things, also known as Double-U-oh-Tee: "WoT".
     - WoT is a W3C activity that (promises -> enables) Web developers to become IoT developers using the tools and frameworks they love
-         - Alt: WoT is a W3C activity that enables Web developers to become IoT developers using the tools and frameworks they love.
+         - Alt (OK): WoT is a W3C activity that enables Web developers to become IoT developers using the tools and frameworks they love.
     - WoT can be applied to different domains, (like -> such) as Industry or Building Automation
          - Alt: WoT can be applied to many different IoT domains,
            such as Manufacturing or Building Automation,
-           but is also applicable to the winemaker's problem.
-* Staging:
+           but is also applicable to the winemaker's problem in Agriculture.
+* Staging (Updates that there should be two scenes):
     - Google search, typing in "IoT interoperability solution using web technology" -> some results pop up (represented as icons and logos)
     - WoT logo popping up should co-incide with narration speaking "WoT"
     - Other logos (JS, etc) should pop up with the phrase "tools and frameworks they love"
+    - example logos: HTML, JS/TS, node-red, angular, RDF, react, Vue,...
 * Comments:
     - Is a search, so let's state the problem in the search text...
     - "Promises" is weird English.  "Allows" or "Enables" would be more natural.
