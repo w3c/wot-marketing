@@ -1,0 +1,51 @@
+{
+	"@context": "https://www.w3.org/2019/wot/td/v1",
+	"id": "urn:dev:ops:Agriculture-1234",
+	"title": "Agriculture",
+	"base": "https://myagriculture.example.com/",
+	"securityDefinitions": {
+		"nosec_sc": {
+			"scheme": "nosec"
+		}
+	},
+	"security": ["nosec_sc"],
+	"properties": {
+		"temperature": {
+			"description": "Temperature in Celsius",
+			"type": "number",
+			"forms": [{
+				"href": "temperature"
+			}]
+		},
+		"humidity": {
+			"description": "Humidity in %",
+			"type": "number",
+			"forms": [{
+				"href": "humidity"
+			}]
+		}
+	},
+	"actions": {
+		"sprinkle": {
+			"description": "Turn on sprinkler system",
+			"data": {
+				"description": "Time in minutes",
+				"type": "integer"
+			},
+			"forms": [{
+				"href": "sprinkle"
+			}]
+		}
+	},
+	"events": {
+		"tooDry": {
+			"description": "Informs if it is too try",
+			"data": {
+				"type": "string"
+			},
+			"forms": [{
+				"href": "tooDry"
+			}]
+		}
+	}
+}
