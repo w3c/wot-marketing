@@ -5,26 +5,32 @@
 	"description": "A soil management station for use in agriculture",
 	"base": "https://farm.com/soilstation7331",
 	"securityDefinitions": {
-        "basic_sc": {
-            "scheme": "basic"
-        }
-    },
-	"security": ["basic_sc"],
+		"basic_sc": {
+			"scheme": "basic"
+		}
+	},
+	"security": [
+		"basic_sc"
+	],
 	"properties": {
 		"temperature": {
 			"description": "Temperature",
 			"type": "number",
 			"unit": "Celsius",
-			"forms": [{
-				"href": "temperature"
-			}]
+			"forms": [
+				{
+					"href": "temperature"
+				}
+			]
 		},
 		"humidity": {
 			"description": "Humidity in %",
 			"type": "number",
-			"forms": [{
-				"href": "humidity"
-			}]
+			"forms": [
+				{
+					"href": "humidity"
+				}
+			]
 		}
 	},
 	"events": {
@@ -33,9 +39,11 @@
 			"data": {
 				"type": "string"
 			},
-			"forms": [{
-				"href": "tooDry"
-			}]
+			"forms": [
+				{
+					"href": "tooDry"
+				}
+			]
 		}
 	},
 	"actions": {
@@ -44,16 +52,20 @@
 			"input": {
 				"type": "object",
 				"properties": {
-				    "timeout": {
-			           "type": "number",
-			           "minimum": 1
-				    }
+					"timeout": {
+						"type": "number",
+						"minimum": 1
+					}
 				},
-			    "required": ["timeout"]
+				"required": [
+					"timeout"
+				]
 			},
-			"forms": [{
-				"href": "startSprinkler"
-			}]
+			"forms": [
+				{
+					"href": "startSprinkler"
+				}
+			]
 		}
 	}
 }
