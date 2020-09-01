@@ -1,17 +1,16 @@
 # Explainer Code Sample - Agriculture
 
-## Propoal what to show in explainer video
+## Proposal what to show in explainer video
 * File td.jsonld
 * Code example-client.js 
 
 
 ## Code Prerequisites
-* `npm install @node-wot/core`
-* `npm install @node-wot/binding-http`
+* `npm i @node-wot/cli`
 
 ## Running samples
-* `node example-client.js`
-* `node example-server.js`
+* `wot-servient example-server.js`
+* `wot-servient -c example-client.js`
 
 ## Code Syntax Highlighting
 

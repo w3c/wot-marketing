@@ -1,7 +1,8 @@
 {
 	"@context": "https://www.w3.org/2019/wot/td/v1",
 	"id": "urn:dev:ops:Agriculture-1234",
-	"title": "Agriculture",
+	"title": "SoilSensor",
+	"description": "A sample soil sensor used in agriculture",
 	"base": "https://myagriculture.example.com/",
 	"securityDefinitions": {
 		"nosec_sc": {
@@ -11,8 +12,9 @@
 	"security": ["nosec_sc"],
 	"properties": {
 		"temperature": {
-			"description": "Temperature in Celsius",
+			"description": "Temperature",
 			"type": "number",
+			"unit": "Celsius",
 			"forms": [{
 				"href": "temperature"
 			}]
@@ -25,21 +27,9 @@
 			}]
 		}
 	},
-	"actions": {
-		"sprinkle": {
-			"description": "Turn on sprinkler system",
-			"data": {
-				"description": "Time in minutes",
-				"type": "integer"
-			},
-			"forms": [{
-				"href": "sprinkle"
-			}]
-		}
-	},
 	"events": {
 		"tooDry": {
-			"description": "Informs if it is too try",
+			"description": "Informs if the soil is too try",
 			"data": {
 				"type": "string"
 			},
