@@ -1,4 +1,4 @@
-WoTHelpers.fetch("https://farm.com/SoilSensor").then(async (td) => {
+WoTHelpers.fetch("https://farm.com/soilstation7331").then(async (td) => {
     WoT.consume(td).then((thing) => {
         // read and log humidity and temperature sensors
         setInterval(() => {
