@@ -4,6 +4,7 @@
 * File td.jsonld
 * Code example-client.js 
 
+Note: do not use example-server.js
 
 ## Code Prerequisites
 * `npm i @node-wot/cli`
@@ -13,5 +14,6 @@
 * `wot-servient -c example-client.js`
 
 ## Code Syntax Highlighting
+Suggest using https://carbon.now.sh
 
-Maybe use https://carbon.now.sh ?
+Note: make sure to use a fixed-width font, eg Courier.
