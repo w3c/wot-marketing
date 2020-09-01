@@ -1,15 +1,15 @@
 {
 	"@context": "https://www.w3.org/2019/wot/td/v1",
-	"id": "urn:dev:ops:Agriculture-1234",
-	"title": "SoilSensor",
-	"description": "A sample soil sensor used in agriculture",
-	"base": "https://myagriculture.example.com/",
+	"id": "urn:dev:ops:Agriculture-7331",
+	"title": "SoilStation",
+	"description": "A soil management station for use in agriculture",
+	"base": "https://farm.com/soilstation7331",
 	"securityDefinitions": {
-		"nosec_sc": {
-			"scheme": "nosec"
-		}
-	},
-	"security": ["nosec_sc"],
+        "basic_sc": {
+            "scheme": "basic"
+        }
+    },
+	"security": ["basic_sc"],
 	"properties": {
 		"temperature": {
 			"description": "Temperature",
@@ -35,6 +35,24 @@
 			},
 			"forms": [{
 				"href": "tooDry"
+			}]
+		}
+	},
+	"actions": {
+		"startSprinkler": {
+			"description": "Run sprinker for a set time; stops automatically",
+			"input": {
+				"type": "object",
+				"properties": {
+				    "timeout": {
+			           "type": "number",
+			           "minimum": 1
+				    }
+				},
+			    "required": ["timeout"]
+			},
+			"forms": [{
+				"href": "startSprinkler"
 			}]
 		}
 	}
