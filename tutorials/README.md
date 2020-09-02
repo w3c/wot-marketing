@@ -7,4 +7,5 @@ Each tutorial should probably also be associated with a link to appropriate docu
 2. [link Thing Descriptions (Daniel? McCool?)]
 3. [link Using WoT Scripting via node-wot (Ege)] 
 4. [link Using Node-RED via node-gen (Toumura)]
-5. [link Other Tools]
+5. [Building a WoT application: WoT application Manager and TD-code](https://youtu.be/bPxIfZo7jns)
+6. [link Other Tools]
