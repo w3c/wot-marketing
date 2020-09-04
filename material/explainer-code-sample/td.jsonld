@@ -26,6 +26,8 @@
 		"humidity": {
 			"description": "Humidity in %",
 			"type": "number",
+			"minimum": 0,
+			"maximum": 100,
 			"forms": [
 				{
 					"href": "humidity"
@@ -48,7 +50,7 @@
 	},
 	"actions": {
 		"startSprinkler": {
-			"description": "Run sprinker for a set time; stops automatically",
+			"description": "Run sprinkler for a set time; stops automatically",
 			"input": {
 				"type": "object",
 				"properties": {
