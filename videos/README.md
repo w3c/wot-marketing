@@ -8,3 +8,5 @@ Videos should be suitable for public distribution e.g. all rights and releases s
 Please do not, for instance, use music you have not obtained the rights to.
 
 Links to videos stored elsewhere are appropriate, especially for large video files.
+
+* [Node-gen Node-RED autopopulation](https://github.com/w3c/wot-testing/blob/master/events/2020.06.Online/prototypes/autopop.mp4)
