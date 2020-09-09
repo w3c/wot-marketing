@@ -9,6 +9,10 @@ Please do not, for instance, use music you have not obtained the rights to.
 
 Links to videos stored elsewhere are appropriate, especially for large video files.
 
+Ideally final videos should have a voice-over and corresponding text overlay.
+Ege's tutorial is a good example of the style that should be used, although we probably should add consistent
+title and closing screens (e.g. following the Powerpoint template).
+
 * [Node-gen Node-RED autopopulation](https://github.com/w3c/wot-testing/blob/master/events/2020.06.Online/prototypes/autopop.mp4)
 * [Ege's WoT Getting Started tutorial](https://www.youtube.com/watch?v=lt_P2BU8e3I)
 * [WADE Paper](https://www.youtube.com/watch?v=FGPbl8Occjw)
