@@ -10,4 +10,4 @@ Please do not, for instance, use music you have not obtained the rights to.
 Links to videos stored elsewhere are appropriate, especially for large video files.
 
 * [Node-gen Node-RED autopopulation](https://github.com/w3c/wot-testing/blob/master/events/2020.06.Online/prototypes/autopop.mp4)
-* [Ege's tutorial](link)
+* [Ege's WoT Getting Started tutorial](https://www.youtube.com/watch?v=lt_P2BU8e3I)
