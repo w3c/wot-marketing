@@ -16,7 +16,7 @@ title and closing screens (e.g. following the Powerpoint template).
 ## Introductions
 * [Short Introduction to WoT](https://www.youtube.com/watch?v=lt_P2BU8e3I)(1min)
 ## Implementations
-* [Node-gen Node-RED autopopulation](https://github.com/w3c/wot-testing/blob/master/events/2020.06.Online/prototypes/autopop.mp4)(2 mins): Learn how to use Node-RED and OpenJS Foundation supported node-gen tool to use Thing Descriptions to make orchestration without coding effort.
+* [Node-gen Node-RED autopopulation](https://github.com/w3c/wot-testing/blob/master/events/2020.06.Online/prototypes/autopop_with_voice.mp4)(2 mins): Learn how to use Node-RED and OpenJS Foundation supported node-gen tool to use Thing Descriptions to make orchestration without coding effort.
 * Node-wot (to do)
 ## Tutorials
 * [node-wot Getting Started tutorial](https://www.youtube.com/watch?v=wDX45dsD4GM)(42 mins): A detailed guide on how to use the reference WoT Scripting API implementation Eclipse node-wot to program Things, Thing Consumers and WoT Mashups. Example code snippets can get you started right away.
