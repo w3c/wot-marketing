@@ -1,3 +1,5 @@
+This is an editorial input:
+
 # Community engagement strategy
 
 The community is the key for a standard. Without adoption, the defined standard is pointless.
