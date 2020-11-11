@@ -13,7 +13,8 @@ This repository is a collection of the material that will be and is used for mar
 
 * You can contribute even if you don't have access by forking this repository and doing a Pull Request from your fork.
 * When you are doing a Pull Request, try to make little changes per Pull Request, which makes it easier to review.
-* If you are not a WoT IG (or WG) member (if you are a guest) you need to do PRs only under "proposals" and follow the 
+* If you are not a WoT IG (or WG) member (if you are a guest) you need to do PRs only under 
+  "[proposals](proposals)" and follow the 
   [procedure](proposals/README.md) stated there.
 
 ### Issues
