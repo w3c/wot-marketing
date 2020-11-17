@@ -1,0 +1,73 @@
+{
+	"@context": "https://www.w3.org/2019/wot/td/v1",
+	"id": "urn:dev:ops:Agriculture-7331",
+	"title": "SoilStation",
+	"description": "A soil management station for use in agriculture",
+	"base": "https://farm.com/soilstation7331",
+	"securityDefinitions": {
+		"basic_sc": {
+			"scheme": "basic"
+		}
+	},
+	"security": [
+		"basic_sc"
+	],
+	"properties": {
+		"temperature": {
+			"description": "Temperature",
+			"type": "number",
+			"unit": "Celsius",
+			"forms": [
+				{
+					"href": "temperature"
+				}
+			]
+		},
+		"humidity": {
+			"description": "Humidity in %",
+			"type": "number",
+			"minimum": 0,
+			"maximum": 100,
+			"forms": [
+				{
+					"href": "humidity"
+				}
+			]
+		}
+	},
+	"events": {
+		"tooDry": {
+			"description": "Informs if the soil is too try",
+			"data": {
+				"type": "string"
+			},
+			"forms": [
+				{
+					"href": "tooDry"
+				}
+			]
+		}
+	},
+	"actions": {
+		"startSprinkler": {
+			"description": "Run sprinkler for a set time; stops automatically",
+			"input": {
+				"type": "object",
+				"properties": {
+					"timeout": {
+						"type": "number",
+						"minimum": 1
+					}
+				},
+				"required": [
+					"timeout"
+				]
+			},
+			"forms": [
+				{
+					"href": "startSprinkler"
+				}
+			]
+		}
+	}
+}
