@@ -32,17 +32,17 @@ navigation:
  - title: Activities
    subnavigation:
    - title: General
-     url: #
+     url: /wot-marketing/activities/general/
    - title: Thing Description
-     url: #
+     url: /wot-marketing/activities/tf-td/
    - title: Architecture
-     url: #
+     url: /wot-marketing/activities/tf-architecture/
    - title: Security
-     url: #
+     url: /wot-marketing/activities/tf-security/
    - title: Scripting API
-     url: #
+     url: /wot-marketing/activities/tf-scripting/
    - title: Discovery
-     url: #
+     url: /wot-marketing/activities/tf-discovery/
  - title: Developers
    url: /wot-marketing/developers/
 # - title: Members
