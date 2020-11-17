@@ -7,28 +7,14 @@ baseurl: "/wot-marketing"
 navigation:
 # - title: ⌂
 # - title: Home
-#   url: /wot-marketing/
-# - title: Groups
-#   subnavigation:
-#   - title: Working Group
-#     url: /wot-marketing/wg/
-#   - title: Interest Group
-#     url: /wot-marketing/ig/
-#   - title: Community Group
-#     url: /wot-marketing/cg/
-# - title: Working Group
- - title: WG
+ - title: Welcome
+   url: /wot-marketing/
+ - title: Working Group
    url: /wot-marketing/wg/
-# - title: Interest Group
- - title: IG
+ - title: Interest Group
    url: /wot-marketing/ig/
-# - title: Community Group
- - title: CG
+ - title: Community Group
    url: /wot-marketing/cg/
-# - title: News & Events
-#   url: /wot-pages/news-and-events/
-# - title: Getting Started
-#   url: /wot-pages/getting-started/
  - title: Activities
    subnavigation:
    - title: General
@@ -45,17 +31,9 @@ navigation:
      url: /wot-marketing/activities/tf-discovery/
  - title: Developers
    url: /wot-marketing/developers/
-# - title: Members
-#   url: /wot-pages/members/
-# - title: Liasons & Testimonals
-#   url: /wot-pages/liasons/
-# - title: Specifications
-#   url: /wot-pages/specifications/
-# - title: Contact
-#   url: /wot-pages/contact/
  - title: More
    subnavigation:
    - title: Getting Started
      url: /wot-marketing/getting-started/
-   - title: Calls and Meetings
-     url: https://www.w3.org/WoT/IG/wiki/
+#   - title: Calls and Meetings
+#     url: https://www.w3.org/WoT/IG/wiki/
