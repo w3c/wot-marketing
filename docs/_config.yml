@@ -8,17 +8,30 @@ navigation:
 # - title: ⌂
 # - title: Home
 #   url: /wot-marketing/
- - title: Groups
+# - title: Groups
+#   subnavigation:
+#   - title: Working Group
+#     url: /wot-marketing/wg/
+#   - title: Interest Group
+#     url: /wot-marketing/ig/
+#   - title: Community Group
+#     url: /wot-marketing/cg/
+# - title: Working Group
+ - title: WG
+   url: /wot-marketing/wg/
+# - title: Interest Group
+ - title: IG
+   url: /wot-marketing/ig/
+# - title: Community Group
+ - title: CG
+   url: /wot-marketing/cg/
+# - title: News & Events
+#   url: /wot-pages/news-and-events/
+# - title: Getting Started
+#   url: /wot-pages/getting-started/
+ - title: Activities
    subnavigation:
-   - title: Working Group
-     url: /wot-marketing/wg/
-   - title: Interest Group
-     url: /wot-marketing/ig/
-   - title: Community Group
-     url: /wot-marketing/cg/
- - title: Task Forces
-   subnavigation:
-   - title: Information
+   - title: General
      url: #
    - title: Thing Description
      url: #
@@ -30,16 +43,6 @@ navigation:
      url: #
    - title: Discovery
      url: #
-# - title: Working Group
-#   url: /wot-marketing/wg/
-# - title: Interest Group
-#   url: /wot-marketing/ig/
-# - title: Community Group
-#   url: /wot-marketing/cg/
-# - title: News & Events
-#   url: /wot-pages/news-and-events/
-# - title: Getting Started
-#   url: /wot-pages/getting-started/
  - title: Developers
    url: /wot-marketing/developers/
 # - title: Members
