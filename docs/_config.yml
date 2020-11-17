@@ -5,18 +5,44 @@ markdown: kramdown
 baseurl: "/wot-marketing"
 
 navigation:
-# - title: W3C
-#   url: /wot-pages/w3c/
- - title: Working Group
+# - title: ⌂
+# - title: Home
+#   url: /wot-marketing/
+# - title: Groups
+#   subnavigation:
+#   - title: Working Group
+#     url: /wot-marketing/wg/
+#   - title: Interest Group
+#     url: /wot-marketing/ig/
+#   - title: Community Group
+#     url: /wot-marketing/cg/
+# - title: Working Group
+ - title: WG
    url: /wot-marketing/wg/
- - title: Interest Group
+# - title: Interest Group
+ - title: IG
    url: /wot-marketing/ig/
- - title: Community Group
+# - title: Community Group
+ - title: CG
    url: /wot-marketing/cg/
 # - title: News & Events
 #   url: /wot-pages/news-and-events/
 # - title: Getting Started
 #   url: /wot-pages/getting-started/
+ - title: Activities
+   subnavigation:
+   - title: General
+     url: /wot-marketing/activities/general/
+   - title: Thing Description
+     url: /wot-marketing/activities/tf-td/
+   - title: Architecture
+     url: /wot-marketing/activities/tf-architecture/
+   - title: Security
+     url: /wot-marketing/activities/tf-security/
+   - title: Scripting API
+     url: /wot-marketing/activities/tf-scripting/
+   - title: Discovery
+     url: /wot-marketing/activities/tf-discovery/
  - title: Developers
    url: /wot-marketing/developers/
 # - title: Members
@@ -27,3 +53,9 @@ navigation:
 #   url: /wot-pages/specifications/
 # - title: Contact
 #   url: /wot-pages/contact/
+ - title: More
+   subnavigation:
+   - title: Getting Started
+     url: /wot-marketing/getting-started/
+   - title: Calls and Meetings
+     url: https://www.w3.org/WoT/IG/wiki/

@@ -9,6 +9,7 @@
     <meta name="author" content="" />
 
     <title>{{ page.title }} - Web of Things (WoT)</title>
+	<link rel="icon" href="favicon.ico" />
 
     <!-- Bootstrap core CSS -->
     <link href="/wot-marketing/css/bootstrap.min.css" rel="stylesheet" />
@@ -47,31 +48,53 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <!-- <li class="active"><a href="/">Home</a></li>-->
-	    {% for link in site.navigation %}
+	    {% for mainnavi in site.navigation %}
 	        {% assign current = nil %}
-	        {% if link.url contains page.url %}
-				{% if page.url != "/" %}
+	        {% if mainnavi.url contains page.url %}
+				<!-- {% if page.url != "/" %} -->
 					{% assign current = 'active' %}
-				{% endif %}
+				<!-- {% endif %} -->
 			{% endif %}
+			{% if page.url == "/" and mainnavi.url == "/wot-marketing/"%}
+				{% assign current = 'active' %}
+			{% endif %}
+			{% for subnavi in mainnavi.subnavigation %}
+				{% if subnavi.url contains page.url %}
+					{% if page.url != "/" %}
+						{% assign current = 'active' %}
+					{% endif %}
+				{% endif %}
+			{% endfor %}
 	        <li class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
-	            <a href="{{ link.url }}">{{ link.title }}</a>
-				
-				<ul class="dropdown-menu">
-				{% for entry in item.subfolderitems %}
-				  <li><a href="{{ entry.url }}">{{ entry.page }}</a></li>
-				{% endfor %}
-			  </ul>
+				<!-- mainnavi.subnavigation: {{ mainnavi.subnavigation }} -->
+				{% if mainnavi.subnavigation and mainnavi.subnavigation != "" and mainnavi.subnavigation != nil %}
+					<li class="dropdown {{ current }}">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ mainnavi.title }}<span class="caret"></span></a>	
+						<ul class="dropdown-menu">
+						{% for subnavi in mainnavi.subnavigation %}
+							{% assign currentSub = nil %}
+							{% if subnavi.url contains page.url %}
+								{% if page.url != "/" %}
+									{% assign currentSub = 'active' %}
+								{% endif %}
+							{% endif %}
+						  <li class="{{ currentSub }}"><a href="{{ subnavi.url }}">{{ subnavi.title }}</a></li>
+						{% endfor %}
+						</ul>
+					</li>
+				{% else %}
+					<a href="{{ mainnavi.url }}">{{ mainnavi.title }}</a>
+				{% endif %}
 	        </li>
 			
-			<!-- link.url: {{ link.url }} -->
+			<!-- mainnavi.url: {{ mainnavi.url }} -->
 			<!-- page.url: {{ page.url }} -->
 			
 	    {% endfor %}
               
 			  <!--
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WoT at W3C<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="https://www.w3.org/WoT/" target="_blank">WoT</a></li>
                   <li><a href="https://www.w3.org/WoT/IG/" target="_blank">WoT Interest Group</a></li>
@@ -80,6 +103,7 @@
                 </ul>
               </li>
 			  -->
+			  
 			  
             </ul>
 			
@@ -107,7 +131,7 @@
 	<footer class="page-footer font-small">
 	  <!-- Copyright -->
 	  <div class="footer-copyright text-center py-3">
-		© <a href="https://www.w3.org">W3C</a>
+		© <a href="https://www.w3.org">W3C</a> · <a href="https://www.w3.org/Consortium/Legal/privacy-statement">Privacy</a> · <a href="http://www.w3.org/Consortium/Legal/ipr-notice">Terms</a>
 		<br>
         <a href="https://www.csail.mit.edu">MIT</a> · <a href="https://www.ercim.eu">ERCIM</a> · <a href="https://www.keio.ac.jp">Keio</a> · <a href="http://ev.buaa.edu.cn">Beihang</a>
         <br>
