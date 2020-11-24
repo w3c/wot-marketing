@@ -6,6 +6,194 @@ group: "navigation"
 <div>
 	<h2>W3C WoT – Activities</h2>
 	<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		The Web of Things (WoT) groups conduct some of their work via the following task forces.<br />
+		See each task force page for details about specific work.
 	</p>
+	<ul>
+		<li><a href="/wot-marketing/activities/tf-architecture/">WoT Architecture</a></li>
+		<li><a href="/wot-marketing/activities/tf-td/">WoT Thing Description</a></li>
+		<li><a href="/wot-marketing/activities/tf-discovery/">WoT Discovery</a></li>
+		<li><a href="/wot-marketing/activities/tf-security/">WoT Security</a></li>
+		<li><a href="/wot-marketing/activities/tf-scripting/">WoT Scripting API</a></li>
+		<li>WoT Marketing</li>
+		<li>WoT Use Cases</li>
+		<li>WoT PoC</li>
+		<li>WoT PlugFest</li>
+	</ul>
+	
+	
+<script>
+function updateTimezone() {
+  var selVal = document.getElementById("timezoneSelect").value;
+  
+  // hide "all"
+  document.getElementById("UTC-7").style.display = 'none';
+  document.getElementById("UTC-4").style.display = 'none';
+  document.getElementById("UTC-3").style.display = 'none';
+  document.getElementById("UTC").style.display = 'none';
+  document.getElementById("UTC+1").style.display = 'none';
+  document.getElementById("UTC+2").style.display = 'none';
+  document.getElementById("UTC+3").style.display = 'none';
+  document.getElementById("UTC+8").style.display = 'none';
+  document.getElementById("UTC+9").style.display = 'none';
+  
+  // set the selected one visible
+  document.getElementById(selVal).style.display = '';
+}
+</script>
+	
+	<h3>Web Conference Meetings</h3>
+	<p>Select Timezone: 
+		<select id="timezoneSelect" class="browser-default custom-select" onchange="updateTimezone();">
+		  <option value="UTC-7"> US Pacific (PDT) UTC-7</option>
+		  <option value="UTC-4">US Eastern (EDT) UTC-4</option>
+		  <option value="UTC-3">Atlantic (ADT) UTC-3</option>
+		  <option value="UTC" selected="selected">UTC</option>
+		  <option value="UTC+1">UK (BST) UTC+1</option>
+		  <option value="UTC+2">EU (CEST) UTC+2</option>
+		  <option value="UTC+3">Finland (EEST) UTC+3</option>
+		  <option value="UTC+8">Singapore (SGT) China (CST) UTC+8</option>
+		  <option value="UTC+9">Korea (KST) Japan (JST) UTC+9</option>
+		</select>
+	</p>
+	<table cellspacing="0" border="1" style="width: 100%">
+
+		<tbody>
+		<tr id="UTC-7">
+			<th style="background-color: #DEEEEE" align="center">US Pacific<br>(PDT)<br>UTC-7</th>
+			<td style="background-color: #EEEEEE" align="center">4:00 - 5:00</td>
+			<td style="background-color: #EEEEEE" align="center">5:00 - 6:00</td>
+			<td style="background-color: #EEEEEE" align="center">6:00 - 7:00</td>
+			<td style="background-color: #EEEEEE" align="center">7:00 - 8:00</td>
+			<td style="background-color: #EEEEEE" align="center">8:00 - 9:00</td>
+		</tr>
+
+		<tr id="UTC-4">
+			<th style="background-color: #DEEEAA" width="60" align="center">US Eastern<br>(EDT)<br>UTC-4</th>
+			<td width="100" align="center">7:00 - 8:00</td>
+			<td width="100" align="center">8:00 - 9:00</td>
+			<td width="100" align="center">9:00 - 10:00</td>
+			<td width="100" align="center">10:00 - 11:00</td>
+			<td width="100" align="center">11:00 - 12:00</td>
+		</tr>
+
+		<tr id="UTC-3">
+			<th style="background-color: #DEEEEE" width="60" align="center">Atlantic<br>(ADT)<br>UTC-3</th>
+			<td style="background-color: #EEEEEE" width="100" align="center">8:00 - 9:00</td>
+			<td style="background-color: #EEEEEE" width="100" align="center">9:00 - 10:00</td>
+			<td style="background-color: #EEEEEE" width="100" align="center">10:00 - 11:00</td>
+			<td style="background-color: #EEEEEE" width="100" align="center">11:00 - 12:00</td>
+			<td style="background-color: #EEEEEE" width="100" align="center">12:00 - 13:00</td>
+		</tr>
+
+		<tr id="UTC">
+			<th style="background-color: #DEEEEE" width="60" align="center">UTC</th>
+			<td width="100" align="center">11:00 - 12:00</td>
+			<td width="100" align="center">12:00 - 13:00</td>
+			<td width="100" align="center">13:00 - 14:00</td>
+			<td width="100" align="center">14:00 - 15:00</td>
+			<td width="100" align="center">15:00 - 16:00</td>
+		</tr>
+
+		<tr id="UTC+1">
+			<th style="background-color: #DEEEEE" align="center">UK<br>(BST)<br>UTC+1</th>
+			<td style="background-color: #EEEEEE" align="center">12:00 - 13:00</td>
+			<td style="background-color: #EEEEEE" align="center">13:00 - 14:00</td>
+			<td style="background-color: #EEEEEE" align="center">14:00 - 15:00</td>
+			<td style="background-color: #EEEEEE" align="center">15:00 - 16:00</td>
+			<td style="background-color: #EEEEEE" align="center">16:00 - 17:00</td>
+		</tr>
+
+		<tr id="UTC+2">
+			<th style="background-color: #DEEEEE" align="center">EU<br>(CEST)<br>UTC+2</th>
+			<td align="center">13:00 - 14:00</td>
+			<td align="center">14:00 - 15:00</td>
+			<td align="center">15:00 - 16:00</td>
+			<td align="center">16:00 - 17:00</td>
+			<td align="center">17:00 - 18:00</td>
+		</tr>
+
+		<tr id="UTC+3">
+			<th style="background-color: #DEEEEE" align="center">Finland<br>(EEST)<br>UTC+3</th>
+			<td style="background-color: #EEEEEE" align="center">14:00 - 15:00</td>
+			<td style="background-color: #EEEEEE" align="center">15:00 - 16:00</td>
+			<td style="background-color: #EEEEEE" align="center">16:00 - 17:00</td>
+			<td style="background-color: #EEEEEE" align="center">17:00 - 18:00</td>
+			<td style="background-color: #EEEEEE" align="center">18:00 - 19:00</td>
+		</tr>
+
+		<tr id="UTC+8">
+			<th style="background-color: #DEEEEE" align="center">Singapore (SGT)<br>China (CST)<br>UTC+8</th>
+			<td width="100" align="center">19:00 - 20:00</td>
+			<td width="100" align="center">20:00 - 21:00</td>
+			<td width="100" align="center">21:00 - 22:00</td>
+			<td width="100" align="center">22:00 - 23:00</td>
+			<td width="100" align="center">23:00 - 24:00</td>
+		</tr>
+
+		<tr id="UTC+9">
+			<th style="background-color: #DEEEEE" align="center">Korea (KST)<br>Japan (JST)<br>UTC+9</th>
+			<td style="background-color: #EEEEEE" align="center">20:00 - 21:00</td>
+			<td style="background-color: #EEEEEE" align="center">21:00 - 22:00</td>
+			<td style="background-color: #EEEEEE" align="center">22:00 - 23:00</td>
+			<td style="background-color: #EEEEEE" align="center">23:00 - 24:00</td>
+			<td style="background-color: #EEEEEE" align="center">24:00 - 01:00</td>
+		</tr>
+
+		<tr>
+			<th style="background-color: #FEFEEE" width="60" align="center">Mon</th>
+			<td style="background-color: #FEEEDD" width="100" align="center"><a rel="nofollow" class="external text" href="https://www.w3.org/WoT/IG/wiki/WG_WoT_Scripting_API_WebConf">WoT Scripting API</a><br><a rel="nofollow" class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2018Feb/0033.html">(WebEx)</a></td>
+			<td style="background-color: #FEEEAA" width="100" align="center"><a rel="nofollow" class="external text" href="https://www.w3.org/WoT/IG/wiki/IG_Security_WebConf">WoT Security</a><br><a rel="nofollow" class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2019Nov/0006.html">(WebEx)</a></td>
+			<td width="100" align="center">-</td>
+			<td style="background-color: #FEEEDD" width="100" align="center"><a rel="nofollow" class="external text" href="https://www.w3.org/WoT/IG/wiki/WG_WoT_Discovery_WebConf">WoT Discovery</a><br><a rel="nofollow" class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020Feb/0009.html">(WebEx)</a></td>
+			<td width="100" align="center">-</td>
+		</tr>
+
+		<tr>
+			<th style="background-color: #FEFEEE" width="60" align="center">Tue</th>
+			<td style="background-color: #FEEEAA" width="100" align="center"><a rel="nofollow" class="external text" href="https://www.w3.org/WoT/IG/wiki/Marketing_WebConf">WoT Marketing</a><br><a rel="nofollow" class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020Aug/0024.html">(WebEx)</a></td>
+			<td style="background-color: #FEEEAA" width="100" align="center"><a rel="nofollow" class="external text" href="https://www.w3.org/WoT/IG/wiki/PoC_WebConf">WoT PoC</a><br><a rel="nofollow" class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020May/0027.html">(WebEx)</a></td>
+			<td width="100" align="center">-</td>
+			<td width="100" align="center">-</td>
+			<td width="100" align="center">-</td>
+		</tr>
+
+		<tr>
+			<th style="background-color: #FEFEEE" width="60" align="center">Wed</th>
+			<td style="background-color: #FEFEDD" width="100" align="center">WoT Chairs/Editors<br><a rel="nofollow" class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2019May/0007.html">(WebEx)</a></td>
+			<td style="background-color: #FEFE77" width="100" align="center"><a rel="nofollow" class="external text" href="https://www.w3.org/WoT/IG/wiki/Main_WoT_WebConf">WoT IG/WG main call</a><br><a rel="nofollow" class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020Jul/0052.html">(WebEx)</a></td>
+			<td style="background-color: #FEEEAA" width="100" align="center"><a rel="nofollow" class="external text" href="https://www.w3.org/WoT/IG/wiki/PlugFest_WebConf">WoT PlugFest</a><br>(same WebEx as the main call on the left)</td>
+			<td style="background-color: #FEEEDD" colspan="2" width="200" align="center"><a rel="nofollow" class="external text" href="https://www.w3.org/WoT/IG/wiki/WG_WoT_Thing_Description_WebConf">WoT TD / Binding Templates (2h)</a><br><a rel="nofollow" class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020Jul/0027.html">(WebEx)</a></td>
+		</tr>
+
+		<tr>
+			<th style="background-color: #FEFEEE" width="60" align="center">Thu</th>
+			<td style="background-color: #FEEEAA" width="100" align="center">Biweekly<br><a rel="nofollow" class="external text" href="https://www.w3.org/WoT/IG/wiki/IG_UseCase_WebConf">WoT Use Cases</a><br>        <a rel="nofollow" class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020May/0012.html">(WebEx)</a></td>
+			<td width="100" align="center">-</td>
+			<td width="100" align="center">-</td>
+			<td style="background-color: #FEEEDD" colspan="2" width="200" align="center"><a rel="nofollow" class="external text" href="https://www.w3.org/WoT/IG/wiki/WG_WoT_Architecture_WebConf">WoT Architecture (2h)</a><br><a rel="nofollow" class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020Aug/0003.html">(WebEx)</a></td>
+		</tr>
+
+		<tr>
+			<th style="background-color: #FEFEEE" width="60" height="40" align="center">Fri</th>
+			<td width="100" height="40" align="center">-</td>
+			<td width="100" height="40" align="center">-</td>
+			<td width="100" height="40" align="center">-</td>
+			<td width="100" height="40" align="center">-</td>
+			<td width="100" height="40" align="center">-</td>
+		</tr>
+	</tbody></table>
+	
+	<h4>Color legend:</h4>
+		<ul><li> <span style="background-color: #FEEEDD">&nbsp;WoT WG calls&nbsp;</span></li>
+		<li> <span style="background-color: #FEEEAA">&nbsp;WoT IG calls&nbsp;</span></li>
+		<li> <span style="background-color: #FEFE77">&nbsp;WoT IG/WG joint call&nbsp;</span></li>
+		<li> <span style="background-color: #FEFEDD">&nbsp;WoT Chairs/Editors call&nbsp;</span></li>
+	</ul>
+	
+<script>
+updateTimezone();
+</script>
+	
+	
 </div>
