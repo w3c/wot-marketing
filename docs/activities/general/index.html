@@ -23,17 +23,50 @@ group: "navigation"
 	
 	
 <script>
+function initTimezone() {
+	var tz = "UTC"; // default
+	// try to autodetect
+	var myDate = new Date();
+	var diffInMinutes = myDate.getTimezoneOffset();
+	if (diffInMinutes) {
+		switch(diffInMinutes) {
+			case 480:
+				tz = "UTC-8";
+			case 300:
+				tz = "UTC-5";
+			case 240:
+				tz = "UTC-4";
+				break;
+			case 0:
+				tz = "UTC+0";
+				break;
+			case -60:
+				tz = "UTC+1";
+				break;
+			case -120:
+				tz = "UTC+2";
+				break;
+			case -480:
+				tz = "UTC+8";
+				break;
+			case -540:
+				tz = "UTC+9";
+				break;
+		}
+	}
+	document.getElementById("timezoneSelect").value = tz;
+}
 function updateTimezone() {
   var selVal = document.getElementById("timezoneSelect").value;
   
   // hide "all"
-  document.getElementById("UTC-7").style.display = 'none';
+  document.getElementById("UTC-8").style.display = 'none';
+  document.getElementById("UTC-5").style.display = 'none';
   document.getElementById("UTC-4").style.display = 'none';
-  document.getElementById("UTC-3").style.display = 'none';
   document.getElementById("UTC").style.display = 'none';
+  document.getElementById("UTC+0").style.display = 'none';
   document.getElementById("UTC+1").style.display = 'none';
   document.getElementById("UTC+2").style.display = 'none';
-  document.getElementById("UTC+3").style.display = 'none';
   document.getElementById("UTC+8").style.display = 'none';
   document.getElementById("UTC+9").style.display = 'none';
   
@@ -45,13 +78,13 @@ function updateTimezone() {
 	<h3>Web Conference Meetings</h3>
 	<p>Select Timezone: 
 		<select id="timezoneSelect" class="browser-default custom-select" onchange="updateTimezone();">
-		  <option value="UTC-7"> US Pacific (PDT) UTC-7</option>
-		  <option value="UTC-4">US Eastern (EDT) UTC-4</option>
-		  <option value="UTC-3">Atlantic (ADT) UTC-3</option>
+		  <option value="UTC-8"> US Pacific (PST) UTC-8</option>
+		  <option value="UTC-5">US Eastern (EST) UTC-5</option>
+		  <option value="UTC-4">Atlantic (AST) UTC-4</option>
 		  <option value="UTC" selected="selected">UTC</option>
-		  <option value="UTC+1">UK (BST) UTC+1</option>
-		  <option value="UTC+2">EU (CEST/CET) UTC+2</option>
-		  <option value="UTC+3">Finland (EEST) UTC+3</option>
+		  <option value="UTC+0">UK (GMT) UTC+0</option>
+		  <option value="UTC+1">EU (CET) UTC+1</option>
+		  <option value="UTC+2">Finland (EET) UTC+2</option>
 		  <option value="UTC+8">Singapore (SGT) China (CST) UTC+8</option>
 		  <option value="UTC+9">Korea (KST) Japan (JST) UTC+9</option>
 		</select>
@@ -59,8 +92,8 @@ function updateTimezone() {
 	<table cellspacing="0" border="1" style="width: 100%">
 
 		<tbody>
-		<tr id="UTC-7">
-			<th style="background-color: #DEEEEE" align="center">US Pacific<br>(PDT)<br>UTC-7</th>
+		<tr id="UTC-8">
+			<th style="background-color: #DEEEEE" align="center">US Pacific<br>(PST)<br>UTC-8</th>
 			<td style="background-color: #EEEEEE" align="center">4:00 - 5:00</td>
 			<td style="background-color: #EEEEEE" align="center">5:00 - 6:00</td>
 			<td style="background-color: #EEEEEE" align="center">6:00 - 7:00</td>
@@ -68,8 +101,8 @@ function updateTimezone() {
 			<td style="background-color: #EEEEEE" align="center">8:00 - 9:00</td>
 		</tr>
 
-		<tr id="UTC-4">
-			<th style="background-color: #DEEEAA" width="60" align="center">US Eastern<br>(EDT)<br>UTC-4</th>
+		<tr id="UTC-5">
+			<th style="background-color: #DEEEAA" width="60" align="center">US Eastern<br>(EST)<br>UTC-5</th>
 			<td width="100" align="center">7:00 - 8:00</td>
 			<td width="100" align="center">8:00 - 9:00</td>
 			<td width="100" align="center">9:00 - 10:00</td>
@@ -77,8 +110,8 @@ function updateTimezone() {
 			<td width="100" align="center">11:00 - 12:00</td>
 		</tr>
 
-		<tr id="UTC-3">
-			<th style="background-color: #DEEEEE" width="60" align="center">Atlantic<br>(ADT)<br>UTC-3</th>
+		<tr id="UTC-4">
+			<th style="background-color: #DEEEEE" width="60" align="center">Atlantic<br>(AST)<br>UTC-4</th>
 			<td style="background-color: #EEEEEE" width="100" align="center">8:00 - 9:00</td>
 			<td style="background-color: #EEEEEE" width="100" align="center">9:00 - 10:00</td>
 			<td style="background-color: #EEEEEE" width="100" align="center">10:00 - 11:00</td>
@@ -95,8 +128,8 @@ function updateTimezone() {
 			<td width="100" align="center">15:00 - 16:00</td>
 		</tr>
 
-		<tr id="UTC+1">
-			<th style="background-color: #DEEEEE" align="center">UK<br>(BST)<br>UTC+1</th>
+		<tr id="UTC+0">
+			<th style="background-color: #DEEEEE" align="center">UK<br>(GMT)<br>UTC+0</th>
 			<td style="background-color: #EEEEEE" align="center">12:00 - 13:00</td>
 			<td style="background-color: #EEEEEE" align="center">13:00 - 14:00</td>
 			<td style="background-color: #EEEEEE" align="center">14:00 - 15:00</td>
@@ -104,8 +137,8 @@ function updateTimezone() {
 			<td style="background-color: #EEEEEE" align="center">16:00 - 17:00</td>
 		</tr>
 
-		<tr id="UTC+2">
-			<th style="background-color: #DEEEEE" align="center">EU<br>(CEST/CET)<br>UTC+2</th>
+		<tr id="UTC+1">
+			<th style="background-color: #DEEEEE" align="center">EU<br>(CET)<br>UTC+1</th>
 			<td align="center">13:00 - 14:00</td>
 			<td align="center">14:00 - 15:00</td>
 			<td align="center">15:00 - 16:00</td>
@@ -113,8 +146,8 @@ function updateTimezone() {
 			<td align="center">17:00 - 18:00</td>
 		</tr>
 
-		<tr id="UTC+3">
-			<th style="background-color: #DEEEEE" align="center">Finland<br>(EEST)<br>UTC+3</th>
+		<tr id="UTC+2">
+			<th style="background-color: #DEEEEE" align="center">Finland<br>(EET)<br>UTC+2</th>
 			<td style="background-color: #EEEEEE" align="center">14:00 - 15:00</td>
 			<td style="background-color: #EEEEEE" align="center">15:00 - 16:00</td>
 			<td style="background-color: #EEEEEE" align="center">16:00 - 17:00</td>
@@ -124,20 +157,20 @@ function updateTimezone() {
 
 		<tr id="UTC+8">
 			<th style="background-color: #DEEEEE" align="center">Singapore (SGT)<br>China (CST)<br>UTC+8</th>
-			<td width="100" align="center">19:00 - 20:00</td>
 			<td width="100" align="center">20:00 - 21:00</td>
 			<td width="100" align="center">21:00 - 22:00</td>
 			<td width="100" align="center">22:00 - 23:00</td>
 			<td width="100" align="center">23:00 - 24:00</td>
+			<td width="100" align="center">24:00 - 25:00</td>
 		</tr>
 
 		<tr id="UTC+9">
 			<th style="background-color: #DEEEEE" align="center">Korea (KST)<br>Japan (JST)<br>UTC+9</th>
-			<td style="background-color: #EEEEEE" align="center">20:00 - 21:00</td>
 			<td style="background-color: #EEEEEE" align="center">21:00 - 22:00</td>
 			<td style="background-color: #EEEEEE" align="center">22:00 - 23:00</td>
 			<td style="background-color: #EEEEEE" align="center">23:00 - 24:00</td>
-			<td style="background-color: #EEEEEE" align="center">24:00 - 01:00</td>
+			<td style="background-color: #EEEEEE" align="center">24:00 - 25:00</td>
+			<td style="background-color: #EEEEEE" align="center">25:00 - 26:00</td>
 		</tr>
 
 		<tr>
@@ -192,6 +225,7 @@ function updateTimezone() {
 	</ul>
 	
 <script>
+initTimezone();
 updateTimezone();
 </script>
 	
