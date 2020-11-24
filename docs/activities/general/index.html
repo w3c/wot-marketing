@@ -23,6 +23,39 @@ group: "navigation"
 	
 	
 <script>
+function initTimezone() {
+	var tz = "UTC"; // default
+	// try to autodetect
+	var myDate = new Date();
+	var diffInMinutes = myDate.getTimezoneOffset();
+	if (diffInMinutes) {
+		switch(diffInMinutes) {
+			case 480:
+				tz = "UTC-8";
+			case 300:
+				tz = "UTC-5";
+			case 240:
+				tz = "UTC-4";
+				break;
+			case 0:
+				tz = "UTC+0";
+				break;
+			case -60:
+				tz = "UTC+1";
+				break;
+			case -120:
+				tz = "UTC+2";
+				break;
+			case -480:
+				tz = "UTC+8";
+				break;
+			case -540:
+				tz = "UTC+9";
+				break;
+		}
+	}
+	document.getElementById("timezoneSelect").value = tz;
+}
 function updateTimezone() {
   var selVal = document.getElementById("timezoneSelect").value;
   
@@ -192,6 +225,7 @@ function updateTimezone() {
 	</ul>
 	
 <script>
+initTimezone();
 updateTimezone();
 </script>
 	
