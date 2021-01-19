@@ -31,9 +31,11 @@ navigation:
      url: /wot-marketing/activities/tf-scripting/
  - title: Developers
    url: /wot-marketing/developers/
- - title: More
-   subnavigation:
-   - title: Getting Started
-     url: /wot-marketing/getting-started/
+ - title: Start
+   url: /wot-marketing/getting-started/
+# - title: More
+#   subnavigation:
+#   - title: Getting Started
+#     url: /wot-marketing/getting-started/
 #   - title: Calls and Meetings
 #     url: https://www.w3.org/WoT/IG/wiki/
