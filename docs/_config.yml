@@ -7,8 +7,8 @@ baseurl: "/wot-marketing"
 navigation:
 # - title: ⌂
 # - title: Home
- - title: Welcome
-   url: /wot-marketing/
+# - title: Welcome
+#   url: /wot-marketing/
  - title: Working Group
    url: /wot-marketing/wg/
  - title: Interest Group
