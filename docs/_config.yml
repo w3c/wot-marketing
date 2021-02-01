@@ -31,8 +31,8 @@ navigation:
      url: /wot-marketing/activities/tf-scripting/
  - title: Developers
    url: /wot-marketing/developers/
- - title: Start
-   url: /wot-marketing/getting-started/
+ - title: Documentation
+   url: /wot-marketing/documentation/
 # - title: More
 #   subnavigation:
 #   - title: Getting Started
