@@ -9,13 +9,13 @@
     <meta name="author" content="" />
 
     <title>{{ page.title }} - Web of Things (WoT)</title>
-	<link rel="icon" href="favicon.ico" />
+	<link rel="icon" href="{{'favicon.ico' | relative_url }}" />
 
     <!-- Bootstrap core CSS -->
-    <link href="/wot-marketing/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{'css/bootstrap.min.css' | relative_url }}" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="/wot-marketing/css/navbar.css" rel="stylesheet" />
+    <link href="{{'css/navbar.css' | relative_url }}" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,10 +29,10 @@
     <div class="container">
 
 	  <div class="container-fluid"><!--  -->
-		<a class="navbar-brand bg-white" href="/wot-marketing/"><!--   -->
-			<img src="/wot-marketing/images/logo-mini-blue.svg" alt="Web of Things" height="30"/>
+		<a class="navbar-brand bg-white" href="{{'/' | relative_url }}"><!--   -->
+			<img src="{{'images/logo-mini-blue.svg' | relative_url }}" alt="Web of Things" height="30"/>
 		</a>
-		<a href="/wot-marketing/">
+		<a href="{{'/' | relative_url }}">
 			<div style="float:left;" class="hidden-xs">
 				<h2 style="font-size:22px; color:#005A9C; font-weight: bold;">Web of Things</h2>
 			</div>
@@ -40,7 +40,7 @@
 		
 		<div style="float:right">
 			<a class="navbar-brand bg-white" href="https://www.w3.org/" target="_blank" rel="external">
-				<img src="/wot-marketing/images/w3c_home_nb-v.svg" alt="W3C" height="30" />
+				<img src="{{'images/w3c_home_nb-v.svg' | relative_url }}" alt="W3C" height="30" />
 			</a>
 		</div>
 			<div style="float:right; margin: 20px;" class="hidden-xs" >
@@ -60,25 +60,29 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <!--<a class="navbar-brand bg-white" href="/wot-marketing/" style="background-color: white">
-				<img src="/wot-marketing/images/logo-mini-blue.svg" alt="WoT" width="100" />
+            <!--<a class="navbar-brand bg-white" href="./" style="background-color: white">
+				<img src="images/logo-mini-blue.svg" alt="WoT" width="100" />
 			</a>-->
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <!-- <li class="active"><a href="/">Home</a></li>-->
 	    {% for mainnavi in site.navigation %}
+			<!-- page.url     == {{ page.url }} -->
+			<!-- mainnavi.title == {{ mainnavi.title }} -->
+			<!-- mainnavi.url == {{ mainnavi.url }} -->
+			<!-- mainnavi.subnavigation == {{ mainnavi.subnavigation }} -->
 	        {% assign current = nil %}
-	        {% if mainnavi.url contains page.url %}
+	        {% if page.url contains mainnavi.url and mainnavi.url != "/" %}
 				<!-- {% if page.url != "/" %} -->
 					{% assign current = 'active' %}
 				<!-- {% endif %} -->
 			{% endif %}
-			{% if page.url == "/" and mainnavi.url == "/wot-marketing/"%}
+			{% if page.url == "/" and mainnavi.url == "/"%}
 				{% assign current = 'active' %}
 			{% endif %}
 			{% for subnavi in mainnavi.subnavigation %}
-				{% if subnavi.url contains page.url %}
+				{% if page.url contains subnavi.url %}
 					{% if page.url != "/" %}
 						{% assign current = 'active' %}
 					{% endif %}
@@ -92,17 +96,17 @@
 						<ul class="dropdown-menu">
 						{% for subnavi in mainnavi.subnavigation %}
 							{% assign currentSub = nil %}
-							{% if subnavi.url contains page.url %}
+							{% if page.url contains subnavi.url %}
 								{% if page.url != "/" %}
 									{% assign currentSub = 'active' %}
 								{% endif %}
 							{% endif %}
-						  <li class="{{ currentSub }}"><a href="{{ subnavi.url }}">{{ subnavi.title }}</a></li>
+						  <li class="{{ currentSub }}"><a href="{{ subnavi.url | relative_url }}">{{ subnavi.title }}</a></li>
 						{% endfor %}
 						</ul>
 					</li>
 				{% else %}
-					<a href="{{ mainnavi.url }}">{{ mainnavi.title }}</a>
+					<a href="{{ mainnavi.url | relative_url }}">{{ mainnavi.title }}</a>
 				{% endif %}
 	        </li>
 			
@@ -164,7 +168,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/wot-marketing/js/bootstrap.min.js"></script>
+    <script src="{{'js/bootstrap.min.js' | relative_url }}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
   </body>

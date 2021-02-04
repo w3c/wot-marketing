@@ -8,34 +8,34 @@ navigation:
 # - title: ⌂
 # - title: Home
 # - title: Welcome
-#   url: /wot-marketing/
+#   url: /
  - title: Working Group
-   url: /wot-marketing/wg/
+   url: wg/
  - title: Interest Group
-   url: /wot-marketing/ig/
+   url: ig/
  - title: Community Group
-   url: /wot-marketing/cg/
+   url: cg/
  - title: Activities
    subnavigation:
    - title: General
-     url: /wot-marketing/activities/general/
+     url: activities/general/
    - title: Architecture
-     url: /wot-marketing/activities/tf-architecture/
+     url: activities/tf-architecture/
    - title: Thing Description
-     url: /wot-marketing/activities/tf-td/
+     url: activities/tf-td/
    - title: Discovery
-     url: /wot-marketing/activities/tf-discovery/
+     url: activities/tf-discovery/
    - title: Security
-     url: /wot-marketing/activities/tf-security/
+     url: activities/tf-security/
    - title: Scripting API
-     url: /wot-marketing/activities/tf-scripting/
+     url: activities/tf-scripting/
  - title: Developers
-   url: /wot-marketing/developers/
+   url: developers/
  - title: Documentation
-   url: /wot-marketing/documentation/
+   url: documentation/
 # - title: More
 #   subnavigation:
 #   - title: Getting Started
-#     url: /wot-marketing/getting-started/
+#     url: getting-started/
 #   - title: Calls and Meetings
 #     url: https://www.w3.org/WoT/IG/wiki/
