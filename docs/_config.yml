@@ -29,6 +29,8 @@ navigation:
      url: activities/tf-security/
    - title: Scripting API
      url: activities/tf-scripting/
+   - title: Use Cases
+     url: activities/tf-usecases/
  - title: Developers
    url: developers/
  - title: Documentation
