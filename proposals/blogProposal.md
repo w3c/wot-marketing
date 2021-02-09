@@ -5,3 +5,7 @@ The Web of Things standardization activities are now visible(?) through our new 
 We would like to thank the W3C Accessibility team for their feedback, as well as Siemens AG and Intel Inc. for the support and the team at WebCastor for quick iteration cycle to come up with our amazing video! 
 
 [Insert Video Link/Thumbnail]
+
+Also check our newly designed webpage that has all you need to know about the W3C WoT.
+
+[Insert webpage link, maybe a screenshot as thumbnail]
