@@ -4,99 +4,194 @@ title: Documentation
 group: "navigation"
 ---
 <div>
-	<!-- <h2>Documentation</h2> -->
-	<h2>Web of Things in a Nutshell</h2>
-	<div class="row">
-		<p>&nbsp;</p>
-	</div>
-	<div class="row">
-		<div class="col-md-4">
-			<p>
-				Typically, in classical IoT projects developer have to challenge the situation to understand a heterogeneous technologies landscape of the IoT systems and services from different vendors and manufacturers. This includes the variations of the used communication protocols, data models for the payload data exchange, and security requirements. IoT applications are usually highly effortfully developed and narrowed for a specific use case. During their lifetime, such applications are difficult to extend, maintain or reuse.
-			</p>
-		</div>
-		<div class="col-md-8">
-			<img src="{{'images/iot-projects.png' | relative_url }}" class="img-responsive" alt="IoT Projects" /><!-- pull-right  -->
-		</div>
-	</div>
-	<div class="row">
-		<p>&nbsp;</p>
-	</div>
-	<div class="row">
-		<div class="col-md-4 text-center">
-			<img src="{{'images/logo-large-blue.svg' | relative_url }}" style="max-height: 150px" alt="Web of Things" />
-		</div>
-		<div class="col-md-8">
-			<p>
-				The Web of Things (WoT) provides a set of standardized technology building blocks that helps to simplify the IoT application development by following the well-known and successful Web paradigm. Thereby flexibility and interoperability is getting increased, especially for cross-domain applications, as well as the reusage of established standards and tools. Thus WoT unlocks the commercial potential that was held back by IoT fragmentation so far (please read <a href="https://www.w3.org/TR/wot-architecture/">here</a> to get more background about WoT use cases and basic paradigms).
-			</p>
-		</div>
-	</div>
-	<div class="row">
-		<p>&nbsp;</p>
-	</div>
-	<div class="row">
-		<div class="col-md-4">
-			<p>
-				By the introduction of a simple interaction abstraction layer by WoT’s properties-action-event any IoT interface can be described. Thus, applications have a common anchor to retrieve IoT’s metadata as well as what and how the data &amp; functions can be accessed (please read <a href="https://www.w3.org/TR/wot-architecture/#sec-interaction-model">here</a> to get more background about the properties-action-event paradigm). 
-			</p>			
-		</div>
-		<div class="col-md-8">
-			<img src="{{'images/wot-interactions.png' | relative_url }}" class="img-responsive" alt="WoT Interactions" />
-		</div>
-	</div>
-	<div class="row">
-		<p>&nbsp;</p>
-	</div>
-	<div class="row">
-		<div class="col-md-4 text-center">
-			<img src="{{'images/td-robot-arm.png' | relative_url }}" style="max-height: 150px" alt="WoT Thing Description (TD)" />
-		</div>
-		<div class="col-md-8">
-			<p>
-				This kind of information is documented what is called <strong>WoT Thing Description (TD)</strong>. The TD is a central building block in the W3C Web of Things and can be considered as the entry point of an IoT instance (much like the index.html of a Web site). It gives answer such as which data and/or functions are served, which protocol, serialization, and security mode is used, and further metadata. A TD is expressed in JSON-LD and can be hosted, e.g., by an IoT device itself or hosted externally like a TD directory (please read <a href="https://www.w3.org/TR/wot-thing-description/">here</a> to get more background about the WoT Thing Description). 
-			</p>
-		</div>
-	</div>
-	<div class="row">
-		<p>&nbsp;</p>
-	</div>
-	<div class="row">
-		<div class="col-md-4">
-			<p>
-				In general, WoT is a protocol agnostic approach and provides a common mechanism how specific protocols such as MQTT, HTTP, CoAP or Modbus can be mapped to the mentioned WoT’s interaction properties-action-event paradigm.
-			</p>
-			<p>
-				This mapping and protocol specific metadata are provided by the <strong>WoT Binding Templates</strong>. It provides a guideline how a client can activate the interaction through a corresponding network-facing interface (please read <a href="https://www.w3.org/TR/wot-binding-templates/">here</a> to get more background about the WoT Binding Templates). 
-			</p>
-		</div>
-		<div class="col-md-8">
-			<img src="{{'images/wot-mappings.png' | relative_url }}" class="img-responsive" alt="WoT Mappings" />
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<p>
-				The (optional) <strong>WoT Scripting API</strong> building block defines an ECMAScript API that closely follows the WoT Thing Description specification. It defines the interface between behavior implementations and a scripting-based WoT Runtime. Please note that WoT is not limited to a scripting environment. Programming languages such as Java or C/C++ can be derived from the Scripting API (please read <a href="https://www.w3.org/TR/wot-scripting-api/">here</a> to get more background about the WoT Scripting API). Web of Things provides also guidance on <strong>WoT Security and Privacy</strong>. It is cross-cutting building block which provides guidelines for the secure implementation and configuration of Things, and discusses issues which should be considered in any systems implementing W3C WoT (please read <a href="https://www.w3.org/TR/wot-security/">here</a> to get more background about the WoT Scripting API).
-			</p>
-		</div>
-	</div>
-	<div class="row">
-		<p>&nbsp;</p>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<p>
-				Please find more materials such as presentation and tutorials about Web of Things (the links are frequently updated):
-				<br /><mark>TODO add/update actual links</mark>
-				<ul>
-					<li>Mentioned specification Documents in the nutshell</li>
-					<li>Link to W3C slides from TPAC</li>
-					<li>Link hands-on tutorial (node-wot)</li>
-					<li>Link to twitter</li>
-					<li>Link to youtube video of WoT</li>
-				</ul>
-			</p>
-		</div>
-	</div>
+    <!-- <h2>Documentation</h2> -->
+    <h2>Web of Things in a Nutshell</h2>
+    <div class="row">
+        <p>&nbsp;</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <p>
+            Typically, in classical IoT projects,
+            developers have to face a challenging situation.
+            They have to understand a heterogeneous technology landscape 
+            consisting of diverse IoT systems and services from 
+            different vendors and manufacturers. 
+            This diversity includes variations in communication protocols, 
+            data models for payload data exchange, 
+            and security requirements. 
+            IoT applications are usually developed 
+            using high effort applied to a narrow and specific use case. 
+            During their lifetime, such applications are difficult to extend,
+            maintain or reuse.
+            </p>
+        </div>
+        <div class="col-md-8">
+            <img src="{{'images/iot-projects.png' | relative_url }}" class="img-responsive" alt="IoT Projects" /><!-- pull-right  -->
+        </div>
+    </div>
+    <div class="row">
+        <p>&nbsp;</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="{{'images/logo-large-blue.svg' | relative_url }}" style="max-height: 150px" alt="Web of Things" />
+        </div>
+        <div class="col-md-8">
+            <p>
+            The Web of Things (WoT) provides a set of 
+            standardized technology building blocks that 
+            help to simplify IoT application development 
+            by following the well-known and successful Web paradigm. 
+            This approach increases flexibility and interoperability, 
+            especially for cross-domain applications, 
+            as well as enabling reuse of established standards and tools. 
+            WoT unlocks commercial potential being held back by IoT 
+            fragmentation 
+            </p>
+            <p>
+            Please read the
+            <a href="https://www.w3.org/TR/wot-architecture/">WoT Architecture</a> document 
+            to get more background on WoT use cases and basic paradigms.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <p>&nbsp;</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <p>
+            WoT introduces a simple interaction abstraction based on
+            properties, events, and actions.
+            Any IoT network interface can be described in terms of this abstraction.
+            By using this abstraction,
+            applications have a common anchor to retrieve an IoT service’s metadata as 
+            well as way to understand
+            what and how the data and an IoT services' functions can be accessed.
+            </p>
+            <p>
+            Please read <a href="https://www.w3.org/TR/wot-architecture/#sec-interaction-model">here</a> 
+            to get more background about the properties-action-event paradigm. 
+            </p>            
+        </div>
+        <div class="col-md-8">
+            <img src="{{'images/wot-interactions.png' | relative_url }}" class="img-responsive" alt="WoT Interactions" />
+        </div>
+    </div>
+    <div class="row">
+        <p>&nbsp;</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="{{'images/td-robot-arm.png' | relative_url }}" style="max-height: 150px" alt="WoT Thing Description (TD)" />
+        </div>
+        <div class="col-md-8">
+            <p>
+            An IoT device's metadata, including all information needed to enable this
+            common abstraction, is documented in what is called <strong>WoT Thing Description (TD)</strong>. 
+            The TD is a central building block in the W3C Web of Things and can be considered as the entry 
+            point of an IoT instance (much like the index.html of a Web site). 
+            It provides information on which data and functions are provided, 
+            which protocol is used, how data is encoded and structured,
+            and security mechanism is used to control access, and further 
+            machine-readable and human-readable metadata. 
+            A TD is expressed in JSON-LD and can be provided by an IoT device itself 
+            or hosted externally in a repository such as a TD Directory.
+            </p>
+            <p>
+            Please read 
+            <a href="https://www.w3.org/TR/wot-thing-description/">here</a> 
+            to get more background on the WoT Thing Description. 
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <p>&nbsp;</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <p>
+            In general, 
+            WoT is a protocol agnostic approach and provides
+            a common mechanism to define how specific protocols 
+            such as MQTT, HTTP, CoAP or Modbus can be mapped to the 
+            WoT’s interaction properties-action-event abstraction.
+            </p>
+            <p>
+            This mapping and protocol specific metadata are provided 
+            by the <strong>WoT Binding Templates</strong>. 
+            A binding template for a specific protocol provides a guideline 
+            how a client can activate each WoT interaction abstraction
+            through a corresponding network-facing interface for that 
+            protocol.
+            </p>
+            <p>
+            Please read 
+            <a href="https://www.w3.org/TR/wot-binding-templates/">here</a> 
+            to get more background on WoT Binding Templates. 
+            </p>
+        </div>
+        <div class="col-md-8">
+            <img src="{{'images/wot-mappings.png' | relative_url }}" class="img-responsive" alt="WoT Mappings" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+            The (optional) <strong>WoT Scripting API</strong> building block 
+            defines an ECMAScript API that closely follows the WoT Thing Description 
+            specification and supports the WoT interaction abstraction. 
+            It defines the interface between behavior implementations and a 
+            scripting-based WoT runtime. 
+            Please note however that implementation of WoT are not limited to 
+            scripting environments. 
+            Programming language APIs in Java or C/C++ can also be derived from 
+            the WoT Scripting API. 
+            </p>
+            <p>
+            Please read 
+            <a href="https://www.w3.org/TR/wot-scripting-api/">here</a> 
+            to get more background on the WoT Scripting API. 
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <p>&nbsp;</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <p>
+            The Web of Things also provides guidance on <strong>WoT Security and Privacy</strong>. 
+            Security is a cross-cutting building block which provides guidelines for the secure 
+            implementation and configuration of Things. 
+            Security and privacy 
+            should be considered in any system implementing W3C WoT.
+            </p>
+            <p>
+            Please read 
+            <a href="https://www.w3.org/TR/wot-security/">here</a> 
+            to get more background on WoT Security and Privacy.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <p>&nbsp;</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                For further reading, here are links to a variety of materials 
+                including presentations, documents, and tutorials:
+                <br /><mark>TODO add/update actual links</mark>
+                <ul>
+                    <li>Published normative and informative documents</li>
+                    <li>Link to W3C slides from TPAC</li>
+                    <li>Link hands-on tutorial (node-wot)</li>
+                    <li>Link to twitter</li>
+                    <li>Link to youtube video of WoT</li>
+                </ul>
+            </p>
+        </div>
+    </div>
 </div>
