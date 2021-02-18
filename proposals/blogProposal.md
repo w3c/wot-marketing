@@ -1,4 +1,4 @@
-The Web of Things standardization activities are now visible(?) through our new animation video that we have been working on for the last couple of months. You can see how any web developer can implement Internet of Things solutions while being interoperable and not locked into frameworks. Additionally, the W3C WoT allows the experience of the developers to be transferred to different application domains such as agriculture, building or industrial automation, smart home and more!
+The Web of Things standardization activities are now illustrated through our new animation video that we have been working on for the last couple of months. You can see how any web developer can implement Internet of Things solutions while being interoperable and not locked into frameworks. Additionally, the W3C WoT allows the experience of the developers to be transferred to different application domains such as agriculture, building or industrial automation, smart home and more!
 
 -- To be decided
 
