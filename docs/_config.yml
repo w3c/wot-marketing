@@ -33,10 +33,12 @@ navigation:
      url: activities/tf-usecases/
  - title: Developers
    url: developers/
- - title: Documentation
-   url: documentation/
-# - title: More
-#   subnavigation:
+ - title: More
+   subnavigation:
+   - title: Documentation
+     url: documentation/
+   - title: Videos
+     url: videos/
 #   - title: Getting Started
 #     url: getting-started/
 #   - title: Calls and Meetings
