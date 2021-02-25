@@ -88,27 +88,29 @@
 					{% endif %}
 				{% endif %}
 			{% endfor %}
-	        <li class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
-				<!-- mainnavi.subnavigation: {{ mainnavi.subnavigation }} -->
-				{% if mainnavi.subnavigation and mainnavi.subnavigation != "" and mainnavi.subnavigation != nil %}
-					<li class="dropdown {{ current }}">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ mainnavi.title }}<span class="caret"></span></a>	
-						<ul class="dropdown-menu">
-						{% for subnavi in mainnavi.subnavigation %}
-							{% assign currentSub = nil %}
-							{% if page.url contains subnavi.url %}
-								{% if page.url != "/" %}
-									{% assign currentSub = 'active' %}
-								{% endif %}
+	        
+			<!-- mainnavi.subnavigation: {{ mainnavi.subnavigation }} -->
+			{% if mainnavi.subnavigation and mainnavi.subnavigation != "" and mainnavi.subnavigation != nil %}
+				<li class="dropdown {{ current }}">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ mainnavi.title }}<span class="caret"></span></a>	
+					<ul class="dropdown-menu">
+					{% for subnavi in mainnavi.subnavigation %}
+						{% assign currentSub = nil %}
+						{% if page.url contains subnavi.url %}
+							{% if page.url != "/" %}
+								{% assign currentSub = 'active' %}
 							{% endif %}
-						  <li class="{{ currentSub }}"><a href="{{ subnavi.url | relative_url }}">{{ subnavi.title }}</a></li>
-						{% endfor %}
-						</ul>
-					</li>
-				{% else %}
+						{% endif %}
+					  <li class="{{ currentSub }}"><a href="{{ subnavi.url | relative_url }}">{{ subnavi.title }}</a></li>
+					{% endfor %}
+					</ul>
+				</li>
+			{% else %}
+				<li class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
 					<a href="{{ mainnavi.url | relative_url }}">{{ mainnavi.title }}</a>
-				{% endif %}
-	        </li>
+				</li>
+			{% endif %}
+	        
 			
 			<!-- mainnavi.url: {{ mainnavi.url }} -->
 			<!-- page.url: {{ page.url }} -->
