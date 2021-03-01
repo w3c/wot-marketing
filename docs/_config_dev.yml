@@ -1,5 +1,4 @@
 name: WoT
 markdown: kramdown
 
-#baseurl: /
-baseurl: ""
+baseurl: /
