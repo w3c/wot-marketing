@@ -9,13 +9,13 @@
     <meta name="author" content="" />
 
     <title>{{ page.title }} - Web of Things (WoT)</title>
-	<link rel="icon" href="{{'favicon.ico' | relative_url }}" />
+	<link rel="icon" href="{{'favicon.ico' | absolute_url }}" />
 
     <!-- Bootstrap core CSS -->
-    <link href="{{'css/bootstrap.min.css' | relative_url }}" rel="stylesheet" />
+    <link href="{{'/css/bootstrap.min.css' | absolute_url }}" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="{{'css/navbar.css' | relative_url }}" rel="stylesheet" />
+    <link href="{{'/css/navbar.css' | absolute_url }}" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,10 +29,10 @@
     <div class="container">
 
 	  <div class="container-fluid"><!--  -->
-		<a class="navbar-brand bg-white" href="{{'/' | relative_url }}"><!--   -->
-			<img src="{{'images/logo-mini-blue.svg' | relative_url }}" alt="Web of Things" height="30"/>
+		<a class="navbar-brand bg-white" href="{{'/' | absolute_url }}"><!--   -->
+			<img src="{{'/images/logo-mini-blue.svg' | absolute_url }}" alt="Web of Things" height="30"/>
 		</a>
-		<a href="{{'/' | relative_url }}">
+		<a href="{{'/' | absolute_url }}">
 			<div style="float:left;" class="hidden-xs">
 				<h2 style="font-size:22px; color:#005A9C; font-weight: bold;">Web of Things</h2>
 			</div>
@@ -40,7 +40,7 @@
 		
 		<div style="float:right">
 			<a class="navbar-brand bg-white" href="https://www.w3.org/" target="_blank" rel="external">
-				<img src="{{'images/w3c_home_nb-v.svg' | relative_url }}" alt="W3C" height="30" />
+				<img src="{{'/images/w3c_home_nb-v.svg' | absolute_url }}" alt="W3C" height="30" />
 			</a>
 		</div>
 			<div style="float:right; margin: 20px;" class="hidden-xs" >
@@ -101,13 +101,13 @@
 								{% assign currentSub = 'active' %}
 							{% endif %}
 						{% endif %}
-					  <li class="{{ currentSub }}"><a href="{{ subnavi.url | relative_url }}">{{ subnavi.title }}</a></li>
+					  <li class="{{ currentSub }}"><a href="{{ subnavi.url | absolute_url }}">{{ subnavi.title }}</a></li>
 					{% endfor %}
 					</ul>
 				</li>
 			{% else %}
 				<li class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
-					<a href="{{ mainnavi.url | relative_url }}">{{ mainnavi.title }}</a>
+					<a href="{{ mainnavi.url | absolute_url }}">{{ mainnavi.title }}</a>
 				</li>
 			{% endif %}
 	        
@@ -170,7 +170,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{{'js/bootstrap.min.js' | relative_url }}"></script>
+    <script src="{{'/js/bootstrap.min.js' | absolute_url }}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
 	

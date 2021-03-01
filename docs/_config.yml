@@ -2,8 +2,7 @@ name: WoT
 markdown: kramdown
 
 # uncomment if in root
-url: "https://w3c.github.com"
-baseurl: "/wot-marketing"
+url: "https://w3c.github.com/wot-marketing"
 
 navigation:
 # - title: ⌂
