@@ -2,7 +2,8 @@ name: WoT
 markdown: kramdown
 
 # uncomment if in root
-baseurl: "/wot-marketing"
+#baseurl: "/wot-marketing"
+baseurl: ""
 
 navigation:
 # - title: ⌂
