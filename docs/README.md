@@ -1,6 +1,8 @@
 # WoT-pages
 
-The content will be exposed to https://w3c.github.io/wot-marketing/.
+The content will be exposed to
+* https://www.w3.org/WoT/ and
+* https://w3c.github.io/wot-marketing/
 
 ## Testing site locally with Jekyll
 
