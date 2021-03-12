@@ -1,0 +1,251 @@
+WEBVTT
+
+1
+00:00:00.500 --> 00:00:03.000
+Un producteur fruitier cherche des moyens
+pour augmenter sa productivité 
+
+2
+00:00:03.500 --> 00:00:06.000
+tout en conservant une excellente
+qualité de produits. 
+
+3
+00:00:06.500 --> 00:00:08.000
+Pour surveiller et contrôler
+les conditions de croissance,
+
+4
+00:00:08.500 --> 00:00:13.000
+l'agriculteur prévoit d'installer des capteurs d'humidité et de température,
+et un système d'arrosage.
+
+5
+00:00:13.500 --> 00:00:16.000
+Les données de prévisions météorologiques
+à partir d'un service Web en ligne 
+
+6
+00:00:16.500 --> 00:00:20.000
+seraient également utile pour
+pour prévoir les besoins en arrosage.
+
+7
+00:00:20.500 --> 00:00:25.000
+L'agriculteur décide d'engager
+un consultant informatique. 
+
+8
+00:00:25.500 --> 00:00:29.000
+Il voudrait demander au développeur de son site Web
+de réaliser une solution IdO.
+
+9
+00:00:29.500 --> 00:00:33.000
+Les développeurs à l'agence Web
+aiment ce nouveau défi 
+
+10
+00:00:29.500 --> 00:00:36.000
+et sont prêts à élargir
+leurs connaissances en IdO.
+
+11
+00:00:36.500 --> 00:00:41.000
+Ils sont experts en technologies frontend et 
+backend utilisant Node JS.
+
+12
+00:00:41.500 --> 00:00:45.000
+Cependant, ils s'inquiètent
+des problèmes d'interopérabilité 
+
+13
+00:00:45.500 --> 00:00:49.000
+dont ils ont fait l'expérience
+lors d'un précédent projet IdO.
+
+14
+00:00:49.500 --> 00:00:53.000
+Après une recherche en ligne
+pour une solution,
+
+15
+00:00:53.500 --> 00:00:58.000
+les développeurs trouvent des informations
+sur le Web des objets, WoT 
+
+16
+00:00:58.500 --> 00:01:03.000
+WoT est une norme W3C qui permet aux développeurs Web
+de devenir des développeurs IdO 
+
+17
+00:01:03.500 --> 00:01:08.000
+en utilisant les outils
+et les systèmes qu'ils aiment. 
+
+18
+00:01:08.500 --> 00:01:12.000
+WoT peut être appliqué
+à de nombreux domaines IdO,
+
+19
+00:01:12.500 --> 00:01:15.000
+tels que la fabrication
+ou l'immotique, 
+
+20
+00:01:15.500 --> 00:01:19.000
+mais c'est également applicable au problème de notre fermier
+dans le domaine de l'agriculture.
+
+21
+00:01:19.500 --> 00:01:23.000
+Les développeurs sont heureux
+de trouver une quantité 
+
+22
+00:01:23.500 --> 00:01:27.000
+de tutoriels WoT sur thingweb.io,
+YouTube et GitHub.
+
+23
+00:01:27.500 --> 00:01:29.000
+Grâce à node-wot, ainsi que divers 
+liaisons de protocole 
+
+24
+00:01:29.500 --> 00:01:34.000
+tels que HTTP, MQTT, CoAP, 
+et Modbus,
+
+25
+00:01:34.500 --> 00:01:39.000
+ainsi qu'une solution de navigateur, les développeurs créent facilement
+une solution IdO complète.
+
+26
+00:01:39.500 --> 00:01:42.000
+Leur solution connecte
+tous les appareils 
+
+27
+00:01:42.500 --> 00:01:45.000
+et comprend une excellente interface utilisateur
+basée sur les technologies Web. 
+
+28
+00:01:45.500 --> 00:01:49.000
+Au lieu de créer une solution propriétaire,
+et à usage unique,
+
+29
+00:01:49.500 --> 00:01:54.000
+les développeurs utilisent la méthodologie WoT
+et créent des blocs de construction IdO. 
+
+30
+00:01:54.500 --> 00:01:59.000
+Ces blocs de construction s'ajoutent à
+leur portefeuille de technologies Web. 
+
+31
+00:01:59.500 --> 00:02:03.000
+Descriptions de choses,
+Modèles d'application WoT, 
+
+32
+00:02:03.500 --> 00:02:08.000
+et la sémantique IdO sont maintenant dans le même portefeuille
+de modules réutilisables 
+
+33
+00:02:08.500 --> 00:02:13.000
+rejoignant pages HTML, solution JavaScript,
+ou feuilles de styles CSS d'anciens projets Web. 
+
+34
+00:02:13.500 --> 00:02:18.000
+L'élément principal  
+de la méthodologie WoT
+
+35
+00:02:18.500 --> 00:02:21.000
+est la Description d'Objet,
+également connu sous le nom de D-O. 
+
+36
+00:02:21.500 --> 00:02:26.000
+La DO est comparable 
+à un index.html pour des Objets. 
+
+37
+00:02:21.500 --> 00:02:30.000
+De nombreuses question ont leur réponse
+dans les informations contenues dans la DO
+
+38
+00:02:30.500 --> 00:02:40.000
+DO tels qu'identification, organisation de données, accès, unités,
+types, interactions, sécurité ou relations. 
+
+39
+00:02:40.500 --> 00:02:44.000
+Les projets IdO classiques
+entraînent généralement des coûts élevés, 
+
+40
+00:02:44.500 --> 00:02:47.000
+notamment en raison
+d'un effort d'intégration élevé 
+
+41
+00:02:47.500 --> 00:02:51.000
+des différents modèles de données
+et des protocoles des appareils ou services. 
+
+42
+00:02:51.500 --> 00:02:57.000
+En revanche, avec WoT, les développeurs créent
+une solution IdO en quelques sprints 
+
+43
+00:02:57.500 --> 00:03:03.000
+en combinant les DO WoT, liaisons de protocole,
+et les scripts avec leur expertise Web. 
+
+44
+00:03:03.500 --> 00:03:07.000
+Cela conduit à une réduction du temps de développement
+et des côuts de maintenance, 
+
+45
+00:03:07.500 --> 00:03:09.000
+faisant économiser tu temps,
+et de l'argent.
+
+46
+00:03:09.500 --> 00:03:11.000
+Les développeurs gagnent en confiance
+dans l'IdO 
+
+47
+00:03:11.500 --> 00:03:17.000
+et désormais se considèrent comme des experts
+dans les technologies Web et iDo. 
+
+48
+00:03:17.500 --> 00:03:22.000
+En le basant sur WoT le projet IdO de l'agriculteur 
+a pu être facilement réalisé.
+
+49
+00:03:22.500 --> 00:03:27.000
+Maintenant, les développeurs sont prêts à attaquer
+leur prochain défi IdO. 
+
+50
+00:03:27.500 --> 00:03:41.000
+Et oui, WoT est LA méthodologie
+qu'ils utiliseront! 
