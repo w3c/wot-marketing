@@ -1,0 +1,263 @@
+WEBVTT
+
+1
+00:00:00.500 --> 00:00:03.000
+Un frutticoltore sta cercando modi
+per migliorare la produttività del suo raccolto
+
+2
+00:00:03.500 --> 00:00:06.000
+mantenendo allo stesso tempo un 
+ottima qualità dei prodotti.
+
+3
+00:00:06.500 --> 00:00:08.000
+Per monitorare e controllare
+il livello di sviluppo della sua coltura,
+
+4
+00:00:08.500 --> 00:00:13.000
+dell'agricoltore pianifica di installare
+un sistema di irrigazione automatico e dei 
+sensori di temperatura e di umidità.
+
+5
+00:00:13.500 --> 00:00:16.000
+Le previsioni meteo ottenute 
+da un servizio web
+
+6
+00:00:16.500 --> 00:00:20.000
+potrebbero essere anch'esse utili.
+Per esempio per pianificare correttamente
+le irrigazioni. 
+
+7
+00:00:20.500 --> 00:00:25.000
+L'agricoltore decide allora di 
+assumere un consulente IT. 
+
+8
+00:00:25.500 --> 00:00:29.000
+Pensano di poter utilizzare gli sviluppatori che 
+si occupano della loro presenza online a tale 
+scopo. 
+
+9
+00:00:29.500 --> 00:00:33.000
+L'agenzia Web trova la nuova sfida 
+interessante
+
+10
+00:00:29.500 --> 00:00:36.000
+e i suoi sviluppatori vorrebbero
+ampliare le loro conoscenze sul IoT.
+
+11
+00:00:36.500 --> 00:00:41.000
+Sono esperti di tecnologie web sia frontend
+che backend basate su NodeJS. 
+
+12
+00:00:41.500 --> 00:00:45.000
+Però sono preoccupati dei possibili
+problemi di interoperabilità
+
+13
+00:00:45.500 --> 00:00:49.000
+che hanno riscontrato in un 
+precedente progetto IoT.
+
+14
+00:00:49.500 --> 00:00:53.000
+Dopo aver cercato online 
+una soluzione,
+
+15
+00:00:53.500 --> 00:00:58.000
+gli sviluppatori trovano informazioni
+riguardo il Web of Things, WoT.
+
+16
+00:00:58.500 --> 00:01:03.000
+Il WoT è uno standard W3C che permette
+a sviluppatori Web di diventare 
+sviluppatori IoT
+
+17
+00:01:03.500 --> 00:01:08.000
+usando gli strumenti 
+e frameworks che amano. 
+
+18
+00:01:08.500 --> 00:01:12.000
+WoT può essere utilizzato 
+in molti domini diversi,
+
+19
+00:01:12.500 --> 00:01:15.000
+come per esempio la Manifatturiera
+o l'automazione degli edifici,
+
+20
+00:01:15.500 --> 00:01:19.000
+ma può essere anche applicato 
+al problema del nostro frutticoltore 
+in ambito agricolo. 
+
+21
+00:01:19.500 --> 00:01:23.000
+Gli sviluppatori sono felici
+di trovare una lista 
+
+22
+00:01:23.500 --> 00:01:27.000
+di tutorials riguardo al WoT su
+thingweb.io, YouTube e Github.
+
+23
+00:01:27.500 --> 00:01:29.000
+Grazie a node-wot, diversi 
+protocol bindings
+
+24
+00:01:29.500 --> 00:01:34.000
+come HTTP, MQTT, CoAP, 
+e Modbus,
+
+25
+00:01:34.500 --> 00:01:39.000
+e la distribuzione per browser,
+gli sviluppatori creano facilmente
+una soluzione IoT full stack.
+
+26
+00:01:39.500 --> 00:01:42.000
+La loro soluzione si connette
+a tutti i dispositivi
+
+27
+00:01:42.500 --> 00:01:45.000
+e include una fantastica interfaccia
+utente creata con tecnologie web.
+
+28
+00:01:45.500 --> 00:01:49.000
+Invece di create una soluzione
+proprietaria ad-hoc,
+
+29
+00:01:49.500 --> 00:01:54.000
+gli sviluppatori usano la metodologia
+WoT per creare varie soluzioni IoT
+orizzontali.
+
+30
+00:01:54.500 --> 00:01:59.000
+Queste estendono il loro
+corrente portfolio di tecnologie Web.
+
+31
+00:01:59.500 --> 00:02:03.000
+Thing Descriptions, 
+WoT application templates,
+
+32
+00:02:03.500 --> 00:02:08.000
+e semantica IoT sono ora nello stesso 
+portfolio di componenti riutilizzabili
+
+33
+00:02:08.500 --> 00:02:13.000
+come pagine HTML, pacchetti JavaScript o
+file CSS presi da progetti Web precedenti.
+
+34
+00:02:13.500 --> 00:02:18.000
+L'elemento principale della
+metodologia WoT
+
+35
+00:02:18.500 --> 00:02:21.000
+è il Thing Description, 
+anche noto come Ti-Di.
+
+36
+00:02:21.500 --> 00:02:26.000
+Il TD è simile ad un file
+index.html per le Thing.
+
+37
+00:02:21.500 --> 00:02:30.000
+Molte informazioni possono
+essere ottenute dal TD
+
+38
+00:02:30.500 --> 00:02:40.000
+come: l'identificazione, l'organizzazione dei dati, 
+modalità d'accesso, unità di misura, tipi, modi di interazione, 
+sicurezza o relazioni. 
+
+39
+00:02:40.500 --> 00:02:44.000
+I progetti IoT classici usualmente
+richiedono grandi investimenti
+
+40
+00:02:44.500 --> 00:02:47.000
+specialmente a causa
+degli alti costi di integrazione
+
+41
+00:02:47.500 --> 00:02:51.000
+di modelli dati e protocolli 
+incompatibili usati dai dispositivi o servizi.
+
+42
+00:02:51.500 --> 00:02:57.000
+Al contrario, grazie a WoT gli sviluppatori
+possono creare soluzioni IoT in poche
+sessioni di sviluppo
+
+43
+00:02:57.500 --> 00:03:03.000
+combinando il WoT TD, i protocol binding,
+e le API di scripting con le loro conoscenze
+Web. 
+
+44
+00:03:03.500 --> 00:03:07.000
+Questo porta ad una riduzione dei costi
+di sviluppo e di manutenzione,
+
+45
+00:03:07.500 --> 00:03:09.000
+risparmiando tempo 
+e denaro.
+
+46
+00:03:09.500 --> 00:03:11.000
+Gli sviluppatori fanno così esperienza
+in ambito IoT
+
+47
+00:03:11.500 --> 00:03:17.000
+e d'ora in poi si considerano come 
+esperti sia in tecnologie Web che IoT. 
+
+48
+00:03:17.500 --> 00:03:22.000
+Grazie a WoT il progetto IoT 
+dell'agricoltore può essere facilmente 
+realizzato. 
+
+49
+00:03:22.500 --> 00:03:27.000
+Ora gli sviluppatori sono pronti ad 
+affrontare la loro prossima sfida IoT. 
+
+50
+00:03:27.500 --> 00:03:41.000
+E certamente sarà WoT LA metodologia
+che useranno!
+
