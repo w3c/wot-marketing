@@ -2,7 +2,7 @@ WEBVTT
 
 1
 00:00:00.500 --> 00:00:03.000
-Ein Obstbauer sucht nach einer Möglichkeit 
+Ein Obstbauer sucht nach Möglichkeiten
 die Produktivität zu steigern
 
 2
@@ -23,7 +23,7 @@ ein Sprinklersystem zu installieren.
 5
 00:00:13.500 --> 00:00:16.000
 Wettervorhersagedaten 
-von einem Online-Webdienst
+von einem Online-Wetterservice
 
 6
 00:00:16.500 --> 00:00:20.000
@@ -37,7 +37,7 @@ IT-Berater zu engagieren.
 
 8
 00:00:25.500 --> 00:00:29.000
-Er möchte die Entwickler seines bisherigen Internetauftritts nutzen 
+Er möchte die Entwickler seines bisherigen Internetauftritts beauftragen  
 um eine IoT-Lösung zu realisieren.
 
 9
@@ -48,11 +48,11 @@ freuen sich auf die neue Herausforderung
 10
 00:00:29.500 --> 00:00:36.000
 und sind bereit, ihr IoT-Wissen 
-ihr IoT-Wissen zu erweitern.
+zu erweitern.
 
 11
 00:00:36.500 --> 00:00:41.000
-Sie sind Experten sowohl für Web-Frontend- als auch 
+Sie sind Experten sowohl für Web-Frontend als auch 
 Backend-Technologien unter Verwendung von Node JS.
 
 12
@@ -203,12 +203,12 @@ durch den hohen Integrationsaufwand
 41
 00:02:47.500 --> 00:02:51.000
 der unterschiedlichen Datenmodelle 
-und Protokollen der Geräte bzw. Dienste.
+und Protokolle der Geräte bzw. Dienste.
 
 42
 00:02:51.500 --> 00:02:57.000
 Im Gegensatz dazu erstellen die Entwickler mit WoT 
-die IoT-Lösung in nur wenigen Sprints,
+die IoT-Lösung in nur wenigen Schritten,
 
 43
 00:02:57.500 --> 00:03:03.000
@@ -217,7 +217,7 @@ und Scripting mit ihrer Web-Expertise kombinieren.
 
 44
 00:03:03.500 --> 00:03:07.000
-Dies führt zu einer Reduzierung der Entwicklungs 
+Dies führt zu einer Reduzierung der Entwicklungs- 
 und Wartungskosten,
 
 45
@@ -237,7 +237,7 @@ sowohl in Web- als auch in IoT-Technologien.
 
 48
 00:03:17.500 --> 00:03:22.000
-Auf Basis von WoT konnte das IoT-Projekt des Landwirts 
+Auf Basis von WoT konnte das IoT-Projekt des Landwirtes 
 einfach realisiert werden. 
 
 49
@@ -248,4 +248,4 @@ nächste IoT-Herausforderung.
 50
 00:03:27.500 --> 00:03:41.000
 Und ja, WoT ist DER Ansatz 
-die sie verwenden werden!
+den sie verwenden werden!
