@@ -38,7 +38,7 @@ un consultant informatique.
 8
 00:00:25.500 --> 00:00:29.000
 Il voudrait demander au développeur de son site Web
-de réaliser une solution IdO.
+de réaliser une solution IoT.
 
 9
 00:00:29.500 --> 00:00:33.000
@@ -48,7 +48,7 @@ aiment ce nouveau défi
 10
 00:00:33.500 --> 00:00:36.000
 et sont prêts à élargir
-leurs connaissances en IdO.
+leurs connaissances en IoT.
 
 11
 00:00:36.500 --> 00:00:41.000
@@ -63,7 +63,7 @@ des problèmes d'interopérabilité
 13
 00:00:45.500 --> 00:00:49.000
 dont ils ont fait l'expérience
-lors d'un précédent projet IdO.
+lors d'un précédent projet IoT.
 
 14
 00:00:49.500 --> 00:00:53.000
@@ -78,7 +78,7 @@ sur le Web des objets, WoT
 16
 00:00:58.500 --> 00:01:03.000
 WoT est une norme W3C qui permet aux développeurs Web
-de devenir des développeurs IdO 
+de devenir des développeurs IoT 
 
 17
 00:01:03.500 --> 00:01:08.000
@@ -88,12 +88,12 @@ et les systèmes qu'ils aiment.
 18
 00:01:08.500 --> 00:01:12.000
 WoT peut être appliqué
-à de nombreux domaines IdO,
+à de nombreux domaines IoT,
 
 19
 00:01:12.500 --> 00:01:15.000
 tels que la fabrication
-ou l'immotique, 
+ou la gestion technique de bâtiment, 
 
 20
 00:01:15.500 --> 00:01:19.000
@@ -123,7 +123,7 @@ et Modbus,
 25
 00:01:34.500 --> 00:01:39.000
 ainsi qu'une solution de navigateur, les développeurs créent facilement
-une solution IdO complète.
+une solution IoT complète.
 
 26
 00:01:39.500 --> 00:01:42.000
@@ -143,7 +143,7 @@ et à usage unique,
 29
 00:01:49.500 --> 00:01:54.000
 les développeurs utilisent la méthodologie WoT
-et créent des blocs de construction IdO. 
+et créent des blocs de construction IoT. 
 
 30
 00:01:54.500 --> 00:01:59.000
@@ -152,12 +152,12 @@ leur portefeuille de technologies Web.
 
 31
 00:01:59.500 --> 00:02:03.000
-Descriptions de choses,
+"Thing Description",
 Modèles d'application WoT, 
 
 32
 00:02:03.500 --> 00:02:08.000
-et la sémantique IdO sont maintenant dans le même portefeuille
+et la sémantique IoT sont maintenant dans le même portefeuille
 de modules réutilisables 
 
 33
@@ -172,7 +172,7 @@ de la méthodologie WoT
 
 35
 00:02:18.500 --> 00:02:21.000
-est la Description d'Objet,
+est "Thing Description",
 également connu sous le nom de D-O. 
 
 36
@@ -192,7 +192,7 @@ types, interactions, sécurité ou relations.
 
 39
 00:02:40.500 --> 00:02:44.000
-Les projets IdO classiques
+Les projets IoT classiques
 entraînent généralement des coûts élevés, 
 
 40
@@ -208,7 +208,7 @@ et des protocoles des appareils ou services.
 42
 00:02:51.500 --> 00:02:57.000
 En revanche, avec WoT, les développeurs créent
-une solution IdO en quelques sprints 
+une solution IoT en quelques sprints 
 
 43
 00:02:57.500 --> 00:03:03.000
@@ -222,28 +222,28 @@ et des côuts de maintenance,
 
 45
 00:03:07.500 --> 00:03:09.000
-faisant économiser tu temps,
+faisant économiser du temps,
 et de l'argent.
 
 46
 00:03:09.500 --> 00:03:11.000
 Les développeurs gagnent en confiance
-dans l'IdO 
+dans l'IoT 
 
 47
 00:03:11.500 --> 00:03:17.000
 et désormais se considèrent comme des experts
-dans les technologies Web et iDo. 
+dans les technologies Web et IoT. 
 
 48
 00:03:17.500 --> 00:03:22.000
-En le basant sur WoT le projet IdO de l'agriculteur 
+En le basant sur WoT le projet IoT de l'agriculteur 
 a pu être facilement réalisé.
 
 49
 00:03:22.500 --> 00:03:27.000
 Maintenant, les développeurs sont prêts à attaquer
-leur prochain défi IdO. 
+leur prochain défi IoT. 
 
 50
 00:03:27.500 --> 00:03:41.000
