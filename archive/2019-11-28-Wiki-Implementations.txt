@@ -1,0 +1,669 @@
+
+= Web of Things Implementations = 
+
+__NOTOC__
+
+== Related reading ==
+
+* [[Media:The_essential_guide_to_Open_Source_in_IoT_-_White_Paper.pdf|The essential guide to Open Source in IoT]]
+* [[Media:Webinos-whitepaper-Open-Governance.pdf|White paper on Open Source Project Governance models]]
+
+== List of Implementations ==
+
+Here is a list of publicly available implementations in alphabetical order. 
+
+* [[#Apio_OS  | Apio OS ]]
+* [[#Arduino_RDF_Server  | Arduino RDF Server ]]
+* [[#Echone_Lite_based_smart_home | Echone Lite based smart home]]
+* [[#EVRYTHNG_Platform | EVRYTHNG Platform]]
+* [[#Dark_Horse | Dark Horse]]
+* [[#DECT_based_home_communication_assistance | DECT based home communication assistance]]
+* [[#iotivity-servient| iotivity-servient]]
+* [[#M3_framework | M3 framework]]
+* [[#NetFront_Agent | NetFront Agent]]
+* [[#OGC_SensorThings_API | OGC SensorThings API]]
+* [[#SANE_WoT_Servient | SANE WoT Servient ]]
+* [[#Sensible | Sensible ]]
+* [[#Sentilo | Sentilo ]]
+* [[#Streembit | Streembit ]]
+* [[#thingweb_node-wot | thingweb node-wot ]]
+* [[#TNO2 | TNO2 ]]
+* [[#ub.js | ub.js ]]
+* [[#Web_of_Things_in_NodeJS | Web of Things in NodeJS ]]
+* [[#Webofthings.js | Webofthings.js]]
+* [[#WoT_Arduino | WoT Arduino]]
+* [[#WoT.City | WoT.City]]
+* [[#wot.js | wot.js]]
+* [[#Yaler.net_-_secure_remote_Web_.28and_SSH.29_access_to_embedded_devices  | Yaler.net ]]
+
+
+If you have an implementation and wish to have it listed, contact us with required information specified in the [https://lists.w3.org/Archives/Public/public-wot-ig/2016Jun/0011.html Call for WoT Implementations]. 
+
+Enumerated below are summary information pertinent to each implementation listed above, in chronological order determined by when the information was first provided.
+
+== thingweb node-wot == 
+
+http://www.thingweb.io
+
+https://github.com/eclipse/thingweb.node-wot/
+
+==== Organization ====
+
+Eclipse open source project initiated by WoT IG Members from Siemens
+
+==== Platform, Language ====
+
+Typescript,
+JavaScript & HTML
+
+==== License ====
+
+Dual-licensed: Eclipse Public License v. 2.0 and  W3C Software Notice and Document License
+
+==== Description ====
+
+Thingweb is an implementation of the WoT Model discussed in the W3C WoT WG. It is simply a toolkit with some demo applications enabling you to create and experiment with WoT applications.  Currently it comprises libraries and examples for creating servers, clients, servients and miscellaneous components such as a TD parser and a Js-runtime.
+
+
+== Apio OS == 
+
+http://www.apio.cc
+
+==== Organization ====
+
+Apio s.r.l.
+
+==== Platform, Language ====
+
+NodeJs, MongoDB, Javascript, AngularJs, Html5
+
+==== License ====
+
+CC BY-NC-SA
+
+==== Description ====
+
+Apio OS is architetture like WoT software for Hub and Cloud. We use it in different dully installed projects.
+
+
+
+
+
+== Yaler.net - secure remote Web (and SSH) access to embedded devices == 
+
+https://yaler.net/
+
+==== Organization ====
+
+Yaler GmbH
+
+==== Platform, Language ====
+
+Relay server: Java
+
+YalerTunnel daemon: C (portable)
+
+Yaler Libraries & Examples: C, C#, Java, Python
+
+https://bitbucket.org/yaler
+
+==== License ====
+
+Relay server: Sleepy Cat license with non-commercial clause
+
+YalerTunnel daemon, libraries & examples: Simplified BSD license
+
+==== Description ====
+
+Highly reliable, hosted relay service since 2011
+http://status.yaler.net/314313/history
+
+
+
+== Streembit == 
+
+http://streembit.github.io/
+
+source: https://github.com/streembit/Streembit (sub projects under the "Modules" section)
+
+==== Platform, Language ====
+
+Node.js, C, C++ 
+
+==== License ====
+
+GNU GPL
+
+==== Description ====
+
+Streembit is a decentralized, peer-to-peer, blockchain based communication software for humans and machine. The M2M/IoT modules directly mirror W3C WoT. The application is in experimental phase, the prototype has been released.
+
+
+
+== WoT Arduino == 
+
+https://github.com/w3c/wot-arduino
+
+==== Organization ====
+
+W3C/ERCIM 
+
+==== Platform, Language ====
+
+C++ open source project for the Arduino family of boards, and for a gateway for POSIX based systems, for example, Linux on a Raspberry Pi, and OS X for demos on a MacBook Pro.   They are intended to provide proof of concept implementations for Web of Things proxy chains with cross protocol support.
+
+==== License ====
+
+MIT
+
+==== Description ====
+
+The Arduino project will support JSON thing descriptions using a binary encoding over TCP for the Arduino Ethernet Shield and the use of DHCP and mDNS for discovery of gateways. I’ve implemented a compact network driver over the SPI bus. I also plan to support the ESP8266 with its integrated WiFi hardware.
+
+The associated gateway is designed to support multiple protocols including TCP, CoAP, HTTP and WebSockets. I am currently working on the CoAP support having already integrated support for HTTP and Web Sockets. Future plans include support for web browser based management of installed application sketches.  I will publish a port of the CoAP support to the Arduino as a separate project.
+
+These projects are work in progress, and at a very early stage of maturity.
+
+
+
+
+== ub.js == 
+
+https://github.com/ub-js/ub.js
+
+==== Organization ====
+
+University of Southampton
+
+==== Platform, Language ====
+
+Node.js, JavaScript
+
+==== License ====
+
+Modified BSD3 (generally free to use, but with the clause that any large scale uses should be reported)
+
+==== Description ====
+
+ub.js is a prototype which is designed to demonstrate the use of CSS with WoT devices. It has been implemented in several test scenarios but has yet to have any real large scale deployments. As a concept, it is well formed and with a little work should make it possible to make devices as a part of the Web, rather than something the Web connects to.
+
+
+
+
+== iotivity-servient == 
+
+https://github.com/connectIOT/iotivity-servient
+
+==== Organization ====
+
+SmartThings
+
+==== Platform, Language ====
+
+Iotivity, nodejs
+
+==== License ====
+
+Apache 2.0
+
+==== Description ====
+
+IoTivity is at version 1.0, the nodejs proxy and wrapper are approximately 80-90% complete, the servient shell is just being started. Expecting to complete a rudimentary demonstration of discovery and interaction at the Beijing PlugFest.
+
+
+
+
+
+== Sensible == 
+
+http://sensible.mono.hm
+
+==== Organization ====
+
+Monohm, Inc.
+
+==== Platform, Language ====
+
+Node, Android, Arduino
+
+==== License ====
+
+Open Use with Accreditation
+
+==== Description ====
+
+Sensible is about 2 years old and implements a basic mDNS + HTTP + WS + JSON model. Our intent was to make the WoT as much like the regular Web as possible, so we can deploy web-type stuff on top of it.
+
+
+
+
+== EVRYTHNG Platform == 
+
+http://evrythng.com
+
+http://dashboard.evrythng.com
+
+==== Organization ====
+
+EVRYTHNG Ltd.
+
+==== Platform, Language ====
+
+Node.js, Java, C
+
+==== License ====
+
+Platform under commercial license,
+SDKs are open-source (Apache 2).
+
+==== Description ====
+
+First commercial WoT platform founded in 2011 based on the early Web of Things work of 2007. Managing close to a billion connected Web Things to date for a number of large brands (from Coca Cola to iHome and Avery Dennison).
+
+
+
+
+== Webofthings.js == 
+
+https://github.com/webofthings/webofthings.js
+
+==== Organization ====
+
+WebofThings.org
+
+==== Platform, Language ====
+
+Node.js
+
+==== License ====
+
+Apache 2
+
+==== Description ====
+
+Reference implementation of the W3C Web Thing Model submission (see http://model.webofthings.io/) meant to learn about the model and experiment with implementation (there is a companion book: http://book.webofthings.io).
+
+
+
+
+== wot.js == 
+
+https://github.com/hollobit/wot.js/ 
+
+http://wotjs.com  
+
+http://wotjs.org  
+
+==== Organization ====
+
+ETRI 
+
+==== Platform, Language ====
+
+node.js
+
+==== License ====
+
+Apache 2.0 
+
+==== Description ====
+
+WoT.js is an open source Javascript framework for WoT(Web of Things) applications on OSHW(Open Soure Hardware) using Node.js. It support Rasberry PI, Beaglebone Black, Intel Edison.  Short introduction slide - http://www.slideshare.net/hollobit/wotjs
+
+
+
+
+== WoT.City == 
+
+http://wotcity.io/
+
+https://github.com/github/wotcity
+
+http://wotcity.com  
+
+https://www.npmjs.com/package/wotcity.io
+
+https://github.com/DevifyPlatform/devify-cli
+
+==== Organization ====
+
+WoT.City
+
+==== Platform, Language ====
+
+Node.js
+
+==== License ====
+
+The MIT License (MIT)
+
+==== Description ====
+
+The Web of Things framework by WoT.City open source project. It has developed several WoT servers which is the concepts from W3C Web of Things. Theere are websocket WoT server, CoAP WoT server, Lightweight M2M server and etc. Also, it uses things dessription to describe the attributes of IoT devices, which merged the reference codes from W3C WoT open source project.
+
+
+
+== M3 framework == 
+
+http://sensormeasurement.appspot.com
+
+https://github.com/gyrard/M3Framework
+
+==== Organization ====
+
+M3 
+
+in Collaboration With Eurecom (France) and Insight Center for Data Analytics/NUIG (Ireland)
+
+==== Platform, Language ====
+
+Java
+
+Running and hosted on Google App Engine
+
+User interface: HTML, CSS, Bootstrap
+
+Semantic web technologies: Jena (Semantic web framework), RDF, RDFS, ontologies, SPARQL
+
+==== License ====
+
+GNU GPLv3
+
+==== Description ====
+
+The M3 framework enables:
+
+1) Deducing meaningful knowledge from sensor data generated by the "Things"
+
+2) Assisting developers in prototyping Semantic Web of Things applications
+
+3) Encouraging the development of cross-domain Web of Things applications
+
+4) Encouraging interoperability among semantic-based WoT projects
+
+5) Assisting developers in annotating sensor data with semantic web technologies
+
+Prototype constantly improved, outcome from PhD thesis, some results are reused within the FIESTA-IoT EU project http://fiesta-iot.eu/
+
+
+
+== NetFront Agent == 
+
+https://gl.access-company.com/news_event/archives/2016/160608/
+
+==== Organization ====
+
+ACCESS Co., LTD.
+
+==== Platform, Language ====
+
+RTOS, Linux
+
+==== License ====
+
+Proprietary
+
+==== Description ====
+
+NetFront Agent (NFA) is compact JavaScript engine for embedded system.
+NFA can run on Linux and less resource environment such as RTOS and provide edge-computing environment for IoT GW.
+NFA can connect to application servers, which perform IoT service application (monitoring, visualization, data analysis, etc), also  management servers, which provide IoT GW management service (heart beat, authentication, FOTA, etc).
+NFA will be compliant with WoT specification along with its recommendation.
+
+
+
+
+== Web of Things in NodeJS == 
+
+https://github.com/w3c/web-of-things-framework
+
+==== Organization ====
+
+This is an open source project with a community of volunteers
+
+==== Platform, Language ====
+
+JavaScript and NodeJS
+
+User interface: the Open Web Platform
+
+==== License ====
+
+The MIT License
+
+==== Description ====
+
+This is an experimental implementation of the Web of Things Framework, including a combined HTTP and Web Sockets server, as well as a web page library for demoing access to "things" from within web page scripts. The initial code has been extended to support CoAP using node-coap,  and P2P over UDP using JSON Web Token. Further work is focusing on adding support for MQTT, and later Bluetooth Smart.
+
+
+
+
+== Echone Lite based smart home == 
+
+https://echonet.jp/english/
+
+http://www2.panasonic.biz/es/densetsu/pvjcontroller/
+
+http://www.daiwahouse.co.jp/jutaku/smarthouse/dhems.html
+
+http://www2.panasonic.biz/es/densetsu/aiseg/serviceapp/index.html
+
+==== Organization ====
+
+Echonet Consortium
+
+Panasonic Corporation
+
+Daiwa House Corporation
+
+==== Platform, Language ====
+
+C++, Java, Python, JavaScript, HTML5
+
+==== License ====
+
+GPLv2, BSD, Apache2, Proprietary
+
+==== Description ====
+
+Home energy management system
+
+Home appliances integrated control
+
+Home security
+
+
+
+
+== DECT based home communication assistance == 
+
+http://www.dect.org/
+
+http://news.panasonic.com/jp/press/data/2015/08/jn150826-1/jn150826-1.html
+
+https://www.allianz.com/en/press/news/company/point_of_view/150903-allianz-and-panasonic-enter-partnership.html/
+
+==== Organization ====
+
+DECT forum
+
+Panasonic Corporation
+
+Allianz Corporation
+
+==== Platform, Language ====
+
+C++, Java, Python, JavaScript, HTML5
+
+==== License ====
+
+GPLv2, BSD, Apache2, Proprietary
+
+==== Description ====
+
+Communication among fixed phone, mobile phone and door phone with video service
+
+Home security
+
+Smart insurance services with video evidence
+
+
+
+
+== Dark Horse == 
+
+https://github.com/bergos/dark-horse-server
+
+==== Organization ====
+
+This is an open source project with a community of volunteers
+
+==== Platform, Language ====
+
+JavaScript, NodeJS, HTML5
+
+==== License ====
+
+The MIT License (MIT)
+
+==== Description ====
+
+The Dark Horse server hosts Dark Horse things and the Dark Horse UI.
+Dark Horse can be used for home automation or in any other Web of Things
+environment. Hosting a thing means you can access it RESTful over HTTP
+with a self described Linked Data API using Hydra.
+
+
+
+
+== OGC SensorThings API == 
+
+https://github.com/opengeospatial/sensorthings
+
+==== Organization ====
+
+Open Geospatial Consortium
+
+==== Platform, Language ====
+
+RESTful API
+
+==== License ====
+
+open standard (license on first page of the standard: http://docs.opengeospatial.org/is/15-078r6/15-078r6.html)
+
+==== Description ====
+
+There are more than five independent server implementation of the standard, and more than 10 client implementations for various platforms, such as Java, iOS, Android, Android Wear, .NET, Go, Javascript, Ruby-on-Rail, Python, etc. There is also an Eclipse Foundation project, Whiskers, to implement the standard. Multiple governmental agencies around the world is developing pilots to test the maturity of the OGC SensorThings standard. For example, the Department of Homeland Security in US is testing it for the next generation first responder initiative.
+
+More information is available on https://en.wikipedia.org/wiki/SensorThings_API
+
+
+
+
+== Sentilo == 
+
+http://www.sentilo.io/
+
+http://github.com/sentilo
+
+==== Organization ====
+
+Sentilo Community
+
+==== Platform, Language ====
+
+Java, Javascript (query) and examples included of possible integration with Arduino and RaspberryPi
+
+==== License ====
+
+EUPL 1.1 and/or LGPL3
+
+==== Description ====
+
+Sentilo is an open source sensor and actuator platform designed to fit in the Smart City architecture of any city who looks for openness and easy interoperability. Its objective is to exploit the information "generated by the city" and the layer of sensors deployed across the city to collect and broadcast this information.
+
+In order to avoid vertical solutions, Sentilo is designed as a cross platorm with the objective of sharing information between heterogeneous systems and to easily integrate legacy applications.
+
+Sentilo has been deployed on a city level in Barcelona, Spain.
+
+
+
+
+== TNO2 == 
+
+https://github.com/conas/tno2
+
+==== Organization ====
+
+no organization
+
+==== Platform, Language ====
+
+Golang
+
+==== License ====
+
+Mozilla Public License Version 2.0
+
+==== Description ====
+
+Project is in prototyping phase. Intention of TNO2 is to provide customizable and extensible WoT platform. TNO2 will be deployable on embedded devices like Raspberry, Beaglebone as well as on the Cloud.
+
+
+
+
+== Arduino RDF Server == 
+
+https://github.com/ucbl/arduinoRdfServer
+
+==== Organization ====
+
+LIRIS lab, Lyon, France
+
+==== Platform, Language ====
+
+Arduino UNO (with Ethernet shield), C++
+
+==== License ====
+
+Creative Commons 4.0 BY SA
+
+==== Description ====
+
+This is a POC to embed both semantic and RESTful technologies into constrained things, while being energy-efficient, generic, discoverable and reconﬁgurable.
+
+What it does: (1) expose the capabilities of its sensors and actuators using Hydra descriptions, (2) respond to JSON-LD requests to these devices, (3) handle reconfiguration requests, and (4) be shut down and restarted without losing its configuration.
+
+How it works: it makes efficient use of available storage areas (EEPROM, program memory, RAM). It relies on several cache levels to split CoAP blocks containing RDF graphs into parts, and hence process requests and generate responses on-the-ﬂy.
+
+Extension: A proxy is provided to translate HTTP to CoAP and vice-versa; it can be extended to handle concerns such as content negotiation, caching or security.
+
+
+
+
+== SANE WoT Servient == 
+
+https://github.com/sane-city/wot-servient
+
+==== Organization ====
+
+Universität Hamburg
+
+Min-Fakultät
+
+Fachbereich Informatik
+
+VSYS
+
+==== Platform, Language ====
+
+Java
+
+==== License ====
+
+GNU LESSER GENERAL PUBLIC LICENSE Version 3
+
+==== Description ====
+
+Providing a platform to develop WoT projects in the Java language.
