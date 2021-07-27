@@ -1,6 +1,12 @@
-# W3C Web of Things Marketing
+# Web of Things (WoT) Marketing
+[![Follow on Twitter](https://img.shields.io/twitter/follow/W3C_WoT.svg?label=follow+W3C_WoT)](https://twitter.com/W3C_WoT)
+[![Stack Exchange questions](https://img.shields.io/stackexchange/stackoverflow/t/web-of-things?style=plastic)]( https://stackoverflow.com/questions/tagged/web-of-things)
 
-This repository is a collection of the material that will be and is used for marketing purposes of the WoT standardization activity. The materials are:
+General information about the Web of Things can be found on https://www.w3.org/WoT/.
+  
+---
+This repository is a collection of the material that will be and is used for marketing purposes 
+of the WoT standardization activity. The materials are:
 
 - Photos of recent events, found under images folder
 - Wikipedia content of Thing Description and Web of Things articles, found under wikipedia folder
