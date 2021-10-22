@@ -8,15 +8,13 @@ url: "https://www.w3.org"
 baseurl: "/WoT"
 
 navigation:
-# - title: ⌂
-# - title: Home
-# - title: Welcome
-#   url: /
- - title: Working Group
-   url: wg/
- - title: Interest Group
-   url: ig/
- - title: Community Group
+ - title: Standards
+   subnavigation:
+   - title: Working Group
+     url: wg/
+   - title: Interest Group
+     url: ig/
+ - title: Community
    url: cg/
  - title: Activities
    subnavigation:
