@@ -14,7 +14,7 @@ navigation:
      url: wg/
    - title: Interest Group
      url: ig/
-   - title: Community
+   - title: Community Groups
      url: cg/
  - title: Activities
    subnavigation:
@@ -40,6 +40,8 @@ navigation:
    url: documentation/
  - title: Videos
    url: videos/
+ - title: Contact
+   url: contact/
 #   - title: Getting Started
 #     url: getting-started/
 #   - title: Calls and Meetings
