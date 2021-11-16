@@ -8,16 +8,14 @@ url: "https://www.w3.org"
 baseurl: "/WoT"
 
 navigation:
-# - title: ⌂
-# - title: Home
-# - title: Welcome
-#   url: /
- - title: Working Group
-   url: wg/
- - title: Interest Group
-   url: ig/
- - title: Community Group
-   url: cg/
+ - title: Groups
+   subnavigation:
+   - title: Working Group
+     url: wg/
+   - title: Interest Group
+     url: ig/
+   - title: Community Groups
+     url: cg/
  - title: Activities
    subnavigation:
    - title: General
@@ -36,12 +34,14 @@ navigation:
      url: activities/tf-usecases/
  - title: Developers
    url: developers/
- - title: More
-   subnavigation:
-   - title: Documentation
-     url: documentation/
-   - title: Videos
-     url: videos/
+# - title: More
+#   subnavigation:
+ - title: Documentation
+   url: documentation/
+ - title: Videos
+   url: videos/
+ - title: Contact
+   url: contact/
 #   - title: Getting Started
 #     url: getting-started/
 #   - title: Calls and Meetings
