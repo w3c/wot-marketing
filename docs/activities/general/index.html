@@ -29,6 +29,21 @@ group: "navigation"
 	<p>
 		The Web of Things (WoT) groups meet during the W3C's annual Technical Plenary week and additional face-to-face meetings are scheduled by the participants that happen 2 times a year. Moreover, the work items are prototyped and tested in WoT IG PlugFests that are scheduled for the weekend or week before the face-to-face meetings.
 	</p>
+	 <script>
+		function showHide(buttonId, elementId) {
+			var element = document.getElementById(elementId);
+			var button = document.getElementById(buttonId);
+			if (element && button) {
+				if (element.style.display == 'none') {
+					element.style.display = 'block';
+					button.textContent = "less...";
+				} else {
+					element.style.display = 'none';
+					button.textContent = "more...";
+				}
+			}
+		}
+	</script>
 	<ul>
 		<li>
 			<strong>Upcoming</strong>
@@ -55,12 +70,17 @@ group: "navigation"
 				<li><a target="_blank" href="https://summit.riot-os.org/2021/">RIoT Summit September 9-10 2021</a></li>
 				<li><a target="_blank" href="https://www.iottechexpo.com/northamerica/track/iot-digital-infrastructures-day-1/">IoT Tech Expo September 29 2021</a></li>
 				<li><strike><a target="_blank" href="https://oeg-upm.github.io/DIoT/">DIoT November 8-12 2021</a></strike> (Cancelled)</li>
+				<!-- button to show/hide older events -->
+				<li><button id="bShowHide" onClick="showHide('bShowHide', 'oldEvents')">more...</button></li>
+				<!-- older events start here -->
+				<span id="oldEvents" style="display: none">
 				<li><a target="_blank" href="https://www.w3.org/WoT/IG/wiki/F2F_meeting,_June_2021#Testfest">Testfest - June 7-11 2021</a></li>
 				<li><a target="_blank" href="https://www.w3.org/WoT/IG/wiki/F2F_meeting,_June_2021#Virtual_F2F">Virtual F2F Meeting - June 21-July 2, 2021</a></li>
 				<li><a target="_blank" href="https://github.com/w3c/wot-testing/blob/master/events/2021.03.Online/README.md">Virtual F2F PlugFest - March 1-5, 2021 (joint plugfest with IETF hackathon)</a></li>
 				<li><a target="_blank" href="https://www.w3.org/WoT/IG/wiki/F2F_meeting,_March_2021">Virtual F2F meeting - March 15-26, 2021</a></li>
 				<li><a target="_blank" href="https://www.w3.org/WoT/IG/wiki/F2F_meeting,_October_2020">Virtual F2F meeting - October 2020</a></li>
 				<li><a target="_blank" href="https://www.w3.org/2020/10/TPAC/">TPAC 2020</a></li>
+				</span>
 			</ul>
 		</li>
 	</ul>
