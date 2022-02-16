@@ -32,6 +32,8 @@ navigation:
      url: activities/tf-scripting/
    - title: Use Cases
      url: activities/tf-usecases/
+   - title: Marketing
+     url: activities/tf-marketing/
  - title: Developers
    url: developers/
 # - title: More
