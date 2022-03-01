@@ -18,22 +18,12 @@ navigation:
      url: cg/
  - title: Activities
    subnavigation:
-   - title: General
+   - title: Task Forces
      url: activities/general/
-   - title: Architecture
-     url: activities/tf-architecture/
-   - title: Thing Description
-     url: activities/tf-td/
-   - title: Discovery
-     url: activities/tf-discovery/
-   - title: Security
-     url: activities/tf-security/
-   - title: Scripting API
-     url: activities/tf-scripting/
-   - title: Use Cases
-     url: activities/tf-usecases/
-   - title: Marketing
-     url: activities/tf-marketing/
+   - title: Events
+     url: activities/events/
+   - title: Web Conference Meetings
+     url: activities/meetings/
  - title: Developers
    url: developers/
 # - title: More
