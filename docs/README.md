@@ -1,8 +1,11 @@
-# WoT-pages
+# WoT Web Page
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d51b6c04-7def-43c0-8566-4f16ed11c213/deploy-status)](https://app.netlify.com/sites/wot-marketing/deploys)
 
 The content will be exposed to
-* https://www.w3.org/WoT/ and
-* https://w3c.github.io/wot-marketing/
+* https://www.w3.org/WoT/ (official page)
+* https://w3c.github.io/wot-marketing/ (GitHub pages render)
+* https://wot-marketing.netlify.app/ (Netlify is used for PR previews and build badge)
 
 ## Testing site locally
 
