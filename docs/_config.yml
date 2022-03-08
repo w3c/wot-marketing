@@ -19,7 +19,7 @@ navigation:
  - title: Activities
    subnavigation:
    - title: Task Forces
-     url: activities/general/
+     url: activities/task-forces/
    - title: Events
      url: activities/events/
    - title: Web Conference Meetings
