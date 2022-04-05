@@ -5,111 +5,133 @@ group: "navigation"
 ---
 <div>
 	<h2>Developer Tools</h2>
-	
+
 	<h3>Thing Description (TD) Tooling</h3>
 	<ul>
-		<li><a href="http://plugfest.thingweb.io/playground/" target="_blank">Thing Description Playground</a> 
-			(TD validation)
+		<li><a href="http://plugfest.thingweb.io/playground/" target="_blank">Thing Description Playground</a>
+			- Reference TD Validation suite with additional tools such as OpenAPI generation, linting and more.
 		</li>
-		<li><a href="https://github.com/eclipse/editdor" target="_blank">Eclipse Edi{TD}or</a> 
-			(Editor for easy creation of Thing Description instances and Thing Models)
-			<ul>
-				<li>Try it live <a href="https://eclipse.github.io/editdor/" target="_blank">here</a></li>
-			</ul>
-		</li>
-		<li><a href="https://wotify.org/" target="_blank">WoTify</a>
-			(a collection of devices that have been WoT-enabled)
-		</li>
-		<li><a href="https://github.com/tum-esi/shadow-thing" target="_blank">Shadow Thing</a>
-			(creates and deploys a thing based on its TD)
-		</li>
-		<li><a href="https://github.com/tum-esi/testbench" target="_blank">Web of Things Test Bench</a>
-			(tests a WoT Thing by executing interactions automatically, based on its TD)
+		<li><a href="https://eclipse.github.io/editdor/" target="_blank">Eclipse Edi{TD}or</a>
+			- Web based Editor for easy creation and visualization of Thing Descriptions and Thing Models.
+				<!-- <li>Try it live <a href="https://eclipse.github.io/editdor/" target="_blank">here</a></li> -->
 		</li>
 		<li><a href="https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code" target="_blank">TD code</a>
-			(TD validation and code snippets for Visual Studio Code)
-			<ul>
-				<li>See a short presentation about TD Code used together with the <a
-						href="https://github.com/UniBO-PRISMLab/wam" target="_blank">WoT Application Manager (WAM)</a>: <a
-						href="WoT%20Application%20Manager.pdf" target="_blank">slides</a> or <a href="https://youtu.be/bPxIfZo7jns" target="_blank">video</a></li>
-			</ul>
+			- Visual Studio Code plugin for TD validation and code snippets. 
+			<!-- See a short presentation about TD Code used together with the <a
+						href="https://github.com/UniBO-PRISMLab/wam" target="_blank">WoT Application Manager (WAM)</a>:
+					<a href="WoT%20Application%20Manager.pdf" target="_blank">slides</a> or <a
+						href="https://youtu.be/bPxIfZo7jns" target="_blank">video</a>. -->
 		</li>
-		<li><a href="https://github.com/oeg-upm/wot-jtd" target="_blank">Java API for Thing Descriptions of WoT (JDTs)</a>
-			(creates Java Thing Description ORM from a TD in JSON-LD or RDF triples)
+		<li><a href="https://github.com/oeg-upm/wot-jtd" target="_blank">Java API for Thing Descriptions of WoT
+				(JDTs)</a>
+			- Java module for creating Java Thing Description ORM from a TD in JSON-LD or RDF triples.
 		</li>
-		<li><a href="https://github.com/eclipse/ditto/tree/master/wot/model" target="_blank">Eclipse Ditto :: WoT :: Model</a>
-			Java module for using TDs and TMs
+		<li><a href="https://github.com/eclipse/ditto/tree/master/wot/model" target="_blank">Eclipse Ditto :: WoT ::
+				Model</a>
+			- Java module for using TDs and TMs.
 		</li>
-		
+
 	</ul>
-	
+
 	<h3>WoT Implementations</h3>
 	<ul>
 		<li>
-			<a href="http://www.thingweb.io/" target="_blank">Eclipse Thingweb node-wot</a> (W3C Web of Things implementation in Node.js with support for multiple bindings.)
-			<ul>
+			<a href="https://github.com/eclipse/thingweb.node-wot" target="_blank">Eclipse Thingweb node-wot</a> 
+			- W3C Web of Things implementation in Node.js with support for multiple bindings. A website is available at 
+			<a href="http://thingweb.io" target="_blank">Thingweb</a>.
+			<!-- <ul>
 				<li><a href="http://plugfest.thingweb.io/webui/" target="_blank">Browsified node-wot</a> (Web UI)</li>
-				<li>See <a href="http://www.thingweb.io/hands-on.html" target="_blank">hands-on tutorials</a> 
+				<li>See <a href="http://www.thingweb.io/hands-on.html" target="_blank">hands-on tutorials</a>
 					and <a href="http://www.thingweb.io/videos.html" target="_blank">videos</a> for node-wot</li>
-			</ul>
+			</ul> -->
 		</li>
 		<li>
-			<a href="https://github.com/danielpeintner/wot-fxui" target="_blank">WoT FXUI</a> (UI for desktop, mobile, browser)
-			<ul>
-				<li>See <a href="http://plugfest.thingweb.io:8088/test/fullscreen/default" target="_blank">running Web-UI instance</a></li>
-			</ul>
-		</li>
-		<li>
-			<a href="https://github.com/node-red/node-red-nodegen" target="_blank">Node generator</a> 
-			(Generate a WoT Consumer Node for <a href="https://nodered.org/" target="_blank">Node-RED</a> from TD)
-			<ul>
-				<li>See a short introduction <a href="wot_nodegen.pptx" target="_blank">slides</a> 
+			<a href="https://github.com/node-red/node-red-nodegen" target="_blank">Node-Red Node generator</a>
+			- CLI tool to generate WoT Consumer Nodes for <a href="https://nodered.org/" target="_blank">Node-RED</a> from a TD.
+			Additional information at <a href="wot_nodegen.pptx" target="_blank">slides</a>
+			or <a href="wot_nodegen.mp4" target="_blank">video</a>.
+			<!-- <ul>
+				<li>See a short introduction <a href="wot_nodegen.pptx" target="_blank">slides</a>
 					or <a href="wot_nodegen.mp4" target="_blank">video</a> for Node Generator</li>
-			</ul>
+			</ul> -->
 		</li>
 		<li>
-			<a href="https://github.com/tum-esi/wade" target="_blank">WoT API Development Environment (WADE)</a> 
-			(Desktop application based on node-wot, Vue.js and Electron)
+			<a href="https://github.com/sane-city/wot-servient" target="_blank">SANE WoT Servient</a>
+			- W3C Web of Things implementation in Java with support for multiple bindings, inspired from node-wot.
 		</li>
 		<li>
-			<a href="https://github.com/sane-city/wot-servient" target="_blank">SANE WoT Servient</a> (Java)
+			<a href="https://github.com/agmangas/wot-py" target="_blank">WoTPy</a> 
+			- Experimental W3C Web of Things implementation in Python with support for multiple bindings.
 		</li>
 		<li>
-			<a href="https://github.com/agmangas/wot-py" target="_blank">WoTPy</a> (Experimental implementation in Python)
+			<a href="https://www.evosoft.com/en/digitalization-offering/saywot/" target="_blank">sayWoT!</a> 
+			- Industrial-grade implementation that allows integration of devices into Siemens software products.
 		</li>
 		<li>
-			<a href="https://www.evosoft.com/en/digitalization-offering/saywot/" target="_blank">sayWoT!</a> (for web and cloud developers)
-		</li>
-		<li>
-			<a href="https://pub.dev/packages/dart_wot" target="_blank">dart_wot</a> (W3C Web of Things implementation written in Dart with support for HTTP and CoAP).
+			<a href="https://pub.dev/packages/dart_wot" target="_blank">dart_wot</a> 
+			- W3C Web of Things implementation written in Dart with support for HTTP and CoAP.
 		</li>
 	</ul>
-	
-	<h3>Thing Description Directory Implementations</h3>
+
+	<h3>Thing Description Directory (TDD) Implementations</h3>
 	<ul>
 		<li>
 			<a href="https://github.com/linksmart/thing-directory" target="_blank">LinkSmart Thing Directory</a>
+			- TDD implementation with features such as DNS-SD registration, XPath 3.0 and JSONPath queries, authentication and more.
 		</li>
 		<li>
 			<a href="https://github.com/oeg-upm/wot-hive" target="_blank">WoTHive Thing Directory</a>
+			- TDD implementation with features such as SPARQL and JSONPath queries, SHACL-based Validation and more.
+		</li>
+		<li>
+			<a href="https://2021.semweb.pro/presentations/siemens-feedback-on-implementing-a-thing-description-repository-using-a-sparql-endpoint/" target="_blank">Logilab Thing Directory</a> 
+			- TDD implementation with features such as SPARQL queries and more.
 		</li>
 	</ul>
-	
+
 	<h3>WoT Application Development Tools</h3>
 	<ul>
 		<li><a href="https://github.com/UniBO-PRISMLab/wam" target="_blank">WoT Application Manager (WAM)</a>
-			CLI tool to set up node-wot application projects. See the presentation and video for further information: <a
-				href="WoT%20Application%20Manager.pdf" target="_blank">slides</a> or 
-				<a href="https://youtu.be/bPxIfZo7jns" target="_blank">video</a>
+			- CLI tool to quickly set up node-wot application projects. Additional information available at <a href="WoT%20Application%20Manager.pdf" target="_blank">slides</a> or
+			<a href="https://youtu.be/bPxIfZo7jns" target="_blank">video</a>.
+			<!-- See the presentation and video for further information: <a
+				href="WoT%20Application%20Manager.pdf" target="_blank">slides</a> or
+			<a href="https://youtu.be/bPxIfZo7jns" target="_blank">video</a> -->
+		</li>
+		<li>
+			<a href="https://github.com/tum-esi/wade" target="_blank">WoT API Development Environment (WADE)</a>
+			- Desktop application based on node-wot, Vue.js and Electron that allows interaction with Things, profiling, Mashup
+			generation.
+		</li>
+		<li>
+			<a href="https://github.com/danielpeintner/wot-fxui" target="_blank">WoT FXUI</a>
+			- UI for desktop, mobile, browser for interacting with Things based on their TDs.
+			<!-- <ul>
+						<li>See <a href="http://plugfest.thingweb.io:8088/test/fullscreen/default" target="_blank">running
+								Web-UI instance</a></li>
+					</ul> -->
+		</li>
+		<li><a href="https://github.com/tum-esi/shadow-thing" target="_blank">Shadow Thing</a>
+			- CLI based tool for creating and deploying a Thing based on its TD for simulation, proxy or protocol translation
+			purposes.
+		</li>
+		<li><a href="https://github.com/tum-esi/testbench" target="_blank">Web of Things Test Bench</a>
+			- CLI based tool that tests a WoT Thing by executing interactions automatically, based on its TD.
 		</li>
 	</ul>
 	<h3>Others</h3>
 	<ul>
-		<li><a href="https://www.eclipse.org/ditto/basic-wot-integration.html" target="_blank">WoT Integration for Eclipse Ditto</a>
-			Ditto managed digital twins can be linked to WoT Thing Models from which Ditto can create Thing Descriptions containing the API descriptions of the twins.
+		<li><a href="https://www.eclipse.org/ditto/basic-wot-integration.html" target="_blank">WoT Integration for
+				Eclipse Ditto</a>
+			- Ditto managed digital twins can be linked to WoT Thing Models from which Ditto can create Thing Descriptions
+			containing the API descriptions of the twins.
 		</li>
-		<li><a href="https://github.com/admin-shell-io/aasx-package-explorer" target="_blank">WoT Plugin for AASX Package Explorer</a>
-			Plugin to import/export WoT Thing Description into Asset Administration Shell definitions.
+		<li><a href="https://github.com/admin-shell-io/aasx-package-explorer" target="_blank">WoT Plugin for AASX
+				Package Explorer</a>
+			- Plugin to import/export WoT Thing Description into Asset Administration Shell definitions.
+		</li>
+		<li><a href="https://wotify.org/" target="_blank">WoTify</a>
+			- A community based collection of devices that have been WoT-enabled.
 		</li>
 	</ul>
 </div>
