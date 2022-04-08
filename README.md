@@ -1,6 +1,6 @@
 # Web of Things (WoT) Marketing
 [![Follow on Twitter](https://img.shields.io/twitter/follow/W3C_WoT.svg?label=follow+W3C_WoT)](https://twitter.com/W3C_WoT)
-[![Stack Exchange questions](https://img.shields.io/stackexchange/stackoverflow/t/web-of-things?style=plastic)]( https://stackoverflow.com/questions/tagged/web-of-things)
+[![Stack Exchange questions](https://img.shields.io/stackexchange/stackoverflow/t/web-of-things?style=plastic)]( https://stackoverflow.com/questions/tagged/web-of-things) [![Join the chat at https://gitter.im/wot-marketing/community](https://badges.gitter.im/wot-marketing/community.svg)](https://gitter.im/wot-marketing/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 General information about the Web of Things can be found on https://www.w3.org/WoT/.
   
