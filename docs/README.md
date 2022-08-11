@@ -13,6 +13,8 @@ We use Jekyll and Bundler to develop this webpage.
 
 You can look at the [official documentation](https://jekyllrb.com/docs/) on how to install the two packages.
 
+If you are using MacOS, please refer to the [official MacOS installation guide](https://jekyllrb.com/docs/installation/macos/).
+
 ### Installing the Dependencies
 
 - Run `bundle install` . This will install all the dependencies via bundler using the Gemfile
