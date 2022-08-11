@@ -36,8 +36,9 @@ When you want to add dependencies, like [jekyll-sitemap](https://github.com/jeky
 
 ## Netlify Configuration
 
-We are using [Netlify](https://www.netlify.com/) to build previews for PRs. Currently, they are done through @egekorkan 's private account that is linked to Netlify. 
-If he were to not respond to possible failures in the pipeline, another person has to do everything. This means the following:
+We are using [Netlify](https://www.netlify.com/) to build previews for PRs.
+We are using an open source account from Netlify with all TF members having access to it.
+If the TF is not responding to possible failures in the pipeline, another person has to do everything. This means the following:
 
 - Create a page/project at Netlify
 - Link it to this GitHub repository
