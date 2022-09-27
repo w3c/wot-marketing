@@ -1,3 +1,7 @@
+# Readme
+
+Please see https://en.wikipedia.org/wiki/Web_of_Things and https://en.wikipedia.org/wiki/Thing_Description
+
 ## How to use GitHub with Wikipedia
 
 Until we find a streamlined solution, follow these steps to contribute and review the content:
