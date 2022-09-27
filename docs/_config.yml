@@ -28,15 +28,14 @@ navigation:
      url: activities/meetings/
  - title: Developers
    url: developers/
-# - title: More
-#   subnavigation:
  - title: Documentation
    url: documentation/
  - title: Videos
    url: videos/
- - title: Contact
-   url: contact/
-#   - title: Getting Started
-#     url: getting-started/
-#   - title: Calls and Meetings
-#     url: https://www.w3.org/WoT/IG/wiki/
+ - title: About
+   url: about/
+   subnavigation:
+    - title: Contact
+      url: about/contact/
+    - title: History
+      url: about/history/
