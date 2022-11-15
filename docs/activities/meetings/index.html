@@ -57,7 +57,7 @@ function updateTimezone() {
   document.getElementById("UTC").style.display = 'none';
   document.getElementById("UTC+1").style.display = 'none';
   document.getElementById("UTC+2").style.display = 'none';
-  document.getElementById("UTC+3").style.display = 'none';
+//   document.getElementById("UTC+3").style.display = 'none';
   document.getElementById("UTC+8").style.display = 'none';
   document.getElementById("UTC+9").style.display = 'none';
   
@@ -83,9 +83,9 @@ function updateTimezone() {
 		  <option value="UTC-5">US Eastern (EST) UTC-5</option>
 		  <option value="UTC-4">Atlantic (AST) UTC-4</option>
 		  <option value="UTC" selected="selected">UTC</option>
-		  <option value="UTC+1">UK (BST) UTC+1</option>
-		  <option value="UTC+2">EU (CET) UTC+2</option>
-		  <option value="UTC+3">Finland (EET) UTC+3</option>
+		  <option value="UTC">UK (GMT) UTC+0</option>
+		  <option value="UTC+1">EU (CET) UTC+1</option>
+		  <option value="UTC+2">Finland (EET) UTC+2</option>
 		  <option value="UTC+8">Singapore (SGT) China (CST) UTC+8</option>
 		  <option value="UTC+9">Korea (KST) Japan (JST) UTC+9</option>
 		</select>
@@ -124,40 +124,30 @@ function updateTimezone() {
 		</tr>
 
 		<tr id="UTC">
-			<th style="background-color: #DEEEEE; text-align:center;">&nbsp;<br>UTC<br>&nbsp;</th>
-			<td style="background-color: #EEEEEE; text-align:center;">10:00 - 11:00</td>
-			<td style="background-color: #EEEEEE; text-align:center;">11:00 - 12:00</td>
-			<td style="background-color: #EEEEEE; text-align:center;">12:00 - 13:00</td>
-			<td style="background-color: #EEEEEE; text-align:center;">13:00 - 14:00</td>
-			<td style="background-color: #EEEEEE; text-align:center;">14:00 - 15:00</td>
-			<td style="background-color: #EEEEEE; text-align:center;">15:00 - 16:00</td>
-			<!-- <td style="background-color: #EEEEEE; text-align:center;">16:00 - 17:00</td> -->
-		</tr>
-
-		<tr id="UTC+1">
-			<th style="background-color: #DEEEEE; text-align:center;">&nbsp;<br>UTC+1<br>&nbsp;</th>
+			<th style="background-color: #DEEEEE; text-align:center;">UK (GMT)<br>UTC<br></th>
+			<!-- <td style="background-color: #EEEEEE; text-align:center;">10:00 - 11:00</td> -->
 			<td style="background-color: #EEEEEE; text-align:center;">11:00 - 12:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">12:00 - 13:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">13:00 - 14:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">14:00 - 15:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">15:00 - 16:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">16:00 - 17:00</td>
-			<!-- <td style="background-color: #EEEEEE; text-align:center;">17:00 - 18:00</td> -->
 		</tr>
 
-		<tr id="UTC+2">
-			<th style="background-color: #DEEEEE; text-align:center;">&nbsp;<br>UTC+2<br>&nbsp;</th>
+		<tr id="UTC+1">
+			<th style="background-color: #DEEEEE; text-align:center;">EU (CET)<br>UTC+1<br></th>
+			<!-- <td style="background-color: #EEEEEE; text-align:center;">11:00 - 12:00</td> -->
 			<td style="background-color: #EEEEEE; text-align:center;">12:00 - 13:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">13:00 - 14:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">14:00 - 15:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">15:00 - 16:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">16:00 - 17:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">17:00 - 18:00</td>
-			<!-- <td style="background-color: #EEEEEE; text-align:center;">18:00 - 19:00</td> -->
 		</tr>
 
-		<tr id="UTC+3">
-			<th style="background-color: #DEEEEE; text-align:center;">&nbsp;<br>UTC+3<br>&nbsp;</th>
+		<tr id="UTC+2">
+			<th style="background-color: #DEEEEE; text-align:center;">Finland (EET)<br>UTC+2<br></th>
+			<!-- <td style="background-color: #EEEEEE; text-align:center;">12:00 - 13:00</td> -->
 			<td style="background-color: #EEEEEE; text-align:center;">13:00 - 14:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">14:00 - 15:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">15:00 - 16:00</td>
@@ -165,6 +155,16 @@ function updateTimezone() {
 			<td style="background-color: #EEEEEE; text-align:center;">17:00 - 18:00</td>
 			<td style="background-color: #EEEEEE; text-align:center;">18:00 - 19:00</td>
 		</tr>
+
+		<!-- <tr id="UTC+3">
+			<th style="background-color: #DEEEEE; text-align:center;">&nbsp;<br>UTC+3<br>&nbsp;</th>
+			<td style="background-color: #EEEEEE; text-align:center;">13:00 - 14:00</td>
+			<td style="background-color: #EEEEEE; text-align:center;">14:00 - 15:00</td>
+			<td style="background-color: #EEEEEE; text-align:center;">15:00 - 16:00</td>
+			<td style="background-color: #EEEEEE; text-align:center;">16:00 - 17:00</td>
+			<td style="background-color: #EEEEEE; text-align:center;">17:00 - 18:00</td>
+			<td style="background-color: #EEEEEE; text-align:center;">18:00 - 19:00</td>
+		</tr> -->
 
 		<tr id="UTC+8">
 			<th style="background-color: #DEEEEE; text-align:center;">Singapore (SGT)<br>China (CST)<br>UTC+8</th>
