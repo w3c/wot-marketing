@@ -53,3 +53,16 @@ See also: https://github.com/w3c/wot-marketing/issues/148#issuecomment-105829975
 
 ## Adapting to Daylight Saving Changes
 When a zone changes its time relative to UTC, you need to a bunch of changes. See [this PR](https://github.com/w3c/wot-marketing/pull/296) for concrete information
+
+## W3C API Related Information
+
+Here are some links and important information:
+
+- WoT WG id: 95969
+- WoT IG id: 75874
+- WoT CG id: 63991
+- WoT Japanese CG: 129080
+- WebThing Protocol CG: 117875
+- API Documentation: https://api.w3.org/doc
+- API Overview: https://www.w3.org/api/
+- Library we are using: https://github.com/w3c/apiary
