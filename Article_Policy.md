@@ -1,6 +1,6 @@
 # Policy for Choosing WoT-related Articles
 
-The Web of Things Marketing Task Force collects articles about the Web of Things in their webpage at [docs/about/articles/index.html](docs/about/articles/index.html).
+The Web of Things Marketing Task Force collects articles about the Web of Things on the official web page of the W3C Web of Things at [docs/about/articles/index.html](docs/about/articles/index.html).
 
 Currently, the Task Force only shows articles which are in one of the following categories:
 
