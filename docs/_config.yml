@@ -9,6 +9,8 @@ baseurl: "/WoT"
 github_username: "w3c"
 git_repo: "wot-marketing"
 
+data: Michael McCool
+
 navigation:
  - title: Groups
    subnavigation:
@@ -39,3 +41,7 @@ navigation:
       url: about/contact/
     - title: History
       url: about/history/
+
+
+#  - wg:
+#    chair: Michael McCool
