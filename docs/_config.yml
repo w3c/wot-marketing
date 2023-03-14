@@ -8,6 +8,7 @@ url: "https://www.w3.org"
 baseurl: "/WoT"
 github_username: "w3c"
 git_repo: "wot-marketing"
+plugins: ['jekyll-twitter-plugin']
 
 navigation:
  - title: Groups
