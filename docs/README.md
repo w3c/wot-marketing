@@ -8,6 +8,17 @@ The content will be exposed to
 * <https://w3c.github.io/wot-marketing/> (GitHub pages render)
 * <https://wot-marketing.netlify.app/> (Netlify is used for PR previews and build badge)
 
+## Contribution Rules
+
+- We work only with PRs. 
+- The changes that do not need a special meeting are: 
+  - Link updates
+  - Typo corrections
+  - Adding a single item to a list (devtools, TFs, events). 
+- Adding or removing pages, adding or removing paragraphs or changing significant part of paragraphs need a special meeting.
+- The PRs should have the corresponding labels: needs-WG-review, time-critical (for bringing to main call), minor (editorial, technical and trivial changes). If the type of PR needed is clear from the issue, these labels can be also used in an issue.
+- Only W3C WoT IG members can contribute to this page.
+
 ## Testing site locally
 
 We use Jekyll and Bundler to develop this webpage.

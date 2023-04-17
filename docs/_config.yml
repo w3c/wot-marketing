@@ -46,4 +46,5 @@ navigation:
       url: about/contact/
     - title: History
       url: about/history/
-
+    - title: Articles
+      url: about/articles/
