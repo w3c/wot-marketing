@@ -9,6 +9,13 @@ baseurl: "/WoT"
 github_username: "w3c"
 git_repo: "wot-marketing"
 
+apidata:
+ wgchair: "Michael McCool"
+ wg:
+  chairs:
+   name: "Michael McCool"
+   company: Intel
+
 navigation:
  - title: Groups
    subnavigation:
