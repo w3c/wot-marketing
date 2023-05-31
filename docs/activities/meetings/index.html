@@ -5,70 +5,129 @@ group: "navigation"
 ---
 <div>
     <h2>W3C WoT – Web Conference Meetings</h2>
-    
+
+<!-- include moment and one of the moment-timezone builds -->
+<script src='https://cdn.jsdelivr.net/npm/moment@2.29.4/min/moment.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/moment-timezone@0.5.40/builds/moment-timezone-with-data.min.js'></script>
+
+<!-- fullcalendar bundle -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+<!-- fullcalendar iCAL -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/icalendar@6.1.8/index.global.min.js"></script>
+
+<!-- the connector. must go AFTER moment-timezone -->
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/moment-timezone@6.1.8/index.global.min.js'></script>
+
 <script>
-function initTimezone() {
-    var tz = "UTC"; // default
-    // try to autodetect
-    var myDate = new Date();
-    var diffInMinutes = myDate.getTimezoneOffset();
-    console.log(diffInMinutes)
-    if (diffInMinutes) {
-        switch(diffInMinutes) {
-            case 480:
-                tz = "UTC-8";
-            case 420:
-                tz = "UTC-7";
-            case 300:
-                tz = "UTC-5";
-            case 240:
-                tz = "UTC-4";
-            case 180:
-                tz = "UTC-3";
-                break;
-            case 0:
-                tz = "UTC+0";
-                break;
-            case -60:
-                tz = "UTC+1";
-                break;
-            case -120:
-                tz = "UTC+2";
-                break;
-            case -180:
-                tz = "UTC+3";
-                break;
-            case -480:
-                tz = "UTC+8";
-                break;
-            case -540:
-                tz = "UTC+9";
-                break;
-        }
-    }
-    document.getElementById("timezoneSelect").value = tz;
-}
-function updateTimezone() {
-  var selVal = document.getElementById("timezoneSelect").value;
-  
-  // hide "all"
-  document.getElementById("UTC-7").style.display = 'none';
-//   document.getElementById("UTC-5").style.display = 'none';
-  document.getElementById("UTC-4").style.display = 'none';
-//   document.getElementById("UTC").style.display = 'none';
-  document.getElementById("UTC+1").style.display = 'none';
-  document.getElementById("UTC+2").style.display = 'none';
-  document.getElementById("UTC+3").style.display = 'none';
-  document.getElementById("UTC+8").style.display = 'none';
-  document.getElementById("UTC+9").style.display = 'none';
-  
-  // set the selected one visible
-  if (document.getElementById(selVal)) {
-    document.getElementById(selVal).style.display = '';
-  } else {
-    document.getElementById("UTC").style.display = ''; // default
-  }
-}
+	var icsEvents = [];
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var timeZoneSelectorEl = document.getElementById("timezone_selector");
+		var calendarEl = document.getElementById('calendar');
+		var initialTimeZone = "America/New_York";
+		var todayDate = moment().startOf("day");
+		var YM = todayDate.format("YYYY-MM");
+		var YESTERDAY = todayDate.clone().subtract(1, "day").format("YYYY-MM-DD");
+		var TODAY = todayDate.format("YYYY-MM-DD");
+		var TOMORROW = todayDate.clone().add(1, "day").format("YYYY-MM-DD");
+		
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+			timeZone: initialTimeZone, // 'Europe/Moscow',  'local' the default (unnecessary to specify)
+			headerToolbar: {
+				left: "prev,next today",
+				center: "title",
+				right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
+			},
+			initialView: "timeGridWeek", // dayGridMonth, dayGridWeek, dayGridDay 
+			initialDate: TODAY,
+
+			navLinks: true, // can click day/week names to navigate views
+			editable: true,
+			selectable: true,
+			dayMaxEvents: true, // allow "more" link when too many events
+			events: {
+				url: 'localCopy.ics',
+				// url: 'https://www.w3.org/groups/ig/wot/calendar/export',
+				format: 'ics'
+			},
+			/* events: [
+				{
+				  title  : 'event3',
+				  start  : '2023-05-31T12:30:00',
+				  end    : '2023-05-31T14:30:00',
+				  allDay : false // will make the time show
+				}
+			  ], */
+			eventTimeFormat: { hour: "numeric", minute: "2-digit" }, // timeZoneName: "short"
+			dateClick: function(arg) {
+				console.log(arg.date.toUTCString()); // use *UTC* methods on the native Date Object
+				// will output something like 'Sat, 01 Sep 2018 00:00:00 GMT'
+
+			}
+		});
+
+		calendar.on('dateClick', function(info) {
+		  console.log('clicked on ' + info.dateStr);
+		});
+
+		calendar.render();
+
+		// Timezone Changer
+		// Idea w.r.t. timezone taken from https://preview.keenthemes.com/html/metronic/docs/general/fullcalendar/timezone
+
+		// TODO collect events once loaded, there MUST be an event/callback for it!?!?!
+		setTimeout(()=> {
+			calendar.getEvents().forEach(event => {
+				icsEvents.push(event);
+				console.log(JSON.stringify(event));
+			});
+		}, 1000);
+		
+		// when the timezone selector changes, dynamically change the calendar option
+		$(timeZoneSelectorEl).on("change", function () {
+			// calendar.setOption("timeZone", "UTC");
+			// calendar.setOption("timeZone", "America/New_York");
+			var localTimezoneOffset = new Date().getTimezoneOffset(); // in minutes e.g, -120
+			let diff = Number(this.value) + localTimezoneOffset;
+
+			// Remove all events
+			const removeEvents = calendar.getEvents();
+			removeEvents.forEach(event => {
+				// console.log("" +  JSON.stringify(event));
+				event.remove();
+			});
+
+			const format = "YYYY-MM-DDTHH:mm:ss";
+
+			// Add events with new timezone offset
+			icsEvents.forEach(event => {
+				var start;
+				var end;
+				
+				let ms = moment(event.start); // reports local time
+				let me = moment(event.end); // reports local time
+				
+				start = ms.add(diff, "minutes").format(format);
+				if (me) {
+					end = me.add(diff, "minutes").format(format);
+				}
+				
+				// TODO add repeat etc (does not work as expected) --> copy ?!?
+				calendar.addEvent({
+					title: event.title,
+					start: start,
+					end: end,
+					// extendedProps: event.extendedProps
+				});
+			});
+
+			calendar.render();
+		});
+		
+		
+	});
 </script>
     <!-- <div class="alert alert-warning" role="alert">
       Note: Most calls during August, due to summer vacations, will be <a href="https://www.w3.org/WoT/IG/wiki/Main_WoT_WebConf#Cancellations">cancelled</a>.
@@ -78,208 +137,22 @@ function updateTimezone() {
                     href="https://www.w3.org/groups/ig/wot/calendar" target="_blank">the W3C calendar system</a> in order to download 
         ICS files for all our meetings. 
     </p>
-    <p>Select Timezone: 
-        <select id="timezoneSelect" class="browser-default custom-select" onchange="updateTimezone();">
-          <option value="UTC-7"> US Pacific (PDT) UTC-7</option>
-          <option value="UTC-4">US Eastern (EDT) UTC-4</option>
-          <!-- <option value="UTC-4">Atlantic (AST) UTC-4</option> -->
-          <!-- <option value="UTC" selected="selected">UTC</option> -->
-          <option value="UTC+1">UK (GMT+1) UTC+1</option>
-          <option value="UTC+2">EU (CEST) UTC+2</option>
-          <option value="UTC+3">Finland (EEST) UTC+3</option>
-          <option value="UTC+8">Singapore (SGT) China (CST) UTC+8</option>
-          <option value="UTC+9">Korea (KST) Japan (JST) UTC+9</option>
-        </select>
-    </p>
-    <table style="display: table; border-collapse: separate; border-spacing: 1px; border-color: gray;  width: 100%">
-
-        <tbody>
-        <tr id="UTC-7">
-            <th style="background-color: #DEEEEE; text-align:center;">US Pacific<br>(PDT)<br>UTC-7</th>
-            <td style="background-color: #EEEEEE; text-align:center;">3:00 - 4:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">4:00 - 5:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">5:00 - 6:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">6:00 - 7:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">7:00 - 8:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">8:00 - 9:00</td>
-        </tr>
-
-        <tr id="UTC-4">
-            <th style="background-color: #DEEEEE; text-align:center;">US Eastern<br>(EDT)<br>UTC-4</th>
-            <td style="background-color: #EEEEEE; text-align:center;">6:00 - 7:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">7:00 - 8:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">8:00 - 9:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">9:00 - 10:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">10:00 - 11:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">11:00 - 12:00</td>
-        </tr>
-
-        <!-- <tr id="UTC-4">
-            <th style="background-color: #DEEEEE; text-align:center;">Atlantic<br>(AST)<br>UTC-4</th>
-            <td style="background-color: #EEEEEE; text-align:center;">7:00 - 8:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">8:00 - 9:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">9:00 - 10:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">10:00 - 11:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">11:00 - 12:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">12:00 - 13:00</td>
-        </tr> -->
-
-        <tr id="UTC+1">
-            <th style="background-color: #DEEEEE; text-align:center;">UK (GMT)<br>UTC+1<br></th>
-            <!-- <td style="background-color: #EEEEEE; text-align:center;">10:00 - 11:00</td> -->
-            <td style="background-color: #EEEEEE; text-align:center;">11:00 - 12:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">12:00 - 13:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">13:00 - 14:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">14:00 - 15:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">15:00 - 16:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">16:00 - 17:00</td>
-        </tr>
-
-        <tr id="UTC+2">
-            <th style="background-color: #DEEEEE; text-align:center;">EU (CEST)<br>UTC+2<br></th>
-            <!-- <td style="background-color: #EEEEEE; text-align:center;">11:00 - 12:00</td> -->
-            <td style="background-color: #EEEEEE; text-align:center;">12:00 - 13:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">13:00 - 14:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">14:00 - 15:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">15:00 - 16:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">16:00 - 17:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">17:00 - 18:00</td>
-        </tr>
-
-        <tr id="UTC+3">
-            <th style="background-color: #DEEEEE; text-align:center;">Finland (EEST)<br>UTC+3<br></th>
-            <!-- <td style="background-color: #EEEEEE; text-align:center;">12:00 - 13:00</td> -->
-            <td style="background-color: #EEEEEE; text-align:center;">13:00 - 14:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">14:00 - 15:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">15:00 - 16:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">16:00 - 17:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">17:00 - 18:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">18:00 - 19:00</td>
-        </tr>
-
-        <!-- <tr id="UTC+3">
-            <th style="background-color: #DEEEEE; text-align:center;">&nbsp;<br>UTC+3<br>&nbsp;</th>
-            <td style="background-color: #EEEEEE; text-align:center;">13:00 - 14:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">14:00 - 15:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">15:00 - 16:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">16:00 - 17:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">17:00 - 18:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">18:00 - 19:00</td>
-        </tr> -->
-
-        <tr id="UTC+8">
-            <th style="background-color: #DEEEEE; text-align:center;">Singapore (SGT)<br>China (CST)<br>UTC+8</th>
-            <td style="background-color: #EEEEEE; text-align:center;">18:00 - 19:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">19:00 - 20:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">20:00 - 21:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">21:00 - 22:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">22:00 - 23:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">23:00 - 24:00</td>
-            <!-- <td style="background-color: #EEEEEE; text-align:center;">24:00 - 25:00</td> -->
-        </tr>
-
-        <tr id="UTC+9">
-            <th style="background-color: #DEEEEE; text-align:center;">Korea (KST)<br>Japan (JST)<br>UTC+9</th>
-            <td style="background-color: #EEEEEE; text-align:center;">19:00 - 20:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">20:00 - 21:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">21:00 - 22:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">22:00 - 23:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">23:00 - 24:00</td>
-            <td style="background-color: #EEEEEE; text-align:center;">24:00 - 25:00</td>
-            <!-- <td style="background-color: #EEEEEE; text-align:center;">25:00 - 26:00</td> -->
-        </tr>
-
-        <tr>
-            <th style="background-color: #FEFEEE; text-align:center;">Mon</th>
-            <td style="text-align:center;">-</td>
-            <td style="background-color: #FEEEDD; text-align:center;"><a rel="nofollow" class="external text"
-                    href="https://www.w3.org/WoT/IG/wiki/WG_WoT_Scripting_API_WebConf" target="_blank">WoT Scripting API</a><br><a rel="nofollow"
-                    class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2018Feb/0033.html" target="_blank">(WebEx)</a>
-            </td>
-            <td style="background-color: #FEEEAA; text-align:center;"><a rel="nofollow" class="external text"
-                    href="https://www.w3.org/WoT/IG/wiki/IG_Security_WebConf" target="_blank">WoT Security</a><br><a rel="nofollow"
-                    class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2019Nov/0006.html" target="_blank">(WebEx)</a>
-            </td>
-            <td style="text-align:center;">-</td>
-            <td style="background-color: #FEEEDD; text-align:center;"><a rel="nofollow" class="external text"
-                    href="https://www.w3.org/WoT/IG/wiki/WG_WoT_Discovery_WebConf" target="_blank">WoT Discovery</a><br><a rel="nofollow"
-                    class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020Feb/0009.html" target="_blank">(WebEx)</a>
-            </td>
-            <td style="text-align:center;">-</td>
-        </tr>
-
-		<tr>
-			<th style="background-color: #FEFEEE; text-align:center;">Tue</th>
-			<td style="background-color: #FEFEDD; text-align:center;"><br></td>
-			<td style="background-color: #FEEEAA; text-align:center;"><a rel="nofollow" class="external text"
-					href="https://www.w3.org/WoT/IG/wiki/Marketing_WebConf" target="_blank">WoT Marketing</a><br><a rel="nofollow"
-					class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020Aug/0024.html" target="_blank">(WebEx)</a>
-			</td>
-			<td style="background-color: #FEEEAA; text-align:center;">WoT Use Cases<br> <a rel="nofollow"
-					class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2022Dec/0003.html" target="_blank">(WebEx)</a>
-			</td>
-			<td style="text-align:center;">-</td>
-			<td style="text-align:center;">-</td>
-			<td style="text-align:center;">-</td>
-		</tr>
-
-
-        <tr>
-            <th style="background-color: #FEFEEE; text-align:center;">Wed</th>
-            <td style="background-color: #FEFEDD; text-align:center;">WoT Chairs<br><a rel="nofollow" class="external text"
-                    href="https://lists.w3.org/Archives/Member/member-wot-wg/2019May/0007.html" target="_blank">(WebEx)</a></td>
-            <td style="background-color: #FEEEDD; text-align:center;"><a rel="nofollow" class="external text"
-                    href="https://www.w3.org/WoT/IG/wiki/WG_WoT_Architecture_WebConf" target="_blank">WoT Profiles</a><br><a rel="nofollow"
-                    class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2022Jan/0006.html" target="_blank">(WebEx)</a>
-            </td>
-            <td style="background-color: #FEFE77; text-align:center;"><a rel="nofollow" class="external text"
-                    href="https://www.w3.org/WoT/IG/wiki/Main_WoT_WebConf" target="_blank">WoT IG/WG main call</a><br><a rel="nofollow"
-                    class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020Jul/0052.html" target="_blank">(WebEx)</a>
-            </td>
-            <td style="background-color: #FEEEAA; text-align:center;"><a rel="nofollow" class="external text"
-                    href="https://www.w3.org/WoT/IG/wiki/PlugFest_WebConf" target="_blank">WoT PlugFest</a><br><a rel="nofollow"
-                    class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2020Jul/0052.html" target="_blank">(WebEx)</a>
-            </td>
-            <td style="background-color: #FEEEDD; text-align:center;" colspan="2"><a rel="nofollow" class="external text"
-                    href="https://www.w3.org/WoT/IG/wiki/WG_WoT_Thing_Description_WebConf" target="_blank">WoT TD / Binding Templates (2h)</a><br><a
-                    rel="nofollow" class="external text"
-                    href="https://lists.w3.org/Archives/Member/member-wot-wg/2020Jul/0027.html" target="_blank">(WebEx)</a></td>
-        </tr>
-
-        <tr>
-            <th style="background-color: #FEFEEE; text-align:center;">Thu</th>
-            <td style="background-color: #FEEEDD; text-align:center;"><a rel="nofollow" class="external text"
-                    href="https://www.w3.org/WoT/IG/wiki/WG_WoT_Architecture_WebConf" target="_blank">WoT Architecture</a><br><a rel="nofollow"
-                    class="external text" href="https://lists.w3.org/Archives/Member/member-wot-wg/2022Jan/0007.html" target="_blank">(WebEx)</a>
-            </td>
-            <td style="text-align:center;">-</td>
-            <td style="text-align:center;">-</td>
-            <td style="text-align:center;">-</td>
-            <td style="text-align:center;">-</td>
-            <td style="text-align:center;">-</td>
-        </tr>
-
-        <tr>
-            <th style="background-color: #FEFEEE; text-align:center;">Fri</th>
-            <td style="text-align:center;">-</td>
-            <td style="text-align:center;">-</td>
-            <td style="text-align:center;">-</td>
-            <td style="text-align:center;">-</td>
-            <td style="text-align:center;">-</td>
-            <td style="text-align:center;">-</td>
-        </tr>
-    </tbody></table>
-    
-    <h4>Color legend:</h4>
-        <ul><li> <span style="background-color: #FEEEDD">&nbsp;WoT WG calls&nbsp;</span></li>
-        <li> <span style="background-color: #FEEEAA">&nbsp;WoT IG calls&nbsp;</span></li>
-        <li> <span style="background-color: #FEFE77">&nbsp;WoT IG/WG joint call&nbsp;</span></li>
-        <li> <span style="background-color: #FEFEDD">&nbsp;WoT Chairs call&nbsp;</span></li>
-    </ul>
+	
+	<!--begin::Localization dropdown-->
+	<div class="mb-5">
+		<label class="fs-4 fw-bold mb-3">Select a Timezone:</label>
+		<select id="timezone_selector" class="form-select mw-200px" data-control="select2" data-placeholder="Select an option">
+			<option value="-240">US Eastern</option><!-- -4 -->
+			<option value="0">(GMT) UTC</option>
+			<option value="120">CEST</option><!-- +2 -->
+		</select>
+	</div>
+	<!--end::Localization dropdown-->
+	
+	<div id='calendar'></div>
     
 <script>
-initTimezone();
-updateTimezone();
+// 
 </script>
     
     
