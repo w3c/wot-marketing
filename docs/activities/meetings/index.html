@@ -22,11 +22,11 @@ group: "navigation"
 
 <script>
 	var icsEvents = [];
+	var initialTimeZone = "America/New_York";
 
 	document.addEventListener('DOMContentLoaded', function() {
 		var timeZoneSelectorEl = document.getElementById("timezone_selector");
 		var calendarEl = document.getElementById('calendar');
-		var initialTimeZone = "America/New_York";
 		var todayDate = moment().startOf("day");
 		var YM = todayDate.format("YYYY-MM");
 		var YESTERDAY = todayDate.clone().subtract(1, "day").format("YYYY-MM-DD");
@@ -44,7 +44,7 @@ group: "navigation"
 			initialDate: TODAY,
 
 			navLinks: true, // can click day/week names to navigate views
-			editable: true,
+			editable: false,
 			selectable: true,
 			dayMaxEvents: true, // allow "more" link when too many events
 			events: {
@@ -90,11 +90,11 @@ group: "navigation"
 			// calendar.setOption("timeZone", "UTC");
 			// calendar.setOption("timeZone", "America/New_York");
 			var localTimezoneOffset = new Date().getTimezoneOffset(); // in minutes e.g, -120
-			let diff = Number(this.value) + localTimezoneOffset;
+			// let diff = Number(this.value) + localTimezoneOffset;
+			let newTZ = this.value;
 
-			// Remove all events
-			const removeEvents = calendar.getEvents();
-			removeEvents.forEach(event => {
+			// update all events
+			calendar.getEvents().forEach(event => {
 				// console.log("" +  JSON.stringify(event));
 				event.remove();
 			});
@@ -103,15 +103,14 @@ group: "navigation"
 
 			// Add events with new timezone offset
 			icsEvents.forEach(event => {
-				var start;
+				let localTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+				let ms = moment.tz(event.start, localTZ); // initialTimeZone); // reports local time
+				let me = moment.tz(event.end, localTZ); // initialTimeZone); // reports local time
+				
+				var start = ms.clone().tz(newTZ).format(format); // ms.add(diff, "minutes").format(format);
 				var end;
-				
-				let ms = moment(event.start); // reports local time
-				let me = moment(event.end); // reports local time
-				
-				start = ms.add(diff, "minutes").format(format);
 				if (me) {
-					end = me.add(diff, "minutes").format(format);
+					end = me.clone().tz(newTZ).format(format); // me.add(diff, "minutes").format(format);
 				}
 				
 				// TODO add repeat etc (does not work as expected) --> copy ?!?
@@ -142,9 +141,16 @@ group: "navigation"
 	<div class="mb-5">
 		<label class="fs-4 fw-bold mb-3">Select a Timezone:</label>
 		<select id="timezone_selector" class="form-select mw-200px" data-control="select2" data-placeholder="Select an option">
-			<option value="-240">US Eastern</option><!-- -4 -->
-			<option value="0">(GMT) UTC</option>
-			<option value="120">CEST</option><!-- +2 -->
+			<option value="America/New_York"     >America/New_York</option>
+			<option value="America/Los_Angeles" >America/Los_Angeles</option>
+			<option value="UTC"                  >UTC</option>
+			<option value="Europe/London"        >Europe/London</option>
+			<option value="Europe/Paris"         >Europe/Paris</option>
+			<option value="Europe/Helsinki"      >Europe/Helsinki</option>
+			<option value="Asia/Singapore"       >Asia/Singapore</option>
+			<option value="Asia/Tokyo"           >Asia/Tokyo</option>
+			
+			
 		</select>
 	</div>
 	<!--end::Localization dropdown-->
