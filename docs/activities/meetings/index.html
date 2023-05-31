@@ -64,7 +64,14 @@ group: "navigation"
 			dateClick: function(arg) {
 				console.log(arg.date.toUTCString()); // use *UTC* methods on the native Date Object
 				// will output something like 'Sat, 01 Sep 2018 00:00:00 GMT'
-
+			},
+			loading: function (isLoading) {
+				if (isLoading) {
+					// loading...
+				} else {
+					console.log("loading DONE, collect events !!!!!!!");
+					initIcsEvents(calendar);
+				}
 			}
 		});
 
@@ -76,14 +83,6 @@ group: "navigation"
 
 		// Timezone Changer
 		// Idea w.r.t. timezone taken from https://preview.keenthemes.com/html/metronic/docs/general/fullcalendar/timezone
-
-		// TODO collect events once loaded, there MUST be an event/callback for it!?!?!
-		setTimeout(()=> {
-			calendar.getEvents().forEach(event => {
-				icsEvents.push(event);
-				console.log(JSON.stringify(event));
-			});
-		}, 1000);
 		
 		// when the timezone selector changes, dynamically change the calendar option
 		$(timeZoneSelectorEl).on("change", function () {
@@ -127,6 +126,16 @@ group: "navigation"
 		
 		
 	});
+	
+	function initIcsEvents(calendar) {
+		console.log("Init ICS list");
+		setTimeout(()=> {
+			calendar.getEvents().forEach(event => {
+				icsEvents.push(event);
+				console.log(JSON.stringify(event));
+			});
+		}, 100);
+	}
 </script>
     <!-- <div class="alert alert-warning" role="alert">
       Note: Most calls during August, due to summer vacations, will be <a href="https://www.w3.org/WoT/IG/wiki/Main_WoT_WebConf#Cancellations">cancelled</a>.
