@@ -64,11 +64,24 @@ group: "navigation"
 				  allDay : false // will make the time show
 				}
 			  ], */
-			eventTimeFormat: { hour: "numeric", minute: "2-digit" }, // timeZoneName: "short"
+			// eventTimeFormat: { hour: "numeric", minute: "2-digit" }, // timeZoneName: "short"
 			dateClick: function(arg) {
 				console.log(arg.date.toUTCString()); // use *UTC* methods on the native Date Object
 				// will output something like 'Sat, 01 Sep 2018 00:00:00 GMT'
 			},
+			eventClick: function(data, event, view) {
+				// $('[data-toggle="popover"]').popover();
+				/* var content = '<h3>'+data.title+'</h3>' + 
+					'<p><b>Start:</b> '+data.start+'<br />' + 
+					(data.end && '<p><b>End:</b> '+data.end+'</p>' || '');
+				tooltip.set({
+					'content.text': content
+				})
+				.reposition(event).show(event); */
+			},
+			/* eventRender: function (info) {
+			  $(info.el).tooltip({ title: info.event.title });     
+			}, */
 			loading: function (isLoading) {
 				if (isLoading) {
 					// loading...
@@ -76,7 +89,7 @@ group: "navigation"
 					console.log("loading DONE, collect events !!!!!!!");
 					initIcsEvents(calendar);
 				}
-			}
+			},
 		});
 
 		calendar.on('dateClick', function(info) {
