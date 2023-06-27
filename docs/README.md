@@ -45,6 +45,12 @@ When you want to add dependencies, like [jekyll-sitemap](https://github.com/jeky
 - Add the dependency to the Gemfile and run `bundle update` which will install the dependency
 - Run `bundle add jekyll-sitemap` which will install the dependency and modify the Gemfile automatically
 
+## Video Thumbnails
+
+When you are adding new videos, you should add thumbnails. 
+In order to have the consistency of the images, please use [this browser extension](https://chrome.google.com/webstore/detail/screenshot-youtube/gjoijpfmdhbjkkgnmahganhoinjjpohk).
+You can pick any particular point in the video but try to highlight the event or the specific property of the presentation.
+
 ## Netlify Configuration
 
 We are using [Netlify](https://www.netlify.com/) to build previews for PRs.
