@@ -19,4 +19,64 @@ General information about the Web of Things can be found on https://www.w3.org/W
   
 ---
 
-Repository Specific Content goes here
+Introduction about the specification or repo purpose
+
+## Logistics
+
+- Call information: We use the W3C Calendar. You can find the next CALL NAME call at https://www.w3.org/groups/wg/wot/calendar.
+- Wiki (contains agenda): WIKI LINK
+- [Contribution rules](./CONTRIBUTING.md)
+
+---
+
+## Publications
+
+- [Latest Editor's Draft](github.io link goes here) (syncs to this repository's main branch)
+- [Latest Working Draft](w3.org link goes here) (This is relevant for notes and REC-track until publication)
+- Recommendations:
+  - [Version X](https://example.com)
+  - [Version Y](https://example.com)
+- Other deliverables: (Examples are bindings)
+  - [Example Document A](https://example.com)
+  - [Example Document B](https://example.com) 
+
+## Instructions for Editors and Contributors
+
+If you have followed the [Contribution rules](./CONTRIBUTING.md) and want to contribute, please follow the instructions below.
+
+### Tooling
+
+In repositories like TD and Binding, you should not edit the index.html directly. That is why, please provide instructions for everyone below. An example is given.
+
+When contributing, please use the tooling as explained below:
+
+- Run `npm install`
+- Do your contributions to files X, Y, and Z.
+- Run `npm render`
+
+If you want to edit figures, their sources are found at X. Please use TOOL A to edit them.
+
+In order to generate the implementation report, the instructions are as follows:
+
+- Instruction 1
+- Instruction 2
+
+### Formatting
+
+Example: We use [EditorConfig](https://editorconfig.org/) and [Prettier](https://prettier.io/) to achieve consistency. See the config files in the root of this repository.
+
+## Instructions for Contributing to the Implementation Report
+
+If you have an implementation of this specification, you can submit inputs to help with the generation of the implementation report.
+Instructions are as follows:
+
+- Instruction 1
+- Instruction 2
+
+## Known Implementations
+
+The W3C WoT collects known implementations at <https://www.w3.org/WoT/developers/>. Implementations of REPO NAME are found under categories X, Y and Z.
+
+## Further Information
+
+Repository custom Content goes here
