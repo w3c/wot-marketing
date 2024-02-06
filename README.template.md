@@ -19,7 +19,7 @@ General information about the Web of Things can be found on https://www.w3.org/W
   
 ---
 
-Introduction about the specification or repo purpose
+Introduction about the specification or repo purpose can be put here.
 
 ## Logistics
 
@@ -27,18 +27,20 @@ Introduction about the specification or repo purpose
 - Wiki (contains agenda): WIKI LINK
 - [Contribution rules](./CONTRIBUTING.md)
 
----
-
 ## Publications
 
 - [Latest Editor's Draft](github.io link goes here) (syncs to this repository's main branch)
 - [Latest Working Draft](w3.org link goes here) (This is relevant for notes and REC-track until publication)
 - Recommendations:
-  - [Version X](https://example.com)
-  - [Version Y](https://example.com)
+  - [Version X](https://example.com) - [Repository Snapshot](example https://github.com/w3c/wot-thing-description/tree/REC1.1)
+  - [Version Y](https://example.com) - [Repository Snapshot](example https://github.com/w3c/wot-thing-description/tree/REC1.1)
 - Other deliverables: (Examples are bindings)
   - [Example Document A](https://example.com)
   - [Example Document B](https://example.com) 
+
+---
+
+<!-- The parts below do not apply to all repositories, change them as you see fit but consider them as a guideline -->
 
 ## Instructions for Editors and Contributors
 
@@ -73,10 +75,16 @@ Instructions are as follows:
 - Instruction 1
 - Instruction 2
 
+## Labeling Conventions
+
+We use the following labels for the purpose written next to them:
+
+- Label A: Purpose
+
 ## Known Implementations
 
 The W3C WoT collects known implementations at <https://www.w3.org/WoT/developers/>. Implementations of REPO NAME are found under categories X, Y and Z.
 
 ## Further Information
 
-Repository custom Content goes here
+Repository custom content goes here. Please change the title or add more titles below as you see fit.
