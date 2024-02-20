@@ -13,6 +13,13 @@
     <img alt="Stack Exchange questions" src="https://img.shields.io/stackexchange/stackoverflow/t/web-of-things?style=plastic"></a>
 </p>
 
+<p align="center">
+  <a href="https://example.com"> <!--  REC LINK -->
+    <img alt="Latest REC" src="https://img.shields.io/badge/W3C_REC-Latest-005a9c"></a>
+  <a href="https://example.com"> <!--  ED LINK -->
+    <img alt="Latest Editor's Draft" src="https://img.shields.io/badge/Editor's_Draft-Latest-fe914a"></a>
+</p>
+
 # Web of Things (WoT) REPO NAME
 
 General information about the Web of Things can be found on https://www.w3.org/WoT/.
