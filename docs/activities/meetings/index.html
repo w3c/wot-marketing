@@ -16,9 +16,6 @@ function updateTimezone() {
   // * target=_blank // Links
   var newSrc = "https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https://www.w3.org/groups/wg/wot/calendar/export&start_of_week=work";
   
-  // XXX should be removed
-  newSrc += "&tab=week&starting_hour=11"; // to make it work properly we need to adjust the hours based on the timezone
-  
   if (selVal != "BROWSER") {
 	// e.g., timezone=America/Montreal;
 	newSrc += "&timezone=" + selVal;
