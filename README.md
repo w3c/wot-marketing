@@ -1,35 +1,31 @@
-# Web of Things (WoT) Marketing
-[![Follow on Mastodon](https://img.shields.io/mastodon/follow/111609289932468076?domain=https%3A%2F%2Fw3c.social)](https://w3c.social/@wot)
-[![Follow on Twitter](https://img.shields.io/twitter/follow/W3C_WoT.svg?label=follow+W3C_WoT)](https://twitter.com/W3C_WoT)
-[![Stack Exchange questions](https://img.shields.io/stackexchange/stackoverflow/t/web-of-things?style=plastic)]( https://stackoverflow.com/questions/tagged/web-of-things)
+<p align="center">
+  <a href="https://w3.org/wot">
+    <img alt="Web of Things Homepage" src="https://www.w3.org/WoT/IG/wiki/images/8/8f/WOT-hz.svg" width="300" />
+  </a>
+</p>
 
-General information about the Web of Things can be found on https://www.w3.org/WoT/.
+<p align="center">
+  <a href="https://w3c.social/@wot">
+    <img alt="Follow on Mastodon" src="https://img.shields.io/mastodon/follow/111609289932468076?domain=https%3A%2F%2Fw3c.social"></a>
+  <a href="https://twitter.com/W3C_WoT">
+    <img alt="X (formerly Twitter) Follow" src="https://img.shields.io/twitter/follow/W3C_WoT"></a>
+  <a href="https://stackoverflow.com/questions/tagged/web-of-things">
+    <img alt="Stack Exchange questions" src="https://img.shields.io/stackexchange/stackoverflow/t/web-of-things?style=plastic"></a>
+</p>
+
+# Web of Things (WoT) Marketing
+
+General information about the Web of Things can be found at https://www.w3.org/WoT/.
   
 ---
-This repository is a collection of the material that will be and is used for marketing purposes 
-of the WoT standardization activity. The materials are:
 
-- Photos of recent events, found under images folder
-- Wikipedia content of Thing Description and Web of Things articles, found under wikipedia folder
+This repository is a collection of material used for communication and marketing purposes of the WoT standardization activity. The materials are:
+
+- Photos of recent events, found under the [images](/images) folder
 - WoT web page content, found under [docs](/docs) folder
 
+## Logistics
 
-## Contributing
-
-### Content
-
-* You can contribute even if you don't have access by forking this repository and doing a Pull Request from your fork.
-* When you are doing a Pull Request, try to make little changes per Pull Request, which makes it easier to review.
-
-### Issues
-
-#### Feature Request
-
-Please use the [issue template for feature requests](feature-issueTemplate.md) that we have set up.
-
-Your issues will be discussed in the weekly meeting and will be brought to W3C Project Management if it requires a substantial change.
-
-#### Bug Reports
-
-### Press Releases
-* [DRAFT - REC 2020](https://cdn.statically.io/gh/w3c/wot-marketing/65ebf830/docs/pressrelease-wot-rec.html?env=dev)
+- Call information: We use the W3C Calendar. You can find the next WoT Marketing call at https://www.w3.org/groups/wg/wot/calendar.
+- Wiki (contains agenda): https://www.w3.org/WoT/IG/wiki/Marketing_WebConf
+- [Contribution rules](./CONTRIBUTING.md)
