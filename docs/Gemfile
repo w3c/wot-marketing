@@ -6,4 +6,10 @@ source "https://rubygems.org"
 
 gem "webrick", "~> 1.8"
 
-gem "jekyll", "~> 4.2"
+gem 'jekyll', '~> 4.4', '>= 4.4.1'
+
+gem 'csv', '~> 3.0'
+
+gem 'base64', '~> 0.3.0'
+
+gem 'bigdecimal', '~> 3.2', '>= 3.2.3'
