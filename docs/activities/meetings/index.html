@@ -14,7 +14,10 @@ function updateTimezone() {
   // * tab=week or tab=day etc
   // * start_of_week=work // Mo-Fr
   // * target=_blank // Links
-  var newSrc = "https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https://www.w3.org/groups/wg/wot/calendar/export&start_of_week=work";
+  var newSrc = "https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https://www.w3.org/groups/wg/wot/calendar/export&start_of_week=work&plugin_event_tooltip=false";
+  
+  // event status - change the look of the event description depending on the status
+  newSrc += "&style-event-status-cancelled=true&style-event-status-confirmed=true&style-event-status-tentative=true"
   
   if (selVal != "BROWSER") {
 	// e.g., timezone=America/Montreal;
