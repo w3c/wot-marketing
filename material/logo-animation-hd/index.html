@@ -1,0 +1,182 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WoT Animation</title>
+<style>
+    /*Logo animation basic*/
+    #animation {
+        display: flex;
+        width: 612px;
+        height: 196px;
+    }
+    #o {
+        padding-left: 4%;
+        padding-right: 6%;
+    }
+
+    .letterContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #oLetter {
+        width: 0%;
+        animation:
+           popIn 0.35s 0.35s forwards cubic-bezier(.25, 0, .851, 1.53),
+           spin 1.2s 4.6s forwards cubic-bezier(0.74, 0.01, 0.23, 0.99);
+    }
+
+    .line {
+        position: absolute;
+       z-index: -1;
+       opacity: 0%;
+
+    }
+
+    #left {
+         animation: 
+            showLater 1s forwards step-end,
+            slideLeft 0.6s 1s 5,
+            endLeft 0.5s 4s forwards;
+    }
+
+    #right {
+         animation: 
+            showLater 1s forwards step-end,
+            slideRight .6s 1s 5,
+            endRight 0.5s 4s forwards;
+    }
+
+    
+
+    .letter{
+        animation-name: popIn;
+        animation-duration: 0.35s;
+        animation-fill-mode: forwards;
+        animation-timing-function:  cubic-bezier(.25, 0, .851, 1.53);
+        width: 0%;
+    }
+
+    /* Use the following classes to trigger specif animations from js*/
+    .slideLeft{
+        animation: slideLeft .8s 1s infinite,   
+    }
+
+    .slideRight{
+        animation: slideRight .8s 1s infinite,   
+    }
+
+    .endLeft{
+        animation:  endLeft 0.5s 4s forwards;
+    }
+
+    .endRight{
+        animation:  endRight 0.5s 4s forwards;
+    }
+
+    .spin {
+        animation: spin 1.2s forwards cubic-bezier(0.74, 0.01, 0.23, 0.99);;
+    }
+
+    .pop {
+        animation: popIn 0.35s forwards cubic-bezier(.25, 0, .851, 1.53),
+    }
+
+    /*animations */
+    @keyframes popIn {
+        from {
+             width: 0%; 
+        }
+     
+        80% {
+             width: 100%;
+        }
+        to {
+            width: 95%;
+        }
+    
+    }
+     @keyframes spin {
+        to {
+            transform: rotate(-360deg);
+        }
+    
+    }
+
+    @keyframes slideLeft {
+        from {
+            display: block;
+            transform: translateX(0);
+        }
+
+        to {
+            display: block;
+            transform: translateX(-125%);
+        }
+    }
+
+    @keyframes slideRight {
+        from {
+            display: block;
+            transform: translateX(0);
+        }
+
+        to {
+            display: block;
+            transform: translateX(120%);
+        }
+    }
+
+    @keyframes endRight {
+        from {
+            display: block;
+            transform: translateX(0);
+        }
+
+        to {
+            display: block;
+            transform: translateX(80%);
+        }
+    }
+
+    @keyframes endLeft {
+        from {
+            display: block;
+            transform: translateX(0);
+        }
+
+        to {
+            display: block;
+            transform: translateX(-65%);
+        }
+    }
+
+    @keyframes showLater {
+        from {
+            opacity: 0%;
+        }
+        to {
+            opacity: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+    <div id="animation">
+        <div id="w" class="letterContainer" >
+            <img class="letter" src="./w.png" alt="">
+        </div>
+        <div id="o" class="letterContainer" style="position: relative;">
+            <img id="oLetter" src="./o.png"  alt="">
+            <img id="left" class="line" src="./line.png" alt="">
+            <img id="right" class="line" src="./line.png" alt="">
+        </div>
+        <div id="t" class="letterContainer" >
+            <img class="letter" src="./t.png" style="animation-delay: 0.70s;"alt="">
+        </div>
+    </div>
+   
+</body>
+</html>
