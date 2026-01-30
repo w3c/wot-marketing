@@ -110,7 +110,7 @@
 
 	<div style="min-height: 100vh; background-color: white; display: flex; flex-direction: column;">
 
-		<div class="container-fluid" style="width: 95%;"><!--  -->
+		<div class="container-fluid" style="width: 100%; max-width: 1280px;"><!--  -->
 			<a class="navbar-brand bg-white" href="{{'/' | absolute_url }}"><!--   -->
 				<img src="{{'/images/logo-mini-blue.svg' | absolute_url }}" alt="Web of Things" height="30" />
 			</a>
@@ -135,7 +135,9 @@
 		</div>
 
 		<!-- Static navbar -->
-		<nav class="navbar navbar-default" style="width: 95%; margin-left: 2.5%;"> <!-- navbar-fixed-top  -->
+		<nav class="navbar navbar-default"
+			style="width: 100%; max-width: 1280px; margin-left: 50%; transform: translateX(-50%);">
+			<!-- navbar-fixed-top  -->
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
