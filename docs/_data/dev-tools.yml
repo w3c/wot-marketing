@@ -8,7 +8,8 @@ Thing Description:
         languages: ["JSON", "yaml"]
         is_obsolete: false
       - name: "Eclipse Edi{TD}or"
-        link: "https://eclipse.github.io/editdor/"
+        link: "https://github.com/eclipse-editdor/editdor"
+        languages: ["JSON"]
         description: "Web-based editor for creating and visualizing Thing Descriptions and Thing Models"
         is_obsolete: false
       - name: "TD code"
@@ -199,7 +200,7 @@ WoT Development:
       - name: "Eclipse Thingweb - Online Things for Testing"
         link: "https://thingweb.io/services/#online-things-for-testing"
         description: "Publicly accessible test Things hosted by Eclipse Thingweb"
-        languages: []
+        languages: ["TS", "Python"]
         is_obsolete: false
 
 Others:
