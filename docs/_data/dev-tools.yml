@@ -38,12 +38,12 @@ Thing Description:
       - name: "Eclipse Thingweb node-wot"
         link: "https://github.com/eclipse/thingweb.node-wot"
         description: "W3C WoT implementation in Node.js supporting multiple bindings, with documentation at [Thingweb](http://thingweb.io)"
-        languages: ["TypeScript"]
+        languages: ["TS"]
         is_obsolete: false
       - name: "WoT Integration for Eclipse Ditto"
         link: "https://www.eclipse.org/ditto/basic-wot-integration.html"
         description: "Links managed digital twins to WoT Thing Models to create Thing Descriptions with API details"
-        languages: ["Java", "TypeScript"]
+        languages: ["Java", "TS"]
         is_obsolete: false
       - name: "SANE WoT Servient"
         link: "https://github.com/sane-city/wot-servient"
@@ -67,12 +67,12 @@ Thing Description:
       - name: "Eclipse Thingweb node-wot"
         link: "https://github.com/eclipse/thingweb.node-wot"
         description: "W3C WoT implementation in Node.js supporting multiple bindings, with documentation at [Thingweb](http://thingweb.io)"
-        languages: ["TypeScript"]
+        languages: ["TS"]
         is_obsolete: false
       - name: "Node-Red Node generator"
         link: "https://github.com/node-red/node-red-nodegen"
         description: "CLI tool generating Node-RED Consumer Nodes from a TD (see [slides](wot_nodegen.pptx) or [video](wot_nodegen.mp4))"
-        languages: ["JavaScript"]
+        languages: ["JS"]
         is_obsolete: false
       - name: "dart_wot"
         link: "https://pub.dev/packages/dart_wot"
@@ -126,7 +126,7 @@ Thing Description:
       - name: "Zion"
         link: "https://github.com/vaimee/zion"
         description: "Scalable Thing Description Directory"
-        languages: ["TypeScript"]
+        languages: ["TS"]
         is_obsolete: false
 
 WoT Development:
@@ -136,12 +136,12 @@ WoT Development:
       - name: "WoT Application Manager (WAM)"
         link: "https://github.com/eclipse-thingweb/wam"
         description: "CLI tool for quick node-wot project setup (see [slides](WoT%20Application%20Manager.pdf) or [video](https://youtu.be/bPxIfZo7jns))"
-        languages: ["TypeScript"]
+        languages: ["TS"]
         is_obsolete: false
       - name: "WoT API Development Environment (WADE)"
         link: "https://github.com/tum-esi/wade"
         description: "Desktop application (node-wot, Vue.js, Electron) for interaction, profiling, and Mashup generation"
-        languages: ["JavaScript"]
+        languages: ["JS"]
         is_obsolete: true
       - name: "WoT FXUI"
         link: "https://github.com/danielpeintner/wot-fxui"
@@ -156,7 +156,7 @@ WoT Development:
       - name: "BLAST - Block Applications For Things"
         link: "https://github.com/wintechis/blast/"
         description: "Blockly-based interface for building WoT Consumer applications. [Live Demo](https://wintechis.github.io/blast/)"
-        languages: ["JavaScript"]
+        languages: ["JS"]
         is_obsolete: false
 
   - title: "WoT Software and Middleware"
@@ -175,7 +175,7 @@ WoT Development:
       - name: "WebThings Gateway"
         link: "https://github.com/WebThingsIO/gateway/"
         description: "Open source gateway bridging IoT protocols to the Web of Things for smart buildings"
-        languages: ["JavaScript"]
+        languages: ["JS"]
         is_obsolete: false
       - name: "UA Edge Translator"
         link: "https://github.com/OPCFoundation/UA-EdgeTranslator"
@@ -219,5 +219,5 @@ Others:
       - name: "WoTify"
         link: "https://github.com/eclipse-thingweb/wotify"
         description: "Tool for converting IoT metadata formats to WoT Thing Descriptions"
-        languages: ["TypeScript"]
+        languages: ["TS"]
         is_obsolete: false

@@ -109,42 +109,7 @@ group: "navigation"
 						<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
 						<td style="text-align: center; vertical-align: middle; white-space: nowrap;">
 							{% if tool.languages %}
-							{% for lang in tool.languages %}
-							{% assign lang_logo = "" %}
-							{% case lang %}
-							{% when "JavaScript" %}
-							{% assign lang_logo = "js.png" %}
-							{% when "TypeScript" %}
-							{% assign lang_logo = "ts.png" %}
-							{% when "Java" %}
-							{% assign lang_logo = "java.png" %}
-							{% when "Rust" %}
-							{% assign lang_logo = "rust.svg" %}
-							{% when "Python" %}
-							{% assign lang_logo = "python.svg" %}
-							{% when "Dart" %}
-							{% assign lang_logo = "dart.png" %}
-							{% when "Kotlin" %}
-							{% assign lang_logo = "kotlin.png" %}
-							{% when "C#" %}
-							{% assign lang_logo = "csharp.svg" %}
-							{% when "Go" %}
-							{% assign lang_logo = "go.png" %}
-							{% when "JSON" %}
-							{% assign lang_logo = "json.png" %}
-							{% when "yaml" %}
-							{% assign lang_logo = "yaml.png" %}
-							{% when "No-Code" %}
-							{% assign lang_logo = "no-code.png" %}
-							{% endcase %}
-							{% if lang_logo != "" %}
-							<img src="{{ site.baseurl }}/images/programming-languages/{{ lang_logo }}"
-								title="{{ lang }}" alt="{{ lang }}" alt="{{ lang }}"
-								style="width: 25px; height: 25px; object-fit: contain; margin: 0 2px;">
-							{% else %}
-							<!-- {{ lang }} -->
-							{% endif %}
-							{% endfor %}
+							<span style="font-weight: bold;">{{ tool.languages | join:", " }}</span>
 							{% else %}
 							<!-- Unknown -->
 							{% endif %}
