@@ -8,9 +8,8 @@ Thing Description:
         languages: ["JSON", "yaml"]
         is_obsolete: false
       - name: "Eclipse Edi{TD}or"
-        link: "https://github.com/eclipse-editdor/editdor"
+        link: "https://eclipse.github.io/editdor/"
         description: "Web-based editor for creating and visualizing Thing Descriptions and Thing Models"
-        languages: ["JSON"]
         is_obsolete: false
       - name: "TD code"
         link: "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code"
@@ -55,7 +54,7 @@ Thing Description:
         link: "https://github.com/agmangas/wot-py"
         description: "Experimental Python implementation of W3C WoT supporting multiple bindings"
         languages: ["Python"]
-        is_obsolete: false
+        is_obsolete: true
       - name: "SIFIS-Home: wot-serve"
         link: "https://github.com/sifis-home/wot-serve"
         description: "Rust crate for serving WoT Things"
@@ -89,7 +88,7 @@ Thing Description:
         link: "https://github.com/agmangas/wot-py"
         description: "Experimental Python implementation of W3C WoT supporting multiple bindings"
         languages: ["Python"]
-        is_obsolete: false
+        is_obsolete: true
       - name: "kotlin-wot"
         link: "https://github.com/eclipse-thingweb/kotlin-wot"
         description: "Framework for implementing Web of Things in Kotlin"
@@ -99,7 +98,7 @@ Thing Description:
         link: "https://github.com/tum-esi/wot.net"
         description: ".NET Standard 2.0 WoT Consumer implementation"
         languages: ["C#"]
-        is_obsolete: false
+        is_obsolete: true
 
   - title: "TD Directories"
     description: "Services hosting a Thing Description Directory implementing the W3C WoT Discovery specification"
@@ -143,12 +142,12 @@ WoT Development:
         link: "https://github.com/tum-esi/wade"
         description: "Desktop application (node-wot, Vue.js, Electron) for interaction, profiling, and Mashup generation"
         languages: ["JavaScript"]
-        is_obsolete: false
+        is_obsolete: true
       - name: "WoT FXUI"
         link: "https://github.com/danielpeintner/wot-fxui"
         description: "Desktop, mobile, and browser UI for interacting with Things via TDs"
         languages: ["Java"]
-        is_obsolete: false
+        is_obsolete: true
       - name: "Thing Control Panel"
         link: "https://github.com/hololinked-dev/thing-control-panel"
         description: "Visual admin client for WoT-compliant Things. [Live Demo](https://control-panel.hololinked.dev/)"
@@ -166,6 +165,7 @@ WoT Development:
       - name: "sayWoT!"
         link: "https://www.evosoft.com/en/digitalization-offering/saywot/"
         description: "Industrial-grade implementation integrating devices into Siemens software"
+        languages: ["No-Code", "Proprietary"]
         is_obsolete: false
       - name: "Web of Things Test Bench"
         link: "https://github.com/tum-esi/testbench"
@@ -191,7 +191,7 @@ WoT Development:
         link: "https://github.com/tum-esi/shadow-thing"
         description: "CLI tool for creating and deploying Things for simulation, proxying, or translation"
         languages: ["Java"]
-        is_obsolete: false
+        is_obsolete: true
 
   - title: "Online Things"
     description: "Publicly accessible Things for testing Consumer applications and learning TD communication"
@@ -199,6 +199,7 @@ WoT Development:
       - name: "Eclipse Thingweb - Online Things for Testing"
         link: "https://thingweb.io/services/#online-things-for-testing"
         description: "Publicly accessible test Things hosted by Eclipse Thingweb"
+        languages: ["Various"]
         is_obsolete: false
 
 Others:

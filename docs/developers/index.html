@@ -3,6 +3,11 @@ layout: default
 title: Developers
 group: "navigation"
 ---
+<style>
+	.obsolete-tool {
+		background-color: #f2f2f2;
+	}
+</style>
 <div>
 	<h2>Developer Resources</h2>
 
@@ -98,7 +103,9 @@ group: "navigation"
 					{% for tool in subcategory.tools %}
 					<tr class="tool-row {% if tool.is_obsolete %}obsolete-tool{% endif %}"
 						data-languages="{{ tool.languages | join: ' ' | default: 'Unknown' }}">
-						<td><a href="{{ tool.link }}">{{ tool.name }}</a></td>
+						<td><a href="{{ tool.link }}">{{ tool.name }}</a>{% if tool.is_obsolete %} <span
+								style="font-size: 0.85em; color: #666; font-style: italic;">(Obsolete)</span>{% endif %}
+						</td>
 						<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
 						<td style="text-align: center; vertical-align: middle; white-space: nowrap;">
 							{% if tool.languages %}
