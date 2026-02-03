@@ -134,9 +134,11 @@ group: "navigation"
 							{% assign lang_logo = "json.png" %}
 							{% when "yaml" %}
 							{% assign lang_logo = "yaml.png" %}
+							{% when "No-Code" %}
+							{% assign lang_logo = "no-code.png" %}
 							{% endcase %}
 							{% if lang_logo != "" %}
-							<img src="{{ site.baseurl }}/images/programming%20languages/{{ lang_logo }}"
+							<img src="{{ site.baseurl }}/images/programming-languages/{{ lang_logo }}"
 								title="{{ lang }}" alt="{{ lang }}" alt="{{ lang }}"
 								style="width: 25px; height: 25px; object-fit: contain; margin: 0 2px;">
 							{% else %}

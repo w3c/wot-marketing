@@ -165,7 +165,7 @@ WoT Development:
       - name: "sayWoT!"
         link: "https://www.evosoft.com/en/digitalization-offering/saywot/"
         description: "Industrial-grade implementation integrating devices into Siemens software"
-        languages: ["No-Code", "Proprietary"]
+        languages: ["No-Code"]
         is_obsolete: false
       - name: "Web of Things Test Bench"
         link: "https://github.com/tum-esi/testbench"
@@ -199,7 +199,7 @@ WoT Development:
       - name: "Eclipse Thingweb - Online Things for Testing"
         link: "https://thingweb.io/services/#online-things-for-testing"
         description: "Publicly accessible test Things hosted by Eclipse Thingweb"
-        languages: ["Various"]
+        languages: []
         is_obsolete: false
 
 Others:
