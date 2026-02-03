@@ -13,22 +13,67 @@ group: "navigation"
 	</p>
 
 	<!-- Filter Buttons -->
-	<div style="display:flex; align-items: center; margin-bottom: 22px; gap: 26px;">
-		<div class="btn-group" role="group" aria-label="Tool Categories">
-			<button type="button" class="btn btn-primary filter-btn active" onclick="filterTools('all')">All</button>
-			{% for category in site.data.dev-tools %}
-			{% assign category_name = category[0] %}
-			{% assign category_slug = category_name | slugify %}
-			<button type="button" class="btn btn-default filter-btn" onclick="filterTools('{{ category_slug }}')">{{
-				category_name }}</button>
-			{% endfor %}
+	<div style="display:flex; flex-direction: column; gap: 16px; margin-bottom: 30px; margin-top: 16px;">
+
+		<!-- Category Filters -->
+		<div style="display:flex; flex-wrap: wrap; align-items: center; gap: 26px;">
+			<div class="btn-group" role="group" aria-label="Tool Categories">
+				{% assign total_tool_count = 0 %}
+				{% for category in site.data.dev-tools %}
+				{% for subcategory in category[1] %}
+				{% assign total_tool_count = total_tool_count | plus: subcategory.tools.size %}
+				{% endfor %}
+				{% endfor %}
+				<button type="button" class="btn btn-primary filter-btn active category-btn" data-filter="all"
+					style="display:flex; align-items: center; gap: 6px;" onclick="setCategory('all')">All <span
+						class="tool-count" data-category="all" style="font-weight: bold; font-size: 15px">{{
+						total_tool_count }}</span></button>
+				{% for category in site.data.dev-tools %}
+				{% assign category_name = category[0] %}
+				{% assign category_slug = category_name | slugify %}
+				{% assign category_tool_count = 0 %}
+				{% for subcategory in category[1] %}
+				{% assign category_tool_count = category_tool_count | plus: subcategory.tools.size %}
+				{% endfor %}
+				<button type="button" class="btn btn-default filter-btn category-btn" data-filter="{{ category_slug }}"
+					style="display:flex; align-items: center; gap: 6px;" onclick="setCategory('{{ category_slug }}')">{{
+					category_name }} <span class="tool-count" data-category="{{ category_slug }}"
+						style="font-weight: bold; font-size: 15px">{{ category_tool_count
+						}}</span></button>
+				{% endfor %}
+			</div>
+			<div class="btn btn-default filter-btn" style="display:flex; align-items: center; gap: 6px;"
+				onclick="toggleObsolete()">
+				<input id="obsoleteToggle" class="form-check-input" type="checkbox"
+					style="margin:0;height: 14px; width: 14px; cursor: pointer;" checked="true" />
+				<label class=" form-check-label" for="obsolete" style="margin:0; cursor: pointer;">Show
+					obsolete</label>
+			</div>
 		</div>
-		<div class="btn btn-default filter-btn" style="display:flex; align-items: center; gap: 6px;"
-			onclick="toggleObsolete()">
-			<input id="obsoleteToggle" class="form-check-input" type="checkbox"
-				style="margin:0;height: 14px; width: 14px" checked="true" />
-			<label class=" form-check-label" for="obsolete" style="margin:0">Show
-				obsolete</label>
+
+		<!-- Language Filters -->
+		<div class="btn-group" role="group" aria-label="Tool Languages">
+			<button type="button" class="btn btn-primary filter-btn active language-btn" data-lang="all"
+				onclick="setLanguage('all')">All</button>
+			{% assign all_languages = "" | split: "" %}
+			{% for category in site.data.dev-tools %}
+			{% for subcategory in category[1] %}
+			{% for tool in subcategory.tools %}
+			{% if tool.languages %}
+			{% for lang in tool.languages %}
+			{% assign all_languages = all_languages | push: lang %}
+			{% endfor %}
+			{% else %}
+			{% assign all_languages = all_languages | push: "Unknown" %}
+			{% endif %}
+			{% endfor %}
+			{% endfor %}
+			{% endfor %}
+			{% assign unique_languages = all_languages | uniq | sort %}
+			{% for lang in unique_languages %}
+			<button type="button" class="btn btn-default filter-btn language-btn" data-lang="{{ lang }}"
+				onclick="setLanguage('{{ lang }}')">{{ lang }}</button>
+			{% endfor %}
 		</div>
 	</div>
 
@@ -38,133 +83,247 @@ group: "navigation"
 	{% assign category_slug = category_name | slugify %}
 	{% assign subcategories = category[1] %}
 
-	<div id="{{ category_slug }}" class="tool-category">
+	<div id="{{ category_slug }}" class="tool-category" data-slug="{{ category_slug }}">
 		{% for subcategory in subcategories %}
-		<h4>{{ subcategory.title }}</h4>
-		<p>{{ subcategory.description }}</p>
-		<table style="margin-bottom:40px; border-radius: 10px;" class="table table-bordered">
-			<thead>
-				<tr>
-					<th style="width: 30%;">Name</th>
-					<th>Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for tool in subcategory.tools %}
-				<tr class="tool-row {% if tool.is_obsolete %}obsolete-tool{% endif %}">
-					<td><a href="{{ tool.link }}">{{ tool.name }}</a></td>
-					<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+		<div class="tool-subcategory">
+			<h4>{{ subcategory.title }}</h4>
+			<p>{{ subcategory.description }}</p>
+			<table style="margin-bottom:40px; border-radius: 10px;" class="table table-bordered">
+				<thead>
+					<tr>
+						<th style="width: 25%;">Name</th>
+						<th>Description</th>
+						<th style="width: 0;">Languages</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for tool in subcategory.tools %}
+					<tr class="tool-row {% if tool.is_obsolete %}obsolete-tool{% endif %}"
+						data-languages="{{ tool.languages | join: ' ' | default: 'Unknown' }}">
+						<td><a href="{{ tool.link }}">{{ tool.name }}</a></td>
+						<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
+						<td style="text-align: center; vertical-align: middle; white-space: nowrap;">
+							{% if tool.languages %}
+							{% for lang in tool.languages %}
+							{% assign lang_logo = "" %}
+							{% case lang %}
+							{% when "JavaScript" %}
+							{% assign lang_logo = "js.png" %}
+							{% when "TypeScript" %}
+							{% assign lang_logo = "ts.png" %}
+							{% when "Java" %}
+							{% assign lang_logo = "java.png" %}
+							{% when "Rust" %}
+							{% assign lang_logo = "rust.svg" %}
+							{% when "Python" %}
+							{% assign lang_logo = "python.svg" %}
+							{% when "Dart" %}
+							{% assign lang_logo = "dart.png" %}
+							{% when "Kotlin" %}
+							{% assign lang_logo = "kotlin.png" %}
+							{% when "C#" %}
+							{% assign lang_logo = "csharp.svg" %}
+							{% when "Go" %}
+							{% assign lang_logo = "go.png" %}
+							{% when "JSON" %}
+							{% assign lang_logo = "json.png" %}
+							{% when "yaml" %}
+							{% assign lang_logo = "yaml.png" %}
+							{% endcase %}
+							{% if lang_logo != "" %}
+							<img src="{{ site.baseurl }}/images/programming%20languages/{{ lang_logo }}"
+								title="{{ lang }}" alt="{{ lang }}" alt="{{ lang }}"
+								style="width: 25px; height: 25px; object-fit: contain; margin: 0 2px;">
+							{% else %}
+							<!-- {{ lang }} -->
+							{% endif %}
+							{% endfor %}
+							{% else %}
+							<!-- Unknown -->
+							{% endif %}
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
 		{% endfor %}
 	</div>
 	{% endfor %}
 
 	<script>
-		function filterTools(category) {
+		var state = {
+			category: 'all',
+			language: 'all',
+			showObsolete: true
+		};
 
-			if (category === 'all') {
-				// Show all categories
-				var categories = document.getElementsByClassName('tool-category');
-				for (var i = 0; i < categories.length; i++) {
-					categories[i].style.display = 'block';
-				}
-			} else {
-				// Hide all categories
-				var categories = document.getElementsByClassName('tool-category');
-				for (var i = 0; i < categories.length; i++) {
-					categories[i].style.display = 'none';
-				}
+		function setCategory(category) {
+			state.category = category;
+			updateUI();
+		}
 
-				// Show selected category
-				var selected = document.getElementById(category);
-				if (selected) {
-					selected.style.display = 'block';
-				}
-			}
-
-			// Update button states
-			var buttons = document.getElementsByClassName('filter-btn');
-			// The last button is the obsolete toggle, which we don't want to affect with category active state logic in the same way,
-			// or we should be careful with selectors. The current structure has the obsolete toggle separate from the category group.
-			// However, the obsolete toggle container has 'filter-btn' class too in the original code? 
-			// Let's look at the class structure I generated.
-			// The category buttons are in a .btn-group. The obsolete button is outside.
-			// But I gave the obsolete button "btn btn-default filter-btn" classes too. 
-			// I should probably refrain from adding 'active' class to the obsolete toggle button via this loop or distinguish them.
-
-			// Let's refine the update button states logic to only target the category buttons.
-			// We can select children of the btn-group.
-
-			var group = document.querySelector('.btn-group[aria-label="Tool Categories"]');
-			var catButtons = group.getElementsByTagName('button');
-
-			for (var i = 0; i < catButtons.length; i++) {
-				catButtons[i].classList.remove('active');
-				catButtons[i].classList.remove('btn-primary');
-				catButtons[i].classList.add('btn-default');
-
-				// Check if this button corresponds to the category
-				// 'all' case
-				if (category === 'all' && catButtons[i].textContent.trim() === 'All') {
-					catButtons[i].classList.add('active');
-					catButtons[i].classList.add('btn-primary');
-					catButtons[i].classList.remove('btn-default');
-				}
-				// Other categories
-				else if (catButtons[i].getAttribute('onclick').includes("'" + category + "'")) {
-					catButtons[i].classList.add('active');
-					catButtons[i].classList.add('btn-primary');
-					catButtons[i].classList.remove('btn-default');
-				}
-			}
+		function setLanguage(lang) {
+			state.language = lang;
+			updateUI();
 		}
 
 		function toggleObsolete() {
 			var checkBox = document.getElementById('obsoleteToggle');
-			// If onclick is on the div, we might trigger this twice if we click the checkbox itself?
-			// The checkbox has no onclick, the div has onclick="toggleObsolete()".
-			// If I click the label or the div, it runs. If I click the checkbox... 
-			// Let's just fix the sync. 
-			// Actually, if the div has onclick, and I click the checkbox, the checkbox state changes AND the event bubbles to div.
-			// Easier: let the function handle the checkbox state flip if the target wasn't the checkbox.
-
-			// But for now, let's assume standard behavior:
-			// We want to filter rows based on the checkbox.
-
-			var show = checkBox.checked;
-			// If the user clicked the div (not the checkbox directly), we might need to manually toggle the checkbox?
-			// In standard Bootstrap/HTML, if you wrap input in label, it toggles. Here they are siblings in a div.
-			// Let's checking the event target in a more robust implementation might be needed, but for now let's just 
-			// run the logic based on current checked state. 
-
-			// Wait, if I click the DIV, the checkbox might NOT toggle automatically unless the script does it.
-			// The original code had onclick="toggleObsolete" on the div.
-			// Let's modify the function to toggle the checkbox if it wasn't the target.
-
 			if (event.target !== checkBox) {
 				checkBox.checked = !checkBox.checked;
-				show = checkBox.checked;
+			}
+			state.showObsolete = checkBox.checked;
+			updateUI();
+		}
+
+		function updateUI() {
+			// Update Category Buttons
+			var catButtons = document.getElementsByClassName('category-btn');
+			for (var i = 0; i < catButtons.length; i++) {
+				var btn = catButtons[i];
+				var filter = btn.getAttribute('data-filter');
+				if (filter === state.category) {
+					btn.classList.add('active', 'btn-primary');
+					btn.classList.remove('btn-default');
+				} else {
+					btn.classList.remove('active', 'btn-primary');
+					btn.classList.add('btn-default');
+				}
 			}
 
-			var obsoleteRows = document.getElementsByClassName('obsolete-tool');
-			for (var i = 0; i < obsoleteRows.length; i++) {
-				obsoleteRows[i].style.display = show ? 'table-row' : 'none';
+			// Update Language Buttons
+			var langButtons = document.getElementsByClassName('language-btn');
+			for (var i = 0; i < langButtons.length; i++) {
+				var btn = langButtons[i];
+				var lang = btn.getAttribute('data-lang');
+				if (lang === state.language) {
+					btn.classList.add('active', 'btn-primary');
+					btn.classList.remove('btn-default');
+				} else {
+					btn.classList.remove('active', 'btn-primary');
+					btn.classList.add('btn-default');
+				}
+			}
+
+			updateCounters();
+
+			// Filter Logic
+			var categories = document.getElementsByClassName('tool-category');
+			for (var i = 0; i < categories.length; i++) {
+				var catDiv = categories[i];
+				var catSlug = catDiv.getAttribute('data-slug');
+
+				// Category Level Check (only check active state, don't hide yet)
+				var isCategoryActive = (state.category === 'all' || state.category === catSlug);
+
+				if (!isCategoryActive) {
+					catDiv.style.display = 'none';
+					continue;
+				}
+
+				var visibleSubcats = 0;
+				var subcategories = catDiv.getElementsByClassName('tool-subcategory');
+
+				for (var j = 0; j < subcategories.length; j++) {
+					var subcatDiv = subcategories[j];
+					var visibleRowsInSubcat = 0;
+					var rows = subcatDiv.getElementsByClassName('tool-row');
+
+					for (var k = 0; k < rows.length; k++) {
+						var row = rows[k];
+						var rowLangs = row.getAttribute('data-languages'); // space separated
+						var isObsolete = row.classList.contains('obsolete-tool');
+
+						var langMatch = false;
+						if (state.language === 'all') {
+							langMatch = true;
+						} else {
+							// Check if state.language is in rowLangs
+							if (rowLangs && rowLangs.split(' ').includes(state.language)) {
+								langMatch = true;
+							}
+						}
+						var obsoleteMatch = (state.showObsolete || !isObsolete);
+
+						if (langMatch && obsoleteMatch) {
+							row.style.display = 'table-row';
+							visibleRowsInSubcat++;
+						} else {
+							row.style.display = 'none';
+						}
+					}
+
+					if (visibleRowsInSubcat > 0) {
+						subcatDiv.style.display = 'block';
+						visibleSubcats++;
+					} else {
+						subcatDiv.style.display = 'none';
+					}
+				}
+
+				// Hide category if no subcategories visible
+				if (visibleSubcats > 0) {
+					catDiv.style.display = 'block';
+				} else {
+					catDiv.style.display = 'none';
+				}
 			}
 		}
 
-		// Initial run to set state correct on load (if needed, though default is checked)
-		window.onload = function () {
-			// Ensure correct category visibility (default all visible)
-			// Ensure obsolete visibility matches checkbox
-			var checkBox = document.getElementById('obsoleteToggle');
-			var show = checkBox.checked;
-			var obsoleteRows = document.getElementsByClassName('obsolete-tool');
-			for (var i = 0; i < obsoleteRows.length; i++) {
-				obsoleteRows[i].style.display = show ? 'table-row' : 'none';
+		function updateCounters() {
+			var totalVisible = 0;
+			var categoryCounts = {};
+
+			// Iterate all categories to count (ignoring current category filter)
+			var categories = document.getElementsByClassName('tool-category');
+			for (var i = 0; i < categories.length; i++) {
+				var catDiv = categories[i];
+				var catSlug = catDiv.getAttribute('data-slug');
+				var catCount = 0;
+
+				var rows = catDiv.getElementsByClassName('tool-row');
+				for (var k = 0; k < rows.length; k++) {
+					var row = rows[k];
+					var rowLangs = row.getAttribute('data-languages');
+					var isObsolete = row.classList.contains('obsolete-tool');
+
+					var langMatch = false;
+					if (state.language === 'all') {
+						langMatch = true;
+					} else {
+						if (rowLangs && rowLangs.split(' ').includes(state.language)) {
+							langMatch = true;
+						}
+					}
+					var obsoleteMatch = (state.showObsolete || !isObsolete);
+
+					if (langMatch && obsoleteMatch) {
+						catCount++;
+						totalVisible++;
+					}
+				}
+				categoryCounts[catSlug] = catCount;
 			}
+
+			// Update text
+			var counters = document.getElementsByClassName('tool-count');
+			for (var i = 0; i < counters.length; i++) {
+				var el = counters[i];
+				var slug = el.getAttribute('data-category');
+				if (slug === 'all') {
+					el.textContent = totalVisible;
+				} else {
+					el.textContent = categoryCounts[slug] || 0;
+				}
+			}
+		}
+
+		// Initial run
+		window.onload = function () {
+			var checkBox = document.getElementById('obsoleteToggle');
+			state.showObsolete = checkBox.checked;
+			updateUI();
 		};
 	</script>
 </div>
