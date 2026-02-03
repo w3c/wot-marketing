@@ -63,8 +63,6 @@ group: "navigation"
 			{% for lang in tool.languages %}
 			{% assign all_languages = all_languages | push: lang %}
 			{% endfor %}
-			{% else %}
-			{% assign all_languages = all_languages | push: "Unknown" %}
 			{% endif %}
 			{% endfor %}
 			{% endfor %}
