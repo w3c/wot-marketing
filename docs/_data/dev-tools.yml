@@ -139,6 +139,11 @@ WoT Development:
         description: "CLI tool for quick node-wot project setup (see [slides](WoT%20Application%20Manager.pdf) or [video](https://youtu.be/bPxIfZo7jns))"
         languages: ["TS"]
         is_obsolete: false
+      - name: "wot-wrench"
+        link: "https://gitlab.com/jaller94/wot-wrench"
+        description: "A web app to control Web of Things devices"
+        languages: ["JS"]
+        is_obsolete: false
       - name: "WoT API Development Environment (WADE)"
         link: "https://github.com/tum-esi/wade"
         description: "Desktop application (node-wot, Vue.js, Electron) for interaction, profiling, and Mashup generation"
@@ -193,6 +198,11 @@ WoT Development:
         description: "CLI tool for creating and deploying Things for simulation, proxying, or translation"
         languages: ["Java"]
         is_obsolete: true
+      - name: "wot-anything"
+        link: "https://gitlab.com/webthings/wot-anything"
+        description: "Easily extensible Web of Things server"
+        languages: ["No-Code"]
+        is_obsolete: false
 
   - title: "Online Things"
     description: "Publicly accessible Things for testing Consumer applications and learning TD communication"
