@@ -32,6 +32,11 @@ Thing Description:
         description: "Rust crate for producing and consuming Thing Descriptions"
         languages: ["Rust"]
         is_obsolete: false
+      - name: "thingdescription-go"
+        link: "https://github.com/wot-oss/thingdescription-go"
+        description: "TD parser in Golang, based on Quicktype"
+        languages: ["Go"]
+        is_obsolete: false
 
   - title: "Runtimes for TD Exposers"
     description: "Libraries implementing a WoT Runtime for building Things according to WoT paradigms"
@@ -51,16 +56,16 @@ Thing Description:
         description: "Java implementation of W3C WoT supporting multiple bindings, inspired by node-wot"
         languages: ["Java"]
         is_obsolete: false
-      - name: "wot-py"
-        link: "https://github.com/agmangas/wot-py"
-        description: "Experimental Python implementation of W3C WoT supporting multiple bindings"
-        languages: ["Python"]
-        is_obsolete: true
       - name: "SIFIS-Home: wot-serve"
         link: "https://github.com/sifis-home/wot-serve"
         description: "Rust crate for serving WoT Things"
         languages: ["Rust"]
         is_obsolete: false
+      - name: "wot-py"
+        link: "https://github.com/agmangas/wot-py"
+        description: "Experimental Python implementation of W3C WoT supporting multiple bindings"
+        languages: ["Python"]
+        is_obsolete: true
 
   - title: "Runtimes for TD Consumers"
     description: "Libraries implementing a WoT Runtime for consuming Things and building custom applications"
@@ -85,11 +90,6 @@ Thing Description:
         description: "Java implementation of W3C WoT supporting multiple bindings, inspired by node-wot"
         languages: ["Java"]
         is_obsolete: false
-      - name: "wot-py"
-        link: "https://github.com/agmangas/wot-py"
-        description: "Experimental Python implementation of W3C WoT supporting multiple bindings"
-        languages: ["Python"]
-        is_obsolete: true
       - name: "kotlin-wot"
         link: "https://github.com/eclipse-thingweb/kotlin-wot"
         description: "Framework for implementing Web of Things in Kotlin"
@@ -99,6 +99,11 @@ Thing Description:
         link: "https://github.com/tum-esi/wot.net"
         description: ".NET Standard 2.0 WoT Consumer implementation"
         languages: ["C#"]
+        is_obsolete: true
+      - name: "wot-py"
+        link: "https://github.com/agmangas/wot-py"
+        description: "Experimental Python implementation of W3C WoT supporting multiple bindings"
+        languages: ["Python"]
         is_obsolete: true
 
   - title: "TD Directories"
@@ -144,16 +149,11 @@ WoT Development:
         description: "A web app to control Web of Things devices"
         languages: ["JS"]
         is_obsolete: false
-      - name: "WoT API Development Environment (WADE)"
-        link: "https://github.com/tum-esi/wade"
-        description: "Desktop application (node-wot, Vue.js, Electron) for interaction, profiling, and Mashup generation"
-        languages: ["JS"]
-        is_obsolete: true
-      - name: "WoT FXUI"
-        link: "https://github.com/danielpeintner/wot-fxui"
-        description: "Desktop, mobile, and browser UI for interacting with Things via TDs"
-        languages: ["Java"]
-        is_obsolete: true
+      - name: "tmc"
+        link: "https://github.com/wot-oss/tmc"
+        description: "Tooling around TM catalogs, including hosting and CLI interaction"
+        languages: ["Go"]
+        is_obsolete: false
       - name: "Thing Control Panel"
         link: "https://github.com/hololinked-dev/thing-control-panel"
         description: "Visual admin client for WoT-compliant Things. [Live Demo](https://control-panel.hololinked.dev/)"
@@ -164,6 +164,16 @@ WoT Development:
         description: "Blockly-based interface for building WoT Consumer applications. [Live Demo](https://wintechis.github.io/blast/)"
         languages: ["JS"]
         is_obsolete: false
+      - name: "WoT API Development Environment (WADE)"
+        link: "https://github.com/tum-esi/wade"
+        description: "Desktop application (node-wot, Vue.js, Electron) for interaction, profiling, and Mashup generation"
+        languages: ["JS"]
+        is_obsolete: true
+      - name: "WoT FXUI"
+        link: "https://github.com/danielpeintner/wot-fxui"
+        description: "Desktop, mobile, and browser UI for interacting with Things via TDs"
+        languages: ["Java"]
+        is_obsolete: true
 
   - title: "WoT Software and Middleware"
     description: "Deployable software providing functions like gateway, proxying, simulation, and testing"
@@ -193,16 +203,16 @@ WoT Development:
         description: "Python-based stack for developing WoT Things with Virtual Objects (VOs). Documentation [here](https://netmode.gitlab.io/vo-wot/)"
         languages: ["Python"]
         is_obsolete: false
-      - name: "Shadow Thing"
-        link: "https://github.com/tum-esi/shadow-thing"
-        description: "CLI tool for creating and deploying Things for simulation, proxying, or translation"
-        languages: ["Java"]
-        is_obsolete: true
       - name: "wot-anything"
         link: "https://gitlab.com/webthings/wot-anything"
         description: "Easily extensible Web of Things server"
         languages: ["No-Code"]
         is_obsolete: false
+      - name: "Shadow Thing"
+        link: "https://github.com/tum-esi/shadow-thing"
+        description: "CLI tool for creating and deploying Things for simulation, proxying, or translation"
+        languages: ["Java"]
+        is_obsolete: true
 
   - title: "Online Things"
     description: "Publicly accessible Things for testing Consumer applications and learning TD communication"
@@ -212,10 +222,14 @@ WoT Development:
         description: "Publicly accessible test Things hosted by Eclipse Thingweb"
         languages: ["TS", "Python"]
         is_obsolete: false
+      - name: "wot-oss/thingmodels"
+        link: "https://github.com/wot-oss/thingmodels"
+        description: "A set of Thing Models for real devices (currently Siemens)"
+        languages: ["JSON"]
+        is_obsolete: false
 
 Others:
   - title: "Other Tooling"
-    description: ""
     tools:
       - name: "WoT Plugin for AASX Package Explorer"
         link: "https://github.com/admin-shell-io/aasx-package-explorer"
@@ -231,4 +245,14 @@ Others:
         link: "https://github.com/eclipse-thingweb/wotify"
         description: "Tool for converting IoT metadata formats to WoT Thing Descriptions"
         languages: ["TS"]
+        is_obsolete: false
+      - name: "tmtd"
+        link: "https://github.com/wot-oss/tmtd"
+        description: "TM to TD converter in Golang"
+        languages: ["Go"]
+        is_obsolete: false
+      - name: "wot-dtdl-converter"
+        link: "https://github.com/wot-oss/wot-dtdl-converter"
+        description: "Converter between DTDL and WoT Thing Models"
+        languages: ["C#"]
         is_obsolete: false
