@@ -1,0 +1,186 @@
+"Thing Description":
+  - title: "Editing and Validation"
+    description: "Tools that allow editing and validation of TDs or that allow parsing them in programming language specific environments."
+    tools:
+      - name: "Thing Description Playground"
+        link: "https://playground.thingweb.io/"
+        description: "Reference TD Validation suite with additional tools such as OpenAPI generation, linting, and more."
+        is_obsolete: false
+      - name: "Eclipse Edi{TD}or"
+        link: "https://eclipse.github.io/editdor/"
+        description: "Web-based Editor for easy creation and visualization of Thing Descriptions and Thing Models."
+        is_obsolete: false
+      - name: "TD code"
+        link: "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code"
+        description: "Visual Studio Code plugin for TD validation and code snippets."
+        is_obsolete: false
+      - name: "Java API for Thing Descriptions of WoT (JDTs)"
+        link: "https://github.com/oeg-upm/wot-jtd"
+        description: "Java module for creating Java Thing Description ORM from a TD in JSON-LD or RDF triples."
+        is_obsolete: false
+      - name: "Eclipse Ditto :: WoT :: Model"
+        link: "https://github.com/eclipse/ditto/tree/master/wot/model"
+        description: "Java module for using TDs and TMs."
+        is_obsolete: false
+      - name: "SIFIS-Home: wot-td"
+        link: "https://github.com/sifis-home/wot-td"
+        description: "Rust crate to produce and consume Web of Things Thing Descriptions."
+        is_obsolete: false
+
+  - title: "Runtimes for TD Exposers"
+    description: "Software libraries that implement a WoT Runtime so that Things can be built following the WoT paradigms."
+    tools:
+      - name: "Eclipse Thingweb node-wot"
+        link: "https://github.com/eclipse/thingweb.node-wot"
+        description: "W3C Web of Things implementation in Node.js with support for multiple bindings. A website is available at [Thingweb](http://thingweb.io)."
+        is_obsolete: false
+      - name: "WoT Integration for Eclipse Ditto"
+        link: "https://www.eclipse.org/ditto/basic-wot-integration.html"
+        description: "Ditto managed digital twins can be linked to WoT Thing Models from which Ditto can create Thing Descriptions containing the API descriptions of the twins."
+        is_obsolete: false
+      - name: "SANE WoT Servient"
+        link: "https://github.com/sane-city/wot-servient"
+        description: "W3C Web of Things implementation in Java with support for multiple bindings, inspired by node-wot."
+        is_obsolete: false
+      - name: "wot-py"
+        link: "https://github.com/agmangas/wot-py"
+        description: "Experimental W3C Web of Things implementation in Python with support for multiple bindings."
+        is_obsolete: false
+      - name: "SIFIS-Home: wot-serve"
+        link: "https://github.com/sifis-home/wot-serve"
+        description: "Rust crate to serve WoT Things."
+        is_obsolete: false
+
+  - title: "Runtimes for TD Consumers"
+    description: "Software libraries that implement a WoT Runtime so that Things can be consumed and custom applications can be built on top, following the WoT paradigms."
+    tools:
+      - name: "Eclipse Thingweb node-wot"
+        link: "https://github.com/eclipse/thingweb.node-wot"
+        description: "W3C Web of Things implementation in Node.js with support for multiple bindings. A website is available at [Thingweb](http://thingweb.io)."
+        is_obsolete: false
+      - name: "Node-Red Node generator"
+        link: "https://github.com/node-red/node-red-nodegen"
+        description: "CLI tool to generate WoT Consumer Nodes for [Node-RED](https://nodered.org/) from a TD. Additional information at [slides](wot_nodegen.pptx) or [video](wot_nodegen.mp4)."
+        is_obsolete: false
+      - name: "dart_wot"
+        link: "https://pub.dev/packages/dart_wot"
+        description: "W3C Web of Things implementation written in Dart with support for HTTP and CoAP."
+        is_obsolete: false
+      - name: "SANE WoT Servient"
+        link: "https://github.com/sane-city/wot-servient"
+        description: "W3C Web of Things implementation in Java with support for multiple bindings, inspired by node-wot."
+        is_obsolete: false
+      - name: "wot-py"
+        link: "https://github.com/agmangas/wot-py"
+        description: "Experimental W3C Web of Things implementation in Python with support for multiple bindings."
+        is_obsolete: false
+      - name: "kotlin-wot"
+        link: "https://github.com/eclipse-thingweb/kotlin-wot"
+        description: "A Framework for implementing Web of Things in Kotlin."
+        is_obsolete: false
+      - name: "WoT.Net"
+        link: "https://github.com/tum-esi/wot.net"
+        description: "A .Net Standard 2.0 WoT Consumer Implementation."
+        is_obsolete: false
+
+  - title: "TD Directories"
+    description: "Services that host a Thing Description Directory which implements the W3C WoT Discovery specification."
+    tools:
+      - name: "TinyIoT Thing Directory"
+        link: "https://github.com/TinyIoT/thing-directory"
+        description: "TDD implementation with features such as DNS-SD registration, XPath 3.0 and JSONPath queries, authentication, and more."
+        is_obsolete: false
+      - name: "WoTHive Thing Directory"
+        link: "https://github.com/oeg-upm/wot-hive"
+        description: "TDD implementation with features such as SPARQL and JSONPath queries, SHACL-based Validation, and more."
+        is_obsolete: false
+      - name: "Eclipse Thingweb Domus TDD API"
+        link: "https://github.com/eclipse-thingweb/domus-tdd-api"
+        description: "TDD implementation with features such as SPARQL queries, contextual validation, and more, with a flexible storage mechanism."
+        is_obsolete: false
+      - name: "SIFIS-Home: wot-discovery"
+        link: "https://github.com/sifis-home/wot-discovery"
+        description: "Tiny implementation of WoT Discovery written in Rust."
+        is_obsolete: false
+      - name: "Zion"
+        link: "https://github.com/vaimee/zion"
+        description: "A scalable Thing Description Directory."
+        is_obsolete: false
+
+"WoT Development":
+  - title: "Development Environments and UIs"
+    description: "Ready-to-use tools that help the development of WoT applications by providing user interfaces and other tooling."
+    tools:
+      - name: "WoT Application Manager (WAM)"
+        link: "https://github.com/eclipse-thingweb/wam"
+        description: "CLI tool to quickly set up node-wot application projects. Additional information is available at [slides](WoT%20Application%20Manager.pdf) or [video](https://youtu.be/bPxIfZo7jns)."
+        is_obsolete: false
+      - name: "WoT API Development Environment (WADE)"
+        link: "https://github.com/tum-esi/wade"
+        description: "Desktop application based on node-wot, Vue.js, and Electron that allows interaction with Things, profiling, Mashup generation."
+        is_obsolete: false
+      - name: "WoT FXUI"
+        link: "https://github.com/danielpeintner/wot-fxui"
+        description: "UI for desktop, mobile, and browser for interacting with Things based on their TDs."
+        is_obsolete: false
+      - name: "Thing Control Panel"
+        link: "https://github.com/hololinked-dev/thing-control-panel"
+        description: "Visual admin client for Things compliant with WoT, like a control panel, to test or interact with a server that has no GUI. [Live Demo](https://control-panel.hololinked.dev/)."
+        is_obsolete: false
+      - name: "BLAST - Block Applications For Things"
+        link: "https://github.com/wintechis/blast/"
+        description: "Blockly-based programming interface to build WoT Consumer applications leveraging Thingweb node-wot. [Live Demo](https://wintechis.github.io/blast/)."
+        is_obsolete: false
+
+  - title: "WoT Software and Middleware"
+    description: "Ready to use software applications that can be deployed in order to provide a certain functionality in a system, such as gateway and proxying, simulation, and testing services."
+    tools:
+      - name: "sayWoT!"
+        link: "https://www.evosoft.com/en/digitalization-offering/saywot/"
+        description: "Industrial-grade implementation that allows integration of devices into Siemens software products."
+        is_obsolete: false
+      - name: "Web of Things Test Bench"
+        link: "https://github.com/tum-esi/testbench"
+        description: "CLI-based tool that tests a WoT Thing by executing interactions automatically, based on its TD."
+        is_obsolete: false
+      - name: "WebThings Gateway"
+        link: "https://github.com/WebThingsIO/gateway/"
+        description: "An open source Web of Things gateway for smart buildings, which bridges a wide range of IoT protocols to the Web of Things."
+        is_obsolete: false
+      - name: "UA Edge Translator"
+        link: "https://github.com/OPCFoundation/UA-EdgeTranslator"
+        description: "An industrial connectivity edge reference application translating from proprietary protocols to OPC UA, leveraging the W3C Web of Things (WoT) Thing Descriptions."
+        is_obsolete: false
+      - name: "VO-WoT"
+        link: "https://gitlab.eclipse.org/eclipse-research-labs/nephele-project/vo-wot"
+        description: "A Python-based stack that allows developing WoT Things with additional functionalities, called Virtual Objects (VOs). A documentation website is available [here](https://netmode.gitlab.io/vo-wot/)."
+        is_obsolete: false
+      - name: "Shadow Thing"
+        link: "https://github.com/tum-esi/shadow-thing"
+        description: "CLI-based tool for creating and deploying a Thing based on its TD for simulation, proxy, or protocol translation purposes."
+        is_obsolete: false
+
+  - title: "Online Things"
+    description: "Publicly accessible Things that can be used during development to test Consumer applications or learn how to understand Thing Descriptions to communicate with Things."
+    tools:
+      - name: "Eclipse Thingweb - Online Things for Testing"
+        link: "https://thingweb.io/services/#online-things-for-testing"
+        description: "Publicly accessible things for testing purposes hosted by Eclipse Thingweb."
+        is_obsolete: false
+
+"Others":
+  - title: "Other Tooling"
+    description: ""
+    tools:
+      - name: "WoT Plugin for AASX Package Explorer"
+        link: "https://github.com/admin-shell-io/aasx-package-explorer"
+        description: "Plugin to import/export WoT Thing Description into Asset Administration Shell definitions."
+        is_obsolete: false
+      - name: "Eclipse LMOS"
+        link: "https://eclipse.dev/lmos/"
+        description: "Open-source, cloud-native platform for building and running Multi-Agent systems."
+        is_obsolete: false
+      - name: "WoTify"
+        link: "https://github.com/eclipse-thingweb/wotify"
+        description: "Tool to convert various IoT metadata formats to WoT Thing Descriptions."
+        is_obsolete: false

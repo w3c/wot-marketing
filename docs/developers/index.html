@@ -13,63 +13,36 @@ group: "navigation"
 	</p>
 
 	<!-- Filter Buttons -->
-	<div class="row" style="padding: 15px; margin-bottom: 15px;">
+	<div style="display:flex; align-items: center; margin-bottom: 22px; gap: 26px;">
 		<div class="btn-group" role="group" aria-label="Tool Categories">
-			<button type="button" class="btn btn-primary filter-btn active" onclick="filterTools('td-tooling')">Thing
-				Description</button>
-			<button type="button" class="btn btn-default filter-btn" onclick="filterTools('wot-development')">WoT
-				Development</button>
-			<button type="button" class="btn btn-default filter-btn" onclick="filterTools('others')">Others</button>
+			<button type="button" class="btn btn-primary filter-btn active" onclick="filterTools('all')">All</button>
+			{% for category in site.data.dev-tools %}
+			{% assign category_name = category[0] %}
+			{% assign category_slug = category_name | slugify %}
+			<button type="button" class="btn btn-default filter-btn" onclick="filterTools('{{ category_slug }}')">{{
+				category_name }}</button>
+			{% endfor %}
+		</div>
+		<div class="btn btn-default filter-btn" style="display:flex; align-items: center; gap: 6px;"
+			onclick="toggleObsolete()">
+			<input id="obsoleteToggle" class="form-check-input" type="checkbox"
+				style="margin:0;height: 14px; width: 14px" checked="true" />
+			<label class=" form-check-label" for="obsolete" style="margin:0">Show
+				obsolete</label>
 		</div>
 	</div>
 
-	<!-- Category: Thing Description -->
-	<div id="td-tooling" class="tool-category">
-		<h4>Editing and Validation</h4>
-		<p>Tools that allow editing and validation of TDs or that allow parsing them in programming language specific
-			environments.</p>
-		<table style="margin-bottom:40px" class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th style="width: 30%;">Name</th>
-					<th>Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="https://playground.thingweb.io/">Thing Description Playground</a></td>
-					<td>Reference TD Validation suite with additional tools such as OpenAPI generation, linting, and
-						more.</td>
-				</tr>
-				<tr>
-					<td><a href="https://eclipse.github.io/editdor/">Eclipse Edi{TD}or</a></td>
-					<td>Web-based Editor for easy creation and visualization of Thing Descriptions and Thing Models.
-					</td>
-				</tr>
-				<tr>
-					<td><a href="https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code">TD code</a></td>
-					<td>Visual Studio Code plugin for TD validation and code snippets.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/oeg-upm/wot-jtd">Java API for Thing Descriptions of WoT (JDTs)</a>
-					</td>
-					<td>Java module for creating Java Thing Description ORM from a TD in JSON-LD or RDF triples.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/eclipse/ditto/tree/master/wot/model">Eclipse Ditto :: WoT ::
-							Model</a></td>
-					<td>Java module for using TDs and TMs.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/sifis-home/wot-td">SIFIS-Home: wot-td</a></td>
-					<td>Rust crate to produce and consume Web of Things Thing Descriptions.</td>
-				</tr>
-			</tbody>
-		</table>
+	<!-- Dynamic Tool Categories -->
+	{% for category in site.data.dev-tools %}
+	{% assign category_name = category[0] %}
+	{% assign category_slug = category_name | slugify %}
+	{% assign subcategories = category[1] %}
 
-		<h4>Runtimes for TD Exposers</h4>
-		<p>Software libraries that implement a WoT Runtime so that Things can be built following the WoT paradigms.</p>
-		<table style="margin-bottom:40px" class="table table-striped table-hover">
+	<div id="{{ category_slug }}" class="tool-category">
+		{% for subcategory in subcategories %}
+		<h4>{{ subcategory.title }}</h4>
+		<p>{{ subcategory.description }}</p>
+		<table style="margin-bottom:40px; border-radius: 10px;" class="table table-bordered">
 			<thead>
 				<tr>
 					<th style="width: 30%;">Name</th>
@@ -77,277 +50,121 @@ group: "navigation"
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><a href="https://github.com/eclipse/thingweb.node-wot">Eclipse Thingweb node-wot</a></td>
-					<td>W3C Web of Things implementation in Node.js with support for multiple bindings. A website is
-						available at <a href="http://thingweb.io">Thingweb</a>.</td>
+				{% for tool in subcategory.tools %}
+				<tr class="tool-row {% if tool.is_obsolete %}obsolete-tool{% endif %}">
+					<td><a href="{{ tool.link }}">{{ tool.name }}</a></td>
+					<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
 				</tr>
-				<tr>
-					<td><a href="https://www.eclipse.org/ditto/basic-wot-integration.html">WoT Integration for Eclipse
-							Ditto</a></td>
-					<td>Ditto managed digital twins can be linked to WoT Thing Models from which Ditto can create Thing
-						Descriptions containing the API descriptions of the twins.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/sane-city/wot-servient">SANE WoT Servient</a></td>
-					<td>W3C Web of Things implementation in Java with support for multiple bindings, inspired by
-						node-wot.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/agmangas/wot-py">wot-py</a></td>
-					<td>Experimental W3C Web of Things implementation in Python with support for multiple bindings.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/sifis-home/wot-serve">SIFIS-Home: wot-serve</a></td>
-					<td>Rust crate to serve WoT Things.</td>
-				</tr>
+				{% endfor %}
 			</tbody>
 		</table>
-
-		<h4>Runtimes for TD Consumers</h4>
-		<p>Software libraries that implement a WoT Runtime so that Things can be consumed and custom applications can be
-			built on top, following the WoT paradigms.</p>
-		<table style="margin-bottom:40px" class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th style="width: 30%;">Name</th>
-					<th>Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="https://github.com/eclipse/thingweb.node-wot">Eclipse Thingweb node-wot</a></td>
-					<td>W3C Web of Things implementation in Node.js with support for multiple bindings. A website is
-						available at <a href="http://thingweb.io">Thingweb</a>.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/node-red/node-red-nodegen">Node-Red Node generator</a></td>
-					<td>CLI tool to generate WoT Consumer Nodes for <a href="https://nodered.org/">Node-RED</a> from a
-						TD. Additional information at <a href="wot_nodegen.pptx">slides</a> or <a
-							href="wot_nodegen.mp4">video</a>.</td>
-				</tr>
-				<tr>
-					<td><a href="https://pub.dev/packages/dart_wot">dart_wot</a></td>
-					<td>W3C Web of Things implementation written in Dart with support for HTTP and CoAP.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/sane-city/wot-servient">SANE WoT Servient</a></td>
-					<td>W3C Web of Things implementation in Java with support for multiple bindings, inspired by
-						node-wot.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/agmangas/wot-py">wot-py</a></td>
-					<td>Experimental W3C Web of Things implementation in Python with support for multiple bindings.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/eclipse-thingweb/kotlin-wot">kotlin-wot</a></td>
-					<td>A Framework for implementing Web of Things in Kotlin.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/tum-esi/wot.net">WoT.Net</a></td>
-					<td>A .Net Standard 2.0 WoT Consumer Implementation.</td>
-				</tr>
-			</tbody>
-		</table>
-
-		<h4>TD Directories</h4>
-		<p>Services that host a Thing Description Directory which implements the W3C WoT Discovery specification.</p>
-		<table style="margin-bottom:40px" class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th style="width: 30%;">Name</th>
-					<th>Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="https://github.com/TinyIoT/thing-directory">TinyIoT Thing Directory</a></td>
-					<td>TDD implementation with features such as DNS-SD registration, XPath 3.0 and JSONPath queries,
-						authentication, and more.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/oeg-upm/wot-hive">WoTHive Thing Directory</a></td>
-					<td>TDD implementation with features such as SPARQL and JSONPath queries, SHACL-based Validation,
-						and more.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/eclipse-thingweb/domus-tdd-api">Eclipse Thingweb Domus TDD API</a>
-					</td>
-					<td>TDD implementation with features such as SPARQL queries, contextual validation, and more, with a
-						flexible storage mechanism.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/sifis-home/wot-discovery">SIFIS-Home: wot-discovery</a></td>
-					<td>Tiny implementation of WoT Discovery written in Rust.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/vaimee/zion">Zion</a></td>
-					<td>A scalable Thing Description Directory.</td>
-				</tr>
-			</tbody>
-		</table>
+		{% endfor %}
 	</div>
-
-	<!-- Category: WoT Development -->
-	<div id="wot-development" class="tool-category" style="display: none;">
-		<h4>Development Environments and UIs</h4>
-		<p>Ready-to-use tools that help the development of WoT applications by providing user interfaces and other
-			tooling.</p>
-		<table style="margin-bottom:40px" class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th style="width: 30%;">Name</th>
-					<th>Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="https://github.com/eclipse-thingweb/wam">WoT Application Manager (WAM)</a></td>
-					<td>CLI tool to quickly set up node-wot application projects. Additional information is available at
-						<a href="WoT%20Application%20Manager.pdf">slides</a> or <a
-							href="https://youtu.be/bPxIfZo7jns">video</a>.
-					</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/tum-esi/wade">WoT API Development Environment (WADE)</a></td>
-					<td>Desktop application based on node-wot, Vue.js, and Electron that allows interaction with Things,
-						profiling, Mashup generation.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/danielpeintner/wot-fxui">WoT FXUI</a></td>
-					<td>UI for desktop, mobile, and browser for interacting with Things based on their TDs.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/hololinked-dev/thing-control-panel">Thing Control Panel</a></td>
-					<td>Visual admin client for Things compliant with WoT, like a control panel, to test or interact
-						with a server that has no GUI. <a href="https://control-panel.hololinked.dev/">Live Demo</a>.
-					</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/wintechis/blast/">BLAST - Block Applications For Things</a></td>
-					<td>Blockly-based programming interface to build WoT Consumer applications leveraging Thingweb
-						node-wot. <a href="https://wintechis.github.io/blast/">Live Demo</a>.</td>
-				</tr>
-			</tbody>
-		</table>
-
-		<h4>WoT Software and Middleware</h4>
-		<p>Ready to use software applications that can be deployed in order to provide a certain functionality in a
-			system, such as gateway and proxying, simulation, and testing services.</p>
-		<table style="margin-bottom:40px" class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th style="width: 30%;">Name</th>
-					<th>Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="https://www.evosoft.com/en/digitalization-offering/saywot/">sayWoT!</a></td>
-					<td>Industrial-grade implementation that allows integration of devices into Siemens software
-						products.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/tum-esi/testbench">Web of Things Test Bench</a></td>
-					<td>CLI-based tool that tests a WoT Thing by executing interactions automatically, based on its TD.
-					</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/WebThingsIO/gateway/">WebThings Gateway</a></td>
-					<td>An open source Web of Things gateway for smart buildings, which bridges a wide range of IoT
-						protocols to the Web of Things.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/OPCFoundation/UA-EdgeTranslator">UA Edge Translator</a></td>
-					<td>An industrial connectivity edge reference application translating from proprietary protocols to
-						OPC UA, leveraging the W3C Web of Things (WoT) Thing Descriptions.</td>
-				</tr>
-				<tr>
-					<td><a href="https://gitlab.eclipse.org/eclipse-research-labs/nephele-project/vo-wot">VO-WoT</a>
-					</td>
-					<td>A Python-based stack that allows developing WoT Things with additional functionalities, called
-						Virtual Objects (VOs). A documentation website is available <a
-							href="https://netmode.gitlab.io/vo-wot/">here</a>.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/tum-esi/shadow-thing">Shadow Thing</a></td>
-					<td>CLI-based tool for creating and deploying a Thing based on its TD for simulation, proxy, or
-						protocol translation purposes.</td>
-				</tr>
-			</tbody>
-		</table>
-
-		<h4>Online Things</h4>
-		<p>Publicly accessible Things that can be used during development to test Consumer applications or learn how to
-			understand Thing Descriptions to communicate with Things.</p>
-		<table style="margin-bottom:40px" class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th style="width: 30%;">Name</th>
-					<th>Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="https://thingweb.io/services/#online-things-for-testing">Eclipse Thingweb - Online
-							Things for Testing</a></td>
-					<td>Publicly accessible things for testing purposes hosted by Eclipse Thingweb.</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
-	<!-- Category: Others -->
-	<div id="others" class="tool-category" style="display: none;">
-		<h4>Other Tooling</h4>
-		<table style="margin-bottom:40px" class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th style="width: 30%;">Name</th>
-					<th>Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="https://github.com/admin-shell-io/aasx-package-explorer">WoT Plugin for AASX Package
-							Explorer</a></td>
-					<td>Plugin to import/export WoT Thing Description into Asset Administration Shell definitions.</td>
-				</tr>
-				<tr>
-					<td><a href="https://eclipse.dev/lmos/">Eclipse LMOS</a></td>
-					<td>Open-source, cloud-native platform for building and running Multi-Agent systems.</td>
-				</tr>
-				<tr>
-					<td><a href="https://github.com/eclipse-thingweb/wotify">WoTify</a></td>
-					<td>Tool to convert various IoT metadata formats to WoT Thing Descriptions.</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	{% endfor %}
 
 	<script>
 		function filterTools(category) {
-			// Hide all categories
-			var categories = document.getElementsByClassName('tool-category');
-			for (var i = 0; i < categories.length; i++) {
-				categories[i].style.display = 'none';
-			}
 
-			// Show selected category
-			document.getElementById(category).style.display = 'block';
+			if (category === 'all') {
+				// Show all categories
+				var categories = document.getElementsByClassName('tool-category');
+				for (var i = 0; i < categories.length; i++) {
+					categories[i].style.display = 'block';
+				}
+			} else {
+				// Hide all categories
+				var categories = document.getElementsByClassName('tool-category');
+				for (var i = 0; i < categories.length; i++) {
+					categories[i].style.display = 'none';
+				}
+
+				// Show selected category
+				var selected = document.getElementById(category);
+				if (selected) {
+					selected.style.display = 'block';
+				}
+			}
 
 			// Update button states
 			var buttons = document.getElementsByClassName('filter-btn');
-			for (var i = 0; i < buttons.length; i++) {
-				buttons[i].classList.remove('active');
-				buttons[i].classList.remove('btn-primary');
-				buttons[i].classList.add('btn-default');
-				if (buttons[i].onclick.toString().includes(category)) {
-					buttons[i].classList.add('active');
-					buttons[i].classList.add('btn-primary');
-					buttons[i].classList.remove('btn-default');
+			// The last button is the obsolete toggle, which we don't want to affect with category active state logic in the same way,
+			// or we should be careful with selectors. The current structure has the obsolete toggle separate from the category group.
+			// However, the obsolete toggle container has 'filter-btn' class too in the original code? 
+			// Let's look at the class structure I generated.
+			// The category buttons are in a .btn-group. The obsolete button is outside.
+			// But I gave the obsolete button "btn btn-default filter-btn" classes too. 
+			// I should probably refrain from adding 'active' class to the obsolete toggle button via this loop or distinguish them.
+
+			// Let's refine the update button states logic to only target the category buttons.
+			// We can select children of the btn-group.
+
+			var group = document.querySelector('.btn-group[aria-label="Tool Categories"]');
+			var catButtons = group.getElementsByTagName('button');
+
+			for (var i = 0; i < catButtons.length; i++) {
+				catButtons[i].classList.remove('active');
+				catButtons[i].classList.remove('btn-primary');
+				catButtons[i].classList.add('btn-default');
+
+				// Check if this button corresponds to the category
+				// 'all' case
+				if (category === 'all' && catButtons[i].textContent.trim() === 'All') {
+					catButtons[i].classList.add('active');
+					catButtons[i].classList.add('btn-primary');
+					catButtons[i].classList.remove('btn-default');
+				}
+				// Other categories
+				else if (catButtons[i].getAttribute('onclick').includes("'" + category + "'")) {
+					catButtons[i].classList.add('active');
+					catButtons[i].classList.add('btn-primary');
+					catButtons[i].classList.remove('btn-default');
 				}
 			}
 		}
+
+		function toggleObsolete() {
+			var checkBox = document.getElementById('obsoleteToggle');
+			// If onclick is on the div, we might trigger this twice if we click the checkbox itself?
+			// The checkbox has no onclick, the div has onclick="toggleObsolete()".
+			// If I click the label or the div, it runs. If I click the checkbox... 
+			// Let's just fix the sync. 
+			// Actually, if the div has onclick, and I click the checkbox, the checkbox state changes AND the event bubbles to div.
+			// Easier: let the function handle the checkbox state flip if the target wasn't the checkbox.
+
+			// But for now, let's assume standard behavior:
+			// We want to filter rows based on the checkbox.
+
+			var show = checkBox.checked;
+			// If the user clicked the div (not the checkbox directly), we might need to manually toggle the checkbox?
+			// In standard Bootstrap/HTML, if you wrap input in label, it toggles. Here they are siblings in a div.
+			// Let's checking the event target in a more robust implementation might be needed, but for now let's just 
+			// run the logic based on current checked state. 
+
+			// Wait, if I click the DIV, the checkbox might NOT toggle automatically unless the script does it.
+			// The original code had onclick="toggleObsolete" on the div.
+			// Let's modify the function to toggle the checkbox if it wasn't the target.
+
+			if (event.target !== checkBox) {
+				checkBox.checked = !checkBox.checked;
+				show = checkBox.checked;
+			}
+
+			var obsoleteRows = document.getElementsByClassName('obsolete-tool');
+			for (var i = 0; i < obsoleteRows.length; i++) {
+				obsoleteRows[i].style.display = show ? 'table-row' : 'none';
+			}
+		}
+
+		// Initial run to set state correct on load (if needed, though default is checked)
+		window.onload = function () {
+			// Ensure correct category visibility (default all visible)
+			// Ensure obsolete visibility matches checkbox
+			var checkBox = document.getElementById('obsoleteToggle');
+			var show = checkBox.checked;
+			var obsoleteRows = document.getElementsByClassName('obsolete-tool');
+			for (var i = 0; i < obsoleteRows.length; i++) {
+				obsoleteRows[i].style.display = show ? 'table-row' : 'none';
+			}
+		};
 	</script>
 </div>
