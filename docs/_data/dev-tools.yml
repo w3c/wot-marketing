@@ -37,6 +37,16 @@ Thing Description:
         description: "TD parser in Golang, based on Quicktype"
         languages: ["Go"]
         is_obsolete: false
+      - name: "tmtd"
+        link: "https://github.com/wot-oss/tmtd"
+        description: "TM to TD converter in Golang"
+        languages: ["Go"]
+        is_obsolete: false
+      - name: "wot-dtdl-converter"
+        link: "https://github.com/wot-oss/wot-dtdl-converter"
+        description: "Converter between DTDL and WoT Thing Models"
+        languages: ["C#"]
+        is_obsolete: false
 
   - title: "Runtimes for TD Exposers"
     description: "Libraries implementing a WoT Runtime for building Things according to WoT paradigms"
@@ -245,14 +255,4 @@ Others:
         link: "https://github.com/eclipse-thingweb/wotify"
         description: "Tool for converting IoT metadata formats to WoT Thing Descriptions"
         languages: ["TS"]
-        is_obsolete: false
-      - name: "tmtd"
-        link: "https://github.com/wot-oss/tmtd"
-        description: "TM to TD converter in Golang"
-        languages: ["Go"]
-        is_obsolete: false
-      - name: "wot-dtdl-converter"
-        link: "https://github.com/wot-oss/wot-dtdl-converter"
-        description: "Converter between DTDL and WoT Thing Models"
-        languages: ["C#"]
         is_obsolete: false
