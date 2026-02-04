@@ -46,13 +46,15 @@ group: "navigation"
 						}}</span></button>
 				{% endfor %}
 			</div>
-			<div class="btn btn-default filter-btn" style="display:flex; align-items: center; gap: 6px;"
+			<!-- TODO: Return after implementing a dynamic approach to obsoleteness detection -->
+			<!-- TODO: Add an asterix to the label and explain what is considered as obsolete -->
+			<!-- <div class="btn btn-default filter-btn" style="display:flex; align-items: center; gap: 6px;"
 				onclick="toggleObsolete()">
 				<input id="obsoleteToggle" class="form-check-input" type="checkbox"
-					style="margin:0;height: 14px; width: 14px; cursor: pointer;" checked="true" />
+					style="margin:0;height: 14px; width: 14px; cursor: pointer;" checked="true"/>
 				<label class=" form-check-label" for="obsolete" style="margin:0; cursor: pointer;">Show
 					obsolete</label>
-			</div>
+			</div> -->
 		</div>
 
 		<!-- Language Filters -->
@@ -292,8 +294,6 @@ group: "navigation"
 
 		// Initial run
 		window.onload = function () {
-			var checkBox = document.getElementById('obsoleteToggle');
-			state.showObsolete = checkBox.checked;
 			updateUI();
 		};
 	</script>
