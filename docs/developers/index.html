@@ -3,657 +3,297 @@ layout: default
 title: Developers
 group: "navigation"
 ---
+<style>
+	.obsolete-tool {
+		background-color: #f2f2f2;
+	}
+</style>
 <div>
 	<h2>Developer Resources</h2>
-	
 	<p>
 		There are various resources available to build Web of Things applications.
-		These are libraries, ready-to-use software, services or SDKs, which can be used in different stages of 
+		These are libraries, ready-to-use software, services or SDKs, which can be used in different stages of
 		development or for development needs and are grouped below.
 	</p>
 
-	<br />
+	<!-- Filter Buttons -->
+	<div style="display:flex; flex-direction: column; gap: 16px; margin-bottom: 30px; margin-top: 16px;">
 
-	<div class="row center-block">
-		<div class="col-md-6 text-center">
-			<a href="#td-tooling"><i class="fas fa-edit fa-4x"></i> 
-				<!-- alternative pen-paintbrush -->
-				<div class="description">
-					<h3>TD Tooling</h3>
-				</div>
-			</a>
+		<!-- Category Filters -->
+		<div style="display:flex; flex-wrap: wrap; align-items: center; gap: 26px;">
+			<div class="btn-group" role="group" aria-label="Tool Categories">
+				{% assign total_tool_count = 0 %}
+				{% for category in site.data.dev-tools %}
+				{% for subcategory in category[1] %}
+				{% assign total_tool_count = total_tool_count | plus: subcategory.tools.size %}
+				{% endfor %}
+				{% endfor %}
+				<button type="button" class="btn btn-primary filter-btn active category-btn" data-filter="all"
+					style="display:flex; align-items: center; gap: 6px;" onclick="setCategory('all')">All <span
+						class="tool-count" data-category="all" style="font-weight: bold; font-size: 15px">{{
+						total_tool_count }}</span></button>
+				{% for category in site.data.dev-tools %}
+				{% assign category_name = category[0] %}
+				{% assign category_slug = category_name | slugify %}
+				{% assign category_tool_count = 0 %}
+				{% for subcategory in category[1] %}
+				{% assign category_tool_count = category_tool_count | plus: subcategory.tools.size %}
+				{% endfor %}
+				<button type="button" class="btn btn-default filter-btn category-btn" data-filter="{{ category_slug }}"
+					style="display:flex; align-items: center; gap: 6px;" onclick="setCategory('{{ category_slug }}')">{{
+					category_name }} <span class="tool-count" data-category="{{ category_slug }}"
+						style="font-weight: bold; font-size: 15px">{{ category_tool_count
+						}}</span></button>
+				{% endfor %}
+			</div>
+			<!-- TODO: Return after implementing a dynamic approach to obsoleteness detection -->
+			<!-- TODO: Add an asterix to the label and explain what is considered as obsolete -->
+			<!-- <div class="btn btn-default filter-btn" style="display:flex; align-items: center; gap: 6px;"
+				onclick="toggleObsolete()">
+				<input id="obsoleteToggle" class="form-check-input" type="checkbox"
+					style="margin:0;height: 14px; width: 14px; cursor: pointer;" checked="true"/>
+				<label class=" form-check-label" for="obsolete" style="margin:0; cursor: pointer;">Show
+					obsolete</label>
+			</div> -->
 		</div>
-		<div class="col-md-6 text-center">
-			<a href="#devtools"><i class="fas fa-laptop-code fa-4x"></i>
-				<div class="description">
-					<h3>WoT Development Tools</h3>
-				</div>
-			</a>
-		</div>
-	</div>
-	
-	<p>&nbsp;</p>
 
-	<div class="row center-block">
-		<div class="col-md-6 text-center">
-			<a href="#runtime-expose"><i class="fas fa-upload fa-4x"></i>
-				<div class="description">
-					<h3>Runtimes for TD Exposers</h3>
-				</div>
-			</a>
-		</div>
-		<div class="col-md-6 text-center">
-			<a href="#runtime-consume"><i class="fas fa-download fa-4x"></i>
-				<div class="description">
-					<h3>Runtimes for TD Consumers</h3>
-				</div>
-			</a>
-		</div>
-	</div>
-
-	<p>&nbsp;</p>
-	
-	<div class="row center-block">
-		<div class="col-md-6 text-center">
-			<a href="#tdds"><i class="fas fa-database fa-4x"></i>
-				<div class="description">
-					<h3>TD Directories</h3>
-				</div>
-			</a>
-		</div>
-		<div class="col-md-6 text-center">
-			<a href="#software"><i class="fas fa-puzzle-piece fa-4x"></i>
-				<!-- server,  -->
-				<div class="description">
-					<h3>WoT Software and Middleware</h3>
-				</div>
-			</a>
-		</div>
-	</div>
-
-	<p>&nbsp;</p>
-	
-	<div class="row center-block">
-		<div class="col-md-6 text-center">
-			<a href="#others"><i class="fas fa-cubes fa-4x"></i> 
-				<div class="description">
-					<h3>Other Tooling</h3>
-					<p></p>
-				</div>
-			</a>
-		</div>
-		<div class="col-md-6 text-center">
-			<a href="#onlinethings"><i class="fas fa-microchip fa-4x"></i>
-				<div class="description">
-					<h3>Online Things</h3>
-					<p></p>
-				</div>
-			</a>
+		<!-- Language Filters -->
+		<div class="btn-group" role="group" aria-label="Tool Languages">
+			<button type="button" class="btn btn-primary filter-btn active language-btn" data-lang="all"
+				onclick="setLanguage('all')">All</button>
+			{% assign all_languages = "" | split: "" %}
+			{% for category in site.data.dev-tools %}
+			{% for subcategory in category[1] %}
+			{% for tool in subcategory.tools %}
+			{% if tool.languages %}
+			{% for lang in tool.languages %}
+			{% assign all_languages = all_languages | push: lang %}
+			{% endfor %}
+			{% endif %}
+			{% endfor %}
+			{% endfor %}
+			{% endfor %}
+			{% assign unique_languages = all_languages | uniq | sort %}
+			{% for lang in unique_languages %}
+			<button type="button" class="btn btn-default filter-btn language-btn" data-lang="{{ lang }}"
+				onclick="setLanguage('{{ lang }}')">{{ lang }}</button>
+			{% endfor %}
 		</div>
 	</div>
-<!-- 
-<p>Alternative</p>
 
-<style type="text/css">
-	.tg {
-		border-collapse: collapse;
-		border-spacing: 0;
-	}
+	<!-- Dynamic Tool Categories -->
+	{% for category in site.data.dev-tools %}
+	{% assign category_name = category[0] %}
+	{% assign category_slug = category_name | slugify %}
+	{% assign subcategories = category[1] %}
 
-	.tg td {
-		border-color: black;
-		border-style: solid;
-		border-width: 1px;
-		font-family: Arial, sans-serif;
-		font-size: 14px;
-		overflow: hidden;
-		padding: 10px 5px;
-		word-break: normal;
-	}
+	<div id="{{ category_slug }}" class="tool-category" data-slug="{{ category_slug }}">
+		{% for subcategory in subcategories %}
+		<div class="tool-subcategory">
+			<h4>{{ subcategory.title }}</h4>
+			<p>{{ subcategory.description }}</p>
+			<table style="margin-bottom:40px; border-radius: 10px;" class="table table-bordered">
+				<thead>
+					<tr>
+						<th style="width: 25%;">Name</th>
+						<th>Description</th>
+						<th style="width: 0;">Languages</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for tool in subcategory.tools %}
+					<tr class="tool-row {% if tool.is_obsolete %}obsolete-tool{% endif %}"
+						data-languages="{{ tool.languages | join: ' ' | default: 'Unknown' }}">
+						<td><a href="{{ tool.link }}">{{ tool.name }}</a>{% if tool.is_obsolete %} <span
+								style="font-size: 0.85em; color: #666; font-style: italic;">(Obsolete)</span>{% endif %}
+						</td>
+						<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
+						<td style="text-align: center; vertical-align: middle; white-space: nowrap;">
+							{% if tool.languages %}
+							<span style="font-weight: bold;">{{ tool.languages | join:", " }}</span>
+							{% else %}
+							<!-- Unknown -->
+							{% endif %}
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		{% endfor %}
+	</div>
+	{% endfor %}
 
-	.tg th {
-		border-color: black;
-		border-style: solid;
-		border-width: 1px;
-		font-family: Arial, sans-serif;
-		font-size: 14px;
-		font-weight: normal;
-		overflow: hidden;
-		padding: 10px 5px;
-		word-break: normal;
-	}
+	<script>
+		var state = {
+			category: 'all',
+			language: 'all',
+			showObsolete: true
+		};
 
-	.tg .tg-vfn0 {
-		background-color: #efefef;
-		border-color: #000000;
-		text-align: left;
-		vertical-align: top
-	}
+		function setCategory(category) {
+			state.category = category;
+			updateUI();
+		}
 
-	.tg .tg-73oq {
-		border-color: #000000;
-		text-align: left;
-		vertical-align: top
-	}
-</style>
-<table class="tg">
-	<thead>
-		<tr>
-			<th class="tg-73oq"></th>
-			<th class="tg-73oq">TD Tooling<br></th>
-			<th class="tg-73oq">User Interfaces</th>
-			<th class="tg-73oq">Development Environment</th>
-			<th class="tg-73oq">Consumer</th>
-			<th class="tg-73oq">Exposer</th>
-			<th class="tg-73oq">TD Directory</th>
-			<th class="tg-73oq">TD Discovery</th>
-			<th class="tg-73oq">Gateway Service</th>
-			<th class="tg-73oq">Testing</th>
-			<th class="tg-73oq">Simulation</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td class="tg-vfn0">Playground</td>
-			<td class="tg-vfn0">UI</td>
-			<td class="tg-vfn0">+<br></td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">+<br></td>
-			<td class="tg-vfn0">-</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">Eclipse Edi{TD}or</td>
-			<td class="tg-73oq">UI</td>
-			<td class="tg-73oq">+<br></td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">-</td>
-		</tr>
-		<tr>
-			<td class="tg-vfn0">TD-Code</td>
-			<td class="tg-vfn0">Editor Plugin<br></td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">-</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">WoT-JTD</td>
-			<td class="tg-73oq">Programmatic</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-		</tr>
-		<tr>
-			<td class="tg-vfn0">Eclipse Ditto :: WoT :: Model</td>
-			<td class="tg-vfn0">Programmatic</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">WoT Application Manager (WAM)</td>
-			<td class="tg-73oq">-<br></td>
-			<td class="tg-73oq">-<br></td>
-			<td class="tg-73oq">+<br></td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-		</tr>
-		<tr>
-			<td class="tg-vfn0">WoT API Development Environment (WADE)</td>
-			<td class="tg-vfn0">UI</td>
-			<td class="tg-vfn0">+<br></td>
-			<td class="tg-vfn0">+<br></td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">+</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">WoT FXUI</td>
-			<td class="tg-73oq">-<br></td>
-			<td class="tg-73oq">+<br></td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-		</tr>
-		<tr>
-			<td class="tg-vfn0">Eclipse Thingweb node-wot</td>
-			<td class="tg-vfn0">Programmatic</td>
-			<td class="tg-vfn0">-<br></td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">partially</td>
-			<td class="tg-vfn0">partially</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">Eclipse Ditto</td>
-			<td class="tg-73oq">Programmatic</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-		</tr>
-		<tr>
-			<td class="tg-vfn0">SANE WoT Servient</td>
-			<td class="tg-vfn0">Programmatic</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">wot-py</td>
-			<td class="tg-73oq">Programmatic</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-		</tr>
-		<tr>
-			<td class="tg-vfn0">Node-Red Node generator</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">dart_wot</td>
-			<td class="tg-73oq">?</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-		</tr>
-		<tr>
-			<td class="tg-vfn0">LinkSmart Thing Directory</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">WoTHive Thing Directory</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-		</tr>
-		<tr>
-			<td class="tg-vfn0">Eclipse Thingweb Domus TDD API</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">Shadow Thing</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-		</tr>
-		<tr>
-			<td class="tg-vfn0">sayWoT!</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">+</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">Test Bench</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">+</td>
-			<td class="tg-73oq">-<br></td>
-		</tr>
-		<tr>
-			<td class="tg-vfn0">WoT Plugin for AASX Package Explorer</td>
-			<td class="tg-vfn0">UI</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-			<td class="tg-vfn0">-</td>
-		</tr>
-		<tr>
-			<td class="tg-73oq">WoTify</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-			<td class="tg-73oq">-</td>
-		</tr>
-	</tbody>
-</table> -->
+		function setLanguage(lang) {
+			state.language = lang;
+			updateUI();
+		}
 
-	<hr>
-	
-	<h3 id="td-tooling">TD Tooling</h3>
-	<p>
-		Tools that allow editing and validation of TDs or that allow parsing them in programming language specific 
-		environments.
-	</p>
-	<ul>
-		<li><a href="https://playground.thingweb.io/">Thing Description Playground</a>
-			- Reference TD Validation suite with additional tools such as OpenAPI generation, linting, and more.
-		</li>
-		<li><a href="https://eclipse.github.io/editdor/">Eclipse Edi{TD}or</a>
-			- Web-based Editor for easy creation and visualization of Thing Descriptions and Thing Models.
-				<!-- <li>Try it live <a href="https://eclipse.github.io/editdor/">here</a></li> -->
-		</li>
-		<li><a href="https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code">TD code</a>
-			- Visual Studio Code plugin for TD validation and code snippets. 
-		</li>
-		<li><a href="https://github.com/oeg-upm/wot-jtd">Java API for Thing Descriptions of WoT
-				(JDTs)</a>
-			- Java module for creating Java Thing Description ORM from a TD in JSON-LD or RDF triples.
-		</li>
-		<li><a href="https://github.com/eclipse/ditto/tree/master/wot/model">Eclipse Ditto :: WoT ::
-				Model</a>
-			- Java module for using TDs and TMs.
-		</li>
-		<li><a href="https://github.com/sifis-home/wot-td">SIFIS-Home: wot-td</a>
-			- Rust crate to produce and consume Web of Things Thing Descriptions.
-		</li>
+		function toggleObsolete() {
+			var checkBox = document.getElementById('obsoleteToggle');
+			if (event.target !== checkBox) {
+				checkBox.checked = !checkBox.checked;
+			}
+			state.showObsolete = checkBox.checked;
+			updateUI();
+		}
 
-	</ul>
+		function updateUI() {
+			// Update Category Buttons
+			var catButtons = document.getElementsByClassName('category-btn');
+			for (var i = 0; i < catButtons.length; i++) {
+				var btn = catButtons[i];
+				var filter = btn.getAttribute('data-filter');
+				if (filter === state.category) {
+					btn.classList.add('active', 'btn-primary');
+					btn.classList.remove('btn-default');
+				} else {
+					btn.classList.remove('active', 'btn-primary');
+					btn.classList.add('btn-default');
+				}
+			}
 
-	<h3 id="devtools">WoT Development Tools</h3>
-	<p>Ready-to-use tools that help the development of WoT applications by providing user interfaces and other tooling.</p>
-	<ul>
-		<li><a href="https://github.com/eclipse-thingweb/wam">WoT Application Manager (WAM)</a>
-			- CLI tool to quickly set up node-wot application projects. Additional information is available at <a
-				href="WoT%20Application%20Manager.pdf">slides</a> or
-			<a href="https://youtu.be/bPxIfZo7jns">video</a>.
-			<!-- See the presentation and video for further information: <a
-					href="WoT%20Application%20Manager.pdf">slides</a> or
-				<a href="https://youtu.be/bPxIfZo7jns">video</a> -->
-		</li>
-		<li>
-			<a href="https://github.com/tum-esi/wade">WoT API Development Environment (WADE)</a>
-			- Desktop application based on node-wot, Vue.js, and Electron that allows interaction with Things, profiling,
-			Mashup
-			generation.
-		</li>
-		<li>
-			<a href="https://github.com/danielpeintner/wot-fxui">WoT FXUI</a>
-			- UI for desktop, mobile, and browser for interacting with Things based on their TDs.
-		</li>
-		<li>
-			<a href="https://github.com/hololinked-dev/thing-control-panel">Thing Control Panel</a>
-			- Visual admin client for Things compliant with WoT, like a control panel, to test or interact with a server that has no GUI. <a href="https://control-panel.hololinked.dev/">Live Demo</a>.
-		</li>
-		<li>
-			<a href="https://github.com/wintechis/blast/">BLAST - Block Applications For Things</a>
-			- Blockly-based programming interface to build WoT Consumer applications leveraging Thingweb node-wot <a href="https://wintechis.github.io/blast/">Live Demo</a>.
-		</li>
-	</ul>
+			// Update Language Buttons
+			var langButtons = document.getElementsByClassName('language-btn');
+			for (var i = 0; i < langButtons.length; i++) {
+				var btn = langButtons[i];
+				var lang = btn.getAttribute('data-lang');
+				if (lang === state.language) {
+					btn.classList.add('active', 'btn-primary');
+					btn.classList.remove('btn-default');
+				} else {
+					btn.classList.remove('active', 'btn-primary');
+					btn.classList.add('btn-default');
+				}
+			}
 
-	<h3 id="runtime-expose">Runtime Implementations for TD Exposers</h3>
-	<p>Software libraries that implement a WoT Runtime so that Things can be built following the WoT paradigms.
-	</p>
-	<ul>
-		<li>
-			<a href="https://github.com/eclipse/thingweb.node-wot">Eclipse Thingweb node-wot</a> 
-			- W3C Web of Things implementation in Node.js with support for multiple bindings. A website is available at 
-			<a href="http://thingweb.io">Thingweb</a>.
-			<!-- <ul>
-				<li><a href="http://plugfest.thingweb.io/webui/">Browsified node-wot</a> (Web UI)</li>
-				<li>See <a href="http://www.thingweb.io/hands-on.html">hands-on tutorials</a>
-					and <a href="http://www.thingweb.io/videos.html">videos</a> for node-wot</li>
-			</ul> -->
-		</li>
-		<li><a href="https://www.eclipse.org/ditto/basic-wot-integration.html">WoT Integration for
-				Eclipse Ditto</a>
-			- Ditto managed digital twins can be linked to WoT Thing Models from which Ditto can create Thing Descriptions
-			containing the API descriptions of the twins.
-		</li>
-		<li>
-			<a href="https://github.com/sane-city/wot-servient">SANE WoT Servient</a>
-			- W3C Web of Things implementation in Java with support for multiple bindings, inspired by node-wot.
-		</li>
-		<li>
-			<a href="https://github.com/agmangas/wot-py">wot-py</a>
-			- Experimental W3C Web of Things implementation in Python with support for multiple bindings.
-		</li>
-		<li>
-			<a href="https://github.com/sifis-home/wot-serve">SIFIS-Home: wot-serve</a>
-			- Rust crate to serve WoT Things.
-		</li>
-	</ul>
+			updateCounters();
 
-	<h3 id="runtime-consume">Runtime Implementations for TD Consumers</h3>
-	<p>Software libraries that implement a WoT Runtime so that Things can be consumed and custom applications can be built
-		on top, following the WoT paradigms.</p>
-	<ul>
-		<li>
-			<a href="https://github.com/eclipse/thingweb.node-wot">Eclipse Thingweb node-wot</a>
-			- W3C Web of Things implementation in Node.js with support for multiple bindings. A website is available at
-			<a href="http://thingweb.io">Thingweb</a>.
-		</li>
-		<li>
-			<a href="https://github.com/node-red/node-red-nodegen">Node-Red Node generator</a>
-			- CLI tool to generate WoT Consumer Nodes for <a href="https://nodered.org/">Node-RED</a> from a TD.
-			Additional information at <a href="wot_nodegen.pptx">slides</a>
-			or <a href="wot_nodegen.mp4">video</a>.
-			<!-- <ul>
-						<li>See a short introduction <a href="wot_nodegen.pptx">slides</a>
-							or <a href="wot_nodegen.mp4">video</a> for Node Generator</li>
-					</ul> -->
-		</li>
-		<li>
-			<a href="https://pub.dev/packages/dart_wot">dart_wot</a>
-			- W3C Web of Things implementation written in Dart with support for HTTP and CoAP.
-		</li>
-		<li>
-			<a href="https://github.com/sane-city/wot-servient">SANE WoT Servient</a>
-			- W3C Web of Things implementation in Java with support for multiple bindings, inspired by node-wot.
-		</li>
-		<li>
-			<a href="https://github.com/agmangas/wot-py">wot-py</a>
-			- Experimental W3C Web of Things implementation in Python with support for multiple bindings.
-		</li>
-		<li>
-			<a href="https://github.com/eclipse-thingweb/kotlin-wot">kotlin-wot</a>
-			- A Framework for implementing Web of Things in Kotlin.
-		</li> 
-		<li>
-			<a href="https://github.com/tum-esi/wot.net">WoT.Net</a>
-			- A .Net Standard 2.0 WoT Consumer Implementation.
-		</li>
-	</ul>
+			// Filter Logic
+			var categories = document.getElementsByClassName('tool-category');
+			for (var i = 0; i < categories.length; i++) {
+				var catDiv = categories[i];
+				var catSlug = catDiv.getAttribute('data-slug');
 
-	<h3 id="tdds">TD Directory (TDD) Implementations</h3>
-	<p>Services that host a Thing Description Directory which implements the W3C WoT Discovery specification.</p>
-	<ul>
-		<li>
-			<a href="https://github.com/TinyIoT/thing-directory">TinyIoT Thing Directory</a>
-			- TDD implementation with features such as DNS-SD registration, XPath 3.0 and JSONPath queries, authentication, and more.
-		</li>
-		<li>
-			<a href="https://github.com/oeg-upm/wot-hive">WoTHive Thing Directory</a>
-			- TDD implementation with features such as SPARQL and JSONPath queries, SHACL-based Validation, and more.
-		</li>
-		<li>
-			<a href="https://github.com/eclipse-thingweb/domus-tdd-api">Eclipse Thingweb Domus TDD API</a> 
-			- TDD implementation with features such as SPARQL queries, contextual validation, and more, with a flexible storage mechanism.
-		</li>
-		<li>
-			<a href="https://github.com/sifis-home/wot-discovery">SIFIS-Home: wot-discovery</a> 
-			- Tiny implementation of WoT Discovery written in Rust.
-		</li>
-		<li>
-			<a href="https://github.com/vaimee/zion">Zion</a> 
-			- A scalable Thing Description Directory
-		</li>
-	</ul>
+				// Category Level Check (only check active state, don't hide yet)
+				var isCategoryActive = (state.category === 'all' || state.category === catSlug);
 
-	<h3 id="software">WoT Software and Middleware</h3>
-	<p>Ready to use software applications that can be deployed in order to provide a certain functionality in a system, such
-		as gateway and proxying, simulation, and testing services.</p>
-	<ul>
+				if (!isCategoryActive) {
+					catDiv.style.display = 'none';
+					continue;
+				}
 
-		<li>
-			<a href="https://www.evosoft.com/en/digitalization-offering/saywot/">sayWoT!</a>
-			- Industrial-grade implementation that allows integration of devices into Siemens software products.
-		</li>
-		<li>	
-			<a href="https://github.com/tum-esi/testbench">Web of Things Test Bench</a>
-			- CLI-based tool that tests a WoT Thing by executing interactions automatically, based on its TD.
-		</li>
-		<li>
-	    		<a href="https://github.com/WebThingsIO/gateway/">WebThings Gateway</a> - An 
-			open source Web of Things gateway for smart buildings, which bridges a wide range of IoT protocols to the 
-			Web of Things.
-		</li>
-		<li>
-			<a href="https://github.com/OPCFoundation/UA-EdgeTranslator">UA Edge Translator</a>
-			- An industrial connectivity edge reference application translating from proprietary protocols to OPC UA, leveraging 
-			the W3C Web of Things (WoT) Thing Descriptions.
-		</li>
-		<li>
-			<a href="https://gitlab.eclipse.org/eclipse-research-labs/nephele-project/vo-wot">VO-WoT</a> 
-			- A Python-based stack that allows developing WoT Things with additional functionalities, called Virtual Objects (VOs). 
-			A documentation website is available <a href="https://netmode.gitlab.io/vo-wot/">here</a>.
-		</li>
-		<li>
-			<a href="https://github.com/tum-esi/shadow-thing">Shadow Thing</a>
-			- CLI-based tool for creating and deploying a Thing based on its TD for simulation, proxy, or protocol
-			translation purposes.
-		</li>
-	</ul>
+				var visibleSubcats = 0;
+				var subcategories = catDiv.getElementsByClassName('tool-subcategory');
 
-	<h3 id="others">Others</h3>
-	<ul>
-		<li><a href="https://github.com/admin-shell-io/aasx-package-explorer">WoT Plugin for AASX
-				Package Explorer</a>
-			- Plugin to import/export WoT Thing Description into Asset Administration Shell definitions.
-		</li>
-                <li><a href="https://eclipse.dev/lmos/">Eclipse LMOS</a>
-			- Open-source, cloud-native platform for building and running Multi-Agent systems.
-		</li>
-	</ul>
-	<h3 id="onlinethings">Online Things</h3>
-		<p>Publicly accessible Things that can be used during development to test Consumer applications or learn
-			how to understand Thing Descriptions to communicate with Things.
-		</p>
-		<ul>
-			<li><a href="https://thingweb.io/services/#online-things-for-testing">Eclipse Thingweb - Online Things for Testing</a></li>
-		</ul>
+				for (var j = 0; j < subcategories.length; j++) {
+					var subcatDiv = subcategories[j];
+					var visibleRowsInSubcat = 0;
+					var rows = subcatDiv.getElementsByClassName('tool-row');
+
+					for (var k = 0; k < rows.length; k++) {
+						var row = rows[k];
+						var rowLangs = row.getAttribute('data-languages'); // space separated
+						var isObsolete = row.classList.contains('obsolete-tool');
+
+						var langMatch = false;
+						if (state.language === 'all') {
+							langMatch = true;
+						} else {
+							// Check if state.language is in rowLangs
+							if (rowLangs && rowLangs.split(' ').includes(state.language)) {
+								langMatch = true;
+							}
+						}
+						var obsoleteMatch = (state.showObsolete || !isObsolete);
+
+						if (langMatch && obsoleteMatch) {
+							row.style.display = 'table-row';
+							visibleRowsInSubcat++;
+						} else {
+							row.style.display = 'none';
+						}
+					}
+
+					if (visibleRowsInSubcat > 0) {
+						subcatDiv.style.display = 'block';
+						visibleSubcats++;
+					} else {
+						subcatDiv.style.display = 'none';
+					}
+				}
+
+				// Hide category if no subcategories visible
+				if (visibleSubcats > 0) {
+					catDiv.style.display = 'block';
+				} else {
+					catDiv.style.display = 'none';
+				}
+			}
+		}
+
+		function updateCounters() {
+			var totalVisible = 0;
+			var categoryCounts = {};
+			// Iterate all categories to count (ignoring current category filter)
+			var categories = document.getElementsByClassName('tool-category');
+			for (var i = 0; i < categories.length; i++) {
+				var catDiv = categories[i];
+				var catSlug = catDiv.getAttribute('data-slug');
+				var catCount = 0;
+
+				var rows = catDiv.getElementsByClassName('tool-row');
+				for (var k = 0; k < rows.length; k++) {
+					var row = rows[k];
+					var rowLangs = row.getAttribute('data-languages');
+					var isObsolete = row.classList.contains('obsolete-tool');
+
+					var langMatch = false;
+					if (state.language === 'all') {
+						langMatch = true;
+					} else {
+						if (rowLangs && rowLangs.split(' ').includes(state.language)) {
+							langMatch = true;
+						}
+					}
+					var obsoleteMatch = (state.showObsolete || !isObsolete);
+
+					if (langMatch && obsoleteMatch) {
+						catCount++;
+						totalVisible++;
+					}
+				}
+				categoryCounts[catSlug] = catCount;
+			}
+
+			// Update text
+			var counters = document.getElementsByClassName('tool-count');
+			for (var i = 0; i < counters.length; i++) {
+				var el = counters[i];
+				var slug = el.getAttribute('data-category');
+				if (slug === 'all') {
+					el.textContent = totalVisible;
+				} else {
+					el.textContent = categoryCounts[slug] || 0;
+				}
+			}
+		}
+
+		// Initial run
+		window.onload = function () {
+			updateUI();
+		};
+	</script>
 </div>

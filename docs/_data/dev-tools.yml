@@ -1,0 +1,213 @@
+Thing Description:
+  - title: "Editing and Validation"
+    description: "Tools for editing, validating, and parsing Thing Descriptions in various programming environments"
+    tools:
+      - name: "Thing Description Playground"
+        link: "https://playground.thingweb.io/"
+        description: "Reference validation suite including OpenAPI generation, linting, and other utilities"
+        languages: ["JSON", "yaml"]
+      - name: "Eclipse Edi{TD}or"
+        link: "https://github.com/eclipse-editdor/editdor"
+        languages: ["JSON"]
+        description: "Web-based editor for creating and visualizing Thing Descriptions and Thing Models"
+      - name: "TD code"
+        link: "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code"
+        description: "Visual Studio Code extension for validation and code snippets"
+        languages: ["JSON"]
+      - name: "Java API for Thing Descriptions of WoT (JDTs)"
+        link: "https://github.com/oeg-upm/wot-jtd"
+        description: "Java module generating a Thing Description ORM from JSON-LD or RDF triples"
+        languages: ["Java"]
+      - name: "Eclipse Ditto :: WoT :: Model"
+        link: "https://github.com/eclipse/ditto/tree/master/wot/model"
+        description: "Java module for working with Thing Descriptions and Thing Models"
+        languages: ["Java"]
+      - name: "SIFIS-Home: wot-td"
+        link: "https://github.com/sifis-home/wot-td"
+        description: "Rust crate for producing and consuming Thing Descriptions"
+        languages: ["Rust"]
+      - name: "thingdescription-go"
+        link: "https://github.com/wot-oss/thingdescription-go"
+        description: "TD parser in Golang, based on Quicktype"
+        languages: ["Go"]
+      - name: "tmtd"
+        link: "https://github.com/wot-oss/tmtd"
+        description: "TM to TD converter in Golang"
+        languages: ["Go"]
+      - name: "wot-dtdl-converter"
+        link: "https://github.com/wot-oss/wot-dtdl-converter"
+        description: "Converter between DTDL and WoT Thing Models"
+        languages: ["C#"]
+
+  - title: "Runtimes for TD Exposers"
+    description: "Libraries implementing a WoT Runtime for building Things according to WoT paradigms"
+    tools:
+      - name: "Eclipse Thingweb node-wot"
+        link: "https://github.com/eclipse/thingweb.node-wot"
+        description: "W3C WoT implementation in Node.js supporting multiple bindings, with documentation at [Thingweb](http://thingweb.io)"
+        languages: ["TS"]
+      - name: "WoT Integration for Eclipse Ditto"
+        link: "https://www.eclipse.org/ditto/basic-wot-integration.html"
+        description: "Links managed digital twins to WoT Thing Models to create Thing Descriptions with API details"
+        languages: ["Java", "TS"]
+      - name: "SANE WoT Servient"
+        link: "https://github.com/sane-city/wot-servient"
+        description: "Java implementation of W3C WoT supporting multiple bindings, inspired by node-wot"
+        languages: ["Java"]
+      - name: "SIFIS-Home: wot-serve"
+        link: "https://github.com/sifis-home/wot-serve"
+        description: "Rust crate for serving WoT Things"
+        languages: ["Rust"]
+      - name: "wot-py"
+        link: "https://github.com/agmangas/wot-py"
+        description: "Experimental Python implementation of W3C WoT supporting multiple bindings"
+        languages: ["Python"]
+
+  - title: "Runtimes for TD Consumers"
+    description: "Libraries implementing a WoT Runtime for consuming Things and building custom applications"
+    tools:
+      - name: "Eclipse Thingweb node-wot"
+        link: "https://github.com/eclipse/thingweb.node-wot"
+        description: "W3C WoT implementation in Node.js supporting multiple bindings, with documentation at [Thingweb](http://thingweb.io)"
+        languages: ["TS"]
+      - name: "Node-Red Node generator"
+        link: "https://github.com/node-red/node-red-nodegen"
+        description: "CLI tool generating Node-RED Consumer Nodes from a TD (see [slides](wot_nodegen.pptx) or [video](wot_nodegen.mp4))"
+        languages: ["JS"]
+      - name: "dart_wot"
+        link: "https://pub.dev/packages/dart_wot"
+        description: "Dart implementation of W3C WoT supporting HTTP and CoAP"
+        languages: ["Dart"]
+      - name: "SANE WoT Servient"
+        link: "https://github.com/sane-city/wot-servient"
+        description: "Java implementation of W3C WoT supporting multiple bindings, inspired by node-wot"
+        languages: ["Java"]
+      - name: "kotlin-wot"
+        link: "https://github.com/eclipse-thingweb/kotlin-wot"
+        description: "Framework for implementing Web of Things in Kotlin"
+        languages: ["Kotlin"]
+      - name: "WoT.Net"
+        link: "https://github.com/tum-esi/wot.net"
+        description: ".NET Standard 2.0 WoT Consumer implementation"
+        languages: ["C#"]
+      - name: "wot-py"
+        link: "https://github.com/agmangas/wot-py"
+        description: "Experimental Python implementation of W3C WoT supporting multiple bindings"
+        languages: ["Python"]
+
+  - title: "TD Directories"
+    description: "Services hosting a Thing Description Directory implementing the W3C WoT Discovery specification"
+    tools:
+      - name: "TinyIoT Thing Directory"
+        link: "https://github.com/TinyIoT/thing-directory"
+        description: "TDD implementation featuring DNS-SD registration, XPath 3.0/JSONPath queries, and authentication"
+        languages: ["Go"]
+      - name: "WoTHive Thing Directory"
+        link: "https://github.com/oeg-upm/wot-hive"
+        description: "TDD implementation featuring SPARQL/JSONPath queries and SHACL-based validation"
+        languages: ["Java"]
+      - name: "Eclipse Thingweb Domus TDD API"
+        link: "https://github.com/eclipse-thingweb/domus-tdd-api"
+        description: "TDD implementation featuring SPARQL queries, contextual validation, and flexible storage"
+        languages: ["Python"]
+      - name: "SIFIS-Home: wot-discovery"
+        link: "https://github.com/sifis-home/wot-discovery"
+        description: "Tiny implementation of WoT Discovery in Rust"
+        languages: ["Rust"]
+      - name: "Zion"
+        link: "https://github.com/vaimee/zion"
+        description: "Scalable Thing Description Directory"
+        languages: ["TS"]
+
+WoT Development:
+  - title: "Development Environments and UIs"
+    description: "Tools aiding WoT application development with user interfaces and other utilities"
+    tools:
+      - name: "WoT Application Manager (WAM)"
+        link: "https://github.com/eclipse-thingweb/wam"
+        description: "CLI tool for quick node-wot project setup (see [slides](WoT%20Application%20Manager.pdf) or [video](https://youtu.be/bPxIfZo7jns))"
+        languages: ["TS"]
+      - name: "wot-wrench"
+        link: "https://gitlab.com/jaller94/wot-wrench"
+        description: "A web app to control Web of Things devices"
+        languages: ["JS"]
+      - name: "tmc"
+        link: "https://github.com/wot-oss/tmc"
+        description: "Tooling around TM catalogs, including hosting and CLI interaction"
+        languages: ["Go"]
+      - name: "Thing Control Panel"
+        link: "https://github.com/hololinked-dev/thing-control-panel"
+        description: "Visual admin client for WoT-compliant Things. [Live Demo](https://control-panel.hololinked.dev/)"
+        languages: ["Python"]
+      - name: "BLAST - Block Applications For Things"
+        link: "https://github.com/wintechis/blast/"
+        description: "Blockly-based interface for building WoT Consumer applications. [Live Demo](https://wintechis.github.io/blast/)"
+        languages: ["JS"]
+      - name: "WoT API Development Environment (WADE)"
+        link: "https://github.com/tum-esi/wade"
+        description: "Desktop application (node-wot, Vue.js, Electron) for interaction, profiling, and Mashup generation"
+        languages: ["JS"]
+      - name: "WoT FXUI"
+        link: "https://github.com/danielpeintner/wot-fxui"
+        description: "Desktop, mobile, and browser UI for interacting with Things via TDs"
+        languages: ["Java"]
+
+  - title: "WoT Software and Middleware"
+    description: "Deployable software providing functions like gateway, proxying, simulation, and testing"
+    tools:
+      - name: "sayWoT!"
+        link: "https://www.evosoft.com/en/digitalization-offering/saywot/"
+        description: "Industrial-grade implementation integrating devices into Siemens software"
+        languages: ["No-Code"]
+      - name: "Web of Things Test Bench"
+        link: "https://github.com/tum-esi/testbench"
+        description: "CLI tool for automated Thing testing based on TDs"
+        languages: ["Java"]
+      - name: "WebThings Gateway"
+        link: "https://github.com/WebThingsIO/gateway/"
+        description: "Open source gateway bridging IoT protocols to the Web of Things for smart buildings"
+        languages: ["JS"]
+      - name: "UA Edge Translator"
+        link: "https://github.com/OPCFoundation/UA-EdgeTranslator"
+        description: "Industrial connectivity edge application translating proprietary protocols to OPC UA using WoT TDs"
+        languages: ["C#"]
+      - name: "VO-WoT"
+        link: "https://gitlab.eclipse.org/eclipse-research-labs/nephele-project/vo-wot"
+        description: "Python-based stack for developing WoT Things with Virtual Objects (VOs). Documentation [here](https://netmode.gitlab.io/vo-wot/)"
+        languages: ["Python"]
+      - name: "wot-anything"
+        link: "https://gitlab.com/webthings/wot-anything"
+        description: "Easily extensible Web of Things server"
+        languages: ["No-Code"]
+      - name: "Shadow Thing"
+        link: "https://github.com/tum-esi/shadow-thing"
+        description: "CLI tool for creating and deploying Things for simulation, proxying, or translation"
+        languages: ["Java"]
+
+  - title: "Online Things"
+    description: "Publicly accessible Things for testing Consumer applications and learning TD communication"
+    tools:
+      - name: "Eclipse Thingweb - Online Things for Testing"
+        link: "https://thingweb.io/services/#online-things-for-testing"
+        description: "Publicly accessible test Things hosted by Eclipse Thingweb"
+        languages: ["TS", "Python"]
+      - name: "wot-oss/thingmodels"
+        link: "https://github.com/wot-oss/thingmodels"
+        description: "A set of Thing Models for real devices (currently Siemens)"
+        languages: ["JSON"]
+
+Others:
+  - title: "Other Tooling"
+    tools:
+      - name: "WoT Plugin for AASX Package Explorer"
+        link: "https://github.com/admin-shell-io/aasx-package-explorer"
+        description: "Plugin to import/export WoT TDs into Asset Administration Shell definitions"
+        languages: ["C#"]
+      - name: "Eclipse LMOS"
+        link: "https://eclipse.dev/lmos/"
+        description: "Open-source, cloud-native platform for Multi-Agent systems"
+        languages: ["Kotlin", "Java"]
+      - name: "WoTify"
+        link: "https://github.com/eclipse-thingweb/wotify"
+        description: "Tool for converting IoT metadata formats to WoT Thing Descriptions"
+        languages: ["TS"]
