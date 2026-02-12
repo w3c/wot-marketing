@@ -1,0 +1,22 @@
+{
+  "name": "wot-marketing",
+  "version": "1.0.0",
+  "description": "node scripts package for github workflows",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "dev-tools.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.1",
+    "dotenv": "^17.2.3",
+    "fs": "^0.0.1-security",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "octokit": "^5.0.5"
+  }
+}

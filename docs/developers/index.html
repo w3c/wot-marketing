@@ -23,21 +23,21 @@ group: "navigation"
 		<div style="display:flex; flex-wrap: wrap; align-items: center; gap: 26px;">
 			<div class="btn-group" role="group" aria-label="Tool Categories">
 				{% assign total_tool_count = 0 %}
-				{% for category in site.data.dev-tools %}
+				{% for category in site.data.generated.devToolsOutput %}
 				{% for subcategory in category[1] %}
-				{% assign total_tool_count = total_tool_count | plus: subcategory.tools.size %}
+				{% assign total_tool_count = total_tool_count | plus: subcategory[1].tools.size %}
 				{% endfor %}
 				{% endfor %}
 				<button type="button" class="btn btn-primary filter-btn active category-btn" data-filter="all"
 					style="display:flex; align-items: center; gap: 6px;" onclick="setCategory('all')">All <span
 						class="tool-count" data-category="all" style="font-weight: bold; font-size: 15px">{{
 						total_tool_count }}</span></button>
-				{% for category in site.data.dev-tools %}
+				{% for category in site.data.generated.devToolsOutput %}
 				{% assign category_name = category[0] %}
 				{% assign category_slug = category_name | slugify %}
 				{% assign category_tool_count = 0 %}
 				{% for subcategory in category[1] %}
-				{% assign category_tool_count = category_tool_count | plus: subcategory.tools.size %}
+				{% assign category_tool_count = category_tool_count | plus: subcategory[1].tools.size %}
 				{% endfor %}
 				<button type="button" class="btn btn-default filter-btn category-btn" data-filter="{{ category_slug }}"
 					style="display:flex; align-items: center; gap: 6px;" onclick="setCategory('{{ category_slug }}')">{{
@@ -46,15 +46,13 @@ group: "navigation"
 						}}</span></button>
 				{% endfor %}
 			</div>
-			<!-- TODO: Return after implementing a dynamic approach to obsoleteness detection -->
-			<!-- TODO: Add an asterix to the label and explain what is considered as obsolete -->
-			<!-- <div class="btn btn-default filter-btn" style="display:flex; align-items: center; gap: 6px;"
+			<div class="btn btn-default filter-btn" style="display:flex; align-items: center; gap: 6px;"
 				onclick="toggleObsolete()">
 				<input id="obsoleteToggle" class="form-check-input" type="checkbox"
-					style="margin:0;height: 14px; width: 14px; cursor: pointer;" checked="true"/>
+					style="margin:0;height: 14px; width: 14px; cursor: pointer;" checked="true" />
 				<label class=" form-check-label" for="obsolete" style="margin:0; cursor: pointer;">Show
-					obsolete</label>
-			</div> -->
+					obsolete *</label>
+			</div>
 		</div>
 
 		<!-- Language Filters -->
@@ -62,9 +60,9 @@ group: "navigation"
 			<button type="button" class="btn btn-primary filter-btn active language-btn" data-lang="all"
 				onclick="setLanguage('all')">All</button>
 			{% assign all_languages = "" | split: "" %}
-			{% for category in site.data.dev-tools %}
+			{% for category in site.data.generated.devToolsOutput %}
 			{% for subcategory in category[1] %}
-			{% for tool in subcategory.tools %}
+			{% for tool in subcategory[1].tools %}
 			{% if tool.languages %}
 			{% for lang in tool.languages %}
 			{% assign all_languages = all_languages | push: lang %}
@@ -82,7 +80,7 @@ group: "navigation"
 	</div>
 
 	<!-- Dynamic Tool Categories -->
-	{% for category in site.data.dev-tools %}
+	{% for category in site.data.generated.devToolsOutput %}
 	{% assign category_name = category[0] %}
 	{% assign category_slug = category_name | slugify %}
 	{% assign subcategories = category[1] %}
@@ -90,8 +88,8 @@ group: "navigation"
 	<div id="{{ category_slug }}" class="tool-category" data-slug="{{ category_slug }}">
 		{% for subcategory in subcategories %}
 		<div class="tool-subcategory">
-			<h4>{{ subcategory.title }}</h4>
-			<p>{{ subcategory.description }}</p>
+			<h4>{{ subcategory[0] }}</h4>
+			<p>{{ subcategory[1].description }}</p>
 			<table style="margin-bottom:40px; border-radius: 10px;" class="table table-bordered">
 				<thead>
 					<tr>
@@ -101,10 +99,10 @@ group: "navigation"
 					</tr>
 				</thead>
 				<tbody>
-					{% for tool in subcategory.tools %}
-					<tr class="tool-row {% if tool.is_obsolete %}obsolete-tool{% endif %}"
+					{% for tool in subcategory[1].tools %}
+					<tr class="tool-row {% if tool.isObsolete %}obsolete-tool{% endif %}"
 						data-languages="{{ tool.languages | join: ' ' | default: 'Unknown' }}">
-						<td><a href="{{ tool.link }}">{{ tool.name }}</a>{% if tool.is_obsolete %} <span
+						<td><a href="{{ tool.url }}">{{ tool.name }}</a>{% if tool.isObsolete %} <span
 								style="font-size: 0.85em; color: #666; font-style: italic;">(Obsolete)</span>{% endif %}
 						</td>
 						<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
@@ -123,6 +121,9 @@ group: "navigation"
 		{% endfor %}
 	</div>
 	{% endfor %}
+
+	<p style="font-size: 0.85em; color: #666; font-style: italic;">* Obsolete means that the tool hasn't been
+		updated for a year.</p>
 
 	<script>
 		var state = {
