@@ -31,6 +31,7 @@ export const devToolsInput: DevToolsInput = {
           languages: ["JSON", "yaml"],
         },
         {
+          name: "Eclipse edi{TD}or",
           repoUrl: "https://github.com/eclipse-editdor/editdor",
         },
         {
@@ -38,12 +39,12 @@ export const devToolsInput: DevToolsInput = {
           description:
             "Visual Studio Code extension for validation and code snippets",
           url: "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code",
-          languages: ["JSON"],
         },
         {
           repoUrl: "https://github.com/oeg-upm/wot-jtd",
         },
         {
+          name: "Eclipse Ditto :: WoT :: Model",
           repoUrl: "https://github.com/eclipse/ditto/wot/model",
         },
         {
@@ -72,7 +73,7 @@ export const devToolsInput: DevToolsInput = {
           description:
             "Links managed digital twins to WoT Thing Models to create Thing Descriptions with API details",
           url: "https://www.eclipse.org/ditto/basic-wot-integration.html",
-          languages: ["Java", "TS"],
+          languages: ["Java", "Typescript"],
         },
         {
           repoUrl: "https://github.com/sane-city/wot-servient",
@@ -209,7 +210,7 @@ export const devToolsInput: DevToolsInput = {
           description:
             "Publicly accessible test Things hosted by Eclipse Thingweb",
           url: "https://thingweb.io/services/#online-things-for-testing",
-          languages: ["TS", "Python"],
+          languages: ["TypeScript", "Python"],
         },
         {
           repoUrl: "https://github.com/wot-oss/thingmodels",

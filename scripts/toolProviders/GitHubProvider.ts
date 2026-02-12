@@ -48,7 +48,7 @@ export class GitHubProvider {
       return {
         name: rootData.name,
         description: rootData.description,
-        language: rootData.source?.language,
+        language: rootData.language,
         lastUpdated: rootData.updated_at,
       };
     } catch (error: any) {
