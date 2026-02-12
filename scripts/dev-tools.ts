@@ -4,6 +4,7 @@ import { dirname, resolve } from "path";
 import { devToolsInput, type ToolInput } from "../docs/_data/devToolsInput.ts";
 import { GitHubProvider } from "./toolProviders/GitHubProvider.ts";
 import { writeFileSync } from "fs";
+import { GitLabProvider } from "./toolProviders/GitLabProvider.ts";
 
 // Configure environment variables
 const __filename = fileURLToPath(import.meta.url);
@@ -66,23 +67,15 @@ async function mapTool(tool: ToolInput): Promise<ToolOutput> {
   if (_tool.repoUrl) {
     const url = new URL(_tool.repoUrl);
     const host = url.host;
-    const pathname = url.pathname;
-    const pathParts = pathname.split("/").filter((part) => part.length > 0);
+    const pathname = url.pathname.slice(1); // remove the first slash
     let provider;
 
-    // GitHub
     if (host.includes("github")) {
-      provider = new GitHubProvider(
-        pathParts[0],
-        pathParts[1],
-        pathParts.slice(2).join("/"),
-      );
+      // GitHub
+      provider = new GitHubProvider(pathname);
     } else if (host.includes("gitlab")) {
-      // provider = new GitLabProvider(
-      //   pathParts[0],
-      //   pathParts[1],
-      //   pathParts.slice(2).join("/"),
-      // );
+      // GitLab
+      provider = new GitLabProvider(host, pathname);
     }
     const data = await provider?.getData();
     if (data) {
@@ -97,6 +90,11 @@ async function mapTool(tool: ToolInput): Promise<ToolOutput> {
   return parseTool(_tool);
 }
 
+/**
+ * Checks if a tool is obsolete based on its last updated date
+ * @param lastUpdated The last updated date of the tool
+ * @returns True if the last update is older than 1 year, false otherwise
+ */
 function isObsolete(lastUpdated: string): boolean {
   const date = new Date(lastUpdated);
   const now = new Date();

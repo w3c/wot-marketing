@@ -232,7 +232,7 @@ export const devToolsInput: DevToolsInput = {
           languages: ["Kotlin", "Java"],
         },
         {
-          repoUrl: "https://github.com/eclipse-thingweb/wotify",
+          repoUrl: "https://github.com/tum-esi/wotify",
         },
       ],
     },

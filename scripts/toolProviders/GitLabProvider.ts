@@ -1,59 +1,57 @@
-import { Octokit } from "octokit";
 import { type ProviderData } from "../dev-tools.ts";
 
 const headers = {
   "X-GitHub-Api-Version": "2022-11-28",
 };
 
-export class GitHubProvider {
-  private octokit;
-  private owner: string;
-  private repo: string;
-  private dir?: string; // directory of the tool if it is a subfolder
+export class GitLabProvider {
+  private host: string;
+  private dir: string; // directory of the tool
 
-  constructor(pathname: string) {
-    const auth = process.env.GITHUB_TOKEN;
-    if (!auth) {
-      throw new Error("GITHUB_TOKEN is not defined");
+  constructor(host: string, dir: string) {
+    const token = process.env.GITLAB_TOKEN;
+    if (!token) {
+      throw new Error("GITLAB_TOKEN is not defined");
     }
-    const pathParts = pathname.split("/").filter((part) => part.length > 0);
-    this.owner = pathParts[0];
-    this.repo = pathParts[1];
-    this.dir = pathParts.slice(2).join("/");
-    this.octokit = new Octokit({
-      auth,
-    });
+    this.host = host;
+    this.dir = dir;
   }
   async getData(): Promise<ProviderData> {
     try {
-      const { data: rootData } = await this.octokit.rest.repos.get({
-        owner: this.owner,
-        repo: this.repo,
-        headers,
-      });
-      // The resource is a subfolder
-      if (this.dir) {
-        // Search for the closest Readme file at that level
-        const { data: innerReadme } =
-          await this.octokit.rest.repos.getReadmeInDirectory({
-            owner: this.owner,
-            repo: this.repo,
-            dir: this.dir,
-            headers,
-          });
-        rootData.description =
-          innerReadme && this.extractDescription(atob(innerReadme.content));
+      const encodedDir = encodeURIComponent(this.dir);
+      const rootData = await this.safeFetch(
+        `https://${this.host}/api/v4/projects/${encodedDir}`,
+      );
+      const languages = await this.safeFetch(
+        `https://${this.host}/api/v4/projects/${encodedDir}/languages`,
+      );
+
+      if (!rootData.description) {
+        const readme = await this.safeFetch(
+          `https://${this.host}/api/v4/projects/${encodedDir}/repository/files/README.md?ref=HEAD`,
+        );
+        rootData.description = this.extractDescription(atob(readme.content));
       }
 
       return {
         name: rootData.name,
         description: rootData.description,
-        language: rootData.source?.language,
+        language:
+          languages &&
+          Object.entries(languages as Record<string, number>).reduce(
+            (acc, language) => {
+              if (language[1] > acc[1]) {
+                return language;
+              }
+              return acc;
+            },
+            ["", 0],
+          )[0],
         lastUpdated: rootData.updated_at,
       };
     } catch (error: any) {
       throw new Error(
-        `GitHub API Error: ${error.message} for repo: ${this.owner}/${this.repo}`,
+        `GitLab API Error: ${error.message} for repo: ${this.dir}`,
       );
     }
   }
@@ -97,5 +95,14 @@ export class GitHubProvider {
     }
 
     return description.length > 0 ? description.join(" ") : null;
+  }
+
+  private async safeFetch(url: string) {
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.error(res);
+      throw new Error("Could not fetch: " + url);
+    }
+    return await res.json();
   }
 }
