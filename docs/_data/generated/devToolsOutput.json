@@ -36,7 +36,7 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": true
+          "isObsolete": false
         },
         {
           "name": "Eclipse Ditto :: WoT :: Model",
