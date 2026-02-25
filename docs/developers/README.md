@@ -14,12 +14,12 @@ docs/_data/devToolsInput.ts   ──▶   scripts/dev-tools.ts   ──▶   doc
 
 ## Prerequisites
 
-| Requirement      | Notes                                                                |
-| ---------------- | -------------------------------------------------------------------- |
-| **Node.js**      | v22+ (uses native TypeScript strip via `--experimental-strip-types`) |
-| **npm**          | Used to install dependencies                                         |
-| **GitHub Token** | Personal access token with `repo` read scope                         |
-| **GitLab Token** | Personal access token with `read_api` scope                          |
+| Requirement      | Notes                                        |
+| ---------------- | -------------------------------------------- |
+| **Node.js**      | v22+                                         |
+| **npm**          | Used to install dependencies                 |
+| **GitHub Token** | Personal access token with `repo` read scope |
+| **GitLab Token** | Personal access token with `read_api` scope  |
 
 ## Environment Setup
 
@@ -39,15 +39,14 @@ The script loads these via the `dotenv` package.
 cd scripts
 npm install
 
-# 2. Run from the project root
-cd ..
-npx tsx scripts/dev-tools.ts
+# 2. Run the script
+npx ts-node scripts/dev-tools.ts
 ```
 
 On success the console will print:
 
 ```
-/docs/_data/generated/devToolsOutput.ts successfully generated
+/docs/_data/generated/devToolsOutput.json successfully generated
 ```
 
 ## Working with `devToolsInput.ts`
@@ -63,14 +62,14 @@ Group (e.g. "Thing Description")
 
 ### `ToolInput` Properties
 
-| Property      | Type       | Description                                                               |
-| ------------- | ---------- | ------------------------------------------------------------------------- |
-| `repoUrl`     | `string`   | GitHub or GitLab repository URL. Used to fetch metadata automatically.    |
-| `name`        | `string`   | Display name. Falls back to the repo name if omitted.                     |
-| `description` | `string`   | Short description. Falls back to the first sentence of the repo's README. |
-| `url`         | `string`   | Link shown to the user. Falls back to `repoUrl` if omitted.               |
-| `languages`   | `string[]` | Programming languages. Falls back to the repo's primary language.         |
-| `isObsolete`  | `boolean`  | Mark a tool as obsolete manually. Auto-detected if not set (see below).   |
+| Property      | Type       | Description                                                                            |
+| ------------- | ---------- | -------------------------------------------------------------------------------------- |
+| `repoUrl`     | `string`   | GitHub or GitLab repository URL. Used to fetch metadata automatically.                 |
+| `name`        | `string`   | Display name. Falls back to the README's main heading or repo name if omitted.         |
+| `description` | `string`   | Short description. Falls back to the first sentence of the README or repo description. |
+| `url`         | `string`   | Link shown to the user. Falls back to `repoUrl` if omitted.                            |
+| `languages`   | `string[]` | Programming languages. Falls back to the repo's primary language.                      |
+| `isObsolete`  | `boolean`  | Mark a tool as obsolete manually. Auto-detected if not set (see below).                |
 
 > [!IMPORTANT]
 > Any property you set explicitly in `devToolsInput.ts` **overrides** the value fetched from the API. Leave properties out to let the script populate them automatically.
@@ -112,6 +111,13 @@ Group (e.g. "Thing Description")
 
 Delete the tool's entry from the `tools` array in `devToolsInput.ts` and re-run the script.
 
+## Workflow
+
+1. **Re-run the script** after every change to `devToolsInput.ts` to regenerate `devToolsOutput.json`.
+2. **The GitHub pipeline runs the script automatically** on each push — you do not need to trigger it manually.
+3. **Verify the output** by reviewing the diff of `devToolsOutput.json` to make sure only the intended tool properties changed and no other tools were affected. Do this both locally during development and after deployment.
+4. **If the script produces incorrect results**, try to fix the issue in `dev-tools.ts`. If a fix is not straightforward, create an issue and manually override the affected tool properties in `devToolsInput.ts` as a workaround.
+
 ## Obsolescence Detection
 
 A tool is automatically marked as obsolete if its repository has not been updated for the number of years set via `OBSOLETE_IN` in `docs/_data/constants.json`. You can override this by setting `isObsolete: false` (or `true`) explicitly in the input.
@@ -141,9 +147,9 @@ The generated `devToolsOutput.json` follows this shape:
 
 ## Troubleshooting
 
-| Problem                                      | Solution                                                                                              |
-| -------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `GITHUB_TOKEN is not defined`                | Make sure the `.env` file exists in the project root and contains a valid `GITHUB_TOKEN`.             |
-| `GITLAB_TOKEN is not defined`                | Same as above, but for `GITLAB_TOKEN`.                                                                |
-| `GitHub API Error` / `Could not fetch`       | Check that your tokens have the required scopes and have not expired.                                 |
-| `Name is missing` / `Description is missing` | The repo README could not be parsed. Add explicit `name` / `description` overrides in the input file. |
+| Problem                                                     | Solution                                                                                              |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `GITHUB_TOKEN is not defined`                               | Make sure the `.env` file exists in the project root and contains a valid `GITHUB_TOKEN`.             |
+| `GITLAB_TOKEN is not defined`                               | Same as above, but for `GITLAB_TOKEN`.                                                                |
+| `GitHub API Error` / `GitLab API Error` / `Could not fetch` | Check that your tokens have the required scopes and have not expired.                                 |
+| `Name is missing` / `Description is missing`                | The repo README could not be parsed. Add explicit `name` / `description` overrides in the input file. |

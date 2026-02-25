@@ -71,7 +71,7 @@ async function fetchDevTools() {
       JSON.stringify(outputJSON, null, 2),
     );
     console.log(
-      "/docs/_data/generated/devToolsOutput.ts successfully generated",
+      "/docs/_data/generated/devToolsOutput.json successfully generated",
     );
   } catch (error) {
     console.error("Could not save the output file:", error);

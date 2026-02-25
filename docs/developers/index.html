@@ -80,6 +80,7 @@ group: "navigation"
 	</div>
 
 	<!-- Dynamic Tool Categories -->
+	<!-- Read docs/developers/README.md for more information -->
 	{% for category in site.data.generated.devToolsOutput %}
 	{% assign category_name = category[0] %}
 	{% assign category_slug = category_name | slugify %}
