@@ -16,7 +16,6 @@ export interface ToolInput {
 }
 
 // WARNING: Before changing this object, please make sure you read docs/developers/README.md
-// #TODO: write the readme file
 export const devToolsInput: DevToolsInput = {
   "Thing Description": {
     "Editing and Validation": {
