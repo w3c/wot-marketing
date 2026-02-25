@@ -102,7 +102,7 @@ group: "navigation"
 					{% for tool in subcategory[1].tools %}
 					<tr class="tool-row {% if tool.isObsolete %}obsolete-tool{% endif %}"
 						data-languages="{{ tool.languages | join: ' ' | default: 'Unknown' }}">
-						<td><a href="{{ tool.url }}">{{ tool.name }}</a>{% if tool.isObsolete %} <span
+						<td><a href="{{ tool.url }}" target="_blank">{{ tool.name }}</a>{% if tool.isObsolete %} <span
 								style="font-size: 0.85em; color: #666; font-style: italic;">(Obsolete)</span>{% endif %}
 						</td>
 						<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
@@ -122,8 +122,8 @@ group: "navigation"
 	</div>
 	{% endfor %}
 
-	<p style="font-size: 0.85em; color: #666; font-style: italic;">* tools not updated for
-		{{ site.data.constants.OBSOLETE_IN }} years.
+	<p style="font-size: 0.85em; color: #666; font-style: italic;">* Tools with developer activity older than
+		{{ site.data.constants.OBSOLETE_IN }} years are marked as obsolete.
 	</p>
 
 	<script>

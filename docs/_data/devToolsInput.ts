@@ -39,13 +39,13 @@ export const devToolsInput: DevToolsInput = {
           description:
             "Visual Studio Code extension for validation and code snippets",
           url: "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code",
+          languages: ["JSON"],
         },
         {
           repoUrl: "https://github.com/oeg-upm/wot-jtd",
         },
         {
-          name: "Eclipse Ditto :: WoT :: Model",
-          repoUrl: "https://github.com/eclipse/ditto/wot/model",
+          repoUrl: "https://github.com/eclipse/ditto/tree/master/wot/model",
         },
         {
           repoUrl: "https://github.com/sifis-home/wot-td",
@@ -66,14 +66,11 @@ export const devToolsInput: DevToolsInput = {
         "Libraries implementing a WoT Runtime for building Things according to WoT paradigms",
       tools: [
         {
+          name: "Eclipse Thingweb node-wot",
           repoUrl: "https://github.com/eclipse/thingweb.node-wot",
         },
         {
-          name: "WoT Integration for Eclipse Ditto",
-          description:
-            "Links managed digital twins to WoT Thing Models to create Thing Descriptions with API details",
-          url: "https://www.eclipse.org/ditto/basic-wot-integration.html",
-          languages: ["Java", "Typescript"],
+          repoUrl: "https://github.com/eclipse-ditto/ditto/tree/master/wot",
         },
         {
           repoUrl: "https://github.com/sane-city/wot-servient",
@@ -91,6 +88,7 @@ export const devToolsInput: DevToolsInput = {
         "Libraries implementing a WoT Runtime for consuming Things and building custom applications",
       tools: [
         {
+          name: "Eclipse Thingweb node-wot",
           repoUrl: "https://github.com/eclipse/thingweb.node-wot",
         },
         {
@@ -107,6 +105,7 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: "https://github.com/sane-city/wot-servient",
         },
         {
+          name: "kotlin-wot",
           repoUrl: "https://github.com/eclipse-thingweb/kotlin-wot",
         },
         {
@@ -125,6 +124,9 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: "https://github.com/TinyIoT/thing-directory",
         },
         {
+          name: "WoT Hive",
+          description:
+            "This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.",
           repoUrl: "https://github.com/oeg-upm/wot-hive",
         },
         {
@@ -134,6 +136,9 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: "https://github.com/sifis-home/wot-discovery",
         },
         {
+          name: "Zion",
+          description:
+            "Zion employs the best open-source technologies to provide a scalable TDD service",
           repoUrl: "https://github.com/vaimee/zion",
         },
       ],
@@ -157,9 +162,13 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: "https://github.com/hololinked-dev/thing-control-panel",
         },
         {
+          name: "BLAST",
+          description: "Block Applications For Things",
           repoUrl: "https://github.com/wintechis/blast/",
         },
         {
+          description:
+            "Wade is an API development environment for Web of Things that was designed for the W3C WoT building blocks",
           repoUrl: "https://github.com/tum-esi/wade",
         },
         {
@@ -190,6 +199,8 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: "https://github.com/OPCFoundation/UA-EdgeTranslator",
         },
         {
+          description:
+            "VO-WoT is an experimental implementation of a W3C WoT Runtime and the W3C WoT Scripting API in Python.",
           repoUrl:
             "https://gitlab.eclipse.org/eclipse-research-labs/nephele-project/vo-wot",
         },
@@ -210,7 +221,6 @@ export const devToolsInput: DevToolsInput = {
           description:
             "Publicly accessible test Things hosted by Eclipse Thingweb",
           url: "https://thingweb.io/services/#online-things-for-testing",
-          languages: ["TypeScript", "Python"],
         },
         {
           repoUrl: "https://github.com/wot-oss/thingmodels",
@@ -223,7 +233,7 @@ export const devToolsInput: DevToolsInput = {
       description: "",
       tools: [
         {
-          repoUrl: "https://github.com/admin-shell-io/aasx-package-explorer",
+          repoUrl: "https://github.com/eclipse-aaspe/package-explorer",
         },
         {
           name: "Eclipse LMOS",

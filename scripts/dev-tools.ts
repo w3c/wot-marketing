@@ -43,7 +43,7 @@ interface ToolOutput {
 }
 // Data retrieved from a GitLab/GitHub repo
 interface RepoData {
-  name: string;
+  name: string | null;
   description: string | null;
   language: string | null | undefined;
   lastUpdated: string;
@@ -83,11 +83,10 @@ async function fetchDevTools() {
  */
 async function mapTool(tool: ToolInput): Promise<ToolOutput> {
   try {
-    // Create a copy of the tool to avoid mutating the original object
-    const _tool = { ...tool };
+    const mappedTool = { ...tool };
     // If the tool has a repoUrl, fetch the data from the provider
-    if (_tool.repoUrl) {
-      const url = new URL(_tool.repoUrl);
+    if (mappedTool.repoUrl) {
+      const url = new URL(mappedTool.repoUrl);
       const host = url.host;
       let data: RepoData | null = null;
       if (host.includes("github")) {
@@ -97,18 +96,19 @@ async function mapTool(tool: ToolInput): Promise<ToolOutput> {
         // GitLab
         data = await getGitLabData(url);
       }
-      console.log(JSON.stringify(data));
       if (data) {
         // If an override exists use it directly otherwise use the fetched data
-        _tool.name = _tool.name ?? data.name;
-        _tool.description = _tool.description ?? data.description ?? undefined;
-        _tool.languages =
-          _tool.languages ?? (data.language ? [data.language] : []);
-        _tool.isObsolete = _tool.isObsolete ?? isObsolete(data.lastUpdated);
-        _tool.url = _tool.url ?? _tool.repoUrl;
+        mappedTool.name = mappedTool.name ?? data.name ?? undefined;
+        mappedTool.description =
+          mappedTool.description ?? data.description ?? undefined;
+        mappedTool.languages =
+          mappedTool.languages ?? (data.language ? [data.language] : []);
+        mappedTool.isObsolete =
+          mappedTool.isObsolete ?? isObsolete(data.lastUpdated);
+        mappedTool.url = mappedTool.url ?? mappedTool.repoUrl;
       }
     }
-    return parseTool(_tool);
+    return parseTool(mappedTool);
   } catch (error: any) {
     throw new Error(`${error.message} for tool: ${JSON.stringify(tool)}`);
   }
@@ -119,36 +119,35 @@ async function mapTool(tool: ToolInput): Promise<ToolOutput> {
  */
 async function getGitHubData(url: URL): Promise<RepoData> {
   const pathname = url.pathname.slice(1); // remove the first slash
-  const pathParts = pathname.split("/").filter((part) => part.length > 0);
+  // Subfolders have repoUrl/tree/master/subfolder structure
+  // The API requires repoUrl/subfolder so we filter out the tree and master parts
+  const pathParts = pathname
+    .split("/")
+    .filter((part) => part.length > 0 && part !== "tree" && part !== "master");
   const owner = pathParts[0];
   const repo = pathParts[1];
-  const dir = pathParts.slice(2).join("/");
+  const subfolder = pathParts.slice(2).join("/");
   const headers = {
     "X-GitHub-Api-Version": "2022-11-28",
   };
   try {
+    // Root folder data
     const { data: rootData } = await octokit.rest.repos.get({
       owner,
       repo,
       headers,
     });
-    // The resource is a subfolder
-    if (dir) {
-      // Search for the closest Readme file at that level
-      const { data: innerReadme } =
-        await octokit.rest.repos.getReadmeInDirectory({
-          owner,
-          repo,
-          dir,
-          headers,
-        });
-      rootData.description =
-        innerReadme && extractDescription(atob(innerReadme.content));
-    }
+    const { data: readme } = await octokit.rest.repos.getReadmeInDirectory({
+      owner,
+      repo,
+      headers,
+      dir: subfolder,
+    });
+    const { name, description } = extractToolMetadata(atob(readme.content));
     return {
-      name: rootData.name,
-      description: rootData.description,
-      language: rootData.language,
+      name: name ?? (subfolder ? null : rootData.name),
+      description: description ?? (subfolder ? null : rootData.description),
+      language: rootData.language ?? rootData.parent?.language,
       lastUpdated: rootData.updated_at,
     };
   } catch (error: any) {
@@ -174,7 +173,9 @@ async function getGitLabData(url: URL) {
       const readme = await safeFetch(
         `https://${host}/api/v4/projects/${encodedDir}/repository/files/README.md?ref=HEAD`,
       );
-      rootData.description = extractDescription(atob(readme.content));
+      rootData.description = extractToolMetadata(
+        atob(readme.content),
+      ).description;
     }
     return {
       name: rootData.name,
@@ -227,44 +228,108 @@ function isObsolete(lastUpdated: string): boolean {
 }
 
 /**
- * Extracts the tool description from the readme file's content
+ * Extracts the tool name and the first sentence of the description from the readme file's content
  * @param markdown - readme file content
- * @returns tool description
+ * @returns object containing tool name and description
  */
-function extractDescription(markdown: string): string | null {
-  // Use RegExp constructor to avoid syntax highlighting collisions with slash delimiters
+function extractToolMetadata(markdown: string): {
+  name: string | null;
+  description: string | null;
+} {
   const commentPattern = new RegExp("", "g");
-  const cleanMd = markdown.replace(commentPattern, "");
+  const noComments = markdown.replace(commentPattern, "");
+  const lines = noComments.split(new RegExp("\\r?\\n"));
 
-  const lines = cleanMd.split(/\r?\n/);
+  let name: string | null = null;
+  const paragraphs: string[] = [];
+  let currentPara: string[] = [];
+  let foundHeader = false;
 
-  const description: string[] = [];
-  let capturing = false;
+  const headerPattern = new RegExp("^#+\\s+");
 
   for (const line of lines) {
     const trimmed = line.trim();
 
-    if (!capturing) {
-      if (
-        !trimmed ||
-        trimmed.startsWith("#") ||
-        trimmed.startsWith("!") ||
-        trimmed.startsWith("[")
-      ) {
-        continue;
-      }
-      capturing = true;
+    if (!foundHeader && trimmed.match(headerPattern)) {
+      const rawName = trimmed.replace(headerPattern, "");
+      name = cleanLine(rawName);
+      foundHeader = true;
+      continue;
     }
 
-    if (capturing) {
-      if (!trimmed || trimmed.startsWith("#")) {
-        break;
+    if (!foundHeader) {
+      continue;
+    }
+
+    if (trimmed.match(headerPattern)) {
+      if (currentPara.length > 0) {
+        paragraphs.push(currentPara.join(" "));
+        currentPara = [];
       }
-      description.push(trimmed);
+      continue;
+    }
+
+    if (!trimmed) {
+      if (currentPara.length > 0) {
+        paragraphs.push(currentPara.join(" "));
+        currentPara = [];
+      }
+      continue;
+    }
+
+    const cleaned = cleanLine(trimmed);
+    if (cleaned) {
+      currentPara.push(cleaned);
     }
   }
 
-  return description.length > 0 ? description.join(" ") : null;
+  if (currentPara.length > 0) {
+    paragraphs.push(currentPara.join(" "));
+  }
+
+  let description: string | null = null;
+
+  const whitespacePattern = new RegExp("\\s+", "g");
+  const sentencePattern = new RegExp("^.*?[.!?](?=\\s|$)");
+
+  for (const para of paragraphs) {
+    const normalizedPara = para.replace(whitespacePattern, " ").trim();
+
+    if (!normalizedPara || normalizedPara.length < 5) continue;
+    if (normalizedPara.toLowerCase().startsWith("table of contents")) continue;
+
+    const sentenceMatch = normalizedPara.match(sentencePattern);
+    description = sentenceMatch ? sentenceMatch[0] : normalizedPara;
+    break;
+  }
+
+  return { name, description };
+}
+
+function cleanLine(text: string): string {
+  let cleaned = text;
+
+  cleaned = cleaned.replace(
+    new RegExp("\\[\\s*!\\[[^\\]]*\\]\\([^)]*\\)\\s*\\]\\([^)]*\\)", "g"),
+    "",
+  );
+  cleaned = cleaned.replace(new RegExp("!\\[[^\\]]*\\]\\([^)]*\\)", "g"), "");
+  cleaned = cleaned.replace(
+    new RegExp("\\[([^\\]]+)\\]\\([^)]+\\)", "g"),
+    "$1",
+  );
+  cleaned = cleaned.replace(
+    new RegExp("\\[([^\\]]+)\\]\\[[^\\]]*\\]", "g"),
+    "$1",
+  );
+  cleaned = cleaned.replace(new RegExp("^>\\s*"), "");
+  cleaned = cleaned.replace(new RegExp("^[-_*]{3,}$", "g"), "");
+  cleaned = cleaned.replace(new RegExp("(\\*\\*|__|\\*|_)(.*?)\\1", "g"), "$2");
+  cleaned = cleaned.replace(new RegExp("`([^`]+)`", "g"), "$1");
+  cleaned = cleaned.replace(new RegExp("<[^>]+>", "g"), "");
+  cleaned = cleaned.replace(new RegExp("[^\\x20-\\x7E]", "g"), "");
+
+  return cleaned.trim();
 }
 
 /**
@@ -272,17 +337,19 @@ function extractDescription(markdown: string): string | null {
  */
 function parseTool(tool: ToolInput): ToolOutput {
   if (!tool.name) {
-    throw new Error("Name is missing for tool: " + JSON.stringify(tool));
+    throw new Error("Name is missing");
   }
   if (!tool.description) {
-    throw new Error("Description is missing for tool: " + JSON.stringify(tool));
+    throw new Error("Description is missing");
   }
   if (!tool.url) {
-    throw new Error("Url is missing for tool: " + JSON.stringify(tool));
+    throw new Error("Url is missing");
   }
   return {
     name: tool.name,
-    description: tool.description,
+    description: (
+      tool.description[0].toUpperCase() + tool.description.slice(1)
+    ).replace(/\.$/, ""), // remove trailing dot
     url: tool.url,
     languages: tool.languages ?? [],
     isObsolete: tool.isObsolete ?? false,
