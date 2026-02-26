@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "node scripts package for github workflows",
   "license": "ISC",
-  "author": "",
+  "author": "w3c",
   "type": "module",
   "main": "dev-tools.ts",
   "scripts": {
