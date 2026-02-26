@@ -2,7 +2,7 @@
   "name": "wot-marketing",
   "version": "1.0.0",
   "description": "node scripts package for github workflows",
-  "license": "ISC",
+  "license": "W3C-20150513",
   "author": "w3c",
   "type": "module",
   "main": "dev-tools.ts",
