@@ -7,7 +7,7 @@
   "type": "module",
   "main": "dev-tools.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-tools": "npx ts-node dev-tools.ts"
   },
   "devDependencies": {
     "@types/node": "^25.2.1",

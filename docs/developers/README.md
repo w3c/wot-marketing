@@ -40,7 +40,7 @@ cd scripts
 npm install
 
 # 2. Run the script
-npx ts-node scripts/dev-tools.ts
+npm run dev-tools
 ```
 
 On success the console will print:
