@@ -12,9 +12,9 @@ const __dirname = dirname(__filename);
 config({ path: resolve(__dirname, "../.env") });
 
 // GitHub and GitLab client init
-const githubToken = process.env.GITHUB_TOKEN;
+const githubToken = process.env.GH_TOKEN;
 if (!githubToken) {
-  throw new Error("GITHUB_TOKEN is not defined");
+  throw new Error("GH_TOKEN is not defined");
 }
 const octokit = new Octokit({
   auth: githubToken,

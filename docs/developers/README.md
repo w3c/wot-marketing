@@ -26,7 +26,7 @@ docs/_data/devToolsInput.ts   ──▶   scripts/dev-tools.ts   ──▶   doc
 Create a `.env` file in the **project root** (next to `scripts/`):
 
 ```env
-GITHUB_TOKEN=ghp_your_token_here
+GH_TOKEN=ghp_your_token_here
 GITLAB_TOKEN=glpat-your_token_here
 ```
 
@@ -149,7 +149,7 @@ The generated `devToolsOutput.json` follows this shape:
 
 | Problem                                                     | Solution                                                                                              |
 | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `GITHUB_TOKEN is not defined`                               | Make sure the `.env` file exists in the project root and contains a valid `GITHUB_TOKEN`.             |
+| `GH_TOKEN is not defined`                               | Make sure the `.env` file exists in the project root and contains a valid `GH_TOKEN`.             |
 | `GITLAB_TOKEN is not defined`                               | Same as above, but for `GITLAB_TOKEN`.                                                                |
 | `GitHub API Error` / `GitLab API Error` / `Could not fetch` | Check that your tokens have the required scopes and have not expired.                                 |
 | `Name is missing` / `Description is missing`                | The repo README could not be parsed. Add explicit `name` / `description` overrides in the input file. |
