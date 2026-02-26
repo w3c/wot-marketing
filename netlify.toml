@@ -1,6 +1,6 @@
 [build]
   base = "docs"
-  publish = "docs/_site"
+  publish = "/_site"
   command = "bundle install && bundle exec jekyll build"
 
 [context.deploy-preview]
