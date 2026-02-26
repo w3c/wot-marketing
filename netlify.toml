@@ -1,0 +1,10 @@
+[build]
+  base = "docs"
+  publish = "docs/_site"
+  command = "bundle install && bundle exec jekyll build"
+
+[context.deploy-preview]
+  command = "bundle install && bundle exec jekyll build --config _config.yml,_config_netlify.yml"
+
+[context.branch-deploy]
+  command = "bundle install && bundle exec jekyll build --config _config.yml,_config_netlify.yml"
