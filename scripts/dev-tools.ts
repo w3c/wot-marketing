@@ -203,7 +203,7 @@ async function getGitLabData(url: URL) {
           ["", 0],
         )[0],
       lastUpdated: rootData.last_activity_at,
-      homepage: rootData.homepage,
+      homepage: null, // GitLab API does not provide homepage
     };
   } catch (error: any) {
     throw new Error(`GitLab API Error: ${error.message}`);
