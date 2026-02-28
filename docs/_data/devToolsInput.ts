@@ -10,9 +10,9 @@ export interface ToolInput {
   repoUrl?: string;
   name?: string;
   description?: string;
-  url?: string;
   languages?: string[];
   isObsolete?: boolean;
+  homepageUrl?: string;
 }
 
 // WARNING: Before changing this object, please make sure you read docs/developers/README.md
@@ -24,27 +24,21 @@ export const devToolsInput: DevToolsInput = {
       tools: [
         {
           name: "Thing Description Playground",
-          description:
-            "Reference validation suite including OpenAPI generation, linting, and other utilities",
-          url: "https://playground.thingweb.io/",
-          languages: ["JSON", "yaml"],
+          repoUrl: "https://github.com/eclipse-thingweb/playground"
         },
         {
           name: "Eclipse edi{TD}or",
           repoUrl: "https://github.com/eclipse-editdor/editdor",
         },
         {
-          name: "TD code",
-          description:
-            "Visual Studio Code extension for validation and code snippets",
-          url: "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code",
-          languages: ["JSON"],
-        },
-        {
-          repoUrl: "https://github.com/oeg-upm/wot-jtd",
+          repoUrl: "https://github.com/eclipse-thingweb/td-code",
+          homepageUrl: "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code",
         },
         {
           repoUrl: "https://github.com/eclipse/ditto/tree/master/wot/model",
+        },
+        {
+          repoUrl: "https://github.com/oeg-upm/wot-jtd",
         },
         {
           repoUrl: "https://github.com/sifis-home/wot-td",
@@ -94,11 +88,8 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: "https://github.com/node-red/node-red-nodegen",
         },
         {
-          name: "dart_wot",
-          description:
-            "Dart implementation of W3C WoT supporting HTTP and CoAP",
-          url: "https://pub.dev/packages/dart_wot",
-          languages: ["Dart"],
+          homepageUrl: "https://pub.dev/packages/dart_wot",
+          repoUrl: "https://github.com/eclipse-thingweb/dart_wot",
         },
         {
           repoUrl: "https://github.com/sane-city/wot-servient",
@@ -185,7 +176,7 @@ export const devToolsInput: DevToolsInput = {
           name: "sayWoT!",
           description:
             "Industrial-grade implementation integrating devices into Siemens software",
-          url: "https://www.evosoft.com/en/digitalization-offering/saywot/",
+          homepageUrl: "https://www.evosoft.com/en/digitalization-offering/saywot/",
           languages: ["No-Code"],
         },
         {
@@ -219,7 +210,7 @@ export const devToolsInput: DevToolsInput = {
           name: "Eclipse Thingweb - Online Things for Testing",
           description:
             "Publicly accessible test Things hosted by Eclipse Thingweb",
-          url: "https://thingweb.io/services/#online-things-for-testing",
+          homepageUrl: "https://thingweb.io/services/#online-things-for-testing",
         },
         {
           repoUrl: "https://github.com/wot-oss/thingmodels",
@@ -238,8 +229,10 @@ export const devToolsInput: DevToolsInput = {
           name: "Eclipse LMOS",
           description:
             "Open-source, cloud-native platform for Multi-Agent systems",
-          url: "https://eclipse.dev/lmos/",
-          languages: ["Kotlin", "Java"],
+          homepageUrl: "https://eclipse.dev/lmos/",
+          repoUrl: "https://github.com/eclipse-lmos",
+          languages: ["Kotlin", "Shell", "JavaScript", "Dart"],
+          isObsolete: false,
         },
         {
           repoUrl: "https://github.com/tum-esi/wotify",

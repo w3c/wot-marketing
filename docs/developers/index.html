@@ -97,14 +97,22 @@ group: "navigation"
 						<th style="width: 25%;">Name</th>
 						<th>Description</th>
 						<th style="width: 0;">Languages</th>
+						<th style="width: 0;">Repository</th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for tool in subcategory[1].tools %}
 					<tr class="tool-row {% if tool.isObsolete %}obsolete-tool{% endif %}"
 						data-languages="{{ tool.languages | join: ' ' | default: 'Unknown' }}">
-						<td><a href="{{ tool.url }}" target="_blank">{{ tool.name }}</a>{% if tool.isObsolete %} <span
-								style="font-size: 0.85em; color: #666; font-style: italic;">(Obsolete)</span>{% endif %}
+						<td>
+							{% if tool.homepageUrl %}
+							<a href="{{ tool.homepageUrl }}" target="_blank">{{ tool.name }}</a>
+							{% else %}
+							{{ tool.name }}
+							{% endif %}
+							{% if tool.isObsolete %}
+							<span style="font-size: 0.85em; color: #666; font-style: italic;">(Obsolete)</span>{% endif
+							%}
 						</td>
 						<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
 						<td style="text-align: center; vertical-align: middle; white-space: nowrap;">
@@ -112,6 +120,19 @@ group: "navigation"
 							<span style="font-weight: bold;">{{ tool.languages | join:", " }}</span>
 							{% else %}
 							<!-- Unknown -->
+							{% endif %}
+						</td>
+						<td style="text-align: center; vertical-align: middle;">
+							{% if tool.repoUrl %}
+							<a href="{{ tool.repoUrl }}" target="_blank" title="Repository">
+								{% if tool.repoUrl contains 'github' %}
+								<i class="fab fa-github" style="font-size: 1.5em;"></i>
+								{% elsif tool.repoUrl contains 'gitlab' %}
+								<i class="fab fa-gitlab" style="font-size: 1.5em;"></i>
+								{% else %}
+								<i class="fas fa-link"></i>
+								{% endif %}
+							</a>
 							{% endif %}
 						</td>
 					</tr>

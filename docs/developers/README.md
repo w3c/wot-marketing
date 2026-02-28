@@ -67,12 +67,12 @@ Group (e.g. "Thing Description")
 | `repoUrl`     | `string`   | GitHub or GitLab repository URL. Used to fetch metadata automatically.                 |
 | `name`        | `string`   | Display name. Falls back to the README's main heading or repo name if omitted.         |
 | `description` | `string`   | Short description. Falls back to the first sentence of the README or repo description. |
-| `url`         | `string`   | Link shown to the user. Falls back to `repoUrl` if omitted.                            |
+| `homepageUrl` | `string`   | Homepage link shown to the user. Optional.                            |
 | `languages`   | `string[]` | Programming languages. Falls back to the repo's primary language.                      |
 | `isObsolete`  | `boolean`  | Mark a tool as obsolete manually. Auto-detected if not set (see below).                |
 
 > [!IMPORTANT]
-> Any property you set explicitly in `devToolsInput.ts` **overrides** the value fetched from the API. Leave properties out to let the script populate them automatically.
+> Any property you set explicitly in `devToolsInput.ts` **overrides** the value fetched from the API. Leave properties out to let the script populate them automatically. In order to avoid fetching data, all the properties must be written manually.
 
 ### Adding a New Tool
 
@@ -91,18 +91,18 @@ Group (e.g. "Thing Description")
   name: "My Tool",
   description: "A custom description that won't be overwritten",
   repoUrl: "https://github.com/org/repo",
-  url: "https://my-tool-homepage.com",
+  homepageUrl: "https://my-tool-homepage.com",
   languages: ["TypeScript", "Python"],
 }
 ```
 
-**Without a repo** – tools that are not hosted on GitHub / GitLab must have `name`, `description`, and `url` set explicitly:
+**Without a repo** – tools that are not hosted on GitHub / GitLab must have `name`, `description`, and `homepageUrl` set explicitly:
 
 ```ts
 {
   name: "My Hosted Tool",
   description: "Description of the tool",
-  url: "https://example.com/tool",
+  homepageUrl: "https://example.com/tool",
   languages: ["JSON"],
 }
 ```
@@ -135,7 +135,8 @@ The generated `devToolsOutput.json` follows this shape:
         {
           "name": "Tool Name",
           "description": "First letter capitalized, no trailing dot",
-          "url": "https://...",
+          "repoUrl": "https://...",
+          "homepageUrl": "https://...",
           "languages": ["TypeScript"],
           "isObsolete": false
         }
