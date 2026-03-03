@@ -37,9 +37,10 @@ interface DevToolsOutput {
 interface ToolOutput {
   name: string;
   description: string;
-  url: string;
   languages: string[];
   isObsolete: boolean;
+  repoUrl?: string;
+  homepageUrl?: string;
 }
 // Data retrieved from a GitLab/GitHub repo
 interface RepoData {
@@ -47,6 +48,7 @@ interface RepoData {
   description: string | null;
   language: string | null | undefined;
   lastUpdated: string;
+  homepage: string | null;
 }
 
 // Main script (called in the end of the file)
@@ -85,7 +87,7 @@ async function mapTool(tool: ToolInput): Promise<ToolOutput> {
   try {
     const mappedTool = { ...tool };
     // If the tool has a repoUrl, fetch the data from the provider
-    if (mappedTool.repoUrl) {
+    if (mappedTool.repoUrl && needsFetching(mappedTool)) {
       const url = new URL(mappedTool.repoUrl);
       const host = url.host;
       let data: RepoData | null = null;
@@ -105,13 +107,17 @@ async function mapTool(tool: ToolInput): Promise<ToolOutput> {
           mappedTool.languages ?? (data.language ? [data.language] : []);
         mappedTool.isObsolete =
           mappedTool.isObsolete ?? isObsolete(data.lastUpdated);
-        mappedTool.url = mappedTool.url ?? mappedTool.repoUrl;
+        mappedTool.homepageUrl = mappedTool.homepageUrl ?? data.homepage ?? undefined;
       }
     }
     return parseTool(mappedTool);
   } catch (error: any) {
     throw new Error(`${error.message} for tool: ${JSON.stringify(tool)}`);
   }
+}
+function needsFetching(tool: ToolInput): boolean {
+  // If all properties are overriden, we don't need to fetch
+  return !(tool.name && tool.description && tool.languages && tool.isObsolete !== undefined && tool.homepageUrl);
 }
 
 /**
@@ -149,6 +155,7 @@ async function getGitHubData(url: URL): Promise<RepoData> {
       description: description ?? (subfolder ? null : rootData.description),
       language: rootData.language ?? rootData.parent?.language,
       lastUpdated: rootData.updated_at,
+      homepage: rootData.homepage,
     };
   } catch (error: any) {
     throw new Error(`GitHub API Error: ${error.message}`);
@@ -192,6 +199,7 @@ async function getGitLabData(url: URL) {
           ["", 0],
         )[0],
       lastUpdated: rootData.last_activity_at,
+      homepage: null, // GitLab API does not provide homepage
     };
   } catch (error: any) {
     throw new Error(`GitLab API Error: ${error.message}`);
@@ -342,17 +350,18 @@ function parseTool(tool: ToolInput): ToolOutput {
   if (!tool.description) {
     throw new Error("Description is missing");
   }
-  if (!tool.url) {
-    throw new Error("Url is missing");
+  if (!tool.repoUrl && !tool.homepageUrl) {
+    throw new Error("Repo or Homepage URL is missing");
   }
   return {
     name: tool.name,
     description: (
       tool.description[0].toUpperCase() + tool.description.slice(1)
     ).replace(/\.$/, ""), // remove trailing dot
-    url: tool.url,
+    repoUrl: tool.repoUrl,
     languages: tool.languages ?? [],
     isObsolete: tool.isObsolete ?? false,
+    homepageUrl: tool.homepageUrl || undefined,
   };
 }
 
