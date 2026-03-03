@@ -11,7 +11,11 @@
             "JavaScript"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://playground.thingweb.io/"
+          "homepageUrl": "https://playground.thingweb.io/",
+          "platforms": [
+            "Browser",
+            "CLI"
+          ]
         },
         {
           "name": "Eclipse edi{TD}or",
@@ -21,7 +25,10 @@
             "TypeScript"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://eclipse-editdor.github.io/editdor/"
+          "homepageUrl": "https://eclipse-editdor.github.io/editdor/",
+          "platforms": [
+            "Browser"
+          ]
         },
         {
           "name": "TD-code",
@@ -31,7 +38,10 @@
             "TypeScript"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code"
+          "homepageUrl": "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code",
+          "platforms": [
+            "IDE Extension"
+          ]
         },
         {
           "name": "Eclipse Ditto :: WoT :: Model",
@@ -41,7 +51,10 @@
             "Java"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://eclipse.dev/ditto/"
+          "homepageUrl": "https://eclipse.dev/ditto/",
+          "platforms": [
+            "Library"
+          ]
         },
         {
           "name": "Java API for Thing Descriptions of WoT (JDTs)",
@@ -50,7 +63,10 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Library"
+          ]
         },
         {
           "name": "wot-td",
@@ -59,7 +75,10 @@
           "languages": [
             "Rust"
           ],
-          "isObsolete": true
+          "isObsolete": true,
+          "platforms": [
+            "Library"
+          ]
         },
         {
           "name": "Golang ThingDescription",
@@ -68,7 +87,10 @@
           "languages": [
             "Go"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Library"
+          ]
         },
         {
           "name": "tmtd",
@@ -77,7 +99,10 @@
           "languages": [
             "Go"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "CLI"
+          ]
         },
         {
           "name": "Wot-DTDL-Converter",
@@ -86,7 +111,10 @@
           "languages": [
             "C#"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "CLI"
+          ]
         }
       ]
     },
@@ -101,7 +129,11 @@
             "TypeScript"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://thingweb.io"
+          "homepageUrl": "https://thingweb.io",
+          "platforms": [
+            "Library",
+            "CLI"
+          ]
         },
         {
           "name": "Eclipse Ditto :: WoT",
@@ -111,7 +143,10 @@
             "Java"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://eclipse.dev/ditto/"
+          "homepageUrl": "https://eclipse.dev/ditto/",
+          "platforms": [
+            "Library"
+          ]
         },
         {
           "name": "SANE Web of Things Servient",
@@ -120,7 +155,11 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Library",
+            "CLI"
+          ]
         },
         {
           "name": "wot-serve",
@@ -129,7 +168,10 @@
           "languages": [
             "Rust"
           ],
-          "isObsolete": true
+          "isObsolete": true,
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "wotpy",
@@ -138,7 +180,10 @@
           "languages": [
             "Python"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Library"
+          ]
         }
       ]
     },
@@ -153,7 +198,11 @@
             "TypeScript"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://thingweb.io"
+          "homepageUrl": "https://thingweb.io",
+          "platforms": [
+            "Library",
+            "CLI"
+          ]
         },
         {
           "name": "Node generator for Node-RED",
@@ -162,7 +211,10 @@
           "languages": [
             "JavaScript"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "CLI"
+          ]
         },
         {
           "name": "dart_wot",
@@ -172,7 +224,10 @@
             "Dart"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://pub.dev/packages/dart_wot"
+          "homepageUrl": "https://pub.dev/packages/dart_wot",
+          "platforms": [
+            "Library"
+          ]
         },
         {
           "name": "SANE Web of Things Servient",
@@ -181,7 +236,11 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Library",
+            "CLI"
+          ]
         },
         {
           "name": "kotlin-wot",
@@ -190,7 +249,10 @@
           "languages": [
             "Kotlin"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Library"
+          ]
         },
         {
           "name": "WoT.Net",
@@ -200,7 +262,10 @@
             "C#"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://tum-esi.github.io/WoT.Net/"
+          "homepageUrl": "https://tum-esi.github.io/WoT.Net/",
+          "platforms": [
+            "Library"
+          ]
         },
         {
           "name": "wotpy",
@@ -209,7 +274,10 @@
           "languages": [
             "Python"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Library"
+          ]
         }
       ]
     },
@@ -223,7 +291,11 @@
           "languages": [
             "Go"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Service",
+            "CLI"
+          ]
         },
         {
           "name": "WoT Hive",
@@ -232,7 +304,10 @@
           "languages": [
             "JavaScript"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "Domus TDD API",
@@ -242,7 +317,10 @@
             "Python"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://thingweb.io"
+          "homepageUrl": "https://thingweb.io",
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "wot-discovery",
@@ -251,7 +329,10 @@
           "languages": [
             "Rust"
           ],
-          "isObsolete": true
+          "isObsolete": true,
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "Zion",
@@ -260,7 +341,10 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Service"
+          ]
         }
       ]
     }
@@ -277,7 +361,10 @@
             "TypeScript"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://thingweb.io"
+          "homepageUrl": "https://thingweb.io",
+          "platforms": [
+            "CLI"
+          ]
         },
         {
           "name": "WoT Wrench",
@@ -286,7 +373,10 @@
           "languages": [
             "TSX"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Browser"
+          ]
         },
         {
           "name": "Thing Model Catalog CLI",
@@ -296,7 +386,10 @@
             "Go"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://wot-oss.github.io/tmc/"
+          "homepageUrl": "https://wot-oss.github.io/tmc/",
+          "platforms": [
+            "CLI"
+          ]
         },
         {
           "name": "Thing Control Panel",
@@ -306,7 +399,10 @@
             "TypeScript"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://control-panel.hololinked.dev/"
+          "homepageUrl": "https://control-panel.hololinked.dev/",
+          "platforms": [
+            "Browser"
+          ]
         },
         {
           "name": "BLAST",
@@ -316,7 +412,11 @@
             "JavaScript"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://wintechis.github.io/blast/"
+          "homepageUrl": "https://wintechis.github.io/blast/",
+          "platforms": [
+            "Browser",
+            "Library"
+          ]
         },
         {
           "name": "W-ADE",
@@ -326,7 +426,10 @@
             "TypeScript"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://www.ei.tum.de/en/esi/home/"
+          "homepageUrl": "https://www.ei.tum.de/en/esi/home/",
+          "platforms": [
+            "Application"
+          ]
         },
         {
           "name": "wot-fxui",
@@ -335,7 +438,11 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": true
+          "isObsolete": true,
+          "platforms": [
+            "Browser",
+            "Application"
+          ]
         }
       ]
     },
@@ -349,7 +456,10 @@
             "No-Code"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://www.evosoft.com/en/digitalization-offering/saywot/"
+          "homepageUrl": "https://www.evosoft.com/en/digitalization-offering/saywot/",
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "Web of Things Test Bench",
@@ -358,7 +468,10 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "WebThings Gateway",
@@ -368,7 +481,11 @@
             "TypeScript"
           ],
           "isObsolete": false,
-          "homepageUrl": "http://webthings.io/gateway"
+          "homepageUrl": "http://webthings.io/gateway",
+          "platforms": [
+            "Service",
+            "Browser"
+          ]
         },
         {
           "name": "UA Edge Translator",
@@ -377,7 +494,10 @@
           "languages": [
             "C#"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "VO-WoT",
@@ -386,7 +506,10 @@
           "languages": [
             "Python"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "WoT Anything",
@@ -395,7 +518,10 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "Shadow Thing",
@@ -404,7 +530,11 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Service",
+            "CLI"
+          ]
         }
       ]
     },
@@ -416,14 +546,20 @@
           "description": "Publicly accessible test Things hosted by Eclipse Thingweb",
           "languages": [],
           "isObsolete": false,
-          "homepageUrl": "https://thingweb.io/services/#online-things-for-testing"
+          "homepageUrl": "https://thingweb.io/services/#online-things-for-testing",
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "Thing Model Catalog Repository",
           "description": "This repository holds Thing Models for Siemens devices published by Siemens for public use",
           "repoUrl": "https://github.com/wot-oss/thingmodels",
           "languages": [],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Library"
+          ]
         }
       ]
     }
@@ -439,7 +575,10 @@
           "languages": [
             "C#"
           ],
-          "isObsolete": false
+          "isObsolete": false,
+          "platforms": [
+            "Application"
+          ]
         },
         {
           "name": "Eclipse LMOS",
@@ -452,7 +591,10 @@
             "Dart"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://eclipse.dev/lmos/"
+          "homepageUrl": "https://eclipse.dev/lmos/",
+          "platforms": [
+            "Service"
+          ]
         },
         {
           "name": "WoTify",
@@ -462,7 +604,10 @@
             "Vue"
           ],
           "isObsolete": false,
-          "homepageUrl": "https://wotify.org"
+          "homepageUrl": "https://wotify.org",
+          "platforms": [
+            "Browser"
+          ]
         }
       ]
     }

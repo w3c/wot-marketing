@@ -41,6 +41,7 @@ interface ToolOutput {
   isObsolete: boolean;
   repoUrl?: string;
   homepageUrl?: string;
+  platforms: string[];
 }
 // Data retrieved from a GitLab/GitHub repo
 interface RepoData {
@@ -108,6 +109,7 @@ async function mapTool(tool: ToolInput): Promise<ToolOutput> {
         mappedTool.isObsolete =
           mappedTool.isObsolete ?? isObsolete(data.lastUpdated);
         mappedTool.homepageUrl = mappedTool.homepageUrl ?? data.homepage ?? undefined;
+        mappedTool.platforms = mappedTool.platforms;
       }
     }
     return parseTool(mappedTool);
@@ -362,6 +364,7 @@ function parseTool(tool: ToolInput): ToolOutput {
     languages: tool.languages ?? [],
     isObsolete: tool.isObsolete ?? false,
     homepageUrl: tool.homepageUrl || undefined,
+    platforms: tool.platforms,
   };
 }
 
