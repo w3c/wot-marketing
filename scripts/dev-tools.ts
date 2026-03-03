@@ -87,10 +87,6 @@ async function mapTool(tool: ToolInput): Promise<ToolOutput> {
   try {
     const mappedTool = { ...tool };
     // If the tool has a repoUrl, fetch the data from the provider
-    if (mappedTool.name==="Eclipse LMOS"){
-      console.log(needsFetching(mappedTool));
-      console.log(mappedTool)
-    }
     if (mappedTool.repoUrl && needsFetching(mappedTool)) {
       const url = new URL(mappedTool.repoUrl);
       const host = url.host;
