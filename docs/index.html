@@ -81,17 +81,54 @@ title: Home
 			</div>
 		</div>
 
-		<div class="col-md-4" style="display: flex; flex-direction: column; position: relative;">
-			<div style="margin-bottom: 20px;">
-				<a href="videos/" title="WoT videos">
-					<h4>WoT Videos &raquo;</h4> <img class="img-responsive" style="min-width: 180px; width: 100%"
-						src="{{'/images/video-thumbnail-wot-explainer.png' | absolute_url }}" alt="WoT Video" />
-				</a>
-			</div>
+		<div class="col-md-4" style="position: relative;">
+			<style>
+				.toots {
+					max-width: none;
+					flex: 1;
+					overflow-y: auto;
+					min-height: 0;
+				}
 
-			<!-- Mastodon Feed inserted by the script in default.html -->
-			<a class="mastodon-feed" href="https://w3c.social/@wot" data-toot-limit="20">WoT in
-				Mastodon</a>
+				.mastodon-column {
+					display: flex;
+					flex-direction: column;
+				}
+
+				@media (min-width: 992px) {
+					.mastodon-column {
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						/* Bootstrap col padding */
+						left: 15px;
+						right: 15px;
+					}
+				}
+
+				@media (max-width: 991px) {
+					.mastodon-column {
+						height: 800px;
+					}
+
+					.toots {
+						width: 95%;
+					}
+				}
+			</style>
+
+			<div class="mastodon-column">
+				<div style="margin-bottom: 20px;">
+					<a href="videos/" title="WoT videos">
+						<h4>WoT Videos &raquo;</h4> <img class="img-responsive" style="min-width: 180px; width: 100%"
+							src="{{'/images/video-thumbnail-wot-explainer.png' | absolute_url }}" alt="WoT Video" />
+					</a>
+				</div>
+
+				<!-- Mastodon Feed inserted by the script in default.html -->
+				<a class="mastodon-feed" href="https://w3c.social/@wot" data-toot-limit="20" style="display: block;">WoT
+					in Mastodon</a>
+			</div>
 		</div>
 	</div>
 
