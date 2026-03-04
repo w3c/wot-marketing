@@ -1,0 +1,75 @@
+name: Monthly Dev Tools Update
+
+on:
+  schedule:
+    - cron: '0 0 1 * *' # Runs at 00:00 on the 1st of every month
+  workflow_dispatch: # Allow manual runs
+
+jobs:
+  run-dev-tools:
+    runs-on: ubuntu-latest
+    
+    # Needs permissions to create an issue
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # LTS version
+
+      - name: Install dependencies
+        working-directory: ./scripts
+        run: npm ci
+
+      - name: Run dev-tools
+        working-directory: ./scripts
+        run: npm run dev-tools
+
+      - name: Check for differences
+        id: check_diff
+        run: |
+          # Adding main branch fetch just in case we need to diff against it explicitly
+          # git fetch origin main
+          # However, typical requirement is diff against the current branch changes, 
+          # which git diff --quiet handles for unstaged/staged differences.
+          if ! git diff --quiet; then
+            echo "has_diff=true" >> $GITHUB_OUTPUT
+            git diff > changes.diff
+          else
+            echo "has_diff=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Issue if Diff Exists
+        if: steps.check_diff.outputs.has_diff == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          # Write issue body to a file to handle multiline safely
+          cat << 'EOF' > issue_body.md
+          The monthly GitHub workflow has detected updates in the developer tools. Please review and approve these changes to ensure they are correct.
+
+          <details>
+          <summary>View changes diff</summary>
+
+          \`\`\`diff
+          EOF
+          
+          # Append up to 1000 lines of diff
+          head -n 1000 changes.diff >> issue_body.md
+
+          cat << 'EOF' >> issue_body.md
+          \`\`\`
+
+          </details>
+          EOF
+          
+          gh issue create \
+            --title "Automated: Monthly Dev Tools Update Changes" \
+            --body-file issue_body.md \
+            --label "automated"
