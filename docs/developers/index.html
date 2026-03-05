@@ -195,7 +195,8 @@ group: "navigation"
 						data-homepage="{{ tool.homepageUrl | escape }}" data-repo="{{ tool.repoUrl | escape }}"
 						data-license="{{ tool.license | escape }}" data-last-updated="{{ tool.lastUpdated }}"
 						data-obsolete="{{ is_obsolete }}" data-governance="{{ tool.governance | escape }}"
-						data-affiliation="{{ tool.affiliation | escape }}" onclick="openToolModal(this)">
+						data-affiliation="{{ tool.affiliation | escape }}"
+						data-platforms="{{ tool.platforms | join: ', ' | escape }}" onclick="openToolModal(this)">
 						<td>
 							{{ tool.name }}
 							{% if is_obsolete %}
@@ -266,6 +267,7 @@ group: "navigation"
 			var license = row.getAttribute('data-license');
 			var governance = row.getAttribute('data-governance');
 			var affiliation = row.getAttribute('data-affiliation');
+			var platforms = row.getAttribute('data-platforms');
 
 			var lastUpdated = row.getAttribute('data-last-updated');
 			var isObsolete = row.getAttribute('data-obsolete') === 'true';
@@ -307,6 +309,11 @@ group: "navigation"
 				var affDiv = document.createElement('div');
 				affDiv.innerHTML = '<div><i class="fas fa-building" style="width: 24px; text-align: center; color: #555;"></i> <strong>Affiliation</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + affiliation + '</div>';
 				linksDiv.appendChild(affDiv);
+			}
+			if (platforms) {
+				var platDiv = document.createElement('div');
+				platDiv.innerHTML = '<div><i class="fas fa-desktop" style="width: 24px; text-align: center; color: #555;"></i> <strong>Platforms</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + platforms + '</div>';
+				linksDiv.appendChild(platDiv);
 			}
 			if (lastUpdated) {
 				var dateDiv = document.createElement('div');
@@ -429,7 +436,7 @@ group: "navigation"
 					for (var k = 0; k < rows.length; k++) {
 						var row = rows[k];
 						var rowLangs = row.getAttribute('data-languages'); // comma separated
-						var rowPlats = row.getAttribute('data-platform'); // comma separated
+						var rowPlats = row.getAttribute('data-platforms'); // comma separated
 						var lastUpdated = row.getAttribute('data-last-updated');
 						var isObsolete = row.getAttribute('data-obsolete') === 'true';
 
@@ -491,7 +498,7 @@ group: "navigation"
 				for (var k = 0; k < rows.length; k++) {
 					var row = rows[k];
 					var rowLangs = row.getAttribute('data-languages');
-					var rowPlats = row.getAttribute('data-platform');
+					var rowPlats = row.getAttribute('data-platforms');
 					var lastUpdated = row.getAttribute('data-last-updated');
 					var isObsolete = row.getAttribute('data-obsolete') === 'true';
 
@@ -515,7 +522,9 @@ group: "navigation"
 
 					if (langMatch && platMatch && obsoleteMatch) {
 						catCount++;
-						totalVisible++;
+						if (state.category === 'all' || state.category === catSlug) {
+							totalVisible++;
+						}
 					}
 				}
 				categoryCounts[catSlug] = catCount;

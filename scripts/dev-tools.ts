@@ -138,11 +138,12 @@ async function getGitHubData(url: URL): Promise<RepoData> {
       headers,
       dir: subfolder,
     });
+
     const { name, description } = extractToolMetadata(atob(readme.content));
     const language = rootData.language ?? rootData.parent?.language
     return {
-      name: name ?? (subfolder ? null : rootData.name),
-      description: description ?? (subfolder ? null : rootData.description),
+      name: name ?? rootData.name,
+      description: subfolder || !rootData.description ? description : rootData.description,
       languages: language ? [language] : [],
       lastUpdated: rootData.updated_at,
       homepageUrl: rootData.homepage,
