@@ -35,7 +35,7 @@
           "affiliation": "Eclipse Foundation"
         },
         {
-          "name": "td-code",
+          "name": "TD-code",
           "description": "VS Code extension for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/td-code",
           "languages": [
@@ -65,7 +65,7 @@
           "affiliation": "Eclipse Foundation"
         },
         {
-          "name": "wot-jtd",
+          "name": "Java API for Thing Descriptions of WoT (JDTs)",
           "description": "Java API for Thing Descriptions of the Web of Things",
           "repoUrl": "https://github.com/oeg-upm/wot-jtd",
           "languages": [
@@ -95,7 +95,7 @@
           "affiliation": "SIFIS-HOME"
         },
         {
-          "name": "thingdescription-go",
+          "name": "Golang ThingDescription",
           "description": "This is a Golang package containing all struts to represent a ThingDescription in code and also to serialize and deserialize it.",
           "repoUrl": "https://github.com/wot-oss/thingdescription-go",
           "languages": [
@@ -125,7 +125,7 @@
           "affiliation": "Web of Things Open Source Projects"
         },
         {
-          "name": "wot-dtdl-converter",
+          "name": "Wot-DTDL-Converter",
           "description": "A two way converter for TD files ",
           "repoUrl": "https://github.com/wot-oss/wot-dtdl-converter",
           "languages": [
@@ -176,7 +176,7 @@
           "affiliation": "Eclipse Foundation"
         },
         {
-          "name": "wot-servient",
+          "name": "SANE Web of Things Servient",
           "description": "W3C Web of Things implementation for Java",
           "repoUrl": "https://github.com/sane-city/wot-servient",
           "languages": [
@@ -207,7 +207,7 @@
           "affiliation": "SIFIS-HOME"
         },
         {
-          "name": "wot-py",
+          "name": "wotpy",
           "description": "wotpy is an experimental asynchronous implementation of a W3C Web of Things runtime",
           "repoUrl": "https://github.com/agmangas/wot-py",
           "languages": [
@@ -243,7 +243,7 @@
           "affiliation": "Eclipse Foundation"
         },
         {
-          "name": "node-red-nodegen",
+          "name": "Node generator for Node-RED",
           "description": "Command line tool to convert Node-RED function node, Swagger document, or WoT Thing Description to a custom Node.",
           "repoUrl": "https://github.com/node-red/node-red-nodegen",
           "languages": [
@@ -273,7 +273,7 @@
           "affiliation": "Eclipse Foundation"
         },
         {
-          "name": "wot-servient",
+          "name": "SANE Web of Things Servient",
           "description": "W3C Web of Things implementation for Java",
           "repoUrl": "https://github.com/sane-city/wot-servient",
           "languages": [
@@ -319,7 +319,7 @@
           "affiliation": "TUM ESI"
         },
         {
-          "name": "wot-py",
+          "name": "wotpy",
           "description": "wotpy is an experimental asynchronous implementation of a W3C Web of Things runtime",
           "repoUrl": "https://github.com/agmangas/wot-py",
           "languages": [
@@ -339,7 +339,7 @@
       "description": "Services hosting a Thing Description Directory implementing the W3C WoT Discovery specification",
       "tools": [
         {
-          "name": "thing-directory",
+          "name": "TinyIoT Thing Directory",
           "description": "W3C WoT Thing Description Directory (TDD)",
           "repoUrl": "https://github.com/TinyIoT/thing-directory",
           "languages": [
@@ -370,7 +370,7 @@
           "affiliation": "Ontology Engineering Group, Universidad Politécnica de Madrid"
         },
         {
-          "name": "domus-tdd-api",
+          "name": "Motivation",
           "description": "Semantic storage for device metadata based on W3C Thing Description information model",
           "repoUrl": "https://github.com/eclipse-thingweb/domus-tdd-api",
           "languages": [
@@ -422,7 +422,7 @@
       "description": "Tools aiding WoT application development with user interfaces and other utilities",
       "tools": [
         {
-          "name": "wam",
+          "name": "WoT Application Manager",
           "description": "WoT Application Manager - a CLI to quickly build a Web of Things application.",
           "repoUrl": "https://github.com/eclipse-thingweb/wam",
           "languages": [
@@ -454,7 +454,7 @@
           "affiliation": null
         },
         {
-          "name": "tmc",
+          "name": "Thing Model Catalog CLI",
           "description": "A CLI Client for ThingModel Catalogs",
           "repoUrl": "https://github.com/wot-oss/tmc",
           "languages": [
@@ -469,7 +469,7 @@
           "affiliation": "Web of Things Open Source Projects"
         },
         {
-          "name": "thing-control-panel",
+          "name": "Thing Control Panel",
           "description": "visual admin client for Things compliant with W3C WoT, like a control panel, to test or interact with a server that has no GUI. Based on material design.",
           "repoUrl": "https://github.com/hololinked-dev/thing-control-panel",
           "languages": [
@@ -500,7 +500,7 @@
           "affiliation": "Chair of Technical Information Systems, Friedrich-Alexander-Universität Erlangen-Nürnberg"
         },
         {
-          "name": "wade",
+          "name": "W-ADE",
           "description": "Wade is an API development environment for Web of Things that was designed for the W3C WoT building blocks",
           "repoUrl": "https://github.com/tum-esi/wade",
           "languages": [
@@ -551,7 +551,7 @@
           "affiliation": "evosoft (Siemens subsidiary)"
         },
         {
-          "name": "testbench",
+          "name": "Web of Things Test Bench",
           "description": "Thing Description based testing framework based on eclipse-thingweb/node-wot ",
           "repoUrl": "https://github.com/tum-esi/testbench",
           "languages": [
@@ -566,7 +566,7 @@
           "affiliation": "TUM ESI"
         },
         {
-          "name": "gateway",
+          "name": "WebThings Gateway",
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [
@@ -582,7 +582,7 @@
           "affiliation": "WebThings"
         },
         {
-          "name": "UA-EdgeTranslator",
+          "name": "UA Edge Translator",
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [
@@ -631,7 +631,7 @@
           "affiliation": "WebThings"
         },
         {
-          "name": "shadow-thing",
+          "name": "Shadow Thing",
           "description": "Creates and deploys a virtual Web of Things servient based on its Thing Description",
           "repoUrl": "https://github.com/tum-esi/shadow-thing",
           "languages": [
@@ -665,7 +665,7 @@
           "affiliation": "Eclipse Foundation"
         },
         {
-          "name": "thingmodels",
+          "name": "Thing Model Catalog Repository",
           "description": "W3C Thing Models for Products",
           "repoUrl": "https://github.com/wot-oss/thingmodels",
           "languages": [],
@@ -685,7 +685,7 @@
       "description": "",
       "tools": [
         {
-          "name": "package-explorer",
+          "name": "Eclipse AASX Package Explorer",
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [
@@ -718,7 +718,7 @@
           "affiliation": "Eclipse Foundation"
         },
         {
-          "name": "wotify",
+          "name": "WoTify",
           "description": "Repository of Devices that can be WoT Enabled",
           "repoUrl": "https://github.com/tum-esi/wotify",
           "languages": [

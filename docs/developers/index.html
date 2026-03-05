@@ -45,6 +45,12 @@ group: "navigation"
 	.tool-modal-close:hover {
 		color: #000;
 	}
+
+	.filter-btn[disabled] {
+		opacity: 0.4;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
 </style>
 <div>
 	<h2>Developer Resources</h2>
@@ -410,6 +416,7 @@ group: "navigation"
 				}
 			}
 			updateCounters();
+			updateFilterAvailability();
 
 			// Filter Logic
 			var categories = document.getElementsByClassName('tool-category');
@@ -480,6 +487,90 @@ group: "navigation"
 					catDiv.style.display = 'block';
 				} else {
 					catDiv.style.display = 'none';
+				}
+			}
+		}
+
+		function updateFilterAvailability() {
+			var allRows = document.getElementsByClassName('tool-row');
+			var availablePlatforms = {};
+			var availableLanguages = {};
+			var availableCategories = {};
+
+			for (var i = 0; i < allRows.length; i++) {
+				var row = allRows[i];
+				var rowLangs = row.getAttribute('data-languages');
+				var rowPlats = row.getAttribute('data-platforms');
+				var isObsolete = row.getAttribute('data-obsolete') === 'true';
+				var catSlug = row.closest('.tool-category').getAttribute('data-slug');
+
+				var obsoleteMatch = (state.showObsolete || !isObsolete);
+				if (!obsoleteMatch) continue;
+
+				// For platform buttons: check if row matches current category + language
+				var catMatch = (state.category === 'all' || state.category === catSlug);
+				var langMatch = (state.language === 'all') || (rowLangs && rowLangs.split(', ').includes(state.language));
+
+				if (catMatch && langMatch) {
+					if (rowPlats) {
+						var plats = rowPlats.split(', ');
+						for (var p = 0; p < plats.length; p++) {
+							availablePlatforms[plats[p]] = true;
+						}
+					}
+				}
+
+				// For language buttons: check if row matches current category + platform
+				var platMatch = (state.platform === 'all') || (rowPlats && rowPlats.split(', ').includes(state.platform));
+
+				if (catMatch && platMatch) {
+					if (rowLangs) {
+						var langs = rowLangs.split(', ');
+						for (var l = 0; l < langs.length; l++) {
+							availableLanguages[langs[l]] = true;
+						}
+					}
+				}
+
+				// For category buttons: check if row matches current language + platform
+				if (langMatch && platMatch) {
+					availableCategories[catSlug] = true;
+				}
+			}
+
+			// Disable/enable platform buttons
+			var platButtons = document.getElementsByClassName('platform-btn');
+			for (var i = 0; i < platButtons.length; i++) {
+				var btn = platButtons[i];
+				var plat = btn.getAttribute('data-plat');
+				if (plat === 'all') {
+					btn.disabled = false;
+				} else {
+					btn.disabled = !availablePlatforms[plat];
+				}
+			}
+
+			// Disable/enable language buttons
+			var langButtons = document.getElementsByClassName('language-btn');
+			for (var i = 0; i < langButtons.length; i++) {
+				var btn = langButtons[i];
+				var lang = btn.getAttribute('data-lang');
+				if (lang === 'all') {
+					btn.disabled = false;
+				} else {
+					btn.disabled = !availableLanguages[lang];
+				}
+			}
+
+			// Disable/enable category buttons
+			var catButtons = document.getElementsByClassName('category-btn');
+			for (var i = 0; i < catButtons.length; i++) {
+				var btn = catButtons[i];
+				var filter = btn.getAttribute('data-filter');
+				if (filter === 'all') {
+					btn.disabled = false;
+				} else {
+					btn.disabled = !availableCategories[filter];
 				}
 			}
 		}
