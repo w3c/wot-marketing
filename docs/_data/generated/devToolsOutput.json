@@ -370,7 +370,7 @@
           "affiliation": "Ontology Engineering Group, Universidad Politécnica de Madrid"
         },
         {
-          "name": "Motivation",
+          "name": "Domus TDD API",
           "description": "Semantic storage for device metadata based on W3C Thing Description information model",
           "repoUrl": "https://github.com/eclipse-thingweb/domus-tdd-api",
           "languages": [
