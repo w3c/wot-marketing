@@ -179,6 +179,7 @@ export const devToolsInput: DevToolsInput = {
           affiliation: "Ontology Engineering Group, Universidad Politécnica de Madrid",
         },
         {
+          name: "Domus TDD API",
           repoUrl: "https://github.com/eclipse-thingweb/domus-tdd-api",
           platforms: ["Service"],
           affiliation: "Eclipse Foundation",
