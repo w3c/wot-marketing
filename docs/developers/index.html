@@ -195,7 +195,7 @@ group: "navigation"
 					{% endif %}
 					{% endif %}
 					<tr class="tool-row {% if is_obsolete %}obsolete-tool{% endif %}"
-						data-languages="{{ tool.languages | join: ' ' | default: 'Unknown' }}"
+						data-languages="{{ tool.languages | join: ', ' | default: 'Unknown' }}"
 						data-name="{{ tool.name | escape }}"
 						data-description="{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' | escape }}"
 						data-homepage="{{ tool.homepageUrl | escape }}" data-repo="{{ tool.repoUrl | escape }}"

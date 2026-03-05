@@ -328,7 +328,6 @@ export const devToolsInput: DevToolsInput = {
             "Open-source, cloud-native platform for Multi-Agent systems",
           homepageUrl: "https://eclipse.dev/lmos/",
           repoUrl: "https://github.com/eclipse-lmos",
-          languages: ["Kotlin", "Shell", "JavaScript", "Dart"],
           platforms: ["Service"],
           affiliation: "Eclipse Foundation",
           ignoreFetch: true,

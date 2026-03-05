@@ -703,12 +703,7 @@
           "name": "Eclipse LMOS",
           "description": "Open-source, cloud-native platform for Multi-Agent systems",
           "repoUrl": "https://github.com/eclipse-lmos",
-          "languages": [
-            "Kotlin",
-            "Shell",
-            "JavaScript",
-            "Dart"
-          ],
+          "languages": [],
           "lastUpdated": null,
           "homepageUrl": "https://eclipse.dev/lmos/",
           "platforms": [
