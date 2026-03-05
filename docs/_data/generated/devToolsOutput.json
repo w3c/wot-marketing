@@ -10,12 +10,14 @@
           "languages": [
             "JavaScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-03-05T10:28:22Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
             "CLI"
-          ]
+          ],
+          "license": "Other",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "Eclipse edi{TD}or",
@@ -24,11 +26,13 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-02-25T12:48:34Z",
           "homepageUrl": "https://eclipse-editdor.github.io/editdor/",
           "platforms": [
             "Browser"
-          ]
+          ],
+          "license": "Eclipse Public License 2.0",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "TD-code",
@@ -37,11 +41,13 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-02-27T17:35:15Z",
           "homepageUrl": "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code",
           "platforms": [
             "IDE Extension"
-          ]
+          ],
+          "license": "Other",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "Eclipse Ditto :: WoT :: Model",
@@ -50,11 +56,13 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-03-05T13:15:47Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": "Eclipse Public License 2.0",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "Java API for Thing Descriptions of WoT (JDTs)",
@@ -63,10 +71,13 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2024-08-12T12:33:48Z",
+          "homepageUrl": null,
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "Ontology Engineering Group, Universidad Politécnica de Madrid"
         },
         {
           "name": "wot-td",
@@ -75,10 +86,13 @@
           "languages": [
             "Rust"
           ],
-          "isObsolete": true,
+          "lastUpdated": "2023-08-23T09:44:35Z",
+          "homepageUrl": null,
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": null,
+          "affiliation": "SIFIS-HOME"
         },
         {
           "name": "Golang ThingDescription",
@@ -87,10 +101,13 @@
           "languages": [
             "Go"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-06-10T10:13:30Z",
+          "homepageUrl": null,
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "Web of Things Open Source Projects"
         },
         {
           "name": "tmtd",
@@ -99,10 +116,13 @@
           "languages": [
             "Go"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-04-14T17:56:19Z",
+          "homepageUrl": null,
           "platforms": [
             "CLI"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "Web of Things Open Source Projects"
         },
         {
           "name": "Wot-DTDL-Converter",
@@ -111,10 +131,13 @@
           "languages": [
             "C#"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-04-14T17:55:39Z",
+          "homepageUrl": null,
           "platforms": [
             "CLI"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "Web of Things Open Source Projects"
         }
       ]
     },
@@ -128,12 +151,14 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-03-05T08:56:08Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
             "CLI"
-          ]
+          ],
+          "license": "Other",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "Eclipse Ditto :: WoT",
@@ -142,11 +167,13 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-03-05T13:15:47Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": "Eclipse Public License 2.0",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "SANE Web of Things Servient",
@@ -155,11 +182,14 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-10-29T07:10:39Z",
+          "homepageUrl": null,
           "platforms": [
             "Library",
             "CLI"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "SANE"
         },
         {
           "name": "wot-serve",
@@ -168,10 +198,13 @@
           "languages": [
             "Rust"
           ],
-          "isObsolete": true,
+          "lastUpdated": "2023-01-31T22:21:59Z",
+          "homepageUrl": null,
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "SIFIS-HOME"
         },
         {
           "name": "wotpy",
@@ -180,10 +213,13 @@
           "languages": [
             "Python"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-11-19T13:11:04Z",
+          "homepageUrl": null,
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": null
         }
       ]
     },
@@ -197,12 +233,14 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-03-05T08:56:08Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
             "CLI"
-          ]
+          ],
+          "license": "Other",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "Node generator for Node-RED",
@@ -211,10 +249,13 @@
           "languages": [
             "JavaScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-02-07T13:20:20Z",
+          "homepageUrl": null,
           "platforms": [
             "CLI"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "OpenJS Foundation"
         },
         {
           "name": "dart_wot",
@@ -223,11 +264,13 @@
           "languages": [
             "Dart"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-10-06T09:12:17Z",
           "homepageUrl": "https://pub.dev/packages/dart_wot",
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": "Other",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "SANE Web of Things Servient",
@@ -236,11 +279,14 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-10-29T07:10:39Z",
+          "homepageUrl": null,
           "platforms": [
             "Library",
             "CLI"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "SANE"
         },
         {
           "name": "kotlin-wot",
@@ -249,10 +295,13 @@
           "languages": [
             "Kotlin"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-11-17T06:56:40Z",
+          "homepageUrl": null,
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": "Other",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "WoT.Net",
@@ -261,11 +310,13 @@
           "languages": [
             "C#"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-10-28T12:16:49Z",
           "homepageUrl": "https://tum-esi.github.io/WoT.Net/",
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "TUM ESI"
         },
         {
           "name": "wotpy",
@@ -274,10 +325,13 @@
           "languages": [
             "Python"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-11-19T13:11:04Z",
+          "homepageUrl": null,
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": null
         }
       ]
     },
@@ -291,36 +345,44 @@
           "languages": [
             "Go"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-09-23T10:28:23Z",
+          "homepageUrl": null,
           "platforms": [
             "Service",
             "CLI"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "Tiny IoT"
         },
         {
           "name": "WoT Hive",
-          "description": "This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies",
+          "description": "This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.",
           "repoUrl": "https://github.com/oeg-upm/wot-hive",
           "languages": [
             "JavaScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-10-29T06:47:38Z",
+          "homepageUrl": null,
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "Ontology Engineering Group, Universidad Politécnica de Madrid"
         },
         {
-          "name": "Domus TDD API",
-          "description": "A Python and SPARQL based Thing Description Directory API compliant to: https://www.w3.org/TR/wot-discovery/",
+          "name": "Motivation",
+          "description": "According to World History Encyclopedia the",
           "repoUrl": "https://github.com/eclipse-thingweb/domus-tdd-api",
           "languages": [
             "Python"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-03-04T08:36:55Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": "Other",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "wot-discovery",
@@ -329,10 +391,13 @@
           "languages": [
             "Rust"
           ],
-          "isObsolete": true,
+          "lastUpdated": "2023-07-08T13:09:26Z",
+          "homepageUrl": null,
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "SIFIS-HOME"
         },
         {
           "name": "Zion",
@@ -341,10 +406,13 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-10-11T04:28:12Z",
+          "homepageUrl": null,
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "VAIMEE"
         }
       ]
     }
@@ -360,23 +428,30 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-01-06T12:06:49Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "CLI"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "WoT Wrench",
           "description": "A web app to control Web of Things devices",
           "repoUrl": "https://gitlab.com/jaller94/wot-wrench",
           "languages": [
-            "TSX"
+            [
+              "TSX"
+            ]
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-11-19T00:39:11.560Z",
+          "homepageUrl": null,
           "platforms": [
             "Browser"
-          ]
+          ],
+          "license": null,
+          "affiliation": null
         },
         {
           "name": "Thing Model Catalog CLI",
@@ -385,11 +460,13 @@
           "languages": [
             "Go"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-03-03T13:50:00Z",
           "homepageUrl": "https://wot-oss.github.io/tmc/",
           "platforms": [
             "CLI"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "Web of Things Open Source Projects"
         },
         {
           "name": "Thing Control Panel",
@@ -398,11 +475,13 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-02-12T20:04:22Z",
           "homepageUrl": "https://control-panel.hololinked.dev/",
           "platforms": [
             "Browser"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "hololinked"
         },
         {
           "name": "BLAST",
@@ -411,12 +490,14 @@
           "languages": [
             "JavaScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-12-09T14:48:20Z",
           "homepageUrl": "https://wintechis.github.io/blast/",
           "platforms": [
             "Browser",
             "Library"
-          ]
+          ],
+          "license": "GNU Affero General Public License v3.0",
+          "affiliation": "Chair of Technical Information Systems, Friedrich-Alexander-Universität Erlangen-Nürnberg"
         },
         {
           "name": "W-ADE",
@@ -425,11 +506,13 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-10-13T12:38:54Z",
           "homepageUrl": "https://www.ei.tum.de/en/esi/home/",
           "platforms": [
             "Application"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "TUM ESI"
         },
         {
           "name": "wot-fxui",
@@ -438,11 +521,14 @@
           "languages": [
             "Java"
           ],
-          "isObsolete": true,
+          "lastUpdated": "2022-04-06T06:49:35Z",
+          "homepageUrl": null,
           "platforms": [
             "Browser",
             "Application"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": null
         }
       ]
     },
@@ -452,14 +538,17 @@
         {
           "name": "sayWoT!",
           "description": "Industrial-grade implementation integrating devices into Siemens software",
+          "repoUrl": null,
           "languages": [
             "No-Code"
           ],
-          "isObsolete": false,
+          "lastUpdated": null,
           "homepageUrl": "https://www.evosoft.com/en/digitalization-offering/saywot/",
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": null,
+          "affiliation": "evosoft (Siemens subsidiary)"
         },
         {
           "name": "Web of Things Test Bench",
@@ -468,10 +557,13 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-04-14T17:49:52Z",
+          "homepageUrl": null,
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "TUM ESI"
         },
         {
           "name": "WebThings Gateway",
@@ -480,12 +572,14 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-02-27T14:15:01Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
             "Browser"
-          ]
+          ],
+          "license": "Mozilla Public License 2.0",
+          "affiliation": "WebThings"
         },
         {
           "name": "UA Edge Translator",
@@ -494,34 +588,47 @@
           "languages": [
             "C#"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-03-04T06:24:59Z",
+          "homepageUrl": null,
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "OPC Foundation"
         },
         {
           "name": "VO-WoT",
-          "description": "VO-WoT is an experimental implementation of a W3C WoT Runtime and the W3C WoT Scripting API in Python",
+          "description": "VO-WoT is an experimental implementation of a W3C WoT Runtime and the W3C WoT Scripting API in Python.",
           "repoUrl": "https://gitlab.eclipse.org/eclipse-research-labs/nephele-project/vo-wot",
           "languages": [
-            "Python"
+            [
+              "Python"
+            ]
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-10-31T15:26:46.988Z",
+          "homepageUrl": null,
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "Eclipse Research Labs / NEPHELE"
         },
         {
           "name": "WoT Anything",
           "description": "Web of Things server to integrate APIs or lots of virtual things",
           "repoUrl": "https://gitlab.com/webthings/wot-anything",
           "languages": [
-            "TypeScript"
+            [
+              "TypeScript"
+            ]
           ],
-          "isObsolete": false,
+          "lastUpdated": "2024-10-10T11:50:31.514Z",
+          "homepageUrl": null,
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": null,
+          "affiliation": "WebThings"
         },
         {
           "name": "Shadow Thing",
@@ -530,11 +637,14 @@
           "languages": [
             "TypeScript"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-04-14T17:50:20Z",
+          "homepageUrl": null,
           "platforms": [
             "Service",
             "CLI"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "TUM ESI"
         }
       ]
     },
@@ -544,22 +654,28 @@
         {
           "name": "Eclipse Thingweb - Online Things for Testing",
           "description": "Publicly accessible test Things hosted by Eclipse Thingweb",
+          "repoUrl": null,
           "languages": [],
-          "isObsolete": false,
+          "lastUpdated": null,
           "homepageUrl": "https://thingweb.io/services/#online-things-for-testing",
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": null,
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "Thing Model Catalog Repository",
           "description": "This repository holds Thing Models for Siemens devices published by Siemens for public use",
           "repoUrl": "https://github.com/wot-oss/thingmodels",
           "languages": [],
-          "isObsolete": false,
+          "lastUpdated": "2025-10-16T14:28:54Z",
+          "homepageUrl": null,
           "platforms": [
             "Library"
-          ]
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": "Web of Things Open Source Projects"
         }
       ]
     }
@@ -575,10 +691,13 @@
           "languages": [
             "C#"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2026-02-25T22:52:14Z",
+          "homepageUrl": null,
           "platforms": [
             "Application"
-          ]
+          ],
+          "license": "Other",
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "Eclipse LMOS",
@@ -590,11 +709,13 @@
             "JavaScript",
             "Dart"
           ],
-          "isObsolete": false,
+          "lastUpdated": null,
           "homepageUrl": "https://eclipse.dev/lmos/",
           "platforms": [
             "Service"
-          ]
+          ],
+          "license": null,
+          "affiliation": "Eclipse Foundation"
         },
         {
           "name": "WoTify",
@@ -603,11 +724,13 @@
           "languages": [
             "Vue"
           ],
-          "isObsolete": false,
+          "lastUpdated": "2025-06-09T12:29:19Z",
           "homepageUrl": "https://wotify.org",
           "platforms": [
             "Browser"
-          ]
+          ],
+          "license": "MIT License",
+          "affiliation": "TUM ESI"
         }
       ]
     }
