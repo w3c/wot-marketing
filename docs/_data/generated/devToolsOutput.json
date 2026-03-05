@@ -310,8 +310,8 @@
           ]
         },
         {
-          "name": "Domus TDD API",
-          "description": "A Python and SPARQL based Thing Description Directory API compliant to: https://www.w3.org/TR/wot-discovery/",
+          "name": "Motivation",
+          "description": "According to World History Encyclopedia the",
           "repoUrl": "https://github.com/eclipse-thingweb/domus-tdd-api",
           "languages": [
             "Python"
