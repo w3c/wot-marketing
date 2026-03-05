@@ -124,7 +124,7 @@
         {
           "name": "Eclipse Thingweb node-wot",
           "description": "The Web of Things (WoT) tackles IoT fragmentation by extending standardized web technologies",
-          "repoUrl": "https://github.com/eclipse/thingweb.node-wot",
+          "repoUrl": "https://github.com/eclipse-thingweb/node-wot",
           "languages": [
             "TypeScript"
           ],

@@ -79,7 +79,7 @@ export const devToolsInput: DevToolsInput = {
       tools: [
         {
           name: "Eclipse Thingweb node-wot",
-          repoUrl: "https://github.com/eclipse/thingweb.node-wot",
+          repoUrl: "https://github.com/eclipse-thingweb/node-wot",
           platforms: ["Library", "CLI"],
         },
         {
