@@ -56,7 +56,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-03-05T13:15:47Z",
+          "lastUpdated": "2026-03-06T10:43:18Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -111,7 +111,7 @@
         },
         {
           "name": "tmtd",
-          "description": "Transpiling thing-model to thing-descriptions ",
+          "description": "Transpiling thing-model to thing-descriptions",
           "repoUrl": "https://github.com/wot-oss/tmtd",
           "languages": [
             "Go"
@@ -126,7 +126,7 @@
         },
         {
           "name": "Wot-DTDL-Converter",
-          "description": "A two way converter for TD files ",
+          "description": "A two way converter for TD files",
           "repoUrl": "https://github.com/wot-oss/wot-dtdl-converter",
           "languages": [
             "C#"
@@ -167,7 +167,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-03-05T13:15:47Z",
+          "lastUpdated": "2026-03-06T10:43:18Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -305,7 +305,7 @@
         },
         {
           "name": "WoT.Net",
-          "description": "A .Net Standard 2.0 WoT Consumer Implementation ",
+          "description": "A .Net Standard 2.0 WoT Consumer Implementation",
           "repoUrl": "https://github.com/tum-esi/wot.net",
           "languages": [
             "C#"
@@ -552,7 +552,7 @@
         },
         {
           "name": "Web of Things Test Bench",
-          "description": "Thing Description based testing framework based on eclipse-thingweb/node-wot ",
+          "description": "Thing Description based testing framework based on eclipse-thingweb/node-wot",
           "repoUrl": "https://github.com/tum-esi/testbench",
           "languages": [
             "TypeScript"

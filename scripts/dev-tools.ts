@@ -338,7 +338,7 @@ function parseTool(inputTool: ToolInput, fetchedData: RepoData | null): ToolOutp
   }
   return {
     name: mappedTool.name,
-    description: mappedTool.description,
+    description: mappedTool.description.trim(),
     repoUrl: mappedTool.repoUrl || null,
     languages: mappedTool.languages || [],
     lastUpdated: mappedTool.lastUpdated || null,
