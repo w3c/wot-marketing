@@ -7,6 +7,50 @@ group: "navigation"
 	.obsolete-tool {
 		background-color: #f2f2f2;
 	}
+
+	.tool-row {
+		transition: background-color 0.2s;
+	}
+
+	.tool-row:hover {
+		background-color: #e9ecef;
+		cursor: pointer;
+	}
+
+	dialog.tool-modal {
+		padding: 24px;
+		border-radius: 8px;
+		border: none;
+		max-width: 600px;
+		width: 90%;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+
+	dialog.tool-modal::backdrop {
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	.tool-modal-close {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		background: none;
+		border: none;
+		font-size: 24px;
+		line-height: 1;
+		cursor: pointer;
+		color: #666;
+	}
+
+	.tool-modal-close:hover {
+		color: #000;
+	}
+
+	.filter-btn[disabled] {
+		opacity: 0.4;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
 </style>
 <div>
 	<h2>Developer Resources</h2>
@@ -98,19 +142,21 @@ group: "navigation"
 
 
 		<!-- Obsoleteness Filter -->
-		<div class="btn btn-default btn-sm filter-btn"
-			style="display:flex; align-items: center; gap: 6px; width:fit-content; margin-top: 4px;"
-			onclick="toggleObsolete()">
-			<input id="obsoleteToggle" class="form-check-input" type="checkbox"
-				style="margin:0;height: 12px; width: 12px; cursor: pointer;" checked="true" />
-			<label class=" form-check-label" for="obsolete" style="margin:0; cursor: pointer; font-size: 13px;">Show
-				obsolete *</label>
+		<div style="display:flex; align-items: baseline; gap: 12px;">
+			<strong style="font-size: 14px; min-width: 70px;">Obsolete*</strong>
+			<div class="btn-group" role="group" aria-label="Obsolete Filter"
+				style="display:flex; flex-wrap: wrap; gap: 4px;">
+				<button type="button" class="btn btn-primary btn-sm filter-btn active obsolete-btn"
+					data-obsolete-filter="show" onclick="setObsolete(true)">Show</button>
+				<button type="button" class="btn btn-default btn-sm filter-btn obsolete-btn" data-obsolete-filter="hide"
+					onclick="setObsolete(false)">Hide</button>
+			</div>
 		</div>
 	</div>
 
 	<!-- Total Counter -->
 	<div
-		style="margin-bottom: 20px; font-size: 13px; background-color: #f8f9fa; border: 1px solid #ddd; padding: 4px 10px; border-radius: 4px; width: fit-content;">
+		style="margin-bottom: 30px; font-size: 13px; background-color: #f8f9fa; border: 1px solid #ddd; padding: 4px 10px; border-radius: 4px; width: fit-content;">
 		<strong>Showing <span class="tool-count" data-category="all" style="color: #007bff; font-size: 14px;">{{
 				total_tool_count }}</span> matching tools</strong>
 	</div>
@@ -133,22 +179,33 @@ group: "navigation"
 						<th style="width: 25%; text-align: left;">Name</th>
 						<th style="text-align: left;">Description</th>
 						<th style="width: 0; text-align: left;">Languages</th>
-						<th style="width: 0; text-align: left;">Platform</th>
-						<th style="width: 0; text-align: left;">Repository</th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for tool in subcategory[1].tools %}
-					<tr class="tool-row {% if tool.isObsolete %}obsolete-tool{% endif %}"
+					{% assign is_obsolete = false %}
+					{% if tool.lastUpdated %}
+					{% assign last_updated_seconds = tool.lastUpdated | date: "%s" | plus: 0 %}
+					{% assign current_seconds = "now" | date: "%s" | plus: 0 %}
+					{% assign seconds_per_year = 31536000 %}
+					{% assign obsolete_seconds = site.constants.OBSOLETE_IN | times: seconds_per_year %}
+					{% assign diff_seconds = current_seconds | minus: last_updated_seconds %}
+					{% if diff_seconds > obsolete_seconds or tool.obsolete %}
+					{% assign is_obsolete = true %}
+					{% endif %}
+					{% endif %}
+					<tr class="tool-row {% if is_obsolete %}obsolete-tool{% endif %}"
 						data-languages="{{ tool.languages | join: ', ' | default: 'Unknown' }}"
-						data-platform="{{ tool.platforms | join: ', ' | default: 'Unknown' }}">
+						data-name="{{ tool.name | escape }}"
+						data-description="{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' | escape }}"
+						data-homepage="{{ tool.homepageUrl | escape }}" data-repo="{{ tool.repoUrl | escape }}"
+						data-license="{{ tool.license | escape }}" data-last-updated="{{ tool.lastUpdated }}"
+						data-obsolete="{{ is_obsolete }}" data-governance="{{ tool.governance | escape }}"
+						data-affiliation="{{ tool.affiliation | escape }}"
+						data-platforms="{{ tool.platforms | join: ', ' | escape }}" onclick="openToolModal(this)">
 						<td>
-							{% if tool.homepageUrl %}
-							<a href="{{ tool.homepageUrl }}" target="_blank">{{ tool.name }}</a>
-							{% else %}
 							{{ tool.name }}
-							{% endif %}
-							{% if tool.isObsolete %}
+							{% if is_obsolete %}
 							<span style="font-size: 0.85em; color: #666; font-style: italic;">(Obsolete)</span>{% endif
 							%}
 						</td>
@@ -158,26 +215,6 @@ group: "navigation"
 							<span style="font-weight: bold;">{{ tool.languages | join:", " }}</span>
 							{% else %}
 							<!-- Unknown -->
-							{% endif %}
-						</td>
-						<td style="text-align: left; vertical-align: middle; white-space: nowrap;">
-							{% if tool.platforms %}
-							<span style="font-weight: bold;">{{ tool.platforms | join: ", " }}</span>
-							{% else %}
-							<!-- Unknown -->
-							{% endif %}
-						</td>
-						<td style="text-align: center; vertical-align: middle;">
-							{% if tool.repoUrl %}
-							<a href="{{ tool.repoUrl }}" target="_blank" title="Repository">
-								{% if tool.repoUrl contains 'github' %}
-								<i class="fab fa-github" style="font-size: 1.5em;"></i>
-								{% elsif tool.repoUrl contains 'gitlab' %}
-								<i class="fab fa-gitlab" style="font-size: 1.5em;"></i>
-								{% else %}
-								<i class="fas fa-link"></i>
-								{% endif %}
-							</a>
 							{% endif %}
 						</td>
 					</tr>
@@ -190,10 +227,110 @@ group: "navigation"
 	{% endfor %}
 
 	<p style="font-size: 0.85em; color: #666; font-style: italic;">* Tools with developer activity older than
-		{{ site.data.constants.OBSOLETE_IN }} years are marked as obsolete.
+		{{ site.constants.OBSOLETE_IN }} years are marked as obsolete.
 	</p>
 
+	<dialog id="toolDialog" class="tool-modal">
+		<button class="tool-modal-close" onclick="document.getElementById('toolDialog').close()">&times;</button>
+		<h3 id="toolDialogName" style="margin-top: 0; padding-right: 24px;"></h3>
+		<p id="toolDialogDesc" style="margin-bottom: 24px; margin-top: 16px; font-size: 16px;"></p>
+		<div id="toolDialogLinks" style="display: flex; flex-direction: column; gap: 12px; font-size: 15px;"></div>
+	</dialog>
+
 	<script>
+		const OBSOLETE_IN_YEARS = "{{ site.constants.OBSOLETE_IN }}";
+		function isToolObsolete(lastUpdatedStr, dataObsoleteAttr) {
+			if (dataObsoleteAttr === 'true') return true;
+			if (!lastUpdatedStr) return false;
+			const lastUpdated = new Date(lastUpdatedStr);
+			if (isNaN(lastUpdated.getTime())) return false;
+
+			const now = new Date();
+			const obsoleteDate = new Date(lastUpdated.getTime());
+			obsoleteDate.setFullYear(obsoleteDate.getFullYear() + parseInt(OBSOLETE_IN_YEARS));
+
+			return now >= obsoleteDate;
+		}
+		document.addEventListener('DOMContentLoaded', function () {
+			var dialog = document.getElementById('toolDialog');
+			if (dialog) {
+				dialog.addEventListener('click', function (event) {
+					var rect = dialog.getBoundingClientRect();
+					var isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
+						rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+					if (!isInDialog) {
+						dialog.close();
+					}
+				});
+			}
+		});
+
+		function openToolModal(row) {
+			var name = row.getAttribute('data-name');
+			var desc = row.getAttribute('data-description');
+			var homepage = row.getAttribute('data-homepage');
+			var repo = row.getAttribute('data-repo');
+			var license = row.getAttribute('data-license');
+			var governance = row.getAttribute('data-governance');
+			var affiliation = row.getAttribute('data-affiliation');
+			var platforms = row.getAttribute('data-platforms');
+
+			var lastUpdated = row.getAttribute('data-last-updated');
+			var isObsolete = row.getAttribute('data-obsolete') === 'true';
+
+			document.getElementById('toolDialogName').textContent = name;
+			document.getElementById('toolDialogDesc').innerHTML = desc;
+
+			var linksDiv = document.getElementById('toolDialogLinks');
+			linksDiv.innerHTML = '';
+
+			if (homepage) {
+				var homeDiv = document.createElement('div');
+				homeDiv.innerHTML = '<div><i class="fas fa-home" style="width: 24px; font-size: 1.1em; text-align: center; color: #555;"></i> <strong>Homepage</strong></div><div style="margin-left: 4px; margin-top: 2px;"><a href="' + homepage + '" target="_blank" style="word-break: break-all;">' + homepage + '</a></div>';
+				linksDiv.appendChild(homeDiv);
+			}
+			if (repo) {
+				var repoIcon = '<i class="fas fa-link" style="width: 24px; text-align: center; color: #555;"></i>';
+				if (repo.includes('github')) {
+					repoIcon = '<i class="fab fa-github" style="width: 24px; font-size: 1.2em; text-align: center; color: #333;"></i>';
+				} else if (repo.includes('gitlab')) {
+					repoIcon = '<i class="fab fa-gitlab" style="width: 24px; font-size: 1.2em; text-align: center; color: #fc6d26;"></i>';
+				}
+
+				var repoDiv = document.createElement('div');
+				repoDiv.innerHTML = '<div>' + repoIcon + ' <strong>Repository</strong></div><div style="margin-left: 4px; margin-top: 2px;"><a href="' + repo + '" target="_blank" style="word-break: break-all;">' + repo + '</a></div>';
+				linksDiv.appendChild(repoDiv);
+			}
+			if (license) {
+				var licenseDiv = document.createElement('div');
+				licenseDiv.innerHTML = '<div><i class="fas fa-balance-scale" style="width: 24px; text-align: center; color: #555;"></i> <strong>License</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + license + '</div>';
+				linksDiv.appendChild(licenseDiv);
+			}
+			if (governance && governance !== 'null') {
+				var govDiv = document.createElement('div');
+				govDiv.innerHTML = '<div><i class="fas fa-sitemap" style="width: 24px; text-align: center; color: #555;"></i> <strong>Governance</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + governance + '</div>';
+				linksDiv.appendChild(govDiv);
+			}
+			if (affiliation && affiliation !== 'null') {
+				var affDiv = document.createElement('div');
+				affDiv.innerHTML = '<div><i class="fas fa-building" style="width: 24px; text-align: center; color: #555;"></i> <strong>Affiliation</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + affiliation + '</div>';
+				linksDiv.appendChild(affDiv);
+			}
+			if (platforms) {
+				var platDiv = document.createElement('div');
+				platDiv.innerHTML = '<div><i class="fas fa-desktop" style="width: 24px; text-align: center; color: #555;"></i> <strong>Platforms</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + platforms + '</div>';
+				linksDiv.appendChild(platDiv);
+			}
+			if (lastUpdated) {
+				var dateDiv = document.createElement('div');
+				var formattedDate = new Date(lastUpdated).toLocaleDateString();
+				var obsoleteLabel = isObsolete ? ' <span style="font-size: 0.9em; color: #666; font-style: italic;">(Obsolete)</span>' : '';
+				dateDiv.innerHTML = '<div><i class="fas fa-history" style="width: 24px; text-align: center; color: #555;"></i> <strong>Last Updated</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + formattedDate + obsoleteLabel + '</div>';
+				linksDiv.appendChild(dateDiv);
+			}
+
+			document.getElementById('toolDialog').showModal();
+		}
 		var state = {
 			category: 'all',
 			language: 'all',
@@ -216,12 +353,8 @@ group: "navigation"
 			updateUI();
 		}
 
-		function toggleObsolete() {
-			var checkBox = document.getElementById('obsoleteToggle');
-			if (event.target !== checkBox) {
-				checkBox.checked = !checkBox.checked;
-			}
-			state.showObsolete = checkBox.checked;
+		function setObsolete(show) {
+			state.showObsolete = show;
 			updateUI();
 		}
 
@@ -267,7 +400,23 @@ group: "navigation"
 					btn.classList.add('btn-default');
 				}
 			}
+
+			// Update Obsolete Buttons
+			var obsButtons = document.getElementsByClassName('obsolete-btn');
+			for (var i = 0; i < obsButtons.length; i++) {
+				var btn = obsButtons[i];
+				var filterVal = btn.getAttribute('data-obsolete-filter');
+				var isActive = (filterVal === 'show' && state.showObsolete) || (filterVal === 'hide' && !state.showObsolete);
+				if (isActive) {
+					btn.classList.add('active', 'btn-primary');
+					btn.classList.remove('btn-default');
+				} else {
+					btn.classList.remove('active', 'btn-primary');
+					btn.classList.add('btn-default');
+				}
+			}
 			updateCounters();
+			updateFilterAvailability();
 
 			// Filter Logic
 			var categories = document.getElementsByClassName('tool-category');
@@ -294,8 +443,9 @@ group: "navigation"
 					for (var k = 0; k < rows.length; k++) {
 						var row = rows[k];
 						var rowLangs = row.getAttribute('data-languages'); // comma separated
-						var rowPlats = row.getAttribute('data-platform'); // comma separated
-						var isObsolete = row.classList.contains('obsolete-tool');
+						var rowPlats = row.getAttribute('data-platforms'); // comma separated
+						var lastUpdated = row.getAttribute('data-last-updated');
+						var isObsolete = row.getAttribute('data-obsolete') === 'true';
 
 						var langMatch = false;
 						if (state.language === 'all') {
@@ -341,6 +491,90 @@ group: "navigation"
 			}
 		}
 
+		function updateFilterAvailability() {
+			var allRows = document.getElementsByClassName('tool-row');
+			var availablePlatforms = {};
+			var availableLanguages = {};
+			var availableCategories = {};
+
+			for (var i = 0; i < allRows.length; i++) {
+				var row = allRows[i];
+				var rowLangs = row.getAttribute('data-languages');
+				var rowPlats = row.getAttribute('data-platforms');
+				var isObsolete = row.getAttribute('data-obsolete') === 'true';
+				var catSlug = row.closest('.tool-category').getAttribute('data-slug');
+
+				var obsoleteMatch = (state.showObsolete || !isObsolete);
+				if (!obsoleteMatch) continue;
+
+				// For platform buttons: check if row matches current category + language
+				var catMatch = (state.category === 'all' || state.category === catSlug);
+				var langMatch = (state.language === 'all') || (rowLangs && rowLangs.split(', ').includes(state.language));
+
+				if (catMatch && langMatch) {
+					if (rowPlats) {
+						var plats = rowPlats.split(', ');
+						for (var p = 0; p < plats.length; p++) {
+							availablePlatforms[plats[p]] = true;
+						}
+					}
+				}
+
+				// For language buttons: check if row matches current category + platform
+				var platMatch = (state.platform === 'all') || (rowPlats && rowPlats.split(', ').includes(state.platform));
+
+				if (catMatch && platMatch) {
+					if (rowLangs) {
+						var langs = rowLangs.split(', ');
+						for (var l = 0; l < langs.length; l++) {
+							availableLanguages[langs[l]] = true;
+						}
+					}
+				}
+
+				// For category buttons: check if row matches current language + platform
+				if (langMatch && platMatch) {
+					availableCategories[catSlug] = true;
+				}
+			}
+
+			// Disable/enable platform buttons
+			var platButtons = document.getElementsByClassName('platform-btn');
+			for (var i = 0; i < platButtons.length; i++) {
+				var btn = platButtons[i];
+				var plat = btn.getAttribute('data-plat');
+				if (plat === 'all') {
+					btn.disabled = false;
+				} else {
+					btn.disabled = !availablePlatforms[plat];
+				}
+			}
+
+			// Disable/enable language buttons
+			var langButtons = document.getElementsByClassName('language-btn');
+			for (var i = 0; i < langButtons.length; i++) {
+				var btn = langButtons[i];
+				var lang = btn.getAttribute('data-lang');
+				if (lang === 'all') {
+					btn.disabled = false;
+				} else {
+					btn.disabled = !availableLanguages[lang];
+				}
+			}
+
+			// Disable/enable category buttons
+			var catButtons = document.getElementsByClassName('category-btn');
+			for (var i = 0; i < catButtons.length; i++) {
+				var btn = catButtons[i];
+				var filter = btn.getAttribute('data-filter');
+				if (filter === 'all') {
+					btn.disabled = false;
+				} else {
+					btn.disabled = !availableCategories[filter];
+				}
+			}
+		}
+
 		function updateCounters() {
 			var totalVisible = 0;
 			var categoryCounts = {};
@@ -355,8 +589,9 @@ group: "navigation"
 				for (var k = 0; k < rows.length; k++) {
 					var row = rows[k];
 					var rowLangs = row.getAttribute('data-languages');
-					var rowPlats = row.getAttribute('data-platform');
-					var isObsolete = row.classList.contains('obsolete-tool');
+					var rowPlats = row.getAttribute('data-platforms');
+					var lastUpdated = row.getAttribute('data-last-updated');
+					var isObsolete = row.getAttribute('data-obsolete') === 'true';
 
 					var langMatch = false;
 					if (state.language === 'all') {
@@ -378,7 +613,9 @@ group: "navigation"
 
 					if (langMatch && platMatch && obsoleteMatch) {
 						catCount++;
-						totalVisible++;
+						if (state.category === 'all' || state.category === catSlug) {
+							totalVisible++;
+						}
 					}
 				}
 				categoryCounts[catSlug] = catCount;

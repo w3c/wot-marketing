@@ -72,7 +72,7 @@ Group (e.g. "Thing Description")
 | `isObsolete`  | `boolean`  | Mark a tool as obsolete manually. Auto-detected if not set (see below).                |
 
 > [!IMPORTANT]
-> Any property you set explicitly in `devToolsInput.ts` **overrides** the value fetched from the API. Leave properties out to let the script populate them automatically. In order to avoid fetching data, all the properties must be written manually.
+> Any property you set explicitly in `devToolsInput.ts` **overrides** the value fetched from the API. Leave properties out to let the script populate them automatically. In order to avoid fetching data, set the `ignoreFetch` property to `true`.
 
 ### Adding a New Tool
 
