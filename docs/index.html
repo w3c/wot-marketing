@@ -3,145 +3,248 @@ layout: default
 title: Home
 ---
 
-<div style="display: flex; flex-direction: column; flex: 1">
-  <div class="row" style="display: flex; flex-wrap: wrap; flex: 1">
-    <div class="col-md-8">
-      <h2>W3C Web of Things</h2>
+<style>
+  .hero-section {
+    padding: 40px 0 32px;
+  }
+
+  .hero-section h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+  }
+
+  .hero-section > p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #444;
+    max-width: 860px;
+  }
+
+  .section-block {
+    margin-bottom: 48px;
+  }
+
+  .section-block h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #005a9c;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dbe7f0;
+  }
+
+  .section-block p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #333;
+  }
+
+  .section-block a {
+    color: #005a9c;
+    font-weight: 500;
+  }
+
+  .section-block a:hover {
+    color: #003d6b;
+    text-decoration: underline;
+  }
+
+  .section-block .img-responsive {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .section-block .logo-img {
+    max-height: 150px;
+  }
+
+  .content-pair {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+
+  .content-pair .text-col {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .content-pair .img-col {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .content-pair.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .full-width-text {
+    margin-bottom: 24px;
+  }
+
+  .learn-more {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 767px) {
+    .content-pair {
+      flex-direction: column;
+    }
+
+    .content-pair.reverse {
+      flex-direction: column;
+    }
+
+    .hero-section h2 {
+      font-size: 26px;
+    }
+  }
+</style>
+
+<div class="hero-section">
+  <h2>W3C Web of Things</h2>
+  <p>
+    The Web of Things (WoT) counters IoT fragmentation by extending proven Web standards. Through standardized metadata
+    and reusable building blocks, W3C WoT enables seamless integration across IoT platforms and application domains.
+  </p>
+</div>
+
+<!-- In a Nutshell -->
+<div class="section-block" id="web-of-things-in-a-nutshell">
+  <h3>Web of Things in a Nutshell</h3>
+
+  <div class="content-pair">
+    <div class="text-col">
       <p>
-        The Web of Things (WoT) seeks to counter the fragmentation of the IoT by using and extending existing,
-        standardized Web technologies. By providing standardized metadata and other re-usable technological building
-        blocks, W3C WoT enables easy integration across IoT platforms and application domains.
+        In typical IoT projects, developers face a fragmented landscape of proprietary systems, incompatible
+        communication protocols, differing data models, and varying security requirements. Applications built this way
+        demand high effort for narrow use cases and become difficult to extend, maintain, or reuse over time.
       </p>
-      <p>
-        Get more background about the Web of Things in the <a href="documentation/">Documentation</a> area and check out
-        upcoming <a href="activities/events/">Events</a>.
-      </p>
-
-      <p>&nbsp;</p>
-
-      <div class="row center-block">
-        <div class="col-md-4 text-center">
-          <a href="wg/">
-            <i class="fas fa-building fa-4x"></i>
-            <div class="description">
-              <h3>Working Group</h3>
-              <p>Normative work on deliverables under W3C Patent Policy.</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="ig/">
-            <i class="fas fa-users fa-4x"></i>
-            <div class="description">
-              <h3>Interest Group</h3>
-              <p>Practical evaluation, exploration, and outreach by W3C Members.</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="cg/">
-            <i class="fas fa-comments fa-4x"></i>
-            <div class="description">
-              <h3>Community Groups</h3>
-              <p>Users, stakeholders, and open discussion for everyone.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <p>&nbsp;</p>
-
-      <div class="row center-block">
-        <div class="col-md-4 text-center">
-          <a href="activities/task-forces/">
-            <i class="fas fa-car fa-4x"></i>
-            <div class="description">
-              <h3>Task Forces</h3>
-              <p>Organizational information and coordination.</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="developers/">
-            <i class="fas fa-file-code fa-4x"></i>
-            <div class="description">
-              <h3>Developers</h3>
-              <p>Implementations, online Things, and tools.</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="documentation/">
-            <i class="fas fa-book fa-4x"></i>
-            <div class="description">
-              <h3>Documentation</h3>
-              <p>Learn more through our presentations and whitepaper.</p>
-            </div>
-          </a>
-        </div>
-      </div>
     </div>
-
-    <div class="col-md-4" style="position: relative">
-      <style>
-        .toots {
-          max-width: none;
-          flex: 1;
-          overflow-y: auto;
-          min-height: 0;
-        }
-
-        .mastodon-column {
-          display: flex;
-          flex-direction: column;
-        }
-
-        @media (min-width: 992px) {
-          .mastodon-column {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            /* Bootstrap col padding */
-            left: 15px;
-            right: 15px;
-          }
-        }
-
-        @media (max-width: 991px) {
-          .mastodon-column {
-            height: 800px;
-          }
-
-          .toots {
-            width: 95%;
-          }
-        }
-      </style>
-
-      <div class="mastodon-column">
-        <div style="margin-bottom: 20px">
-          <a href="videos/" title="WoT videos">
-            <h4>WoT Videos &raquo;</h4>
-            <img
-              class="img-responsive"
-              style="min-width: 180px; width: 100%"
-              src="{{'/images/video-thumbnail-wot-explainer.png' | absolute_url }}"
-              alt="WoT Video"
-            />
-          </a>
-        </div>
-
-        <!-- Mastodon Feed inserted by the script in default.html -->
-        <a class="mastodon-feed" href="https://w3c.social/@wot" data-toot-limit="20" style="display: block"
-          >WoT in Mastodon</a
-        >
-      </div>
+    <div class="img-col">
+      <img
+        src="{{'images/iot-projects.png' | relative_url }}"
+        class="img-responsive"
+        alt="Fragmented IoT landscape showing diverse protocols and systems"
+      />
     </div>
   </div>
 
-  <!--
-	<div class="row center-block">
-		<p><mark>TODO summary, relation between various groups.. </mark></p>
-	</div>
-	-->
+  <div class="content-pair reverse">
+    <div class="text-col">
+      <p>
+        WoT provides standardized building blocks that simplify IoT application development by applying the
+        well-established Web paradigm. This approach boosts flexibility and interoperability—especially for cross-domain
+        scenarios—while enabling reuse of proven standards and tooling. WoT unlocks the commercial potential held back
+        by IoT fragmentation.
+      </p>
+      <a href="https://www.w3.org/TR/wot-architecture/" class="learn-more">
+        Read the WoT Architecture specification →
+      </a>
+    </div>
+    <div class="img-col text-center">
+      <img src="{{'images/logo-large-blue.svg' | relative_url }}" class="logo-img" alt="Web of Things logo" />
+    </div>
+  </div>
+</div>
+
+<!-- WoT Interactions -->
+<div class="section-block" id="wot-interactions">
+  <h3>WoT Interactions</h3>
+
+  <div class="content-pair">
+    <div class="text-col">
+      <p>
+        WoT introduces a simple, universal interaction model based on
+        <strong>Properties</strong>, <strong>Actions</strong>, and <strong>Events</strong>. Any IoT network interface
+        can be described using this abstraction, giving applications a common way to discover an IoT service's metadata
+        and understand how to access its data and functions—regardless of the underlying technology.
+      </p>
+      <a href="https://www.w3.org/TR/wot-architecture/#sec-interaction-model" class="learn-more">
+        Learn about the interaction model →
+      </a>
+    </div>
+    <div class="img-col">
+      <img
+        src="{{'images/wot-interactions.png' | relative_url }}"
+        class="img-responsive"
+        alt="WoT interaction model: Properties, Actions, and Events"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- WoT Building Blocks -->
+<div class="section-block" id="wot-building-blocks">
+  <h3>WoT Building Blocks</h3>
+
+  <!-- Thing Description -->
+  <div class="content-pair reverse">
+    <div class="text-col">
+      <p>
+        The <strong>WoT Thing Description (TD)</strong> is the central building block of the Web of Things. Much like an
+        <code>index.html</code> serves as a website's entry point, a TD documents everything needed to interact with an
+        IoT device: available data and functions, communication protocols, payload encoding, and security mechanisms.
+        Expressed in JSON-LD, TDs can be served directly by devices or hosted in a TD Directory.
+      </p>
+      <a href="https://www.w3.org/TR/wot-thing-description/" class="learn-more">
+        Explore the Thing Description specification →
+      </a>
+    </div>
+    <div class="img-col text-center">
+      <img
+        src="{{'images/td-robot-arm.png' | relative_url }}"
+        class="logo-img"
+        alt="WoT Thing Description (TD) illustrated with a robot arm"
+      />
+    </div>
+  </div>
+
+  <!-- Binding Templates -->
+  <div class="content-pair">
+    <div class="text-col">
+      <p>
+        WoT is protocol-agnostic. <strong>WoT Binding Templates</strong> define how specific protocols—such as MQTT,
+        HTTP, CoAP, or Modbus—map onto the Properties–Actions–Events abstraction. Each binding template provides a
+        guideline for clients to activate WoT interactions through the corresponding network interface.
+      </p>
+      <a href="https://www.w3.org/TR/wot-binding-templates/" class="learn-more">
+        Read the Binding Templates specification →
+      </a>
+    </div>
+    <div class="img-col">
+      <img
+        src="{{'images/wot-mappings.png' | relative_url }}"
+        class="img-responsive"
+        alt="WoT protocol mappings for HTTP, MQTT, CoAP, and Modbus"
+      />
+    </div>
+  </div>
+
+  <!-- Scripting API -->
+  <div class="full-width-text">
+    <p>
+      The <strong>WoT Scripting API</strong> defines an ECMAScript (JavaScript) API that mirrors the Thing Description
+      specification and supports the WoT interaction model. It provides the interface between behavior implementations
+      and a scripting-based WoT runtime. While the API is defined for JavaScript, equivalent APIs can be derived for
+      Java, C/C++, or other languages.
+    </p>
+    <a href="https://www.w3.org/TR/wot-scripting-api/" class="learn-more"> Read the Scripting API specification → </a>
+  </div>
+
+  <!-- Security & Privacy -->
+  <div class="full-width-text">
+    <p>
+      <strong>WoT Security and Privacy</strong> guidelines help ensure the secure implementation and configuration of
+      Things. Security and privacy considerations are essential for any system implementing W3C WoT.
+    </p>
+    <a href="https://www.w3.org/TR/wot-security/" class="learn-more"> Read the Security and Privacy guidelines → </a>
+  </div>
 </div>
