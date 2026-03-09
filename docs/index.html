@@ -3,145 +3,593 @@ layout: default
 title: Home
 ---
 
-<div style="display: flex; flex-direction: column; flex: 1">
-  <div class="row" style="display: flex; flex-wrap: wrap; flex: 1">
-    <div class="col-md-8">
-      <h2>W3C Web of Things</h2>
-      <p>
-        The Web of Things (WoT) seeks to counter the fragmentation of the IoT by using and extending existing,
-        standardized Web technologies. By providing standardized metadata and other re-usable technological building
-        blocks, W3C WoT enables easy integration across IoT platforms and application domains.
-      </p>
-      <p>
-        Get more background about the Web of Things in the <a href="documentation/">Documentation</a> area and check out
-        upcoming <a href="activities/events/">Events</a>.
-      </p>
+<style>
+  section h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dbe7f0;
+  }
 
-      <p>&nbsp;</p>
+  section p {
+    line-height: 1.5;
+  }
 
-      <div class="row center-block">
-        <div class="col-md-4 text-center">
-          <a href="wg/">
-            <i class="fas fa-building fa-4x"></i>
-            <div class="description">
-              <h3>Working Group</h3>
-              <p>Normative work on deliverables under W3C Patent Policy.</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="ig/">
-            <i class="fas fa-users fa-4x"></i>
-            <div class="description">
-              <h3>Interest Group</h3>
-              <p>Practical evaluation, exploration, and outreach by W3C Members.</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="cg/">
-            <i class="fas fa-comments fa-4x"></i>
-            <div class="description">
-              <h3>Community Groups</h3>
-              <p>Users, stakeholders, and open discussion for everyone.</p>
-            </div>
-          </a>
-        </div>
+  section .img-responsive {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .content-pair {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .content-pair > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .group-summary-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+  }
+
+  /* Members Modal */
+  .member-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #dbe7f0;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none !important;
+    color: #1a1a2e !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease;
+    min-height: 80px;
+  }
+
+  .member-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .members-container {
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  .member-group-title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .member-group-count {
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .members-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 80vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+
+  .modal-overlay.active .modal-content {
+    transform: translateY(0);
+  }
+
+  .modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .modal-header h3 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .close-modal {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+    line-height: 1;
+    padding: 0;
+  }
+
+  .close-modal:hover {
+    color: #1a1a2e;
+  }
+
+  .activities-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .articles-list {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .article-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #dbe7f0;
+    border-radius: 8px;
+    height: 100%;
+  }
+
+  .article-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+  }
+
+  .article-item h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .article-item h4 a {
+    color: #1a1a2e !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease;
+  }
+
+  .article-item:hover h4 a {
+    color: var(--primary-color) !important;
+  }
+
+  .article-item h4 a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .article-meta {
+    margin-top: auto;
+    font-size: 14px;
+    color: #666;
+  }
+
+  .badge-upcoming {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  .activities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 20px;
+  }
+
+  .toots {
+    max-width: none;
+    width: 100%;
+  }
+
+  .toot .attachment {
+    max-height: 300px;
+    aspect-ratio: unset;
+  }
+  .toot .attachment img {
+    object-fit: contain;
+    width: auto;
+  }
+
+  @media (max-width: 767px) {
+    .content-pair {
+      flex-direction: column;
+    }
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div>
+  <div class="hero-section">
+    <h2 class="hero-title">W3C Web of Things</h2>
+    <p class="hero-description">
+      The W3C Web of Things (WoT) resolves IoT fragmentation and enables seamless cross-platform integration by
+      extending proven Web standards with standardized metadata and reusable building blocks
+    </p>
+  </div>
+
+  <!-- In a Nutshell -->
+  <section class="section-block">
+    <h3>WoT in a Nutshell</h3>
+
+    <div class="content-pair">
+      <div>
+        <p>
+          In typical IoT projects, developers face a fragmented landscape of proprietary systems, incompatible
+          communication protocols, differing data models, and varying security requirements. Applications built this way
+          demand high effort for narrow use cases and become difficult to extend, maintain, or reuse over time.
+        </p>
+        <p>
+          WoT provides standardized building blocks that simplify IoT application development by applying the
+          well-established Web paradigm. This approach boosts flexibility and interoperability—especially for
+          cross-domain scenarios—while enabling reuse of proven standards and tooling. WoT unlocks the commercial
+          potential held back by IoT fragmentation.
+        </p>
       </div>
-
-      <p>&nbsp;</p>
-
-      <div class="row center-block">
-        <div class="col-md-4 text-center">
-          <a href="activities/task-forces/">
-            <i class="fas fa-car fa-4x"></i>
-            <div class="description">
-              <h3>Task Forces</h3>
-              <p>Organizational information and coordination.</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="developers/">
-            <i class="fas fa-file-code fa-4x"></i>
-            <div class="description">
-              <h3>Developers</h3>
-              <p>Implementations, online Things, and tools.</p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="documentation/">
-            <i class="fas fa-book fa-4x"></i>
-            <div class="description">
-              <h3>Documentation</h3>
-              <p>Learn more through our presentations and whitepaper.</p>
-            </div>
-          </a>
-        </div>
+      <div>
+        <img
+          src="{{'images/iot-projects.png' | relative_url }}"
+          class="img-responsive"
+          alt="Fragmented IoT landscape showing diverse protocols and systems"
+        />
       </div>
     </div>
+  </section>
 
-    <div class="col-md-4" style="position: relative">
-      <style>
-        .toots {
-          max-width: none;
-          flex: 1;
-          overflow-y: auto;
-          min-height: 0;
-        }
+  <!-- Use Cases -->
+  <section class="section-block">
+    <h3>Use Cases</h3>
 
-        .mastodon-column {
-          display: flex;
-          flex-direction: column;
-        }
+    <div class="content-pair">
+      <div class="text-col">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </p>
+      </div>
+      <div class="img-col">
+        <img
+          src="{{'images/wot-interactions.png' | relative_url }}"
+          class="img-responsive"
+          alt="WoT interaction model: Properties, Actions, and Events"
+        />
+      </div>
+    </div>
+  </section>
 
-        @media (min-width: 992px) {
-          .mastodon-column {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            /* Bootstrap col padding */
-            left: 15px;
-            right: 15px;
-          }
-        }
+  <!-- Member Organizations -->
+  <section class="section-block">
+    {% assign grouped_members = site.data.generated.memberOrganizationsOutput %} {% assign total_members = 0 %} {% for
+    group in grouped_members %} {% assign group_size = group[1] | size %} {% assign total_members = total_members |
+    plus: group_size %} {% endfor %}
+    <h3>Members</h3>
+    <p style="margin-bottom: 16px">
+      Many W3C member organizations are involved in the Web of Things ecosystem across various groups. Click on any
+      group below to explore its active members.
+    </p>
 
-        @media (max-width: 991px) {
-          .mastodon-column {
-            height: 800px;
-          }
-
-          .toots {
-            width: 95%;
-          }
-        }
-      </style>
-
-      <div class="mastodon-column">
-        <div style="margin-bottom: 20px">
-          <a href="videos/" title="WoT videos">
-            <h4>WoT Videos &raquo;</h4>
-            <img
-              class="img-responsive"
-              style="min-width: 180px; width: 100%"
-              src="{{'/images/video-thumbnail-wot-explainer.png' | absolute_url }}"
-              alt="WoT Video"
-            />
-          </a>
+    <div
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px"
+    >
+      {% for group in grouped_members %}
+      <div
+        class="group-summary-card"
+        onclick="openGroupModal(this.getAttribute('data-group-name'), this.getAttribute('data-group-size'))"
+        data-group-name="{{ group[0] | escape }}"
+        data-group-size="{{ group[1] | size }}"
+        style="
+          background: #fff;
+          border: 1px solid #dbe7f0;
+          padding: 16px;
+          border-radius: 8px;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        "
+      >
+        <div style="font-size: 32px; font-weight: 700; color: #005a9c; line-height: 1; margin-bottom: 12px">
+          {{ group[1] | size }}
         </div>
+        <div style="color: #444; font-size: 16px; font-weight: 600; line-height: 1.3">{{ group[0] }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
 
-        <!-- Mastodon Feed inserted by the script in default.html -->
-        <a class="mastodon-feed" href="https://w3c.social/@wot" data-toot-limit="20" style="display: block"
-          >WoT in Mastodon</a
-        >
+  <!-- Liaisons -->
+  <section>
+    <h3>Liaisons</h3>
+    <p style="margin-top: -8px; margin-bottom: 32px">
+      Liaisons systematically coordinate efforts between the core WoT group and external bodies governing specific
+      protocols, semantics, or domains
+    </p>
+
+    <div
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px"
+    >
+      <a href="https://aioti.eu/" class="member-card" target="_blank" rel="noopener noreferrer">
+        Alliance for Internet of Things Innovation (AIOTI)
+      </a>
+      <a href="http://www.hypercat.io/" class="member-card" target="_blank" rel="noopener noreferrer">
+        Hypercat Alliance
+      </a>
+      <a href="http://www.ietf.org/" class="member-card" target="_blank" rel="noopener noreferrer">
+        The Internet Engineering Task Force (IETF)
+      </a>
+      <a href="https://www.iiconsortium.org/" class="member-card" target="_blank" rel="noopener noreferrer">
+        Industrial Internet Consortium (IIC)
+      </a>
+      <a
+        href="https://www.plattform-i40.de/IP/Navigation/EN/Home/home.html"
+        class="member-card"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Industry 4.0
+      </a>
+      <a href="http://www.iso.org/iso/jtc1_home.html" class="member-card" target="_blank" rel="noopener noreferrer">
+        ISO/IEC JTC 1/SC 41
+      </a>
+      <a href="http://www.itu.int/net/about/itu-t.aspx" target="_blank" rel="noopener noreferrer" class="member-card">
+        ITU-T
+      </a>
+      <a
+        href="https://www.itu.int/en/ITU-T/studygroups/2017-2020/20/Pages/default.aspx"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="member-card"
+      >
+        Group 20
+      </a>
+      <a href="http://openconnectivity.org/" class="member-card" target="_blank" rel="noopener noreferrer">
+        Open Connectivity Foundation (OCF)
+      </a>
+      <a href="http://www.onem2m.org/" class="member-card" target="_blank" rel="noopener noreferrer">OneM2M</a>
+      <a href="https://opcfoundation.org/" class="member-card" target="_blank" rel="noopener noreferrer">
+        OPC Foundation
+      </a>
+      <a href="http://www.opengroup.org/" class="member-card" target="_blank" rel="noopener noreferrer">
+        The Open Group
+      </a>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="membersModal" class="modal-overlay" onclick="handleModalClick(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Member Organizations</h3>
+        <button class="close-modal" onclick="closeMembersModal()">&times;</button>
+      </div>
+      <div class="members-container">
+        {% for group in grouped_members %}
+        <div class="member-group" data-group-name="{{ group[0] | escape }}">
+          <div class="members-grid">
+            {% for member in group[1] %} {% if member.homepage %}
+            <a href="{{ member.homepage }}" class="member-card" target="_blank" rel="noopener noreferrer">
+              <div class="member-card-title">{{ member.title }}</div>
+            </a>
+            {% else %}
+            <div class="member-card" style="cursor: default" title="No website available">
+              <div class="member-card-title">{{ member.title }}</div>
+            </div>
+            {% endif %} {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
 
-  <!--
-	<div class="row center-block">
-		<p><mark>TODO summary, relation between various groups.. </mark></p>
-	</div>
-	-->
+  <!-- Why Join -->
+  <section>
+    <h3>Why join?</h3>
+    <div class="full-width-text">
+      <p>
+        We develop the Web of Things standards and guidelines to ensure long-term IoT interoperability.
+        <br />
+        By joining, you drive W3C standards that shape future device integration and build a cohesive connected
+        ecosystem.
+      </p>
+      <div style="margin-top: 20px">
+        <a
+          href="{{ '/participate/' | relative_url }}"
+          class="btn btn-primary"
+          style="margin-right: 15px; padding: 8px 16px; font-weight: 500; color: white"
+        >
+          Participate in W3C WoT <i class="fas fa-users" style="margin-left: 6px"></i>
+        </a>
+        <a
+          href="https://www.w3.org/support-us/"
+          class="btn btn-default"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="padding: 8px 16px; font-weight: 500"
+          >Support Us <i class="fas fa-external-link-alt" style="margin-left: 6px"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Activities -->
+  <section>
+    <h3>Recent Activities</h3>
+    <div class="activities-grid">
+      <!-- Latest Articles -->
+      <div class="activities-col">
+        <h4 style="margin-top: 0; margin-bottom: 16px; font-size: 20px; font-weight: 500">Latest Articles</h4>
+        <div class="articles-list">
+          {% for article in site.data.articles limit:3 %}
+          <div class="article-item">
+            <h4>
+              <a href="{{ article.url }}" target="_blank" rel="noopener noreferrer"> {{ article.title }} </a>
+            </h4>
+            <div class="article-meta">
+              <strong>{{ article.publisher }}</strong> &bull; {{ article.date }} &bull; {{ article.type }}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <a href="{{ '/about/articles/' | relative_url }}" class="btn btn-default" style="font-weight: 500"
+          >View all articles</a
+        >
+      </div>
+
+      <!-- Latest Events -->
+      <div class="activities-col">
+        <h4 style="margin-top: 0; margin-bottom: 16px; font-size: 20px; font-weight: 500">Latest Events</h4>
+        <div class="articles-list">
+          {% assign today = site.time | date: '%Y-%m-%d' %} {% for event in site.data.events limit:3 %}
+          <div class="article-item">
+            <h4>
+              <a href="{{ event.url }}" target="_blank" rel="noopener noreferrer">
+                {% if event.cancelled %}<del>{% endif %} {{ event.name }} {% if event.cancelled %}</del>{% endif %}
+              </a>
+              {% if event.date >= today and event.cancelled != true %}
+              <span class="badge-upcoming">Upcoming</span>
+              {% endif %}
+            </h4>
+            <div class="article-meta">
+              <strong>{{ event.date_display }}</strong>
+              {% if event.cancelled %}
+              <span style="color: #d32f2f; font-weight: 500; margin-left: 4px">(Cancelled)</span>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <a href="{{ '/activities/events/' | relative_url }}" class="btn btn-default" style="font-weight: 500"
+          >View all events</a
+        >
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="mastodon-section" style="margin-top: 40px">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px">
+        <img height="24px" alt="Mastodon" src="https://www.cdnlogo.com/logos/m/33/mastodon.svg" />
+        <h4 style="margin: 0; font-size: 20px; font-weight: 600; color: #1a1a2e">Latest on Mastodon</h4>
+      </div>
+      <div
+        class="mastodon-scroll"
+        style="
+          height: 600px;
+          overflow-y: auto;
+          background: #fff;
+          border: 1px solid #dbe7f0;
+          border-radius: 8px;
+          padding: 0 16px;
+        "
+      >
+        <a class="mastodon-feed" href="https://w3c.social/@wot" data-toot-limit="20">WoT in Mastodon</a>
+      </div>
+    </div>
+  </section>
 </div>
+<script>
+  function openGroupModal(groupName, count) {
+    const groups = document.querySelectorAll('.member-group');
+    groups.forEach((g) => {
+      if (g.getAttribute('data-group-name') === groupName) {
+        g.style.display = 'block';
+      } else {
+        g.style.display = 'none';
+      }
+    });
+
+    document.getElementById('modalTitle').textContent = groupName + ' (' + count + ')';
+    document.getElementById('membersModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMembersModal() {
+    document.getElementById('membersModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function handleModalClick(event) {
+    if (event.target === document.getElementById('membersModal')) {
+      closeMembersModal();
+    }
+  }
+</script>

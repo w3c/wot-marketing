@@ -5,66 +5,181 @@ group: 'navigation'
 ---
 
 <style>
-  td {
-    padding: 20px;
+  .content-flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+    gap: 60px;
+  }
+
+  .mastodon-section {
+    position: relative;
+    min-width: 300px;
+  }
+
+  .mastodon-wrapper-full {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mastodon-scroll {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+  }
+
+  .toots {
+    max-width: none;
+    width: 100%;
+  }
+
+  .toot .attachment img {
+    object-fit: contain;
+  }
+
+  @media (max-width: 991px) {
+    .contact-card {
+      margin-bottom: 40px;
+    }
+
+    .content-flex-container {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .contacts-section {
+      flex: auto;
+    }
+
+    .mastodon-section {
+      height: 700px;
+      margin-top: 40px;
+      width: 80%;
+      min-width: 0;
+    }
+
+    .mastodon-wrapper-full {
+      position: static;
+      height: 100%;
+    }
   }
 </style>
 
-<div>
-  <h2>How to get in touch</h2>
-  <p>Use one of the following methods to get in touch with us:</p>
-  <table>
-    <tr>
-      <td style="vertical-align: top">Feedback on specification</td>
-      <td>
-        <img height="20px" alt="GitHub" src="https://cdn.cdnlogo.com/logos/g/31/github.svg" />
-        <ul>
-          <li>
-            <a href="https://github.com/w3c/wot/issues"> GitHub Issues </a>
-          </li>
-          <li>
-            <a href="https://github.com/w3c/wot/"> https://github.com/w3c/wot/ </a>
-          </li>
-        </ul>
-        <br />
-        <img height="35px" alt="W3C" src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" />
-        <ul>
-          <li>
-            <a href="https://www.w3.org/"> https://www.w3.org/ </a>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top">Administrative and Participation</td>
-      <td>
-        Public mailing lists
-        <ul>
-          <li><a href="https://lists.w3.org/Archives/Public/public-wot-wg/">WoT Working Group</a></li>
-          <li><a href="https://lists.w3.org/Archives/Public/public-wot-ig/">WoT Interest Group</a></li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top">Technical Questions</td>
-      <td>
+<div class="hero-section">
+  {% include breadcrumbs.html %}
+  <h2 class="hero-title">How to get in touch</h2>
+  <p class="hero-description">Use one of the following methods to get in touch with us</p>
+</div>
+
+<div class="content-flex-container">
+  <div class="contacts-section">
+    <p>&nbsp;</p>
+
+    <div class="row center-block">
+      <div class="col-md-4 text-center contact-card">
+        <a href="https://github.com/w3c/wot/issues">
+          <i class="fab fa-github fa-4x" style="color: black"></i>
+          <div class="description">
+            <h3>GitHub</h3>
+            <p>Create issues for discussions on the overall WoT</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 text-center contact-card">
+        <a href="https://www.w3.org/">
+          <img height="60px" alt="W3C" src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" />
+          <div class="description">
+            <h3>W3C Website</h3>
+            <p>Overall information on the World Wide Web</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 text-center contact-card">
         <a href="https://stackoverflow.com/questions/tagged/web-of-things">
           <img
-            height="20px"
+            height="60px"
             alt="Stack Overflow"
-            src="https://cdn.cdnlogo.com/logos/s/57/stack-overflow-wordmark.svg"
+            src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Stack_Overflow_icon.svg"
           />
+          <div class="description">
+            <h3>Stack Overflow</h3>
+            <p>Technical Questions</p>
+          </div>
         </a>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top">General Comments</td>
-      <td>
+      </div>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <div class="row center-block">
+      <div class="col-md-4 text-center contact-card">
+        <a href="https://lists.w3.org/Archives/Public/public-wot-wg/">
+          <i class="fas fa-envelope fa-4x" style="height: 60px"></i>
+          <div class="description">
+            <h3>WoT Working Group</h3>
+            <p>Public mailing list</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 text-center contact-card">
+        <a href="https://lists.w3.org/Archives/Public/public-wot-ig/">
+          <i class="fas fa-envelope fa-4x" style="height: 60px"></i>
+          <div class="description">
+            <h3>WoT Interest Group</h3>
+            <p>Public mailing list</p>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 text-center contact-card">
         <a href="https://w3c.social/@wot">
+          <img height="60px" alt="Mastodon" src="https://www.cdnlogo.com/logos/m/33/mastodon.svg" />
+          <div class="description">
+            <h3>Mastodon</h3>
+            <p>General Comments (@wot@w3c.social)</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <p>&nbsp;</p>
+    <hr />
+    <p>&nbsp;</p>
+    <h2>Website Feedback</h2>
+    <p>Help us improve this website by editing it directly or reporting an issue</p>
+    <p>&nbsp;</p>
+
+    <div class="row">
+      <div class="col-md-4 text-center contact-card">
+        <a href="https://github.com/w3c/wot-marketing">
+          <i class="fab fa-github fa-4x" style="color: black"></i>
+          <div class="description">
+            <h3>Edit this website</h3>
+            <p>Help us improve this website on GitHub</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- End of contacts-section -->
+
+  <div class="mastodon-section">
+    <!-- Mastodon Feed inserted by the script in default.html -->
+    <div class="mastodon-wrapper mastodon-wrapper-full">
+      <div class="mastodon-inner">
+        <div style="display: flex; align-items: center; gap: 6px">
           <img height="20px" alt="Mastodon" src="https://www.cdnlogo.com/logos/m/33/mastodon.svg" />
-          @wot@w3c.social</a
-        >
-      </td>
-    </tr>
-  </table>
+        </div>
+        <h4>Latest on Mastodon</h4>
+      </div>
+      <div class="mastodon-scroll">
+        <a class="mastodon-feed" href="https://w3c.social/@wot" data-toot-limit="20">WoT in Mastodon</a>
+      </div>
+    </div>
+  </div>
 </div>
