@@ -1,0 +1,56 @@
+---
+layout: default
+title: Events
+group: 'navigation'
+---
+
+<style>
+  .past-event {
+    opacity: 0.7;
+  }
+</style>
+
+<div>
+  <div style="margin-bottom: 20px; font-size: 1.1em">
+    <a href="{{ '/participate/working-group' | absolute_url }}" class="btn btn-default" style="margin-bottom: 20px"
+      >&laquo; Back to Working Group</a
+    >
+  </div>
+  <h2>W3C WoT – Events</h2>
+
+  <p>
+    The Web of Things (WoT) groups meet during the W3C's annual Technical Plenary week and additional face-to-face
+    meetings are scheduled by the participants that happen 2 times a year. Moreover, the work items are prototyped and
+    tested in WoT IG PlugFests that are scheduled for the weekend or week before the face-to-face meetings.
+  </p>
+
+  {% assign today = site.time | date: "%Y-%m-%d" %} {% assign sorted_events = site.data.events | sort: "date" | reverse
+  %}
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for event in sorted_events %} {% if event.date < today %}
+      <tr class="past-event">
+        {% else %}
+      </tr>
+
+      <tr>
+        {% endif %}
+        <td>
+          {% if event.cancelled %}
+          <s><a href="{{ event.url }}">{{ event.name }}</a></s> (Cancelled) {% else %}
+          <a href="{{ event.url }}">{{ event.name }}</a>
+          {% endif %}
+        </td>
+        <td>{{ event.date_display }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
