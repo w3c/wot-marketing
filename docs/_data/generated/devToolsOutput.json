@@ -56,7 +56,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-03-06T10:43:18Z",
+          "lastUpdated": "2026-03-09T17:10:09Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -96,12 +96,12 @@
         },
         {
           "name": "Golang ThingDescription",
-          "description": "This is a Golang package containing all struts to represent a ThingDescription in code and also to serialize and deserialize it.",
+          "description": "This is a Golang package containing all structs to represent a ThingDescription in code and also to serialize and deserialize it.",
           "repoUrl": "https://github.com/wot-oss/thingdescription-go",
           "languages": [
             "Go"
           ],
-          "lastUpdated": "2025-06-10T10:13:30Z",
+          "lastUpdated": "2026-03-09T13:00:57Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
@@ -126,12 +126,12 @@
         },
         {
           "name": "Wot-DTDL-Converter",
-          "description": "A two way converter for TD files",
+          "description": "A two way converter for TM and DTDL files",
           "repoUrl": "https://github.com/wot-oss/wot-dtdl-converter",
           "languages": [
             "C#"
           ],
-          "lastUpdated": "2025-04-14T17:55:39Z",
+          "lastUpdated": "2026-03-09T12:59:31Z",
           "homepageUrl": null,
           "platforms": [
             "CLI"
@@ -167,7 +167,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-03-06T10:43:18Z",
+          "lastUpdated": "2026-03-09T17:10:09Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -177,7 +177,7 @@
         },
         {
           "name": "SANE Web of Things Servient",
-          "description": "W3C Web of Things implementation for Java",
+          "description": "This project contains an implementation of the W3C Web of Things (WoT) architecture written in Java",
           "repoUrl": "https://github.com/sane-city/wot-servient",
           "languages": [
             "Java"
@@ -588,7 +588,7 @@
           "languages": [
             "C#"
           ],
-          "lastUpdated": "2026-03-04T06:24:59Z",
+          "lastUpdated": "2026-03-09T15:26:18Z",
           "homepageUrl": null,
           "platforms": [
             "Service"

@@ -104,6 +104,7 @@ export const devToolsInput: DevToolsInput = {
         },
         {
           repoUrl: "https://github.com/sane-city/wot-servient",
+          description: "This project contains an implementation of the W3C Web of Things (WoT) architecture written in Java",
           platforms: ["Library", "CLI"],
           affiliation: "SANE",
         },
