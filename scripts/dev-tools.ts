@@ -4,7 +4,6 @@ import { dirname, resolve } from "path";
 import { devToolsInput, type ToolInput } from "../docs/_data/devToolsInput.ts";
 import { writeFileSync } from "fs";
 import { Octokit } from "octokit";
-import constants from "../docs/_data/constants.json" with { type: "json" };
 
 // Configure environment variables
 const __filename = fileURLToPath(import.meta.url);
@@ -38,18 +37,21 @@ interface ToolOutput {
   name: string;
   description: string;
   languages: string[];
-  isObsolete: boolean;
-  repoUrl?: string;
-  homepageUrl?: string;
+  lastUpdated: string | null;
+  license: string | null;
+  repoUrl: string | null;
+  affiliation: string | null;
+  homepageUrl: string | null;
   platforms: string[];
 }
 // Data retrieved from a GitLab/GitHub repo
 interface RepoData {
   name: string | null;
   description: string | null;
-  language: string | null | undefined;
+  languages: string[];
   lastUpdated: string;
-  homepage: string | null;
+  homepageUrl: string | null;
+  license: string | null;
 }
 
 // Main script (called in the end of the file)
@@ -86,40 +88,25 @@ async function fetchDevTools() {
  */
 async function mapTool(tool: ToolInput): Promise<ToolOutput> {
   try {
-    const mappedTool = { ...tool };
+    let data: RepoData | null = null;
     // If the tool has a repoUrl, fetch the data from the provider
-    if (mappedTool.repoUrl && needsFetching(mappedTool)) {
-      const url = new URL(mappedTool.repoUrl);
+    if (tool.repoUrl && !tool.ignoreFetch) {
+      const url = new URL(tool.repoUrl);
       const host = url.host;
-      let data: RepoData | null = null;
       if (host.includes("github")) {
         // GitHub
         data = await getGitHubData(url);
       } else if (host.includes("gitlab")) {
         // GitLab
         data = await getGitLabData(url);
-      }
-      if (data) {
-        // If an override exists use it directly otherwise use the fetched data
-        mappedTool.name = mappedTool.name ?? data.name ?? undefined;
-        mappedTool.description =
-          mappedTool.description ?? data.description ?? undefined;
-        mappedTool.languages =
-          mappedTool.languages ?? (data.language ? [data.language] : []);
-        mappedTool.isObsolete =
-          mappedTool.isObsolete ?? isObsolete(data.lastUpdated);
-        mappedTool.homepageUrl = mappedTool.homepageUrl ?? data.homepage ?? undefined;
-        mappedTool.platforms = mappedTool.platforms;
+      } else {
+        throw new Error(`Unsupported host: ${host}. Extend the fetching script or set ignoreFetch to true.`);
       }
     }
-    return parseTool(mappedTool);
+    return parseTool(tool, data);
   } catch (error: any) {
     throw new Error(`${error.message} for tool: ${JSON.stringify(tool)}`);
   }
-}
-function needsFetching(tool: ToolInput): boolean {
-  // If all properties are overriden, we don't need to fetch
-  return !(tool.name && tool.description && tool.languages && tool.isObsolete !== undefined && tool.homepageUrl);
 }
 
 /**
@@ -151,13 +138,16 @@ async function getGitHubData(url: URL): Promise<RepoData> {
       headers,
       dir: subfolder,
     });
+
     const { name, description } = extractToolMetadata(atob(readme.content));
+    const language = rootData.language ?? rootData.parent?.language
     return {
-      name: name ?? (subfolder ? null : rootData.name),
-      description: description ?? (subfolder ? null : rootData.description),
-      language: rootData.language ?? rootData.parent?.language,
+      name: name ?? rootData.name,
+      description: subfolder || !rootData.description ? description : rootData.description,
+      languages: language ? [language] : [],
       lastUpdated: rootData.updated_at,
-      homepage: rootData.homepage,
+      homepageUrl: rootData.homepage,
+      license: rootData.license?.name ?? null,
     };
   } catch (error: any) {
     throw new Error(`GitHub API Error: ${error.message}`);
@@ -167,13 +157,13 @@ async function getGitHubData(url: URL): Promise<RepoData> {
 /**
  * Fetches repo data from GitLab
  */
-async function getGitLabData(url: URL) {
+async function getGitLabData(url: URL): Promise<RepoData> {
   const host = url.host;
   const pathname = url.pathname.slice(1); // remove the first slash
   try {
     const encodedDir = encodeURIComponent(pathname);
     const rootData = await safeFetch(
-      `https://${host}/api/v4/projects/${encodedDir}`,
+      `https://${host}/api/v4/projects/${encodedDir}?license=true`,
     );
     const languages = await safeFetch(
       `https://${host}/api/v4/projects/${encodedDir}/languages`,
@@ -186,22 +176,23 @@ async function getGitLabData(url: URL) {
         atob(readme.content),
       ).description;
     }
+    const mostUsedLanguage = languages &&
+      [Object.entries(languages as Record<string, number>).reduce(
+        (acc, language) => {
+          if (language[1] > acc[1]) {
+            return language;
+          }
+          return acc;
+        },
+        ["", 0],
+      )[0]]
     return {
       name: rootData.name,
       description: rootData.description,
-      language:
-        languages &&
-        Object.entries(languages as Record<string, number>).reduce(
-          (acc, language) => {
-            if (language[1] > acc[1]) {
-              return language;
-            }
-            return acc;
-          },
-          ["", 0],
-        )[0],
+      languages: mostUsedLanguage ? [mostUsedLanguage] : [],
       lastUpdated: rootData.last_activity_at,
-      homepage: null, // GitLab API does not provide homepage
+      homepageUrl: null, // GitLab API does not provide homepage
+      license: rootData.license?.name,
     };
   } catch (error: any) {
     throw new Error(`GitLab API Error: ${error.message}`);
@@ -218,23 +209,6 @@ async function safeFetch(url: string) {
     throw new Error("Could not fetch: " + url);
   }
   return await res.json();
-}
-
-/**
- * Checks if a tool is obsolete based on its last updated date
- * @param lastUpdated The last updated date of the tool
- * @returns True if the last update is older than 2 year, false otherwise
- */
-function isObsolete(lastUpdated: string): boolean {
-  const updatedDate = new Date(lastUpdated);
-  if (isNaN(updatedDate.getTime())) {
-    throw new Error("Could not retrieve last update date");
-  }
-
-  const targetDate = new Date(updatedDate.getTime());
-  targetDate.setFullYear(targetDate.getFullYear() + constants.OBSOLETE_IN);
-
-  return new Date() >= targetDate;
 }
 
 /**
@@ -312,6 +286,9 @@ function extractToolMetadata(markdown: string): {
     description = sentenceMatch ? sentenceMatch[0] : normalizedPara;
     break;
   }
+  if (description) {
+    description = (description[0].toUpperCase() + description.slice(1)).replace(/\.$/, ""); // Capitalize first letter and remove trailing dot
+  }
 
   return { name, description };
 }
@@ -345,26 +322,30 @@ function cleanLine(text: string): string {
 /**
  * Parses the tool to the right format by checking the existence of the required properties
  */
-function parseTool(tool: ToolInput): ToolOutput {
-  if (!tool.name) {
+function parseTool(inputTool: ToolInput, fetchedData: RepoData | null): ToolOutput {
+  const mappedTool = {
+    ...(fetchedData ?? {}),
+    ...inputTool,
+  };
+  if (!mappedTool.name) {
     throw new Error("Name is missing");
   }
-  if (!tool.description) {
+  if (!mappedTool.description) {
     throw new Error("Description is missing");
   }
-  if (!tool.repoUrl && !tool.homepageUrl) {
+  if (!mappedTool.repoUrl && !mappedTool.homepageUrl) {
     throw new Error("Repo or Homepage URL is missing");
   }
   return {
-    name: tool.name,
-    description: (
-      tool.description[0].toUpperCase() + tool.description.slice(1)
-    ).replace(/\.$/, ""), // remove trailing dot
-    repoUrl: tool.repoUrl,
-    languages: tool.languages ?? [],
-    isObsolete: tool.isObsolete ?? false,
-    homepageUrl: tool.homepageUrl || undefined,
-    platforms: tool.platforms,
+    name: mappedTool.name,
+    description: mappedTool.description.trim(),
+    repoUrl: mappedTool.repoUrl || null,
+    languages: mappedTool.languages || [],
+    lastUpdated: mappedTool.lastUpdated || null,
+    homepageUrl: mappedTool.homepageUrl || null,
+    platforms: mappedTool.platforms || [],
+    license: mappedTool.license || null,
+    affiliation: mappedTool.affiliation || null,
   };
 }
 

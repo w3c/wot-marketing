@@ -9,6 +9,9 @@ baseurl: "/WoT"
 github_username: "w3c"
 git_repo: "wot-marketing"
 
+constants:
+  OBSOLETE_IN: 2
+
 navigation:
  - title: Groups
    subnavigation:
