@@ -8,122 +8,66 @@ group: "navigation"
 	td {
 		padding: 20px;
 	}
-
-	.toots {
-		height: 100%;
-		overflow-y: auto;
-		display: block;
-	}
-
-	.contact-container {
-		display: flex;
-		justify-content: space-between;
-		flex: 1;
-		gap: 20px;
-	}
-
-	.mastodon-wrapper {
-		flex: 1;
-		position: relative;
-	}
-
-	.mastodon-inner {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		right: 0;
-	}
-
-	@media (max-width: 991px) {
-		.contact-container {
-			flex-direction: column;
-		}
-
-		.mastodon-wrapper {
-			min-height: 600px;
-		}
-
-		.mastodon-inner {
-			left: 0;
-		}
-
-		.toots {
-			max-width: none;
-			width: 90%
-		}
-	}
 </style>
 
-<div class="contact-container">
-	<div>
-		<h2>How to get in touch</h2>
-		<p>Use one of the following methods to get in touch with us:</p>
-		<table>
-			<tr>
-				<td style="vertical-align: top;">Feedback on specification</td>
-				<td>
-					<img height="20px" alt="GitHub" src="https://cdn.cdnlogo.com/logos/g/31/github.svg" />
-					<ul>
-						<li>
-							<a href="https://github.com/w3c/wot/issues">
-								GitHub Issues
-							</a>
-						</li>
-						<li>
-							<a href="https://github.com/w3c/wot/">
-								https://github.com/w3c/wot/
-							</a>
-						</li>
-					</ul>
-					<br />
-					<img height="35px" alt="W3C" src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" />
-					<ul>
-						<li>
-							<a href="https://www.w3.org/">
-								https://www.w3.org/
-							</a>
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top;">Administrative and Participation</td>
-				<td>Public mailing lists
-					<ul>
-						<li><a href="https://lists.w3.org/Archives/Public/public-wot-wg/">WoT Working Group</a></li>
-						<li><a href="https://lists.w3.org/Archives/Public/public-wot-ig/">WoT Interest Group</a>
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top;">Technical Questions</td>
-				<td>
-					<a href="https://stackoverflow.com/questions/tagged/web-of-things">
-						<img height="20px" alt="Stack Overflow"
-							src="https://cdn.cdnlogo.com/logos/s/57/stack-overflow-wordmark.svg" />
-					</a>
-				</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top;">General Comments</td>
-				<td>
-					<a href="https://w3c.social/@wot">
-						<img height="20px" alt="Mastodon" src="https://www.cdnlogo.com/logos/m/33/mastodon.svg">
-						@wot@w3c.social</a>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<!-- Mastodon Feed inserted by the script in default.html -->
-	<div class="mastodon-wrapper">
-		<div class="mastodon-inner">
-			<div style="display: flex; align-items: center; gap: 6px">
-				<img height="20px" alt="Mastodon" src="https://www.cdnlogo.com/logos/m/33/mastodon.svg">
-				<h4>Latest on Mastodon</h4>
-			</div>
-			<a class="mastodon-feed" href="https://w3c.social/@wot" data-toot-limit="20">WoT
-				in Mastodon</a>
-		</div>
-	</div>
+<div>
+	<a href="{{ '/about/' | absolute_url }}" class="btn btn-default" style="margin-bottom: 20px;">&laquo; Back to
+		About</a>
+	<h2>How to get in touch</h2>
+	<p>Use one of the following methods to get in touch with us:</p>
+	<table>
+		<tr>
+			<td style="vertical-align: top;">Feedback on specification</td>
+			<td>
+				<img height="20px" alt="GitHub" src="https://cdn.cdnlogo.com/logos/g/31/github.svg" />
+				<ul>
+					<li>
+						<a href="https://github.com/w3c/wot/issues">
+							GitHub Issues
+						</a>
+					</li>
+					<li>
+						<a href="https://github.com/w3c/wot/">
+							https://github.com/w3c/wot/
+						</a>
+					</li>
+				</ul>
+				<br />
+				<img height="35px" alt="W3C" src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" />
+				<ul>
+					<li>
+						<a href="https://www.w3.org/">
+							https://www.w3.org/
+						</a>
+					</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top;">Administrative and Participation</td>
+			<td>Public mailing lists
+				<ul>
+					<li><a href="https://lists.w3.org/Archives/Public/public-wot-wg/">WoT Working Group</a></li>
+					<li><a href="https://lists.w3.org/Archives/Public/public-wot-ig/">WoT Interest Group</a></li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top;">Technical Questions</td>
+			<td>
+				<a href="https://stackoverflow.com/questions/tagged/web-of-things">
+					<img height="20px" alt="Stack Overflow"
+						src="https://cdn.cdnlogo.com/logos/s/57/stack-overflow-wordmark.svg" />
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: top;">General Comments</td>
+			<td>
+				<a href="https://w3c.social/@wot">
+					<img height="20px" alt="Mastodon" src="https://www.cdnlogo.com/logos/m/33/mastodon.svg">
+					@wot@w3c.social</a>
+			</td>
+		</tr>
+	</table>
 </div>

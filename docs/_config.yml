@@ -22,10 +22,3 @@ navigation:
     url: participate/
   - title: About
     url: about/
-    subnavigation:
-      - title: Contact
-        url: about/contact/
-      - title: History
-        url: about/history/
-      - title: Articles
-        url: about/articles/
