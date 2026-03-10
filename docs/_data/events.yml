@@ -1,0 +1,155 @@
+# W3C WoT Events
+# - date: ISO start date (used for sorting and past/future detection)
+# - date_display: human-readable date label shown in the table
+# - cancelled: optional, renders with strikethrough + "(Cancelled)"
+
+- name: "W3C TPAC 2025"
+  url: "https://www.w3.org/wiki/TPAC/2025"
+  date: "2025-11-10"
+  date_display: "10–14 November 2025"
+
+- name: "WoT Week 2024"
+  url: "https://www.w3.org/WoT/IG/wiki/Wiki_for_WoT_Week_2024_planning"
+  date: "2024-11-25"
+  date_display: "25–29 November 2024"
+
+- name: "W3C TPAC 2024"
+  url: "https://www.w3.org/2024/09/TPAC/Overview.html"
+  date: "2024-09-23"
+  date_display: "23–27 September 2024"
+
+- name: "IEEE IIWOT 2024"
+  url: "https://iiwot24.nws.cs.unibo.it/"
+  date: "2024-01-06"
+  date_display: "6 January 2024"
+
+- name: "W3C TPAC 2023"
+  url: "https://www.w3.org/2023/09/TPAC/"
+  date: "2023-09-11"
+  date_display: "11–15 September 2023"
+
+- name: "W3C WoT Developer Meeting"
+  url: "https://github.com/w3c/wot-testing/tree/main/events/2023.03.DevMtg"
+  date: "2023-03-01"
+  date_display: "March/April 2023"
+
+- name: "IEEE IIWOT 2023"
+  url: "https://iiwot23.nws.cs.unibo.it"
+  date: "2023-01-11"
+  date_display: "11 January 2023"
+
+- name: "W3C WoT Testfest (December 2022)"
+  url: "https://github.com/w3c/wot-testing/tree/main/events/2022.12.Online"
+  date: "2022-12-12"
+  date_display: "12–16 December 2022"
+
+- name: "TPAC 2022"
+  url: "https://www.w3.org/2022/09/TPAC/Overview.html"
+  date: "2022-09-12"
+  date_display: "12–16 September 2022"
+
+- name: "W3C WoT Testfest (June 2022)"
+  url: "https://github.com/w3c/wot-testing/tree/main/events/2022.06.Online"
+  date: "2022-06-06"
+  date_display: "6–10 June 2022"
+
+- name: "Node.js Global Summit"
+  url: "https://events.geekle.us/nodejs/"
+  date: "2022-05-18"
+  date_display: "18 May 2022"
+
+- name: "Sustainability Panel at the Advisory Committee Meeting"
+  url: "https://www.w3.org/2022/04/AC/ac-agenda.html#tuesday"
+  date: "2022-04-26"
+  date_display: "26 April 2022"
+
+- name: "The 5th Japanese CG Meeting on smart building use cases"
+  url: "https://github.com/w3c/wot-jp-cg/blob/main/Event/20220422_5th_Smart_Building/readme.md"
+  date: "2022-04-22"
+  date_display: "22 April 2022"
+
+- name: "Plugfest/Testfest (March 2022)"
+  url: "https://github.com/w3c/wot-testing/tree/main/events/2022.03.Online"
+  date: "2022-03-14"
+  date_display: "14–18 March 2022"
+
+- name: "W3C Web of Things & ECHONET Lite Web API"
+  url: "https://wot-jp-cg.connpass.com/event/239394/"
+  date: "2022-03-11"
+  date_display: "11 March 2022"
+
+- name: "ITU-T Webinar on WoT and Smart Cities"
+  url: "https://www.itu.int/en/ITU-T/webinars/20220203/Pages/default.aspx"
+  date: "2022-02-03"
+  date_display: "3 February 2022"
+
+- name: "The 2nd Japanese CG Kick-off Meeting"
+  url: "https://github.com/w3c/wot-jp-cg/blob/main/Event/20220128_2nd_Main_Meeting/Agenda.md"
+  date: "2022-01-28"
+  date_display: "28 January 2022"
+
+- name: "IEEE IIWOT 2022"
+  url: "https://iiwot22.nws.cs.unibo.it/"
+  date: "2022-01-08"
+  date_display: "8 January 2022"
+
+- name: "IoT Tech Expo Europe 2021 – IoT Security Panel"
+  url: "https://www.iottechexpo.com/europe/"
+  date: "2021-11-30"
+  date_display: "30 November 2021"
+
+- name: "DIoT 2021"
+  url: "https://oeg-upm.github.io/DIoT/"
+  date: "2021-11-08"
+  date_display: "8–12 November 2021"
+  cancelled: true
+
+- name: "WoT at TPAC 2021"
+  url: "https://www.w3.org/WoT/IG/wiki/F2F_meeting,_October_2021"
+  date: "2021-10-18"
+  date_display: "October 2021"
+
+- name: "TPAC 2021"
+  url: "https://www.w3.org/2021/10/TPAC/"
+  date: "2021-10-18"
+  date_display: "18–29 October 2021"
+
+- name: "IoT Tech Expo North America 2021"
+  url: "https://www.iottechexpo.com/northamerica/track/iot-digital-infrastructures-day-1/"
+  date: "2021-09-29"
+  date_display: "29 September 2021"
+
+- name: "RIoT Summit 2021"
+  url: "https://summit.riot-os.org/2021/"
+  date: "2021-09-09"
+  date_display: "9–10 September 2021"
+
+- name: "Virtual F2F Meeting (June 2021)"
+  url: "https://www.w3.org/WoT/IG/wiki/F2F_meeting,_June_2021#Virtual_F2F"
+  date: "2021-06-21"
+  date_display: "21 June – 2 July 2021"
+
+- name: "Testfest (June 2021)"
+  url: "https://www.w3.org/WoT/IG/wiki/F2F_meeting,_June_2021#Testfest"
+  date: "2021-06-07"
+  date_display: "7–11 June 2021"
+
+- name: "Virtual F2F Meeting (March 2021)"
+  url: "https://www.w3.org/WoT/IG/wiki/F2F_meeting,_March_2021"
+  date: "2021-03-15"
+  date_display: "15–26 March 2021"
+
+- name: "Virtual F2F PlugFest (March 2021)"
+  url: "https://github.com/w3c/wot-testing/blob/master/events/2021.03.Online/README.md"
+  date: "2021-03-01"
+  date_display: "1–5 March 2021"
+
+- name: "Virtual F2F Meeting (October 2020)"
+  url: "https://www.w3.org/WoT/IG/wiki/F2F_meeting,_October_2020"
+  date: "2020-10-26"
+  date_display: "October 2020"
+
+- name: "TPAC 2020"
+  url: "https://www.w3.org/2020/10/TPAC/"
+  date: "2020-10-26"
+  date_display: "October 2020"
