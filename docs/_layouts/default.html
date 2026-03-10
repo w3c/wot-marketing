@@ -266,6 +266,18 @@
 		<script src="{{'/js/bootstrap.min.js' | absolute_url }}"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+		<script>
+			// Make all external links open in a new tab
+			document.addEventListener('DOMContentLoaded', function () {
+				var links = document.getElementsByTagName('a');
+				for (var i = 0; i < links.length; i++) {
+					if (links[i].hostname && links[i].hostname !== window.location.hostname) {
+						links[i].target = '_blank';
+						links[i].rel = 'noopener noreferrer';
+					}
+				}
+			});
+		</script>
 
 	</div><!-- outer container -->
 </body>
