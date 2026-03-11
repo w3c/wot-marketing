@@ -43,29 +43,27 @@ group: "navigation"
         }
     </style>
 
-    <div class="row" style="margin-top: 30px;">
+    <div class="row" style="margin-top: 30px; display: flex; flex-wrap: wrap;">
         <!-- Working Group -->
-        <div class="col-md-12" style="margin-bottom: 20px;">
-            <a href="{{ '/participate/working-group/' | relative_url }}" class="participate-card-link">
+        <div class="col-md-6" style="margin-bottom: 20px; display: flex;">
+            <a href="{{ '/participate/working-group/' | relative_url }}" class="participate-card-link"
+                style="width: 100%;">
                 <div class="participate-card" style="padding: 40px;">
                     <i class="fas fa-file-signature fa-4x" style="color: #005A9C; margin-bottom: 20px;"></i>
-                    <h2 style="margin-top: 0;">Working Group (WG) & Standardization</h2>
-                    <p style="font-size: 1.2em;">The core of our standardizing effort. Join the WG to push use cases,
-                        develop normative specifications and test suites on the W3C Recommendation Track, and ensure
-                        royalty-free Web standards. All Task Forces and Interest Groups are coordinated here.</p>
+                    <h2 style="margin-top: 0;">Working Group (WG)</h2>
+                    <p style="font-size: 1.2em;">The core of our standardization effort. Join the WG to develop normative specifications, create test suites, and coordinate all Task Forces.</p>
                 </div>
             </a>
         </div>
-    </div>
-
-    <div class="row">
         <!-- Community Groups -->
-        <div class="col-md-12" style="margin-bottom: 20px;">
-            <a href="{{ '/participate/community-groups/' | absolute_url }}" class="participate-card-link">
+        <div class="col-md-6" style="margin-bottom: 20px; display: flex;">
+            <a href="{{ '/participate/community-groups/' | absolute_url }}" class="participate-card-link"
+                style="width: 100%;">
                 <div class="participate-card" style="padding: 40px;">
                     <i class="fas fa-users fa-4x" style="color: #005A9C; margin-bottom: 20px;"></i>
                     <h2 style="margin-top: 0;">Community Groups (CG)</h2>
-                    <p style="font-size: 1.2em;">Open forums designed to accelerate adoption, gather use cases, and facilitate focused discussions
+                    <p style="font-size: 1.2em;">Open forums designed to accelerate adoption, gather use cases, and
+                        facilitate focused discussions
                         on specific domains or regions.</p>
                 </div>
             </a>
