@@ -146,10 +146,10 @@ group: "navigation"
 			<strong style="font-size: 14px; min-width: 70px;">Obsolete*</strong>
 			<div class="btn-group" role="group" aria-label="Obsolete Filter"
 				style="display:flex; flex-wrap: wrap; gap: 4px;">
+				<button type="button" class="btn btn-default btn-sm filter-btn obsolete-btn" data-obsolete-filter="show"
+					onclick="setObsolete(true)">Show</button>
 				<button type="button" class="btn btn-primary btn-sm filter-btn active obsolete-btn"
-					data-obsolete-filter="show" onclick="setObsolete(true)">Show</button>
-				<button type="button" class="btn btn-default btn-sm filter-btn obsolete-btn" data-obsolete-filter="hide"
-					onclick="setObsolete(false)">Hide</button>
+					data-obsolete-filter="hide" onclick="setObsolete(false)">Hide</button>
 			</div>
 		</div>
 	</div>
@@ -335,7 +335,7 @@ group: "navigation"
 			category: 'all',
 			language: 'all',
 			platform: 'all',
-			showObsolete: true
+			showObsolete: false
 		};
 
 		function setCategory(category) {
