@@ -5,66 +5,102 @@ group: "navigation"
 ---
 
 <style>
-td { 
-    padding: 20px;
-}
+	@media (max-width: 991px) {
+		.contact-card {
+			margin-bottom: 40px;
+		}
+	}
 </style>
 
 <div>
+	<a href="{{ '/about/' | absolute_url }}" class="btn btn-default" style="margin-bottom: 20px;">&laquo; Back to
+		About</a>
 	<h2>How to get in touch</h2>
-	<p>Use one of the following methods to get in touch with us:</p>
-	<table>
-		<tr>
-			<td style="vertical-align: top;">Feedback on specification</td>
-			<td>
-				<img height="20px" alt="GitHub" src="https://cdn.cdnlogo.com/logos/g/31/github.svg" />
-				<ul>
-					<li>
-						<a href="https://github.com/w3c/wot/issues">
-							GitHub Issues
-						</a>
-					</li>
-					<li>
-						<a href="https://github.com/w3c/wot/">
-							https://github.com/w3c/wot/
-						</a>
-					</li>
-				</ul>
-				<br />
-				<img height="35px" alt="W3C" src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" />
-				<ul>
-					<li>
-						<a href="https://www.w3.org/">
-							https://www.w3.org/
-						</a>
-					</li>
-				</ul>
-			</td>
-		</tr>
-		<tr>
-			<td style="vertical-align: top;">Administrative and Participation</td>
-			<td>Public mailing lists
-				<ul>
-					<li><a href="https://lists.w3.org/Archives/Public/public-wot-wg/">WoT Working Group</a></li>
-					<li><a href="https://lists.w3.org/Archives/Public/public-wot-ig/">WoT Interest Group</a></li>
-				</ul>
-			</td>
-		</tr>
-		<tr>
-			<td style="vertical-align: top;">Technical Questions</td>
-			<td>
-				<a href="https://stackoverflow.com/questions/tagged/web-of-things">
-					<img height="20px" alt="Stack Overflow" src="https://cdn.cdnlogo.com/logos/s/57/stack-overflow-wordmark.svg" />
-				</a>
-			</td>
-		</tr>
-		<tr>
-			<td style="vertical-align: top;">General Comments</td>
-			<td>
-				<a href="https://w3c.social/@wot">
-				<img height="20px" alt="Mastodon" src="https://www.cdnlogo.com/logos/m/33/mastodon.svg">
-					@wot@w3c.social</a>
-			</td>
-		</tr>
-	</table>
+	<p>Use one of the following methods to get in touch with us</p>
+	<p>&nbsp;</p>
+
+	<div class="row center-block">
+		<div class="col-md-4 text-center contact-card">
+			<a href="https://github.com/w3c/wot/issues">
+				<i class="fab fa-github fa-4x" style="margin-bottom: 15px; color: black;"></i>
+				<div class="description">
+					<h3>GitHub</h3>
+					<p>General Repository</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 text-center contact-card">
+			<a href="https://www.w3.org/">
+				<img height="60px" style="margin-bottom: 15px;" alt="W3C"
+					src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" />
+				<div class="description">
+					<h3>W3C Website</h3>
+					<p>World Wide Web Consortium</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 text-center contact-card">
+			<a href="https://stackoverflow.com/questions/tagged/web-of-things">
+				<img height="60px" style="margin-bottom: 15px;" alt="Stack Overflow"
+					src="https://cdn.cdnlogo.com/logos/s/57/stack-overflow-wordmark.svg" />
+				<div class="description">
+					<h3>Stack Overflow</h3>
+					<p>Technical Questions</p>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<p>&nbsp;</p>
+
+	<div class="row center-block">
+		<div class="col-md-4 text-center contact-card">
+			<a href="https://lists.w3.org/Archives/Public/public-wot-wg/">
+				<i class="fas fa-envelope fa-4x"></i>
+				<div class="description">
+					<h3>WoT Working Group</h3>
+					<p>Public mailing list</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 text-center contact-card">
+			<a href="https://lists.w3.org/Archives/Public/public-wot-ig/">
+				<i class="fas fa-envelope fa-4x"></i>
+				<div class="description">
+					<h3>WoT Interest Group</h3>
+					<p>Public mailing list</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 text-center contact-card">
+			<a href="https://w3c.social/@wot">
+				<img height="60px" style="margin-bottom: 15px;" alt="Mastodon"
+					src="https://www.cdnlogo.com/logos/m/33/mastodon.svg">
+				<div class="description">
+					<h3>Mastodon</h3>
+					<p>General Comments (@wot@w3c.social)</p>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<p>&nbsp;</p>
+	<hr />
+	<p>&nbsp;</p>
+	<h2>Website Feedback</h2>
+	<p>Help us improve this website by editing it directly or reporting an issue</p>
+	<p>&nbsp;</p>
+
+	<div class="row">
+		<div class="col-md-4 text-center contact-card">
+			<a href="https://github.com/w3c/wot-marketing">
+				<i class="fab fa-github fa-4x" style="margin-bottom: 15px; color: black;"></i>
+				<div class="description">
+					<h3>Edit this website</h3>
+					<p>Help us improve this website on GitHub</p>
+				</div>
+			</a>
+		</div>
+	</div>
+
 </div>
