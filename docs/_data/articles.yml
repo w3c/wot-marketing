@@ -1,9 +1,14 @@
-- title: "Standardization of digital twin languages"
+- title: "Siemens enters collaboration with Microsoft to enhance IoT interoperability for buildings"
+  url: "https://press.siemens.com/global/en/pressrelease/siemens-enters-collaboration-microsoft-enhance-iot-interoperability-buildings"
+  type: "Press Release"
+  publisher: "Siemens"
+  date: "07 July 2025"
+
+- title: "Standardization of digital twin languages (page 56, WoT-related)"
   url: "https://iebmedia.com/ebooks/july-august-2024-industrial-ethernet-book/"
   type: "Article"
   publisher: "Industrial Ethernet Book Media"
   date: "July 2024"
-  note: "Please refer to page 56 for the WoT-related article"
 
 - title: "Siemens and Microsoft to converge Digital Twin Definition Language with W3C Thing Description Standard"
   url: "https://press.siemens.com/global/en/pressrelease/siemens-and-microsoft-converge-digital-twin-definition-language-w3c-thing-description"
@@ -33,21 +38,18 @@
   url: "https://json-schema.org/blog/posts/w3c-wot-case-study"
   type: "Blog Post"
   publisher: "JSON Schema"
-  author: "Juan Cruz Viotti"
   date: "01 November 2022"
 
 - title: "(DE) WoT's up IoT – Schnelle IoT-Anwendungsentwicklung mit W3C Web of Things"
   url: "https://www.heise.de/hintergrund/WoT-s-up-IoT-Schnelle-IoT-Anwendungsentwicklung-mit-W3C-Web-of-Things-6164567.html"
   type: "News"
   publisher: "Heise Medien"
-  author: "Sebastian Kaebisch"
   date: "13 August 2021"
 
 - title: "(DE) IoT: Smartes Edge Device sucht Kontakte"
   url: "https://new.siemens.com/de/de/unternehmen/stories/forschung-technologien/folder-topics/web-of-things.html"
   type: "News"
   publisher: "Siemens AG"
-  author: "Aenne Barnard"
   date: "June 2020"
 
 - title: "Solution for Interoperability - W3C Web of Things (WoT)"

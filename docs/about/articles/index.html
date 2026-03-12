@@ -42,23 +42,22 @@ group: "navigation"
 	<table style="margin-bottom:40px; border-radius: 10px;" class="table table-bordered">
 		<thead>
 			<tr>
-				<th style="width: 25%; text-align: left;">Article</th>
+				<th style="text-align: left;">Article</th>
 				<th style="width: 0; text-align: left;">Type</th>
 				<th style="text-align: left;">Publisher</th>
-				<th style="text-align: left;">Author</th>
 				<th style="width: 0; text-align: left; white-space: nowrap;">Date</th>
-				<th style="text-align: left;">Note</th>
+				<th style="text-align: left;">Link</th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for article in site.data.articles %}
 			<tr>
-				<td><a href="{{ article.url }}">{{ article.title }}</a></td>
-				<td style="text-align: left; vertical-align: middle; white-space: nowrap;">{{ article.type }}</td>
+				<td style="text-align: left; vertical-align: middle;">{{ article.title }}</td>
+				<td style=" text-align: left; vertical-align: middle; white-space: nowrap;">{{ article.type }}</td>
 				<td style="text-align: left; vertical-align: middle;">{{ article.publisher }}</td>
-				<td style="text-align: left; vertical-align: middle;">{{ article.author }}</td>
 				<td style="text-align: left; vertical-align: middle; white-space: nowrap;">{{ article.date }}</td>
-				<td style="text-align: left; vertical-align: middle;">{{ article.note }}</td>
+				<td style="text-align: center; vertical-align: middle;"><a href="{{ article.url }}" target="_blank"
+						rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i></a></td>
 			</tr>
 			{% endfor %}
 		</tbody>
