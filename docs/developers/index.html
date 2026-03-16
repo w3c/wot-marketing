@@ -174,12 +174,6 @@ group: "navigation"
 			<h4>{{ subcategory[0] }}</h4>
 			<p>{{ subcategory[1].description }}</p>
 			<table style="margin-bottom:40px; border-radius: 10px;" class="table table-bordered">
-				<thead>
-					<tr>
-						<th style="width: 25%; text-align: left;">Name</th>
-						<th style="text-align: left;">Description</th>
-					</tr>
-				</thead>
 				<tbody>
 					{% for tool in subcategory[1].tools %}
 					{% assign is_obsolete = false %}
@@ -203,7 +197,7 @@ group: "navigation"
 						data-affiliation="{{ tool.affiliation | escape }}"
 						data-platforms="{{ tool.platforms | join: ', ' | escape }}" onclick="openToolModal(this)">
 						<td>
-							{{ tool.name }}
+							<strong>{{ tool.name }}</strong>
 							{% if is_obsolete %}
 							<span style="font-size: 0.85em; color: #666; font-style: italic;">(Obsolete)</span>{% endif
 							%}
