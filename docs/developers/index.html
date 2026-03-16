@@ -114,7 +114,7 @@ group: "navigation"
 		</div>
 
 		<!-- Language Filters -->
-		<div style="display:flex; align-items: baseline; gap: 12px;">
+		<div id="language-filter-container" style="display:flex; align-items: baseline; gap: 12px;">
 			<strong style="font-size: 14px; min-width: 70px;">Language</strong>
 			<div class="btn-group" role="group" aria-label="Tool Languages"
 				style="display:flex; flex-wrap: wrap; gap: 4px;">
@@ -337,11 +337,17 @@ group: "navigation"
 
 		function setLanguage(lang) {
 			state.language = lang;
+			if (lang !== 'all') {
+				state.platform = 'Library';
+			}
 			updateUI();
 		}
 
 		function setPlatform(plat) {
 			state.platform = plat;
+			if (plat !== 'Library') {
+				state.language = 'all';
+			}
 			updateUI();
 		}
 
@@ -407,6 +413,8 @@ group: "navigation"
 					btn.classList.add('btn-default');
 				}
 			}
+
+
 			updateCounters();
 			updateFilterAvailability();
 
@@ -535,10 +543,14 @@ group: "navigation"
 			for (var i = 0; i < platButtons.length; i++) {
 				var btn = platButtons[i];
 				var plat = btn.getAttribute('data-plat');
-				if (plat === 'all') {
-					btn.disabled = false;
+				if (state.language !== 'all') {
+					btn.disabled = (plat !== 'Library' && plat !== 'all');
 				} else {
-					btn.disabled = !availablePlatforms[plat];
+					if (plat === 'all') {
+						btn.disabled = false;
+					} else {
+						btn.disabled = !availablePlatforms[plat];
+					}
 				}
 			}
 
@@ -550,7 +562,11 @@ group: "navigation"
 				if (lang === 'all') {
 					btn.disabled = false;
 				} else {
-					btn.disabled = !availableLanguages[lang];
+					if (state.platform !== 'Library' && state.platform !== 'all') {
+						btn.disabled = true;
+					} else {
+						btn.disabled = !availableLanguages[lang];
+					}
 				}
 			}
 

@@ -336,6 +336,15 @@ function parseTool(inputTool: ToolInput, fetchedData: RepoData | null): ToolOutp
   if (!mappedTool.repoUrl && !mappedTool.homepageUrl) {
     throw new Error("Repo or Homepage URL is missing");
   }
+  // We throw an error if a developer wrongfully adds languages to a non-library tool
+  if (inputTool.languages?.length && !inputTool.platforms.includes("Library")) {
+    throw new Error("Languages are only allowed for libraries")
+  }
+  // We ignore the fetched languages if the tool is not a library
+  if (mappedTool.languages?.length && !mappedTool.platforms.includes("Library")) {
+    mappedTool.languages = [];
+  }
+
   return {
     name: mappedTool.name,
     description: mappedTool.description.trim(),
