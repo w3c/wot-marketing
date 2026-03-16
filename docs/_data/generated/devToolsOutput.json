@@ -56,7 +56,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-03-09T17:10:09Z",
+          "lastUpdated": "2026-03-12T13:20:20Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -151,7 +151,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-03-05T08:56:08Z",
+          "lastUpdated": "2026-03-13T11:03:52Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -167,7 +167,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-03-09T17:10:09Z",
+          "lastUpdated": "2026-03-12T13:20:20Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -233,7 +233,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-03-05T08:56:08Z",
+          "lastUpdated": "2026-03-13T11:03:52Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -310,7 +310,7 @@
           "languages": [
             "C#"
           ],
-          "lastUpdated": "2025-10-28T12:16:49Z",
+          "lastUpdated": "2026-03-12T14:51:35Z",
           "homepageUrl": "https://tum-esi.github.io/WoT.Net/",
           "platforms": [
             "Library"
@@ -475,7 +475,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-02-12T20:04:22Z",
+          "lastUpdated": "2026-03-14T10:35:07Z",
           "homepageUrl": "https://control-panel.hololinked.dev/",
           "platforms": [
             "Browser"
@@ -572,7 +572,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-02-27T14:15:01Z",
+          "lastUpdated": "2026-03-16T02:18:01Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -588,7 +588,7 @@
           "languages": [
             "C#"
           ],
-          "lastUpdated": "2026-03-09T15:26:18Z",
+          "lastUpdated": "2026-03-16T10:23:41Z",
           "homepageUrl": null,
           "platforms": [
             "Service"

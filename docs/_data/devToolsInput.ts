@@ -13,7 +13,7 @@ export interface ToolInput {
   repoUrl?: string;
   name?: string;
   description?: string;
-  languages?: string[];
+  languages?: string[]; // the language of usage not development
   homepageUrl?: string;
   platforms: ToolPlatform[];
   lastUpdated?: string;
