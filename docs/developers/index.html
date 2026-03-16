@@ -178,7 +178,6 @@ group: "navigation"
 					<tr>
 						<th style="width: 25%; text-align: left;">Name</th>
 						<th style="text-align: left;">Description</th>
-						<th style="width: 0; text-align: left;">Languages</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -210,13 +209,6 @@ group: "navigation"
 							%}
 						</td>
 						<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
-						<td style="text-align: left; vertical-align: middle; white-space: nowrap;">
-							{% if tool.languages %}
-							<span style="font-weight: bold;">{{ tool.languages | join:", " }}</span>
-							{% else %}
-							<!-- Unknown -->
-							{% endif %}
-						</td>
 					</tr>
 					{% endfor %}
 				</tbody>
@@ -274,6 +266,7 @@ group: "navigation"
 			var governance = row.getAttribute('data-governance');
 			var affiliation = row.getAttribute('data-affiliation');
 			var platforms = row.getAttribute('data-platforms');
+			var languages = row.getAttribute('data-languages');
 
 			var lastUpdated = row.getAttribute('data-last-updated');
 			var isObsolete = row.getAttribute('data-obsolete') === 'true';
@@ -320,6 +313,11 @@ group: "navigation"
 				var platDiv = document.createElement('div');
 				platDiv.innerHTML = '<div><i class="fas fa-desktop" style="width: 24px; text-align: center; color: #555;"></i> <strong>Platforms</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + platforms + '</div>';
 				linksDiv.appendChild(platDiv);
+			}
+			if (languages && languages !== 'Unknown' && languages !== '') {
+				var langDiv = document.createElement('div');
+				langDiv.innerHTML = '<div><i class="fas fa-code" style="width: 24px; text-align: center; color: #555;"></i> <strong>Languages</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + languages + '</div>';
+				linksDiv.appendChild(langDiv);
 			}
 			if (lastUpdated) {
 				var dateDiv = document.createElement('div');
