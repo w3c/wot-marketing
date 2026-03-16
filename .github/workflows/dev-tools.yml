@@ -1,8 +1,8 @@
-name: Monthly Dev Tools Update
+name: Weekly Dev Tools Update
 
 on:
   schedule:
-    - cron: '0 0 1 * *' # Runs at 00:00 on the 1st of every month
+    - cron: '0 0 * * 0' # Runs at 00:00 every Sunday
   workflow_dispatch: # Allow manual runs
 
 jobs:
@@ -61,12 +61,12 @@ jobs:
           # Commit and push changes
           git checkout -b $BRANCH_NAME
           git add .
-          git commit -m "Automated: Monthly Dev Tools Update Changes"
+          git commit -m "Automated: Weekly Dev Tools Update Changes"
           git push -u origin $BRANCH_NAME
           
           # Create Pull Request
           gh pr create \
-            --title "Automated: Monthly Dev Tools Update Changes" \
-            --body "The monthly GitHub workflow has detected updates in the developer tools. Please review and approve these changes to ensure they are correct." \
+            --title "Automated: Weekly Dev Tools Update Changes" \
+            --body "The weekly GitHub workflow has detected updates in the developer tools. Please review and approve these changes to ensure they are correct." \
             --label "automated" \
             --base main
