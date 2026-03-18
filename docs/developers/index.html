@@ -114,7 +114,7 @@ group: "navigation"
 		</div>
 
 		<!-- Language Filters -->
-		<div style="display:flex; align-items: baseline; gap: 12px;">
+		<div id="language-filter-container" style="display:flex; align-items: baseline; gap: 12px;">
 			<strong style="font-size: 14px; min-width: 70px;">Language</strong>
 			<div class="btn-group" role="group" aria-label="Tool Languages"
 				style="display:flex; flex-wrap: wrap; gap: 4px;">
@@ -174,13 +174,6 @@ group: "navigation"
 			<h4>{{ subcategory[0] }}</h4>
 			<p>{{ subcategory[1].description }}</p>
 			<table style="margin-bottom:40px; border-radius: 10px;" class="table table-bordered">
-				<thead>
-					<tr>
-						<th style="width: 25%; text-align: left;">Name</th>
-						<th style="text-align: left;">Description</th>
-						<th style="width: 0; text-align: left;">Languages</th>
-					</tr>
-				</thead>
 				<tbody>
 					{% for tool in subcategory[1].tools %}
 					{% assign is_obsolete = false %}
@@ -204,19 +197,12 @@ group: "navigation"
 						data-affiliation="{{ tool.affiliation | escape }}"
 						data-platforms="{{ tool.platforms | join: ', ' | escape }}" onclick="openToolModal(this)">
 						<td>
-							{{ tool.name }}
+							<strong>{{ tool.name }}</strong>
 							{% if is_obsolete %}
 							<span style="font-size: 0.85em; color: #666; font-style: italic;">(Obsolete)</span>{% endif
 							%}
 						</td>
 						<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
-						<td style="text-align: left; vertical-align: middle; white-space: nowrap;">
-							{% if tool.languages %}
-							<span style="font-weight: bold;">{{ tool.languages | join:", " }}</span>
-							{% else %}
-							<!-- Unknown -->
-							{% endif %}
-						</td>
 					</tr>
 					{% endfor %}
 				</tbody>
@@ -274,6 +260,7 @@ group: "navigation"
 			var governance = row.getAttribute('data-governance');
 			var affiliation = row.getAttribute('data-affiliation');
 			var platforms = row.getAttribute('data-platforms');
+			var languages = row.getAttribute('data-languages');
 
 			var lastUpdated = row.getAttribute('data-last-updated');
 			var isObsolete = row.getAttribute('data-obsolete') === 'true';
@@ -321,6 +308,11 @@ group: "navigation"
 				platDiv.innerHTML = '<div><i class="fas fa-desktop" style="width: 24px; text-align: center; color: #555;"></i> <strong>Platforms</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + platforms + '</div>';
 				linksDiv.appendChild(platDiv);
 			}
+			if (languages && languages !== 'Unknown' && languages !== '') {
+				var langDiv = document.createElement('div');
+				langDiv.innerHTML = '<div><i class="fas fa-code" style="width: 24px; text-align: center; color: #555;"></i> <strong>Library languages</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + languages + '</div>';
+				linksDiv.appendChild(langDiv);
+			}
 			if (lastUpdated) {
 				var dateDiv = document.createElement('div');
 				var formattedDate = new Date(lastUpdated).toLocaleDateString();
@@ -345,11 +337,17 @@ group: "navigation"
 
 		function setLanguage(lang) {
 			state.language = lang;
+			if (lang !== 'all') {
+				state.platform = 'Library';
+			}
 			updateUI();
 		}
 
 		function setPlatform(plat) {
 			state.platform = plat;
+			if (plat !== 'Library') {
+				state.language = 'all';
+			}
 			updateUI();
 		}
 
@@ -415,6 +413,8 @@ group: "navigation"
 					btn.classList.add('btn-default');
 				}
 			}
+
+
 			updateCounters();
 			updateFilterAvailability();
 
@@ -543,10 +543,14 @@ group: "navigation"
 			for (var i = 0; i < platButtons.length; i++) {
 				var btn = platButtons[i];
 				var plat = btn.getAttribute('data-plat');
-				if (plat === 'all') {
-					btn.disabled = false;
+				if (state.language !== 'all') {
+					btn.disabled = (plat !== 'Library' && plat !== 'all');
 				} else {
-					btn.disabled = !availablePlatforms[plat];
+					if (plat === 'all') {
+						btn.disabled = false;
+					} else {
+						btn.disabled = !availablePlatforms[plat];
+					}
 				}
 			}
 
@@ -558,7 +562,11 @@ group: "navigation"
 				if (lang === 'all') {
 					btn.disabled = false;
 				} else {
-					btn.disabled = !availableLanguages[lang];
+					if (state.platform !== 'Library' && state.platform !== 'all') {
+						btn.disabled = true;
+					} else {
+						btn.disabled = !availableLanguages[lang];
+					}
 				}
 			}
 

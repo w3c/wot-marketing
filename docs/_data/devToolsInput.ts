@@ -13,7 +13,7 @@ export interface ToolInput {
   repoUrl?: string;
   name?: string;
   description?: string;
-  languages?: string[];
+  languages?: string[]; // only libraries can have languages
   homepageUrl?: string;
   platforms: ToolPlatform[];
   lastUpdated?: string;
@@ -229,7 +229,7 @@ export const devToolsInput: DevToolsInput = {
           name: "BLAST",
           description: "Block Applications For Things",
           repoUrl: "https://github.com/wintechis/blast/",
-          platforms: ["Browser", "Library"],
+          platforms: ["Browser"],
           affiliation: "Chair of Technical Information Systems, Friedrich-Alexander-Universität Erlangen-Nürnberg",
         },
         {
@@ -256,7 +256,6 @@ export const devToolsInput: DevToolsInput = {
           description:
             "Industrial-grade implementation integrating devices into Siemens software",
           homepageUrl: "https://www.evosoft.com/en/digitalization-offering/saywot/",
-          languages: ["No-Code"],
           platforms: ["Service"],
           affiliation: "evosoft (Siemens subsidiary)",
         },
@@ -309,7 +308,7 @@ export const devToolsInput: DevToolsInput = {
         },
         {
           repoUrl: "https://github.com/wot-oss/thingmodels",
-          platforms: ["Library"],
+          platforms: ["Service"],
           affiliation: "Web of Things Open Source Projects",
         },
       ],
