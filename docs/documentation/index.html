@@ -5,233 +5,61 @@ group: "navigation"
 ---
 <div>
     <h2>Documentation</h2>
-	<h4>Table of Contents</h4>
-	<ul>
-		<li><a href="#web-of-things-in-a-nutshell">Web of Things in a Nutshell</a></li>
-		<li><a href="#wot-interactions">WoT Interactions</a></li>
-		<li><a href="#wot-building-blocks">WoT Building Blocks</a></li>
-		<li><a href="#further-reading">Further Reading</a></li>
-	</ul>
     <div class="row">
         <p>&nbsp;</p>
     </div>
-	
-    <h3 id="web-of-things-in-a-nutshell">Web of Things in a Nutshell</h3>
-    <div class="row">
-        <div class="col-md-4">
-            <p>
-            Typically, in classical IoT projects,
-            developers have to face a challenging situation.
-            They have to understand a heterogeneous technology landscape 
-            consisting of diverse IoT systems and services from 
-            different vendors and manufacturers. 
-            This diversity includes variations in communication protocols, 
-            data models for payload data exchange, 
-            and security requirements. 
-            IoT applications are usually developed 
-            using high effort applied to a narrow and specific use case. 
-            During their lifetime, such applications are difficult to extend,
-            maintain or reuse.
-            </p>
-        </div>
-        <div class="col-md-8">
-            <img src="{{'images/iot-projects.png' | relative_url }}" class="img-responsive" alt="IoT Projects" /><!-- pull-right  -->
-        </div>
-    </div>
-    <div class="row">
-        <p>&nbsp;</p>
-    </div>
-    <div class="row">
-        <div class="col-md-4 text-center">
-            <img src="{{'images/logo-large-blue.svg' | relative_url }}" style="max-height: 150px" alt="Web of Things" />
-        </div>
-        <div class="col-md-8">
-            <p>
-            The Web of Things (WoT) provides a set of 
-            standardized technology building blocks that 
-            help to simplify IoT application development 
-            by following the well-known and successful Web paradigm. 
-            This approach increases flexibility and interoperability, 
-            especially for cross-domain applications, 
-            as well as enabling reuse of established standards and tools. 
-            WoT unlocks commercial potential being held back by IoT 
-            fragmentation 
-            </p>
-            <p>
-            Please read the
-            <a href="https://www.w3.org/TR/wot-architecture/">WoT Architecture</a> document 
-            to get more background on WoT use cases and basic paradigms.
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <p>&nbsp;</p>
-    </div>
-	<h3 id="wot-interactions">WoT Interactions</h3>
-    <div class="row">
-        <div class="col-md-4">
-            <p>
-            WoT introduces a simple interaction abstraction based on
-            properties, events, and actions.
-            Any IoT network interface can be described in terms of this abstraction.
-            By using this abstraction,
-            applications have a common anchor to retrieve an IoT service’s metadata as 
-            well as way to understand
-            what and how the data and an IoT services' functions can be accessed.
-            </p>
-            <p>
-            Please read <a href="https://www.w3.org/TR/wot-architecture/#sec-interaction-model">here</a> 
-            to get more background about the properties-action-event paradigm. 
-            </p>            
-        </div>
-        <div class="col-md-8">
-            <img src="{{'images/wot-interactions.png' | relative_url }}" class="img-responsive" alt="WoT Interactions" />
-        </div>
-    </div>
-    <div class="row">
-        <p>&nbsp;</p>
-    </div>
-	<h3 id="wot-building-blocks">WoT Building Blocks</h3>
-    <div class="row">
-        <div class="col-md-4 text-center">
-            <img src="{{'images/td-robot-arm.png' | relative_url }}" style="max-height: 150px" alt="WoT Thing Description (TD)" />
-        </div>
-        <div class="col-md-8">
-            <p>
-            An IoT device's metadata, including all information needed to enable this
-            common abstraction, is documented in what is called <strong>WoT Thing Description (TD)</strong>. 
-            The TD is a central building block in the W3C Web of Things and can be considered as the entry 
-            point of an IoT instance (much like the index.html of a Web site). 
-            It provides information on which data and functions are provided, 
-            which protocol is used, how data is encoded and structured,
-            and security mechanism is used to control access, and further 
-            machine-readable and human-readable metadata. 
-            A TD is expressed in JSON-LD and can be provided by an IoT device itself 
-            or hosted externally in a repository such as a TD Directory.
-            </p>
-            <p>
-            Please read 
-            <a href="https://www.w3.org/TR/wot-thing-description/">here</a> 
-            to get more background on the WoT Thing Description. 
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <p>&nbsp;</p>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <p>
-            In general, 
-            WoT is a protocol agnostic approach and provides
-            a common mechanism to define how specific protocols 
-            such as MQTT, HTTP, CoAP or Modbus can be mapped to the 
-            WoT’s interaction properties-action-event abstraction.
-            </p>
-            <p>
-            This mapping and protocol specific metadata are provided 
-            by the <strong>WoT Binding Templates</strong>. 
-            A binding template for a specific protocol provides a guideline 
-            how a client can activate each WoT interaction abstraction
-            through a corresponding network-facing interface for that 
-            protocol.
-            </p>
-            <p>
-            Please read 
-            <a href="https://www.w3.org/TR/wot-binding-templates/">here</a> 
-            to get more background on WoT Binding Templates. 
-            </p>
-        </div>
-        <div class="col-md-8">
-            <img src="{{'images/wot-mappings.png' | relative_url }}" class="img-responsive" alt="WoT Mappings" />
-        </div>
-    </div>
+
+
     <div class="row">
         <div class="col-md-12">
-            <p>
-            The (optional) <strong>WoT Scripting API</strong> building block 
-            defines an ECMAScript (JavaScript) API that closely follows the WoT Thing Description 
-            specification and supports the WoT interaction abstraction. 
-            It defines the interface between behavior implementations and a 
-            scripting-based WoT runtime. 
-            Please note however that implementations of WoT are not limited to 
-            scripting environments. 
-            Programming language APIs in Java or C/C++ can also be derived from 
-            the WoT Scripting API. 
-            </p>
-            <p>
-            Please read 
-            <a href="https://www.w3.org/TR/wot-scripting-api/">here</a> 
-            to get more background on the WoT Scripting API. 
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <p>
-            The Web of Things also provides guidance on <strong>WoT Security and Privacy</strong>. 
-            WoT provides guidelines for the secure 
-            implementation and configuration of Things. 
-            Security and privacy 
-            should be considered in any system implementing W3C WoT.
-            </p>
-            <p>
-            Please read 
-            <a href="https://www.w3.org/TR/wot-security/">here</a> 
-            to get more background on WoT Security and Privacy.
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <p>&nbsp;</p>
-    </div>
-	<h3 id="further-reading">Further Reading</h3>
-    <div class="row">
-        <div class="col-md-12">
-            <p>
-                For further reading, please find below a set of links to a variety of additional material 
-                including presentations and documents.
-            </p>
-			<h4>WoT Publications</h4>
-			<ul>
-				<li>Normative Deliverables
-					<ul>
-						<li><a href="https://www.w3.org/TR/wot-architecture/">Web of Things (WoT) Architecture (W3C Recommendation)</a></li>
-						<li><a href="https://www.w3.org/TR/wot-thing-description/">Web of Things (WoT) Thing Description (W3C Recommendation)</a></li>
-						<li><a href="https://www.w3.org/TR/wot-discovery/">Web of Things (WoT) Discovery (W3C Working Draft)</a></li>
-						<li><a href="https://www.w3.org/TR/wot-profile/">Web of Things (WoT) Profile (W3C Working Draft)</a></li>
-					</ul>
-				</li>
-				<li>Informative Deliverables 
-					<ul>
-						<li><a href="https://www.w3.org/TR/wot-scripting-api/">Web of Things (WoT) Scripting API (W3C Group Note)</a></li>
-						<li><a href="https://www.w3.org/TR/wot-binding-templates/">Web of Things (WoT) Binding Templates (W3C Group Note)</a></li>
-						<li><a href="https://www.w3.org/TR/wot-security/">Web of Things (WoT) Security and Privacy Guidelines (W3C Group Note)</a></li>
-					</ul>
-				</li>
-			</ul>
-			
-			<!--<h4>Social Media</h4>
+            <h4>WoT Publications</h4>
+            <ul>
+                <li>Normative Deliverables
+                    <ul>
+                        <li><a href="https://www.w3.org/TR/wot-architecture/">Web of Things (WoT) Architecture (W3C
+                                Recommendation)</a></li>
+                        <li><a href="https://www.w3.org/TR/wot-thing-description/">Web of Things (WoT) Thing Description
+                                (W3C Recommendation)</a></li>
+                        <li><a href="https://www.w3.org/TR/wot-discovery/">Web of Things (WoT) Discovery (W3C Working
+                                Draft)</a></li>
+                        <li><a href="https://www.w3.org/TR/wot-profile/">Web of Things (WoT) Profile (W3C Working
+                                Draft)</a></li>
+                    </ul>
+                </li>
+                <li>Informative Deliverables
+                    <ul>
+                        <li><a href="https://www.w3.org/TR/wot-scripting-api/">Web of Things (WoT) Scripting API (W3C
+                                Group Note)</a></li>
+                        <li><a href="https://www.w3.org/TR/wot-binding-templates/">Web of Things (WoT) Binding Templates
+                                (W3C Group Note)</a></li>
+                        <li><a href="https://www.w3.org/TR/wot-security/">Web of Things (WoT) Security and Privacy
+                                Guidelines (W3C Group Note)</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--<h4>Social Media</h4>
 			<ul>
 				<li><a href="https://twitter.com/W3C_WoT">Twitter</a></li>
 				<li><a href="#">Youtube ?? LINK ??</a></li>
 				<li><a href="https://twitter.com/W3C_WoT">node-wot Videos</a></li>
 			</ul>-->
-			
+
             <h4>Introductory Materials (Explainers)</h4>
             <ul>
                 <li>
-                    <a href="https://github.com/w3c/wot-thing-description/blob/main/explainer/Explainer11.md">Thing Description 1.1</a>
+                    <a href="https://github.com/w3c/wot-thing-description/blob/main/explainer/Explainer11.md">Thing
+                        Description 1.1</a>
                 </li>
                 <li>
-					<a href="https://github.com/w3c/wot-discovery/blob/main/explainer/Explainer.md">Discovery</a>
+                    <a href="https://github.com/w3c/wot-discovery/blob/main/explainer/Explainer.md">Discovery</a>
                 </li>
             </ul>
 
-			<h4>Other Material</h4>
-			<ul>
-				<li><a href="https://www.w3.org/2020/10/TPAC/group-updates.html#wot">TPAC 2020 - WoT Summary</a></li>
-			</ul>
+            <h4>Other Material</h4>
+            <ul>
+                <li><a href="https://www.w3.org/2020/10/TPAC/group-updates.html#wot">TPAC 2020 - WoT Summary</a></li>
+            </ul>
         </div>
     </div>
 </div>
