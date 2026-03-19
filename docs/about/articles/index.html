@@ -11,8 +11,8 @@ group: 'navigation'
 </style>
 
 <div>
-  <a href="{{ '/about/' | absolute_url }}" class="btn btn-default" style="margin-bottom: 20px">&laquo; Back to About</a>
-  <h2>Articles</h2>
+	{% include breadcrumbs.html %}
+	<h2>Articles</h2>
 
   <p>
     This page collects articles about the W3C Web of Things. See
