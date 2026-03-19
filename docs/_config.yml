@@ -4,43 +4,43 @@ markdown: kramdown
 # uncomment if in root
 #url: "https://w3c.github.com"
 #baseurl: "/wot-marketing"
-url: "https://www.w3.org"
-baseurl: "/WoT"
-github_username: "w3c"
-git_repo: "wot-marketing"
+url: 'https://www.w3.org'
+baseurl: '/WoT'
+github_username: 'w3c'
+git_repo: 'wot-marketing'
 
 constants:
   OBSOLETE_IN: 2
 
 navigation:
- - title: Groups
-   subnavigation:
-   - title: Working Group
-     url: wg/
-   - title: Interest Group
-     url: ig/
-   - title: Community Groups
-     url: cg/
- - title: Activities
-   subnavigation:
-   - title: Task Forces
-     url: activities/task-forces/
-   - title: Events
-     url: activities/events/
-   - title: Web Conference Meetings
-     url: activities/meetings/
- - title: Developers
-   url: developers/
- - title: Documentation
-   url: documentation/
- - title: Videos
-   url: videos/
- - title: About
-   url: about/
-   subnavigation:
-    - title: Contact
-      url: about/contact/
-    - title: History
-      url: about/history/
-    - title: Articles
-      url: about/articles/
+  - title: Groups
+    subnavigation:
+      - title: Working Group
+        url: wg/
+      - title: Interest Group
+        url: ig/
+      - title: Community Groups
+        url: cg/
+  - title: Activities
+    subnavigation:
+      - title: Task Forces
+        url: activities/task-forces/
+      - title: Events
+        url: activities/events/
+      - title: Web Conference Meetings
+        url: activities/meetings/
+  - title: Developers
+    url: developers/
+  - title: Documentation
+    url: documentation/
+  - title: Videos
+    url: videos/
+  - title: About
+    url: about/
+    subnavigation:
+      - title: Contact
+        url: about/contact/
+      - title: History
+        url: about/history/
+      - title: Articles
+        url: about/articles/

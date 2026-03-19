@@ -3,17 +3,18 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d51b6c04-7def-43c0-8566-4f16ed11c213/deploy-status)](https://app.netlify.com/sites/wot-marketing/deploys)
 
 The content will be exposed to
-* https://www.w3.org/WoT/ (official page)
-* https://w3c.github.io/wot-marketing/ (GitHub pages render)
-* https://wot-marketing.netlify.app/ (Netlify is used for PR previews and build badge)
+
+- https://www.w3.org/WoT/ (official page)
+- https://w3c.github.io/wot-marketing/ (GitHub pages render)
+- https://wot-marketing.netlify.app/ (Netlify is used for PR previews and build badge)
 
 ## Contribution Rules
 
-- We work only with PRs. 
-- The changes that do not need a special meeting are: 
+- We work only with PRs.
+- The changes that do not need a special meeting are:
   - Link updates
   - Typo corrections
-  - Adding a single item to a list (devtools, TFs, events). 
+  - Adding a single item to a list (devtools, TFs, events).
 - Adding or removing pages, adding or removing paragraphs or changing significant part of paragraphs need a special meeting.
 - The PRs should have the corresponding labels: needs-WG-review, time-critical (for bringing to main call), minor (editorial, technical and trivial changes). If the type of PR needed is clear from the issue, these labels can be also used in an issue.
 - Only W3C WoT IG members can contribute to this page.
@@ -42,12 +43,37 @@ If you are using MacOS, please refer to the [official MacOS installation guide](
 ### Adding dependencies
 
 When you want to add dependencies, like [jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap), you should do this by one of the following ways:
+
 - Add the dependency to the Gemfile and run `bundle update` which will install the dependency
 - Run `bundle add jekyll-sitemap` which will install the dependency and modify the Gemfile automatically
 
+## Prettier Setup for IDE
+
+To ensure consistent code formatting, we use **Prettier**. You can configure your IDE to automatically format files on save.
+
+### Installation
+
+Before setting up your IDE, it is recommended to install the project's dependencies to lock the Prettier version:
+
+1. Open your terminal at the repository root.
+2. Run `npm install` (requires Node.js installed).
+
+### IDE Configuration
+
+#### Visual Studio Code (VS Code)
+
+1. Install the [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extension.
+2. Open your settings (`Ctrl+,` or `Cmd+,`).
+3. Set **Editor: Default Formatter** to `Prettier - Code formatter` (`esbenp.prettier-vscode`).
+4. Enable **Editor: Format On Save**.
+
+#### Other IDEs
+
+Most modern IDEs (WebStorm, Sublime Text, etc.) support Prettier via plugins or natively. Ensure your editor is configured to use the `.prettierrc` file located at the root of the repository.
+
 ## Video Thumbnails
 
-When you are adding new videos, you should add thumbnails. 
+When you are adding new videos, you should add thumbnails.
 In order to have the consistency of the images, please use [this browser extension](https://chrome.google.com/webstore/detail/screenshot-youtube/gjoijpfmdhbjkkgnmahganhoinjjpohk).
 You can pick any particular point in the video but try to highlight the event or the specific property of the presentation.
 
@@ -65,8 +91,8 @@ If the TF is not responding to possible failures in the pipeline, another person
   - publish directory `docs/_site`
 - For enabling PR Reviews, you also need to give the Netlify bot access to your account. Authorization from W3C is not needed.
 
-
 See also: https://github.com/w3c/wot-marketing/issues/148#issuecomment-1058299754
 
 ## Adapting to Daylight Saving Changes
+
 When a zone changes its time relative to UTC, you need to a bunch of changes. See [this PR](https://github.com/w3c/wot-marketing/pull/296) for concrete information

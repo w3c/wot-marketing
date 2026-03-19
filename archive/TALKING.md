@@ -1,17 +1,21 @@
 # Talking Points
+
 For Press Release - See https://www.w3.org/2019/12/pressrelease-css-writing-modes-rec.html.en
 for an example
 
 ## Topics
+
 - Two REC documents: Architecture and Thing Description
 - New WG Charter
 
 ## Objectives
+
 - Enhance interoperability and counter fragmentation in IoT using a cross-ecosystem approach
 - Provide a common way for descriptive information about IoT devices and services to be communicated
 - Enabling an open market for IoT devices and services
 
 ## Impact
+
 - Applicable to multiple domains: Smart Home, Industrial, Smart City, Retail, Health, and others.
 - Simplify the development of IoT systems that combine devices from multiple vendors and ecosystems.
 - For developers, simplifies software development and service integration.
@@ -20,10 +24,11 @@ for an example
 - For system integrators, provides a way to build systems that integrate devices across vendors and ecosystems.
 - For governments and regulatory agencies building open IoT platforms,
   provides an open standard for communicating available services.
-  
+
 See workshop page: https://www.w3.org/WoT/ws-2019/cfp.html
 
 ## Documents
+
 - Architecture describes the overall Web of Things conceptual framework.
 - The Thing Description provides a standard way for the
   metadata of a Thing to be provided,
@@ -33,6 +38,7 @@ See workshop page: https://www.w3.org/WoT/ws-2019/cfp.html
 - Scripting API provides a common way to access and process Thing Descriptions from applications
 
 ## New WG Charter
+
 See: https://github.com/w3c/wot/blob/master/charters/wot-wg-charter-draft-2019.html
 (update with official URL in Press release)
 

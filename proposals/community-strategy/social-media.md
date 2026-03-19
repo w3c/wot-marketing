@@ -4,8 +4,8 @@ This is an editorial input:
 
 ## Youtube
 
-[Youtube](https://www.youtube.com/) is an important resource for development. 
-Especially when it comes to modern web frameworks, such as React, VueJS or Angular. Some development Youtube channels 
+[Youtube](https://www.youtube.com/) is an important resource for development.
+Especially when it comes to modern web frameworks, such as React, VueJS or Angular. Some development Youtube channels
 reach some millions of developers.
 
 ### Some Youtube channels in the relevant area
@@ -27,17 +27,17 @@ Cooperative content with big Youtube development Youtube Channel will also help 
 
 ## Stackoverflow
 
-[Stackoverflow](https://stackoverflow.com/) is the biggest question and answer site for development related questions. 
+[Stackoverflow](https://stackoverflow.com/) is the biggest question and answer site for development related questions.
 To be present on Stackoverflow is a necessity in order to not miss questions by developer using the standard.
 
 ## Discord
 
 Discord is a modern chat application. There are [several big developer chat communities](https://www.devsurvival.com/top-10-discord-servers-for-developers/).
-An own discord server is important to reach young web developer. Additionally to this cooperations with other 
+An own discord server is important to reach young web developer. Additionally to this cooperations with other
 discord servers is recommended in order to reach new users and get them familiar with the standard.
 
 ## Meetup
 
-[Meetups](https://www.meetup.com/) are a common way to meet other people with similar interests. 
-There are lot of different Meetups for development topics. 
+[Meetups](https://www.meetup.com/) are a common way to meet other people with similar interests.
+There are lot of different Meetups for development topics.
 In order to reach more developer it is a good idea to be present at relevant Meetups.

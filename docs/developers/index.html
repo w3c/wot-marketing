@@ -1,650 +1,720 @@
 ---
 layout: default
 title: Developers
-group: "navigation"
+group: 'navigation'
 ---
+
 <style>
-	.obsolete-tool {
-		background-color: #f2f2f2;
-	}
+  .obsolete-tool {
+    background-color: #f2f2f2;
+  }
 
-	.tool-row {
-		transition: background-color 0.2s;
-	}
+  .tool-row {
+    transition: background-color 0.2s;
+  }
 
-	.tool-row:hover {
-		background-color: #e9ecef;
-		cursor: pointer;
-	}
+  .tool-row:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+  }
 
-	dialog.tool-modal {
-		padding: 24px;
-		border-radius: 8px;
-		border: none;
-		max-width: 600px;
-		width: 90%;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-	}
+  dialog.tool-modal {
+    padding: 24px;
+    border-radius: 8px;
+    border: none;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 
-	dialog.tool-modal::backdrop {
-		background: rgba(0, 0, 0, 0.5);
-	}
+  dialog.tool-modal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }
 
-	.tool-modal-close {
-		position: absolute;
-		top: 16px;
-		right: 16px;
-		background: none;
-		border: none;
-		font-size: 24px;
-		line-height: 1;
-		cursor: pointer;
-		color: #666;
-	}
+  .tool-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #666;
+  }
 
-	.tool-modal-close:hover {
-		color: #000;
-	}
+  .tool-modal-close:hover {
+    color: #000;
+  }
 
-	.filter-btn[disabled] {
-		opacity: 0.4;
-		cursor: not-allowed;
-		pointer-events: none;
-	}
+  .filter-btn[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 </style>
 <div>
-	<h2>Developer Resources</h2>
-	<p>
-		There are various resources available to build Web of Things applications.
-		These are libraries, ready-to-use software, services or SDKs, which can be used in different stages of
-		development or for development needs and are grouped below.
-	</p>
+  <h2>Developer Resources</h2>
+  <p>
+    There are various resources available to build Web of Things applications. These are libraries, ready-to-use
+    software, services or SDKs, which can be used in different stages of development or for development needs and are
+    grouped below.
+  </p>
 
-	<!-- Filter Buttons -->
-	<div style="display:flex; flex-direction: column; gap: 8px; margin-bottom: 15px; margin-top: 16px;">
+  <!-- Filter Buttons -->
+  <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; margin-top: 16px">
+    <!-- Category Filters -->
+    <div style="display: flex; align-items: baseline; gap: 12px">
+      <strong style="font-size: 14px; min-width: 70px">Category</strong>
+      <div class="btn-group" role="group" aria-label="Tool Categories" style="display: flex; flex-wrap: wrap; gap: 4px">
+        {% assign total_tool_count = 0 %} {% for category in site.data.generated.devToolsOutput %} {% for subcategory in
+        category[1] %} {% assign total_tool_count = total_tool_count | plus: subcategory[1].tools.size %} {% endfor %}
+        {% endfor %}
+        <button
+          type="button"
+          class="btn btn-primary btn-sm filter-btn active category-btn"
+          data-filter="all"
+          onclick="setCategory('all')"
+        >
+          All
+        </button>
+        {% for category in site.data.generated.devToolsOutput %} {% assign category_name = category[0] %} {% assign
+        category_slug = category_name | slugify %}
+        <button
+          type="button"
+          class="btn btn-default btn-sm filter-btn category-btn"
+          data-filter="{{ category_slug }}"
+          onclick="setCategory('{{ category_slug }}')"
+        >
+          {{ category_name }}
+        </button>
+        {% endfor %}
+      </div>
+    </div>
 
-		<!-- Category Filters -->
-		<div style="display:flex; align-items: baseline; gap: 12px;">
-			<strong style="font-size: 14px; min-width: 70px;">Category</strong>
-			<div class="btn-group" role="group" aria-label="Tool Categories"
-				style="display:flex; flex-wrap: wrap; gap: 4px;">
-				{% assign total_tool_count = 0 %}
-				{% for category in site.data.generated.devToolsOutput %}
-				{% for subcategory in category[1] %}
-				{% assign total_tool_count = total_tool_count | plus: subcategory[1].tools.size %}
-				{% endfor %}
-				{% endfor %}
-				<button type="button" class="btn btn-primary btn-sm filter-btn active category-btn" data-filter="all"
-					onclick="setCategory('all')">All</button>
-				{% for category in site.data.generated.devToolsOutput %}
-				{% assign category_name = category[0] %}
-				{% assign category_slug = category_name | slugify %}
-				<button type="button" class="btn btn-default btn-sm filter-btn category-btn"
-					data-filter="{{ category_slug }}" onclick="setCategory('{{ category_slug }}')">{{ category_name
-					}}</button>
-				{% endfor %}
-			</div>
-		</div>
+    <!-- Platform Filters -->
+    <div style="display: flex; align-items: baseline; gap: 12px">
+      <strong style="font-size: 14px; min-width: 70px">Platform</strong>
+      <div class="btn-group" role="group" aria-label="Tool Platform" style="display: flex; flex-wrap: wrap; gap: 4px">
+        <button
+          type="button"
+          class="btn btn-primary btn-sm filter-btn active platform-btn"
+          data-plat="all"
+          onclick="setPlatform('all')"
+        >
+          All
+        </button>
+        {% assign all_platform = "" | split: "" %} {% for category in site.data.generated.devToolsOutput %} {% for
+        subcategory in category[1] %} {% for tool in subcategory[1].tools %} {% if tool.platforms %} {% for plat in
+        tool.platforms %} {% assign all_platform = all_platform | push: plat %} {% endfor %} {% endif %} {% endfor %} {%
+        endfor %} {% endfor %} {% assign unique_platform = all_platform | uniq | sort %} {% for plat in unique_platform
+        %}
+        <button
+          type="button"
+          class="btn btn-default btn-sm filter-btn platform-btn"
+          data-plat="{{ plat }}"
+          onclick="setPlatform('{{ plat }}')"
+        >
+          {{ plat }}
+        </button>
+        {% endfor %}
+      </div>
+    </div>
 
-		<!-- Platform Filters -->
-		<div style="display:flex; align-items: baseline; gap: 12px;">
-			<strong style="font-size: 14px; min-width: 70px;">Platform</strong>
-			<div class="btn-group" role="group" aria-label="Tool Platform"
-				style="display:flex; flex-wrap: wrap; gap: 4px;">
-				<button type="button" class="btn btn-primary btn-sm filter-btn active platform-btn" data-plat="all"
-					onclick="setPlatform('all')">All</button>
-				{% assign all_platform = "" | split: "" %}
-				{% for category in site.data.generated.devToolsOutput %}
-				{% for subcategory in category[1] %}
-				{% for tool in subcategory[1].tools %}
-				{% if tool.platforms %}
-				{% for plat in tool.platforms %}
-				{% assign all_platform = all_platform | push: plat %}
-				{% endfor %}
-				{% endif %}
-				{% endfor %}
-				{% endfor %}
-				{% endfor %}
-				{% assign unique_platform = all_platform | uniq | sort %}
-				{% for plat in unique_platform %}
-				<button type="button" class="btn btn-default btn-sm filter-btn platform-btn" data-plat="{{ plat }}"
-					onclick="setPlatform('{{ plat }}')">{{ plat }}</button>
-				{% endfor %}
-			</div>
-		</div>
+    <!-- Language Filters -->
+    <div id="language-filter-container" style="display: flex; align-items: baseline; gap: 12px">
+      <strong style="font-size: 14px; min-width: 70px">Language</strong>
+      <div class="btn-group" role="group" aria-label="Tool Languages" style="display: flex; flex-wrap: wrap; gap: 4px">
+        <button
+          type="button"
+          class="btn btn-primary btn-sm filter-btn active language-btn"
+          data-lang="all"
+          onclick="setLanguage('all')"
+        >
+          All
+        </button>
+        {% assign all_languages = "" | split: "" %} {% for category in site.data.generated.devToolsOutput %} {% for
+        subcategory in category[1] %} {% for tool in subcategory[1].tools %} {% if tool.languages %} {% for lang in
+        tool.languages %} {% assign all_languages = all_languages | push: lang %} {% endfor %} {% endif %} {% endfor %}
+        {% endfor %} {% endfor %} {% assign unique_languages = all_languages | uniq | sort %} {% for lang in
+        unique_languages %}
+        <button
+          type="button"
+          class="btn btn-default btn-sm filter-btn language-btn"
+          data-lang="{{ lang }}"
+          onclick="setLanguage('{{ lang }}')"
+        >
+          {{ lang }}
+        </button>
+        {% endfor %}
+      </div>
+    </div>
 
-		<!-- Language Filters -->
-		<div id="language-filter-container" style="display:flex; align-items: baseline; gap: 12px;">
-			<strong style="font-size: 14px; min-width: 70px;">Language</strong>
-			<div class="btn-group" role="group" aria-label="Tool Languages"
-				style="display:flex; flex-wrap: wrap; gap: 4px;">
-				<button type="button" class="btn btn-primary btn-sm filter-btn active language-btn" data-lang="all"
-					onclick="setLanguage('all')">All</button>
-				{% assign all_languages = "" | split: "" %}
-				{% for category in site.data.generated.devToolsOutput %}
-				{% for subcategory in category[1] %}
-				{% for tool in subcategory[1].tools %}
-				{% if tool.languages %}
-				{% for lang in tool.languages %}
-				{% assign all_languages = all_languages | push: lang %}
-				{% endfor %}
-				{% endif %}
-				{% endfor %}
-				{% endfor %}
-				{% endfor %}
-				{% assign unique_languages = all_languages | uniq | sort %}
-				{% for lang in unique_languages %}
-				<button type="button" class="btn btn-default btn-sm filter-btn language-btn" data-lang="{{ lang }}"
-					onclick="setLanguage('{{ lang }}')">{{ lang }}</button>
-				{% endfor %}
-			</div>
-		</div>
+    <!-- Obsoleteness Filter -->
+    <div style="display: flex; align-items: baseline; gap: 12px">
+      <strong style="font-size: 14px; min-width: 70px">Obsolete*</strong>
+      <div class="btn-group" role="group" aria-label="Obsolete Filter" style="display: flex; flex-wrap: wrap; gap: 4px">
+        <button
+          type="button"
+          class="btn btn-default btn-sm filter-btn obsolete-btn"
+          data-obsolete-filter="show"
+          onclick="setObsolete(true)"
+        >
+          Show
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-sm filter-btn active obsolete-btn"
+          data-obsolete-filter="hide"
+          onclick="setObsolete(false)"
+        >
+          Hide
+        </button>
+      </div>
+    </div>
+  </div>
 
+  <!-- Total Counter -->
+  <div
+    style="
+      margin-bottom: 30px;
+      font-size: 13px;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      padding: 4px 10px;
+      border-radius: 4px;
+      width: fit-content;
+    "
+  >
+    <strong
+      >Showing
+      <span class="tool-count" data-category="all" style="color: #007bff; font-size: 14px">{{ total_tool_count }}</span>
+      matching tools</strong
+    >
+  </div>
 
-		<!-- Obsoleteness Filter -->
-		<div style="display:flex; align-items: baseline; gap: 12px;">
-			<strong style="font-size: 14px; min-width: 70px;">Obsolete*</strong>
-			<div class="btn-group" role="group" aria-label="Obsolete Filter"
-				style="display:flex; flex-wrap: wrap; gap: 4px;">
-				<button type="button" class="btn btn-default btn-sm filter-btn obsolete-btn" data-obsolete-filter="show"
-					onclick="setObsolete(true)">Show</button>
-				<button type="button" class="btn btn-primary btn-sm filter-btn active obsolete-btn"
-					data-obsolete-filter="hide" onclick="setObsolete(false)">Hide</button>
-			</div>
-		</div>
-	</div>
+  <!-- Dynamic Tool Categories -->
+  <!-- Read docs/developers/README.md for more information -->
+  {% for category in site.data.generated.devToolsOutput %} {% assign category_name = category[0] %} {% assign
+  category_slug = category_name | slugify %} {% assign subcategories = category[1] %}
 
-	<!-- Total Counter -->
-	<div
-		style="margin-bottom: 30px; font-size: 13px; background-color: #f8f9fa; border: 1px solid #ddd; padding: 4px 10px; border-radius: 4px; width: fit-content;">
-		<strong>Showing <span class="tool-count" data-category="all" style="color: #007bff; font-size: 14px;">{{
-				total_tool_count }}</span> matching tools</strong>
-	</div>
+  <div id="{{ category_slug }}" class="tool-category" data-slug="{{ category_slug }}">
+    {% for subcategory in subcategories %}
+    <div class="tool-subcategory">
+      <h4>{{ subcategory[0] }}</h4>
+      <p>{{ subcategory[1].description }}</p>
+      <table style="margin-bottom: 40px; border-radius: 10px" class="table table-bordered">
+        <tbody>
+          {% for tool in subcategory[1].tools %} {% assign is_obsolete = false %} {% if tool.lastUpdated %} {% assign
+          last_updated_seconds = tool.lastUpdated | date: "%s" | plus: 0 %} {% assign current_seconds = "now" | date:
+          "%s" | plus: 0 %} {% assign seconds_per_year = 31536000 %} {% assign obsolete_seconds =
+          site.constants.OBSOLETE_IN | times: seconds_per_year %} {% assign diff_seconds = current_seconds | minus:
+          last_updated_seconds %} {% if diff_seconds > obsolete_seconds or tool.obsolete %} {% assign is_obsolete = true
+          %} {% endif %} {% endif %}
+          <tr
+            class="tool-row {% if is_obsolete %}obsolete-tool{% endif %}"
+            data-languages="{{ tool.languages | join: ', ' | default: 'Unknown' }}"
+            data-name="{{ tool.name | escape }}"
+            data-description="{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' | escape }}"
+            data-homepage="{{ tool.homepageUrl | escape }}"
+            data-repo="{{ tool.repoUrl | escape }}"
+            data-license="{{ tool.license | escape }}"
+            data-last-updated="{{ tool.lastUpdated }}"
+            data-obsolete="{{ is_obsolete }}"
+            data-governance="{{ tool.governance | escape }}"
+            data-affiliation="{{ tool.affiliation | escape }}"
+            data-platforms="{{ tool.platforms | join: ', ' | escape }}"
+            onclick="openToolModal(this)"
+          >
+            <td>
+              <strong>{{ tool.name }}</strong>
+              {% if is_obsolete %}
+              <span style="font-size: 0.85em; color: #666; font-style: italic">(Obsolete)</span>{% endif %}
+            </td>
+            <td>
+              {{ tool.description | markdownify | remove: '
+              <p>' | remove: '</p>
+              ' }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
 
-	<!-- Dynamic Tool Categories -->
-	<!-- Read docs/developers/README.md for more information -->
-	{% for category in site.data.generated.devToolsOutput %}
-	{% assign category_name = category[0] %}
-	{% assign category_slug = category_name | slugify %}
-	{% assign subcategories = category[1] %}
+  <p style="font-size: 0.85em; color: #666; font-style: italic">
+    * Tools with developer activity older than {{ site.constants.OBSOLETE_IN }} years are marked as obsolete.
+  </p>
 
-	<div id="{{ category_slug }}" class="tool-category" data-slug="{{ category_slug }}">
-		{% for subcategory in subcategories %}
-		<div class="tool-subcategory">
-			<h4>{{ subcategory[0] }}</h4>
-			<p>{{ subcategory[1].description }}</p>
-			<table style="margin-bottom:40px; border-radius: 10px;" class="table table-bordered">
-				<tbody>
-					{% for tool in subcategory[1].tools %}
-					{% assign is_obsolete = false %}
-					{% if tool.lastUpdated %}
-					{% assign last_updated_seconds = tool.lastUpdated | date: "%s" | plus: 0 %}
-					{% assign current_seconds = "now" | date: "%s" | plus: 0 %}
-					{% assign seconds_per_year = 31536000 %}
-					{% assign obsolete_seconds = site.constants.OBSOLETE_IN | times: seconds_per_year %}
-					{% assign diff_seconds = current_seconds | minus: last_updated_seconds %}
-					{% if diff_seconds > obsolete_seconds or tool.obsolete %}
-					{% assign is_obsolete = true %}
-					{% endif %}
-					{% endif %}
-					<tr class="tool-row {% if is_obsolete %}obsolete-tool{% endif %}"
-						data-languages="{{ tool.languages | join: ', ' | default: 'Unknown' }}"
-						data-name="{{ tool.name | escape }}"
-						data-description="{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' | escape }}"
-						data-homepage="{{ tool.homepageUrl | escape }}" data-repo="{{ tool.repoUrl | escape }}"
-						data-license="{{ tool.license | escape }}" data-last-updated="{{ tool.lastUpdated }}"
-						data-obsolete="{{ is_obsolete }}" data-governance="{{ tool.governance | escape }}"
-						data-affiliation="{{ tool.affiliation | escape }}"
-						data-platforms="{{ tool.platforms | join: ', ' | escape }}" onclick="openToolModal(this)">
-						<td>
-							<strong>{{ tool.name }}</strong>
-							{% if is_obsolete %}
-							<span style="font-size: 0.85em; color: #666; font-style: italic;">(Obsolete)</span>{% endif
-							%}
-						</td>
-						<td>{{ tool.description | markdownify | remove: '<p>' | remove: '</p>' }}</td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
-		{% endfor %}
-	</div>
-	{% endfor %}
+  <dialog id="toolDialog" class="tool-modal">
+    <button class="tool-modal-close" onclick="document.getElementById('toolDialog').close()">&times;</button>
+    <h3 id="toolDialogName" style="margin-top: 0; padding-right: 24px"></h3>
+    <p id="toolDialogDesc" style="margin-bottom: 24px; margin-top: 16px; font-size: 16px"></p>
+    <div id="toolDialogLinks" style="display: flex; flex-direction: column; gap: 12px; font-size: 15px"></div>
+  </dialog>
 
-	<p style="font-size: 0.85em; color: #666; font-style: italic;">* Tools with developer activity older than
-		{{ site.constants.OBSOLETE_IN }} years are marked as obsolete.
-	</p>
+  <script>
+    const OBSOLETE_IN_YEARS = '{{ site.constants.OBSOLETE_IN }}';
+    function isToolObsolete(lastUpdatedStr, dataObsoleteAttr) {
+      if (dataObsoleteAttr === 'true') return true;
+      if (!lastUpdatedStr) return false;
+      const lastUpdated = new Date(lastUpdatedStr);
+      if (isNaN(lastUpdated.getTime())) return false;
 
-	<dialog id="toolDialog" class="tool-modal">
-		<button class="tool-modal-close" onclick="document.getElementById('toolDialog').close()">&times;</button>
-		<h3 id="toolDialogName" style="margin-top: 0; padding-right: 24px;"></h3>
-		<p id="toolDialogDesc" style="margin-bottom: 24px; margin-top: 16px; font-size: 16px;"></p>
-		<div id="toolDialogLinks" style="display: flex; flex-direction: column; gap: 12px; font-size: 15px;"></div>
-	</dialog>
+      const now = new Date();
+      const obsoleteDate = new Date(lastUpdated.getTime());
+      obsoleteDate.setFullYear(obsoleteDate.getFullYear() + parseInt(OBSOLETE_IN_YEARS));
 
-	<script>
-		const OBSOLETE_IN_YEARS = "{{ site.constants.OBSOLETE_IN }}";
-		function isToolObsolete(lastUpdatedStr, dataObsoleteAttr) {
-			if (dataObsoleteAttr === 'true') return true;
-			if (!lastUpdatedStr) return false;
-			const lastUpdated = new Date(lastUpdatedStr);
-			if (isNaN(lastUpdated.getTime())) return false;
+      return now >= obsoleteDate;
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      var dialog = document.getElementById('toolDialog');
+      if (dialog) {
+        dialog.addEventListener('click', function (event) {
+          var rect = dialog.getBoundingClientRect();
+          var isInDialog =
+            rect.top <= event.clientY &&
+            event.clientY <= rect.top + rect.height &&
+            rect.left <= event.clientX &&
+            event.clientX <= rect.left + rect.width;
+          if (!isInDialog) {
+            dialog.close();
+          }
+        });
+      }
+    });
 
-			const now = new Date();
-			const obsoleteDate = new Date(lastUpdated.getTime());
-			obsoleteDate.setFullYear(obsoleteDate.getFullYear() + parseInt(OBSOLETE_IN_YEARS));
+    function openToolModal(row) {
+      var name = row.getAttribute('data-name');
+      var desc = row.getAttribute('data-description');
+      var homepage = row.getAttribute('data-homepage');
+      var repo = row.getAttribute('data-repo');
+      var license = row.getAttribute('data-license');
+      var governance = row.getAttribute('data-governance');
+      var affiliation = row.getAttribute('data-affiliation');
+      var platforms = row.getAttribute('data-platforms');
+      var languages = row.getAttribute('data-languages');
 
-			return now >= obsoleteDate;
-		}
-		document.addEventListener('DOMContentLoaded', function () {
-			var dialog = document.getElementById('toolDialog');
-			if (dialog) {
-				dialog.addEventListener('click', function (event) {
-					var rect = dialog.getBoundingClientRect();
-					var isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
-						rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
-					if (!isInDialog) {
-						dialog.close();
-					}
-				});
-			}
-		});
+      var lastUpdated = row.getAttribute('data-last-updated');
+      var isObsolete = row.getAttribute('data-obsolete') === 'true';
 
-		function openToolModal(row) {
-			var name = row.getAttribute('data-name');
-			var desc = row.getAttribute('data-description');
-			var homepage = row.getAttribute('data-homepage');
-			var repo = row.getAttribute('data-repo');
-			var license = row.getAttribute('data-license');
-			var governance = row.getAttribute('data-governance');
-			var affiliation = row.getAttribute('data-affiliation');
-			var platforms = row.getAttribute('data-platforms');
-			var languages = row.getAttribute('data-languages');
+      document.getElementById('toolDialogName').textContent = name;
+      document.getElementById('toolDialogDesc').innerHTML = desc;
 
-			var lastUpdated = row.getAttribute('data-last-updated');
-			var isObsolete = row.getAttribute('data-obsolete') === 'true';
+      var linksDiv = document.getElementById('toolDialogLinks');
+      linksDiv.innerHTML = '';
 
-			document.getElementById('toolDialogName').textContent = name;
-			document.getElementById('toolDialogDesc').innerHTML = desc;
+      if (homepage) {
+        var homeDiv = document.createElement('div');
+        homeDiv.innerHTML =
+          '<div><i class="fas fa-home" style="width: 24px; font-size: 1.1em; text-align: center; color: #555;"></i> <strong>Homepage</strong></div><div style="margin-left: 4px; margin-top: 2px;"><a href="' +
+          homepage +
+          '" target="_blank" style="word-break: break-all;">' +
+          homepage +
+          '</a></div>';
+        linksDiv.appendChild(homeDiv);
+      }
+      if (repo) {
+        var repoIcon = '<i class="fas fa-link" style="width: 24px; text-align: center; color: #555;"></i>';
+        if (repo.includes('github')) {
+          repoIcon =
+            '<i class="fab fa-github" style="width: 24px; font-size: 1.2em; text-align: center; color: #333;"></i>';
+        } else if (repo.includes('gitlab')) {
+          repoIcon =
+            '<i class="fab fa-gitlab" style="width: 24px; font-size: 1.2em; text-align: center; color: #fc6d26;"></i>';
+        }
 
-			var linksDiv = document.getElementById('toolDialogLinks');
-			linksDiv.innerHTML = '';
+        var repoDiv = document.createElement('div');
+        repoDiv.innerHTML =
+          '<div>' +
+          repoIcon +
+          ' <strong>Repository</strong></div><div style="margin-left: 4px; margin-top: 2px;"><a href="' +
+          repo +
+          '" target="_blank" style="word-break: break-all;">' +
+          repo +
+          '</a></div>';
+        linksDiv.appendChild(repoDiv);
+      }
+      if (license) {
+        var licenseDiv = document.createElement('div');
+        licenseDiv.innerHTML =
+          '<div><i class="fas fa-balance-scale" style="width: 24px; text-align: center; color: #555;"></i> <strong>License</strong></div><div style="margin-left: 4px; margin-top: 2px;">' +
+          license +
+          '</div>';
+        linksDiv.appendChild(licenseDiv);
+      }
+      if (governance && governance !== 'null') {
+        var govDiv = document.createElement('div');
+        govDiv.innerHTML =
+          '<div><i class="fas fa-sitemap" style="width: 24px; text-align: center; color: #555;"></i> <strong>Governance</strong></div><div style="margin-left: 4px; margin-top: 2px;">' +
+          governance +
+          '</div>';
+        linksDiv.appendChild(govDiv);
+      }
+      if (affiliation && affiliation !== 'null') {
+        var affDiv = document.createElement('div');
+        affDiv.innerHTML =
+          '<div><i class="fas fa-building" style="width: 24px; text-align: center; color: #555;"></i> <strong>Affiliation</strong></div><div style="margin-left: 4px; margin-top: 2px;">' +
+          affiliation +
+          '</div>';
+        linksDiv.appendChild(affDiv);
+      }
+      if (platforms) {
+        var platDiv = document.createElement('div');
+        platDiv.innerHTML =
+          '<div><i class="fas fa-desktop" style="width: 24px; text-align: center; color: #555;"></i> <strong>Platforms</strong></div><div style="margin-left: 4px; margin-top: 2px;">' +
+          platforms +
+          '</div>';
+        linksDiv.appendChild(platDiv);
+      }
+      if (languages && languages !== 'Unknown' && languages !== '') {
+        var langDiv = document.createElement('div');
+        langDiv.innerHTML =
+          '<div><i class="fas fa-code" style="width: 24px; text-align: center; color: #555;"></i> <strong>Library languages</strong></div><div style="margin-left: 4px; margin-top: 2px;">' +
+          languages +
+          '</div>';
+        linksDiv.appendChild(langDiv);
+      }
+      if (lastUpdated) {
+        var dateDiv = document.createElement('div');
+        var formattedDate = new Date(lastUpdated).toLocaleDateString();
+        var obsoleteLabel = isObsolete
+          ? ' <span style="font-size: 0.9em; color: #666; font-style: italic;">(Obsolete)</span>'
+          : '';
+        dateDiv.innerHTML =
+          '<div><i class="fas fa-history" style="width: 24px; text-align: center; color: #555;"></i> <strong>Last Updated</strong></div><div style="margin-left: 4px; margin-top: 2px;">' +
+          formattedDate +
+          obsoleteLabel +
+          '</div>';
+        linksDiv.appendChild(dateDiv);
+      }
 
-			if (homepage) {
-				var homeDiv = document.createElement('div');
-				homeDiv.innerHTML = '<div><i class="fas fa-home" style="width: 24px; font-size: 1.1em; text-align: center; color: #555;"></i> <strong>Homepage</strong></div><div style="margin-left: 4px; margin-top: 2px;"><a href="' + homepage + '" target="_blank" style="word-break: break-all;">' + homepage + '</a></div>';
-				linksDiv.appendChild(homeDiv);
-			}
-			if (repo) {
-				var repoIcon = '<i class="fas fa-link" style="width: 24px; text-align: center; color: #555;"></i>';
-				if (repo.includes('github')) {
-					repoIcon = '<i class="fab fa-github" style="width: 24px; font-size: 1.2em; text-align: center; color: #333;"></i>';
-				} else if (repo.includes('gitlab')) {
-					repoIcon = '<i class="fab fa-gitlab" style="width: 24px; font-size: 1.2em; text-align: center; color: #fc6d26;"></i>';
-				}
+      document.getElementById('toolDialog').showModal();
+    }
+    var state = {
+      category: 'all',
+      language: 'all',
+      platform: 'all',
+      showObsolete: false,
+    };
 
-				var repoDiv = document.createElement('div');
-				repoDiv.innerHTML = '<div>' + repoIcon + ' <strong>Repository</strong></div><div style="margin-left: 4px; margin-top: 2px;"><a href="' + repo + '" target="_blank" style="word-break: break-all;">' + repo + '</a></div>';
-				linksDiv.appendChild(repoDiv);
-			}
-			if (license) {
-				var licenseDiv = document.createElement('div');
-				licenseDiv.innerHTML = '<div><i class="fas fa-balance-scale" style="width: 24px; text-align: center; color: #555;"></i> <strong>License</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + license + '</div>';
-				linksDiv.appendChild(licenseDiv);
-			}
-			if (governance && governance !== 'null') {
-				var govDiv = document.createElement('div');
-				govDiv.innerHTML = '<div><i class="fas fa-sitemap" style="width: 24px; text-align: center; color: #555;"></i> <strong>Governance</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + governance + '</div>';
-				linksDiv.appendChild(govDiv);
-			}
-			if (affiliation && affiliation !== 'null') {
-				var affDiv = document.createElement('div');
-				affDiv.innerHTML = '<div><i class="fas fa-building" style="width: 24px; text-align: center; color: #555;"></i> <strong>Affiliation</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + affiliation + '</div>';
-				linksDiv.appendChild(affDiv);
-			}
-			if (platforms) {
-				var platDiv = document.createElement('div');
-				platDiv.innerHTML = '<div><i class="fas fa-desktop" style="width: 24px; text-align: center; color: #555;"></i> <strong>Platforms</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + platforms + '</div>';
-				linksDiv.appendChild(platDiv);
-			}
-			if (languages && languages !== 'Unknown' && languages !== '') {
-				var langDiv = document.createElement('div');
-				langDiv.innerHTML = '<div><i class="fas fa-code" style="width: 24px; text-align: center; color: #555;"></i> <strong>Library languages</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + languages + '</div>';
-				linksDiv.appendChild(langDiv);
-			}
-			if (lastUpdated) {
-				var dateDiv = document.createElement('div');
-				var formattedDate = new Date(lastUpdated).toLocaleDateString();
-				var obsoleteLabel = isObsolete ? ' <span style="font-size: 0.9em; color: #666; font-style: italic;">(Obsolete)</span>' : '';
-				dateDiv.innerHTML = '<div><i class="fas fa-history" style="width: 24px; text-align: center; color: #555;"></i> <strong>Last Updated</strong></div><div style="margin-left: 4px; margin-top: 2px;">' + formattedDate + obsoleteLabel + '</div>';
-				linksDiv.appendChild(dateDiv);
-			}
+    function setCategory(category) {
+      state.category = category;
+      updateUI();
+    }
 
-			document.getElementById('toolDialog').showModal();
-		}
-		var state = {
-			category: 'all',
-			language: 'all',
-			platform: 'all',
-			showObsolete: false
-		};
+    function setLanguage(lang) {
+      state.language = lang;
+      if (lang !== 'all') {
+        state.platform = 'Library';
+      }
+      updateUI();
+    }
 
-		function setCategory(category) {
-			state.category = category;
-			updateUI();
-		}
+    function setPlatform(plat) {
+      state.platform = plat;
+      if (plat !== 'Library') {
+        state.language = 'all';
+      }
+      updateUI();
+    }
 
-		function setLanguage(lang) {
-			state.language = lang;
-			if (lang !== 'all') {
-				state.platform = 'Library';
-			}
-			updateUI();
-		}
+    function setObsolete(show) {
+      state.showObsolete = show;
+      updateUI();
+    }
 
-		function setPlatform(plat) {
-			state.platform = plat;
-			if (plat !== 'Library') {
-				state.language = 'all';
-			}
-			updateUI();
-		}
+    function updateUI() {
+      // Update Category Buttons
+      var catButtons = document.getElementsByClassName('category-btn');
+      for (var i = 0; i < catButtons.length; i++) {
+        var btn = catButtons[i];
+        var filter = btn.getAttribute('data-filter');
+        if (filter === state.category) {
+          btn.classList.add('active', 'btn-primary');
+          btn.classList.remove('btn-default');
+        } else {
+          btn.classList.remove('active', 'btn-primary');
+          btn.classList.add('btn-default');
+        }
+      }
 
-		function setObsolete(show) {
-			state.showObsolete = show;
-			updateUI();
-		}
+      // Update Language Buttons
+      var langButtons = document.getElementsByClassName('language-btn');
+      for (var i = 0; i < langButtons.length; i++) {
+        var btn = langButtons[i];
+        var lang = btn.getAttribute('data-lang');
+        if (lang === state.language) {
+          btn.classList.add('active', 'btn-primary');
+          btn.classList.remove('btn-default');
+        } else {
+          btn.classList.remove('active', 'btn-primary');
+          btn.classList.add('btn-default');
+        }
+      }
 
-		function updateUI() {
-			// Update Category Buttons
-			var catButtons = document.getElementsByClassName('category-btn');
-			for (var i = 0; i < catButtons.length; i++) {
-				var btn = catButtons[i];
-				var filter = btn.getAttribute('data-filter');
-				if (filter === state.category) {
-					btn.classList.add('active', 'btn-primary');
-					btn.classList.remove('btn-default');
-				} else {
-					btn.classList.remove('active', 'btn-primary');
-					btn.classList.add('btn-default');
-				}
-			}
+      // Update Platform Buttons
+      var platButtons = document.getElementsByClassName('platform-btn');
+      for (var i = 0; i < platButtons.length; i++) {
+        var btn = platButtons[i];
+        var plat = btn.getAttribute('data-plat');
+        if (plat === state.platform) {
+          btn.classList.add('active', 'btn-primary');
+          btn.classList.remove('btn-default');
+        } else {
+          btn.classList.remove('active', 'btn-primary');
+          btn.classList.add('btn-default');
+        }
+      }
 
-			// Update Language Buttons
-			var langButtons = document.getElementsByClassName('language-btn');
-			for (var i = 0; i < langButtons.length; i++) {
-				var btn = langButtons[i];
-				var lang = btn.getAttribute('data-lang');
-				if (lang === state.language) {
-					btn.classList.add('active', 'btn-primary');
-					btn.classList.remove('btn-default');
-				} else {
-					btn.classList.remove('active', 'btn-primary');
-					btn.classList.add('btn-default');
-				}
-			}
+      // Update Obsolete Buttons
+      var obsButtons = document.getElementsByClassName('obsolete-btn');
+      for (var i = 0; i < obsButtons.length; i++) {
+        var btn = obsButtons[i];
+        var filterVal = btn.getAttribute('data-obsolete-filter');
+        var isActive = (filterVal === 'show' && state.showObsolete) || (filterVal === 'hide' && !state.showObsolete);
+        if (isActive) {
+          btn.classList.add('active', 'btn-primary');
+          btn.classList.remove('btn-default');
+        } else {
+          btn.classList.remove('active', 'btn-primary');
+          btn.classList.add('btn-default');
+        }
+      }
 
-			// Update Platform Buttons
-			var platButtons = document.getElementsByClassName('platform-btn');
-			for (var i = 0; i < platButtons.length; i++) {
-				var btn = platButtons[i];
-				var plat = btn.getAttribute('data-plat');
-				if (plat === state.platform) {
-					btn.classList.add('active', 'btn-primary');
-					btn.classList.remove('btn-default');
-				} else {
-					btn.classList.remove('active', 'btn-primary');
-					btn.classList.add('btn-default');
-				}
-			}
+      updateCounters();
+      updateFilterAvailability();
 
-			// Update Obsolete Buttons
-			var obsButtons = document.getElementsByClassName('obsolete-btn');
-			for (var i = 0; i < obsButtons.length; i++) {
-				var btn = obsButtons[i];
-				var filterVal = btn.getAttribute('data-obsolete-filter');
-				var isActive = (filterVal === 'show' && state.showObsolete) || (filterVal === 'hide' && !state.showObsolete);
-				if (isActive) {
-					btn.classList.add('active', 'btn-primary');
-					btn.classList.remove('btn-default');
-				} else {
-					btn.classList.remove('active', 'btn-primary');
-					btn.classList.add('btn-default');
-				}
-			}
+      // Filter Logic
+      var categories = document.getElementsByClassName('tool-category');
+      for (var i = 0; i < categories.length; i++) {
+        var catDiv = categories[i];
+        var catSlug = catDiv.getAttribute('data-slug');
 
+        // Category Level Check (only check active state, don't hide yet)
+        var isCategoryActive = state.category === 'all' || state.category === catSlug;
 
-			updateCounters();
-			updateFilterAvailability();
+        if (!isCategoryActive) {
+          catDiv.style.display = 'none';
+          continue;
+        }
 
-			// Filter Logic
-			var categories = document.getElementsByClassName('tool-category');
-			for (var i = 0; i < categories.length; i++) {
-				var catDiv = categories[i];
-				var catSlug = catDiv.getAttribute('data-slug');
+        var visibleSubcats = 0;
+        var subcategories = catDiv.getElementsByClassName('tool-subcategory');
 
-				// Category Level Check (only check active state, don't hide yet)
-				var isCategoryActive = (state.category === 'all' || state.category === catSlug);
+        for (var j = 0; j < subcategories.length; j++) {
+          var subcatDiv = subcategories[j];
+          var visibleRowsInSubcat = 0;
+          var rows = subcatDiv.getElementsByClassName('tool-row');
 
-				if (!isCategoryActive) {
-					catDiv.style.display = 'none';
-					continue;
-				}
+          for (var k = 0; k < rows.length; k++) {
+            var row = rows[k];
+            var rowLangs = row.getAttribute('data-languages'); // comma separated
+            var rowPlats = row.getAttribute('data-platforms'); // comma separated
+            var lastUpdated = row.getAttribute('data-last-updated');
+            var isObsolete = row.getAttribute('data-obsolete') === 'true';
 
-				var visibleSubcats = 0;
-				var subcategories = catDiv.getElementsByClassName('tool-subcategory');
+            var langMatch = false;
+            if (state.language === 'all') {
+              langMatch = true;
+            } else {
+              if (rowLangs && rowLangs.split(', ').includes(state.language)) {
+                langMatch = true;
+              }
+            }
 
-				for (var j = 0; j < subcategories.length; j++) {
-					var subcatDiv = subcategories[j];
-					var visibleRowsInSubcat = 0;
-					var rows = subcatDiv.getElementsByClassName('tool-row');
+            var platMatch = false;
+            if (state.platform === 'all') {
+              platMatch = true;
+            } else {
+              if (rowPlats && rowPlats.split(', ').includes(state.platform)) {
+                platMatch = true;
+              }
+            }
+            var obsoleteMatch = state.showObsolete || !isObsolete;
 
-					for (var k = 0; k < rows.length; k++) {
-						var row = rows[k];
-						var rowLangs = row.getAttribute('data-languages'); // comma separated
-						var rowPlats = row.getAttribute('data-platforms'); // comma separated
-						var lastUpdated = row.getAttribute('data-last-updated');
-						var isObsolete = row.getAttribute('data-obsolete') === 'true';
+            if (langMatch && platMatch && obsoleteMatch) {
+              row.style.display = 'table-row';
+              visibleRowsInSubcat++;
+            } else {
+              row.style.display = 'none';
+            }
+          }
 
-						var langMatch = false;
-						if (state.language === 'all') {
-							langMatch = true;
-						} else {
-							if (rowLangs && rowLangs.split(', ').includes(state.language)) {
-								langMatch = true;
-							}
-						}
+          if (visibleRowsInSubcat > 0) {
+            subcatDiv.style.display = 'block';
+            visibleSubcats++;
+          } else {
+            subcatDiv.style.display = 'none';
+          }
+        }
 
-						var platMatch = false;
-						if (state.platform === 'all') {
-							platMatch = true;
-						} else {
-							if (rowPlats && rowPlats.split(', ').includes(state.platform)) {
-								platMatch = true;
-							}
-						}
-						var obsoleteMatch = (state.showObsolete || !isObsolete);
+        // Hide category if no subcategories visible
+        if (visibleSubcats > 0) {
+          catDiv.style.display = 'block';
+        } else {
+          catDiv.style.display = 'none';
+        }
+      }
+    }
 
-						if (langMatch && platMatch && obsoleteMatch) {
-							row.style.display = 'table-row';
-							visibleRowsInSubcat++;
-						} else {
-							row.style.display = 'none';
-						}
-					}
+    function updateFilterAvailability() {
+      var allRows = document.getElementsByClassName('tool-row');
+      var availablePlatforms = {};
+      var availableLanguages = {};
+      var availableCategories = {};
 
-					if (visibleRowsInSubcat > 0) {
-						subcatDiv.style.display = 'block';
-						visibleSubcats++;
-					} else {
-						subcatDiv.style.display = 'none';
-					}
-				}
+      for (var i = 0; i < allRows.length; i++) {
+        var row = allRows[i];
+        var rowLangs = row.getAttribute('data-languages');
+        var rowPlats = row.getAttribute('data-platforms');
+        var isObsolete = row.getAttribute('data-obsolete') === 'true';
+        var catSlug = row.closest('.tool-category').getAttribute('data-slug');
 
-				// Hide category if no subcategories visible
-				if (visibleSubcats > 0) {
-					catDiv.style.display = 'block';
-				} else {
-					catDiv.style.display = 'none';
-				}
-			}
-		}
+        var obsoleteMatch = state.showObsolete || !isObsolete;
+        if (!obsoleteMatch) continue;
 
-		function updateFilterAvailability() {
-			var allRows = document.getElementsByClassName('tool-row');
-			var availablePlatforms = {};
-			var availableLanguages = {};
-			var availableCategories = {};
+        // For platform buttons: check if row matches current category + language
+        var catMatch = state.category === 'all' || state.category === catSlug;
+        var langMatch = state.language === 'all' || (rowLangs && rowLangs.split(', ').includes(state.language));
 
-			for (var i = 0; i < allRows.length; i++) {
-				var row = allRows[i];
-				var rowLangs = row.getAttribute('data-languages');
-				var rowPlats = row.getAttribute('data-platforms');
-				var isObsolete = row.getAttribute('data-obsolete') === 'true';
-				var catSlug = row.closest('.tool-category').getAttribute('data-slug');
+        if (catMatch && langMatch) {
+          if (rowPlats) {
+            var plats = rowPlats.split(', ');
+            for (var p = 0; p < plats.length; p++) {
+              availablePlatforms[plats[p]] = true;
+            }
+          }
+        }
 
-				var obsoleteMatch = (state.showObsolete || !isObsolete);
-				if (!obsoleteMatch) continue;
+        // For language buttons: check if row matches current category + platform
+        var platMatch = state.platform === 'all' || (rowPlats && rowPlats.split(', ').includes(state.platform));
 
-				// For platform buttons: check if row matches current category + language
-				var catMatch = (state.category === 'all' || state.category === catSlug);
-				var langMatch = (state.language === 'all') || (rowLangs && rowLangs.split(', ').includes(state.language));
+        if (catMatch && platMatch) {
+          if (rowLangs) {
+            var langs = rowLangs.split(', ');
+            for (var l = 0; l < langs.length; l++) {
+              availableLanguages[langs[l]] = true;
+            }
+          }
+        }
 
-				if (catMatch && langMatch) {
-					if (rowPlats) {
-						var plats = rowPlats.split(', ');
-						for (var p = 0; p < plats.length; p++) {
-							availablePlatforms[plats[p]] = true;
-						}
-					}
-				}
+        // For category buttons: check if row matches current language + platform
+        if (langMatch && platMatch) {
+          availableCategories[catSlug] = true;
+        }
+      }
 
-				// For language buttons: check if row matches current category + platform
-				var platMatch = (state.platform === 'all') || (rowPlats && rowPlats.split(', ').includes(state.platform));
+      // Disable/enable platform buttons
+      var platButtons = document.getElementsByClassName('platform-btn');
+      for (var i = 0; i < platButtons.length; i++) {
+        var btn = platButtons[i];
+        var plat = btn.getAttribute('data-plat');
+        if (state.language !== 'all') {
+          btn.disabled = plat !== 'Library' && plat !== 'all';
+        } else {
+          if (plat === 'all') {
+            btn.disabled = false;
+          } else {
+            btn.disabled = !availablePlatforms[plat];
+          }
+        }
+      }
 
-				if (catMatch && platMatch) {
-					if (rowLangs) {
-						var langs = rowLangs.split(', ');
-						for (var l = 0; l < langs.length; l++) {
-							availableLanguages[langs[l]] = true;
-						}
-					}
-				}
+      // Disable/enable language buttons
+      var langButtons = document.getElementsByClassName('language-btn');
+      for (var i = 0; i < langButtons.length; i++) {
+        var btn = langButtons[i];
+        var lang = btn.getAttribute('data-lang');
+        if (lang === 'all') {
+          btn.disabled = false;
+        } else {
+          if (state.platform !== 'Library' && state.platform !== 'all') {
+            btn.disabled = true;
+          } else {
+            btn.disabled = !availableLanguages[lang];
+          }
+        }
+      }
 
-				// For category buttons: check if row matches current language + platform
-				if (langMatch && platMatch) {
-					availableCategories[catSlug] = true;
-				}
-			}
+      // Disable/enable category buttons
+      var catButtons = document.getElementsByClassName('category-btn');
+      for (var i = 0; i < catButtons.length; i++) {
+        var btn = catButtons[i];
+        var filter = btn.getAttribute('data-filter');
+        if (filter === 'all') {
+          btn.disabled = false;
+        } else {
+          btn.disabled = !availableCategories[filter];
+        }
+      }
+    }
 
-			// Disable/enable platform buttons
-			var platButtons = document.getElementsByClassName('platform-btn');
-			for (var i = 0; i < platButtons.length; i++) {
-				var btn = platButtons[i];
-				var plat = btn.getAttribute('data-plat');
-				if (state.language !== 'all') {
-					btn.disabled = (plat !== 'Library' && plat !== 'all');
-				} else {
-					if (plat === 'all') {
-						btn.disabled = false;
-					} else {
-						btn.disabled = !availablePlatforms[plat];
-					}
-				}
-			}
+    function updateCounters() {
+      var totalVisible = 0;
+      var categoryCounts = {};
+      // Iterate all categories to count (ignoring current category filter)
+      var categories = document.getElementsByClassName('tool-category');
+      for (var i = 0; i < categories.length; i++) {
+        var catDiv = categories[i];
+        var catSlug = catDiv.getAttribute('data-slug');
+        var catCount = 0;
 
-			// Disable/enable language buttons
-			var langButtons = document.getElementsByClassName('language-btn');
-			for (var i = 0; i < langButtons.length; i++) {
-				var btn = langButtons[i];
-				var lang = btn.getAttribute('data-lang');
-				if (lang === 'all') {
-					btn.disabled = false;
-				} else {
-					if (state.platform !== 'Library' && state.platform !== 'all') {
-						btn.disabled = true;
-					} else {
-						btn.disabled = !availableLanguages[lang];
-					}
-				}
-			}
+        var rows = catDiv.getElementsByClassName('tool-row');
+        for (var k = 0; k < rows.length; k++) {
+          var row = rows[k];
+          var rowLangs = row.getAttribute('data-languages');
+          var rowPlats = row.getAttribute('data-platforms');
+          var lastUpdated = row.getAttribute('data-last-updated');
+          var isObsolete = row.getAttribute('data-obsolete') === 'true';
 
-			// Disable/enable category buttons
-			var catButtons = document.getElementsByClassName('category-btn');
-			for (var i = 0; i < catButtons.length; i++) {
-				var btn = catButtons[i];
-				var filter = btn.getAttribute('data-filter');
-				if (filter === 'all') {
-					btn.disabled = false;
-				} else {
-					btn.disabled = !availableCategories[filter];
-				}
-			}
-		}
+          var langMatch = false;
+          if (state.language === 'all') {
+            langMatch = true;
+          } else {
+            if (rowLangs && rowLangs.split(', ').includes(state.language)) {
+              langMatch = true;
+            }
+          }
+          var platMatch = false;
+          if (state.platform === 'all') {
+            platMatch = true;
+          } else {
+            if (rowPlats && rowPlats.split(', ').includes(state.platform)) {
+              platMatch = true;
+            }
+          }
+          var obsoleteMatch = state.showObsolete || !isObsolete;
 
-		function updateCounters() {
-			var totalVisible = 0;
-			var categoryCounts = {};
-			// Iterate all categories to count (ignoring current category filter)
-			var categories = document.getElementsByClassName('tool-category');
-			for (var i = 0; i < categories.length; i++) {
-				var catDiv = categories[i];
-				var catSlug = catDiv.getAttribute('data-slug');
-				var catCount = 0;
+          if (langMatch && platMatch && obsoleteMatch) {
+            catCount++;
+            if (state.category === 'all' || state.category === catSlug) {
+              totalVisible++;
+            }
+          }
+        }
+        categoryCounts[catSlug] = catCount;
+      }
 
-				var rows = catDiv.getElementsByClassName('tool-row');
-				for (var k = 0; k < rows.length; k++) {
-					var row = rows[k];
-					var rowLangs = row.getAttribute('data-languages');
-					var rowPlats = row.getAttribute('data-platforms');
-					var lastUpdated = row.getAttribute('data-last-updated');
-					var isObsolete = row.getAttribute('data-obsolete') === 'true';
+      // Update text
+      var counters = document.getElementsByClassName('tool-count');
+      for (var i = 0; i < counters.length; i++) {
+        var el = counters[i];
+        var slug = el.getAttribute('data-category');
+        if (slug === 'all') {
+          el.textContent = totalVisible;
+        } else {
+          el.textContent = categoryCounts[slug] || 0;
+        }
+      }
+    }
 
-					var langMatch = false;
-					if (state.language === 'all') {
-						langMatch = true;
-					} else {
-						if (rowLangs && rowLangs.split(', ').includes(state.language)) {
-							langMatch = true;
-						}
-					}
-					var platMatch = false;
-					if (state.platform === 'all') {
-						platMatch = true;
-					} else {
-						if (rowPlats && rowPlats.split(', ').includes(state.platform)) {
-							platMatch = true;
-						}
-					}
-					var obsoleteMatch = (state.showObsolete || !isObsolete);
-
-					if (langMatch && platMatch && obsoleteMatch) {
-						catCount++;
-						if (state.category === 'all' || state.category === catSlug) {
-							totalVisible++;
-						}
-					}
-				}
-				categoryCounts[catSlug] = catCount;
-			}
-
-			// Update text
-			var counters = document.getElementsByClassName('tool-count');
-			for (var i = 0; i < counters.length; i++) {
-				var el = counters[i];
-				var slug = el.getAttribute('data-category');
-				if (slug === 'all') {
-					el.textContent = totalVisible;
-				} else {
-					el.textContent = categoryCounts[slug] || 0;
-				}
-			}
-		}
-
-		// Initial run
-		window.onload = function () {
-			updateUI();
-		};
-	</script>
+    // Initial run
+    window.onload = function () {
+      updateUI();
+    };
+  </script>
 </div>

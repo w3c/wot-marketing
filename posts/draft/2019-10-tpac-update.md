@@ -1,4 +1,5 @@
 # Web of Things - TPAC 2019 Update
+
 <p>Recently the Web of Things (WoT) IG/WG has made significant progress towards our goal of an open
 Internet of Things based on web standards.
 At the recent W3C TPAC meeting held in Fukuoka Japan on September 16-20,
@@ -41,5 +42,3 @@ Candidate work items for future work include topics such
 as discovery and ad-hoc interoperability in constrained environments.
 We encourage readers interested in these topics to reach out and engage with us in this exciting work!
 </p>
-
-

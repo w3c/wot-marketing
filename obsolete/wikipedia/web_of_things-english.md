@@ -3,8 +3,7 @@
 {{undue|date=November 2018}}
 }}
 The '''Web of Things''' ('''WoT''') is software architectural styles and programming patterns that allow real-world objects to be part of the World Wide Web. Similarly to what the Web (Application Layer) is to the Internet (Network Layer),<ref>{{cite web|title=SlideShare The Web of Things with Mozilla Open Badges|url=http://www.slideshare.net/PatrickJohnMcGee/the-web-of-things-with-mozilla-open-badges-40521825|date=2014-10-20}}</ref> the Web of Things provides an Application Layer that simplifies the creation of [[Internet of Things]] (IoT) applications composed of multiple devices across different platforms and application domains.
-<ref name="wot-book-manning">
-*{{Cite book
+<ref name="wot-book-manning"> \*{{Cite book
  | last = Guinard
  | first = Dominique
  | last2 = Vlad
@@ -40,19 +39,19 @@ The '''Web of Things''' ('''WoT''') is software architectural styles and program
 |conference =  WWW (International World Wide Web Conferences), Enterprise Mashups and Lightweight Composition on the Web (MEM 2009) Workshop
 |title = Towards the Web of Things: Web Mashups for Embedded Devices.
 |url = http://www.vs.inf.ethz.ch/publ/papers/dguinard_09_WOTMashups.pdf
-}}</ref><ref name="thesis-guinard">{{cite thesis 
-|type=Ph.D. 
+}}</ref><ref name="thesis-guinard">{{cite thesis
+|type=Ph.D.
 |first=Dominique
 |last=Guinard
 |title= A Web of Things Application Architecture – Integrating the Real-World into the Web.
 |publisher=ETH Zurich
 |year=2011
 |url=http://www.vs.inf.ethz.ch/publ/papers/dguinard-awebof-2011.pdf
-}}</ref><ref name="thesis-trifa">{{cite thesis 
-|type=Ph.D. 
-|first=Vlad 
-|last=Trifa 
-|title=Building Blocks for a Participatory Web of Things: Devices, Infrastructures, and Programming Frameworks 
+}}</ref><ref name="thesis-trifa">{{cite thesis
+|type=Ph.D.
+|first=Vlad
+|last=Trifa
+|title=Building Blocks for a Participatory Web of Things: Devices, Infrastructures, and Programming Frameworks
 |publisher=ETH Zurich
 |year=2011
 |url=http://www.vs.inf.ethz.ch/publ/papers/trifam-buildi-2011.pdf
@@ -199,7 +198,7 @@ Pioneering work in connecting objects to the Web probably started around the yea
 
 Following this early work, the growing interest and implementation of the [[Internet of Things]] started to raise some questions about the application layer of the IoT.<ref name="wot-iot-paper"/> While most of the work in the IoT space focused on network protocols, there was a need to think about the convergence of data from IoT devices. In particular, rather than looking at "one device one app", researchers and practitioners started envisioning the IoT as a system where data from various devices could be consumed by Web applications to create innovative use-cases.
 
-The idea of the Web as an application-layer for the IoT started to emerge in 2007. Several researchers started working in parallel on these concept. Amongst them, [[Dominique Guinard]] and [[Vlad Trifa]] started the Web of Things online community and published the first WoT manifesto, advocating the use of Web standards (REST, Lightweight semantics, etc.) to build the application layer of the IoT. The manifesto was published together with an implementation on the Sun SPOT platform. At the same time, [[Dave Raggett]] from [[W3C]] started talking about a Web of Things at various W3C and IoT events.  Erik Wilde published "Putting Things to REST", a self-published concept paper looking at utilising REST to sense and control physical objects.<ref name="rest-things">{{cite web
+The idea of the Web as an application-layer for the IoT started to emerge in 2007. Several researchers started working in parallel on these concept. Amongst them, [[Dominique Guinard]] and [[Vlad Trifa]] started the Web of Things online community and published the first WoT manifesto, advocating the use of Web standards (REST, Lightweight semantics, etc.) to build the application layer of the IoT. The manifesto was published together with an implementation on the Sun SPOT platform. At the same time, [[Dave Raggett]] from [[W3C]] started talking about a Web of Things at various W3C and IoT events. Erik Wilde published "Putting Things to REST", a self-published concept paper looking at utilising REST to sense and control physical objects.<ref name="rest-things">{{cite web
   |url=http://dret.net/netdret/docs/wilde-irep07-015-restful-things.pdf
   |title=Putting things to REST
 }}</ref> Early mentions of the Web of Things as a term also appeared in a paper by Vlad Stirbu et al.<ref name="stirbu">{{Cite conference
@@ -217,7 +216,7 @@ From 2007 onwards, Trifa, Guinard, Wilde and other researchers tried publishing 
   |title=5 Years of Web of Things Workshops
 |date=2014-10-23
 }}</ref> where optimisation of memory and computation usage, wireless bandwidth, or very short duty cycles were essential.
- 
+
 However, a number of researchers in the WSN community started considering these ideas more seriously. Early 2009, a number of respected WSN researchers such as David Culler, Jonathan Hui, Adam Dunkels and Yazar Dogan evaluated the use of Internet and Web protocols for low-power sensor nodes and showed the feasibility of the approach.<ref name="HuiCuller2008">{{cite book|last1=Hui|first1=Jonathan W.|title=Proceedings of the 6th ACM conference on Embedded network sensor systems - Sen ''Sys'' '08|last2=Culler|first2=David E.|chapter=IP is dead, long live IP for wireless sensor networks|year=2008|pages=15|doi=10.1145/1460412.1460415|isbn=9781595939906|citeseerx=10.1.1.562.6336}}</ref><ref name="YazarDunkels2009">{{cite book|last1=Yazar|first1=Dogan|title=Proceedings of the First ACM Workshop on Embedded Sensing Systems for Energy-Efficiency in Buildings - Build ''Sys'' '09|last2=Dunkels|first2=Adam|chapter=Efficient application integration in IP-based sensor networks|year=2009|pages=43|doi=10.1145/1810279.1810289|isbn=9781605588247|citeseerx=10.1.1.158.3650}}</ref>
 
 Following this, Guinard and Trifa presented their end-to-end implementation of the concepts and presented it in a peer-reviewed publication accepted at the World Wide Web conference in 2009.<ref name="wotpaper"/> Building on this implementation and uniting efforts, a RESTful architecture for things was proposed in 2010 by Guinard, Trifa and Wilde.<ref name="GuinardTrifa2010">{{cite book|last1=Guinard|first1=Dominique|title=2010 Internet of Things (IOT)|last2=Trifa|first2=Vlad|last3=Wilde|first3=Erik|chapter=A resource oriented architecture for the Web of Things|year=2010|pages=1–8|doi=10.1109/IOT.2010.5678452|isbn=978-1-4244-7413-4}}</ref> Noticing a growing industrial and academic interest for connecting things to the Web, Guinard, Trifa and Wilde ran the first International Workshop on the Web of Things,<ref name="wot-workshop">{{cite web
@@ -236,52 +235,53 @@ In 2014, the W3C showed an increased interest in the Web of Things and organised
 
 The same year, Siemens announced the creation of a research group dedicated to the Web of Things.<ref>{{cite web|url=http://www.usa.siemens.com/en/about_us/research/web-of-things.htm |title=Siemens Web of Things Research Group}}</ref> In October 2014, Google also announced their interested in these ideas by launching the Physical Web GitHub project.<ref>{{Cite web|url=https://github.com/google/physical-web|title=The Physical Web|website=GitHub|language=en|access-date=2017-02-08}}</ref>
 
-The Web of Things Interest Group has identified the required set of standards needed for the Web of Things in February 2017 
+The Web of Things Interest Group has identified the required set of standards needed for the Web of Things in February 2017
 <ref>
- {{cite web
+{{cite web
   |url=https://www.w3.org/blog/wotig/2017/02/27/w3c-web-of-things-joint-igwg-meeting-in-santa-clara-5-9-february-2016/
   |title=W3C Web of Things joint IG/WG meeting in Santa Clara, 5-9 February 2016
 }}</ref> and the Working Group has start working on 4 deliverables called WoT Architecture <ref name="wot-architecture">
- {{cite web
+{{cite web
   |url=http://w3c.github.io/wot-architecture/
   |title=W3C WoT Architecture
-}}</ref>, 
+}}</ref>,
 WoT Thing Description <ref name="wot-td">
- {{cite web
+{{cite web
   |url=http://w3c.github.io/wot-thing-description/
   |title=W3C WoT Thing Description
 }}</ref>,
 WoT Scripting API <ref name="wot-api">
- {{cite web
+{{cite web
   |url=https://w3c.github.io/wot-scripting-api/
   |title=W3C WoT Scripting API
-}}</ref> and 
+}}</ref> and
 WoT Binding Templates <ref name="wot-binding">
- {{cite web
+{{cite web
   |url=https://w3c.github.io/wot-binding-templates/
   |title=W3C WoT Binding Templates
 }}</ref>.
 
 == Application examples ==
-* One of the early prototypes of the Web of Things is the "[[Energie Visible]]" project in which sensors capable of monitoring and controlling the energy consumption of household appliances offered their functionality through a [[RESTful]] [[API]]. This API is then used to create a physical [[Mashup (web application hybrid)|Mashup]].<ref>
- {{cite web
-  |url=http://www.webofthings.org/?s=energie+visible
-  |title=Energie Visible Web of Things Project
-}}</ref>
 
-* [[Nimbits]]<ref>{{cite web|url=http://www.nimbits.com |title=free, social and open source internet of things. |publisher=Nimbits |accessdate=2012-05-10}}</ref> is an open source data historian server built on [[cloud computing architecture]] that provides connectivity between devices using data points.
-* [[Xively]] (formerly Pachube) is a commercial web of things data aggregator and data mining website often integrated into the Web of Things.
-* [[ThingSpeak]] is an [[open source]] [[Internet of Things]] platform created by [[Hans Scharler]] to collect, analyze, and act on data generated by sensors and actuators.<ref>{{citation
-|title=github README file
-|url=https://github.com/iobridge/thingspeak/blob/master/README.textile
-|date=2019-02-19
-}}</ref>
+- One of the early prototypes of the Web of Things is the "[[Energie Visible]]" project in which sensors capable of monitoring and controlling the energy consumption of household appliances offered their functionality through a [[RESTful]] [[API]]. This API is then used to create a physical [[Mashup (web application hybrid)|Mashup]].<ref>
+  {{cite web
+    |url=http://www.webofthings.org/?s=energie+visible
+    |title=Energie Visible Web of Things Project
+  }}</ref>
 
-* [[EVRYTHNG]]<ref>{{cite web|url=http://www.evrythng.com |title=making products smart. |publisher=EVRYTHNG |accessdate=2013-05-24}}</ref> is a platform for making unconnected products and connected devices part of the Web based on a Web of Things architecture.
-* [[WeIO]] is an open source hardware and software platform for rapid prototyping and creation of wirelessly connected interactive objects using only popular web languages such as HTML5 or Python.
-* SMQ<ref>{{cite web|url=https://realtimelogic.com/products/simplemq/ |title=SMQ: Lightweight IoT protocol |publisher=Real Time Logic |accessdate=2015-02-27}}</ref> is a real time pub-sub protocol that bridges WoT with IoT. The protocol makes it easy to design web based user interfaces for device management and supervision. The Mako Server,<ref>{{cite web|url=https://makoserver.net/smq-broker/ |title=SMQ Broker: Ready to use SMQ Broker |publisher=Real Time Logic |accessdate=2015-02-27}}</ref> which can be compiled for anything from embedded devices to enterprise Linux servers, includes a ready to use SMQ broker.
-* An application of the Web of Things in smart homes has been investigated in,<ref>Kamilaris A. Enabling Smart Homes using Web Technologies. PhD Thesis, University of Cyprus, Nicosia, Cyprus, December, 2012.</ref> to address the problem of heterogeneous home devices by reusing Web technologies.
-* Sense Tecnic Systems<ref>{{cite web|url=http://www.sensetecnic.com |title=WoTKit: Lightweight IoT toolkit |publisher=SenseTecnic |accessdate=2012-08-05}}</ref> focuses on a lightweight toolkit for developing IoT applications and targets rapid development using Web technologies and protocols. The WoTKit toolkit has been described at the 2012 IoT conference<ref name="Blackstock"/>  and builds on research from UBC's Media and Graphics Interdisciplinary Centre,<ref name="UBC MAGIC">{{cite web|url=http://www.magic.ubc.ca|title=Media and Graphics Interdisciplinary Centre, University of British Columbia |publisher=UBC |accessdate=5 August 2012}}</ref> in particular the work on the MAGIC Broker as published at IoT 2010.<ref>{{cite book|last=Blackstock|first=M.|author2=Kaviani, N. |author3=Lea, R. |author4=Friday, A. |title=MAGIC Broker 2: An open and extensible platform for the Internet of Things|journal=IoT 2010 (IEEE Press)|date=Nov 29 – Dec 1, 2010 |pages=1–8|doi=10.1109/IOT.2010.5678443|url=http://nima.magic.ubc.ca/www/2publications/2010/20100731/PDF_Version.pdf|isbn=978-1-4244-7413-4}}</ref>
+- [[Nimbits]]<ref>{{cite web|url=http://www.nimbits.com |title=free, social and open source internet of things. |publisher=Nimbits |accessdate=2012-05-10}}</ref> is an open source data historian server built on [[cloud computing architecture]] that provides connectivity between devices using data points.
+- [[Xively]] (formerly Pachube) is a commercial web of things data aggregator and data mining website often integrated into the Web of Things.
+- [[ThingSpeak]] is an [[open source]] [[Internet of Things]] platform created by [[Hans Scharler]] to collect, analyze, and act on data generated by sensors and actuators.<ref>{{citation
+  |title=github README file
+  |url=https://github.com/iobridge/thingspeak/blob/master/README.textile
+  |date=2019-02-19
+  }}</ref>
+
+- [[EVRYTHNG]]<ref>{{cite web|url=http://www.evrythng.com |title=making products smart. |publisher=EVRYTHNG |accessdate=2013-05-24}}</ref> is a platform for making unconnected products and connected devices part of the Web based on a Web of Things architecture.
+- [[WeIO]] is an open source hardware and software platform for rapid prototyping and creation of wirelessly connected interactive objects using only popular web languages such as HTML5 or Python.
+- SMQ<ref>{{cite web|url=https://realtimelogic.com/products/simplemq/ |title=SMQ: Lightweight IoT protocol |publisher=Real Time Logic |accessdate=2015-02-27}}</ref> is a real time pub-sub protocol that bridges WoT with IoT. The protocol makes it easy to design web based user interfaces for device management and supervision. The Mako Server,<ref>{{cite web|url=https://makoserver.net/smq-broker/ |title=SMQ Broker: Ready to use SMQ Broker |publisher=Real Time Logic |accessdate=2015-02-27}}</ref> which can be compiled for anything from embedded devices to enterprise Linux servers, includes a ready to use SMQ broker.
+- An application of the Web of Things in smart homes has been investigated in,<ref>Kamilaris A. Enabling Smart Homes using Web Technologies. PhD Thesis, University of Cyprus, Nicosia, Cyprus, December, 2012.</ref> to address the problem of heterogeneous home devices by reusing Web technologies.
+- Sense Tecnic Systems<ref>{{cite web|url=http://www.sensetecnic.com |title=WoTKit: Lightweight IoT toolkit |publisher=SenseTecnic |accessdate=2012-08-05}}</ref> focuses on a lightweight toolkit for developing IoT applications and targets rapid development using Web technologies and protocols. The WoTKit toolkit has been described at the 2012 IoT conference<ref name="Blackstock"/> and builds on research from UBC's Media and Graphics Interdisciplinary Centre,<ref name="UBC MAGIC">{{cite web|url=http://www.magic.ubc.ca|title=Media and Graphics Interdisciplinary Centre, University of British Columbia |publisher=UBC |accessdate=5 August 2012}}</ref> in particular the work on the MAGIC Broker as published at IoT 2010.<ref>{{cite book|last=Blackstock|first=M.|author2=Kaviani, N. |author3=Lea, R. |author4=Friday, A. |title=MAGIC Broker 2: An open and extensible platform for the Internet of Things|journal=IoT 2010 (IEEE Press)|date=Nov 29 – Dec 1, 2010 |pages=1–8|doi=10.1109/IOT.2010.5678443|url=http://nima.magic.ubc.ca/www/2publications/2010/20100731/PDF_Version.pdf|isbn=978-1-4244-7413-4}}</ref>
 
 ==Alternative approaches==
 
@@ -290,17 +290,17 @@ A number of alternative approaches to Web standards have been proposed, such as 
 The [[Constrained Application Protocol]] (CoAP) is also quite often cited as an alternative or complementary approach for resource-constrained devices.<ref name="Kovatsch2013">{{cite book|last1=Kovatsch|first1=Matthias|title=Proceedings of the 2013 ACM conference on Pervasive and ubiquitous computing adjunct publication - Ubi ''Comp'' '13 Adjunct|chapter=CoAP for the web of things|year=2013|pages=1495–1504|doi=10.1145/2494091.2497583|chapter-url=http://www.vs.inf.ethz.ch/publ/papers/mkovatsc-2013-wot-copper.pdf|isbn=9781450322157}}</ref> CoAP shares similarities with the Web of Things architecture such as the use of RESTful resources.
 
 ==See also==
-* [[Internet of Things|Internet of Things (IoT)]]
-* [[Smart device]]
-* [[Connected Devices (disambiguation)|Connected Device]]
-* [[Home automation|Home automation devices]]
-* [[Smart grid]]
+
+- [[Internet of Things|Internet of Things (IoT)]]
+- [[Smart device]]
+- [[Connected Devices (disambiguation)|Connected Device]]
+- [[Home automation|Home automation devices]]
+- [[Smart grid]]
 
 == References ==
 <references/>
 
-== Further reading ==
-*{{Cite book
+== Further reading == \*{{Cite book
  | last = Guinard
  | first = Dominique
  | last2 = Vlad
@@ -312,12 +312,12 @@ The [[Constrained Application Protocol]] (CoAP) is also quite often cited as an 
  | url = http://book.webofthings.io
 }}
 
-* {{cite web
-  |url=http://www.webofthings.org/wot
-  |title=Proceedings of International Workshops on the Web of Things.
-}}
+- {{cite web
+    |url=http://www.webofthings.org/wot
+    |title=Proceedings of International Workshops on the Web of Things.
+  }}
 
-*{{Cite conference
+\*{{Cite conference
 | last = Guinard
 | first = Dominique
 |author2=Vlad Trifa |author3=Erik Wilde
@@ -328,8 +328,8 @@ The [[Constrained Application Protocol]] (CoAP) is also quite often cited as an 
 | date = 2010
 }}
 
-*{{cite thesis 
-|type=Ph.D. 
+\*{{cite thesis
+|type=Ph.D.
 |first=Dominique
 |last=Guinard
 |title= A Web of Things Application Architecture – Integrating the Real-World into the Web.
@@ -338,18 +338,18 @@ The [[Constrained Application Protocol]] (CoAP) is also quite often cited as an 
 |url=http://www.vs.inf.ethz.ch/publ/papers/dguinard-awebof-2011.pdf
 }}
 
-*{{cite thesis 
-|type=Ph.D. 
-|first=Vlad 
-|last=Trifa 
-|title=Building Blocks for a Participatory Web of Things: Devices, Infrastructures, and Programming Frameworks 
+\*{{cite thesis
+|type=Ph.D.
+|first=Vlad
+|last=Trifa
+|title=Building Blocks for a Participatory Web of Things: Devices, Infrastructures, and Programming Frameworks
 |publisher=ETH Zurich
 |year=2011
 |url=http://www.vs.inf.ethz.ch/publ/papers/trifam-buildi-2011.pdf
 }}
 
-*{{Cite book|last=Fielding|first=Roy Thomas|year=2000|title=Architectural Styles and the Design of Network-based Software Architectures|version=Doctoral dissertation|publisher=University of California, Irvine|url=http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}}
-*{{Cite book
+_{{Cite book|last=Fielding|first=Roy Thomas|year=2000|title=Architectural Styles and the Design of Network-based Software Architectures|version=Doctoral dissertation|publisher=University of California, Irvine|url=http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}}
+_{{Cite book
  | last = Richardson
  | first = Leonard
  | last2 = Ruby
@@ -364,7 +364,7 @@ The [[Constrained Application Protocol]] (CoAP) is also quite often cited as an 
  | url = https://archive.org/details/restfulwebservic00rich_0
  }}
 
-*{{Cite conference
+\*{{Cite conference
  |last1=Fortuna
  |first1=Carolina
  |last2=Grobelnik
@@ -376,35 +376,36 @@ The [[Constrained Application Protocol]] (CoAP) is also quite often cited as an 
  |publisher=Association for Computing Machinery}}
 
 == External links ==
-* {{cite web
-  |url=http://www.webofthings.org
-  |title=Web of Things blog and online community.
-}}
 
-* {{cite web
-  |url=http://book.webofthings.io
-  |title=Building the Web of Things (Book).
-}}
+- {{cite web
+    |url=http://www.webofthings.org
+    |title=Web of Things blog and online community.
+  }}
 
-* {{cite web
-  |url=http://www.webofthings.org/wot
-  |title=International Workshop on the Web of Things.
-}}
+- {{cite web
+    |url=http://book.webofthings.io
+    |title=Building the Web of Things (Book).
+  }}
 
-* {{cite web
-  |url=http://www.w3.org/WoT/
-  |title=Web of Things at W3C
-}}
+- {{cite web
+    |url=http://www.webofthings.org/wot
+    |title=International Workshop on the Web of Things.
+  }}
 
-* {{cite web
-  |url=http://www.linkedin.com/groups?gid=1818463
-  |title=Web of Things Linkedin community.
-}}
+- {{cite web
+    |url=http://www.w3.org/WoT/
+    |title=Web of Things at W3C
+  }}
 
-* {{cite web
-  |url=http://datatracker.ietf.org/wg/core/charter/
-  |title=IETF CoRE WG charter
-}}
+- {{cite web
+    |url=http://www.linkedin.com/groups?gid=1818463
+    |title=Web of Things Linkedin community.
+  }}
+
+- {{cite web
+    |url=http://datatracker.ietf.org/wg/core/charter/
+    |title=IETF CoRE WG charter
+  }}
 
 {{Ambient intelligence}}
 
