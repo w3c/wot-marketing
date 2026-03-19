@@ -47,6 +47,30 @@ When you want to add dependencies, like [jekyll-sitemap](https://github.com/jeky
 - Add the dependency to the Gemfile and run `bundle update` which will install the dependency
 - Run `bundle add jekyll-sitemap` which will install the dependency and modify the Gemfile automatically
 
+## Prettier Setup for IDE
+
+To ensure consistent code formatting, we use **Prettier**. You can configure your IDE to automatically format files on save.
+
+### Installation
+
+Before setting up your IDE, it is recommended to install the project's dependencies to lock the Prettier version:
+
+1. Open your terminal at the repository root.
+2. Run `npm install` (requires Node.js installed).
+
+### IDE Configuration
+
+#### Visual Studio Code (VS Code)
+
+1. Install the [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) extension.
+2. Open your settings (`Ctrl+,` or `Cmd+,`).
+3. Set **Editor: Default Formatter** to `Prettier - Code formatter` (`esbenp.prettier-vscode`).
+4. Enable **Editor: Format On Save**.
+
+#### Other IDEs
+
+Most modern IDEs (WebStorm, Sublime Text, etc.) support Prettier via plugins or natively. Ensure your editor is configured to use the `.prettierrc` file located at the root of the repository.
+
 ## Video Thumbnails
 
 When you are adding new videos, you should add thumbnails.
