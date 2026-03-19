@@ -1,0 +1,12 @@
+.jekyll-cache/
+_site/
+vendor/
+node_modules/
+docs/.bundle/
+docs/.jekyll-cache/
+docs/_site/
+docs/vendor/
+docs/css/bootstrap*
+docs/js/bootstrap*
+*.min.js
+*.min.css

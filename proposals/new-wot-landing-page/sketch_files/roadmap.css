@@ -1,8 +1,12 @@
-html, body {
+html,
+body {
   margin: 0px;
   padding: 0px;
   outline: 0px;
-  font-family: Open Sans, 'Helvetica Neue', sans-serif;
+  font-family:
+    Open Sans,
+    'Helvetica Neue',
+    sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
 }
@@ -50,7 +54,7 @@ p {
 }
 
 p.highlight {
-  color:#00C853;
+  color: #00c853;
 }
 
 .container {
@@ -70,20 +74,20 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-header button[name="sidenav-opener"] {
+header button[name='sidenav-opener'] {
   padding: 10px;
   background-color: transparent;
   border: 0px;
   display: flex;
 }
 
-header .brand img {/*
+header .brand img {
+  /*
 -webkit-filter: grayscale(1);
 filter: grayscale(1);*/
-
 }
 
 .hero {
@@ -94,7 +98,6 @@ filter: grayscale(1);*/
 .hero .container {
   padding-bottom: 30px;
 }
-
 
 .call-to-action a.btn {
   font-size: 1em;
@@ -111,7 +114,6 @@ filter: grayscale(1);*/
   background-color: transparent;
 }
 
-
 #side-nav {
   height: 100%;
   width: 80%;
@@ -120,12 +122,14 @@ filter: grayscale(1);*/
   right: 120%;
   z-index: 300;
   background-color: white;
-  transition:0.4s;
-  box-shadow: 1px 0 0 rgba(0,0,0,0.1),0 0 15px rgba(0,0,0,0.1);
+  transition: 0.4s;
+  box-shadow:
+    1px 0 0 rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 #side-nav.active {
-    transform: translateX(125%);
+  transform: translateX(125%);
 }
 @media (min-width: 768px) {
   #side-nav {
@@ -137,22 +141,22 @@ filter: grayscale(1);*/
     left: -300px;
     z-index: 300;
     background-color: white;
-    transition:0.4s;
-    box-shadow: 1px 0 0 rgba(0,0,0,0.1),0 0 15px rgba(0,0,0,0.1);
+    transition: 0.4s;
+    box-shadow:
+      1px 0 0 rgba(0, 0, 0, 0.1),
+      0 0 15px rgba(0, 0, 0, 0.1);
   }
   #side-nav.active {
-      transform: translateX(300px);
+    transform: translateX(300px);
   }
-
 }
-
 
 #side-nav header {
   width: 100%;
-  background-color: #EF5350;
-  --border-bottom: 3px solid #D4A525;
+  background-color: #ef5350;
+  --border-bottom: 3px solid #d4a525;
   padding-top: 5px;
-  border-bottom: 0.5px solid rgba(38,38,38,0.05);
+  border-bottom: 0.5px solid rgba(38, 38, 38, 0.05);
   background-size: cover;
   background-position: center;
   display: none;
@@ -162,13 +166,12 @@ filter: grayscale(1);*/
   flex-flow: column;
   justify-content: space-between;
   padding: 0px 0px 0px 10px;
-
 }
 
 #side-nav header .side-nav-controls {
-    display: flex;
-    flex-flow: row;
-    justify-content: flex-end;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
 }
 
 #side-nav header .side-nav-controls button {
@@ -209,7 +212,6 @@ filter: grayscale(1);*/
   flex-flow: row nowrap;
   align-items: center;
   text-decoration: none;
-
 }
 
 #side-nav nav ul li a .icon {
@@ -254,130 +256,130 @@ filter: grayscale(1);*/
 
 /* old files */
 .side-nav {
-    --padding-top: 60px;
+  --padding-top: 60px;
 }
 
 .side-nav ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .side-nav > ul {
 }
 
 .side-nav a {
-    text-decoration: none;
-    color: rgba(0,0,0,0.7);
-    font-size: 0.8em;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.8em;
 }
 
 .side-nav a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .side-nav ul {
-    padding-left: 30px;
+  padding-left: 30px;
 }
 
 .side-nav ul li h2 {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .side-nav ul li h2 a {
-    font-size: 0.9em;
-    color: #547190;
+  font-size: 0.9em;
+  color: #547190;
 }
 
 .side-nav ul li h2 a:hover {
-    text-decoration: none;
-    color: #0072ff;
+  text-decoration: none;
+  color: #0072ff;
 }
 
 .hero .call-to-action {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .features {
   width: 100%;
   display: flex;
-      box-sizing: border-box;
+  box-sizing: border-box;
 }
 .features .container {
-    padding: 0px;
-    box-sizing: border-box;
+  padding: 0px;
+  box-sizing: border-box;
 }
 ul.roadmap-list {
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 ul.roadmap-list li {
-box-sizing: border-box;
-border: 1px solid rgba(0,0,0,0.1);
-border-radius: 3px;
-margin-top: 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  margin-top: 10px;
 }
 
 ul.roadmap-list li a {
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 ul.roadmap-list li .icon {
   padding-left: 15px;
-    padding-right: 15px;
+  padding-right: 15px;
 
-    display: flex;
-    flex-flow: column;
-    align-items: flex-start;
-    justify-content: center;
-    box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 ul.roadmap-list li .icon img {
-    width: 45px;
-    height: auto;
-    -webkit-filter: grayscale(1);
-    filter: grayscale(1);
+  width: 45px;
+  height: auto;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 ul.roadmap-list li .description {
-    padding-left: 0px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    box-sizing: border-box;
-  -- border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-left: 0px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 ul.roadmap-list li:last-child .description {
-    border-bottom: 0px;
+  border-bottom: 0px;
 }
 
 ul.roadmap-list li .description h2 {
-    margin-bottom: 0px;
-    color: #547190;
+  margin-bottom: 0px;
+  color: #547190;
 }
 
 ul.roadmap-list li .description p {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .contribute {
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
-    background-color: #F6F8FA;
-    display: flex;
-    box-sizing: border-box;
-    box-sizing: border-box;
+  background-color: #f6f8fa;
+  display: flex;
+  box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .contribute p {
-    margin: 0px;
-    color: #47525d;
-    font-size: 0.9em;
+  margin: 0px;
+  color: #47525d;
+  font-size: 0.9em;
 }
 
 .contribute p a:hover {
@@ -385,8 +387,8 @@ ul.roadmap-list li .description p {
 }
 
 .contribute p.call-to-action {
-    margin-top: 20px;
-    margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 footer {
@@ -394,125 +396,122 @@ footer {
 }
 
 footer p {
-    margin: 0px;
-    padding: 20px 0px 20px 0px;
-    color: #A2B1C1;
-    font-size: 0.9em;
-    text-align: center;
+  margin: 0px;
+  padding: 20px 0px 20px 0px;
+  color: #a2b1c1;
+  font-size: 0.9em;
+  text-align: center;
 }
 
-
 @media (min-width: 768px) {
-    .container {
-        width: 100%;
-        max-width:768px;
-        margin: auto;
-    }
+  .container {
+    width: 100%;
+    max-width: 768px;
+    margin: auto;
+  }
 
-    header .container {
-      max-width: calc(18em + 768px);
-      padding-left: 40px;
-    }
+  header .container {
+    max-width: calc(18em + 768px);
+    padding-left: 40px;
+  }
 
-    .container-fluid {
-        max-width: 100%;
-        margin: auto;
-    }
+  .container-fluid {
+    max-width: 100%;
+    margin: auto;
+  }
 
-    .hero {
-        padding: 0px 0px 0px 0px;
-        margin-top: 50px;
-        border-bottom: 0px;
-        background-color: transparent;
-    }
+  .hero {
+    padding: 0px 0px 0px 0px;
+    margin-top: 50px;
+    border-bottom: 0px;
+    background-color: transparent;
+  }
 
+  .hero .btn-negative {
+    background-color: #0070cc;
+    border: 1px solid #0070cc;
+    border-radius: 3px;
+    color: white;
+    padding: 7px 15px 7px 15px;
+  }
 
+  .hero .btn-reverse-negative {
+    background-color: transparent;
+    border: 1px solid #0072ff;
+    border-radius: 3px;
+    padding: 7px 15px 7px 15px;
+    color: #0072ff;
+  }
 
-    .hero .btn-negative {
-        background-color: #0070cc;
-        border: 1px solid #0070cc;
-        border-radius: 3px;
-        color: white;
-        padding: 7px 15px 7px 15px;
-    }
+  ul.roadmap-list {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: space-between;
+  }
 
-    .hero .btn-reverse-negative {
-        background-color: transparent;
-        border: 1px solid #0072ff;
-        border-radius: 3px;
-        padding: 7px 15px 7px 15px;
-        color: #0072ff;
-    }
+  ul.roadmap-list-3 li {
+    width: 33%;
+  }
+  ul.roadmap-list-2 li {
+    width: 48%;
+  }
 
-    ul.roadmap-list {
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-        padding-bottom: 50px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin: auto;
-        justify-content: space-between;
-    }
-	
-	ul.roadmap-list-3 li {
-		width: 33%;
-	}	
-	ul.roadmap-list-2 li {
-		width: 48%;
-	}
+  ul.roadmap-list li {
+    text-align: center;
 
-    ul.roadmap-list li {
-        text-align: center;
-        
-        display: block;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        border: 0px;
-        --background-color: #F6F8FA;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-    ul.roadmap-list li a {
-        display: block;
-    }
-    ul.roadmap-list li a .icon {
-        width: 100%;
-    }
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0px;
+    --background-color: #f6f8fa;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  ul.roadmap-list li a {
+    display: block;
+  }
+  ul.roadmap-list li a .icon {
+    width: 100%;
+  }
 
-    ul.roadmap-list li .icon img {
-        width: auto;
-        height: 60px;
-        margin: auto;/*
+  ul.roadmap-list li .icon img {
+    width: auto;
+    height: 60px;
+    margin: auto; /*
         -webkit-filter: grayscale(1);
         filter: grayscale(1);*/
-        -webkit-filter: grayscale(0);
-        filter: grayscale(0);
-    }
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
 
-    ul.roadmap-list li a:hover .icon img {
-        -webkit-filter: grayscale(0);
-        filter: grayscale(0);
-    }
+  ul.roadmap-list li a:hover .icon img {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
 
-    ul.roadmap-list li .description {
-        padding: 0px 15px 0px 15px;
-        border-bottom: 0px;
-    }
+  ul.roadmap-list li .description {
+    padding: 0px 15px 0px 15px;
+    border-bottom: 0px;
+  }
 
-    .contribute {
-        background-color: transparent;
-        border: 0px;
-    }
+  .contribute {
+    background-color: transparent;
+    border: 0px;
+  }
 
-    footer {
-        border: 0px;
-    }
+  footer {
+    border: 0px;
+  }
 
-    footer .container {
-        border-top: 1px solid rgba(0,0,0,0.1);
-    }
+  footer .container {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
 
   h1 {
     font-size: 2em;
@@ -520,10 +519,9 @@ footer p {
     line-height: 50px;
     margin-top: 20px;
     margin-bottom: 15px;
-    color:  #0070cc;
+    color: #0070cc;
     color: #007ee5;
     color: #47525d;
-
   }
 
   h1.hero-heading {
@@ -570,20 +568,19 @@ footer p {
     margin-bottom: 8px;
     color: #47525d;
   }
-  
-   .ig-iteration {
-		text-align: center;
-		line-height: 30px;
-		margin: 5px auto 5px auto;
-      width: 30px;
-      height: 30px;
-      border: 7px solid #005A9C;
-	  border-radius: 50%;
-   }
+
+  .ig-iteration {
+    text-align: center;
+    line-height: 30px;
+    margin: 5px auto 5px auto;
+    width: 30px;
+    height: 30px;
+    border: 7px solid #005a9c;
+    border-radius: 50%;
+  }
 }
 
 @media (min-width: 1280px) {
-
   header {
     position: relative;
     border: 0px;
@@ -608,9 +605,8 @@ footer p {
   }
 
   .contribute .container {
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     padding: 10px 10px 10px 10px;
   }
-
 }

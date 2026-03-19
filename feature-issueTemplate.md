@@ -3,7 +3,6 @@ name: [Issue Name]
 title: [Long Title of the issue as appears on GitHub]
 labels: [Choose one of website, wikipedia, social media, images]
 type: feature
-
 ---
 
 Hello WoT Marketing Task Force,
@@ -14,16 +13,16 @@ I am submitting this issue for a **feature request** with following details.
 
 **Problems:**
 
-*MANDATORY*. Describe the problems here. Use bullet point lists for multiple issues
+_MANDATORY_. Describe the problems here. Use bullet point lists for multiple issues
 
 **Requirements:**
 
-*MANDATORY*. List the requirements that are needed to fix this problem
+_MANDATORY_. List the requirements that are needed to fix this problem
 
 **Solution Proposals:**
 
-*MANDATORY*. List possible solutions that satisfy the requirements listed above
+_MANDATORY_. List possible solutions that satisfy the requirements listed above
 
 **Background information:**
 
-*OPTIONAL*. If you need to give some background information, do so here as an explainer
+_OPTIONAL_. If you need to give some background information, do so here as an explainer

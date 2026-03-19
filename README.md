@@ -16,7 +16,7 @@
 # Web of Things (WoT) Marketing
 
 General information about the Web of Things can be found at https://www.w3.org/WoT/.
-  
+
 ---
 
 This repository is a collection of material used for communication and marketing purposes of the WoT standardization activity. The materials are:

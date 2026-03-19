@@ -1,219 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="" />
-	<meta name="author" content="" />
+    <title>{{ page.title }} - Web of Things (WoT)</title>
+    <link rel="icon" href="{{'favicon.ico' | absolute_url }}" />
 
-	<title>{{ page.title }} - Web of Things (WoT)</title>
-	<link rel="icon" href="{{'favicon.ico' | absolute_url }}" />
+    <!-- Bootstrap core CSS -->
+    <link href="{{'/css/bootstrap.min.css' | absolute_url }}" rel="stylesheet" />
 
-	<!-- Bootstrap core CSS -->
-	<link href="{{'/css/bootstrap.min.css' | absolute_url }}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="{{'/css/navbar.css' | absolute_url }}" rel="stylesheet" />
 
-	<!-- Custom styles for this template -->
-	<link href="{{'/css/navbar.css' | absolute_url }}" rel="stylesheet" />
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
-	<!-- Font Awesome icons -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Mastodon verification link -->
+    <link rel="me" href="https://w3c.social/@wot" />
 
-	<!-- Mastodon verification link -->
-	<link rel="me" href="https://w3c.social/@wot">
+    <!-- Mastodon feed -->
+    <link rel="stylesheet" type="text/css" href="https://esm.sh/emfed@1/toots.css" />
 
-	<!-- Mastodon feed -->
-	<link rel="stylesheet" type="text/css" href="https://esm.sh/emfed@1/toots.css">
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<!-- The following script is the Matomo analytics script of W3C and gives us usage statistics   -->
-	<script>
-		var _paq = window._paq = window._paq || [];
-		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-		_paq.push(['trackPageView']);
-		_paq.push(['enableLinkTracking']);
-		(function () {
-			var u = "https://www.w3.org/analytics/piwik/";
-			_paq.push(['setTrackerUrl', u + 'matomo.php']);
-			_paq.push(['setSiteId', '561']);
-			var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-			g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
-		})();
-	</script>
-</head>
+    <!-- The following script is the Matomo analytics script of W3C and gives us usage statistics   -->
+    <script>
+      var _paq = (window._paq = window._paq || []);
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function () {
+        var u = 'https://www.w3.org/analytics/piwik/';
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', '561']);
+        var d = document,
+          g = d.createElement('script'),
+          s = d.getElementsByTagName('script')[0];
+        g.async = true;
+        g.src = u + 'matomo.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+  </head>
 
-<body>
-	<!-- GitHub corner -->
-	<a href="https://www.github.com/{{ site.github_username }}/{{ site.git_repo }}/blob/main/docs/{{ page.path }}"
-		class="github-corner" aria-label="View source on GitHub" id="#edit-button"><svg width="40" height="40"
-			viewBox="0 0 250 250" style="fill:#005A9C; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
-			aria-hidden="true">
-			<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-			<path
-				d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-				fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-			<path
-				d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-				fill="currentColor" class="octo-body"></path>
-		</svg></a>
-	<style>
-		html,
-		body {
-			height: 100%;
-			margin: 0;
-		}
+  <body>
+    <!-- GitHub corner -->
+    <a
+      href="https://www.github.com/{{ site.github_username }}/{{ site.git_repo }}/blob/main/docs/{{ page.path }}"
+      class="github-corner"
+      aria-label="View source on GitHub"
+      id="#edit-button"
+      ><svg
+        width="40"
+        height="40"
+        viewBox="0 0 250 250"
+        style="fill: #005a9c; color: #fff; position: absolute; top: 0; border: 0; right: 0"
+        aria-hidden="true"
+      >
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor"
+          style="transform-origin: 130px 106px"
+          class="octo-arm"
+        ></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor"
+          class="octo-body"
+        ></path></svg
+    ></a>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
 
-		.github-corner:hover .octo-arm {
-			animation: octocat-wave 560ms ease-in-out
-		}
+      .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+      }
 
+      @keyframes octocat-wave {
+        0%,
+        100% {
+          transform: rotate(0);
+        }
 
-		@keyframes octocat-wave {
+        20%,
+        60% {
+          transform: rotate(-25deg);
+        }
 
-			0%,
-			100% {
-				transform: rotate(0)
-			}
+        40%,
+        80% {
+          transform: rotate(10deg);
+        }
+      }
 
-			20%,
-			60% {
-				transform: rotate(-25deg)
-			}
+      @media (max-width: 500px) {
+        .github-corner:hover .octo-arm {
+          animation: none;
+        }
 
-			40%,
-			80% {
-				transform: rotate(10deg)
-			}
-		}
+        .github-corner .octo-arm {
+          animation: octocat-wave 560ms ease-in-out;
+        }
+      }
 
-		@media (max-width:500px) {
-			.github-corner:hover .octo-arm {
-				animation: none
-			}
+      @media screen and (max-width: 750px) {
+        .github-corner {
+          visibility: hidden;
+        }
+      }
+    </style>
 
-			.github-corner .octo-arm {
-				animation: octocat-wave 560ms ease-in-out;
+    <div style="min-height: 100vh; background-color: white; display: flex; flex-direction: column">
+      <div class="container-fluid" style="width: 100%; max-width: 1280px">
+        <!--  -->
+        <a class="navbar-brand bg-white" href="{{'/' | absolute_url }}"
+          ><!--   -->
+          <img src="{{'/images/logo-mini-blue.svg' | absolute_url }}" alt="Web of Things" height="30" />
+        </a>
+        <a href="{{'/' | absolute_url }}">
+          <div style="float: left" class="hidden-xs">
+            <h2 style="font-size: 22px; color: #005a9c; font-weight: bold">Web of Things</h2>
+          </div>
+        </a>
 
-			}
+        <div style="float: right">
+          <a class="navbar-brand bg-white" href="https://www.w3.org/" rel="external">
+            <img src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" alt="W3C" height="32" />
+          </a>
+        </div>
+        <div style="float: right; margin: 20px" class="hidden-xs">
+          <a href="https://www.w3.org/standards/">Standards</a> ·
+          <a href="https://www.w3.org/participate/">Participate</a> ·
+          <a href="https://www.w3.org/Consortium/membership">Membership</a>
+          <!-- · <a href="https://www.w3.org/Consortium/">About W3C</a> -->
+        </div>
+      </div>
 
-
-		}
-
-		@media screen and (max-width: 750px) {
-			.github-corner {
-				visibility: hidden;
-			}
-		}
-	</style>
-
-	<div style="min-height: 100vh; background-color: white; display: flex; flex-direction: column;">
-
-		<div class="container-fluid" style="width: 100%; max-width: 1280px;"><!--  -->
-			<a class="navbar-brand bg-white" href="{{'/' | absolute_url }}"><!--   -->
-				<img src="{{'/images/logo-mini-blue.svg' | absolute_url }}" alt="Web of Things" height="30" />
-			</a>
-			<a href="{{'/' | absolute_url }}">
-				<div style="float:left;" class="hidden-xs">
-					<h2 style="font-size:22px; color:#005A9C; font-weight: bold;">Web of Things</h2>
-				</div>
-			</a>
-
-			<div style="float:right">
-				<a class="navbar-brand bg-white" href="https://www.w3.org/" rel="external">
-					<img src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" alt="W3C" height="32" />
-				</a>
-			</div>
-			<div style="float:right; margin: 20px;" class="hidden-xs">
-				<a href="https://www.w3.org/standards/">Standards</a> · <a
-					href="https://www.w3.org/participate/">Participate</a> · <a
-					href="https://www.w3.org/Consortium/membership">Membership</a>
-				<!-- · <a href="https://www.w3.org/Consortium/">About W3C</a> -->
-			</div>
-
-		</div>
-
-		<!-- Static navbar -->
-		<nav class="navbar navbar-default"
-			style="width: 100%; max-width: 1280px; margin-left: 50%; transform: translateX(-50%);z-index: 10;">
-			<!-- navbar-fixed-top  -->
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-						aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<!--<a class="navbar-brand bg-white" href="./" style="background-color: white">
+      <!-- Static navbar -->
+      <nav
+        class="navbar navbar-default"
+        style="width: 100%; max-width: 1280px; margin-left: 50%; transform: translateX(-50%); z-index: 10"
+      >
+        <!-- navbar-fixed-top  -->
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#navbar"
+              aria-expanded="false"
+              aria-controls="navbar"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand bg-white" href="./" style="background-color: white">
 				<img src="images/logo-mini-blue.svg" alt="WoT" width="100" />
 			</a>-->
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<!-- <li class="active"><a href="/">Home</a></li>-->
-						{% for mainnavi in site.navigation %}
-						<!-- page.url     == {{ page.url }} -->
-						<!-- mainnavi.title == {{ mainnavi.title }} -->
-						<!-- mainnavi.url == {{ mainnavi.url }} -->
-						<!-- mainnavi.subnavigation == {{ mainnavi.subnavigation }} -->
-						{% assign current = nil %}
-						{% if page.url contains mainnavi.url and mainnavi.url != "/" %}
-						<!-- {% if page.url != "/" %} -->
-						{% assign current = 'active' %}
-						<!-- {% endif %} -->
-						{% endif %}
-						{% if page.url == "/" and mainnavi.url == "/"%}
-						{% assign current = 'active' %}
-						{% endif %}
-						{% for subnavi in mainnavi.subnavigation %}
-						{% if page.url contains subnavi.url %}
-						{% if page.url != "/" %}
-						{% assign current = 'active' %}
-						{% endif %}
-						{% endif %}
-						{% endfor %}
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <!-- <li class="active"><a href="/">Home</a></li>-->
+              {% for mainnavi in site.navigation %}
+              <!-- page.url     == {{ page.url }} -->
+              <!-- mainnavi.title == {{ mainnavi.title }} -->
+              <!-- mainnavi.url == {{ mainnavi.url }} -->
+              <!-- mainnavi.subnavigation == {{ mainnavi.subnavigation }} -->
+              {% assign current = nil %} {% if page.url contains mainnavi.url and mainnavi.url != "/" %}
+              <!-- {% if page.url != "/" %} -->
+              {% assign current = 'active' %}
+              <!-- {% endif %} -->
+              {% endif %} {% if page.url == "/" and mainnavi.url == "/"%} {% assign current = 'active' %} {% endif %} {%
+              for subnavi in mainnavi.subnavigation %} {% if page.url contains subnavi.url %} {% if page.url != "/" %}
+              {% assign current = 'active' %} {% endif %} {% endif %} {% endfor %}
 
-						<!-- mainnavi.subnavigation: {{ mainnavi.subnavigation }} -->
-						{% if mainnavi.subnavigation and mainnavi.subnavigation != "" and mainnavi.subnavigation != nil
-						%}
-						<li class="dropdown {{ current }}">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-								aria-haspopup="true" aria-expanded="false">{{ mainnavi.title }}<span
-									class="caret"></span></a>
-							<ul class="dropdown-menu">
-								{% for subnavi in mainnavi.subnavigation %}
-								{% assign currentSub = nil %}
-								{% if page.url contains subnavi.url %}
-								{% if page.url != "/" %}
-								{% assign currentSub = 'active' %}
-								{% endif %}
-								{% endif %}
-								<li class="{{ currentSub }}"><a href="{{ subnavi.url | absolute_url }}">{{ subnavi.title
-										}}</a></li>
-								{% endfor %}
-							</ul>
-						</li>
-						{% else %}
-						<li
-							class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
-							<a href="{{ mainnavi.url | absolute_url }}">{{ mainnavi.title }}</a>
-						</li>
-						{% endif %}
+              <!-- mainnavi.subnavigation: {{ mainnavi.subnavigation }} -->
+              {% if mainnavi.subnavigation and mainnavi.subnavigation != "" and mainnavi.subnavigation != nil %}
+              <li class="dropdown {{ current }}">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >{{ mainnavi.title }}<span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  {% for subnavi in mainnavi.subnavigation %} {% assign currentSub = nil %} {% if page.url contains
+                  subnavi.url %} {% if page.url != "/" %} {% assign currentSub = 'active' %} {% endif %} {% endif %}
+                  <li class="{{ currentSub }}">
+                    <a href="{{ subnavi.url | absolute_url }}">{{ subnavi.title }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% else %}
+              <li
+                class="element {% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}"
+              >
+                <a href="{{ mainnavi.url | absolute_url }}">{{ mainnavi.title }}</a>
+              </li>
+              {% endif %}
 
+              <!-- mainnavi.url: {{ mainnavi.url }} -->
+              <!-- page.url: {{ page.url }} -->
 
-						<!-- mainnavi.url: {{ mainnavi.url }} -->
-						<!-- page.url: {{ page.url }} -->
+              {% endfor %}
 
-						{% endfor %}
-
-						<!--
+              <!--
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -224,57 +235,56 @@
                 </ul>
               </li>
 			  -->
+            </ul>
 
-
-					</ul>
-
-
-					<!--
+            <!--
             <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
               <li><a href="../navbar-static-top/">Static top</a></li>
               <li><a href="../navbar-fixed-top/">Fixed top</a></li>
             </ul>
 			-->
-				</div><!--/.nav-collapse -->
-			</div><!--/.container-fluid -->
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+      </nav>
+      <div
+        class="container-fluid"
+        style="max-width: 1280px; margin: 0 auto; flex: 1; width: 100%; display: flex; flex-direction: column"
+      >
+        {{ content }}
+      </div>
+      <!-- content -->
 
-		</nav>
-		<div class="container-fluid"
-			style="max-width: 1280px; margin: 0 auto; flex: 1; width: 100%; display: flex; flex-direction: column;">
+      <!-- Footer -->
+      <footer class="page-footer font-small" style="margin: 0; margin-top: 48px">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+          Copyright © {{ 'now' | date: "%Y" }}
+          <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br />
+          <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
+          <a href="https://www.w3.org/policies/#disclaimers">liability</a>,
+          <a href="https://www.w3.org/policies/#trademarks">trademark</a> and
+          <a rel="license" href="https://www.w3.org/copyright/document-license/" title="W3C Document License"
+            >permissive license</a
+          >
+          rules apply.
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
 
-			{{ content }}
+      <!-- Placed at the end of the document so the pages load faster -->
 
-		</div><!-- content -->
-
-
-		<!-- Footer -->
-		<footer class="page-footer font-small" style="margin:0; margin-top: 48px">
-			<!-- Copyright -->
-			<div class="footer-copyright text-center py-3">
-				Copyright © {{ 'now' | date: "%Y" }} <a href="https://www.w3.org/">World Wide Web Consortium</a>.<br />
-				<abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a
-					href="https://www.w3.org/policies/#disclaimers">liability</a>, <a
-					href="https://www.w3.org/policies/#trademarks">trademark</a> and <a rel="license"
-					href="https://www.w3.org/copyright/document-license/" title="W3C Document License">permissive
-					license</a> rules apply.
-			</div>
-			<!-- Copyright -->
-		</footer>
-		<!-- Footer -->
-
-
-		<!-- Placed at the end of the document so the pages load faster -->
-
-		<!-- Mastodon feed -->
-		<script type="module" src="https://esm.sh/emfed@1"></script>
-		<!-- Bootstrap core JavaScript -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="{{'/js/bootstrap.min.js' | absolute_url }}"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
-
-	</div><!-- outer container -->
-</body>
-
+      <!-- Mastodon feed -->
+      <script type="module" src="https://esm.sh/emfed@1"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="{{'/js/bootstrap.min.js' | absolute_url }}"></script>
+      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+      <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    </div>
+    <!-- outer container -->
+  </body>
 </html>

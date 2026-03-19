@@ -1,4 +1,5 @@
 # Blog Posts
+
 Posts should be short and concise - our first iterations are usually much too verbose.
 At the time of social media and microblogging, the shorter, the better.
 If you have at least one illustration, that boosts significantly the reach of a piece.
@@ -24,7 +25,7 @@ moved to the [published](published) directory for archival.
 
 Filenames should use
 the format `yyyy-mm-title.md` (update the date when moving to the published folder
-if the review was started in a different month than the publication).  This format
-allows listings to be automatically sorted by date.  If subdirectories are needed
-for images, use the same format but without the suffix.  HTML is also acceptable,
+if the review was started in a different month than the publication). This format
+allows listings to be automatically sorted by date. If subdirectories are needed
+for images, use the same format but without the suffix. HTML is also acceptable,
 especially for the final version.

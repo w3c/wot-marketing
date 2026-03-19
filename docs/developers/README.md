@@ -67,7 +67,7 @@ Group (e.g. "Thing Description")
 | `repoUrl`     | `string`   | GitHub or GitLab repository URL. Used to fetch metadata automatically.                 |
 | `name`        | `string`   | Display name. Falls back to the README's main heading or repo name if omitted.         |
 | `description` | `string`   | Short description. Falls back to the first sentence of the README or repo description. |
-| `homepageUrl` | `string`   | Homepage link shown to the user. Optional.                            |
+| `homepageUrl` | `string`   | Homepage link shown to the user. Optional.                                             |
 | `languages`   | `string[]` | Programming languages. Falls back to the repo's primary language.                      |
 | `isObsolete`  | `boolean`  | Mark a tool as obsolete manually. Auto-detected if not set (see below).                |
 
@@ -150,7 +150,7 @@ The generated `devToolsOutput.json` follows this shape:
 
 | Problem                                                     | Solution                                                                                              |
 | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `GH_TOKEN is not defined`                               | Make sure the `.env` file exists in the project root and contains a valid `GH_TOKEN`.             |
+| `GH_TOKEN is not defined`                                   | Make sure the `.env` file exists in the project root and contains a valid `GH_TOKEN`.                 |
 | `GITLAB_TOKEN is not defined`                               | Same as above, but for `GITLAB_TOKEN`.                                                                |
 | `GitHub API Error` / `GitLab API Error` / `Could not fetch` | Check that your tokens have the required scopes and have not expired.                                 |
 | `Name is missing` / `Description is missing`                | The repo README could not be parsed. Add explicit `name` / `description` overrides in the input file. |

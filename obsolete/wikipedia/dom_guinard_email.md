@@ -11,7 +11,7 @@ Keep the high level description of what the Web of Things is as a general concep
 
 ### History
 
-In a history section acknowledge that the WoT was started as a topic and     set architectural principles by us Vlad Trifa, Erik Wilde and myself 12 years ago via the webofthings.org community (2007) and later [the first peer-reviewed paper](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Towards+the+Web+of+Things%3A+Web+Mashups+for+Embedded+Devices&btnG=) which is to date the most cited paper in this field, as well as a reference to the Building the Web of Things book as it was the first book in this field and is still used as a manual in several universities to teach IoT+WoT (and it does talk about the W3C WoT).
+In a history section acknowledge that the WoT was started as a topic and set architectural principles by us Vlad Trifa, Erik Wilde and myself 12 years ago via the webofthings.org community (2007) and later [the first peer-reviewed paper](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Towards+the+Web+of+Things%3A+Web+Mashups+for+Embedded+Devices&btnG=) which is to date the most cited paper in this field, as well as a reference to the Building the Web of Things book as it was the first book in this field and is still used as a manual in several universities to teach IoT+WoT (and it does talk about the W3C WoT).
 
 ### W3C WoT Architecture (with TD sub-sections, etc.)
 

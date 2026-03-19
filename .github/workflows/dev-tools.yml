@@ -8,7 +8,7 @@ on:
 jobs:
   run-dev-tools:
     runs-on: ubuntu-latest
-    
+
     # Needs permissions to create a pull request
     permissions:
       contents: write
@@ -53,17 +53,17 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           BRANCH_NAME="chore/dev-tools-update-${{ github.run_id }}"
-          
+
           # Setup git config
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          
+
           # Commit and push changes
           git checkout -b $BRANCH_NAME
           git add .
           git commit -m "Automated: Weekly Dev Tools Update Changes"
           git push -u origin $BRANCH_NAME
-          
+
           # Create Pull Request
           gh pr create \
             --title "Automated: Weekly Dev Tools Update Changes" \
