@@ -6,6 +6,7 @@ docs/.bundle/
 docs/.jekyll-cache/
 docs/_site/
 docs/vendor/
+docs/_data/generated/
 docs/css/bootstrap*
 docs/js/bootstrap*
 *.min.js

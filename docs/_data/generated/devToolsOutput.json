@@ -10,7 +10,10 @@
           "languages": [],
           "lastUpdated": "2026-03-05T10:28:22Z",
           "homepageUrl": "https://playground.thingweb.io/",
-          "platforms": ["Browser", "CLI"],
+          "platforms": [
+            "Browser",
+            "CLI"
+          ],
           "license": "Other",
           "affiliation": "Eclipse Foundation"
         },
@@ -21,7 +24,9 @@
           "languages": [],
           "lastUpdated": "2026-02-25T12:48:34Z",
           "homepageUrl": "https://eclipse-editdor.github.io/editdor/",
-          "platforms": ["Browser"],
+          "platforms": [
+            "Browser"
+          ],
           "license": "Eclipse Public License 2.0",
           "affiliation": "Eclipse Foundation"
         },
@@ -32,7 +37,9 @@
           "languages": [],
           "lastUpdated": "2026-02-27T17:35:15Z",
           "homepageUrl": "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code",
-          "platforms": ["IDE Extension"],
+          "platforms": [
+            "IDE Extension"
+          ],
           "license": "Other",
           "affiliation": "Eclipse Foundation"
         },
@@ -40,10 +47,14 @@
           "name": "Eclipse Ditto :: WoT :: Model",
           "description": "This module contains a W3C WoT (Web of Things) Java model following the Web of Things (WoT) Thing Description 1.1",
           "repoUrl": "https://github.com/eclipse/ditto/tree/master/wot/model",
-          "languages": ["Java"],
+          "languages": [
+            "Java"
+          ],
           "lastUpdated": "2026-03-12T13:20:20Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
-          "platforms": ["Library"],
+          "platforms": [
+            "Library"
+          ],
           "license": "Eclipse Public License 2.0",
           "affiliation": "Eclipse Foundation"
         },
@@ -51,10 +62,14 @@
           "name": "Java API for Thing Descriptions of WoT (JDTs)",
           "description": "Java API for Thing Descriptions of the Web of Things",
           "repoUrl": "https://github.com/oeg-upm/wot-jtd",
-          "languages": ["Java"],
+          "languages": [
+            "Java"
+          ],
           "lastUpdated": "2024-08-12T12:33:48Z",
           "homepageUrl": null,
-          "platforms": ["Library"],
+          "platforms": [
+            "Library"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "Ontology Engineering Group, Universidad Politécnica de Madrid"
         },
@@ -62,10 +77,14 @@
           "name": "wot-td",
           "description": "Rust crate to produce and consume Web Of Things Thing Descriptions",
           "repoUrl": "https://github.com/sifis-home/wot-td",
-          "languages": ["Rust"],
+          "languages": [
+            "Rust"
+          ],
           "lastUpdated": "2023-08-23T09:44:35Z",
           "homepageUrl": null,
-          "platforms": ["Library"],
+          "platforms": [
+            "Library"
+          ],
           "license": null,
           "affiliation": "SIFIS-HOME"
         },
@@ -73,10 +92,14 @@
           "name": "Golang ThingDescription",
           "description": "This is a Golang package containing all structs to represent a ThingDescription in code and also to serialize and deserialize it.",
           "repoUrl": "https://github.com/wot-oss/thingdescription-go",
-          "languages": ["Go"],
+          "languages": [
+            "Go"
+          ],
           "lastUpdated": "2026-03-09T13:00:57Z",
           "homepageUrl": null,
-          "platforms": ["Library"],
+          "platforms": [
+            "Library"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "Web of Things Open Source Projects"
         },
@@ -87,7 +110,9 @@
           "languages": [],
           "lastUpdated": "2025-04-14T17:56:19Z",
           "homepageUrl": null,
-          "platforms": ["CLI"],
+          "platforms": [
+            "CLI"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "Web of Things Open Source Projects"
         },
@@ -98,7 +123,9 @@
           "languages": [],
           "lastUpdated": "2026-03-09T12:59:31Z",
           "homepageUrl": null,
-          "platforms": ["CLI"],
+          "platforms": [
+            "CLI"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "Web of Things Open Source Projects"
         }
@@ -111,10 +138,15 @@
           "name": "Eclipse Thingweb node-wot",
           "description": "A fast and extensible framework to connect any device with your browser and backend applications",
           "repoUrl": "https://github.com/eclipse-thingweb/node-wot",
-          "languages": ["TypeScript"],
+          "languages": [
+            "TypeScript"
+          ],
           "lastUpdated": "2026-03-13T11:03:52Z",
           "homepageUrl": "https://thingweb.io",
-          "platforms": ["Library", "CLI"],
+          "platforms": [
+            "Library",
+            "CLI"
+          ],
           "license": "Other",
           "affiliation": "Eclipse Foundation"
         },
@@ -122,10 +154,14 @@
           "name": "Eclipse Ditto :: WoT",
           "description": "This module contains models and implementation of the W3C \"Web of Things\" (WoT) integration of Eclipse Ditto",
           "repoUrl": "https://github.com/eclipse-ditto/ditto/tree/master/wot",
-          "languages": ["Java"],
+          "languages": [
+            "Java"
+          ],
           "lastUpdated": "2026-03-12T13:20:20Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
-          "platforms": ["Library"],
+          "platforms": [
+            "Library"
+          ],
           "license": "Eclipse Public License 2.0",
           "affiliation": "Eclipse Foundation"
         },
@@ -133,10 +169,15 @@
           "name": "SANE Web of Things Servient",
           "description": "This project contains an implementation of the W3C Web of Things (WoT) architecture written in Java",
           "repoUrl": "https://github.com/sane-city/wot-servient",
-          "languages": ["Java"],
+          "languages": [
+            "Java"
+          ],
           "lastUpdated": "2025-10-29T07:10:39Z",
           "homepageUrl": null,
-          "platforms": ["Library", "CLI"],
+          "platforms": [
+            "Library",
+            "CLI"
+          ],
           "license": "MIT License",
           "affiliation": "SANE"
         },
@@ -147,7 +188,9 @@
           "languages": [],
           "lastUpdated": "2023-01-31T22:21:59Z",
           "homepageUrl": null,
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": "MIT License",
           "affiliation": "SIFIS-HOME"
         },
@@ -155,10 +198,14 @@
           "name": "wotpy",
           "description": "wotpy is an experimental asynchronous implementation of a W3C Web of Things runtime",
           "repoUrl": "https://github.com/agmangas/wot-py",
-          "languages": ["Python"],
+          "languages": [
+            "Python"
+          ],
           "lastUpdated": "2025-11-19T13:11:04Z",
           "homepageUrl": null,
-          "platforms": ["Library"],
+          "platforms": [
+            "Library"
+          ],
           "license": "MIT License",
           "affiliation": null
         }
@@ -171,10 +218,15 @@
           "name": "Eclipse Thingweb node-wot",
           "description": "A fast and extensible framework to connect any device with your browser and backend applications",
           "repoUrl": "https://github.com/eclipse/thingweb.node-wot",
-          "languages": ["TypeScript"],
+          "languages": [
+            "TypeScript"
+          ],
           "lastUpdated": "2026-03-13T11:03:52Z",
           "homepageUrl": "https://thingweb.io",
-          "platforms": ["Library", "CLI"],
+          "platforms": [
+            "Library",
+            "CLI"
+          ],
           "license": "Other",
           "affiliation": "Eclipse Foundation"
         },
@@ -185,7 +237,9 @@
           "languages": [],
           "lastUpdated": "2026-02-07T13:20:20Z",
           "homepageUrl": null,
-          "platforms": ["CLI"],
+          "platforms": [
+            "CLI"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "OpenJS Foundation"
         },
@@ -193,10 +247,14 @@
           "name": "dart_wot",
           "description": "Framework to build Web of Things applications in Dart and Flutter.",
           "repoUrl": "https://github.com/eclipse-thingweb/dart_wot",
-          "languages": ["Dart"],
+          "languages": [
+            "Dart"
+          ],
           "lastUpdated": "2025-10-06T09:12:17Z",
           "homepageUrl": "https://pub.dev/packages/dart_wot",
-          "platforms": ["Library"],
+          "platforms": [
+            "Library"
+          ],
           "license": "Other",
           "affiliation": "Eclipse Foundation"
         },
@@ -204,10 +262,15 @@
           "name": "SANE Web of Things Servient",
           "description": "W3C Web of Things implementation for Java",
           "repoUrl": "https://github.com/sane-city/wot-servient",
-          "languages": ["Java"],
+          "languages": [
+            "Java"
+          ],
           "lastUpdated": "2025-10-29T07:10:39Z",
           "homepageUrl": null,
-          "platforms": ["Library", "CLI"],
+          "platforms": [
+            "Library",
+            "CLI"
+          ],
           "license": "MIT License",
           "affiliation": "SANE"
         },
@@ -215,10 +278,14 @@
           "name": "kotlin-wot",
           "description": "A Framework for implementing Web of Things in Kotlin",
           "repoUrl": "https://github.com/eclipse-thingweb/kotlin-wot",
-          "languages": ["Kotlin"],
+          "languages": [
+            "Kotlin"
+          ],
           "lastUpdated": "2025-11-17T06:56:40Z",
           "homepageUrl": null,
-          "platforms": ["Library"],
+          "platforms": [
+            "Library"
+          ],
           "license": "Other",
           "affiliation": "Eclipse Foundation"
         },
@@ -226,10 +293,14 @@
           "name": "WoT.Net",
           "description": "A .Net Standard 2.0 WoT Consumer Implementation",
           "repoUrl": "https://github.com/tum-esi/wot.net",
-          "languages": ["C#"],
+          "languages": [
+            "C#"
+          ],
           "lastUpdated": "2026-03-12T14:51:35Z",
           "homepageUrl": "https://tum-esi.github.io/WoT.Net/",
-          "platforms": ["Library"],
+          "platforms": [
+            "Library"
+          ],
           "license": "MIT License",
           "affiliation": "TUM ESI"
         },
@@ -237,10 +308,14 @@
           "name": "wotpy",
           "description": "wotpy is an experimental asynchronous implementation of a W3C Web of Things runtime",
           "repoUrl": "https://github.com/agmangas/wot-py",
-          "languages": ["Python"],
+          "languages": [
+            "Python"
+          ],
           "lastUpdated": "2025-11-19T13:11:04Z",
           "homepageUrl": null,
-          "platforms": ["Library"],
+          "platforms": [
+            "Library"
+          ],
           "license": "MIT License",
           "affiliation": null
         }
@@ -256,7 +331,10 @@
           "languages": [],
           "lastUpdated": "2025-09-23T10:28:23Z",
           "homepageUrl": null,
-          "platforms": ["Service", "CLI"],
+          "platforms": [
+            "Service",
+            "CLI"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "Tiny IoT"
         },
@@ -267,7 +345,9 @@
           "languages": [],
           "lastUpdated": "2025-10-29T06:47:38Z",
           "homepageUrl": null,
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "Ontology Engineering Group, Universidad Politécnica de Madrid"
         },
@@ -278,7 +358,9 @@
           "languages": [],
           "lastUpdated": "2026-03-04T08:36:55Z",
           "homepageUrl": "https://thingweb.io",
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": "Other",
           "affiliation": "Eclipse Foundation"
         },
@@ -289,7 +371,9 @@
           "languages": [],
           "lastUpdated": "2023-07-08T13:09:26Z",
           "homepageUrl": null,
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": "MIT License",
           "affiliation": "SIFIS-HOME"
         },
@@ -300,7 +384,9 @@
           "languages": [],
           "lastUpdated": "2025-10-11T04:28:12Z",
           "homepageUrl": null,
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "VAIMEE"
         }
@@ -318,7 +404,9 @@
           "languages": [],
           "lastUpdated": "2026-01-06T12:06:49Z",
           "homepageUrl": "https://thingweb.io",
-          "platforms": ["CLI"],
+          "platforms": [
+            "CLI"
+          ],
           "license": "MIT License",
           "affiliation": "Eclipse Foundation"
         },
@@ -329,7 +417,9 @@
           "languages": [],
           "lastUpdated": "2025-11-19T00:39:11.560Z",
           "homepageUrl": null,
-          "platforms": ["Browser"],
+          "platforms": [
+            "Browser"
+          ],
           "license": null,
           "affiliation": null
         },
@@ -340,7 +430,9 @@
           "languages": [],
           "lastUpdated": "2026-03-03T13:50:00Z",
           "homepageUrl": "https://wot-oss.github.io/tmc/",
-          "platforms": ["CLI"],
+          "platforms": [
+            "CLI"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "Web of Things Open Source Projects"
         },
@@ -351,7 +443,9 @@
           "languages": [],
           "lastUpdated": "2026-03-14T10:35:07Z",
           "homepageUrl": "https://control-panel.hololinked.dev/",
-          "platforms": ["Browser"],
+          "platforms": [
+            "Browser"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "hololinked"
         },
@@ -362,7 +456,9 @@
           "languages": [],
           "lastUpdated": "2025-12-09T14:48:20Z",
           "homepageUrl": "https://wintechis.github.io/blast/",
-          "platforms": ["Browser"],
+          "platforms": [
+            "Browser"
+          ],
           "license": "GNU Affero General Public License v3.0",
           "affiliation": "Chair of Technical Information Systems, Friedrich-Alexander-Universität Erlangen-Nürnberg"
         },
@@ -373,7 +469,9 @@
           "languages": [],
           "lastUpdated": "2025-10-13T12:38:54Z",
           "homepageUrl": "https://www.ei.tum.de/en/esi/home/",
-          "platforms": ["Application"],
+          "platforms": [
+            "Application"
+          ],
           "license": "MIT License",
           "affiliation": "TUM ESI"
         },
@@ -384,7 +482,10 @@
           "languages": [],
           "lastUpdated": "2022-04-06T06:49:35Z",
           "homepageUrl": null,
-          "platforms": ["Browser", "Application"],
+          "platforms": [
+            "Browser",
+            "Application"
+          ],
           "license": "MIT License",
           "affiliation": null
         }
@@ -400,7 +501,9 @@
           "languages": [],
           "lastUpdated": null,
           "homepageUrl": "https://www.evosoft.com/en/digitalization-offering/saywot/",
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": null,
           "affiliation": "evosoft (Siemens subsidiary)"
         },
@@ -411,7 +514,9 @@
           "languages": [],
           "lastUpdated": "2025-04-14T17:49:52Z",
           "homepageUrl": null,
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": "MIT License",
           "affiliation": "TUM ESI"
         },
@@ -422,7 +527,10 @@
           "languages": [],
           "lastUpdated": "2026-03-16T02:18:01Z",
           "homepageUrl": "http://webthings.io/gateway",
-          "platforms": ["Service", "Browser"],
+          "platforms": [
+            "Service",
+            "Browser"
+          ],
           "license": "Mozilla Public License 2.0",
           "affiliation": "WebThings"
         },
@@ -433,7 +541,9 @@
           "languages": [],
           "lastUpdated": "2026-03-16T10:23:41Z",
           "homepageUrl": null,
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": "MIT License",
           "affiliation": "OPC Foundation"
         },
@@ -444,7 +554,9 @@
           "languages": [],
           "lastUpdated": "2025-10-31T15:26:46.988Z",
           "homepageUrl": null,
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": "MIT License",
           "affiliation": "Eclipse Research Labs / NEPHELE"
         },
@@ -455,7 +567,9 @@
           "languages": [],
           "lastUpdated": "2024-10-10T11:50:31.514Z",
           "homepageUrl": null,
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": null,
           "affiliation": "WebThings"
         },
@@ -466,7 +580,10 @@
           "languages": [],
           "lastUpdated": "2025-04-14T17:50:20Z",
           "homepageUrl": null,
-          "platforms": ["Service", "CLI"],
+          "platforms": [
+            "Service",
+            "CLI"
+          ],
           "license": "MIT License",
           "affiliation": "TUM ESI"
         }
@@ -482,7 +599,9 @@
           "languages": [],
           "lastUpdated": null,
           "homepageUrl": "https://thingweb.io/services/#online-things-for-testing",
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": null,
           "affiliation": "Eclipse Foundation"
         },
@@ -493,7 +612,9 @@
           "languages": [],
           "lastUpdated": "2025-10-16T14:28:54Z",
           "homepageUrl": null,
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": "Apache License 2.0",
           "affiliation": "Web of Things Open Source Projects"
         }
@@ -511,7 +632,9 @@
           "languages": [],
           "lastUpdated": "2026-02-25T22:52:14Z",
           "homepageUrl": null,
-          "platforms": ["Application"],
+          "platforms": [
+            "Application"
+          ],
           "license": "Other",
           "affiliation": "Eclipse Foundation"
         },
@@ -522,7 +645,9 @@
           "languages": [],
           "lastUpdated": null,
           "homepageUrl": "https://eclipse.dev/lmos/",
-          "platforms": ["Service"],
+          "platforms": [
+            "Service"
+          ],
           "license": null,
           "affiliation": "Eclipse Foundation"
         },
@@ -533,7 +658,9 @@
           "languages": [],
           "lastUpdated": "2025-06-09T12:29:19Z",
           "homepageUrl": "https://wotify.org",
-          "platforms": ["Browser"],
+          "platforms": [
+            "Browser"
+          ],
           "license": "MIT License",
           "affiliation": "TUM ESI"
         }
