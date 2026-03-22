@@ -73,9 +73,7 @@ group: 'navigation'
 
 <div class="content-flex-container">
   <div class="contacts-section">
-    <a href="{{ '/about/' | absolute_url }}" class="btn btn-default" style="margin-bottom: 20px"
-      >&laquo; Back to About</a
-    >
+    {% include breadcrumbs.html %}
     <h2>How to get in touch</h2>
     <p>Use one of the following methods to get in touch with us</p>
     <p>&nbsp;</p>

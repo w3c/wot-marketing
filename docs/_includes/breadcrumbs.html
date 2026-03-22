@@ -1,0 +1,22 @@
+{% assign url_parts = page.url | remove_first: '/' | split: '/' %}
+<ol class="breadcrumb">
+  {% assign current_url = "" %}
+  {% for part in url_parts %}
+    {% if part != "index.html" and part != "" %}
+      {% assign current_url = current_url | append: "/" | append: part %}
+      {% if forloop.last %}
+        <li class="active">{{ page.title }}</li>
+      {% else %}
+        <li>
+          {% assign words = part | replace: '-', ' ' | split: ' ' %}
+          {% assign title_cased = "" %}
+          {% for word in words %}
+            {% assign cap_word = word | capitalize %}
+            {% assign title_cased = title_cased | append: cap_word | append: " " %}
+          {% endfor %}
+          <a href="{{ current_url | append: '/' | absolute_url }}">{{ title_cased | strip }}</a>
+        </li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</ol>
