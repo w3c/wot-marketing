@@ -5,18 +5,89 @@ group: 'navigation'
 ---
 
 <div>
+  <h2>Foundations</h2>
+  <p style="margin-bottom: 16px">
+    New to the Web of Things? These beginner-friendly community-based tutorials will help you understand the core
+    concepts behind WoT and get you up to speed quickly. Whether you're a developer, researcher, or just curious, these
+    are the best place to start.
+  </p>
+
+  <div class="row" style="display: flex; flex-wrap: wrap; margin-bottom: 32px">
+    <div class="col-md-4 col-sm-12" style="margin-bottom: 20px">
+      <div class="panel panel-default" style="display: flex; flex-direction: column; height: 100%; margin-bottom: 0">
+        <div class="panel-heading">
+          <h3 class="panel-title">What is WoT?</h3>
+        </div>
+        <div class="panel-body" style="display: flex; flex-direction: column; flex-grow: 1">
+          <p style="margin-bottom: 20px">
+            A gentle introduction to the Web of Things. Learn what WoT is all about, why it matters, and how it connects
+            everyday devices to the Web using open standards.
+          </p>
+          <a
+            href="https://w3c.github.io/wot-cg/tutorials/whatiswot/"
+            class="btn btn-primary"
+            style="margin-top: auto; align-self: flex-start"
+          >
+            Start the Tutorial &raquo;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12" style="margin-bottom: 20px">
+      <div class="panel panel-default" style="display: flex; flex-direction: column; height: 100%; margin-bottom: 0">
+        <div class="panel-heading">
+          <h3 class="panel-title">Thing Description 1.1 Explainer</h3>
+        </div>
+        <div class="panel-body" style="display: flex; flex-direction: column; flex-grow: 1">
+          <p style="margin-bottom: 20px">
+            Understand the Thing Description (TD) — the cornerstone of WoT. This explainer walks you through how TDs
+            describe the capabilities, interfaces, and metadata of connected devices in a machine-readable format.
+          </p>
+          <a
+            href="https://github.com/w3c/wot-thing-description/blob/main/explainer/Explainer11.md"
+            class="btn btn-primary"
+            style="margin-top: auto; align-self: flex-start"
+          >
+            Read the Explainer &raquo;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12" style="margin-bottom: 20px">
+      <div class="panel panel-default" style="display: flex; flex-direction: column; height: 100%; margin-bottom: 0">
+        <div class="panel-heading">
+          <h3 class="panel-title">WoT Discovery Explainer</h3>
+        </div>
+        <div class="panel-body" style="display: flex; flex-direction: column; flex-grow: 1">
+          <p style="margin-bottom: 20px">
+            Learn how devices and services find each other on the Web of Things. This explainer covers the WoT Discovery
+            mechanism, which makes it easy to search for and locate Thing Descriptions across networks.
+          </p>
+          <a
+            href="https://github.com/w3c/wot-discovery/blob/main/explainer/Explainer.md"
+            class="btn btn-primary"
+            style="margin-top: auto; align-self: flex-start"
+          >
+            Read the Explainer &raquo;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <h2>Documentation</h2>
   <p>
     The W3C WoT Working Group publishes and maintains a suite of documents that define the Web of Things. These are
     categorized into normative specifications and informative deliverables. The tables below provide an overview of our
     current deliverables and their publication status.
   </p>
-
   <div class="row center-block">
-    <div class="col-md-12 text-center">
+    <div class="col-md-12" style="padding: 0">
       <h3>Normative Deliverables</h3>
       <!-- <p></p> -->
-      <table style="margin-bottom: 40px; border-radius: 10px; text-align: left" class="table table-bordered">
+      <table style="margin-bottom: 16px; border-radius: 10px; text-align: left" class="table table-bordered">
         <thead>
           <tr>
             <th>Deliverable</th>
@@ -96,7 +167,7 @@ group: 'navigation'
       </table>
     </div>
 
-    <div class="col-md-12 text-center">
+    <div class="col-md-12" style="padding: 0">
       <h3>Informative Deliverables</h3>
       <!-- <p></p> -->
       <table style="margin-bottom: 40px; border-radius: 10px; text-align: left" class="table table-bordered">
@@ -141,44 +212,6 @@ group: 'navigation'
           </tr>
         </tbody>
       </table>
-    </div>
-  </div>
-
-  <div class="row">
-    <p>&nbsp;</p>
-  </div>
-
-  <h3 id="further-reading">Further Reading</h3>
-  <div class="row">
-    <div class="col-md-12">
-      <p>
-        For further reading, please find below a set of links to a variety of additional material including
-        presentations and documents.
-      </p>
-
-      <!--<h4>Social Media</h4>
-			<ul>
-				<li><a href="https://twitter.com/W3C_WoT">Twitter</a></li>
-				<li><a href="#">Youtube ?? LINK ??</a></li>
-				<li><a href="https://twitter.com/W3C_WoT">node-wot Videos</a></li>
-			</ul>-->
-
-      <h4>Introductory Materials (Explainers)</h4>
-      <ul>
-        <li>
-          <a href="https://github.com/w3c/wot-thing-description/blob/main/explainer/Explainer11.md"
-            >Thing Description 1.1</a
-          >
-        </li>
-        <li>
-          <a href="https://github.com/w3c/wot-discovery/blob/main/explainer/Explainer.md">Discovery</a>
-        </li>
-      </ul>
-
-      <h4>Other Material</h4>
-      <ul>
-        <li><a href="https://www.w3.org/2020/10/TPAC/group-updates.html#wot">TPAC 2020 - WoT Summary</a></li>
-      </ul>
     </div>
   </div>
 </div>
