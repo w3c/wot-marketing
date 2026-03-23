@@ -37,6 +37,8 @@ interface ToolOutput {
   name: string;
   description: string;
   languages: string[];
+  // linked to .github/workflows/dev-tools.yml
+  // if changed, update the workflow file
   lastUpdated: string | null;
   license: string | null;
   repoUrl: string | null;
