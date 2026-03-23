@@ -1,0 +1,76 @@
+---
+layout: default
+title: Participate
+group: 'navigation'
+---
+
+<div>
+  <h2>Participate in the W3C Web of Things</h2>
+  <p style="font-size: 1.25em; margin-bottom: 30px">
+    The W3C Web of Things (WoT) is defined and refined by experts worldwide. Get involved by joining the
+    <b>Working Group</b> to drive standards, or the <b>Community Groups</b> to discuss with adopters and incubate ideas.
+  </p>
+
+  <style>
+    .participate-card {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 20px;
+      height: 100%;
+      text-align: center;
+      transition:
+        box-shadow 0.2s ease-in-out,
+        transform 0.2s ease-in-out;
+      background-color: white;
+      color: inherit;
+    }
+
+    .participate-card:hover {
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+      text-decoration: none;
+    }
+
+    .participate-card-link {
+      display: block;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .participate-card-link:hover,
+    .participate-card-link:focus {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
+
+  <div class="row" style="margin-top: 30px; display: flex; flex-wrap: wrap">
+    <!-- Working Group -->
+    <div class="col-md-6" style="margin-bottom: 20px; display: flex">
+      <a href="{{ '/participate/working-group/' | relative_url }}" class="participate-card-link" style="width: 100%">
+        <div class="participate-card" style="padding: 40px">
+          <i class="fas fa-file-signature fa-4x" style="color: #005a9c; margin-bottom: 20px"></i>
+          <h2 style="margin-top: 0">Working Group (WG)</h2>
+          <p style="font-size: 1.2em">
+            The core of the standardization effort. Join the WG to develop normative specifications, create test suites,
+            and coordinate all Task Forces.
+          </p>
+        </div>
+      </a>
+    </div>
+    <!-- Community Groups -->
+    <div class="col-md-6" style="margin-bottom: 20px; display: flex">
+      <a href="{{ '/participate/community-groups/' | absolute_url }}" class="participate-card-link" style="width: 100%">
+        <div class="participate-card" style="padding: 40px">
+          <i class="fas fa-users fa-4x" style="color: #005a9c; margin-bottom: 20px"></i>
+          <h2 style="margin-top: 0">Community Groups (CG)</h2>
+          <p style="font-size: 1.2em">
+            Open forums designed to accelerate adoption, gather use cases, and facilitate focused discussions on
+            specific domains or regions.
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
