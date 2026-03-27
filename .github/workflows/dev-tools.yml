@@ -43,8 +43,19 @@ jobs:
           # which git diff --quiet handles for unstaged/staged differences.
           if ! git diff --quiet; then
             echo "has_diff=true" >> $GITHUB_OUTPUT
+            
+            # Check if only "lastUpdated" lines changed
+            NON_LAST_UPDATED=$(git diff -U0 | grep '^[+-]' | grep -E -v '^(---|\+\+\+)' | grep -v '"lastUpdated":' || true)
+            OTHER_CHANGES=$(git diff --name-status | grep -v '^M' || true)
+            
+            if [ -z "$NON_LAST_UPDATED" ] && [ -z "$OTHER_CHANGES" ]; then
+              echo "only_last_updated=true" >> $GITHUB_OUTPUT
+            else
+              echo "only_last_updated=false" >> $GITHUB_OUTPUT
+            fi
           else
             echo "has_diff=false" >> $GITHUB_OUTPUT
+            echo "only_last_updated=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Create Pull Request if Diff Exists
@@ -70,3 +81,8 @@ jobs:
             --body "The weekly GitHub workflow has detected updates in the developer tools. Please review and approve these changes to ensure they are correct." \
             --label "automated" \
             --base main
+
+          if [ "${{ steps.check_diff.outputs.only_last_updated }}" == "true" ]; then
+            echo "Only lastUpdated fields changed. Auto-merging the PR..."
+            gh pr merge "$BRANCH_NAME" --auto --merge || gh pr merge "$BRANCH_NAME" --merge || gh pr merge "$BRANCH_NAME" --auto --squash || gh pr merge "$BRANCH_NAME" --squash
+          fi
