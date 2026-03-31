@@ -35,15 +35,36 @@ async function fetchMemberOrganizations() {
           });
         }
         participationsLink = participations._links?.next?.href;
-        console.info('Organizations', organizations);
       }
       result[groupLink.title] = organizations.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    const orderedResult: Result = {};
+    const groupOrder = [
+      'Web of Things Working Group',
+      'Web of Things Community Group',
+      'Web Thing Protocol Community Group',
+      'Web of Things Japanese Community Group',
+      'Web of Things Interest Group',
+    ];
+
+    for (const groupName of groupOrder) {
+      if (result[groupName]) {
+        orderedResult[groupName] = result[groupName];
+      }
+    }
+
+    // Add any remaining groups not in the specified order
+    for (const groupName of Object.keys(result).sort()) {
+      if (!orderedResult[groupName]) {
+        orderedResult[groupName] = result[groupName];
+      }
     }
 
     // Save the fetched data in memberOrganizationsOutput.json
     writeFileSync(
       resolve(__dirname, '../docs/_data/generated/memberOrganizationsOutput.json'),
-      JSON.stringify(result, null, 2)
+      JSON.stringify(orderedResult, null, 2)
     );
     console.log('/docs/_data/generated/memberOrganizationsOutput.json successfully generated');
   } catch (error) {
