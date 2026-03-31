@@ -7,64 +7,104 @@ const __dirname = dirname(__filename);
 
 async function fetchMemberOrganizations() {
   console.log('Fetching member organizations...');
-  const res = await fetch('https://api.w3.org/ecosystems/web-of-things/member-organizations');
-
-  if (!res.ok) {
-    throw new Error(`Failed to fetch list: ${res.statusText}`);
-  }
-
-  const data = await res.json();
-
-  if (!data._links || !data._links.affiliations) {
-    throw new Error('Could not find _links.affiliations in response');
-  }
-
-  const affiliations = data._links.affiliations;
-  console.log(`Found ${affiliations.length} affiliations.`);
-
-  const results = [];
-
-  // To avoid hitting API limits or being too slow, we can process them sequentially
-  // or in smaller batches, but since there are ~49, sequential is fine.
-  for (const affiliation of affiliations) {
-    const title = affiliation.title;
-    const href = affiliation.href;
-
-    try {
-      const addRes = await fetch(href);
-      if (!addRes.ok) {
-        console.error(`Failed to fetch additional data for ${title}: ${addRes.statusText}`);
-        continue;
-      }
-
-      const addData = await addRes.json();
-
-      // According to API structure _links.homepage usually has an href
-      // Or it might just be a string if the prompt meant that, but we'll try to extract .href
-      let homePage = null;
-      if (addData._links && addData._links.homepage) {
-        homePage = addData._links.homepage.href || addData._links.homepage;
-      }
-
-      results.push({
-        title,
-        homePage,
-      });
-    } catch (e) {
-      console.error(`Error fetching additional data for ${title}:`, e);
-    }
-  }
-
-  // Save the fetched data in memberOrganizationsOutput.json
   try {
+    const res = await fetch('https://api.w3.org/ecosystems/web-of-things/groups');
+
+    const groups = (await res.json()) as Groups;
+
+    const result: Result = {};
+
+    for (const groupLink of groups._links.groups) {
+      const groupRes = await fetch(groupLink.href);
+      const group = (await groupRes.json()) as Group;
+      let participationsLink: string | undefined = group._links.participations.href;
+      const organizations: OrganizationData[] = [];
+      while (participationsLink) {
+        const participationsLinkRes = await fetch(participationsLink);
+        const participations = (await participationsLinkRes.json()) as Participations;
+
+        for (const participantLink of participations._links.participations) {
+          const participantRes = await fetch(participantLink.href);
+          const participant = (await participantRes.json()) as Participant;
+          if (participant.individual || !participant._links.organization) continue;
+          const organizationRes = await fetch(participant._links.organization.href);
+          const organization = (await organizationRes.json()) as Organization;
+          organizations.push({
+            title: organization.name,
+            homepage: organization._links.homepage?.href ?? null,
+          });
+        }
+        participationsLink = participations._links?.next?.href;
+        console.info('Organizations', organizations);
+      }
+      result[groupLink.title] = organizations.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    // Save the fetched data in memberOrganizationsOutput.json
     writeFileSync(
       resolve(__dirname, '../docs/_data/generated/memberOrganizationsOutput.json'),
-      JSON.stringify(results, null, 2)
+      JSON.stringify(result, null, 2)
     );
     console.log('/docs/_data/generated/memberOrganizationsOutput.json successfully generated');
   } catch (error) {
-    console.error('Could not save the output file:', error);
+    console.error('Could not fetch member organizations:', error);
   }
 }
 
-fetchMemberOrganizations().catch(console.error);
+fetchMemberOrganizations();
+
+interface Result {
+  [group: string]: OrganizationData[];
+}
+interface OrganizationData {
+  title: string;
+  homepage: string | null;
+}
+interface Groups {
+  _links: {
+    groups: {
+      href: string;
+      title: string;
+    }[];
+  };
+}
+interface Group {
+  _links: {
+    participations: {
+      href: string;
+    };
+  };
+  type: 'community group';
+}
+interface Participations {
+  _links: {
+    participations: {
+      href: string;
+    }[];
+    next:
+      | {
+          href: string;
+        }
+      | undefined;
+  };
+}
+interface Participant {
+  individual: boolean;
+  _links: {
+    organization:
+      | {
+          href: string;
+        }
+      | undefined;
+  };
+}
+interface Organization {
+  name: string;
+  _links: {
+    homepage:
+      | {
+          href: string;
+        }
+      | undefined;
+  };
+}
