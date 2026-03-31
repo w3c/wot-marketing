@@ -17,7 +17,7 @@ title: Home
 
   .hero-section > p {
     font-size: 18px;
-    line-height: 1.7;
+    line-height: 1.6;
     color: #444;
     max-width: 860px;
   }
@@ -37,7 +37,7 @@ title: Home
 
   .section-block p {
     font-size: 16px;
-    line-height: 1.75;
+    line-height: 1.6;
     color: #333;
   }
 
@@ -89,7 +89,7 @@ title: Home
   .learn-more {
     display: inline-block;
     margin-top: 8px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
   }
 
@@ -207,7 +207,8 @@ title: Home
     margin: 0;
     padding: 0;
     border: none;
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 600;
   }
 
   .close-modal {
@@ -224,9 +225,42 @@ title: Home
     color: #1a1a2e;
   }
 
-  .members-grid {
+  .members-container {
     padding: 24px;
     overflow-y: auto;
+  }
+
+  .member-group {
+    margin-bottom: 32px;
+  }
+
+  .member-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .member-group-title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #005a9c;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .member-group-count {
+    background: #f0f4f8;
+    color: #005a9c;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .members-grid {
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -267,6 +301,7 @@ title: Home
     margin-top: 0;
     margin-bottom: 8px;
     font-size: 18px;
+    font-weight: 600;
     line-height: 1.4;
   }
 
@@ -376,36 +411,90 @@ title: Home
 
 <!-- Member Organizations -->
 <div class="section-block" id="member-organizations">
-  {% assign members = site.data.generated.memberOrganizationsOutput %}
+  {% assign grouped_members = site.data.generated.memberOrganizationsOutput %} {% assign total_members = 0 %} {% for
+  group in grouped_members %} {% assign group_size = group[1] | size %} {% assign total_members = total_members | plus:
+  group_size %} {% endfor %}
   <h3>Members</h3>
-  <p style="margin-bottom: 20px">
-    {{ members | size }} W3C member organizations are involved in the Web of Things ecosystem
+  <p style="margin-top: -8px; margin-bottom: 32px">
+    Many W3C member organizations are involved in the Web of Things ecosystem across various groups. Click on any group
+    below to explore its active members.
   </p>
 
-  <button class="btn btn-default" onclick="openMembersModal()" style="padding: 8px 16px; font-weight: 500">
-    Show all members
-  </button>
+  <style>
+    .group-summary-card {
+      background: #fff;
+      border: 1px solid #dbe7f0;
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .group-summary-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+      border-color: #005a9c;
+    }
+  </style>
+
+  <div
+    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px"
+  >
+    {% for group in grouped_members %}
+    <div
+      class="group-summary-card"
+      onclick="openGroupModal(this.getAttribute('data-group-name'), this.getAttribute('data-group-size'))"
+      data-group-name="{{ group[0] | escape }}"
+      data-group-size="{{ group[1] | size }}"
+    >
+      <div style="font-size: 32px; font-weight: 700; color: #005a9c; line-height: 1; margin-bottom: 12px">
+        {{ group[1] | size }}
+      </div>
+      <div style="color: #444; font-size: 16px; font-weight: 600; line-height: 1.3">{{ group[0] }}</div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 
 <!-- Modal -->
 <div id="membersModal" class="modal-overlay" onclick="handleModalClick(event)">
   <div class="modal-content">
     <div class="modal-header">
-      <h3>All Member Organizations ({{ members | size }})</h3>
+      <h3 id="modalTitle">Member Organizations</h3>
       <button class="close-modal" onclick="closeMembersModal()">&times;</button>
     </div>
-    <div class="members-grid">
-      {% for member in members %}
-      <a href="{{ member.homePage }}" class="member-card" target="_blank" rel="noopener noreferrer">
-        <div class="member-card-title">{{ member.title }}</div>
-      </a>
+    <div class="members-container">
+      {% for group in grouped_members %}
+      <div class="member-group" data-group-name="{{ group[0] | escape }}">
+        <div class="members-grid">
+          {% for member in group[1] %} {% if member.homepage %}
+          <a href="{{ member.homepage }}" class="member-card" target="_blank" rel="noopener noreferrer">
+            <div class="member-card-title">{{ member.title }}</div>
+          </a>
+          {% else %}
+          <div class="member-card" style="cursor: default" title="No website available">
+            <div class="member-card-title">{{ member.title }}</div>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+      </div>
       {% endfor %}
     </div>
   </div>
 </div>
 
 <script>
-  function openMembersModal() {
+  function openGroupModal(groupName, count) {
+    const groups = document.querySelectorAll('.member-group');
+    groups.forEach((g) => {
+      if (g.getAttribute('data-group-name') === groupName) {
+        g.style.display = 'block';
+      } else {
+        g.style.display = 'none';
+      }
+    });
+
+    document.getElementById('modalTitle').textContent = groupName + ' (' + count + ')';
     document.getElementById('membersModal').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -432,7 +521,7 @@ title: Home
       By joining, you drive W3C standards that shape future device integration and build a cohesive connected ecosystem.
     </p>
 
-    <h4 id="our-values" style="font-size: 20px; font-weight: 500; margin-top: 30px; margin-bottom: 15px">
+    <h4 id="our-values" style="font-size: 20px; font-weight: 600; margin-top: 30px; margin-bottom: 15px">
       Building the Web of Things for all ecosystems
     </h4>
     <p>
@@ -465,7 +554,9 @@ title: Home
   <div class="activities-grid">
     <!-- Latest Articles -->
     <div class="activities-col">
-      <h4 style="margin-top: 0; margin-bottom: 16px; font-size: 20px; color: #1a1a2e">Latest Articles</h4>
+      <h4 style="margin-top: 0; margin-bottom: 16px; font-size: 20px; font-weight: 600; color: #1a1a2e">
+        Latest Articles
+      </h4>
       <div class="articles-list">
         {% for article in site.data.articles limit:3 %}
         <div class="article-item">
@@ -485,7 +576,9 @@ title: Home
 
     <!-- Latest Events -->
     <div class="activities-col">
-      <h4 style="margin-top: 0; margin-bottom: 16px; font-size: 20px; color: #1a1a2e">Latest Events</h4>
+      <h4 style="margin-top: 0; margin-bottom: 16px; font-size: 20px; font-weight: 600; color: #1a1a2e">
+        Latest Events
+      </h4>
       <div class="articles-list">
         {% for event in site.data.events limit:3 %}
         <div class="article-item">
@@ -512,7 +605,7 @@ title: Home
   <div class="mastodon-section" style="margin-top: 40px">
     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px">
       <img height="24px" alt="Mastodon" src="https://www.cdnlogo.com/logos/m/33/mastodon.svg" />
-      <h4 style="margin: 0; font-size: 20px; color: #1a1a2e">Latest on Mastodon</h4>
+      <h4 style="margin: 0; font-size: 20px; font-weight: 600; color: #1a1a2e">Latest on Mastodon</h4>
     </div>
     <div
       class="mastodon-scroll"
