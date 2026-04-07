@@ -281,6 +281,7 @@ title: Home
   }
 
   .article-item {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 16px;
@@ -303,6 +304,9 @@ title: Home
     font-size: 18px;
     font-weight: 600;
     line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .article-item h4 a {
@@ -315,10 +319,34 @@ title: Home
     color: #005a9c !important;
   }
 
+  .article-item h4 a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
   .article-meta {
     margin-top: auto;
     font-size: 14px;
     color: #666;
+  }
+
+  .badge-upcoming {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    background: #0074c1;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
   }
 
   .activities-grid {
@@ -580,12 +608,15 @@ title: Home
         Latest Events
       </h4>
       <div class="articles-list">
-        {% for event in site.data.events limit:3 %}
+        {% assign today = site.time | date: '%Y-%m-%d' %} {% for event in site.data.events limit:3 %}
         <div class="article-item">
           <h4>
             <a href="{{ event.url }}" target="_blank" rel="noopener noreferrer">
               {% if event.cancelled %}<del>{% endif %} {{ event.name }} {% if event.cancelled %}</del>{% endif %}
             </a>
+            {% if event.date >= today and event.cancelled != true %}
+            <span class="badge-upcoming">Upcoming</span>
+            {% endif %}
           </h4>
           <div class="article-meta">
             <strong>{{ event.date_display }}</strong>
