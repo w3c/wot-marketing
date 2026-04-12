@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-03-30T16:35:07Z",
+          "lastUpdated": "2026-04-11T11:07:23Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -22,7 +22,7 @@
           "description": "Eclipse ediTDor - A tool for simply designing W3C Thing Descriptions",
           "repoUrl": "https://github.com/eclipse-editdor/editdor",
           "languages": [],
-          "lastUpdated": "2026-03-28T21:14:00Z",
+          "lastUpdated": "2026-04-10T15:54:58Z",
           "homepageUrl": "https://eclipse-editdor.github.io/editdor/",
           "platforms": [
             "Browser"
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-04-04T15:44:33Z",
+          "lastUpdated": "2026-04-10T08:12:31Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-03-26T07:16:29Z",
+          "lastUpdated": "2026-04-10T08:56:10Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-04-04T15:44:33Z",
+          "lastUpdated": "2026-04-10T08:12:31Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -201,7 +201,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2025-11-19T13:11:04Z",
+          "lastUpdated": "2026-04-10T20:09:44Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
@@ -221,7 +221,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-03-26T07:16:29Z",
+          "lastUpdated": "2026-04-10T08:56:10Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -311,7 +311,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2025-11-19T13:11:04Z",
+          "lastUpdated": "2026-04-10T20:09:44Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
@@ -428,7 +428,7 @@
           "description": "A CLI Client for ThingModel Catalogs",
           "repoUrl": "https://github.com/wot-oss/tmc",
           "languages": [],
-          "lastUpdated": "2026-03-17T12:39:07Z",
+          "lastUpdated": "2026-04-08T12:29:19Z",
           "homepageUrl": "https://wot-oss.github.io/tmc/",
           "platforms": [
             "CLI"
@@ -525,7 +525,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-04-03T12:05:23Z",
+          "lastUpdated": "2026-04-09T10:33:19Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
