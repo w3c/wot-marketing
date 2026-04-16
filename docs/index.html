@@ -4,118 +4,43 @@ title: Home
 ---
 
 <style>
-  .section-block {
-    margin-bottom: 48px;
-  }
-
-  .section-block h3 {
+  section h3 {
     font-size: 24px;
     font-weight: 600;
-    color: #005a9c;
+    color: var(--primary-color);
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid #dbe7f0;
   }
 
-  .section-block p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
+  section p {
+    line-height: 1.5;
   }
 
-  .section-block a {
-    color: #005a9c;
-    font-weight: 500;
-  }
-
-  .section-block a:hover {
-    color: #003d6b;
-    text-decoration: underline;
-  }
-
-  .section-block .img-responsive {
+  section .img-responsive {
     width: 100%;
     height: auto;
     border-radius: 6px;
-  }
-
-  .section-block .logo-img {
-    max-height: 150px;
   }
 
   .content-pair {
     display: flex;
     align-items: flex-start;
     gap: 32px;
-    margin-bottom: 24px;
   }
 
-  .content-pair .text-col {
+  .content-pair > div {
     flex: 1;
     min-width: 0;
   }
 
-  .content-pair .img-col {
-    flex: 1;
-    min-width: 0;
+  .group-summary-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
   }
 
-  .content-pair.reverse {
-    flex-direction: row-reverse;
-  }
-
-  .full-width-text {
-    margin-bottom: 24px;
-  }
-
-  .learn-more {
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 16px;
-    font-weight: 500;
-  }
-
-  @media (max-width: 767px) {
-    .content-pair {
-      flex-direction: column;
-    }
-
-    .content-pair.reverse {
-      flex-direction: column;
-    }
-
-    .hero-section h2 {
-      font-size: 26px;
-    }
-
-    .members-preview {
-      /* Show only top 4 cards on mobile */
-      grid-template-columns: 1fr 1fr;
-    }
-    .members-preview .member-card:nth-child(n + 5) {
-      display: none;
-    }
-  }
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .members-preview {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .members-preview .member-card:nth-child(n + 7) {
-      display: none;
-    }
-  }
-  @media (min-width: 1024px) {
-    .members-preview {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .members-preview {
-    display: grid;
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-
+  /* Members Modal */
   .member-card {
     display: flex;
     align-items: center;
@@ -135,8 +60,39 @@ title: Home
   .member-card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
-    color: #005a9c;
-    border-color: #005a9c;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  .members-container {
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  .member-group-title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .member-group-count {
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .members-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
   .modal-overlay {
@@ -207,47 +163,6 @@ title: Home
     color: #1a1a2e;
   }
 
-  .members-container {
-    padding: 24px;
-    overflow-y: auto;
-  }
-
-  .member-group {
-    margin-bottom: 32px;
-  }
-
-  .member-group:last-child {
-    margin-bottom: 0;
-  }
-
-  .member-group-title {
-    margin-top: 0;
-    margin-bottom: 16px;
-    font-size: 20px;
-    font-weight: 600;
-    color: #005a9c;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .member-group-count {
-    background: #f0f4f8;
-    color: #005a9c;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .members-grid {
-    display: grid;
-    gap: 16px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-
   .activities-col {
     display: flex;
     flex-direction: column;
@@ -270,21 +185,19 @@ title: Home
     background: #fff;
     border: 1px solid #dbe7f0;
     border-radius: 8px;
-    transition: all 0.2s ease;
     height: 100%;
   }
 
   .article-item:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-    border-color: #005a9c;
+    border-color: var(--primary-color);
   }
 
   .article-item h4 {
     margin-top: 0;
     margin-bottom: 8px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.4;
     display: flex;
     align-items: center;
@@ -298,7 +211,7 @@ title: Home
   }
 
   .article-item:hover h4 a {
-    color: #005a9c !important;
+    color: var(--primary-color) !important;
   }
 
   .article-item h4 a::after {
@@ -321,7 +234,7 @@ title: Home
     display: inline-flex;
     align-items: center;
     padding: 2px 8px;
-    background: #0074c1;
+    background: var(--primary-color);
     color: white;
     font-size: 10px;
     font-weight: 700;
@@ -338,12 +251,6 @@ title: Home
     margin-bottom: 20px;
   }
 
-  @media (max-width: 767px) {
-    .activities-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
   .toots {
     max-width: none;
     width: 100%;
@@ -357,6 +264,15 @@ title: Home
     object-fit: contain;
     width: auto;
   }
+
+  @media (max-width: 767px) {
+    .content-pair {
+      flex-direction: column;
+    }
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 
 <div class="hero-section">
@@ -368,11 +284,11 @@ title: Home
 </div>
 
 <!-- In a Nutshell -->
-<div class="section-block" id="web-of-things-in-a-nutshell">
+<section class="section-block">
   <h3>WoT in a Nutshell</h3>
 
   <div class="content-pair">
-    <div class="text-col">
+    <div>
       <p>
         In typical IoT projects, developers face a fragmented landscape of proprietary systems, incompatible
         communication protocols, differing data models, and varying security requirements. Applications built this way
@@ -385,7 +301,7 @@ title: Home
         by IoT fragmentation.
       </p>
     </div>
-    <div class="img-col">
+    <div>
       <img
         src="{{'images/iot-projects.png' | relative_url }}"
         class="img-responsive"
@@ -393,10 +309,10 @@ title: Home
       />
     </div>
   </div>
-</div>
+</section>
 
 <!-- Use Cases -->
-<div class="section-block" id="use-cases">
+<section class="section-block">
   <h3>Use Cases</h3>
 
   <div class="content-pair">
@@ -417,35 +333,18 @@ title: Home
       />
     </div>
   </div>
-</div>
+</section>
 
 <!-- Member Organizations -->
-<div class="section-block" id="member-organizations">
+<section class="section-block">
   {% assign grouped_members = site.data.generated.memberOrganizationsOutput %} {% assign total_members = 0 %} {% for
   group in grouped_members %} {% assign group_size = group[1] | size %} {% assign total_members = total_members | plus:
   group_size %} {% endfor %}
   <h3>Members</h3>
-  <p style="margin-top: -8px; margin-bottom: 32px">
+  <p style="margin-bottom: 16px">
     Many W3C member organizations are involved in the Web of Things ecosystem across various groups. Click on any group
     below to explore its active members.
   </p>
-
-  <style>
-    .group-summary-card {
-      background: #fff;
-      border: 1px solid #dbe7f0;
-      padding: 16px;
-      border-radius: 8px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .group-summary-card:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transform: translateY(-2px);
-      border-color: #005a9c;
-    }
-  </style>
 
   <div
     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px"
@@ -456,6 +355,15 @@ title: Home
       onclick="openGroupModal(this.getAttribute('data-group-name'), this.getAttribute('data-group-size'))"
       data-group-name="{{ group[0] | escape }}"
       data-group-size="{{ group[1] | size }}"
+      style="
+        background: #fff;
+        border: 1px solid #dbe7f0;
+        padding: 16px;
+        border-radius: 8px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      "
     >
       <div style="font-size: 32px; font-weight: 700; color: #005a9c; line-height: 1; margin-bottom: 12px">
         {{ group[1] | size }}
@@ -464,7 +372,7 @@ title: Home
     </div>
     {% endfor %}
   </div>
-</div>
+</section>
 
 <!-- Modal -->
 <div id="membersModal" class="modal-overlay" onclick="handleModalClick(event)">
@@ -493,36 +401,8 @@ title: Home
   </div>
 </div>
 
-<script>
-  function openGroupModal(groupName, count) {
-    const groups = document.querySelectorAll('.member-group');
-    groups.forEach((g) => {
-      if (g.getAttribute('data-group-name') === groupName) {
-        g.style.display = 'block';
-      } else {
-        g.style.display = 'none';
-      }
-    });
-
-    document.getElementById('modalTitle').textContent = groupName + ' (' + count + ')';
-    document.getElementById('membersModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMembersModal() {
-    document.getElementById('membersModal').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  function handleModalClick(event) {
-    if (event.target === document.getElementById('membersModal')) {
-      closeMembersModal();
-    }
-  }
-</script>
-
 <!-- Why Join -->
-<div class="section-block" id="why-join">
+<section>
   <h3>Why join?</h3>
   <div class="full-width-text">
     <p>
@@ -548,10 +428,10 @@ title: Home
       </a>
     </div>
   </div>
-</div>
+</section>
 
 <!-- Recent Activities -->
-<div class="section-block" id="recent-activities">
+<section>
   <h3>Recent Activities</h3>
   <div class="activities-grid">
     <!-- Latest Articles -->
@@ -626,4 +506,32 @@ title: Home
       <a class="mastodon-feed" href="https://w3c.social/@wot" data-toot-limit="20">WoT in Mastodon</a>
     </div>
   </div>
-</div>
+</section>
+
+<script>
+  function openGroupModal(groupName, count) {
+    const groups = document.querySelectorAll('.member-group');
+    groups.forEach((g) => {
+      if (g.getAttribute('data-group-name') === groupName) {
+        g.style.display = 'block';
+      } else {
+        g.style.display = 'none';
+      }
+    });
+
+    document.getElementById('modalTitle').textContent = groupName + ' (' + count + ')';
+    document.getElementById('membersModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMembersModal() {
+    document.getElementById('membersModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function handleModalClick(event) {
+    if (event.target === document.getElementById('membersModal')) {
+      closeMembersModal();
+    }
+  }
+</script>

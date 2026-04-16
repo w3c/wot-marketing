@@ -1,8 +1,20 @@
+:root {
+  --primary-color: #005a9c;
+}
+
+p {
+  font-size: 16px;
+}
+section {
+  margin-bottom: 36px;
+}
+.hero-section {
+  margin-bottom: 24px;
+}
 .page-title {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 20px;
 }
 .page-description {
   font-size: 18px;
