@@ -5,8 +5,11 @@ group: 'navigation'
 ---
 
 <div>
-  {% include breadcrumbs.html %}
-  <h2>W3C WoT – Web Conference Meetings</h2>
+  <div class="hero-section">
+    {% include breadcrumbs.html %}
+    <h2 class="hero-title">W3C WoT &ndash; Web Conference Meetings</h2>
+    <p class="hero-description">We have grouped our weekly meetings in the table below. We also recommend you to use <a rel="nofollow" class="external text" href="https://www.w3.org/groups/ig/wot/calendar">the W3C calendar system</a> in order to download ICS files for all our meetings.</p>
+  </div>
 
   <script>
     function updateTimezone() {
@@ -33,11 +36,6 @@ group: 'navigation'
   <!-- <div class="alert alert-warning" role="alert">
       Note: Most calls during August, due to summer vacations, will be <a href="https://www.w3.org/WoT/IG/wiki/Main_WoT_WebConf#Cancellations">cancelled</a>.
     </div>-->
-  <p>
-    We have grouped our weekly meetings in the table below. We also recommend you to use
-    <a rel="nofollow" class="external text" href="https://www.w3.org/groups/ig/wot/calendar">the W3C calendar system</a>
-    in order to download ICS files for all our meetings.
-  </p>
   <p>
     Select Timezone:
     <select id="timezoneSelect" class="browser-default custom-select" onchange="updateTimezone()">

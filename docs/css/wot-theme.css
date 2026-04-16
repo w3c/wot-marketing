@@ -11,14 +11,13 @@ section {
 .hero-section {
   margin-bottom: 24px;
 }
-.page-title {
+.hero-title {
   font-size: 32px;
   font-weight: bold;
   color: #333;
 }
-.page-description {
-  font-size: 18px;
-  line-height: 1.6;
+.hero-description {
+  font-size: 16px;
   color: #444;
   max-width: 860px;
 }
