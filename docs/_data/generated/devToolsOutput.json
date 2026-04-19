@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-04-11T11:07:23Z",
+          "lastUpdated": "2026-04-15T16:17:53Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-04-10T08:12:31Z",
+          "lastUpdated": "2026-04-17T10:00:01Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-04-10T08:12:31Z",
+          "lastUpdated": "2026-04-17T10:00:01Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -296,7 +296,7 @@
           "languages": [
             "C#"
           ],
-          "lastUpdated": "2026-03-12T14:51:35Z",
+          "lastUpdated": "2026-04-15T19:35:12Z",
           "homepageUrl": "https://tum-esi.github.io/WoT.Net/",
           "platforms": [
             "Library"
@@ -343,7 +343,7 @@
           "description": "This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.",
           "repoUrl": "https://github.com/oeg-upm/wot-hive",
           "languages": [],
-          "lastUpdated": "2025-10-29T06:47:38Z",
+          "lastUpdated": "2026-04-13T09:23:10Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -356,7 +356,7 @@
           "description": "Semantic storage for device metadata based on W3C Thing Description information model",
           "repoUrl": "https://github.com/eclipse-thingweb/domus-tdd-api",
           "languages": [],
-          "lastUpdated": "2026-03-31T08:29:49Z",
+          "lastUpdated": "2026-04-15T12:24:18Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Service"
@@ -525,7 +525,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-04-09T10:33:19Z",
+          "lastUpdated": "2026-04-17T08:19:26Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -539,7 +539,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-04-01T17:49:30Z",
+          "lastUpdated": "2026-04-18T11:01:06Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -552,7 +552,7 @@
           "description": "VO-WoT is an experimental implementation of a W3C WoT Runtime and the W3C WoT Scripting API in Python.",
           "repoUrl": "https://gitlab.eclipse.org/eclipse-research-labs/nephele-project/vo-wot",
           "languages": [],
-          "lastUpdated": "2026-03-19T12:54:00.573Z",
+          "lastUpdated": "2026-04-17T12:47:01.608Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -630,7 +630,7 @@
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [],
-          "lastUpdated": "2026-04-01T08:26:34Z",
+          "lastUpdated": "2026-04-16T18:07:49Z",
           "homepageUrl": null,
           "platforms": [
             "Application"
