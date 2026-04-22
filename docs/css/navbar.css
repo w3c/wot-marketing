@@ -21,7 +21,7 @@ body {
 }
 
 .page-footer {
-  background-color: rgb(0, 90, 156);
+  background-color: var(--primary-color);
   /* padding-bottom: 10px; */
   padding: 5px;
   margin-bottom: 10px;
@@ -46,7 +46,7 @@ body {
 /* https://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0 */
 
 .navbar-default {
-  background-color: #005a9c;
+  background-color: var(--primary-color);
   border-color: #ffffff;
 }
 .navbar-default .navbar-brand {

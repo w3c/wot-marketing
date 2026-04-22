@@ -5,6 +5,12 @@ group: 'navigation'
 ---
 
 <style>
+  td p {
+    font-size: 14px;
+  }
+  tr td:first-child {
+    width: 260px;
+  }
   .obsolete-tool {
     background-color: #f2f2f2;
   }
@@ -54,15 +60,16 @@ group: 'navigation'
   }
 </style>
 <div>
-  <h2>Developer Resources</h2>
-  <p>
-    There are various resources available to build Web of Things applications. These are libraries, ready-to-use
-    software, services or SDKs, which can be used in different stages of development or for development needs and are
-    grouped below.
-  </p>
+  <div class="hero-section">
+    <h2 class="hero-title">Developer Resources</h2>
+    <p class="hero-description">
+      Various resources for building Web of Things applications, including libraries, ready-to-use software, services,
+      and SDKs tailored for different development stages, are grouped below
+    </p>
+  </div>
 
   <!-- Filter Buttons -->
-  <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px; margin-top: 16px">
+  <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px">
     <!-- Category Filters -->
     <div style="display: flex; align-items: baseline; gap: 12px">
       <strong style="font-size: 14px; min-width: 70px">Category</strong>
