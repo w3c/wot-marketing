@@ -15,6 +15,9 @@ async function fetchMemberOrganizations() {
     const result: Result = {};
 
     for (const groupLink of groups._links.groups) {
+      // Skip Web of Things Interest Group
+      if (groupLink.href === 'https://api.w3.org/groups/ig/wot') continue;
+
       const groupRes = await fetch(groupLink.href);
       const group = (await groupRes.json()) as Group;
       let participationsLink: string | undefined = group._links.participations.href;
@@ -45,7 +48,6 @@ async function fetchMemberOrganizations() {
       'Web of Things Community Group',
       'Web Thing Protocol Community Group',
       'Web of Things Japanese Community Group',
-      'Web of Things Interest Group',
     ];
 
     for (const groupName of groupOrder) {
