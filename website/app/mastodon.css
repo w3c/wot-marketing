@@ -1,0 +1,34 @@
+@import url('https://esm.sh/emfed@1/toots.css');
+
+.toots {
+  max-width: none;
+  width: 100%;
+}
+.toot {
+  box-sizing: content-box;
+  display: flow-root;
+}
+.toot .boost::before {
+  transform: translateY(-6px);
+}
+.toot .body {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+.toot:has(.attachment) .body {
+  width: 68%;
+  padding-right: 2%;
+  float: left;
+}
+.toot .attachment {
+  aspect-ratio: unset;
+  max-height: 200px;
+  float: right;
+  width: 30%;
+}
+.toot .attachment img {
+  object-fit: contain;
+  object-position: right top;
+  margin-top: 20px;
+}
