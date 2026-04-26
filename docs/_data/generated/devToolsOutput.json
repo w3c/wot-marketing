@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-04-17T10:00:01Z",
+          "lastUpdated": "2026-04-24T10:52:48Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-04-10T08:56:10Z",
+          "lastUpdated": "2026-04-22T15:12:36Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-04-17T10:00:01Z",
+          "lastUpdated": "2026-04-24T10:52:48Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -221,7 +221,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-04-10T08:56:10Z",
+          "lastUpdated": "2026-04-22T15:12:36Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -428,7 +428,7 @@
           "description": "A CLI Client for ThingModel Catalogs",
           "repoUrl": "https://github.com/wot-oss/tmc",
           "languages": [],
-          "lastUpdated": "2026-04-08T12:29:19Z",
+          "lastUpdated": "2026-04-20T13:05:55Z",
           "homepageUrl": "https://wot-oss.github.io/tmc/",
           "platforms": [
             "CLI"
@@ -525,7 +525,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-04-17T08:19:26Z",
+          "lastUpdated": "2026-04-25T23:33:24Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -539,7 +539,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-04-18T11:01:06Z",
+          "lastUpdated": "2026-04-22T10:20:33Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -630,7 +630,7 @@
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [],
-          "lastUpdated": "2026-04-16T18:07:49Z",
+          "lastUpdated": "2026-04-21T08:29:46Z",
           "homepageUrl": null,
           "platforms": [
             "Application"
