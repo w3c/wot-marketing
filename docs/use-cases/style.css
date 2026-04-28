@@ -121,6 +121,19 @@
   line-height: 1.5;
 }
 
+/* Subsection Titles */
+.subsection-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 16px 0;
+}
+
+/* Domain Card Accent */
+.domain-card {
+  border-top: 3px solid var(--primary-color);
+}
+
 /* Testimonials */
 .testimonials-intro {
   margin-bottom: 24px;
