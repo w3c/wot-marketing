@@ -4,20 +4,6 @@ title: Home
 ---
 
 <style>
-  section h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    margin-top: 0;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #dbe7f0;
-  }
-
-  section p {
-    line-height: 1.5;
-  }
-
   section .img-responsive {
     width: 100%;
     height: auto;
@@ -317,31 +303,29 @@ title: Home
   <section class="section-block">
     <h3>Use Cases</h3>
 
-  <div class="content-pair">
-    <div class="text-col">
-      <p>
-        The Web of Things technologies apply to a variety of domains and unlock use cases. Whether it be industrial
-        automation, smart home, infrastructure or agentic systems, you can use WoT for your solution. Find out below how
-        the properties, actions, events abstraction over multitude of protocols and domains work.
-      </p>
-      <a
-        href="https://w3c.github.io/wot-usecases/#dfn-wot-use-case"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn btn-default"
-        style="font-weight: 500; margin-top: 8px; text-decoration: none !important"
-      >
-        Explore WoT use cases <i class="fas fa-external-link-alt" style="margin-left: 6px"></i>
-      </a>
+    <div class="content-pair">
+      <div class="text-col">
+        <p>
+          The Web of Things technologies apply to a variety of domains and unlock use cases. Whether it be industrial
+          automation, smart home, infrastructure or agentic systems, you can use WoT for your solution. Find out below
+          how the properties, actions, events abstraction over multitude of protocols and domains work.
+        </p>
+        <a
+          href="{{ '/use-cases' | absolute_url }}"
+          class="btn btn-default"
+          style="font-weight: 500; margin-top: 8px; text-decoration: none !important"
+        >
+          Explore WoT use cases
+        </a>
+      </div>
+      <div class="img-col">
+        <img
+          src="{{'images/wot-use-cases.png' | relative_url }}"
+          class="img-responsive"
+          alt="WoT interaction model: Properties, Actions, and Events"
+        />
+      </div>
     </div>
-    <div class="img-col">
-      <img
-        src="{{'images/wot-use-cases.png' | relative_url }}"
-        class="img-responsive"
-        alt="WoT interaction model: Properties, Actions, and Events"
-      />
-    </div>
-  </div>
   </section>
 
   <!-- Member Organizations -->
