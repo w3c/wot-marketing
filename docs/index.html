@@ -50,6 +50,13 @@ title: Home
     color: var(--primary-color);
     border-color: var(--primary-color);
   }
+
+  .member-card--static:hover {
+    box-shadow: none;
+    transform: none;
+    color: #1a1a2e !important;
+    border-color: var(--primary-color);
+  }
   .members-container {
     padding: 24px;
     overflow-y: auto;
@@ -469,12 +476,12 @@ title: Home
       >
         Industry 4.0
       </a>
-      <a href="http://www.iso.org/iso/jtc1_home.html" class="member-card" target="_blank" rel="noopener noreferrer">
+      <div class="member-card member-card--static" style="cursor: default;">
         ISO/IEC JTC 1/SC 41
-      </a>
-      <a href="http://www.itu.int/net/about/itu-t.aspx" target="_blank" rel="noopener noreferrer" class="member-card">
+      </div>
+      <div class="member-card member-card--static" style="cursor: default;">
         ITU-T
-      </a>
+      </div>
       <a
         href="https://www.itu.int/en/ITU-T/studygroups/2017-2020/20/Pages/default.aspx"
         target="_blank"
