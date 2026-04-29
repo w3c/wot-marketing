@@ -4,6 +4,18 @@ title: About
 ---
 
 <style>
+  .about-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    grid-auto-rows: 1fr;
+  }
+  @media (min-width: 768px) {
+    .about-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
   .about-card {
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -15,6 +27,9 @@ title: About
       transform 0.2s ease-in-out;
     background-color: white;
     color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .about-card:hover {
@@ -44,32 +59,26 @@ title: About
   </p>
 </div>
 
-<div class="row">
-  <div class="col-md-4" style="margin-bottom: 20px">
-    <a href="contact/" class="about-card-link">
-      <div class="about-card">
-        <i class="fas fa-envelope fa-3x" style="color: #005a9c; margin-bottom: 15px"></i>
-        <h3 style="margin-top: 0">Contact</h3>
-        <p>Find out how to get in touch with us</p>
-      </div>
-    </a>
-  </div>
-  <div class="col-md-4" style="margin-bottom: 20px">
-    <a href="history/" class="about-card-link">
-      <div class="about-card">
-        <i class="fas fa-landmark fa-3x" style="color: #005a9c; margin-bottom: 15px"></i>
-        <h3 style="margin-top: 0">History</h3>
-        <p>Timeline of the development of WoT at the W3C</p>
-      </div>
-    </a>
-  </div>
-  <div class="col-md-4" style="margin-bottom: 20px">
-    <a href="articles/" class="about-card-link">
-      <div class="about-card">
-        <i class="fas fa-newspaper fa-3x" style="color: #005a9c; margin-bottom: 15px"></i>
-        <h3 style="margin-top: 0">Articles</h3>
-        <p>Articles on the web about the W3C Web of Things</p>
-      </div>
-    </a>
-  </div>
+<div class="about-cards-grid">
+  <a href="contact/" class="about-card-link">
+    <div class="about-card">
+      <i class="fas fa-envelope fa-3x" style="color: #005a9c; margin-bottom: 15px"></i>
+      <h3 style="margin-top: 0">Contact</h3>
+      <p>Find out how to get in touch with us</p>
+    </div>
+  </a>
+  <a href="history/" class="about-card-link">
+    <div class="about-card">
+      <i class="fas fa-landmark fa-3x" style="color: #005a9c; margin-bottom: 15px"></i>
+      <h3 style="margin-top: 0">History</h3>
+      <p>Timeline of the development of WoT at the W3C</p>
+    </div>
+  </a>
+  <a href="articles/" class="about-card-link">
+    <div class="about-card">
+      <i class="fas fa-newspaper fa-3x" style="color: #005a9c; margin-bottom: 15px"></i>
+      <h3 style="margin-top: 0">Articles</h3>
+      <p>Articles on the web about the W3C Web of Things</p>
+    </div>
+  </a>
 </div>
