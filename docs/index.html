@@ -259,6 +259,59 @@ title: Home
     .activities-grid {
       grid-template-columns: 1fr;
     }
+    .use-case-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .use-case-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .use-case-card {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #dbe7f0;
+    border-radius: 8px;
+    text-decoration: none !important;
+    color: #1a1a2e !important;
+    transition: all 0.2s ease;
+  }
+
+  .use-case-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+  }
+
+  .use-case-card-icon {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+  }
+
+  .use-case-card h4 {
+    margin: 0 0 4px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .use-case-card:hover h4 {
+    color: var(--primary-color);
+  }
+
+  .use-case-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
   }
 </style>
 
@@ -321,12 +374,27 @@ title: Home
           Explore WoT use cases
         </a>
       </div>
-      <div class="img-col">
-        <img
-          src="{{'images/wot-use-cases.png' | relative_url }}"
-          class="img-responsive"
-          alt="WoT interaction model: Properties, Actions, and Events"
-        />
+      <div class="use-case-cards">
+        <a href="{{ '/use-cases/#resources--references' | absolute_url }}" class="use-case-card">
+          <i class="fas fa-book-open use-case-card-icon"></i>
+          <h4>Resources & References</h4>
+          <p>Videos, specifications, and documents on WoT use cases</p>
+        </a>
+        <a href="{{ '/use-cases/#application-domains' | absolute_url }}" class="use-case-card">
+          <i class="fas fa-globe use-case-card-icon"></i>
+          <h4>Application Domains</h4>
+          <p>Manufacturing, energy, smart cities, healthcare and more</p>
+        </a>
+        <a href="{{ '/use-cases/#technology-trends' | absolute_url }}" class="use-case-card">
+          <i class="fas fa-rocket use-case-card-icon"></i>
+          <h4>Technology Trends</h4>
+          <p>Digital twins, agentic systems, edge computing and AI</p>
+        </a>
+        <a href="{{ '/use-cases/#testimonials' | absolute_url }}" class="use-case-card">
+          <i class="fas fa-quote-right use-case-card-icon"></i>
+          <h4>Testimonials</h4>
+          <p>Endorsements from industry leaders and W3C members</p>
+        </a>
       </div>
     </div>
   </section>
