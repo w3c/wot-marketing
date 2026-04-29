@@ -4,20 +4,6 @@ title: Home
 ---
 
 <style>
-  section h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    margin-top: 0;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #dbe7f0;
-  }
-
-  section p {
-    line-height: 1.5;
-  }
-
   section .img-responsive {
     width: 100%;
     height: auto;
@@ -62,6 +48,13 @@ title: Home
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
     color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  .member-card--static:hover {
+    box-shadow: none;
+    transform: none;
+    color: #1a1a2e !important;
     border-color: var(--primary-color);
   }
   .members-container {
@@ -273,6 +266,59 @@ title: Home
     .activities-grid {
       grid-template-columns: 1fr;
     }
+    .use-case-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .use-case-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .use-case-card {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #dbe7f0;
+    border-radius: 8px;
+    text-decoration: none !important;
+    color: #1a1a2e !important;
+    transition: all 0.2s ease;
+  }
+
+  .use-case-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+  }
+
+  .use-case-card-icon {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+  }
+
+  .use-case-card h4 {
+    margin: 0 0 4px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  .use-case-card:hover h4 {
+    color: var(--primary-color);
+  }
+
+  .use-case-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
   }
 </style>
 
@@ -320,19 +366,42 @@ title: Home
     <div class="content-pair">
       <div class="text-col">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.
+          The Web of Things technologies apply to a variety of domains and unlock use cases. Whether it be industrial
+          automation, smart home, infrastructure or agentic systems, you can use WoT for your solution. Find out below
+          how the properties, actions, events abstraction over multitude of protocols and domains work.
         </p>
+        <p>
+          Read testimonials from industry leaders and W3C members to see how they are adopting the Web of Things standard to drive interoperability and innovation.
+        </p>
+        <a
+          href="{{ '/use-cases' | absolute_url }}"
+          class="btn btn-default"
+          style="font-weight: 500; margin-top: 8px; text-decoration: none !important"
+        >
+          Explore WoT use cases
+        </a>
       </div>
-      <div class="img-col">
-        <img
-          src="{{'images/wot-interactions.png' | relative_url }}"
-          class="img-responsive"
-          alt="WoT interaction model: Properties, Actions, and Events"
-        />
+      <div class="use-case-cards">
+        <a href="{{ '/use-cases/#resources--references' | absolute_url }}" class="use-case-card">
+          <i class="fas fa-book-open use-case-card-icon"></i>
+          <h4>Resources & References</h4>
+          <p>Videos, specifications, and documents on WoT use cases</p>
+        </a>
+        <a href="{{ '/use-cases/#application-domains' | absolute_url }}" class="use-case-card">
+          <i class="fas fa-globe use-case-card-icon"></i>
+          <h4>Application Domains</h4>
+          <p>Manufacturing, energy, smart cities, healthcare and more</p>
+        </a>
+        <a href="{{ '/use-cases/#technology-trends' | absolute_url }}" class="use-case-card">
+          <i class="fas fa-rocket use-case-card-icon"></i>
+          <h4>Technology Trends</h4>
+          <p>Digital twins, agentic systems, edge computing and AI</p>
+        </a>
+        <a href="{{ '/use-cases/#testimonials' | absolute_url }}" class="use-case-card">
+          <i class="fas fa-quote-right use-case-card-icon"></i>
+          <h4>Testimonials</h4>
+          <p>Endorsements from industry leaders and W3C members</p>
+        </a>
       </div>
     </div>
   </section>
@@ -407,12 +476,12 @@ title: Home
       >
         Industry 4.0
       </a>
-      <a href="http://www.iso.org/iso/jtc1_home.html" class="member-card" target="_blank" rel="noopener noreferrer">
+      <div class="member-card member-card--static" style="cursor: default;">
         ISO/IEC JTC 1/SC 41
-      </a>
-      <a href="http://www.itu.int/net/about/itu-t.aspx" target="_blank" rel="noopener noreferrer" class="member-card">
+      </div>
+      <div class="member-card member-card--static" style="cursor: default;">
         ITU-T
-      </a>
+      </div>
       <a
         href="https://www.itu.int/en/ITU-T/studygroups/2017-2020/20/Pages/default.aspx"
         target="_blank"

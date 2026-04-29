@@ -15,6 +15,8 @@ constants:
 navigation:
   - title: Home
     url: /
+  - title: Use Cases
+    url: use-cases/
   - title: Developers
     url: developers/
   - title: Documentation

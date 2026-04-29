@@ -1,0 +1,467 @@
+---
+layout: default
+title: Use Cases
+css: 'use-cases/style.css'
+---
+
+<div>
+  <!-- Hero -->
+  <div class="hero-section">
+    <h2 class="hero-title">WoT Use Cases</h2>
+    <p class="hero-description">
+      Explore how the Web of Things is applied across industries — from smart manufacturing and energy management to
+      connected buildings and beyond
+    </p>
+  </div>
+
+  <!-- Under Construction Banner -->
+  <div class="construction-banner">
+    <i class="fas fa-hard-hat"></i>
+    <div>
+      <h4>This page is under construction</h4>
+      <p>
+        We are actively expanding this section. In the meantime, check out the resources below for comprehensive
+        information about WoT use cases.
+      </p>
+    </div>
+  </div>
+
+  <!-- External Resources -->
+  <section>
+    <h3 id="resources--references">Resources &amp; References</h3>
+    <div class="resource-cards">
+      <a
+        href="https://www.youtube.com/playlist?list=PL7z9Jd8H_9zpDd7Y5pEw6lBrPehKpVKxZ"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="resource-card"
+      >
+        <i class="fab fa-youtube rc-icon" style="color: #c4302b"></i>
+        <h4>WoT Community Group Case Studies</h4>
+        <p>
+          Presentations of WoT adopters in the WoT Community Group are case studies of WoT is used in the industry,
+          academia and enthusiasts.
+        </p>
+        <span class="rc-url">youtube.com</span>
+      </a>
+      <a href="https://w3c.github.io/wot-usecases/" target="_blank" rel="noopener noreferrer" class="resource-card">
+        <i class="fas fa-file-alt rc-icon"></i>
+        <h4>WoT Use Cases &amp; Requirements</h4>
+        <p>
+          The official W3C document detailing use cases gathered from WoT stakeholders, including functional and
+          technical requirements.
+        </p>
+        <span class="rc-url">w3c.github.io/wot-usecases</span>
+      </a>
+      <a
+        href="https://www.w3.org/TR/wot-architecture11/#sec-application-domains"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="resource-card"
+      >
+        <i class="fas fa-sitemap rc-icon"></i>
+        <h4>WoT Architecture — Application Domains</h4>
+        <p>
+          Section of the WoT Architecture 1.1 specification describing the key application domains where WoT
+          technologies are applied.
+        </p>
+        <span class="rc-url">w3.org/TR/wot-architecture11</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Domains and Technology Trends -->
+  <section>
+    <h3>Domains and Technology Trends</h3>
+    <p style="margin-bottom: 24px">
+      WoT technologies are designed to be domain-agnostic. The following domains and technology trends represent areas
+      where WoT provides significant value through standardized integration of heterogeneous devices and services.
+    </p>
+
+    <h4 class="subsection-title" id="application-domains">Application Domains</h4>
+    <hr class="section-divider" />
+    <div class="domain-grid">
+      <div class="domain-card">
+        <div class="domain-icon"><i class="fas fa-industry"></i></div>
+        <h4>Smart Manufacturing</h4>
+        <p>
+          Connecting diverse industrial assets — PLCs, robots, sensors — across factory floors using standardized Thing
+          Descriptions for seamless integration.
+        </p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon"><i class="fas fa-bolt"></i></div>
+        <h4>Energy &amp; Utilities</h4>
+        <p>
+          Enabling smart grid management, renewable energy integration, and consumption optimization through
+          interoperable device interfaces.
+        </p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon"><i class="fas fa-building"></i></div>
+        <h4>Smart Buildings</h4>
+        <p>
+          Unified control of HVAC, lighting, access, and monitoring systems from multiple vendors within commercial and
+          residential buildings.
+        </p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon"><i class="fas fa-city"></i></div>
+        <h4>Smart Cities</h4>
+        <p>
+          Integrating urban infrastructure — traffic, waste, environment monitoring — into cohesive city-wide platforms
+          using open standards.
+        </p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon"><i class="fas fa-heartbeat"></i></div>
+        <h4>Healthcare &amp; Well-being</h4>
+        <p>
+          Connecting medical devices, wearables, and facility systems to improve patient care, remote monitoring, and
+          clinical workflows.
+        </p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon"><i class="fas fa-tractor"></i></div>
+        <h4>Agriculture</h4>
+        <p>
+          Precision farming with interoperable soil sensors, weather stations, and irrigation controllers for
+          data-driven crop management.
+        </p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon"><i class="fas fa-truck"></i></div>
+        <h4>Transportation &amp; Logistics</h4>
+        <p>
+          Fleet tracking, supply chain visibility, and connected vehicle systems through standardized IoT descriptions
+          and discovery.
+        </p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon"><i class="fas fa-home"></i></div>
+        <h4>Consumer &amp; Smart Home</h4>
+        <p>
+          Cross-vendor smart home device integration — bridging ecosystems like Matter, Zigbee, and Z-Wave via WoT
+          abstractions.
+        </p>
+      </div>
+      <div class="domain-card">
+        <div class="domain-icon"><i class="fas fa-leaf"></i></div>
+        <h4>Environment Monitoring</h4>
+        <p>
+          Air quality, water quality, and ecological monitoring through standardized sensor networks accessible via web
+          protocols.
+        </p>
+      </div>
+    </div>
+
+    <h4 class="subsection-title" style="margin-top: 40px" id="technology-trends">Technology Trends</h4>
+    <hr class="section-divider" />
+    <div class="domain-grid">
+      <div class="domain-card trend-card">
+        <div class="domain-icon"><i class="fas fa-clone"></i></div>
+        <h4>Digital Twins</h4>
+        <p>
+          WoT Thing Descriptions provide a standardized way to describe and interact with digital representations of
+          physical assets, enabling interoperable digital twin ecosystems.
+        </p>
+      </div>
+      <div class="domain-card trend-card">
+        <div class="domain-icon"><i class="fas fa-shield-alt"></i></div>
+        <h4>EU Cyber Resiliency Act</h4>
+        <p>
+          WoT's machine-readable security metadata and standardized vulnerability reporting align with the CRA's
+          requirements for transparent, secure-by-design connected products.
+        </p>
+      </div>
+      <div class="domain-card trend-card">
+        <div class="domain-icon"><i class="fas fa-qrcode"></i></div>
+        <h4>Digital Product Passport</h4>
+        <p>
+          Thing Descriptions can serve as machine-readable product passports, carrying lifecycle data, material
+          composition, and sustainability information for connected products.
+        </p>
+      </div>
+      <div class="domain-card trend-card">
+        <div class="domain-icon"><i class="fas fa-robot"></i></div>
+        <h4>Agentic Systems</h4>
+        <p>
+          Autonomous AI agents can leverage WoT's standardized affordances and discovery mechanisms to find, understand,
+          and orchestrate IoT devices without human intervention.
+        </p>
+      </div>
+      <div class="domain-card trend-card">
+        <div class="domain-icon"><i class="fas fa-brain"></i></div>
+        <h4>Neurosymbolic AI</h4>
+        <p>
+          Combining neural networks with WoT's semantic, knowledge-graph-compatible Thing Descriptions enables AI
+          systems that can both reason symbolically about devices and learn from sensor data.
+        </p>
+      </div>
+      <div class="domain-card trend-card">
+        <div class="domain-icon"><i class="fas fa-network-wired"></i></div>
+        <h4>Edge Computing</h4>
+        <p>
+          WoT enables discovery and interaction with computing resources at the network edge, bringing standardized
+          interfaces to latency-sensitive and bandwidth-constrained IoT deployments.
+        </p>
+      </div>
+      <div class="domain-card trend-card">
+        <div class="domain-icon"><i class="fas fa-lock"></i></div>
+        <h4>Zero Trust Architecture</h4>
+        <p>
+          WoT's fine-grained security descriptions support zero-trust models by making device authentication,
+          authorization, and access policies explicit and machine-verifiable.
+        </p>
+      </div>
+      <div class="domain-card trend-card">
+        <div class="domain-icon"><i class="fas fa-project-diagram"></i></div>
+        <h4>Semantic Interoperability</h4>
+        <p>
+          WoT's use of linked data and semantic annotations enables cross-domain data integration, making IoT data FAIR
+          (Findable, Accessible, Interoperable, Reusable) by design.
+        </p>
+      </div>
+      <div class="domain-card trend-card">
+        <div class="domain-icon"><i class="fas fa-solar-panel"></i></div>
+        <h4>Sustainability &amp; Green IoT</h4>
+        <p>
+          Standardized device descriptions enable energy-aware orchestration, carbon footprint tracking, and optimized
+          resource usage across connected infrastructure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section>
+    <h3 id="testimonials">Testimonials</h3>
+    <p class="testimonials-intro">
+      Leading technology companies and organizations endorse the Web of Things standard. Click on each to read their
+      testimonial.
+    </p>
+
+    <h4 class="subsection-title">W3C Members</h4>
+    <hr class="section-divider" />
+    <div id="testimonials-members">
+      <div class="testimonial-item" id="fujitsu">
+        <div class="testimonial-header" onclick="toggleTestimonial(this)">
+          <span class="th-left">Fujitsu</span>
+          <i class="fas fa-chevron-down th-chevron"></i>
+        </div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">
+            "We are pleased to endorse the updated Web of Things (WoT) standard. This update has made the specifications
+            more practical and applicable, and we committed to continuing our support. As an integrator, we aim to build
+            out digital transformation (DX) solutions based on the global standards, driven by 5G and IoT technologies.
+            Fujitsu believes that this approach will enable us to seamlessly connect to AI-powered solutions, thereby
+            enhancing our ability to deliver innovative and efficient services to our clients."
+          </p>
+          <p class="testimonial-author">
+            — <strong>Bun Kimura</strong>, Head of Strategic Planning Department, Product Planning Div., Mobile System
+            Business Unit, Fujitsu Limited
+          </p>
+        </div>
+      </div>
+
+      <div class="testimonial-item" id="hitachi">
+        <div class="testimonial-header" onclick="toggleTestimonial(this)">
+          <span class="th-left">Hitachi</span>
+          <i class="fas fa-chevron-down th-chevron"></i>
+        </div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">
+            "To feedback effective solutions from digital twins to real-world systems, it is essential that we are able
+            to quickly find devices in the physical environment and understand their roles and the context of the data
+            which they provide. The updated recommendations to which we contributed in part, include enhanced
+            capabilities such as Thing Discovery that will facilitate this link between the physical and cyberspace.
+            We're enthusiastic that these leaps in cyber-physical systems will stimulate progress across diverse sectors
+            and contribute to the realization of a better society."
+          </p>
+          <p class="testimonial-author">
+            — <strong>Itaru Nishizawa</strong>, Vice President and Executive Officer, Chief Technology Officer, Hitachi,
+            Ltd.
+          </p>
+        </div>
+      </div>
+
+      <div class="testimonial-item" id="intel">
+        <div class="testimonial-header" onclick="toggleTestimonial(this)">
+          <span class="th-left">Intel</span>
+          <i class="fas fa-chevron-down th-chevron"></i>
+        </div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">
+            "Intel congratulates the WoT WG for the updated WoT standard. This update solidifies support for the
+            descriptive approach to IoT interoperability. IoT fragmentation remains a major barrier to greater IoT
+            adoption. The WoT standard addresses a key challenge in the integration of IoT devices and services from
+            different IoT ecosystems by providing a common format for describing data and interaction. This descriptive
+            approach strongly differentiates it from other prescriptive approaches to IoT interoperability, and is
+            designed to work with and enhance other standards, not compete with them."
+          </p>
+          <p class="testimonial-author">
+            — <strong>Eric Siow</strong>, Director, Web Standards and Ecosystem Strategies, Intel Corporation
+          </p>
+        </div>
+      </div>
+
+      <div class="testimonial-item" id="microsoft">
+        <div class="testimonial-header" onclick="toggleTestimonial(this)">
+          <span class="th-left">Microsoft</span>
+          <i class="fas fa-chevron-down th-chevron"></i>
+        </div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">
+            "We built a reference implementation that uses the new Web of Things (WoT) release with our Azure OpenAI
+            service to demonstrate how to automatically onboard industrial assets and were pleased with how easy it was
+            to generate WoT Thing Descriptions automatically. In addition, the open-source WoT tools available from the
+            Eclipse Foundation made automatic validation of the generated Thing Description an easy value add."
+          </p>
+          <p class="testimonial-author">
+            — <strong>Erich Barnstedt</strong>, Chief Architect Standards, Consortia and Industrial IoT, Azure Edge +
+            Platform Team, Microsoft Corporation
+          </p>
+        </div>
+      </div>
+
+      <div class="testimonial-item" id="oracle">
+        <div class="testimonial-header" onclick="toggleTestimonial(this)">
+          <span class="th-left">Oracle</span>
+          <i class="fas fa-chevron-down th-chevron"></i>
+        </div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">
+            "The Web of Things set of specifications, including the updated version 1.1, serves as a unifying framework
+            to address complex IoT use cases requiring interoperability across diverse ecosystems at massive scale.
+            Oracle is pleased with the progression of this set of specifications to the Recommendation status and is
+            proud to have been an active contributor, leader, and co-editor of this effort. We believe that this will
+            benefit customers and users by enabling much-needed interoperability between different vendor solutions for
+            IoT."
+          </p>
+          <p class="testimonial-author">
+            — <strong>Jai Suri</strong>, Vice President, IoT and Blockchain Applications Development, Oracle
+          </p>
+        </div>
+      </div>
+
+      <div class="testimonial-item" id="siemens">
+        <div class="testimonial-header" onclick="toggleTestimonial(this)">
+          <span class="th-left">Siemens</span>
+          <i class="fas fa-chevron-down th-chevron"></i>
+        </div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">
+            "Addressing today's market challenges, such as energy optimization, requires technologies that facilitate
+            easy heterogeneous system integration and optimization implementation. The Web of Things, which is one of
+            the key technology building blocks, facilitates addressing such challenges by integrating efficient diverse
+            data sources from a variety of device systems. Our in-house solution sayWoT! implements the latest WoT Thing
+            Description 1.1 and is successfully used in various IoT projects by customers. One of the highlights is the
+            usage of sayWoT! in the Wunsiedel Energy Park, Germany, to enable smart control to ensure green hydrogen
+            production."
+          </p>
+          <p class="testimonial-author">
+            — <strong>Thomas Kiessling</strong>, Chief Technology Officer at Smart Infrastructure, Siemens AG
+          </p>
+        </div>
+      </div>
+
+      <div class="testimonial-item" id="ve3">
+        <div class="testimonial-header" onclick="toggleTestimonial(this)">
+          <span class="th-left">VE3 (formerly "Banksly")</span>
+          <i class="fas fa-chevron-down th-chevron"></i>
+        </div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">
+            "The W3C's enhanced Web of Things (WoT) standards, including WoT Architecture 1.1, WoT Thing Description
+            1.1, and WoT Discovery, represent a significant leap in addressing the challenges of IoT interoperability
+            and system fragmentation. The harmonization of IoT devices and services brought about by these standards
+            resonates with our pursuit of seamless and integrated digital solutions. We particularly appreciate the
+            advancements in Thing Models and Discovery, which align with our focus on scalable, modular, and
+            privacy-conscious digital infrastructure. Through the implementation of these WoT standards, we envision an
+            accelerated progression in developing intelligent, interconnected systems that are not only efficient but
+            also accessible and secure. This aligns perfectly with our mission at VE3 to drive technological
+            advancements that are both innovative and sustainable."
+          </p>
+          <p class="testimonial-author">— <strong>Manish Garg</strong>, Director, VE3</p>
+        </div>
+      </div>
+
+      <div class="testimonial-item" id="siemens-microsoft">
+        <div class="testimonial-header" onclick="toggleTestimonial(this)">
+          <span class="th-left">Siemens &amp; Microsoft — Joint Statement</span>
+          <i class="fas fa-chevron-down th-chevron"></i>
+        </div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">
+            "This collaboration with Microsoft reflects our shared vision of enabling customers to harness the full
+            potential of IoT through open standards and interoperability. The improved data access will provide
+            portfolio managers with granular visibility into critical metrics such as energy efficiency and consumption.
+            With IoT data often being siloed, this level of transparency is a game-changer for an industry seeking to
+            optimize building operations and meet sustainability targets."
+          </p>
+          <p class="testimonial-author">
+            — <strong>Susanne Seitz</strong>, CEO, Siemens Smart Infrastructure Buildings
+          </p>
+          <p class="testimonial-quote" style="margin-top: 16px">
+            "Siemens shares Microsoft's focus on interoperability and open IoT standards. This collaboration is a
+            significant step forward in making IoT data more actionable. Microsoft's strategy underscores our commitment
+            to partnering with industry leaders to empower customers with greater choice and control over their IoT
+            solutions."
+          </p>
+          <p class="testimonial-author">
+            — <strong>Erich Barnstedt</strong>, Senior Director &amp; Architect, Corporate Standards Group, Microsoft
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h4 class="subsection-title" style="margin-top: 40px">Liaison Partners</h4>
+    <hr class="section-divider" />
+
+    <div id="testimonials-liaisons">
+      <div class="testimonial-item" id="opc-foundation">
+        <div class="testimonial-header" onclick="toggleTestimonial(this)">
+          <span class="th-left">OPC Foundation</span>
+          <i class="fas fa-chevron-down th-chevron"></i>
+        </div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">
+            "The OPC Foundation welcomes the new releases of the W3C Web of Things. Current OPC Foundation group
+            activities are working on a solution how WoT Thing Descriptions can be used as a data model mapping service
+            from non-OPC UA asset interfaces to OPC UA systems. This reduces the onboarding effort (e.g. of Modbus-based
+            assets) and enables smooth use of asset data interfaces in the OPC UA address space. We see this as a big
+            win for the manufacturing industry and another important step towards improving the interoperability of
+            heterogeneous asset landscapes."
+          </p>
+          <p class="testimonial-author">— <strong>Stefan Hoppe</strong>, President, OPC Foundation</p>
+        </div>
+      </div>
+
+      <div class="testimonial-item" id="sifis-home">
+        <div class="testimonial-header" onclick="toggleTestimonial(this)">
+          <span class="th-left">SIFIS-Home Consortium</span>
+          <i class="fas fa-chevron-down th-chevron"></i>
+        </div>
+        <div class="testimonial-body">
+          <p class="testimonial-quote">
+            "The SIFIS-Home consortium is looking forward to the new W3C Web of Things standards. The SIFIS-Home project
+            focused on proving that it is possible to have more awareness on the risks and hazards related to the
+            deployment of connected devices in the Home environment. The Thing Description model proved to be the ideal
+            match to deliver the additional information."
+          </p>
+          <p class="testimonial-author">
+            — <strong>Luca Barbato</strong>, SIFIS-Home Consortium Member and <strong>Andrea Saracino</strong>,
+            SIFIS-Home Project Coordinator
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  function toggleTestimonial(header) {
+    var item = header.parentElement;
+    item.classList.toggle('open');
+  }
+</script>

@@ -20,6 +20,11 @@
     <!-- Custom styles for this template -->
     <link href="{{'/css/navbar.css' | absolute_url }}" rel="stylesheet" />
 
+    {% if page.css %}
+    <!-- Page specific CSS -->
+    <link href="{{ page.css | absolute_url }}" rel="stylesheet" />
+    {% endif %}
+
     <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
