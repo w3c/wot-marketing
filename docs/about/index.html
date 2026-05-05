@@ -1,0 +1,84 @@
+---
+layout: default
+title: About
+---
+
+<style>
+  .about-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    grid-auto-rows: 1fr;
+  }
+  @media (min-width: 768px) {
+    .about-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .about-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    height: 100%;
+    text-align: center;
+    transition:
+      box-shadow 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+    background-color: white;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .about-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    text-decoration: none;
+  }
+
+  .about-card-link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .about-card-link:hover,
+  .about-card-link:focus {
+    color: inherit;
+    text-decoration: none;
+  }
+</style>
+
+<div class="hero-section">
+  <h2 class="hero-title">About W3C Web of Things</h2>
+  <p class="hero-description">
+    Learn more about the history of the Web of Things, read related articles, and find out how to get in touch with us
+  </p>
+</div>
+
+<div class="about-cards-grid">
+  <a href="contact/" class="about-card-link">
+    <div class="about-card">
+      <i class="fas fa-envelope fa-3x" style="color: #005a9c; margin-bottom: 15px"></i>
+      <h3 style="margin-top: 0">Contact</h3>
+      <p>Find out how to get in touch with us</p>
+    </div>
+  </a>
+  <a href="history/" class="about-card-link">
+    <div class="about-card">
+      <i class="fas fa-landmark fa-3x" style="color: #005a9c; margin-bottom: 15px"></i>
+      <h3 style="margin-top: 0">History</h3>
+      <p>Timeline of the development of WoT at the W3C</p>
+    </div>
+  </a>
+  <a href="articles/" class="about-card-link">
+    <div class="about-card">
+      <i class="fas fa-newspaper fa-3x" style="color: #005a9c; margin-bottom: 15px"></i>
+      <h3 style="margin-top: 0">Articles</h3>
+      <p>Articles on the web about the W3C Web of Things</p>
+    </div>
+  </a>
+</div>

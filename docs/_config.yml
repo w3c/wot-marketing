@@ -13,34 +13,17 @@ constants:
   OBSOLETE_IN: 2
 
 navigation:
-  - title: Groups
-    subnavigation:
-      - title: Working Group
-        url: wg/
-      - title: Interest Group
-        url: ig/
-      - title: Community Groups
-        url: cg/
-  - title: Activities
-    subnavigation:
-      - title: Task Forces
-        url: activities/task-forces/
-      - title: Events
-        url: activities/events/
-      - title: Web Conference Meetings
-        url: activities/meetings/
+  - title: Home
+    url: /
+  - title: Use Cases
+    url: use-cases/
   - title: Developers
     url: developers/
   - title: Documentation
     url: documentation/
   - title: Videos
     url: videos/
+  - title: Participate
+    url: participate/
   - title: About
     url: about/
-    subnavigation:
-      - title: Contact
-        url: about/contact/
-      - title: History
-        url: about/history/
-      - title: Articles
-        url: about/articles/
