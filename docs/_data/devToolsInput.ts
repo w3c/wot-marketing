@@ -217,11 +217,11 @@ export const devToolsInput: DevToolsInput = {
         {
            name: "Thing Control Panel",
            description: "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot.",
-           platform: "Browser",
+           platforms: ["Browser"],
            affiliation: "hololinked",
-           lastUpdated: "04.05.2026",
+           lastUpdated: "2026-05-04T00:00:00Z",
            ignoreFetch: true,
-           homepageUrl: "https://control-panel.hololinked.dev";
+           homepageUrl: "https://control-panel.hololinked.dev",
         },
         {
           name: 'BLAST',
