@@ -215,9 +215,13 @@ export const devToolsInput: DevToolsInput = {
           affiliation: 'Web of Things Open Source Projects',
         },
         {
-          repoUrl: 'https://github.com/hololinked-dev/thing-control-panel',
-          platforms: ['Browser'],
-          affiliation: 'hololinked',
+           name: "Thing Control Panel",
+           description: "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot.",
+           platforms: ["Browser"],
+           affiliation: "hololinked",
+           lastUpdated: "2026-05-04T00:00:00Z",
+           ignoreFetch: true,
+           homepageUrl: "https://control-panel.hololinked.dev",
         },
         {
           name: 'BLAST',
