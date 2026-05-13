@@ -21,7 +21,7 @@ body {
 }
 
 .page-footer {
-  background-color: rgb(0, 90, 156);
+  background-color: var(--primary-color);
   /* padding-bottom: 10px; */
   padding: 5px;
   margin-bottom: 10px;
@@ -46,15 +46,11 @@ body {
 /* https://work.smarchal.com/twbscolor/css/e74c3cc0392becf0f1ffbbbc0 */
 
 .navbar-default {
-  background-color: #005a9c;
+  background-color: var(--primary-color);
   border-color: #ffffff;
 }
 .navbar-default .navbar-brand {
   color: #ffffff;
-}
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #000000;
 }
 .navbar-default .navbar-text {
   color: #ffffff;
@@ -64,7 +60,7 @@ body {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #000000;
+  color: lightgray;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,

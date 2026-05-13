@@ -1,0 +1,666 @@
+{
+  "Web of Things Working Group": [
+    {
+      "title": "|pipe|",
+      "homepage": "https://pi.pe"
+    },
+    {
+      "title": "ACCESS CO., LTD.",
+      "homepage": "http://www.access-company.com/"
+    },
+    {
+      "title": "ByteDance",
+      "homepage": "https://bytedance.com/"
+    },
+    {
+      "title": "Conexxus",
+      "homepage": "http://www.conexxus.org"
+    },
+    {
+      "title": "Ecole Mohammadia d'Ingenieurs Rabat (EMI)",
+      "homepage": "http://www.emi.ac.ma"
+    },
+    {
+      "title": "Electronics and Telecommunications Research Institute (ETRI)",
+      "homepage": "http://www.etri.re.kr"
+    },
+    {
+      "title": "ERICSSON",
+      "homepage": "https://www.ericsson.com"
+    },
+    {
+      "title": "Fraunhofer Gesellschaft",
+      "homepage": "https://www.fraunhofer.de/en.html"
+    },
+    {
+      "title": "Fujitsu Limited",
+      "homepage": "http://www.fujitsu.com"
+    },
+    {
+      "title": "Fundacion CTIC",
+      "homepage": "http://www.fundacionctic.org"
+    },
+    {
+      "title": "Hitachi, Ltd.",
+      "homepage": "https://www.hitachi.com/"
+    },
+    {
+      "title": "Ignite Retail Technology",
+      "homepage": "http://ignite-retail.com"
+    },
+    {
+      "title": "Institut Mines-Télécom",
+      "homepage": "https://www.imt.fr/"
+    },
+    {
+      "title": "Institut National de Recherche en Informatique et en Automatique (Inria)",
+      "homepage": "https://www.inria.fr/"
+    },
+    {
+      "title": "Intel Corporation",
+      "homepage": "http://www.intel.com/"
+    },
+    {
+      "title": "Internet Research Institute, Inc.",
+      "homepage": "http://www.iri.co.jp/"
+    },
+    {
+      "title": "MEDIA DO Co., Ltd.",
+      "homepage": "https://www.mediado.jp/english/"
+    },
+    {
+      "title": "Microsoft Corporation",
+      "homepage": "https://www.microsoft.com/"
+    },
+    {
+      "title": "OpenLink Software Inc.",
+      "homepage": "http://www.openlinksw.com"
+    },
+    {
+      "title": "Oracle Corporation",
+      "homepage": "http://www.oracle.com/"
+    },
+    {
+      "title": "Rakuten Group, Inc.",
+      "homepage": "https://global.rakuten.com/corp/"
+    },
+    {
+      "title": "Siemens AG",
+      "homepage": "http://www.siemens.com"
+    },
+    {
+      "title": "Universidad Politécnica de Madrid",
+      "homepage": "https://www.upm.es"
+    }
+  ],
+  "Web of Things Community Group": [
+    {
+      "title": "52°North Initiative for Geospatial Open Source Software GmbH",
+      "homepage": null
+    },
+    {
+      "title": "Advanced Distributed Learning (ADL) Initiative",
+      "homepage": null
+    },
+    {
+      "title": "Agency for Digitisation",
+      "homepage": "https://en.digst.dk/"
+    },
+    {
+      "title": "Akshayaguna Technologies",
+      "homepage": null
+    },
+    {
+      "title": "ARCES University of Bologna",
+      "homepage": null
+    },
+    {
+      "title": "Armor Safe Technologies",
+      "homepage": "https://www.armorsafe.com"
+    },
+    {
+      "title": "Avantia Inc.",
+      "homepage": null
+    },
+    {
+      "title": "Beijing University of Posts and Telecommunications",
+      "homepage": "http://www.bupt.edu.cn"
+    },
+    {
+      "title": "BELIMO Automation AG",
+      "homepage": null
+    },
+    {
+      "title": "C S Infocomm Pvt Ltd",
+      "homepage": null
+    },
+    {
+      "title": "Centre for Development of Advanced Technologies (CDTA)",
+      "homepage": null
+    },
+    {
+      "title": "CNR-ISTI (Istituto di Scienza e Tecnologie dell'Informazione \"A. Faedo\")",
+      "homepage": "http://www.isti.cnr.it/"
+    },
+    {
+      "title": "Council, Thinktank for the Internet of Things",
+      "homepage": null
+    },
+    {
+      "title": "CREATE-NET",
+      "homepage": null
+    },
+    {
+      "title": "Crypho AS",
+      "homepage": null
+    },
+    {
+      "title": "Daliworks",
+      "homepage": "http://www.daliworks.co.kr/"
+    },
+    {
+      "title": "Datagraph GmbH",
+      "homepage": "https://dydra.com/"
+    },
+    {
+      "title": "Datasance Teknoloji A.S.",
+      "homepage": "https://datasance.com/"
+    },
+    {
+      "title": "Dell Inc.",
+      "homepage": "http://www.dell.com"
+    },
+    {
+      "title": "Deutsche Telekom AG",
+      "homepage": "http://www.telekom.com"
+    },
+    {
+      "title": "Electronics and Telecommunications Research Institute (ETRI)",
+      "homepage": "http://www.etri.re.kr"
+    },
+    {
+      "title": "embeteco GmbH & Co. KG",
+      "homepage": null
+    },
+    {
+      "title": "EnergyDeck",
+      "homepage": null
+    },
+    {
+      "title": "FEITIAN Technologies",
+      "homepage": null
+    },
+    {
+      "title": "Forschungszentrum Informatik (FZI)",
+      "homepage": "http://www.fzi.de"
+    },
+    {
+      "title": "Fraunhofer Gesellschaft",
+      "homepage": "https://www.fraunhofer.de/en.html"
+    },
+    {
+      "title": "GMO Internet",
+      "homepage": null
+    },
+    {
+      "title": "Google LLC",
+      "homepage": "http://www.google.com/"
+    },
+    {
+      "title": "Hansung University",
+      "homepage": null
+    },
+    {
+      "title": "Hitachi, Ltd.",
+      "homepage": "https://www.hitachi.com/"
+    },
+    {
+      "title": "HiveMQ",
+      "homepage": "https://www.hivemq.com/"
+    },
+    {
+      "title": "HM Government",
+      "homepage": "https://www.gov.uk"
+    },
+    {
+      "title": "Hochschule Hamm-Lippstadt",
+      "homepage": "https://www.hshl.de/"
+    },
+    {
+      "title": "Hypothes.is Project",
+      "homepage": "http://hypothes.is"
+    },
+    {
+      "title": "IBM Corporation",
+      "homepage": "http://www.ibm.com/"
+    },
+    {
+      "title": "imec",
+      "homepage": "https://www.imec-int.com/"
+    },
+    {
+      "title": "INSIGHT - The Centre for Data Analytics",
+      "homepage": "http://www.insight-centre.org"
+    },
+    {
+      "title": "Institut Mines-Télécom",
+      "homepage": "https://www.imt.fr/"
+    },
+    {
+      "title": "Institut National de Recherche en Informatique et en Automatique (Inria)",
+      "homepage": "https://www.inria.fr/"
+    },
+    {
+      "title": "Intel Corporation",
+      "homepage": "http://www.intel.com/"
+    },
+    {
+      "title": "Internet Research Institute, Inc.",
+      "homepage": "http://www.iri.co.jp/"
+    },
+    {
+      "title": "INXITION",
+      "homepage": null
+    },
+    {
+      "title": "Istituto Superiore Mario Boella",
+      "homepage": null
+    },
+    {
+      "title": "Jameelware",
+      "homepage": null
+    },
+    {
+      "title": "JOANNEUM RESEARCH Forschungsgesellschaft mbH",
+      "homepage": "http://www.joanneum.at/en"
+    },
+    {
+      "title": "KAIST",
+      "homepage": "http://www.kaist.ac.kr"
+    },
+    {
+      "title": "KDDI CORPORATION",
+      "homepage": "http://www.kddi.com/"
+    },
+    {
+      "title": "Krellian",
+      "homepage": null
+    },
+    {
+      "title": "Krypton Brothers",
+      "homepage": null
+    },
+    {
+      "title": "Lahrin i Hajstorp",
+      "homepage": null
+    },
+    {
+      "title": "Luminem",
+      "homepage": "http://luminem.org/"
+    },
+    {
+      "title": "MITRE Corporation",
+      "homepage": "http://www.mitre.org/"
+    },
+    {
+      "title": "Mobiletta",
+      "homepage": "http://www.mobiletta.com"
+    },
+    {
+      "title": "Mycelion",
+      "homepage": "http://mycelion.art"
+    },
+    {
+      "title": "MyCQ",
+      "homepage": null
+    },
+    {
+      "title": "National Technical University of Athens",
+      "homepage": null
+    },
+    {
+      "title": "NeverBlink sp. z o.o.",
+      "homepage": "https://neverblink.eu"
+    },
+    {
+      "title": "NIC.br - Brazilian Network Information Center",
+      "homepage": "http://www.cgi.br"
+    },
+    {
+      "title": "Nokia Corporation",
+      "homepage": "http://www.nokia.com/"
+    },
+    {
+      "title": "NTT, Inc.",
+      "homepage": "https://group.ntt/en/"
+    },
+    {
+      "title": "Open City Foundation",
+      "homepage": null
+    },
+    {
+      "title": "Open Geospatial Consortium",
+      "homepage": "https://www.ogc.org/"
+    },
+    {
+      "title": "OpenLink Software Inc.",
+      "homepage": "http://www.openlinksw.com"
+    },
+    {
+      "title": "opensensors.io",
+      "homepage": null
+    },
+    {
+      "title": "Oracle Corporation",
+      "homepage": "http://www.oracle.com/"
+    },
+    {
+      "title": "Orange",
+      "homepage": "http://www.orange.com/"
+    },
+    {
+      "title": "PA Consulting Group",
+      "homepage": null
+    },
+    {
+      "title": "Plantronics, Inc.",
+      "homepage": "http://www.plantronics.com"
+    },
+    {
+      "title": "Plutinsus",
+      "homepage": "https://www.plutinsus.com/"
+    },
+    {
+      "title": "Politecnico di Bari",
+      "homepage": null
+    },
+    {
+      "title": "PwC",
+      "homepage": null
+    },
+    {
+      "title": "Robert Bosch GmbH",
+      "homepage": "https://www.bosch.com"
+    },
+    {
+      "title": "Rokaware SL (Netzo)",
+      "homepage": null
+    },
+    {
+      "title": "Samsung Electronics Co., Ltd.",
+      "homepage": "https://www.samsung.com"
+    },
+    {
+      "title": "Sense Tecnic Systems, Inc.",
+      "homepage": null
+    },
+    {
+      "title": "Siemens AG",
+      "homepage": "http://www.siemens.com"
+    },
+    {
+      "title": "SMARTRAC TECHNOLOGY Fletcher, Inc.",
+      "homepage": "http://www.smartrac-group.com"
+    },
+    {
+      "title": "Social Web Foundation",
+      "homepage": "http://socialwebfoundation.org"
+    },
+    {
+      "title": "Sony Group Corporation",
+      "homepage": "https://www.sony.com/en/"
+    },
+    {
+      "title": "Spec-Ops",
+      "homepage": "https://spec-ops.io"
+    },
+    {
+      "title": "Sprint Nextel",
+      "homepage": null
+    },
+    {
+      "title": "SSNCE",
+      "homepage": null
+    },
+    {
+      "title": "Stiftelsen for internetinfrastruktur (IIS)",
+      "homepage": "https://iis.se"
+    },
+    {
+      "title": "Telecom Italia SpA",
+      "homepage": "http://www.telecomitalia.com/tit/en.html"
+    },
+    {
+      "title": "The Open University",
+      "homepage": "http://www.open.ac.uk"
+    },
+    {
+      "title": "Thematix Partners, LLC",
+      "homepage": null
+    },
+    {
+      "title": "Third Space Learning",
+      "homepage": null
+    },
+    {
+      "title": "Tidepool",
+      "homepage": "https://www.tidepool.org/"
+    },
+    {
+      "title": "Toshiba Corporation",
+      "homepage": "http://www.toshiba.com/"
+    },
+    {
+      "title": "Universidad Politécnica de Madrid",
+      "homepage": "https://www.upm.es"
+    },
+    {
+      "title": "Universitas Indonesia",
+      "homepage": null
+    },
+    {
+      "title": "Université de Lyon",
+      "homepage": "http://www.universite-lyon.fr"
+    },
+    {
+      "title": "University of Bath",
+      "homepage": null
+    },
+    {
+      "title": "University of Calgary",
+      "homepage": null
+    },
+    {
+      "title": "University of Malta",
+      "homepage": null
+    },
+    {
+      "title": "University of Oklahoma",
+      "homepage": null
+    },
+    {
+      "title": "University of Oulu",
+      "homepage": null
+    },
+    {
+      "title": "University of Southampton",
+      "homepage": "http://www.ecs.soton.ac.uk"
+    },
+    {
+      "title": "University of Surrey",
+      "homepage": "http://www.surrey.ac.uk"
+    },
+    {
+      "title": "VAIMEE",
+      "homepage": null
+    },
+    {
+      "title": "Vienna University of Technology",
+      "homepage": null
+    },
+    {
+      "title": "Virtual Organization Management Institute",
+      "homepage": null
+    },
+    {
+      "title": "WebDINO Japan",
+      "homepage": "https://www.webdino.org/"
+    },
+    {
+      "title": "webRunes",
+      "homepage": null
+    },
+    {
+      "title": "Weever Apps Inc.",
+      "homepage": null
+    },
+    {
+      "title": "Yaler GmbH",
+      "homepage": null
+    },
+    {
+      "title": "Zhejiang University",
+      "homepage": "http://www.zju.edu.cn"
+    },
+    {
+      "title": "Zoetrope",
+      "homepage": null
+    },
+    {
+      "title": "鴻海精密工業股份有限公司",
+      "homepage": null
+    }
+  ],
+  "Web Thing Protocol Community Group": [
+    {
+      "title": "adafruit",
+      "homepage": null
+    },
+    {
+      "title": "Baycloud Systems",
+      "homepage": "https://baycloud.com"
+    },
+    {
+      "title": "Conexxus",
+      "homepage": "http://www.conexxus.org"
+    },
+    {
+      "title": "Deutsche Telekom AG",
+      "homepage": "http://www.telekom.com"
+    },
+    {
+      "title": "EVRYTHNG",
+      "homepage": "http://evrythng.com"
+    },
+    {
+      "title": "Flerwin Group",
+      "homepage": null
+    },
+    {
+      "title": "Krellian",
+      "homepage": null
+    },
+    {
+      "title": "Luminem",
+      "homepage": "http://luminem.org/"
+    },
+    {
+      "title": "Mozilla Foundation",
+      "homepage": "https://www.mozilla.org/"
+    },
+    {
+      "title": "Mycelion",
+      "homepage": "http://mycelion.art"
+    },
+    {
+      "title": "netavanza",
+      "homepage": "https://netavanza.com"
+    },
+    {
+      "title": "TheChineseWriter Limited",
+      "homepage": "https://www.thechinesewriter.co.uk"
+    },
+    {
+      "title": "University of Bath",
+      "homepage": null
+    }
+  ],
+  "Web of Things Japanese Community Group": [
+    {
+      "title": "Data Society Alliance",
+      "homepage": "https://data-society-alliance.org/"
+    },
+    {
+      "title": "Fujitsu Limited",
+      "homepage": "http://www.fujitsu.com"
+    },
+    {
+      "title": "Hakuhodo DY media partners Inc.",
+      "homepage": "http://www.hakuhodody-media.co.jp/english/"
+    },
+    {
+      "title": "Hitachi, Ltd.",
+      "homepage": "https://www.hitachi.com/"
+    },
+    {
+      "title": "Internet Academy",
+      "homepage": "https://www.internetacademy.jp"
+    },
+    {
+      "title": "Internet Research Institute, Inc.",
+      "homepage": "http://www.iri.co.jp/"
+    },
+    {
+      "title": "Kadokawa Corporation",
+      "homepage": "https://www.kadokawa.co.jp/"
+    },
+    {
+      "title": "KDDI CORPORATION",
+      "homepage": "http://www.kddi.com/"
+    },
+    {
+      "title": "Keio University",
+      "homepage": "https://www.keio.ac.jp/"
+    },
+    {
+      "title": "LY Corporation",
+      "homepage": "https://www.lycorp.co.jp/"
+    },
+    {
+      "title": "MEDIA DO Co., Ltd.",
+      "homepage": "https://www.mediado.jp/english/"
+    },
+    {
+      "title": "Newphoria Corporation",
+      "homepage": "http://www.newphoria.co.jp/"
+    },
+    {
+      "title": "NHK (Japan Broadcasting Corporation)",
+      "homepage": "https://www.nhk.or.jp/strl/english/"
+    },
+    {
+      "title": "SoftBank Corp.",
+      "homepage": "http://www.softbank.jp/en/"
+    },
+    {
+      "title": "The Japan Electrical Manufacturers' Association",
+      "homepage": null
+    },
+    {
+      "title": "The University of Tokyo",
+      "homepage": null
+    },
+    {
+      "title": "Toshiba Corporation",
+      "homepage": "http://www.toshiba.com/"
+    },
+    {
+      "title": "UPWIND TECHNOLOGY, INC.",
+      "homepage": null
+    },
+    {
+      "title": "WebDINO Japan",
+      "homepage": "https://www.webdino.org/"
+    }
+  ]
+}

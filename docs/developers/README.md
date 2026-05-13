@@ -8,9 +8,9 @@ The `scripts/dev-tools.ts` script fetches metadata for WoT developer tools from 
 docs/_data/devToolsInput.ts   ──▶   scripts/dev-tools.ts   ──▶   docs/_data/generated/devToolsOutput.json
 ```
 
-1. **Input** – `docs/_data/devToolsInput.ts` contains the curated list of tools organized by group → subgroup → tools.
-2. **Script** – `scripts/dev-tools.ts` iterates over each tool, fetches repository data from GitHub / GitLab, and merges it with any manual overrides from the input.
-3. **Output** – The enriched data is written to `docs/_data/generated/devToolsOutput.json`, which is used by `docs/developers/index.html` at runtime.
+1. **Input** - `docs/_data/devToolsInput.ts` contains the curated list of tools organized by group → subgroup → tools.
+2. **Script** - `scripts/dev-tools.ts` iterates over each tool, fetches repository data from GitHub / GitLab, and merges it with any manual overrides from the input.
+3. **Output** - The enriched data is written to `docs/_data/generated/devToolsOutput.json`, which is used by `docs/developers/index.html` at runtime.
 
 ## Prerequisites
 
@@ -56,8 +56,8 @@ The input file (`docs/_data/devToolsInput.ts`) exports a `devToolsInput` object 
 ```
 Group (e.g. "Thing Description")
  └─ Subgroup (e.g. "Editing and Validation")
-     ├─ description: string          – displayed as the subgroup heading
-     └─ tools: ToolInput[]           – list of tools in this subgroup
+     ├─ description: string          - displayed as the subgroup heading
+     └─ tools: ToolInput[]           - list of tools in this subgroup
 ```
 
 ### `ToolInput` Properties
@@ -76,7 +76,7 @@ Group (e.g. "Thing Description")
 
 ### Adding a New Tool
 
-**Minimal entry** – just provide a `repoUrl` and everything else is fetched automatically:
+**Minimal entry** - just provide a `repoUrl` and everything else is fetched automatically:
 
 ```ts
 {
@@ -84,7 +84,7 @@ Group (e.g. "Thing Description")
 }
 ```
 
-**With overrides** – set any properties you want to control manually:
+**With overrides** - set any properties you want to control manually:
 
 ```ts
 {
@@ -96,7 +96,7 @@ Group (e.g. "Thing Description")
 }
 ```
 
-**Without a repo** – tools that are not hosted on GitHub / GitLab must have `name`, `description`, and `homepageUrl` set explicitly:
+**Without a repo** - tools that are not hosted on GitHub / GitLab must have `name`, `description`, and `homepageUrl` set explicitly:
 
 ```ts
 {
@@ -114,7 +114,7 @@ Delete the tool's entry from the `tools` array in `devToolsInput.ts` and re-run 
 ## Workflow
 
 1. **Re-run the script** after every change to `devToolsInput.ts` to regenerate `devToolsOutput.json`.
-2. **The GitHub pipeline runs the script automatically** on each push — you do not need to trigger it manually.
+2. **The GitHub pipeline runs the script automatically** on each push - you do not need to trigger it manually.
 3. **Verify the output** by reviewing the diff of `devToolsOutput.json` to make sure only the intended tool properties changed and no other tools were affected. Do this both locally during development and after deployment.
 4. **If the script produces incorrect results**, try to fix the issue in `dev-tools.ts`. If a fix is not straightforward, create an issue and manually override the affected tool properties in `devToolsInput.ts` as a workaround.
 
