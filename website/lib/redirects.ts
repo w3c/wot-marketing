@@ -35,4 +35,12 @@ export const REDIRECTS: Redirect[] = [
     source: '/documentation',
     destination: '/developers/documentation',
   },
+  {
+    source: "/participate",
+    destination: "/",
+  },
+  {
+    source: "/about",
+    destination: "/",
+  }
 ];
