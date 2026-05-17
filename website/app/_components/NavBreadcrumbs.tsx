@@ -24,7 +24,7 @@ export function NavBreadcrumbs({ startingPath, currentPageTitle }: { startingPat
             .join(' ');
           const href = '/' + paths.slice(0, startingPathIndex + index + 1).join('/');
           return (
-            <StyledLink key={label} external_url={href as Route}>
+            <StyledLink key={label} path={href as Route}>
               {label}
             </StyledLink>
           );
