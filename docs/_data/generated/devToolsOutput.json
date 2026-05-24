@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-05-11T08:10:07Z",
+          "lastUpdated": "2026-05-18T15:50:36Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-05-15T14:01:00Z",
+          "lastUpdated": "2026-05-23T18:35:43Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-05-15T14:01:00Z",
+          "lastUpdated": "2026-05-23T18:35:43Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -539,7 +539,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-05-16T07:23:29Z",
+          "lastUpdated": "2026-05-23T19:33:42Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
