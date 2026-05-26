@@ -6,14 +6,14 @@
   "author": "w3c",
   "type": "module",
   "scripts": {
-    "dev-tools": "npx ts-node dev-tools",
-    "member-organizations": "npx ts-node member-organizations"
+    "dev-tools": "npx tsx dev-tools/index.ts",
+    "member-organizations": "npx tsx member-organizations/index.ts"
   },
   "devDependencies": {
     "@types/node": "^25.2.1",
     "dotenv": "^17.2.3",
     "fs": "^0.0.1-security",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.19.4",
     "typescript": "^5.9.3"
   },
   "dependencies": {

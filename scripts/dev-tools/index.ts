@@ -41,7 +41,7 @@ async function fetchDevTools() {
 
   // Save the fetched data in devToolsOutput.json
   try {
-    const outputPath = resolve(__dirname, '../website/lib/generated/devToolsOutput.json');
+    const outputPath = resolve(__dirname, '../../website/lib/generated/devToolsOutput.json');
     mkdirSync(dirname(outputPath), { recursive: true });
     writeFileSync(outputPath, JSON.stringify(outputJSON, null, 2));
     console.log('website/lib/generated/devToolsOutput.json successfully generated');
