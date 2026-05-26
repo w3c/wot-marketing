@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-04-15T16:17:53Z",
+          "lastUpdated": "2026-05-18T15:50:36Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -22,7 +22,7 @@
           "description": "Eclipse ediTDor - A tool for simply designing W3C Thing Descriptions",
           "repoUrl": "https://github.com/eclipse-editdor/editdor",
           "languages": [],
-          "lastUpdated": "2026-04-10T15:54:58Z",
+          "lastUpdated": "2026-05-05T18:07:04Z",
           "homepageUrl": "https://eclipse-editdor.github.io/editdor/",
           "platforms": [
             "Browser"
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-04-21T13:50:39Z",
+          "lastUpdated": "2026-05-26T05:35:32Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-04-10T08:56:10Z",
+          "lastUpdated": "2026-05-24T21:14:32Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-04-21T13:50:39Z",
+          "lastUpdated": "2026-05-26T05:35:32Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -172,7 +172,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2025-10-29T07:10:39Z",
+          "lastUpdated": "2026-04-28T11:48:37Z",
           "homepageUrl": null,
           "platforms": [
             "Library",
@@ -221,7 +221,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-04-10T08:56:10Z",
+          "lastUpdated": "2026-05-24T21:14:32Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -235,7 +235,7 @@
           "description": "Command line tool to convert Node-RED function node, Swagger document, or WoT Thing Description to a custom Node.",
           "repoUrl": "https://github.com/node-red/node-red-nodegen",
           "languages": [],
-          "lastUpdated": "2026-02-07T13:20:20Z",
+          "lastUpdated": "2026-05-14T22:54:08Z",
           "homepageUrl": null,
           "platforms": [
             "CLI"
@@ -265,7 +265,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2025-10-29T07:10:39Z",
+          "lastUpdated": "2026-04-28T11:48:37Z",
           "homepageUrl": null,
           "platforms": [
             "Library",
@@ -428,7 +428,7 @@
           "description": "A CLI Client for ThingModel Catalogs",
           "repoUrl": "https://github.com/wot-oss/tmc",
           "languages": [],
-          "lastUpdated": "2026-04-20T13:05:55Z",
+          "lastUpdated": "2026-05-06T08:58:41Z",
           "homepageUrl": "https://wot-oss.github.io/tmc/",
           "platforms": [
             "CLI"
@@ -438,15 +438,15 @@
         },
         {
           "name": "Thing Control Panel",
-          "description": "visual admin client for Things compliant with W3C WoT, like a control panel, to test or interact with a server that has no GUI. Based on material design.",
-          "repoUrl": "https://github.com/hololinked-dev/thing-control-panel",
+          "description": "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot.",
+          "repoUrl": null,
           "languages": [],
-          "lastUpdated": "2026-03-28T17:53:17Z",
-          "homepageUrl": "https://control-panel.hololinked.dev/",
+          "lastUpdated": "2026-05-04T00:00:00Z",
+          "homepageUrl": "https://control-panel.hololinked.dev",
           "platforms": [
             "Browser"
           ],
-          "license": "Apache License 2.0",
+          "license": null,
           "affiliation": "hololinked"
         },
         {
@@ -525,7 +525,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-04-21T10:06:47Z",
+          "lastUpdated": "2026-05-16T01:19:33Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -539,7 +539,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-04-22T10:20:33Z",
+          "lastUpdated": "2026-05-24T16:09:44Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -552,7 +552,7 @@
           "description": "VO-WoT is an experimental implementation of a W3C WoT Runtime and the W3C WoT Scripting API in Python.",
           "repoUrl": "https://gitlab.eclipse.org/eclipse-research-labs/nephele-project/vo-wot",
           "languages": [],
-          "lastUpdated": "2026-04-17T12:47:01.608Z",
+          "lastUpdated": "2026-05-14T15:08:21.160Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -630,7 +630,7 @@
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [],
-          "lastUpdated": "2026-04-21T08:29:46Z",
+          "lastUpdated": "2026-05-24T07:58:05Z",
           "homepageUrl": null,
           "platforms": [
             "Application"
