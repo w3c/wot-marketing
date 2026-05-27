@@ -39,7 +39,7 @@ export const NAVBAR_ELEMENTS: NavbarElement[] = [
         path: '/participate/working-group',
       },
       {
-        label: 'Community Group (CG)',
+        label: 'Community Groups (CG)',
         description:
           'Open forums to accelerate WoT adoption, gather use cases, and discuss specific domains and regions',
         path: '/participate/community-groups',
