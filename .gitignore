@@ -2,3 +2,4 @@ docs/.jekyll-cache/*
 docs/.bundle
 node_modules
 .env
+.next

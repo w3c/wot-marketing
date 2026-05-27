@@ -19,10 +19,25 @@ General information about the Web of Things can be found at https://www.w3.org/W
 
 ---
 
-This repository is a collection of material used for communication and marketing purposes of the WoT standardization activity. The materials are:
+This repository is a collection of material used for communication and marketing purposes of the WoT standardization activity.
 
-- Photos of recent events, found under the [images](/images) folder
-- WoT web page content, found under [docs](/docs) folder
+## Repository Structure
+
+```
+wot-marketing/
+├── .github/workflows/   # GitHub Actions CI/CD (website deploy, dev-tools scraper)
+├── archive/             # Archived/legacy reference files
+├── images/              # Photos from recent WoT events
+├── material/            # Explainer videos, logos, figures and beginner guides
+├── obsolete/            # Previous Jekyll-based website (see obsolete/docs)
+├── posts/               # Blog post drafts and notes
+├── presentations/       # Slide decks from WoT talks and conferences
+├── proposals/           # Strategy proposals (community, media, landing page)
+├── scripts/             # Utility scripts for data fetching (dev-tools, members)
+├── tutorials/           # Tutorial resources
+├── videos/              # WoT explainer video assets
+└── website/             # ⭐ Current Next.js website — see website/README.md
+```
 
 ## Logistics
 
