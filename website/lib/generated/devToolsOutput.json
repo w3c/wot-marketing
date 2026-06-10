@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-05-18T15:50:36Z",
+          "lastUpdated": "2026-05-29T09:09:20Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-05-26T05:35:32Z",
+          "lastUpdated": "2026-06-09T00:26:19Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-05-24T21:14:32Z",
+          "lastUpdated": "2026-06-05T15:51:58Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-05-26T05:35:32Z",
+          "lastUpdated": "2026-06-09T00:26:19Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -201,7 +201,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-04-10T20:09:44Z",
+          "lastUpdated": "2026-06-06T11:03:54Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
@@ -221,7 +221,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-05-24T21:14:32Z",
+          "lastUpdated": "2026-06-05T15:51:58Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -311,7 +311,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-04-10T20:09:44Z",
+          "lastUpdated": "2026-06-06T11:03:54Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
@@ -412,10 +412,10 @@
         },
         {
           "name": "WoT Wrench",
-          "description": "A web app to control Web of Things devices",
+          "description": "Moved to https://codeberg.org/jaller94/wot-wrench",
           "repoUrl": "https://gitlab.com/jaller94/wot-wrench",
           "languages": [],
-          "lastUpdated": "2025-11-19T00:39:11.560Z",
+          "lastUpdated": "2026-06-05T10:13:10.457Z",
           "homepageUrl": null,
           "platforms": [
             "Browser"
@@ -428,7 +428,7 @@
           "description": "A CLI Client for ThingModel Catalogs",
           "repoUrl": "https://github.com/wot-oss/tmc",
           "languages": [],
-          "lastUpdated": "2026-05-06T08:58:41Z",
+          "lastUpdated": "2026-05-28T20:28:24Z",
           "homepageUrl": "https://wot-oss.github.io/tmc/",
           "platforms": [
             "CLI"
@@ -525,7 +525,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-05-16T01:19:33Z",
+          "lastUpdated": "2026-06-08T02:02:26Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -539,7 +539,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-05-24T16:09:44Z",
+          "lastUpdated": "2026-06-09T21:44:25Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -578,7 +578,7 @@
           "description": "Creates and deploys a virtual Web of Things servient based on its Thing Description",
           "repoUrl": "https://github.com/tum-esi/shadow-thing",
           "languages": [],
-          "lastUpdated": "2025-04-14T17:50:20Z",
+          "lastUpdated": "2026-06-05T18:17:58Z",
           "homepageUrl": null,
           "platforms": [
             "Service",
@@ -630,7 +630,7 @@
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [],
-          "lastUpdated": "2026-05-24T07:58:05Z",
+          "lastUpdated": "2026-06-09T19:36:02Z",
           "homepageUrl": null,
           "platforms": [
             "Application"
