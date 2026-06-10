@@ -3,6 +3,7 @@ import path from "path"
 
 const nextConfig: NextConfig = {
   output: 'export',
+  basePath: process.env.GITHUB_PAGES === 'true'? '/WoT' : '',
   images: {
     unoptimized: true,
   },
