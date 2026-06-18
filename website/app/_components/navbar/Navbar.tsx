@@ -88,7 +88,7 @@ export function Navbar() {
         >
           <Link
             href="/"
-            sx={{ minWidth: '250px', textDecoration: 'none' }}
+            style={{ minWidth: '250px', textDecoration: 'none' }}
             onClick={() => setIsSubnavigationOpen(false)}
           >
             <Stack direction="row" alignItems="center" gap={2}>

@@ -46,7 +46,7 @@ export function MastodonFeed({ sx }: { sx?: SxProps }) {
       >
         <div
           className="mastodon-scroll"
-          sx={{
+          style={{
             overflowY: 'auto',
             background: '#fff',
             border: '1px solid #dbe7f0',

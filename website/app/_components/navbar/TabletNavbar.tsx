@@ -49,7 +49,7 @@ export function TabletNavbar({ currentPage }: { currentPage: Route }) {
         size="sm"
         slotProps={{
           content: {
-            sx: {
+            style: {
               overflow: 'visible',
             },
           },
@@ -79,7 +79,7 @@ export function TabletNavbar({ currentPage }: { currentPage: Route }) {
                 <Link
                   href={page.path}
                   key={page.path}
-                  sx={{ width: '100%' }}
+                  style={{ width: '100%' }}
                   onMouseOver={() => {
                     setActiveSubnavigationDescription(page.description);
                   }}
@@ -157,7 +157,7 @@ export function TabletNavbar({ currentPage }: { currentPage: Route }) {
                     {page.label}
                   </Button>
                 ) : (
-                  <Link href={page.path} key={page.path} sx={{ width: '100%' }}>
+                  <Link href={page.path} key={page.path} style={{ width: '100%' }}>
                     <Button
                       size="lg"
                       fullWidth
