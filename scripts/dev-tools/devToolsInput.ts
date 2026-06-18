@@ -275,6 +275,8 @@ export const devToolsInput: DevToolsInput = {
           affiliation: 'TUM ESI',
         },
         {
+          name: 'ERIA Project',
+          description: 'Gateway for KNX',
           repoUrl: 'https://github.com/project-eria/gateway-knx',
           platforms: ['Service'],
         },
