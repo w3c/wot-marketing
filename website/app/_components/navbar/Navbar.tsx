@@ -93,7 +93,7 @@ export function Navbar() {
           >
             <Stack direction="row" alignItems="center" gap={2}>
               <Image src={wotLogo} width={80} alt="W3C WoT Logo" />
-              <Typography level="h3" color="primary">
+              <Typography level="h3" color="primary" sx={{ display: { xs: 'none', sm: 'block' } }}>
                 Web of Things
               </Typography>
             </Stack>
