@@ -87,7 +87,11 @@ export function Navbar() {
           alignItems="baseline"
           sx={{ width: '100%', maxWidth: '1800px' }}
         >
-          <Link href="/" style={{ minWidth: '250px', textDecoration: 'none' }}>
+          <Link
+            href="/"
+            style={{ minWidth: '250px', textDecoration: 'none' }}
+            onClick={() => setIsSubnavigationOpen(false)}
+          >
             <Stack direction="row" alignItems="center" gap={2}>
               <Image src={wotLogo} width={80} alt="W3C WoT Logo" />
               <Typography level="h3" color="primary">
