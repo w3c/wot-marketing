@@ -1,5 +1,4 @@
-import { DevToolsInput } from "./types.ts";
-
+import { DevToolsInput } from './types.ts';
 
 // WARNING: Before changing this object, please make sure you read docs/developers/README.md
 export const devToolsInput: DevToolsInput = {
@@ -87,6 +86,10 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: 'https://github.com/agmangas/wot-py',
           platforms: ['Library'],
         },
+        {
+          repoUrl: 'https://github.com/thingctx/thingctx',
+          platforms: ['Library', 'CLI', 'Service'],
+        },
       ],
     },
     'Runtimes for TD Consumers': {
@@ -97,6 +100,10 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: 'https://github.com/eclipse/thingweb.node-wot',
           platforms: ['Library', 'CLI'],
           affiliation: 'Eclipse Foundation',
+        },
+        {
+          repoUrl: 'https://github.com/project-eria/go-wot',
+          platforms: ['Library', 'CLI'],
         },
         {
           repoUrl: 'https://github.com/node-red/node-red-nodegen',
@@ -187,13 +194,14 @@ export const devToolsInput: DevToolsInput = {
           affiliation: 'Web of Things Open Source Projects',
         },
         {
-           name: "Thing Control Panel",
-           description: "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot.",
-           platforms: ["Browser"],
-           affiliation: "hololinked",
-           lastUpdated: "2026-05-04T00:00:00Z",
-           ignoreFetch: true,
-           homepageUrl: "https://control-panel.hololinked.dev",
+          name: 'Thing Control Panel',
+          description:
+            "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot.",
+          platforms: ['Browser'],
+          affiliation: 'hololinked',
+          lastUpdated: '2026-05-04T00:00:00Z',
+          ignoreFetch: true,
+          homepageUrl: 'https://control-panel.hololinked.dev',
         },
         {
           name: 'BLAST',
@@ -257,6 +265,10 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: 'https://github.com/tum-esi/shadow-thing',
           platforms: ['Service', 'CLI'],
           affiliation: 'TUM ESI',
+        },
+        {
+          repoUrl: 'https://github.com/project-eria/gateway-knx',
+          platforms: ['Service'],
         },
       ],
     },
