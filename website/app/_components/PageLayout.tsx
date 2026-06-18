@@ -26,7 +26,7 @@ export function PageLayout({
           </Stack>
           {banner && <Box mt={1}>{banner}</Box>}
         </Stack>
-        <Stack gap={10} mt={4}>
+        <Stack gap={12} mt={4}>
           {children}
         </Stack>
       </Stack>
