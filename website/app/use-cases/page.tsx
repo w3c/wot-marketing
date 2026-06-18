@@ -23,8 +23,7 @@ export default function UseCasesPage() {
     <PageLayout
       title="WoT Use Cases"
       subtitle="Explore how the Web of Things is applied across industries, from smart manufacturing and energy management to connected buildings and beyond"
-    >
-      <Stack gap={2}>
+      banner={
         <Alert variant="outlined" color="warning" startDecorator={<HardHat size={24} />}>
           <Box>
             <Typography level="title-sm" color="warning">
@@ -36,7 +35,9 @@ export default function UseCasesPage() {
             </Typography>
           </Box>
         </Alert>
-
+      }
+    >
+      <Stack gap={2}>
         <PageSection title="Resources & References" id="resources">
           {/* Resources Section */}
           <Box

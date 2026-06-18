@@ -34,30 +34,24 @@ export default function ToolsPage() {
   };
 
   const getMatchCount = useMemo(
-    () =>
-      (
-        categoryFilter: string,
-        platformFilter: string,
-        languageFilter: string,
-        showObsoleteFilter: string
-      ) => {
-        let count = 0;
-        Object.keys(tools).forEach((category) => {
-          if (categoryFilter !== 'All' && category !== categoryFilter) {
-            return;
-          }
-          const subCategories = tools[category];
-          Object.keys(subCategories).forEach((subCategory) => {
-            const toolsList = subCategories[subCategory].tools;
-            const filtered = toolsList
-              .filter((tool) => platformFilter === 'All' || tool.platforms.includes(platformFilter))
-              .filter((tool) => languageFilter === 'All' || tool.languages.includes(languageFilter))
-              .filter((tool) => showObsoleteFilter === 'Show' || !isToolObsolete(tool.lastUpdated));
-            count += filtered.length;
-          });
+    () => (categoryFilter: string, platformFilter: string, languageFilter: string, showObsoleteFilter: string) => {
+      let count = 0;
+      Object.keys(tools).forEach((category) => {
+        if (categoryFilter !== 'All' && category !== categoryFilter) {
+          return;
+        }
+        const subCategories = tools[category];
+        Object.keys(subCategories).forEach((subCategory) => {
+          const toolsList = subCategories[subCategory].tools;
+          const filtered = toolsList
+            .filter((tool) => platformFilter === 'All' || tool.platforms.includes(platformFilter))
+            .filter((tool) => languageFilter === 'All' || tool.languages.includes(languageFilter))
+            .filter((tool) => showObsoleteFilter === 'Show' || !isToolObsolete(tool.lastUpdated));
+          count += filtered.length;
         });
-        return count;
-      },
+      });
+      return count;
+    },
     [tools]
   );
 
@@ -91,6 +85,30 @@ export default function ToolsPage() {
     <PageLayout
       title="WoT Tools"
       subtitle="Various resources for building Web of Things applications, including libraries, ready-to-use software, services, and SDKs tailored for different development stages, are grouped below "
+      banner={
+        <Stack gap={3}>
+          <ToolFilters
+            category={categoryFilter}
+            platform={platformFilter}
+            language={languageFilter}
+            showObsolete={showObsoleteFilter}
+            setCategory={setCategoryFilter}
+            setPlatform={setPlatformFilter}
+            setLanguage={setLanguageFilter}
+            setShowObsolete={setShowObsoleteFilter}
+            getMatchCount={getMatchCount}
+          />
+          <Alert variant="outlined" sx={{ width: 'fit-content', gap: 0.5 }}>
+            Showing
+            <Typography color="primary" fontWeight="bold">
+              {Object.values(filteredTools).reduce((acc, category) => {
+                return acc + Object.values(category).reduce((acc, subCategory) => acc + subCategory.tools.length, 0);
+              }, 0)}
+            </Typography>
+            matching tools
+          </Alert>
+        </Stack>
+      }
     >
       {selectedTool && (
         <Modal
@@ -144,28 +162,7 @@ export default function ToolsPage() {
           </ModalDialog>
         </Modal>
       )}
-      <Stack gap={3}>
-        <ToolFilters
-          category={categoryFilter}
-          platform={platformFilter}
-          language={languageFilter}
-          showObsolete={showObsoleteFilter}
-          setCategory={setCategoryFilter}
-          setPlatform={setPlatformFilter}
-          setLanguage={setLanguageFilter}
-          setShowObsolete={setShowObsoleteFilter}
-          getMatchCount={getMatchCount}
-        />
-        <Alert variant="outlined" sx={{ width: 'fit-content', gap: 0.5 }}>
-          Showing
-          <Typography color="primary" fontWeight="bold">
-            {Object.values(filteredTools).reduce((acc, category) => {
-              return acc + Object.values(category).reduce((acc, subCategory) => acc + subCategory.tools.length, 0);
-            }, 0)}
-          </Typography>
-          matching tools
-        </Alert>
-      </Stack>
+
       {Object.keys(filteredTools).map((category) => (
         <Stack key={category} gap={2}>
           <Typography level="h3">{category}</Typography>

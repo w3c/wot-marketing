@@ -15,7 +15,7 @@ export function NavBreadcrumbs({ startingPath, currentPageTitle }: { startingPat
   const visiblePaths = paths.slice(startingPathIndex);
 
   return (
-    <Card variant="soft" size="sm" sx={{ py: 0.5, mt: -2, mb: 1 }}>
+    <Card variant="soft" size="sm" sx={{ py: 0.5 }}>
       <Breadcrumbs aria-label="breadcrumb" size="sm">
         {visiblePaths.map((path, index) => {
           const label = path
