@@ -99,7 +99,7 @@ export function MobileNavbar({ currentPage }: { currentPage: Route }) {
                       <AccordionDetails
                         slotProps={{
                           content: {
-                            style: {
+                            sx: {
                               p: 0,
                               ml: 3.5,
                             },

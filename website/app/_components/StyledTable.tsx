@@ -5,15 +5,15 @@ import { ReactNode } from 'react';
 type Props = {
   header?: (string | HeaderWithSx)[];
   rows: Row[];
-  sx: SxProps;
+  sx?: SxProps;
 };
-
-type Row = { onClick?: () => void; cells: ReactNode[]; sx?: SxProps };
 
 interface HeaderWithSx {
   label: string;
   sx?: SxProps;
 }
+
+type Row = { onClick?: () => void; cells: ReactNode[]; sx?: SxProps };
 
 export function StyledTable({ header, rows, sx }: Props) {
   const isClickable = rows.some((r) => r.onClick);
