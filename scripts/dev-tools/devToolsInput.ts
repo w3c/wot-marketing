@@ -90,6 +90,10 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: 'https://github.com/thingctx/thingctx',
           platforms: ['Library', 'CLI', 'Service'],
         },
+        {
+          repoUrl: 'https://github.com/boobalkrishnan/wot-sensor-esp32',
+          platforms: [], // TODO
+        },
       ],
     },
     'Runtimes for TD Consumers': {
@@ -134,6 +138,10 @@ export const devToolsInput: DevToolsInput = {
         },
         {
           repoUrl: 'https://github.com/agmangas/wot-py',
+          platforms: ['Library'],
+        },
+        {
+          repoUrl: 'https://github.com/boobalkrishnan/wotcpp',
           platforms: ['Library'],
         },
       ],

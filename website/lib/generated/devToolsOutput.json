@@ -225,6 +225,17 @@
           ],
           "license": "Apache License 2.0",
           "affiliation": null
+        },
+        {
+          "name": "wot-sensor-esp32",
+          "description": "ESP32 firmware project built with ESP-IDF and CMake",
+          "repoUrl": "https://github.com/boobalkrishnan/wot-sensor-esp32",
+          "languages": [],
+          "lastUpdated": "2026-06-16T10:42:25Z",
+          "homepageUrl": null,
+          "platforms": [],
+          "license": "Creative Commons Zero v1.0 Universal",
+          "affiliation": null
         }
       ]
     },
@@ -350,6 +361,21 @@
             "Library"
           ],
           "license": "MIT License",
+          "affiliation": null
+        },
+        {
+          "name": "WoTCpp",
+          "description": "WoTCpp contains the core Web of Things runtime abstractions used by the gateway, including the WoT facade, servient support, and thing model elements (properties, actions, events, and Thing Description helpers)",
+          "repoUrl": "https://github.com/boobalkrishnan/wotcpp",
+          "languages": [
+            "C++"
+          ],
+          "lastUpdated": "2026-06-16T10:53:05Z",
+          "homepageUrl": null,
+          "platforms": [
+            "Library"
+          ],
+          "license": "Creative Commons Zero v1.0 Universal",
           "affiliation": null
         }
       ]
