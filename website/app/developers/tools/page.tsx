@@ -5,7 +5,7 @@ import { ReactNode, useMemo, useState } from 'react';
 import { ToolFilters } from './_components/ToolFilters';
 import toolsJSON from '@/lib/generated/devToolsOutput.json';
 import { DevToolsOutput, ToolOutput } from '../../../../scripts/dev-tools/types';
-import { Alert, Link, Modal, ModalClose, ModalDialog, Stack, Table, Typography } from '@mui/joy';
+import { Alert, Link, Modal, ModalClose, ModalDialog, Stack, Typography } from '@mui/joy';
 import GitHubLogo from '@/public/github.png';
 import GitLabLogo from '@/public/gitlab.png';
 import Image, { StaticImageData } from 'next/image';
@@ -174,10 +174,7 @@ export default function ToolsPage() {
                   <Typography>{filteredTools[category][subCategory].description}</Typography>
                 </Stack>
                 <StyledTable
-                  header={[
-                    { label: 'Name', size: '300px' },
-                    { label: 'Description', size: '100%' },
-                  ]}
+                  header={[{ label: 'Name', sx: { width: '30%', minWidth: '100px' } }, { label: 'Description' }]}
                   rows={filteredTools[category][subCategory].tools.map((tool) => ({
                     cells: [
                       <Typography fontWeight="lg" key={tool.name}>

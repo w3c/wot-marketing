@@ -15,9 +15,9 @@ export default function TaskForcesPage() {
     >
       <StyledTable
         header={[
-          { label: 'Active', size: '60px' },
-          { label: 'Name', size: '200px' },
-          { label: 'Deliverables', size: '30%' },
+          { label: 'Active', sx: { width: '60px' } },
+          { label: 'Name', sx: { width: '200px' } },
+          { label: 'Deliverables', sx: { width: '30%' } },
           { label: 'Task Force Leads' },
         ]}
         rows={Object.keys(TASK_FORCES).map((taskForceKey) => {

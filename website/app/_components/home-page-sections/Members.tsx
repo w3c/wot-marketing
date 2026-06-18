@@ -30,7 +30,7 @@ export function Members() {
         <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <ModalDialog size="lg" sx={{ width: '80%', maxWidth: '1500px', pb: 0 }}>
             <ModalClose />
-            <DialogTitle component="h3" style={{ fontSize: '26px' }}>
+            <DialogTitle component="h3" sx={{ fontSize: '26px' }}>
               Member Organizations
             </DialogTitle>
             <DialogContent sx={{ pt: 3 }}>

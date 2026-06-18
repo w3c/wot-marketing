@@ -16,7 +16,7 @@ export function PageLayout({
   breadcrumbs?: { startingPath: Route };
 }>) {
   return (
-    <Stack alignItems="center" p={4}>
+    <Stack alignItems="center" p={{ xs: 2, md: 4 }}>
       <Stack sx={{ gap: 1, maxWidth: '1200px', width: '100%', mt: breadcrumbs ? -3 : 0 }}>
         <Stack gap={1.5}>
           {breadcrumbs && <NavBreadcrumbs startingPath={breadcrumbs.startingPath} currentPageTitle={title} />}

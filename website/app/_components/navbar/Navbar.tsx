@@ -55,7 +55,6 @@ export function Navbar() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        mb: 2,
       }}
     >
       {/* Desktop subnavigation - hidden below lg */}
@@ -89,7 +88,7 @@ export function Navbar() {
         >
           <Link
             href="/"
-            style={{ minWidth: '250px', textDecoration: 'none' }}
+            sx={{ minWidth: '250px', textDecoration: 'none' }}
             onClick={() => setIsSubnavigationOpen(false)}
           >
             <Stack direction="row" alignItems="center" gap={2}>

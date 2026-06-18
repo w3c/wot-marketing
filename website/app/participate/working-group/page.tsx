@@ -83,7 +83,7 @@ export default function WorkingGroupPage() {
 
         <iframe
           id="open-web-calendar"
-          style={{
+          sx={{
             background:
               "url('https://raw.githubusercontent.com/niccokunzmann/open-web-calendar/master/static/img/loaders/circular-loader.gif') center center no-repeat",
           }}

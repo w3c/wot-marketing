@@ -53,7 +53,7 @@ function VideoCard({
       >
         <AspectRatio ratio="16/9">
           <Link href={url}>
-            <Image src={thumbnail} alt={title} fill style={{ objectFit: 'cover' }} />
+            <Image src={thumbnail} alt={title} fill sx={{ objectFit: 'cover' }} />
           </Link>
         </AspectRatio>
       </CardOverflow>

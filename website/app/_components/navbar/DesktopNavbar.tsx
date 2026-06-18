@@ -71,7 +71,7 @@ export function DesktopNavbar({
       </ButtonGroup>
       <Link
         href="https://www.w3.org/"
-        style={{ transform: 'translateY(9px)', width: '250px', display: 'flex', justifyContent: 'flex-end' }}
+        sx={{ transform: 'translateY(9px)', width: '250px', display: 'flex', justifyContent: 'flex-end' }}
       >
         <Image src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" alt="W3C Logo" width={36} height={36} />
       </Link>

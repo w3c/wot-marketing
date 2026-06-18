@@ -24,7 +24,7 @@ export function WoTInANutshell() {
           <Image
             src={iotProjectsImg}
             alt="section image"
-            style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+            sx={{ width: '100%', height: 'auto', objectFit: 'contain' }}
           />
         </Box>
       </Stack>

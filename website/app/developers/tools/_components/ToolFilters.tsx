@@ -1,4 +1,4 @@
-import { Box } from '@mui/joy';
+import { Box, Stack } from '@mui/joy';
 import { Filter } from './Filter';
 import toolsJSON from '@/lib/generated/devToolsOutput.json';
 import { DevToolsOutput, ToolOutput } from '../../../../../scripts/dev-tools/types';
@@ -50,14 +50,8 @@ export function ToolFilters({
   );
 
   const allCategoriesOptions = useMemo(() => ['All', ...allCategories], [allCategories]);
-  const allPlatformsOptions = useMemo(
-    () => ['All', ...Array.from(allPlatformsSet).sort()],
-    [allPlatformsSet]
-  );
-  const allLanguagesOptions = useMemo(
-    () => ['All', ...Array.from(allLanguagesSet).sort()],
-    [allLanguagesSet]
-  );
+  const allPlatformsOptions = useMemo(() => ['All', ...Array.from(allPlatformsSet).sort()], [allPlatformsSet]);
+  const allLanguagesOptions = useMemo(() => ['All', ...Array.from(allLanguagesSet).sort()], [allLanguagesSet]);
 
   const disabledCategories = useMemo(
     () => allCategoriesOptions.filter((opt) => getMatchCount(opt, platform, language, showObsolete) === 0),
@@ -80,14 +74,7 @@ export function ToolFilters({
   );
 
   return (
-    <Box
-      sx={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, minmax(min-content, max-content))',
-        gap: 1.4,
-        alignItems: 'center',
-      }}
-    >
+    <Stack gap={2}>
       <Filter
         label="Category"
         options={allCategoriesOptions}
@@ -116,6 +103,6 @@ export function ToolFilters({
         onClick={(option) => setShowObsolete(option)}
         disabledOptions={disabledObsolete}
       />
-    </Box>
+    </Stack>
   );
 }
