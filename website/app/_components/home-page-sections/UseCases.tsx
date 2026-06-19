@@ -5,10 +5,12 @@ import { BookOpen, Globe, Quote, Rocket } from 'lucide-react';
 import { LinkCard } from '../LinkCard';
 import { Route } from 'next';
 import { LinkButton } from '../LinkButton';
+import { useDictionary } from '../i18n/LocaleProvider';
 
 export function UseCases() {
+  const t = useDictionary().home.useCases;
   return (
-    <PageSection title="Use Cases">
+    <PageSection title={t.title}>
       <Stack direction={{ sm: 'column', md: 'row' }} gap={{ sm: 2, md: 10 }}>
         <Stack
           sx={{
@@ -23,18 +25,10 @@ export function UseCases() {
           }}
         >
           <Stack gap={1}>
-            <Typography>
-              The Web of Things technologies apply to a variety of domains and unlock use cases. Whether it be
-              industrial automation, smart home, infrastructure or agentic systems, you can use WoT for your solution.
-              Find out below how the properties, actions, events abstraction over multitude of protocols and domains
-              work.
-            </Typography>
-            <Typography>
-              Read testimonials from industry leaders and W3C members to see how they are adopting the Web of Things
-              standard to drive interoperability and innovation.
-            </Typography>
+            <Typography>{t.p1}</Typography>
+            <Typography>{t.p2}</Typography>
           </Stack>
-          <LinkButton path="/use-cases">Explore WoT Use Cases</LinkButton>
+          <LinkButton path="/use-cases">{t.cta}</LinkButton>
         </Stack>
         <Box
           sx={{
@@ -49,29 +43,29 @@ export function UseCases() {
           }}
         >
           <LinkCard
-            label="Resources & References"
-            description="Videos, specifications and documents on WoT use cases"
+            label={t.resources.label}
+            description={t.resources.description}
             path={'/use-cases/#resources' as Route}
             icon={<BookOpen />}
             sx={{ pointerEvents: 'none' }}
           />
           <LinkCard
-            label="Application Domains"
-            description="Manufacturing, energy, smart cities, healthcare and more"
+            label={t.domains.label}
+            description={t.domains.description}
             path={'/use-cases/#application-domains' as Route}
             icon={<Globe />}
             sx={{ pointerEvents: 'none' }}
           />
           <LinkCard
-            label="Technology Trends"
-            description="Digital twins, agentic systems, edge computing and AI"
+            label={t.trends.label}
+            description={t.trends.description}
             path={'/use-cases/#technology-trends' as Route}
             icon={<Rocket />}
             sx={{ pointerEvents: 'none' }}
           />
           <LinkCard
-            label="Testimonials"
-            description="Endorsments from industry leaders and W3C members"
+            label={t.testimonials.label}
+            description={t.testimonials.description}
             path={'/use-cases/#testimonials' as Route}
             icon={<Quote />}
             sx={{ pointerEvents: 'none' }}

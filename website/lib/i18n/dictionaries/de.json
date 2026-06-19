@@ -1,0 +1,179 @@
+{
+  "metadata": {
+    "siteName": "Web of Things",
+    "defaultTitle": "W3C Web of Things",
+    "titleTemplate": "%s | Web of Things",
+    "description": "Das W3C Web of Things (WoT) definiert eine universelle Anwendungsschicht für das Internet der Dinge auf Basis von Web-Technologien, wirkt der Fragmentierung entgegen und ermöglicht eine nahtlose Integration über IoT-Plattformen und Anwendungsbereiche hinweg."
+  },
+  "nav": {
+    "navigationLabel": "Navigation",
+    "home": "Startseite",
+    "useCases": "Anwendungsfälle",
+    "videos": "Videos",
+    "developers": {
+      "label": "Entwickler",
+      "description": "Entdecken Sie nützliche Ressourcen für Entwickler, die WoT-Anwendungen erstellen",
+      "tools": {
+        "label": "Werkzeuge",
+        "description": "Liste von Anwendungen, Bibliotheken, Diensten und mehr für die WoT-Entwicklung"
+      },
+      "documentation": {
+        "label": "Dokumentation",
+        "description": "Tutorials, Spezifikationen, Standardisierungen und weitere Dokumentation zu WoT"
+      }
+    },
+    "participate": {
+      "label": "Mitwirken",
+      "description": "Das W3C Web of Things wird von Experten weltweit gestaltet. Treten Sie bei, um Standards voranzutreiben oder Ideen zu entwickeln.",
+      "workingGroup": {
+        "label": "Arbeitsgruppe (WG)",
+        "description": "Entwickelt normative Spezifikationen, erstellt Testsuiten und koordiniert alle Task Forces"
+      },
+      "communityGroups": {
+        "label": "Community-Gruppen (CG)",
+        "description": "Offene Foren, um die WoT-Verbreitung zu beschleunigen, Anwendungsfälle zu sammeln und bestimmte Bereiche und Regionen zu diskutieren"
+      }
+    },
+    "about": {
+      "label": "Über uns",
+      "description": "Weitere wichtige Informationen über WoT finden",
+      "contact": {
+        "label": "Kontakt",
+        "description": "Kontaktieren Sie uns bei Fragen oder Anliegen"
+      },
+      "articles": {
+        "label": "Artikel",
+        "description": "Aktuelle Artikel und Neuigkeiten über WoT"
+      },
+      "history": {
+        "label": "Geschichte",
+        "description": "Historischer Überblick über die Entwicklung von WoT"
+      }
+    }
+  },
+  "languageSwitcher": {
+    "label": "Sprache",
+    "ariaLabel": "Sprache auswählen"
+  },
+  "footer": {
+    "copyright": "Copyright © 2026 World Wide Web Consortium",
+    "w3cTooltip": "World Wide Web Consortium",
+    "rules": "Es gelten Haftungs-, Marken- und Lizenzbestimmungen"
+  },
+  "common": {
+    "seeAll": "Alle anzeigen",
+    "supportUs": "Unterstützen Sie uns",
+    "upcoming": "Bevorstehend"
+  },
+  "home": {
+    "hero": {
+      "title": "W3C Web of Things",
+      "subtitle": "Die Mission des W3C Web of Things (WoT) ist es, eine universelle Anwendungsschicht für das Internet der Dinge (IoT) auf Basis von Web-Technologien zu definieren, um der Fragmentierung entgegenzuwirken und eine nahtlose Integration über IoT-Plattformen und Anwendungsbereiche hinweg zu ermöglichen"
+    },
+    "nutshell": {
+      "title": "WoT auf einen Blick",
+      "p1": "In typischen IoT-Projekten stehen Entwickler einer fragmentierten Landschaft aus proprietären Systemen, inkompatiblen Kommunikationsprotokollen, unterschiedlichen Datenmodellen und variierenden Sicherheitsanforderungen gegenüber. So gebaute Anwendungen erfordern hohen Aufwand für eng begrenzte Anwendungsfälle und lassen sich mit der Zeit schwer erweitern, warten oder wiederverwenden.",
+      "p2": "WoT stellt standardisierte Bausteine bereit, die die Entwicklung von IoT-Anwendungen durch Anwendung des etablierten Web-Paradigmas vereinfachen. Dieser Ansatz steigert Flexibilität und Interoperabilität, insbesondere für domänenübergreifende Szenarien, und ermöglicht die Wiederverwendung bewährter Standards und Werkzeuge. WoT erschließt das durch IoT-Fragmentierung gebremste kommerzielle Potenzial."
+    },
+    "useCases": {
+      "title": "Anwendungsfälle",
+      "p1": "Die Web-of-Things-Technologien lassen sich auf eine Vielzahl von Bereichen anwenden und erschließen Anwendungsfälle. Ob Industrieautomatisierung, Smart Home, Infrastruktur oder agentenbasierte Systeme – Sie können WoT für Ihre Lösung nutzen. Erfahren Sie unten, wie die Abstraktion von Eigenschaften, Aktionen und Ereignissen über eine Vielzahl von Protokollen und Bereichen hinweg funktioniert.",
+      "p2": "Lesen Sie Erfahrungsberichte von Branchenführern und W3C-Mitgliedern, um zu sehen, wie sie den Web-of-Things-Standard einsetzen, um Interoperabilität und Innovation voranzutreiben.",
+      "cta": "WoT-Anwendungsfälle entdecken",
+      "resources": {
+        "label": "Ressourcen & Referenzen",
+        "description": "Videos, Spezifikationen und Dokumente zu WoT-Anwendungsfällen"
+      },
+      "domains": {
+        "label": "Anwendungsbereiche",
+        "description": "Fertigung, Energie, Smart Cities, Gesundheitswesen und mehr"
+      },
+      "trends": {
+        "label": "Technologietrends",
+        "description": "Digitale Zwillinge, agentenbasierte Systeme, Edge Computing und KI"
+      },
+      "testimonials": {
+        "label": "Erfahrungsberichte",
+        "description": "Empfehlungen von Branchenführern und W3C-Mitgliedern"
+      }
+    },
+    "members": {
+      "title": "Mitglieder",
+      "intro": "Viele Organisationen sind über verschiedene Gruppen hinweg am Web-of-Things-Ökosystem beteiligt. Klicken Sie unten, um die aktiven Teilnehmer zu entdecken.",
+      "organizations": "Organisationen",
+      "modalTitle": "Mitgliedsorganisationen"
+    },
+    "liaisons": {
+      "title": "Verbindungen",
+      "intro": "Verbindungen koordinieren systematisch die Zusammenarbeit zwischen der zentralen WoT-Gruppe und externen Gremien, die für bestimmte Protokolle, Semantiken oder Bereiche zuständig sind"
+    },
+    "whyJoin": {
+      "title": "Warum mitmachen?",
+      "intro": "Wir entwickeln die Web-of-Things-Standards und -Richtlinien, um langfristige IoT-Interoperabilität sicherzustellen. Durch Ihre Teilnahme treiben Sie W3C-Standards voran, die die künftige Geräteintegration prägen und ein zusammenhängendes vernetztes Ökosystem aufbauen.",
+      "participate": "Bei W3C WoT mitwirken"
+    },
+    "recentActivities": {
+      "title": "Aktuelle Aktivitäten",
+      "latestArticles": "Neueste Artikel",
+      "latestEvents": "Neueste Veranstaltungen"
+    },
+    "mastodon": {
+      "title": "Neuestes auf Mastodon",
+      "linkText": "WoT auf Mastodon"
+    }
+  },
+  "pages": {
+    "useCases": {
+      "title": "WoT-Anwendungsfälle",
+      "subtitle": "Erfahren Sie, wie das Web of Things branchenübergreifend eingesetzt wird – von der intelligenten Fertigung über das Energiemanagement bis hin zu vernetzten Gebäuden und darüber hinaus"
+    },
+    "videos": {
+      "title": "WoT-Videos",
+      "subtitle": "Eine Sammlung von Videos rund um das Web of Things (WoT) mit nützlichen Einblicken in Tutorials, Spezifikationen und reale Anwendungen"
+    },
+    "documentation": {
+      "title": "Dokumentation",
+      "subtitle": "Entdecken Sie die Spezifikationen, Tutorials und Ressourcen des Web of Things (WoT)"
+    },
+    "tools": {
+      "title": "WoT-Werkzeuge",
+      "subtitle": "Verschiedene Ressourcen zum Erstellen von Web-of-Things-Anwendungen, darunter Bibliotheken, einsatzbereite Software, Dienste und SDKs für unterschiedliche Entwicklungsphasen, sind unten gruppiert"
+    },
+    "workingGroup": {
+      "title": "Arbeitsgruppe"
+    },
+    "communityGroups": {
+      "title": "Community-Gruppen",
+      "subtitle": "Die folgenden Community-Gruppen unterstützen die WoT-Aktivitäten"
+    },
+    "events": {
+      "title": "Veranstaltungen",
+      "subtitle": "Die Web-of-Things-Gruppen (WoT) treffen sich beim jährlichen Technical Plenary des W3C und halten zweimal jährlich persönliche Treffen ab. Arbeitsergebnisse werden bei den WoT-IG-PlugFests prototypisiert und getestet, die in der Woche oder am Wochenende unmittelbar vor den persönlichen Treffen stattfinden."
+    },
+    "taskForces": {
+      "title": "Task Forces",
+      "subtitle": "Die Web-of-Things-Arbeitsgruppe (WoT) führt einen Teil ihrer Arbeit über Task Forces durch und nutzt ein zentrales Wiki und einen Call, um die Aktivitäten der verschiedenen Task Forces zusammenzufassen und zu koordinieren. Details zu spezifischen Arbeiten finden Sie auf der jeweiligen Task-Force-Seite."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "subtitle": "Kontaktieren Sie uns bei Fragen oder Anliegen"
+    },
+    "articles": {
+      "title": "Artikel"
+    },
+    "history": {
+      "title": "Geschichte",
+      "subtitle": "Das Web of Things hat seinen Platz beim W3C nach vielen Jahren der Diskussionen und Arbeit verschiedener Parteien erreicht"
+    }
+  },
+  "notFound": {
+    "title": "404 – Nicht gefunden",
+    "subtitle": "Die gesuchte Seite existiert nicht oder wurde verschoben",
+    "cta": "Zurück zur Startseite"
+  },
+  "error": {
+    "title": "Etwas ist schiefgelaufen",
+    "subtitle": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "cta": "Erneut versuchen"
+  }
+}

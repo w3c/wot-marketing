@@ -1,0 +1,179 @@
+{
+  "metadata": {
+    "siteName": "Web of Things",
+    "defaultTitle": "W3C Web of Things",
+    "titleTemplate": "%s | Web of Things",
+    "description": "W3C Web of Things（WoT）基于 Web 技术为物联网定义了通用的应用层，以应对碎片化问题，并实现跨 IoT 平台和应用领域的无缝集成。"
+  },
+  "nav": {
+    "navigationLabel": "导航",
+    "home": "首页",
+    "useCases": "应用场景",
+    "videos": "视频",
+    "developers": {
+      "label": "开发者",
+      "description": "发现帮助构建 WoT 应用的实用开发者资源",
+      "tools": {
+        "label": "工具",
+        "description": "用于 WoT 开发的应用、库、服务等列表"
+      },
+      "documentation": {
+        "label": "文档",
+        "description": "WoT 的教程、规范、标准化及其他文档"
+      }
+    },
+    "participate": {
+      "label": "参与",
+      "description": "W3C Web of Things 由全球专家共同塑造。加入我们，推动标准制定或孵化创意。",
+      "workingGroup": {
+        "label": "工作组（WG）",
+        "description": "制定规范性标准、创建测试套件并协调所有任务组"
+      },
+      "communityGroups": {
+        "label": "社区组（CG）",
+        "description": "开放论坛，加速 WoT 普及、收集应用场景并讨论特定领域与区域"
+      }
+    },
+    "about": {
+      "label": "关于",
+      "description": "了解更多关于 WoT 的重要信息",
+      "contact": {
+        "label": "联系我们",
+        "description": "如有任何问题或咨询，请与我们联系"
+      },
+      "articles": {
+        "label": "文章",
+        "description": "关于 WoT 的最新文章和新闻"
+      },
+      "history": {
+        "label": "历史",
+        "description": "WoT 发展的历史概览"
+      }
+    }
+  },
+  "languageSwitcher": {
+    "label": "语言",
+    "ariaLabel": "选择语言"
+  },
+  "footer": {
+    "copyright": "版权所有 © 2026 万维网联盟",
+    "w3cTooltip": "万维网联盟",
+    "rules": "适用责任、商标及宽松许可规则"
+  },
+  "common": {
+    "seeAll": "查看全部",
+    "supportUs": "支持我们",
+    "upcoming": "即将举行"
+  },
+  "home": {
+    "hero": {
+      "title": "W3C Web of Things",
+      "subtitle": "W3C Web of Things（WoT）的使命是基于 Web 技术为物联网（IoT）定义通用的应用层，以应对碎片化问题，并实现跨 IoT 平台和应用领域的无缝集成"
+    },
+    "nutshell": {
+      "title": "WoT 简介",
+      "p1": "在典型的物联网项目中，开发者面对的是由专有系统、互不兼容的通信协议、不同的数据模型和各异的安全要求构成的碎片化格局。以这种方式构建的应用需要为狭窄的应用场景投入大量精力，并且随着时间推移难以扩展、维护或复用。",
+      "p2": "WoT 通过应用成熟的 Web 范式提供标准化的构建模块，从而简化物联网应用的开发。这种方法提升了灵活性和互操作性，尤其适用于跨领域场景，同时支持复用经过验证的标准和工具。WoT 释放了被物联网碎片化所抑制的商业潜力。"
+    },
+    "useCases": {
+      "title": "应用场景",
+      "p1": "Web of Things 技术适用于多种领域并解锁丰富的应用场景。无论是工业自动化、智能家居、基础设施还是智能体系统，您都可以将 WoT 用于您的解决方案。在下方了解属性、动作、事件如何在众多协议和领域之上进行抽象。",
+      "p2": "阅读来自行业领袖和 W3C 成员的实例分享，了解他们如何采用 Web of Things 标准来推动互操作性与创新。",
+      "cta": "探索 WoT 应用场景",
+      "resources": {
+        "label": "资源与参考",
+        "description": "关于 WoT 应用场景的视频、规范和文档"
+      },
+      "domains": {
+        "label": "应用领域",
+        "description": "制造、能源、智慧城市、医疗等"
+      },
+      "trends": {
+        "label": "技术趋势",
+        "description": "数字孪生、智能体系统、边缘计算与人工智能"
+      },
+      "testimonials": {
+        "label": "实例分享",
+        "description": "来自行业领袖和 W3C 成员的推荐"
+      }
+    },
+    "members": {
+      "title": "成员",
+      "intro": "众多组织通过各类工作组参与到 Web of Things 生态系统中。点击下方了解其活跃的参与者。",
+      "organizations": "家组织",
+      "modalTitle": "成员组织"
+    },
+    "liaisons": {
+      "title": "联络",
+      "intro": "联络机制系统地协调核心 WoT 组与负责特定协议、语义或领域的外部机构之间的工作"
+    },
+    "whyJoin": {
+      "title": "为什么加入？",
+      "intro": "我们制定 Web of Things 标准和指南，以确保物联网的长期互操作性。加入后，您将推动塑造未来设备集成的 W3C 标准，并共同构建协调统一的互联生态系统。",
+      "participate": "参与 W3C WoT"
+    },
+    "recentActivities": {
+      "title": "近期活动",
+      "latestArticles": "最新文章",
+      "latestEvents": "最新活动"
+    },
+    "mastodon": {
+      "title": "Mastodon 最新动态",
+      "linkText": "WoT 在 Mastodon"
+    }
+  },
+  "pages": {
+    "useCases": {
+      "title": "WoT 应用场景",
+      "subtitle": "了解 Web of Things 如何应用于各行各业，从智能制造、能源管理到互联建筑等"
+    },
+    "videos": {
+      "title": "WoT 视频",
+      "subtitle": "一组与 Web of Things（WoT）相关的视频，提供有关教程、规范和实际应用的有用见解"
+    },
+    "documentation": {
+      "title": "文档",
+      "subtitle": "探索 Web of Things（WoT）的规范、教程和资源"
+    },
+    "tools": {
+      "title": "WoT 工具",
+      "subtitle": "下方汇总了用于构建 Web of Things 应用的各类资源，包括面向不同开发阶段的库、即用型软件、服务和 SDK"
+    },
+    "workingGroup": {
+      "title": "工作组"
+    },
+    "communityGroups": {
+      "title": "社区组",
+      "subtitle": "以下社区组支持 WoT 的各项活动"
+    },
+    "events": {
+      "title": "活动",
+      "subtitle": "Web of Things（WoT）各组在 W3C 年度技术全体会议上召集，并每年举行两次线下面对面会议。工作项目在 WoT IG PlugFest 上进行原型设计和测试，这些活动在面对面会议前一周或周末举行。"
+    },
+    "taskForces": {
+      "title": "任务组",
+      "subtitle": "Web of Things（WoT）工作组通过任务组开展部分工作，并使用主 wiki 和电话会议来总结和协调各任务组的活动。具体工作详情请参见各任务组页面。"
+    },
+    "contact": {
+      "title": "联系我们",
+      "subtitle": "如有任何问题或咨询，请与我们联系"
+    },
+    "articles": {
+      "title": "文章"
+    },
+    "history": {
+      "title": "历史",
+      "subtitle": "经过多方多年的讨论与努力，Web of Things 已在 W3C 中确立其地位"
+    }
+  },
+  "notFound": {
+    "title": "404 - 未找到",
+    "subtitle": "您要查找的页面不存在或已被移动",
+    "cta": "返回首页"
+  },
+  "error": {
+    "title": "出错了",
+    "subtitle": "发生了意外错误，请重试。",
+    "cta": "重试"
+  }
+}

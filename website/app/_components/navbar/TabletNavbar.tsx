@@ -2,13 +2,16 @@ import { IconButton, Drawer, Stack, Card, Typography, Button, Divider, useTheme 
 import { Menu, X, ChevronLeft } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
 import { NavbarElement, NavbarSubpages } from './Navbar';
-import Link from 'next/link';
+import { LocaleLink as Link } from '../LocaleLink';
 import { NavigationDrawerFooter } from './NavigationDrawerFooter';
-import { NAVBAR_ELEMENTS } from '@/lib/navbarElements';
+import { buildNavbarElements } from '@/lib/navbarElements';
+import { useDictionary } from '../i18n/LocaleProvider';
 import { isSubPath } from '@/lib/utils/path';
 import { Route } from 'next';
 
 export function TabletNavbar({ currentPage }: { currentPage: Route }) {
+  const dict = useDictionary();
+  const NAVBAR_ELEMENTS = buildNavbarElements(dict);
   const [open, setOpen] = useState(false);
   const [activeSubnavigation, setActiveSubnavigation] = useState<NavbarSubpages | null>(null);
   const [isSubnavigationOpen, setIsSubnavigationOpen] = useState(false);
@@ -115,7 +118,7 @@ export function TabletNavbar({ currentPage }: { currentPage: Route }) {
         >
           <Stack gap={4}>
             <Stack direction="row" justifyContent="space-between" alignItems="center">
-              <Typography level="h3">Navigation</Typography>
+              <Typography level="h3">{dict.nav.navigationLabel}</Typography>
               <IconButton
                 onClick={() => {
                   setIsSubnavigationOpen(false);

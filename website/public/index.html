@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web of Things</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      // Sub-path based i18n: pick the best matching supported locale from the
+      // browser settings, defaulting to English, then redirect. Relative URL
+      // keeps this working under a basePath (e.g. GitHub Pages /WoT/).
+      (function () {
+        var supported = ['en', 'de', 'es', 'ru', 'zh'];
+        var fallback = 'en';
+        var langs = navigator.languages || [navigator.language || fallback];
+        var pick = fallback;
+        outer: for (var i = 0; i < langs.length; i++) {
+          var code = String(langs[i] || '')
+            .toLowerCase()
+            .split('-')[0];
+          for (var j = 0; j < supported.length; j++) {
+            if (code === supported[j]) {
+              pick = supported[j];
+              break outer;
+            }
+          }
+        }
+        location.replace(pick);
+      })();
+    </script>
+    <meta http-equiv="refresh" content="0; url=en" />
+    <link rel="canonical" href="en" />
+  </head>
+  <body>
+    <p>Redirecting to the <a href="en">Web of Things</a> website…</p>
+  </body>
+</html>

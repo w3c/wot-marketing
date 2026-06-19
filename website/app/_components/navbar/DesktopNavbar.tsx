@@ -4,7 +4,8 @@ import { NavbarSubpages } from './Navbar';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import { isSubPath } from '@/lib/utils/path';
-import { NAVBAR_ELEMENTS } from '@/lib/navbarElements';
+import { buildNavbarElements } from '@/lib/navbarElements';
+import { useDictionary } from '../i18n/LocaleProvider';
 import { Route } from 'next';
 import { LinkButton } from '../LinkButton';
 
@@ -21,6 +22,7 @@ export function DesktopNavbar({
   isSubnavigationOpen: boolean;
   setIsSubnavigationOpen: (isOpen: boolean) => void;
 }) {
+  const NAVBAR_ELEMENTS = buildNavbarElements(useDictionary());
   const toggleSubnavigation = (subnavigation: NavbarSubpages) => {
     if (subnavigation.label === activeSubnavigation?.label && isSubnavigationOpen) {
       setIsSubnavigationOpen(false);

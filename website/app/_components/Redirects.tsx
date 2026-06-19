@@ -3,6 +3,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { REDIRECTS } from '@/lib/redirects';
 import { Route } from 'next';
+import { localizeHref, stripLocale, getLocaleFromPathname } from '@/lib/i18n/config';
 
 /**
  * Matches a path against a pattern (e.g., /path/:slug)
@@ -30,8 +31,10 @@ export function Redirects() {
   const router = useRouter();
 
   useEffect(() => {
+    const lang = getLocaleFromPathname(path);
+    const localeAgnosticPath = stripLocale(path);
     for (const redirect of REDIRECTS) {
-      const params = matchPath(redirect.source, path);
+      const params = matchPath(redirect.source, localeAgnosticPath);
       if (params) {
         let destination = redirect.destination;
         // Replace parameters in the destination string
@@ -39,7 +42,7 @@ export function Redirects() {
           destination = destination.replace(`:${key}`, value) as Route;
         }
 
-        router.replace(destination);
+        router.replace(localizeHref(lang, destination) as Route);
         return;
       }
     }

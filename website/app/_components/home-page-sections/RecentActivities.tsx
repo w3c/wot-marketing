@@ -1,12 +1,16 @@
+'use client';
 import { ARTICLES } from '@/lib/articles';
 import { EVENTS } from '@/lib/events';
 import { Typography, Stack, Chip, Box } from '@mui/joy';
 import { PageSection } from '../PageSection';
 import { LinkButton } from '../LinkButton';
+import { useDictionary } from '../i18n/LocaleProvider';
 
 export function RecentActivities() {
+  const dict = useDictionary();
+  const t = dict.home.recentActivities;
   return (
-    <PageSection title="Recent Activities">
+    <PageSection title={t.title}>
       <Box
         sx={{
           display: 'grid',
@@ -15,7 +19,7 @@ export function RecentActivities() {
         }}
       >
         <Typography level="title-lg" sx={{ gridColumn: { md: '1' }, gridRow: { md: '1' } }}>
-          Latest Articles
+          {t.latestArticles}
         </Typography>
         {ARTICLES.slice(0, 3).map((article, index) => (
           <LinkButton
@@ -39,11 +43,11 @@ export function RecentActivities() {
             minHeight: '0',
           }}
         >
-          See All
+          {dict.common.seeAll}
         </LinkButton>
 
         <Typography level="title-lg" sx={{ gridColumn: { md: '2' }, gridRow: { md: '1' }, mt: { xs: 4, md: 0 } }}>
-          Latest Events
+          {t.latestEvents}
         </Typography>
         {EVENTS.slice(0, 3).map((event, index) => (
           <LinkButton
@@ -56,7 +60,7 @@ export function RecentActivities() {
                 <Typography level="title-lg">{event.name}</Typography>
                 {new Date(event.date) > new Date() && (
                   <Chip color="primary" variant="soft">
-                    Upcoming
+                    {dict.common.upcoming}
                   </Chip>
                 )}
               </Stack>
@@ -74,7 +78,7 @@ export function RecentActivities() {
             minHeight: '0',
           }}
         >
-          See All
+          {dict.common.seeAll}
         </LinkButton>
       </Box>
     </PageSection>

@@ -14,12 +14,15 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
 import { NavbarSubpages } from './Navbar';
 import { NavigationDrawerFooter } from './NavigationDrawerFooter';
-import Link from 'next/link';
-import { NAVBAR_ELEMENTS } from '@/lib/navbarElements';
+import { LocaleLink as Link } from '../LocaleLink';
+import { buildNavbarElements } from '@/lib/navbarElements';
+import { useDictionary } from '../i18n/LocaleProvider';
 import { Route } from 'next';
 import { isSubPath } from '@/lib/utils/path';
 
 export function MobileNavbar({ currentPage }: { currentPage: Route }) {
+  const dict = useDictionary();
+  const NAVBAR_ELEMENTS = buildNavbarElements(dict);
   const [open, setOpen] = useState(false);
   const [activeSubnavigation, setActiveSubnavigation] = useState<NavbarSubpages | null>(null);
   const theme = useTheme();
@@ -62,7 +65,7 @@ export function MobileNavbar({ currentPage }: { currentPage: Route }) {
         >
           <Stack gap={4}>
             <Stack direction="row" justifyContent="space-between" alignItems="center">
-              <Typography level="h3">Navigation</Typography>
+              <Typography level="h3">{dict.nav.navigationLabel}</Typography>
               <IconButton
                 onClick={() => {
                   setOpen(false);
