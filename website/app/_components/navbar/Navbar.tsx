@@ -108,9 +108,6 @@ export function Navbar() {
             />
           </Box>
 
-          {/* Language switcher - always visible */}
-          <LanguageSwitcher />
-
           {/* Tablet navigation - visible only at sm and md */}
           <Box sx={{ display: { xs: 'none', sm: 'flex', lg: 'none' } }}>
             <TabletNavbar currentPage={pathName} />

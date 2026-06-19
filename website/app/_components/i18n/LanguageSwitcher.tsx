@@ -1,7 +1,4 @@
-'use client';
-
-import { Dropdown, IconButton, Menu, MenuButton, MenuItem } from '@mui/joy';
-import { Languages, Check } from 'lucide-react';
+import { Select, Option } from '@mui/joy';
 import { usePathname, useRouter } from 'next/navigation';
 import type { Route } from 'next';
 import { LOCALES, LOCALE_NAMES, localizeHref, stripLocale, type Locale } from '@/lib/i18n/config';
@@ -22,26 +19,18 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <Dropdown>
-      <MenuButton
-        slots={{ root: IconButton }}
-        slotProps={{ root: { variant: 'plain', color: 'neutral', 'aria-label': 'Select language' } }}
-      >
-        <Languages size={20} />
-      </MenuButton>
-      <Menu size="sm" placement="bottom-end">
-        {LOCALES.map((locale) => (
-          <MenuItem
-            key={locale}
-            selected={locale === currentLang}
-            onClick={() => switchTo(locale)}
-            sx={{ minWidth: 140, justifyContent: 'space-between' }}
-          >
-            {LOCALE_NAMES[locale]}
-            {locale === currentLang && <Check size={16} />}
-          </MenuItem>
-        ))}
-      </Menu>
-    </Dropdown>
+    <Select
+      size="sm"
+      variant="outlined"
+      value={currentLang}
+      onChange={(_, newValue) => switchTo(newValue as Locale)}
+      sx={{ width: 95 }}
+    >
+      {LOCALES.map((locale) => (
+        <Option key={locale} value={locale}>
+          {LOCALE_NAMES[locale]}
+        </Option>
+      ))}
+    </Select>
   );
 }
