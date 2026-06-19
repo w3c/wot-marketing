@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-06-13T21:30:02Z",
+          "lastUpdated": "2026-06-16T19:32:01Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-06-13T21:30:02Z",
+          "lastUpdated": "2026-06-16T19:32:01Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -201,12 +201,40 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-06-06T11:03:54Z",
+          "lastUpdated": "2026-06-18T12:07:35Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
           ],
           "license": "MIT License",
+          "affiliation": null
+        },
+        {
+          "name": "thingctx",
+          "description": "Drive any agent against any W3C WoT Thing from its description. No per-integration server.",
+          "repoUrl": "https://github.com/thingctx/thingctx",
+          "languages": [
+            "Python"
+          ],
+          "lastUpdated": "2026-06-15T06:59:57Z",
+          "homepageUrl": "https://thingctx.com",
+          "platforms": [
+            "Library",
+            "CLI",
+            "Service"
+          ],
+          "license": "Apache License 2.0",
+          "affiliation": null
+        },
+        {
+          "name": "wot-sensor-esp32",
+          "description": "ESP32 firmware project built with ESP-IDF and CMake",
+          "repoUrl": "https://github.com/boobalkrishnan/wot-sensor-esp32",
+          "languages": [],
+          "lastUpdated": "2026-06-16T10:42:25Z",
+          "homepageUrl": null,
+          "platforms": [],
+          "license": "Creative Commons Zero v1.0 Universal",
           "affiliation": null
         }
       ]
@@ -231,11 +259,27 @@
           "affiliation": "Eclipse Foundation"
         },
         {
+          "name": "WoT implementation in Golang",
+          "description": "Based on Web of Things (WoT) Thing Description v1.1 https://w3c.github.io/wot-thing-description/",
+          "repoUrl": "https://github.com/project-eria/go-wot",
+          "languages": [
+            "Go"
+          ],
+          "lastUpdated": "2022-09-16T14:05:10Z",
+          "homepageUrl": null,
+          "platforms": [
+            "Library",
+            "CLI"
+          ],
+          "license": null,
+          "affiliation": null
+        },
+        {
           "name": "Node generator for Node-RED",
           "description": "Command line tool to convert Node-RED function node, Swagger document, or WoT Thing Description to a custom Node.",
           "repoUrl": "https://github.com/node-red/node-red-nodegen",
           "languages": [],
-          "lastUpdated": "2026-05-14T22:54:08Z",
+          "lastUpdated": "2026-06-16T08:13:25Z",
           "homepageUrl": null,
           "platforms": [
             "CLI"
@@ -311,12 +355,27 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-06-06T11:03:54Z",
+          "lastUpdated": "2026-06-18T12:07:35Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
           ],
           "license": "MIT License",
+          "affiliation": null
+        },
+        {
+          "name": "WoTCpp",
+          "description": "WoTCpp contains the core Web of Things runtime abstractions used by the gateway, including the WoT facade, servient support, and thing model elements (properties, actions, events, and Thing Description helpers)",
+          "repoUrl": "https://github.com/boobalkrishnan/wotcpp",
+          "languages": [
+            "C++"
+          ],
+          "lastUpdated": "2026-06-16T10:53:05Z",
+          "homepageUrl": null,
+          "platforms": [
+            "Library"
+          ],
+          "license": "Creative Commons Zero v1.0 Universal",
           "affiliation": null
         }
       ]
@@ -428,7 +487,7 @@
           "description": "A CLI Client for ThingModel Catalogs",
           "repoUrl": "https://github.com/wot-oss/tmc",
           "languages": [],
-          "lastUpdated": "2026-05-28T20:28:24Z",
+          "lastUpdated": "2026-06-16T10:51:53Z",
           "homepageUrl": "https://wot-oss.github.io/tmc/",
           "platforms": [
             "CLI"
@@ -539,7 +598,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-06-12T06:04:40Z",
+          "lastUpdated": "2026-06-18T07:43:14Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -586,6 +645,19 @@
           ],
           "license": "MIT License",
           "affiliation": "TUM ESI"
+        },
+        {
+          "name": "ERIA Project - Gateway for KNX",
+          "description": "ERIA Project - Gateway for KNX",
+          "repoUrl": "https://github.com/project-eria/gateway-knx",
+          "languages": [],
+          "lastUpdated": "2024-06-06T08:03:33Z",
+          "homepageUrl": null,
+          "platforms": [
+            "Service"
+          ],
+          "license": null,
+          "affiliation": null
         }
       ]
     },

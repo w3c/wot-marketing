@@ -34,30 +34,24 @@ export default function ToolsPage() {
   };
 
   const getMatchCount = useMemo(
-    () =>
-      (
-        categoryFilter: string,
-        platformFilter: string,
-        languageFilter: string,
-        showObsoleteFilter: string
-      ) => {
-        let count = 0;
-        Object.keys(tools).forEach((category) => {
-          if (categoryFilter !== 'All' && category !== categoryFilter) {
-            return;
-          }
-          const subCategories = tools[category];
-          Object.keys(subCategories).forEach((subCategory) => {
-            const toolsList = subCategories[subCategory].tools;
-            const filtered = toolsList
-              .filter((tool) => platformFilter === 'All' || tool.platforms.includes(platformFilter))
-              .filter((tool) => languageFilter === 'All' || tool.languages.includes(languageFilter))
-              .filter((tool) => showObsoleteFilter === 'Show' || !isToolObsolete(tool.lastUpdated));
-            count += filtered.length;
-          });
+    () => (categoryFilter: string, platformFilter: string, languageFilter: string, showObsoleteFilter: string) => {
+      let count = 0;
+      Object.keys(tools).forEach((category) => {
+        if (categoryFilter !== 'All' && category !== categoryFilter) {
+          return;
+        }
+        const subCategories = tools[category];
+        Object.keys(subCategories).forEach((subCategory) => {
+          const toolsList = subCategories[subCategory].tools;
+          const filtered = toolsList
+            .filter((tool) => platformFilter === 'All' || tool.platforms.includes(platformFilter))
+            .filter((tool) => languageFilter === 'All' || tool.languages.includes(languageFilter))
+            .filter((tool) => showObsoleteFilter === 'Show' || !isToolObsolete(tool.lastUpdated));
+          count += filtered.length;
         });
-        return count;
-      },
+      });
+      return count;
+    },
     [tools]
   );
 
@@ -189,6 +183,9 @@ export default function ToolsPage() {
                       tool.description,
                     ],
                     onClick: () => setSelectedTool(tool),
+                    style: {
+                      color: isToolObsolete(tool.lastUpdated) ? 'gray' : 'inherit',
+                    },
                   }))}
                 />
               </Stack>
