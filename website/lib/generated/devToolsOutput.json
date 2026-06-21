@@ -201,7 +201,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-06-18T12:07:35Z",
+          "lastUpdated": "2026-06-19T09:31:03Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
@@ -216,7 +216,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-06-15T06:59:57Z",
+          "lastUpdated": "2026-06-21T01:00:53Z",
           "homepageUrl": "https://thingctx.com",
           "platforms": [
             "Library",
@@ -355,7 +355,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-06-18T12:07:35Z",
+          "lastUpdated": "2026-06-19T09:31:03Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
@@ -584,7 +584,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-06-08T02:02:26Z",
+          "lastUpdated": "2026-06-20T23:54:50Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -598,7 +598,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-06-18T07:43:14Z",
+          "lastUpdated": "2026-06-20T12:29:20Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -647,8 +647,8 @@
           "affiliation": "TUM ESI"
         },
         {
-          "name": "ERIA Project - Gateway for KNX",
-          "description": "ERIA Project - Gateway for KNX",
+          "name": "ERIA Project",
+          "description": "Gateway for KNX",
           "repoUrl": "https://github.com/project-eria/gateway-knx",
           "languages": [],
           "lastUpdated": "2024-06-06T08:03:33Z",
