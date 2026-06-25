@@ -52,6 +52,9 @@
     "label": "Язык",
     "ariaLabel": "Выбрать язык"
   },
+  "alertBanner": {
+    "translationNotice": "Английский язык является основным поддерживаемым языком. Другие языки переводятся автоматически и могут содержать ошибки. Если у вас есть отзыв, вы заметили проблему или у вас есть вопросы, пожалуйста, создайте issue по ссылке:"
+  },
   "footer": {
     "copyright": "Copyright © 2026 World Wide Web Consortium",
     "w3cTooltip": "World Wide Web Consortium",

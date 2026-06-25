@@ -4,7 +4,7 @@ import { Metadata, Route } from 'next';
 import { redirect } from 'next/navigation';
 import { Navbar } from '../_components/navbar/Navbar';
 import { Footer } from '../_components/Footer';
-import { Box, Stack } from '@mui/joy';
+import { Alert, Box, Link, Stack } from '@mui/joy';
 import { Redirects } from '../_components/Redirects';
 import { LocaleProvider } from '../_components/i18n/LocaleProvider';
 import { LOCALES, LOCALE_HREFLANG, isLocale, type Locale } from '@/lib/i18n/config';
@@ -62,6 +62,12 @@ export default async function RootLayout(props: { children: React.ReactNode; par
             <Stack minHeight="100vh">
               <Navbar />
               <Box component="main" flex={1}>
+                {lang !== 'en' && (
+                  <Alert variant="soft" sx={{ borderRadius: 0, textAlign: 'center' }}>
+                    {dict.alertBanner.translationNotice}{' '}
+                    <Link href="https://github.com/w3c/wot-marketing/issues">GitHub</Link>
+                  </Alert>
+                )}
                 {props.children}
               </Box>
               <Footer />

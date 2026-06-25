@@ -52,6 +52,9 @@
     "label": "Language",
     "ariaLabel": "Select language"
   },
+  "alertBanner": {
+    "translationNotice": "English is the primary supported language. Other languages are translated automatically and may contain errors. If you have feedback, noticed an issue, or have questions, please create an issue using this link:"
+  },
   "footer": {
     "copyright": "Copyright © 2026 World Wide Web Consortium",
     "w3cTooltip": "World Wide Web Consortium",

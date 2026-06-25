@@ -56,7 +56,6 @@ export function Navbar() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        mb: 2,
       }}
     >
       {/* Desktop subnavigation - hidden below lg */}

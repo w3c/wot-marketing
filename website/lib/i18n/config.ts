@@ -6,7 +6,7 @@
  * locale (English).
  */
 
-export const LOCALES = ['en', 'de', 'es', 'ru', 'zh'] as const;
+export const LOCALES = ['en', 'ru', 'zh'] as const;
 
 export type Locale = (typeof LOCALES)[number];
 
@@ -15,8 +15,6 @@ export const DEFAULT_LOCALE: Locale = 'en';
 /** Human readable names shown in the language switcher (in their own language). */
 export const LOCALE_NAMES: Record<Locale, string> = {
   en: 'English',
-  de: 'Deutsch',
-  es: 'Español',
   ru: 'Русский',
   zh: '中文',
 };
@@ -24,8 +22,6 @@ export const LOCALE_NAMES: Record<Locale, string> = {
 /** BCP-47 language tags used for the `lang`/`hreflang` attributes. */
 export const LOCALE_HREFLANG: Record<Locale, string> = {
   en: 'en',
-  de: 'de',
-  es: 'es',
   ru: 'ru',
   zh: 'zh-Hans',
 };

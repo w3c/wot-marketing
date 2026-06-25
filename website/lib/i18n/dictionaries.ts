@@ -1,8 +1,6 @@
 import type { Locale } from './config';
 import { DEFAULT_LOCALE } from './config';
 import en from './dictionaries/en.json';
-import de from './dictionaries/de.json';
-import es from './dictionaries/es.json';
 import ru from './dictionaries/ru.json';
 import zh from './dictionaries/zh.json';
 
@@ -11,8 +9,6 @@ export type Dictionary = typeof en;
 
 const dictionaries: Record<Locale, Dictionary> = {
   en,
-  de,
-  es,
   ru,
   zh,
 };
