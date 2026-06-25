@@ -2,8 +2,11 @@ import type { NextConfig } from 'next';
 import path from 'path';
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
   basePath: process.env.GITHUB_PAGES === 'true' ? '/WoT' : '',
+  experimental: {
+    globalNotFound: true,
+  },
   images: {
     unoptimized: true,
   },

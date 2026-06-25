@@ -1,7 +1,7 @@
 import '../globals.css';
 import ThemeRegistry from '../_theme/ThemeRegistry';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { Metadata, Route } from 'next';
+import { redirect } from 'next/navigation';
 import { Navbar } from '../_components/navbar/Navbar';
 import { Footer } from '../_components/Footer';
 import { Box, Stack } from '@mui/joy';
@@ -44,7 +44,7 @@ export default async function RootLayout(props: { children: React.ReactNode; par
   const { lang } = await props.params;
 
   if (!isLocale(lang)) {
-    notFound();
+    redirect('/en' as Route);
   }
 
   const dict = getDictionary(lang);
