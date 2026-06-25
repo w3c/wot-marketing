@@ -28,6 +28,7 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: 'https://github.com/eclipse/ditto/tree/master/wot/model',
           platforms: ['Library'],
           affiliation: 'Eclipse Foundation',
+          description: `A library to provide a set of Java classes to model and manipulate TDs and TMs in Java applications`,
         },
         {
           repoUrl: 'https://github.com/oeg-upm/wot-jtd',
@@ -69,6 +70,7 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: 'https://github.com/eclipse-ditto/ditto/tree/master/wot',
           platforms: ['Library'],
           affiliation: 'Eclipse Foundation',
+          description: `An Eclipse Ditto module implementing the W3C Web of Things`,
         },
         {
           repoUrl: 'https://github.com/sane-city/wot-servient',
@@ -83,7 +85,7 @@ export const devToolsInput: DevToolsInput = {
           affiliation: 'SIFIS-HOME',
         },
         {
-          repoUrl: 'https://github.com/agmangas/wot-py',
+          repoUrl: 'https://github.com/eclipse-thingweb/wot-py',
           platforms: ['Library'],
         },
         {
@@ -157,13 +159,13 @@ export const devToolsInput: DevToolsInput = {
         {
           name: 'WoT Hive',
           description:
-            'This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.',
+            'A WoT Directory implementation with enriched features thanks to the usage of other W3C standards related to Semantic Web technologies',
           repoUrl: 'https://github.com/oeg-upm/wot-hive',
           platforms: ['Service'],
           affiliation: 'Ontology Engineering Group, Universidad Politécnica de Madrid',
         },
         {
-          name: 'Domus TDD API',
+          name: 'Eclipse Domus TDD API',
           repoUrl: 'https://github.com/eclipse-thingweb/domus-tdd-api',
           platforms: ['Service'],
           affiliation: 'Eclipse Foundation',
@@ -193,8 +195,12 @@ export const devToolsInput: DevToolsInput = {
           affiliation: 'Eclipse Foundation',
         },
         {
-          repoUrl: 'https://gitlab.com/jaller94/wot-wrench',
+          repoUrl: 'https://codeberg.org/jaller94/wot-wrench',
+          description: 'A web app to control Web of Things devices',
           platforms: ['Browser'],
+          affiliation: 'Christian Jaller',
+          ignoreFetch: true,
+          name: 'WoT Wrench',
         },
         {
           repoUrl: 'https://github.com/wot-oss/tmc',
@@ -204,7 +210,7 @@ export const devToolsInput: DevToolsInput = {
         {
           name: 'Thing Control Panel',
           description:
-            "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot.",
+            "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot",
           platforms: ['Browser'],
           affiliation: 'hololinked',
           lastUpdated: '2026-05-04T00:00:00Z',
@@ -220,7 +226,7 @@ export const devToolsInput: DevToolsInput = {
         },
         {
           description:
-            'Wade is an API development environment for Web of Things that was designed for the W3C WoT building blocks',
+            'A development environment built for Web of Things',
           repoUrl: 'https://github.com/tum-esi/wade',
           platforms: ['Application'],
           affiliation: 'TUM ESI',
@@ -236,11 +242,11 @@ export const devToolsInput: DevToolsInput = {
       description: 'Deployable software providing functions like gateway, proxying, simulation, and testing',
       tools: [
         {
-          name: 'sayWoT!',
+          name: 'OneConnectivity',
           description: 'Industrial-grade implementation integrating devices into Siemens software',
-          homepageUrl: 'https://www.evosoft.com/en/digitalization-offering/saywot/',
-          platforms: ['Service'],
-          affiliation: 'evosoft (Siemens subsidiary)',
+          platforms: ['Application', 'Service'],
+          affiliation: 'Siemens AG',
+          homepageUrl: 'https://www.youtube.com/watch?v=vRdX5ItQHX0',
         },
         {
           repoUrl: 'https://github.com/tum-esi/testbench',
@@ -259,10 +265,10 @@ export const devToolsInput: DevToolsInput = {
         },
         {
           description:
-            'VO-WoT is an experimental implementation of a W3C WoT Runtime and the W3C WoT Scripting API in Python.',
-          repoUrl: 'https://gitlab.eclipse.org/eclipse-research-labs/nephele-project/vo-wot',
+            'A a multi-layer software framework that virtualizes IoT devices into interoperable Virtual Objects, enabling standardized management, semantic abstraction, service composition, and seamless integration with edge/coud technologies',
+          repoUrl: 'https://gitlab.eclipse.org/eclipse/vostack/vostack',
           platforms: ['Service'],
-          affiliation: 'Eclipse Research Labs / NEPHELE',
+          affiliation: 'Eclipse Foundation',
         },
         {
           repoUrl: 'https://gitlab.com/webthings/wot-anything',
