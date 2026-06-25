@@ -27,7 +27,7 @@ export default async function TaskForceDynamicPage(props: { params: Promise<{ sl
       }}
       title={pageData.title}
       banner={
-        <Alert color={pageData.isActive ? 'success' : 'danger'} size="sm">
+        <Alert color={pageData.isActive ? 'success' : 'danger'} size="sm" sx={{ width: 'fit-content' }}>
           <Typography level="title-sm">{pageData.isActive ? 'Active' : 'Suspended'}</Typography>
         </Alert>
       }

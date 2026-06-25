@@ -7,13 +7,14 @@ export default function History() {
     <PageLayout
       title="History"
       subtitle="Web of Things has reached its place at W3C after many years of discussions and work by different parties "
+      banner={
+        <Alert variant="outlined">
+          The journey of the Web of Things at the W3C began with initial discussions to bridge the gap between the Web
+          and the physical world. Since then, it has evolved through various community efforts, workshops, and working
+          groups to establish formal standards that enable interoperability across IoT ecosystems.
+        </Alert>
+      }
     >
-      <Alert variant="outlined">
-        The journey of the Web of Things at the W3C began with initial discussions to bridge the gap between the Web and
-        the physical world. Since then, it has evolved through various community efforts, workshops, and working groups
-        to establish formal standards that enable interoperability across IoT ecosystems.
-      </Alert>
-
       <Stack spacing={0} sx={{ maxWidth: '800px', mx: 'auto', position: 'relative' }}>
         {/* Vertical line */}
         <Box

@@ -49,7 +49,7 @@ export function TabletNavbar({ currentPage }: { currentPage: Route }) {
         size="sm"
         slotProps={{
           content: {
-            sx: {
+            style: {
               overflow: 'visible',
             },
           },

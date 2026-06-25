@@ -55,7 +55,6 @@ export function Navbar() {
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        mb: 2,
       }}
     >
       {/* Desktop subnavigation - hidden below lg */}
@@ -87,10 +86,14 @@ export function Navbar() {
           alignItems="baseline"
           sx={{ width: '100%', maxWidth: '1800px' }}
         >
-          <Link href="/" style={{ minWidth: '250px', textDecoration: 'none' }}>
+          <Link
+            href="/"
+            style={{ minWidth: '250px', textDecoration: 'none' }}
+            onClick={() => setIsSubnavigationOpen(false)}
+          >
             <Stack direction="row" alignItems="center" gap={2}>
               <Image src={wotLogo} width={80} alt="W3C WoT Logo" />
-              <Typography level="h3" color="primary">
+              <Typography level="h3" color="primary" sx={{ display: { xs: 'none', sm: 'block' } }}>
                 Web of Things
               </Typography>
             </Stack>

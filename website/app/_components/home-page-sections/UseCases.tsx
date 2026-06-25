@@ -9,7 +9,7 @@ import { LinkButton } from '../LinkButton';
 export function UseCases() {
   return (
     <PageSection title="Use Cases">
-      <Stack direction={{ sm: 'column', md: 'row' }} gap={{ sm: 2, md: 10 }}>
+      <Stack direction={{ sm: 'column', md: 'row' }} gap={{ xs: 2, md: 10 }}>
         <Stack
           sx={{
             width: {
@@ -17,10 +17,7 @@ export function UseCases() {
               md: '50%',
             },
           }}
-          gap={{
-            sm: 4,
-            md: 6,
-          }}
+          gap={6}
         >
           <Stack gap={1}>
             <Typography>

@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, ToggleButtonGroup, Typography } from '@mui/joy';
+import { Button, FormControl, FormLabel, Stack, ToggleButtonGroup, Typography } from '@mui/joy';
 
 export function Filter({
   label,
@@ -16,14 +16,16 @@ export function Filter({
   disabledOptions?: string[];
 }) {
   return (
-    <>
-      <Typography level="title-sm" fontWeight={600}>
-        {label}
-      </Typography>
+    <FormControl>
+      <FormLabel>{label}</FormLabel>
       <ToggleButtonGroup
         size="sm"
         value={selectedOption}
         onChange={(_, value) => value !== null && value !== selectedOption && onClick(value)}
+        sx={{
+          flexWrap: 'wrap',
+          rowGap: 0.5,
+        }}
       >
         {options.map((option) => (
           <Button
@@ -40,6 +42,6 @@ export function Filter({
           </Button>
         ))}
       </ToggleButtonGroup>
-    </>
+    </FormControl>
   );
 }

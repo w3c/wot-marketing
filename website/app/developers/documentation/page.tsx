@@ -60,8 +60,8 @@ export default function DocumentationPage() {
             <StyledTable
               header={[
                 { label: 'Deliverable' },
-                { label: 'Status', size: '200px' },
-                { label: 'Last Publication', size: '150px' },
+                { label: 'Status', sx: { width: '200px' } },
+                { label: 'Last Publication', sx: { width: '150px' } },
               ]}
               rows={DELIVERABLES.normative_deliverables.map((deliverable) => ({
                 cells: [
@@ -77,7 +77,7 @@ export default function DocumentationPage() {
           <Stack gap={1}>
             <Typography level="title-lg">Informative Deliverables</Typography>
             <StyledTable
-              header={[{ label: 'Deliverable' }, { label: 'Last Publication', size: '150px' }]}
+              header={[{ label: 'Deliverable' }, { label: 'Last Publication', sx: { width: '150px' } }]}
               rows={DELIVERABLES.informative_deliverables.map((deliverable) => ({
                 cells: [
                   <Link key={deliverable.url} href={deliverable.url}>

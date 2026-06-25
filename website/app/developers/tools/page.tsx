@@ -5,7 +5,7 @@ import { ReactNode, useMemo, useState } from 'react';
 import { ToolFilters } from './_components/ToolFilters';
 import toolsJSON from '@/lib/generated/devToolsOutput.json';
 import { DevToolsOutput, ToolOutput } from '../../../../scripts/dev-tools/types';
-import { Alert, Link, Modal, ModalClose, ModalDialog, Stack, Table, Typography } from '@mui/joy';
+import { Alert, Link, Modal, ModalClose, ModalDialog, Stack, Typography } from '@mui/joy';
 import GitHubLogo from '@/public/github.png';
 import GitLabLogo from '@/public/gitlab.png';
 import Image, { StaticImageData } from 'next/image';
@@ -85,6 +85,30 @@ export default function ToolsPage() {
     <PageLayout
       title="WoT Tools"
       subtitle="Various resources for building Web of Things applications, including libraries, ready-to-use software, services, and SDKs tailored for different development stages, are grouped below "
+      banner={
+        <Stack gap={3}>
+          <ToolFilters
+            category={categoryFilter}
+            platform={platformFilter}
+            language={languageFilter}
+            showObsolete={showObsoleteFilter}
+            setCategory={setCategoryFilter}
+            setPlatform={setPlatformFilter}
+            setLanguage={setLanguageFilter}
+            setShowObsolete={setShowObsoleteFilter}
+            getMatchCount={getMatchCount}
+          />
+          <Alert variant="outlined" sx={{ width: 'fit-content', gap: 0.5 }}>
+            Showing
+            <Typography color="primary" fontWeight="bold">
+              {Object.values(filteredTools).reduce((acc, category) => {
+                return acc + Object.values(category).reduce((acc, subCategory) => acc + subCategory.tools.length, 0);
+              }, 0)}
+            </Typography>
+            matching tools
+          </Alert>
+        </Stack>
+      }
     >
       {selectedTool && (
         <Modal
@@ -138,28 +162,7 @@ export default function ToolsPage() {
           </ModalDialog>
         </Modal>
       )}
-      <Stack gap={3}>
-        <ToolFilters
-          category={categoryFilter}
-          platform={platformFilter}
-          language={languageFilter}
-          showObsolete={showObsoleteFilter}
-          setCategory={setCategoryFilter}
-          setPlatform={setPlatformFilter}
-          setLanguage={setLanguageFilter}
-          setShowObsolete={setShowObsoleteFilter}
-          getMatchCount={getMatchCount}
-        />
-        <Alert variant="outlined" sx={{ width: 'fit-content', gap: 0.5 }}>
-          Showing
-          <Typography color="primary" fontWeight="bold">
-            {Object.values(filteredTools).reduce((acc, category) => {
-              return acc + Object.values(category).reduce((acc, subCategory) => acc + subCategory.tools.length, 0);
-            }, 0)}
-          </Typography>
-          matching tools
-        </Alert>
-      </Stack>
+
       {Object.keys(filteredTools).map((category) => (
         <Stack key={category} gap={2}>
           <Typography level="h3">{category}</Typography>
@@ -171,10 +174,7 @@ export default function ToolsPage() {
                   <Typography>{filteredTools[category][subCategory].description}</Typography>
                 </Stack>
                 <StyledTable
-                  header={[
-                    { label: 'Name', size: '300px' },
-                    { label: 'Description', size: '100%' },
-                  ]}
+                  header={[{ label: 'Name', sx: { width: '30%', minWidth: '100px' } }, { label: 'Description' }]}
                   rows={filteredTools[category][subCategory].tools.map((tool) => ({
                     cells: [
                       <Typography fontWeight="lg" key={tool.name}>
