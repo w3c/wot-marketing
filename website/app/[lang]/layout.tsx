@@ -10,6 +10,7 @@ import { LocaleProvider } from '../_components/i18n/LocaleProvider';
 import { LOCALES, LOCALE_HREFLANG, isLocale, type Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
 import { getAlternates, SITE_URL } from '@/lib/i18n/metadata';
+import { StyledLink } from '../_components/StyledLink';
 
 export const dynamicParams = false;
 
@@ -63,9 +64,15 @@ export default async function RootLayout(props: { children: React.ReactNode; par
               <Navbar />
               <Box component="main" flex={1}>
                 {lang !== 'en' && (
-                  <Alert variant="soft" sx={{ borderRadius: 0, textAlign: 'center' }}>
+                  <Alert variant="soft" sx={{ borderRadius: 0, display: 'block', textAlign: 'center' }}>
                     {dict.alertBanner.translationNotice}{' '}
-                    <Link href="https://github.com/w3c/wot-marketing/issues">GitHub</Link>
+                    <StyledLink
+                      fontSize={14}
+                      external_url="https://github.com/w3c/wot-marketing/issues"
+                      sx={{ display: 'inline' }}
+                    >
+                      GitHub
+                    </StyledLink>
                   </Alert>
                 )}
                 {props.children}
