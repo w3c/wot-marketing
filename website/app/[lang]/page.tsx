@@ -16,7 +16,7 @@ export async function generateMetadata(props: { params: Promise<{ lang: string }
   const locale = isLocale(lang) ? lang : 'en';
   const dict = getDictionary(locale);
   return {
-    title: dict.metadata.defaultTitle,
+    title: 'W3C Web of Things',
     description: dict.home.hero.subtitle,
     alternates: getAlternates(locale, '/'),
   };

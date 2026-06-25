@@ -1,8 +1,5 @@
 {
   "metadata": {
-    "siteName": "Web of Things",
-    "defaultTitle": "W3C Web of Things",
-    "titleTemplate": "%s | Web of Things",
     "description": "The W3C Web of Things (WoT) defines a universal application layer for the Internet of Things built on web technologies, countering fragmentation and enabling seamless integration across IoT platforms and application domains."
   },
   "nav": {

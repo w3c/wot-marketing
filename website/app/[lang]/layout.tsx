@@ -25,14 +25,14 @@ export async function generateMetadata(props: { params: Promise<{ lang: string }
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: dict.metadata.defaultTitle,
-      template: dict.metadata.titleTemplate,
+      default: 'W3C Web of Things',
+      template: '%s | Web of Things',
     },
     description: dict.metadata.description,
     alternates: getAlternates(locale, '/'),
     openGraph: {
-      siteName: dict.metadata.siteName,
-      title: dict.metadata.defaultTitle,
+      siteName: 'Web of Things',
+      title: 'W3C Web of Things',
       description: dict.metadata.description,
       locale: LOCALE_HREFLANG[locale],
       type: 'website',

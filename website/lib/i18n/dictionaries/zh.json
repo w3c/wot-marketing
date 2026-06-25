@@ -1,8 +1,5 @@
 {
   "metadata": {
-    "siteName": "Web of Things",
-    "defaultTitle": "W3C Web of Things",
-    "titleTemplate": "%s | Web of Things",
     "description": "W3C Web of Things（WoT）基于 Web 技术为物联网定义了通用的应用层，以应对碎片化问题，并实现跨 IoT 平台和应用领域的无缝集成。"
   },
   "nav": {

@@ -1,8 +1,5 @@
 {
   "metadata": {
-    "siteName": "Web of Things",
-    "defaultTitle": "W3C Web of Things",
-    "titleTemplate": "%s | Web of Things",
     "description": "W3C Web of Things (WoT) определяет универсальный прикладной уровень для Интернета вещей на основе веб-технологий, противодействуя фрагментации и обеспечивая бесшовную интеграцию между платформами IoT и прикладными областями."
   },
   "nav": {
