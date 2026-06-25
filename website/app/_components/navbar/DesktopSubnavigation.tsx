@@ -1,7 +1,7 @@
 import { Divider, List, MenuItem, MenuList, Stack, Typography, useTheme } from '@mui/joy';
 import { NavbarSubpages } from './Navbar';
 import { useState, useEffect, useCallback } from 'react';
-import Link from 'next/link';
+import { LocaleLink as Link } from '../LocaleLink';
 import { isSubPath } from '@/lib/utils/path';
 import { Route } from 'next';
 

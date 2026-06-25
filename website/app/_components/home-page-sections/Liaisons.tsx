@@ -1,16 +1,16 @@
+'use client';
 import { LIAISONS } from '@/lib/liaisons';
 import { Box, Stack, Typography } from '@mui/joy';
 import { PageSection } from '../PageSection';
 import { LinkButton } from '../LinkButton';
+import { useDictionary } from '../i18n/LocaleProvider';
 
 export function Liaisons() {
+  const t = useDictionary().home.liaisons;
   return (
-    <PageSection title="Liaisons">
+    <PageSection title={t.title}>
       <Stack gap={4}>
-        <Typography>
-          Liaisons systematically coordinate efforts between the core WoT group and external bodies governing specific
-          protocols, semantics, or domains
-        </Typography>
+        <Typography>{t.intro}</Typography>
         <Box
           sx={{
             display: 'grid',

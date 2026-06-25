@@ -5,33 +5,32 @@ import { PageSection } from '../PageSection';
 import { useState } from 'react';
 import { LinkButton } from '../LinkButton';
 import memberOrganizations from '@/lib/generated/memberOrganizationsOutput.json';
+import { useDictionary } from '../i18n/LocaleProvider';
 
 export function Members() {
+  const t = useDictionary().home.members;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const subgroups = Object.values(memberOrganizations);
   const total = subgroups.reduce((acc, subgroup) => {
     return acc + subgroup.length;
   }, 0);
   return (
-    <PageSection title="Members">
+    <PageSection title={t.title}>
       <Stack gap={4}>
-        <Typography>
-          Many organizations are involved in the Web of Things ecosystem across various groups. Click below to explore
-          its active participants.
-        </Typography>
+        <Typography>{t.intro}</Typography>
         <Button variant="outlined" onClick={() => setIsModalOpen(true)}>
           <Stack>
             <Typography level="h2" color="primary">
               {total}
             </Typography>
-            <Typography>Organizations</Typography>
+            <Typography>{t.organizations}</Typography>
           </Stack>
         </Button>
         <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <ModalDialog size="lg" sx={{ width: '80%', maxWidth: '1500px', pb: 0 }}>
             <ModalClose />
             <DialogTitle component="h3" style={{ fontSize: '26px' }}>
-              Member Organizations
+              {t.modalTitle}
             </DialogTitle>
             <DialogContent sx={{ pt: 3 }}>
               {Object.entries(memberOrganizations).map(([group, members]) => (

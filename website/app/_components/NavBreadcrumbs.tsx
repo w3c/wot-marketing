@@ -3,9 +3,10 @@ import { Breadcrumbs, Card, Typography } from '@mui/joy';
 import { StyledLink } from './StyledLink';
 import { usePathname } from 'next/navigation';
 import { Route } from 'next';
+import { stripLocale } from '@/lib/i18n/config';
 
 export function NavBreadcrumbs({ startingPath, currentPageTitle }: { startingPath: Route; currentPageTitle: string }) {
-  const pathname = usePathname();
+  const pathname = stripLocale(usePathname());
   const paths = pathname
     .split('/')
     .filter((path) => path)

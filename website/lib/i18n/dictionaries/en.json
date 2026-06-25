@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "description": "The W3C Web of Things (WoT) defines a universal application layer for the Internet of Things built on web technologies, countering fragmentation and enabling seamless integration across IoT platforms and application domains."
+  },
+  "nav": {
+    "navigationLabel": "Navigation",
+    "home": "Home",
+    "useCases": "Use Cases",
+    "videos": "Videos",
+    "developers": {
+      "label": "Developers",
+      "description": "Discover useful resources for developers building WoT applications",
+      "tools": {
+        "label": "Tools",
+        "description": "List of applications, libraries, services and more for WoT development"
+      },
+      "documentation": {
+        "label": "Documentation",
+        "description": "Tutorials, specifications, standardizations and other documentation for WoT"
+      }
+    },
+    "participate": {
+      "label": "Participate",
+      "description": "The W3C Web of Things is shaped by global experts. Join to drive standards or to incubate ideas.",
+      "workingGroup": {
+        "label": "Working Group (WG)",
+        "description": "Develops normative specifications, creates test suites, and coordinates all Task Forces"
+      },
+      "communityGroups": {
+        "label": "Community Groups (CG)",
+        "description": "Open forums to accelerate WoT adoption, gather use cases, and discuss specific domains and regions"
+      }
+    },
+    "about": {
+      "label": "About",
+      "description": "Find more important information about WoT",
+      "contact": {
+        "label": "Contact",
+        "description": "Get in touch with us for any questions or inquiries"
+      },
+      "articles": {
+        "label": "Articles",
+        "description": "Latest articles and news about WoT"
+      },
+      "history": {
+        "label": "History",
+        "description": "Historical overview of WoT development"
+      }
+    }
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "ariaLabel": "Select language"
+  },
+  "footer": {
+    "copyright": "Copyright © 2026 World Wide Web Consortium",
+    "w3cTooltip": "World Wide Web Consortium",
+    "rules": "liability, trademark and permissive license rules apply"
+  },
+  "common": {
+    "seeAll": "See All",
+    "supportUs": "Support Us",
+    "upcoming": "Upcoming"
+  },
+  "home": {
+    "hero": {
+      "title": "W3C Web of Things",
+      "subtitle": "The mission of the W3C Web of Things (WoT) is to define a universal application layer for the Internet of Things (IoT) built on web technologies, to counter fragmentation and enable seamless integration across IoT platforms and application domains"
+    },
+    "nutshell": {
+      "title": "WoT in a Nutshell",
+      "p1": "In typical IoT projects, developers face a fragmented landscape of proprietary systems, incompatible communication protocols, differing data models, and varying security requirements. Applications built this way demand high effort for narrow use cases and become difficult to extend, maintain, or reuse over time.",
+      "p2": "WoT provides standardized building blocks that simplify IoT application development by applying the well-established Web paradigm. This approach boosts flexibility and interoperability, especially for cross-domain scenarios, while enabling reuse of proven standards and tooling. WoT unlocks the commercial potential held back by IoT fragmentation."
+    },
+    "useCases": {
+      "title": "Use Cases",
+      "p1": "The Web of Things technologies apply to a variety of domains and unlock use cases. Whether it be industrial automation, smart home, infrastructure or agentic systems, you can use WoT for your solution. Find out below how the properties, actions, events abstraction over multitude of protocols and domains work.",
+      "p2": "Read testimonials from industry leaders and W3C members to see how they are adopting the Web of Things standard to drive interoperability and innovation.",
+      "cta": "Explore WoT Use Cases",
+      "resources": {
+        "label": "Resources & References",
+        "description": "Videos, specifications and documents on WoT use cases"
+      },
+      "domains": {
+        "label": "Application Domains",
+        "description": "Manufacturing, energy, smart cities, healthcare and more"
+      },
+      "trends": {
+        "label": "Technology Trends",
+        "description": "Digital twins, agentic systems, edge computing and AI"
+      },
+      "testimonials": {
+        "label": "Testimonials",
+        "description": "Endorsements from industry leaders and W3C members"
+      }
+    },
+    "members": {
+      "title": "Members",
+      "intro": "Many organizations are involved in the Web of Things ecosystem across various groups. Click below to explore its active participants.",
+      "organizations": "Organizations",
+      "modalTitle": "Member Organizations"
+    },
+    "liaisons": {
+      "title": "Liaisons",
+      "intro": "Liaisons systematically coordinate efforts between the core WoT group and external bodies governing specific protocols, semantics, or domains"
+    },
+    "whyJoin": {
+      "title": "Why join?",
+      "intro": "We develop the Web of Things standards and guidelines to ensure long-term IoT interoperability. By joining, you drive W3C standards that shape future device integration and build a cohesive connected ecosystem.",
+      "participate": "Participate in W3C WoT"
+    },
+    "recentActivities": {
+      "title": "Recent Activities",
+      "latestArticles": "Latest Articles",
+      "latestEvents": "Latest Events"
+    },
+    "mastodon": {
+      "title": "Latest on Mastodon",
+      "linkText": "WoT in Mastodon"
+    }
+  },
+  "pages": {
+    "useCases": {
+      "title": "WoT Use Cases",
+      "subtitle": "Explore how the Web of Things is applied across industries, from smart manufacturing and energy management to connected buildings and beyond"
+    },
+    "videos": {
+      "title": "WoT Videos",
+      "subtitle": "A collection of videos related to the Web of Things (WoT) with useful insights on tutorials, specifications, and real-world applications"
+    },
+    "documentation": {
+      "title": "Documentation",
+      "subtitle": "Explore the Web of Things (WoT) specifications, tutorials, and resources"
+    },
+    "tools": {
+      "title": "WoT Tools",
+      "subtitle": "Various resources for building Web of Things applications, including libraries, ready-to-use software, services, and SDKs tailored for different development stages, are grouped below"
+    },
+    "workingGroup": {
+      "title": "Working Group"
+    },
+    "communityGroups": {
+      "title": "Community Groups",
+      "subtitle": "The following Community Groups support the WoT activities"
+    },
+    "events": {
+      "title": "Events",
+      "subtitle": "Web of Things (WoT) groups convene at the W3C annual Technical Plenary and hold biannual face-to-face meetings. Work items are prototyped and tested at WoT IG PlugFests, which occur the week or weekend immediately preceding the face-to-face sessions."
+    },
+    "taskForces": {
+      "title": "Task Forces",
+      "subtitle": "The Web of Things (WoT) Working Group conducts some of its work via task forces and uses a main wiki & call to provide an opportunity to summarize and coordinate the activities of the various task forces. See each task force page for details about specific work."
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Get in touch with us for any questions or inquiries"
+    },
+    "articles": {
+      "title": "Articles"
+    },
+    "history": {
+      "title": "History",
+      "subtitle": "Web of Things has reached its place at W3C after many years of discussions and work by different parties"
+    }
+  },
+  "notFound": {
+    "title": "404 - Not Found",
+    "subtitle": "The page you are looking for doesn't exist or has been moved",
+    "cta": "Return to Home"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "subtitle": "An unexpected error occurred. Please try again.",
+    "cta": "Try again"
+  }
+}

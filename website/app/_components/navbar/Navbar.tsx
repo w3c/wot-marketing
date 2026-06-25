@@ -3,7 +3,6 @@
 import { Box, Card, Stack, Typography } from '@mui/joy';
 import wotLogo from '@/public/wot-logo.svg';
 import Image from 'next/image';
-import Link from 'next/link';
 import { DesktopNavbar } from './DesktopNavbar';
 import { DesktopSubnavigation } from './DesktopSubnavigation';
 import { MobileNavbar } from './MobileNavbar';
@@ -11,6 +10,8 @@ import { useState, useRef, useEffect } from 'react';
 import { TabletNavbar } from './TabletNavbar';
 import { Route } from 'next';
 import { useTypedPathname } from '@/lib/utils/path';
+import { LocaleLink } from '../LocaleLink';
+import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
 
 export type NavbarPage = {
   label: string;
@@ -87,14 +88,14 @@ export function Navbar() {
           alignItems="baseline"
           sx={{ width: '100%', maxWidth: '1800px' }}
         >
-          <Link href="/" style={{ minWidth: '250px', textDecoration: 'none' }}>
+          <LocaleLink href="/" style={{ minWidth: '250px', textDecoration: 'none' }}>
             <Stack direction="row" alignItems="center" gap={2}>
               <Image src={wotLogo} width={80} alt="W3C WoT Logo" />
               <Typography level="h3" color="primary">
                 Web of Things
               </Typography>
             </Stack>
-          </Link>
+          </LocaleLink>
 
           {/* Desktop navigation - hidden below lg */}
           <Box sx={{ display: { xs: 'none', lg: 'contents' } }}>

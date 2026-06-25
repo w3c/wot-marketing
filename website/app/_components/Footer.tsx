@@ -1,8 +1,10 @@
 'use client';
 
 import { Card, Stack, Tooltip, Typography } from '@mui/joy';
+import { useDictionary } from './i18n/LocaleProvider';
 
 export function Footer() {
+  const dict = useDictionary();
   return (
     <Card
       sx={{
@@ -13,14 +15,14 @@ export function Footer() {
         mt: 6,
       }}
     >
-      <Typography level="title-sm">Copyright © 2026 World Wide Web Consortium</Typography>
+      <Typography level="title-sm">{dict.footer.copyright}</Typography>
       <Stack direction="row" gap={0.5}>
-        <Tooltip title="World Wide Web Consortium" variant="plain" size="lg">
+        <Tooltip title={dict.footer.w3cTooltip} variant="plain" size="lg">
           <Typography level="title-sm" sx={{ display: 'inline', cursor: 'help', textDecoration: 'underline dotted' }}>
             W3C®
           </Typography>
         </Tooltip>
-        <Typography level="title-sm">liability, trademark and permissive license rules apply</Typography>
+        <Typography level="title-sm">{dict.footer.rules}</Typography>
       </Stack>
     </Card>
   );

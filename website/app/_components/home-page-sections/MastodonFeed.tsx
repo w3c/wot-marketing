@@ -7,6 +7,7 @@ import { Stack } from '@mui/joy';
 import { SxProps } from '@mui/joy/styles/types';
 import { useEffect } from 'react';
 import { PageSection } from '../PageSection';
+import { useDictionary } from '../i18n/LocaleProvider';
 
 export function MastodonFeed({ sx }: { sx?: SxProps }) {
   // The feed is on multiple pages and on navigation the script has to be reloaded
@@ -34,13 +35,14 @@ export function MastodonFeed({ sx }: { sx?: SxProps }) {
     };
   }, []);
 
+  const t = useDictionary().home.mastodon;
   return (
     <Stack gap={2} sx={sx}>
       <PageSection
         title={
           <Stack direction="row" alignItems="center" gap={1.6}>
             <Image width={24} height={24} alt="Mastodon" src="https://www.cdnlogo.com/logos/m/33/mastodon.svg" />
-            Latest on Mastodon
+            {t.title}
           </Stack>
         }
       >
@@ -58,7 +60,7 @@ export function MastodonFeed({ sx }: { sx?: SxProps }) {
           }}
         >
           <a className="mastodon-feed" href="https://w3c.social/@wot" data-toot-limit="20">
-            WoT in Mastodon
+            {t.linkText}
           </a>
         </div>
       </PageSection>

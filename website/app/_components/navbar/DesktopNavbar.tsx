@@ -1,12 +1,14 @@
-import { ButtonGroup, Button } from '@mui/joy';
+import { ButtonGroup, Button, Stack } from '@mui/joy';
 import Link from 'next/link';
 import { NavbarSubpages } from './Navbar';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import { isSubPath } from '@/lib/utils/path';
-import { NAVBAR_ELEMENTS } from '@/lib/navbarElements';
+import { buildNavbarElements } from '@/lib/navbarElements';
+import { useDictionary } from '../i18n/LocaleProvider';
 import { Route } from 'next';
 import { LinkButton } from '../LinkButton';
+import { LanguageSwitcher } from '../i18n/LanguageSwitcher';
 
 export function DesktopNavbar({
   pathName,
@@ -21,6 +23,7 @@ export function DesktopNavbar({
   isSubnavigationOpen: boolean;
   setIsSubnavigationOpen: (isOpen: boolean) => void;
 }) {
+  const NAVBAR_ELEMENTS = buildNavbarElements(useDictionary());
   const toggleSubnavigation = (subnavigation: NavbarSubpages) => {
     if (subnavigation.label === activeSubnavigation?.label && isSubnavigationOpen) {
       setIsSubnavigationOpen(false);
@@ -69,12 +72,13 @@ export function DesktopNavbar({
           )
         )}
       </ButtonGroup>
-      <Link
-        href="https://www.w3.org/"
-        style={{ transform: 'translateY(9px)', width: '250px', display: 'flex', justifyContent: 'flex-end' }}
-      >
-        <Image src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" alt="W3C Logo" width={36} height={36} />
-      </Link>
+      <Stack direction="row" alignItems="center" gap={2} justifyContent="flex-end">
+        {/* Language switcher - always visible */}
+        <LanguageSwitcher />
+        <Link href="https://www.w3.org/">
+          <Image src="https://www.w3.org/assets/logos/w3c-2025/svg/w3c.svg" alt="W3C Logo" width={36} height={36} />
+        </Link>
+      </Stack>
     </>
   );
 }
