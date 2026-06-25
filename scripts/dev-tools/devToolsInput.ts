@@ -28,7 +28,7 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: 'https://github.com/eclipse/ditto/tree/master/wot/model',
           platforms: ['Library'],
           affiliation: 'Eclipse Foundation',
-          description: `A library to provide a set of Java classes to model and manipulate TDs and TMs in Java applications.`,
+          description: `A library to provide a set of Java classes to model and manipulate TDs and TMs in Java applications`,
         },
         {
           repoUrl: 'https://github.com/oeg-upm/wot-jtd',
@@ -159,7 +159,7 @@ export const devToolsInput: DevToolsInput = {
         {
           name: 'WoT Hive',
           description:
-            'A WoT Directory implementation with enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.',
+            'A WoT Directory implementation with enriched features thanks to the usage of other W3C standards related to Semantic Web technologies',
           repoUrl: 'https://github.com/oeg-upm/wot-hive',
           platforms: ['Service'],
           affiliation: 'Ontology Engineering Group, Universidad Politécnica de Madrid',
@@ -196,7 +196,7 @@ export const devToolsInput: DevToolsInput = {
         },
         {
           repoUrl: 'https://codeberg.org/jaller94/wot-wrench',
-          description: 'A web app to control Web of Things devices.',
+          description: 'A web app to control Web of Things devices',
           platforms: ['Browser'],
           affiliation: 'Christian Jaller',
           ignoreFetch: true,
@@ -210,7 +210,7 @@ export const devToolsInput: DevToolsInput = {
         {
           name: 'Thing Control Panel',
           description:
-            "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot.",
+            "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot",
           platforms: ['Browser'],
           affiliation: 'hololinked',
           lastUpdated: '2026-05-04T00:00:00Z',
@@ -265,7 +265,7 @@ export const devToolsInput: DevToolsInput = {
         },
         {
           description:
-            'A a multi-layer software framework that virtualizes IoT devices into interoperable Virtual Objects, enabling standardized management, semantic abstraction, service composition, and seamless integration with edge/coud technologies.',
+            'A a multi-layer software framework that virtualizes IoT devices into interoperable Virtual Objects, enabling standardized management, semantic abstraction, service composition, and seamless integration with edge/coud technologies',
           repoUrl: 'https://gitlab.eclipse.org/eclipse/vostack/vostack',
           platforms: ['Service'],
           affiliation: 'Eclipse Foundation',
