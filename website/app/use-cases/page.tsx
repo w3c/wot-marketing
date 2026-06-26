@@ -1,22 +1,14 @@
 'use client';
 
 import { PageLayout } from '../_components/PageLayout';
-import {
-  Card,
-  CardContent,
-  Typography,
-  Stack,
-  Box,
-  Alert,
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  AccordionGroup,
-} from '@mui/joy';
+import { Typography, Stack, Box, Alert, Accordion, AccordionDetails, AccordionSummary, AccordionGroup } from '@mui/joy';
 import { HardHat } from 'lucide-react';
-import { RESOURCES, DOMAINS, TECH_TRENDS, TESTIMONIALS, Domain, Testimonial } from '@/lib/useCases';
+import { RESOURCES } from '@/lib/use-cases/resources';
 import { LinkCard } from '../_components/LinkCard';
 import { PageSection } from '../_components/PageSection';
+import { Testimonial, TESTIMONIALS } from '@/lib/use-cases/testimonials';
+import { DOMAINS, getDomainPagePath, WoTUseCasePage } from '@/lib/use-cases/domains';
+import { Route } from 'next';
 
 export default function UseCasesPage() {
   return (
@@ -69,35 +61,22 @@ export default function UseCasesPage() {
             services.
           </Typography>
 
-          <Stack gap={2} id="application-domains">
-            <Typography level="h4">Application Domains</Typography>
-            <Box
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
-                gap: 2,
-              }}
-            >
-              {DOMAINS.map((domain, index) => (
-                <DomainCard key={index} domain={domain} />
-              ))}
-            </Box>
-          </Stack>
-
-          <Stack gap={2} id="technology-trends">
-            <Typography level="h4">Technology Trends</Typography>
-            <Box
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
-                gap: 2,
-              }}
-            >
-              {TECH_TRENDS.map((trend, index) => (
-                <DomainCard key={index} domain={trend} />
-              ))}
-            </Box>
-          </Stack>
+          {Object.keys(DOMAINS).map((domainKey) => (
+            <Stack key={domainKey} gap={2}>
+              <Typography level="h4">{domainKey}</Typography>
+              <Box
+                sx={{
+                  display: 'grid',
+                  gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
+                  gap: 2,
+                }}
+              >
+                {DOMAINS[domainKey as keyof typeof DOMAINS].map((domain) => (
+                  <DomainCard key={domain.title} domain={domain} />
+                ))}
+              </Box>
+            </Stack>
+          ))}
         </Stack>
       </PageSection>
 
@@ -132,24 +111,18 @@ export default function UseCasesPage() {
   );
 }
 
-function DomainCard({ domain }: { domain: Domain }) {
+function DomainCard({ domain }: { domain: WoTUseCasePage }) {
   return (
-    <Card
-      variant="outlined"
+    <LinkCard
+      label={domain.title}
+      description={domain.subtitle}
+      icon={domain.icon}
+      path={getDomainPagePath(domain.title) as Route}
       sx={{
         borderTop: '3px solid',
         borderColor: 'primary.main',
-        height: '100%',
       }}
-    >
-      <Box sx={{ color: 'primary.main', mb: 1.5 }}>{domain.icon}</Box>
-      <CardContent>
-        <Typography level="title-md" mb={1}>
-          {domain.title}
-        </Typography>
-        <Typography level="body-sm">{domain.description}</Typography>
-      </CardContent>
-    </Card>
+    />
   );
 }
 
