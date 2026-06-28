@@ -45,12 +45,12 @@
         },
         {
           "name": "Eclipse Ditto :: WoT :: Model",
-          "description": "A library to provide a set of Java classes to model and manipulate TDs and TMs in Java applications.",
+          "description": "A library to provide a set of Java classes to model and manipulate TDs and TMs in Java applications",
           "repoUrl": "https://github.com/eclipse/ditto/tree/master/wot/model",
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-06-25T07:44:08Z",
+          "lastUpdated": "2026-06-26T13:10:14Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-06-25T07:44:08Z",
+          "lastUpdated": "2026-06-26T13:10:14Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -399,7 +399,7 @@
         },
         {
           "name": "WoT Hive",
-          "description": "A WoT Directory implementation with enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.",
+          "description": "A WoT Directory implementation with enriched features thanks to the usage of other W3C standards related to Semantic Web technologies",
           "repoUrl": "https://github.com/oeg-upm/wot-hive",
           "languages": [],
           "lastUpdated": "2026-04-13T09:23:10Z",
@@ -471,7 +471,7 @@
         },
         {
           "name": "WoT Wrench",
-          "description": "A web app to control Web of Things devices.",
+          "description": "A web app to control Web of Things devices",
           "repoUrl": "https://codeberg.org/jaller94/wot-wrench",
           "languages": [],
           "lastUpdated": null,
@@ -497,7 +497,7 @@
         },
         {
           "name": "Thing Control Panel",
-          "description": "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot.",
+          "description": "View and interact with your Thing's properties, actions and events over browser supported protocols. Based on node-wot",
           "repoUrl": null,
           "languages": [],
           "lastUpdated": "2026-05-04T00:00:00Z",
@@ -585,7 +585,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-06-22T16:28:07Z",
+          "lastUpdated": "2026-06-27T06:32:21Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-06-20T12:29:20Z",
+          "lastUpdated": "2026-06-27T21:50:29Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -609,7 +609,7 @@
         },
         {
           "name": "Eclipse VOStack",
-          "description": "A a multi-layer software framework that virtualizes IoT devices into interoperable Virtual Objects, enabling standardized management, semantic abstraction, service composition, and seamless integration with edge/coud technologies.",
+          "description": "A a multi-layer software framework that virtualizes IoT devices into interoperable Virtual Objects, enabling standardized management, semantic abstraction, service composition, and seamless integration with edge/coud technologies",
           "repoUrl": "https://gitlab.eclipse.org/eclipse/vostack/vostack",
           "languages": [],
           "lastUpdated": "2026-06-02T15:28:02.101Z",
