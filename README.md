@@ -20,6 +20,7 @@ General information about the Web of Things can be found at https://www.w3.org/W
 ---
 
 This repository is a collection of material used for communication and marketing purposes of the WoT standardization activity.
+We also collect analytics information and publish it at <https://w3c.github.io/wot-analytics/>.
 
 ## Repository Structure
 
