@@ -1,6 +1,7 @@
 import { PageLayout } from '@/app/_components/PageLayout';
 import { PageSection } from '@/app/_components/PageSection';
 import { DOMAINS, getDomainPageSlug } from '@/lib/use-cases/domains';
+import { Testimonial, TESTIMONIALS } from '@/lib/use-cases/testimonials';
 import { Box, Card, Chip, Link, List, ListItem, Stack, Typography } from '@mui/joy';
 import { notFound } from 'next/navigation';
 
@@ -21,6 +22,8 @@ export default async function DomainUseCasePage(props: { params: Promise<{ slug:
   if (!pageData) {
     notFound();
   }
+
+  const testimonials = getTestimonialsById(pageData.testimonialIds ?? []);
 
   return (
     <PageLayout breadcrumbs={{ startingPath: '/use-cases' }} title={pageData.title} subtitle={pageData.subtitle}>
@@ -53,6 +56,22 @@ export default async function DomainUseCasePage(props: { params: Promise<{ slug:
           ))}
         </Box>
       </PageSection>
+
+      {testimonials.length > 0 ? (
+        <PageSection title="Testimonials">
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
+              gap: 2,
+            }}
+          >
+            {testimonials.map((testimonial) => (
+              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+            ))}
+          </Box>
+        </PageSection>
+      ) : null}
 
       <PageSection title="Resources">
         <Box
@@ -114,6 +133,55 @@ export default async function DomainUseCasePage(props: { params: Promise<{ slug:
         </Box>
       </PageSection>
     </PageLayout>
+  );
+}
+
+function getTestimonialsById(ids: string[]) {
+  return ids
+    .map((id) => TESTIMONIALS.find((testimonial) => testimonial.id === id))
+    .filter((testimonial): testimonial is Testimonial => Boolean(testimonial));
+}
+
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+  return (
+    <Card variant="outlined" sx={{ height: '100%' }}>
+      <Stack gap={2}>
+        <Typography level="title-md">{testimonial.name}</Typography>
+        {testimonial.isJoint ? (
+          <Stack gap={2}>
+            {testimonial.quotes?.map((quote) => (
+              <TestimonialQuote key={quote.author} quote={quote.quote} author={quote.author} />
+            ))}
+          </Stack>
+        ) : (
+          <TestimonialQuote quote={testimonial.content ?? ''} author={testimonial.author} />
+        )}
+      </Stack>
+    </Card>
+  );
+}
+
+function TestimonialQuote({ quote, author }: { quote: string; author?: string }) {
+  return (
+    <Box>
+      <Typography
+        level="body-md"
+        sx={{
+          fontStyle: 'italic',
+          borderLeft: '3px solid',
+          borderColor: 'primary.main',
+          pl: 2,
+          mb: 1,
+        }}
+      >
+        {quote}
+      </Typography>
+      {author ? (
+        <Typography level="body-xs" sx={{ color: 'text.secondary' }}>
+          - <strong>{author.split(',')[0]}</strong>, {author.split(',').slice(1).join(',')}
+        </Typography>
+      ) : null}
+    </Box>
   );
 }
 

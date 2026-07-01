@@ -38,7 +38,7 @@ export function getDomainPagePath(title: string) {
   return `/use-cases/${getDomainPageSlug(title)}`;
 }
 
-export type WoTUseCaseGroup = 'application-domain' | 'technology-trend';
+export type WoTUseCaseGroup = 'Application Domain' | 'Technology Trend';
 
 export type WoTResourceKind =
   | 'w3c-spec'
@@ -79,6 +79,7 @@ export type WoTUseCasePage = {
   body: string[];
   wotEnables: string[];
   primaryCapabilities: WoTCapability[];
+  testimonialIds?: string[];
   resources: WoTResource[];
   relatedStandards: string[];
   relatedOrganizations: string[];
@@ -88,7 +89,7 @@ export type WoTUseCasePage = {
 export type WoTUseCasePagesByGroup = Record<WoTUseCaseGroup, WoTUseCasePage[]>;
 
 export const DOMAINS: WoTUseCasePagesByGroup = {
-  'application-domain': [
+  'Application Domain': [
     {
       title: 'Smart Manufacturing',
       icon: <Factory size={32} />,
@@ -250,18 +251,13 @@ export const DOMAINS: WoTUseCasePagesByGroup = {
         'semantic-annotations',
         'security-metadata',
       ],
+      testimonialIds: ['siemens'],
       resources: [
         {
           label: 'W3C WoT Use Cases and Requirements, Smart Grids',
           url: 'https://www.w3.org/TR/wot-usecases/#smart-grids',
           kind: 'w3c-note',
           note: 'Smart grid scenario covering generation, storage, grid management and consumption.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, Energy Optimization testimonial',
-          url: 'https://www.w3.org/WoT/use-cases/#testimonials',
-          kind: 'w3c-note',
-          note: 'W3C use-case page includes energy optimization positioning from industrial stakeholders.',
         },
         {
           label: 'IEC 61850',
@@ -805,7 +801,7 @@ export const DOMAINS: WoTUseCasePagesByGroup = {
       keywords: ['air quality', 'water quality', 'weather', 'pollution', 'ecology', 'sensor networks', 'observations'],
     },
   ],
-  'technology-trend': [
+  'Technology Trend': [
     {
       title: 'Digital Twins',
       icon: <Copy size={32} />,
@@ -947,8 +943,7 @@ export const DOMAINS: WoTUseCasePagesByGroup = {
     {
       title: 'Digital Product Passport',
       icon: <QrCode size={32} />,
-      subtitle:
-        'Use Thing Descriptions as machine-readable entry points for product lifecycle and sustainability data',
+      subtitle: 'Use Thing Descriptions as machine-readable entry points for product lifecycle and sustainability data',
       sellingPoint:
         'WoT can complement Digital Product Passports by connecting static product information with live product interfaces, telemetry and lifecycle services.',
       heroUseCase:
