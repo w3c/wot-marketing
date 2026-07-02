@@ -59,12 +59,9 @@ export default async function DomainUseCasePage(props: { params: Promise<{ slug:
             <ListItem key={example}>{example}</ListItem>
           ))}
         </List>
-        <Card variant="outlined">
-          <Typography>{pageData.cta}</Typography>
-        </Card>
       </PageSection>
 
-      <PageSection title="Standards">
+      <PageSection title="Relevant Standards">
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {pageData.standards.map((standard) => (
             <Chip

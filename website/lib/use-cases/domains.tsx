@@ -52,7 +52,6 @@ export type WoTUseCasePage = {
   howItWorks: string;
   standards: Standard[];
   resources: Resource[];
-  cta: string;
   testimonialIds?: string[];
 };
 
@@ -109,7 +108,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: 'W3C WoT CG tutorial covering industrial system requirements, TD-based application logic that decouples devices from proprietary systems, and protocol gateways unifying Modbus, Profinet, MQTT, and OPC UA in smart factories.',
         },
       ],
-      cta: 'Start with a pilot on one production line: describe 5-10 key assets with TDs and integrate into your existing dashboard or analytics platform. WoT reduces vendor lock-in and accelerates digital twin initiatives.',
       testimonialIds: ['microsoft', 'opc-foundation', 'siemens', 'fujitsu'],
     },
 
@@ -153,7 +151,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: '20 November 2025: Integration of building energy systems with WoT for optimized consumption and smart grid interaction.',
         },
       ],
-      cta: 'Pilot WoT-enabled VPP or demand-response integration on a subset of customer DERs. Leverage existing TDs or Thing Models to cut onboarding time from weeks to hours.',
       testimonialIds: ['siemens', 'siemens-microsoft'],
     },
 
@@ -203,7 +200,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: 'W3C WoT CG tutorial covering smart building application domains, ownership models, and how WoT enhances interoperability across BACnet, Modbus, and KNX as a step toward smart cities.',
         },
       ],
-      cta: "Map your building portfolio's critical systems to WoT TDs. Start with energy-consuming equipment (HVAC, lighting) to unlock immediate ROI through optimization and fault detection apps. Use Thing Models to scale across sites.",
       testimonialIds: ['siemens-microsoft', 'siemens', 'opc-foundation'],
     },
 
@@ -246,10 +242,9 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
         {
           title: 'WoT Tutorial: Applications in Smart Homes and Smart Cities',
           url: 'https://w3c-cg.github.io/wot-cg/tutorials/whatiswot/docs/wot/application-domains/smart-home-and-cities#smart-cities',
-          note: 'W3C WoT CG tutorial explaining how WoT\'s domain-agnostic nature enables scalable smart cities across water management, air quality monitoring, and traffic control with multi-ownership and vendor-neutral interoperability.',
+          note: "W3C WoT CG tutorial explaining how WoT's domain-agnostic nature enables scalable smart cities across water management, air quality monitoring, and traffic control with multi-ownership and vendor-neutral interoperability.",
         },
       ],
-      cta: 'Define a minimal WoT profile for city assets. Pilot cross-department data sharing (e.g., traffic + environment) using WoT Discovery. This creates immediate value and positions the city as an innovation hub.',
       testimonialIds: ['hitachi'],
     },
 
@@ -279,7 +274,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
         'Medical devices expose TDs (or are wrapped via gateways). Clinical applications and AI services discover and interact with devices securely using WoT protocols and security mechanisms. Data is semantically described for integration into clinical decision support systems. Edge computing supports low-latency closed-loop control. Full audit trails and access policies are enforced via TD security metadata.',
       standards: [STANDARDS.astmF2761, STANDARDS.fhir, STANDARDS.dds, STANDARDS.ssnSosa],
       resources: [],
-      cta: 'Identify high-value integration points (e.g., ICU monitoring or remote patient programs). Use WoT TDs to create secure, standardized interfaces. This reduces custom integration work and accelerates digital health initiatives while improving compliance posture.',
     },
 
     Agriculture: {
@@ -326,7 +320,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: 'W3C WoT CG tutorial covering agriculture system automation, resource-constrained device support, incremental adoption via interoperable interfaces, and cross-domain collaboration.',
         },
       ],
-      cta: 'Start with soil moisture + weather + irrigation control on one field or greenhouse. Use or extend existing Thing Models for rapid TD creation. Integrate data into your farm management platform or carbon accounting tools for quick ROI and compliance value.',
     },
 
     'Transportation & Logistics': {
@@ -362,7 +355,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
         STANDARDS.fiveG,
       ],
       resources: [],
-      cta: 'Define a WoT profile for your telematics and cargo sensors. Pilot standardized data sharing with one key partner or platform. This unlocks visibility benefits quickly and positions you for advanced analytics and new service models.',
     },
 
     'Consumer & Smart Home': {
@@ -387,7 +379,7 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
         'Context-Aware Automations: Devices react intelligently to TV programs, presence, or schedules using standardized scene and mode descriptions.',
         'Privacy-Preserving Local Control: Critical automations run locally on edge gateways using WoT Scripting API, reducing cloud dependency.',
         'Controller Pattern: A local or remote controller (e.g., a smartphone) consumes device Thing Descriptions to read sensor values and actuate devices, which act as servers responding to client commands over the home network.',
-        'Gateway Pattern: Gateways connect the home network to the internet, using a device\'s local TD to provide web-level access management. They adapt the TD\'s protocol binding so devices such as solar panels, thermostats, and security cameras remain operable locally while becoming securely accessible to cloud servers and remote applications.',
+        "Gateway Pattern: Gateways connect the home network to the internet, using a device's local TD to provide web-level access management. They adapt the TD's protocol binding so devices such as solar panels, thermostats, and security cameras remain operable locally while becoming securely accessible to cloud servers and remote applications.",
       ],
       howItWorks:
         'Gateways or hubs translate native device protocols to WoT TDs. Consumers discover and interact with all devices uniformly via web APIs or local runtimes. Thing Models provide templates for common device classes (light, thermostat, sensor). Security policies and consent flows are expressed in TDs. Advanced users or developers use the WoT Scripting API for custom logic that runs reliably even offline.',
@@ -399,7 +391,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: 'W3C WoT CG tutorial covering smart home architecture patterns (controllers and gateways), cross-manufacturer interoperability via Thing Descriptions, and privacy-preserving, future-proof device integration.',
         },
       ],
-      cta: 'If you build smart home products or platforms, adopt or map to WoT TDs. This dramatically expands your addressable market and reduces customer support burden from interoperability issues. For installers/integrators, WoT means faster, more reliable multi-vendor projects.',
       testimonialIds: ['sifis-home'],
     },
 
@@ -436,7 +427,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
         STANDARDS.geolocation,
       ],
       resources: [],
-      cta: 'Standardize your environmental sensor deployments with WoT TDs. This makes data immediately usable by internal systems, partners, regulators, and the public, maximizing the value of your monitoring investments and simplifying compliance.',
     },
   },
 
@@ -475,7 +465,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: '17 July 2025: Covers IoT virtualization approaches highly relevant to building and maintaining digital twins at scale with edge convergence.',
         },
       ],
-      cta: "Make WoT TDs the single source of truth for asset descriptions in your digital twin strategy. This dramatically reduces the 'integration tax' and enables you to compose twins across your ecosystem faster than competitors using proprietary approaches.",
       testimonialIds: ['hitachi'],
     },
 
@@ -519,7 +508,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: "15 December 2025: Explores WoT's role in enabling zero-trust, secure data oracles and verifiable IoT interactions, directly relevant to CRA compliance and trustworthy connected products.",
         },
       ],
-      cta: 'Adopt WoT TDs as the vehicle for declaring and verifying security properties of your connected products. This turns CRA compliance from a documentation burden into a competitive advantage and enables automated security tooling across your product lifecycle.',
       testimonialIds: ['ve3', 'sifis-home'],
     },
 
@@ -549,7 +537,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
         "Product TDs are enriched with standardized or domain-specific DPP vocabularies (extensions to TD JSON-LD). Manufacturers publish initial TDs at production. Throughout the lifecycle, authorized parties (repair shops, owners, recyclers) can update relevant sections via secure WoT interfaces. Discovery and search mechanisms make passports findable by regulators, consumers, or circular platforms. Semantic queries verify claims (e.g., 'products with >30% recycled content').",
       standards: [STANDARDS.jsonLd, STANDARDS.saref, STANDARDS.gs1],
       resources: [],
-      cta: 'Extend your product TDs with DPP-relevant metadata now. This prepares you for regulation, enables new circular business models, and turns compliance into a source of customer trust and operational efficiency.',
     },
 
     'Agentic Systems': {
@@ -585,7 +572,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: '24 April 2026: Explores how WoT enables interoperable, autonomous multi-agent systems in cyber-physical environments, a core capability for agentic IoT applications.',
         },
       ],
-      cta: 'Expose your key operational assets via WoT TDs today. This is the prerequisite for deploying or benefiting from agentic AI systems that can autonomously optimize your operations, reduce costs, and create new services. Start with read-only monitoring agents and progress to controlled actions.',
       testimonialIds: ['microsoft', 'fujitsu'],
     },
 
@@ -615,7 +601,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
         'Sensor data streams (described in TDs) feed neural models for perception/forecasting. The symbolic layer (TD knowledge graph + ontologies) provides context, constraints, and action models. Neurosymbolic planners generate candidate action sequences that are verified against TD safety metadata before execution. Learning can update neural weights while symbolic models evolve more slowly via ontology/TD updates. WoT provides the uniform interface layer between the hybrid AI and the physical world.',
       standards: [STANDARDS.jsonLd, STANDARDS.ssnSosa, STANDARDS.bot, STANDARDS.rdf, STANDARDS.sparql],
       resources: [],
-      cta: 'Invest in semantic modeling of your key assets using WoT TDs and domain ontologies. This creates the symbolic foundation needed for neurosymbolic AI systems that are more robust, explainable, and efficient than pure neural approaches, especially in industrial and regulated environments.',
     },
 
     'Edge Computing': {
@@ -652,7 +637,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: '17 July 2025: Presents open-source approaches to IoT virtualization and edge convergence using WoT principles, with strong relevance for scalable edge deployments.',
         },
       ],
-      cta: 'Deploy WoT-enabled edge gateways as the standard interface layer in your IoT architecture. This gives you low-latency local intelligence today while creating a uniform platform for future edge AI and agent deployments without fragmenting your tech stack.',
     },
 
     'Zero Trust Architecture': {
@@ -688,7 +672,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: '15 December 2025: Demonstrates practical Zero Trust patterns with WoT for trustworthy IoT data and interactions, directly applicable to enterprise Zero Trust strategies.',
         },
       ],
-      cta: 'Make WoT TDs the authoritative source of security policy for your IoT/OT assets. This allows you to implement consistent Zero Trust controls across heterogeneous devices and integrate them cleanly into your enterprise IAM and policy infrastructure, turning security from a blocker into an enabler of digital transformation.',
       testimonialIds: ['sifis-home', 've3'],
     },
 
@@ -725,7 +708,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
           note: '04 December 2025: Covers management of semantic device descriptions at scale, a foundation for enterprise semantic interoperability strategies.',
         },
       ],
-      cta: 'Adopt WoT TDs + domain ontologies (start with Brick for buildings, SSN for sensors) as your standard for describing assets. This is the highest-leverage investment you can make for long-term data interoperability, AI readiness, and reduced integration costs across your organization and ecosystem.',
       testimonialIds: ['intel', 'oracle', 've3'],
     },
 
@@ -755,7 +737,6 @@ export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
         'Energy and sustainability metadata is added to TDs (power profiles, efficiency classes, material composition links). Agents or optimization engines discover relevant devices and their energy characteristics. Real-time grid carbon intensity or renewable forecasts are integrated via additional WoT Things. Optimization algorithms (or neurosymbolic agents) generate schedules or setpoints that minimize cost + carbon subject to constraints. Results and provenance are logged for reporting. Extended TDs carry DPP/circular data for end-of-life decisions.',
       standards: [STANDARDS.saref4ener, STANDARDS.ssnSosa],
       resources: [],
-      cta: 'Add energy and sustainability metadata to your WoT TDs now. This enables immediate optimization opportunities, credible ESG reporting, and positions you to participate in emerging flexibility and circular economy markets. Sustainability becomes a source of operational excellence and competitive differentiation rather than just compliance cost.',
       testimonialIds: ['siemens', 'siemens-microsoft'],
     },
   },

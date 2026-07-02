@@ -3,7 +3,7 @@
 import { PageLayout } from '../_components/PageLayout';
 import { Typography, Stack, Box, Alert, Accordion, AccordionDetails, AccordionSummary, AccordionGroup } from '@mui/joy';
 import { HardHat } from 'lucide-react';
-import { RESOURCES } from '@/lib/use-cases/resources';
+import { GENERIC_USE_CASES_RESOURCES } from '@/lib/use-cases/generic-use-cases-resources';
 import { LinkCard } from '../_components/LinkCard';
 import { PageSection } from '../_components/PageSection';
 import { Testimonial, TESTIMONIALS } from '@/lib/use-cases/testimonials';
@@ -39,7 +39,7 @@ export default function UseCasesPage() {
               gap: 2,
             }}
           >
-            {RESOURCES.map((resource, index) => (
+            {GENERIC_USE_CASES_RESOURCES.map((resource, index) => (
               <LinkCard
                 key={index}
                 label={resource.title}
@@ -72,7 +72,13 @@ export default function UseCasesPage() {
                 }}
               >
                 {Object.entries(DOMAINS[domainKey as keyof typeof DOMAINS]).map(([title, domain]) => (
-                  <DomainCard key={title} title={title} domain={domain} />
+                  <LinkCard
+                    key={title}
+                    label={title}
+                    description={domain.description}
+                    icon={domain.icon}
+                    path={getDomainPagePath(title) as Route}
+                  />
                 ))}
               </Box>
             </Stack>
@@ -108,21 +114,6 @@ export default function UseCasesPage() {
         </Stack>
       </PageSection>
     </PageLayout>
-  );
-}
-
-function DomainCard({ title, domain }: { title: string; domain: WoTUseCasePage }) {
-  return (
-    <LinkCard
-      label={title}
-      description={domain.description}
-      icon={domain.icon}
-      path={getDomainPagePath(title) as Route}
-      sx={{
-        borderTop: '3px solid',
-        borderColor: 'primary.main',
-      }}
-    />
   );
 }
 

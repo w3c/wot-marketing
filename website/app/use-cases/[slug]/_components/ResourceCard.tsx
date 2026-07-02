@@ -1,5 +1,5 @@
 import { Resource } from '@/lib/use-cases/domains';
-import { Link, Card, Stack, Typography, Chip } from '@mui/joy';
+import { Link, Card, Stack, Typography } from '@mui/joy';
 
 export function ResourceCard({ resource }: { resource: Resource }) {
   const { url, title, note } = resource;

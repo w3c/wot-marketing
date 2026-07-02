@@ -1,6 +1,6 @@
 import { Resource } from '@/lib/use-cases/domains';
 import { Link, Card, Stack, Typography, CardOverflow, AspectRatio, CardContent } from '@mui/joy';
-import { Link as LinkIcon, Presentation } from 'lucide-react';
+import { Presentation } from 'lucide-react';
 
 export function VideoCard({ resource }: { resource: Resource }) {
   const { url, title, note, video_url } = resource;

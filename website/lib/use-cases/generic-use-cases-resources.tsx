@@ -12,7 +12,7 @@ export interface Resource {
   icon: ReactNode;
 }
 
-export const RESOURCES: Resource[] = [
+export const GENERIC_USE_CASES_RESOURCES: Resource[] = [
   {
     title: 'WoT Community Group Case Studies',
     description: (
