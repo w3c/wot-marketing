@@ -64,11 +64,20 @@ export default async function DomainUseCasePage(props: { params: Promise<{ slug:
         </Card>
       </PageSection>
 
-      <PageSection title="Standards and Integrations">
+      <PageSection title="Standards">
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-          {pageData.relevantStandardsIntegrations.map((capability) => (
-            <Chip key={capability} variant="soft" color="primary">
-              {formatCapability(capability)}
+          {pageData.standards.map((standard) => (
+            <Chip
+              key={standard.title}
+              component="a"
+              href={standard.url}
+              target="_blank"
+              rel="noreferrer"
+              variant="soft"
+              color="primary"
+              sx={{ textDecoration: 'none' }}
+            >
+              {standard.title}
             </Chip>
           ))}
         </Box>
@@ -90,10 +99,10 @@ export default async function DomainUseCasePage(props: { params: Promise<{ slug:
         </PageSection>
       ) : null}
 
-      <PageSection title="Resources">
-        <Stack gap={2}>
-          {/* Videos */}
-          {videos.length > 0 && (
+      {pageData.resources.length > 0 && (
+        <PageSection title="Resources">
+          <Stack gap={2}>
+            {/* Videos */}
             <Box
               sx={{
                 display: 'grid',
@@ -105,21 +114,21 @@ export default async function DomainUseCasePage(props: { params: Promise<{ slug:
                 <VideoCard key={resource.url} resource={resource} />
               ))}
             </Box>
-          )}
-          {/* Resources */}
-          <Box
-            sx={{
-              display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
-              gap: 2,
-            }}
-          >
-            {resources.map((resource) => (
-              <ResourceCard key={resource.url} resource={resource} />
-            ))}
-          </Box>
-        </Stack>
-      </PageSection>
+            {/* Resources */}
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
+                gap: 2,
+              }}
+            >
+              {resources.map((resource) => (
+                <ResourceCard key={resource.url} resource={resource} />
+              ))}
+            </Box>
+          </Stack>
+        </PageSection>
+      )}
     </PageLayout>
   );
 }
@@ -128,11 +137,4 @@ function getTestimonialsById(ids: string[]) {
   return ids
     .map((id) => TESTIMONIALS.find((testimonial) => testimonial.id === id))
     .filter((testimonial): testimonial is Testimonial => Boolean(testimonial));
-}
-
-function formatCapability(capability: string) {
-  return capability
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
 }
