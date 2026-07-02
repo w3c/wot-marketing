@@ -71,8 +71,8 @@ export default function UseCasesPage() {
                   gap: 2,
                 }}
               >
-                {DOMAINS[domainKey as keyof typeof DOMAINS].map((domain) => (
-                  <DomainCard key={domain.title} domain={domain} />
+                {Object.entries(DOMAINS[domainKey as keyof typeof DOMAINS]).map(([title, domain]) => (
+                  <DomainCard key={title} title={title} domain={domain} />
                 ))}
               </Box>
             </Stack>
@@ -111,13 +111,13 @@ export default function UseCasesPage() {
   );
 }
 
-function DomainCard({ domain }: { domain: WoTUseCasePage }) {
+function DomainCard({ title, domain }: { title: string; domain: WoTUseCasePage }) {
   return (
     <LinkCard
-      label={domain.title}
-      description={domain.subtitle}
+      label={title}
+      description={domain.description}
       icon={domain.icon}
-      path={getDomainPagePath(domain.title) as Route}
+      path={getDomainPagePath(title) as Route}
       sx={{
         borderTop: '3px solid',
         borderColor: 'primary.main',

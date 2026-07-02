@@ -36,7 +36,7 @@ wot-marketing/
 ├── scripts/             # Utility scripts for data fetching (dev-tools, members)
 ├── tutorials/           # Tutorial resources
 ├── videos/              # WoT explainer video assets
-└── website/             # ⭐ Current Next.js website — see website/README.md
+└── website/             # ⭐ Current Next.js website (see website/README.md)
 ```
 
 ## Logistics

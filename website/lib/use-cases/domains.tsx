@@ -2,7 +2,6 @@ import {
   Factory,
   Zap,
   Building,
-  Landmark,
   Tractor,
   Truck,
   Home,
@@ -17,14 +16,9 @@ import {
   Sun,
   Lock,
   Workflow,
+  Building2,
 } from 'lucide-react';
-import { ReactNode } from 'react';
-
-export interface Domain {
-  title: string;
-  description: string;
-  icon: ReactNode;
-}
+import type { ReactNode } from 'react';
 
 export function getDomainPageSlug(title: string) {
   return title
@@ -38,1392 +32,966 @@ export function getDomainPagePath(title: string) {
   return `/use-cases/${getDomainPageSlug(title)}`;
 }
 
-export type WoTUseCaseGroup = 'Application Domain' | 'Technology Trend';
-
-export type WoTResourceKind =
-  | 'w3c-spec'
-  | 'w3c-note'
-  | 'w3c-cg-tutorial'
-  | 'w3c-cg-meetup'
-  | 'external-standard'
-  | 'external-organization'
-  | 'regulatory'
-  | 'research'
-  | 'ecosystem';
-
-export type WoTCapability =
-  | 'thing-description'
-  | 'thing-models'
-  | 'discovery'
-  | 'profiles'
-  | 'binding-templates'
-  | 'security-metadata'
-  | 'semantic-annotations'
-  | 'scripting-api'
-  | 'digital-twin'
-  | 'edge-services';
-
-export type WoTResource = {
-  readonly label: string;
-  readonly url: string;
-  readonly kind: WoTResourceKind;
-  readonly note: string;
+export type Resource = {
+  title: string;
+  url: string;
+  video_url?: string;
+  note?: string;
 };
 
 export type WoTUseCasePage = {
-  title: string;
   icon: ReactNode;
-  subtitle: string;
-  sellingPoint: string;
-  heroUseCase: string;
-  body: string[];
-  wotEnables: string[];
-  primaryCapabilities: WoTCapability[];
+  description: string;
+  useCase: string;
+  woTRole: {
+    text: string;
+    keyBenefits: string[];
+  };
+  realWorldExamples: string[];
+  howItWorks: string;
+  relevantStandardsIntegrations: string[];
+  resources: Resource[];
+  cta: string;
   testimonialIds?: string[];
-  resources: WoTResource[];
-  relatedStandards: string[];
-  relatedOrganizations: string[];
-  keywords: string[];
 };
 
-export type WoTUseCasePagesByGroup = Record<WoTUseCaseGroup, WoTUseCasePage[]>;
-
-export const DOMAINS: WoTUseCasePagesByGroup = {
-  'Application Domain': [
-    {
-      title: 'Smart Manufacturing',
+export const DOMAINS: Record<string, Record<string, WoTUseCasePage>> = {
+  'Application Domains': {
+    'Smart Manufacturing': {
       icon: <Factory size={32} />,
-      subtitle:
-        'Connect PLCs, robots, machines and sensors across factory floors using standardized Thing Descriptions',
-      sellingPoint:
-        'WoT gives brownfield and greenfield industrial assets a common web-facing description layer, so factories can integrate OPC UA, Modbus, HTTP and cloud systems without rewriting every application for every protocol.',
-      heroUseCase:
-        'A production line exposes robots, sensors, energy meters and controllers as Things. Applications can monitor quality, predict faults, optimize energy use and coordinate actions across devices from different vendors.',
-      body: [
-        'Manufacturing environments combine many machines, sensors and control systems. A single fault can stop production or create quality defects, so production monitoring depends on timely, interoperable access to machine status, process data and environmental measurements.',
-        "WoT Thing Descriptions describe each asset's properties, actions, events, protocol bindings, data schemas and security metadata. This lets IT and OT systems consume industrial assets through a common application layer while preserving existing factory protocols.",
-        'For Industry 4.0, WoT is especially valuable as a bridge between operational technology and web/cloud systems. It can complement OPC UA and asset administration models by making non-web assets discoverable, describable and composable.',
+      description:
+        'Connecting diverse industrial assets such as PLCs, robots, and sensors across factory floors using standardized Thing Descriptions for seamless integration',
+      useCase:
+        'Web of Things (WoT) transforms industrial operations by providing a standardized, web-friendly layer over Operational Technology (OT) systems. It bridges the gap between legacy industrial protocols and modern IT/cloud ecosystems, enabling manufacturers to achieve true Industry 4.0 interoperability without rip-and-replace investments. Managers gain a unified view of production lines, enabling predictive maintenance, flexible reconfiguration, and data-driven optimization across multi-vendor environments.',
+      woTRole: {
+        text: 'WoT Thing Descriptions (TDs) provide a machine-readable, standardized interface for any industrial device or system. Protocol Bindings (Modbus, OPC UA, MQTT, etc.) and Binding Templates allow seamless interaction. Discovery mechanisms enable dynamic onboarding of assets. Security Vocabulary and Access Control ensure safe operations in OT environments. Semantic annotations with ontologies like Brick enable contextual data integration for digital twins and analytics.',
+        keyBenefits: [
+          'Dramatically reduce integration costs and time-to-deployment for multi-vendor factory floors (often 40-60% savings in custom middleware)',
+          'Enable predictive maintenance and reduce unplanned downtime through real-time sensor data aggregation and AI/ML pipelines',
+          'Achieve OT/IT convergence for holistic visibility from shop floor to ERP/MES systems',
+          'Support flexible, reconfigurable production lines for mass customization and resilience to supply chain disruptions',
+          'Facilitate compliance with emerging regulations (e.g., EU CRA, sustainability reporting) via standardized security and data models',
+          'Future-proof investments by leveraging open web standards instead of proprietary silos',
+        ],
+      },
+      realWorldExamples: [
+        'Production Monitoring: Sensors track temperature, vibration, and output; TDs enable aggregation for anomaly detection, fault prediction, and optimization of raw material use across lines and plants.',
+        'Cross-Protocol Industry 4.0: Bottling line (filling, capping, transport) dynamically adjusts production speed based on real-time renewable energy availability from the smart grid via OPC UA + WoT integration.',
+        'OPC UA + WoT Connectivity: Rapid onboarding of industrial devices into management platforms like Prosys Forge for unified monitoring and control.',
       ],
-      wotEnables: [
-        'Standardized onboarding of industrial assets through Thing Descriptions and Thing Models.',
-        'Cross-protocol interaction with PLCs, robots, sensors, meters and cloud services.',
-        'Factory-wide monitoring, anomaly detection, predictive maintenance and energy optimization.',
-      ],
-      primaryCapabilities: [
-        'thing-description',
-        'thing-models',
-        'binding-templates',
-        'discovery',
-        'profiles',
-        'security-metadata',
-      ],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Manufacturing',
-          url: 'https://www.w3.org/TR/wot-usecases/#manufacturing',
-          kind: 'w3c-note',
-          note: 'Production monitoring and cross-protocol Industry 4.0 scenarios.',
-        },
-        {
-          label: 'WoT CG Tutorial, Industrial and Agriculture Systems',
-          url: 'https://w3c-cg.github.io/wot-cg/tutorials/whatiswot/docs/wot/application-domains/industrial-and-agriculture-systems',
-          kind: 'w3c-cg-tutorial',
-          note: 'Community tutorial material for industrial and agricultural WoT deployments.',
-        },
-        {
-          label: 'WoT CG Meetups, slides and minutes',
-          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
-          kind: 'w3c-cg-meetup',
-          note: 'Repository for meetup slides, minutes and related implementation discussions.',
-        },
-        {
-          label: 'WoT CG Meetup video, industrial use case 1',
-          url: 'https://www.youtube.com/watch?v=l-suLrJDjd0&list=PL7z9Jd8H_9zpDd7Y5pEw6lBrPehKpVKxZ&index=1&t=1265s&pp=iAQB',
-          kind: 'w3c-cg-meetup',
-          note: 'Video reference supplied for the smart manufacturing resource dump.',
-        },
-        {
-          label: 'WoT CG Meetup video, industrial use case 2',
-          url: 'https://www.youtube.com/watch?v=PlY-ixquyZc&list=PL7z9Jd8H_9zpDd7Y5pEw6lBrPehKpVKxZ&index=6&pp=iAQB',
-          kind: 'w3c-cg-meetup',
-          note: 'Video reference supplied for the smart manufacturing resource dump.',
-        },
-        {
-          label: 'WoT CG Meetup video, industrial use case 3',
-          url: 'https://www.youtube.com/watch?v=VYHjMU5a9FI&list=PL7z9Jd8H_9zpDd7Y5pEw6lBrPehKpVKxZ&index=24&pp=iAQB',
-          kind: 'w3c-cg-meetup',
-          note: 'Video reference supplied for the smart manufacturing resource dump.',
-        },
-        {
-          label: 'WoT CG Meetup video, industrial use case 4',
-          url: 'https://www.youtube.com/watch?v=kPfdqGYvBVM&list=PL7z9Jd8H_9zpDd7Y5pEw6lBrPehKpVKxZ&index=26&pp=iAQB',
-          kind: 'w3c-cg-meetup',
-          note: 'Video reference supplied for the smart manufacturing resource dump.',
-        },
-        {
-          label: 'WoT CG Meetup video, industrial use case 5',
-          url: 'https://www.youtube.com/watch?v=xFnrWOeh3pc&list=PL7z9Jd8H_9zpDd7Y5pEw6lBrPehKpVKxZ&index=28&pp=iAQB0gcJCT8LAYcqIYzv',
-          kind: 'w3c-cg-meetup',
-          note: 'Video reference supplied for the smart manufacturing resource dump.',
-        },
-        {
-          label: 'WoT CG Meetup video, industrial use case 6',
-          url: 'https://www.youtube.com/watch?v=SIKMbxLJXow&list=PL7z9Jd8H_9zpDd7Y5pEw6lBrPehKpVKxZ&index=30&pp=iAQB',
-          kind: 'w3c-cg-meetup',
-          note: 'Video reference supplied for the smart manufacturing resource dump.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'Core model for describing industrial assets as machine-readable Things.',
-        },
-        {
-          label: 'W3C WoT Binding Templates',
-          url: 'https://www.w3.org/TR/wot-binding-templates/',
-          kind: 'w3c-spec',
-          note: 'Basis for mapping WoT interactions to protocols such as HTTP, MQTT, CoAP or OPC UA.',
-        },
-        {
-          label: 'OPC Foundation',
-          url: 'https://opcfoundation.org/',
-          kind: 'external-organization',
-          note: 'Industrial interoperability organization relevant to OPC UA binding and WoT connectivity work.',
-        },
-        {
-          label: 'Industrial Digital Twin Association',
-          url: 'https://industrialdigitaltwin.org/',
-          kind: 'external-organization',
-          note: 'Organization behind Asset Administration Shell submodel work relevant to industrial digital twins.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Binding Templates',
-        'W3C WoT Discovery',
-        'W3C WoT Profile',
-        'OPC UA Binding',
-        'OPC Foundation WoT Connectivity specification',
-        'IDTA AID Submodel',
-        'Asset Administration Shell',
-      ],
-      relatedOrganizations: [
-        'W3C',
-        'W3C WoT Community Group',
-        'OPC Foundation',
-        'Industrial Digital Twin Association',
-        'ISO / IDO working group',
-      ],
-      keywords: [
-        'Industry 4.0',
-        'PLC',
-        'robotics',
-        'predictive maintenance',
+      howItWorks:
+        "Engineers describe devices once using WoT TD JSON-LD. Forms specify protocol details (e.g., Modbus registers or OPC UA node IDs). Consumers (dashboards, AI agents, cloud apps) discover and interact uniformly via HTTP/CoAP/MQTT/WebSockets without knowing proprietary details. Edge runtimes or gateways host Exposed Things. Semantic models link device data to physical processes (e.g., 'this sensor affects zone temperature').",
+      relevantStandardsIntegrations: [
         'OPC UA',
         'Modbus',
-        'asset administration shell',
-        'factory integration',
-      ],
-    },
-    {
-      title: 'Energy & Utilities',
-      icon: <Zap size={32} />,
-      subtitle:
-        'Enable smart grid management, renewable integration and consumption optimization through interoperable device interfaces',
-      sellingPoint:
-        'WoT lets grid assets, meters, buildings, batteries, renewables and control platforms expose interoperable interfaces, making energy systems easier to monitor and coordinate across stakeholders.',
-      heroUseCase:
-        'A virtual power plant discovers batteries, solar inverters, smart meters and flexible loads, then coordinates them through standardized affordances to balance demand and renewable supply.',
-      body: [
-        'Smart grids combine generation, storage, distribution, consumption and market systems. These systems are often owned by different stakeholders and use different communication standards.',
-        'WoT can describe generators, meters, storage systems and controllable loads as Things. Applications can then read measurements, subscribe to events and trigger control actions without hardcoding each vendor API.',
-        'This supports renewable integration, demand response, smart metering, grid observability and energy-aware automation in buildings and factories.',
-      ],
-      wotEnables: [
-        'Common web-facing interfaces for grid assets, distributed energy resources and flexible loads.',
-        'Discovery and orchestration of energy devices across utilities, buildings and industrial sites.',
-        'Energy optimization based on real-time metering, weather, production and demand data.',
-      ],
-      primaryCapabilities: [
-        'thing-description',
-        'discovery',
-        'binding-templates',
-        'semantic-annotations',
-        'security-metadata',
-      ],
-      testimonialIds: ['siemens'],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Smart Grids',
-          url: 'https://www.w3.org/TR/wot-usecases/#smart-grids',
-          kind: 'w3c-note',
-          note: 'Smart grid scenario covering generation, storage, grid management and consumption.',
-        },
-        {
-          label: 'IEC 61850',
-          url: 'https://webstore.iec.ch/en/publication/6028',
-          kind: 'external-standard',
-          note: 'Power utility automation standard relevant to smart grid interoperability.',
-        },
-        {
-          label: 'IEEE 1547',
-          url: 'https://standards.ieee.org/ieee/1547/5915/',
-          kind: 'external-standard',
-          note: 'Interconnection standard relevant to distributed energy resources.',
-        },
-        {
-          label: 'W3C WoT Discovery',
-          url: 'https://www.w3.org/TR/wot-discovery/',
-          kind: 'w3c-spec',
-          note: 'Discovery can help applications find energy assets and their Thing Descriptions.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
-        'IEC 61850',
-        'IEEE 1547',
-        'OpenADR',
+        'Profinet',
         'MQTT',
-        'CoAP',
+        'BACnet (cross-domain)',
+        'Brick Schema',
+        'SSN/SOSA',
       ],
-      relatedOrganizations: ['W3C', 'IEC', 'IEEE', 'OPC Foundation', 'LF Energy'],
-      keywords: [
-        'smart grid',
-        'virtual power plant',
-        'DER',
-        'smart metering',
-        'demand response',
-        'renewable energy',
-        'energy optimization',
-      ],
-    },
-    {
-      title: 'Smart Buildings',
-      icon: <Building size={32} />,
-      subtitle:
-        'Unify HVAC, lighting, access, energy and monitoring systems from multiple vendors in commercial and residential buildings',
-      sellingPoint:
-        'WoT turns fragmented building systems into discoverable, semantically described Things, allowing building applications to understand where devices are, what they measure and how they can be controlled.',
-      heroUseCase:
-        'A building management app discovers temperature sensors, HVAC units, lighting groups and occupancy sensors, then optimizes comfort and energy use using one normalized interaction model.',
-      body: [
-        'Buildings often contain devices from many vendors and protocols. Without shared metadata, applications need manual integration work to understand what each device measures, where it is located and what building system it affects.',
-        'WoT Thing Descriptions provide syntactic interoperability through common affordances and semantic interoperability through links to building models and vocabularies such as Brick, BOT, SAREF and SSN/SOSA.',
-        'This supports automated commissioning, fault detection, energy-efficient control, device replacement and cross-vendor building automation.',
-      ],
-      wotEnables: [
-        'Discoverable building devices with machine-readable metadata, location and function.',
-        'Integration of building information models with live IoT controls and sensor data.',
-        'Vendor-neutral automation across HVAC, lighting, access, safety and energy systems.',
-      ],
-      primaryCapabilities: ['thing-description', 'discovery', 'semantic-annotations', 'binding-templates', 'profiles'],
       resources: [
         {
-          label: 'W3C WoT Use Cases and Requirements, Connected Building Energy Efficiency',
-          url: 'https://www.w3.org/TR/wot-usecases/#connected-building-energy-efficiency',
-          kind: 'w3c-note',
-          note: 'Building energy efficiency use case using sensors, endpoints and building metadata.',
+          title: 'OPC UA and Web of Things',
+          url: 'https://github.com/w3c-cg/wot-cg/blob/main/Meetups/29/2025-10-WoTCG-Meetup29-Barnstedt-Microsoft.pdf',
+          video_url: 'https://youtu.be/PlY-ixquyZc',
+          note: '16 October 2025: Deep dive into synergy between OPC UA and WoT for industrial automation, OT/IT integration, and practical implementation examples from Microsoft and Siemens experts.',
         },
         {
-          label: 'W3C WoT Use Cases and Requirements, Automated Smart Building Management',
-          url: 'https://www.w3.org/TR/wot-usecases/#automated-smart-building-management',
-          kind: 'w3c-note',
-          note: 'Use case showing WoT TDs linked with building context.',
+          title: 'Quick onboarding of devices to Prosys Forge using OPC UA WoT Connectivity',
+          url: 'https://github.com/w3c-cg/wot-cg/blob/main/Meetups/34/2026-05-WoTCG-Meetup34-onboarding-prosys.pdf',
+          video_url: 'https://youtu.be/l-suLrJDjd0',
+          note: '28 May 2026: Demonstration of rapid, standardized device onboarding in industrial environments using WoT and OPC UA.',
         },
         {
-          label: 'Brick Schema',
-          url: 'https://brickschema.org/',
-          kind: 'external-standard',
-          note: 'Semantic model for buildings, equipment and relationships.',
+          title: 'WoT Use Cases and Requirements - Production Monitoring & Cross-protocol Interaction',
+          url: 'https://w3c.github.io/wot-usecases/#sec-production-monitoring',
         },
         {
-          label: 'ETSI SAREF',
-          url: 'https://saref.etsi.org/',
-          kind: 'external-standard',
-          note: 'Ontology suite for smart appliances, buildings and energy.',
+          title: 'WoT Architecture 1.1',
+          url: 'https://www.w3.org/TR/wot-architecture/',
         },
         {
-          label: 'W3C SSN/SOSA',
-          url: 'https://www.w3.org/TR/vocab-ssn/',
-          kind: 'w3c-spec',
-          note: 'Semantic vocabulary for sensors, observations, actuators and samples.',
+          title: 'WoT Binding Templates - Modbus & OPC UA',
+          url: 'https://w3c.github.io/wot-binding-templates/',
+        },
+        {
+          title: 'WoT CG Meetups Repository (more industrial presentations)',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
         },
       ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
-        'Brick',
-        'BOT',
-        'SAREF4BLDG',
-        'SSN/SOSA',
+      cta: 'Start with a pilot on one production line: describe 5-10 key assets with TDs and integrate into your existing dashboard or analytics platform. WoT reduces vendor lock-in and accelerates digital twin initiatives.',
+      testimonialIds: ['microsoft', 'opc-foundation', 'siemens', 'fujitsu'],
+    },
+
+    'Energy & Utilities': {
+      icon: <Zap size={32} />,
+      description:
+        'Enabling smart grid management, renewable energy integration, and consumption optimization through interoperable device interfaces',
+      useCase:
+        'WoT provides the missing interoperability layer for the energy transition. It allows utilities and building operators to integrate diverse DERs (solar, batteries, EVs, heat pumps), smart meters, and grid equipment from multiple vendors into unified platforms. This enables real-time balancing, virtual power plants (VPPs), demand response, and optimized renewable integration while maintaining grid stability and security.',
+      woTRole: {
+        text: 'TDs describe energy devices with standardized affordances for monitoring (power, voltage, SOC) and control (setpoints, schedules). Bindings support protocols like IEC 61850, Modbus, and MQTT. Discovery enables dynamic registration of DERs. Security and privacy vocabularies protect sensitive consumption data. Semantic models align with SAREF4ENER for energy-specific context.',
+        keyBenefits: [
+          'Accelerate renewable integration and VPP participation with plug-and-play device onboarding',
+          'Reduce integration costs for smart metering, demand response, and grid edge applications',
+          'Enable fine-grained, real-time visibility for better forecasting, balancing, and ancillary services',
+          'Support regulatory compliance (grid codes, CRA, sustainability reporting) through standardized, auditable interfaces',
+          'Unlock new business models: energy sharing, flexibility markets, and carbon-aware optimization',
+          'Improve resilience with decentralized, interoperable control at the grid edge',
+        ],
+      },
+      realWorldExamples: [
+        'Smart Grid Management: Monitor and control generators, storage, and consumers; integrate decentralized PV/wind/biogas with load control for stability.',
+        'Virtual Power Plants: Aggregate DERs using WoT discovery and TDs for market participation and real-time dispatch.',
+        'Connected Building Energy Efficiency: Sensors collect consumption and comfort data to optimize renovations and operations across portfolios.',
+      ],
+      howItWorks:
+        'Devices expose TDs via gateways or directly. Utilities or aggregators use WoT Discovery to find and onboard assets dynamically. Standardized forms allow uniform read/write of power data and control commands. Edge computing nodes can host lightweight WoT runtimes for low-latency local control. Data flows securely to cloud platforms for analytics and market interfaces.',
+      relevantStandardsIntegrations: ['IEC 61850', 'Modbus', 'MQTT', 'IEEE 1547', 'SAREF4ENER', 'SSN/SOSA'],
+      resources: [
+        {
+          title: 'Enabling IoT in buildings with BACnet and Web of Things (cross-domain energy relevance)',
+          url: 'https://github.com/w3c-cg/wot-cg/blob/main/Meetups/30/2025-11-WoTCG-Meetup30-WoT-BACnet-Fennibay-Siemens.pdf',
+          video_url: 'https://youtu.be/VSZA8wjjUIo',
+          note: '20 November 2025: Integration of building energy systems with WoT for optimized consumption and smart grid interaction.',
+        },
+        {
+          title: 'WoT Use Cases and Requirements - Smart Grids & Connected Building Energy Efficiency',
+          url: 'https://w3c.github.io/wot-usecases/',
+        },
+        {
+          title: 'WoT Architecture and Security Guidelines',
+          url: 'https://www.w3.org/TR/wot-architecture/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Pilot WoT-enabled VPP or demand-response integration on a subset of customer DERs. Leverage existing TDs or Thing Models to cut onboarding time from weeks to hours.',
+      testimonialIds: ['siemens', 'siemens-microsoft'],
+    },
+
+    'Smart Buildings': {
+      icon: <Building size={32} />,
+      description:
+        'Unified control of HVAC, lighting, access, and monitoring systems from multiple vendors within commercial and residential buildings',
+      useCase:
+        'WoT turns fragmented building automation systems into a cohesive, programmable platform. By describing every sensor, actuator, and subsystem (HVAC, lighting, fire safety, access control) with standardized TDs, building managers and integrators can deploy vendor-agnostic applications for energy optimization, predictive maintenance, occupant comfort, and space utilization without being locked into a single BMS vendor.',
+      woTRole: {
+        text: 'TDs capture device capabilities and link them to building topology using ontologies like BOT (Building Topology Ontology) and Brick Schema. Protocol bindings for BACnet, KNX, Modbus, and others enable interaction. Discovery supports large-scale building networks. Security and privacy controls protect occupant data and critical infrastructure. Scripting API or edge runtimes allow local automation logic.',
+        keyBenefits: [
+          'Eliminate vendor lock-in and reduce long-term integration/maintenance costs by 30-50%',
+          'Enable advanced applications: fault detection, virtual metering, predictive occupancy, energy optimization, and digital twins of buildings',
+          'Accelerate commissioning and renovation projects with self-describing devices and automated topology mapping',
+          'Improve occupant experience and ESG performance through data-driven HVAC/lighting optimization',
+          'Support compliance with EU EPBD, CRA, and green building certifications via auditable, interoperable data',
+          'Future-proof portfolios for PropTech, smart workplace, and tenant experience platforms',
+        ],
+      },
+      realWorldExamples: [
+        'Portable Building Applications: Model HVAC, lighting, and electrical subsystems; enable automated fault detection (e.g., rogue zones), virtual metering, and predictive maintenance using SPARQL queries over Brick + WoT data.',
+        'Connected Building Energy Efficiency: Deploy sensors for consumption and comfort data; use TDs + topology for renovation planning and ongoing optimization.',
+        'BACnet + WoT Integration: Expose legacy building automation systems via standardized web interfaces for unified dashboards and AI applications.',
+      ],
+      howItWorks:
+        "Each device or subsystem gets a TD (often generated from existing BACnet/KNX objects or created via Thing Models). TDs include semantic annotations linking properties to building zones/spaces (e.g., 'this temperature sensor observes zone X air temperature'). Applications discover relevant Things via location/type queries and interact uniformly. Edge gateways or cloud platforms host the WoT layer. SPARQL or REST APIs provide powerful querying over the building knowledge graph.",
+      relevantStandardsIntegrations: [
         'BACnet',
         'KNX',
-      ],
-      relatedOrganizations: ['W3C', 'ETSI', 'ASHRAE', 'buildingSMART'],
-      keywords: [
-        'HVAC',
-        'lighting',
-        'occupancy',
-        'BMS',
-        'BIM',
-        'energy efficiency',
-        'commissioning',
-        'fault detection',
-      ],
-    },
-    {
-      title: 'Smart Cities',
-      icon: <Landmark size={32} />,
-      subtitle:
-        'Integrate traffic, waste, environment, lighting and public infrastructure into cohesive city-wide platforms',
-      sellingPoint:
-        'WoT gives cities a common interface layer for heterogeneous urban infrastructure, making sensors and actuators easier to discover, visualize, govern and orchestrate across departments.',
-      heroUseCase:
-        'A city dashboard discovers air-quality sensors, traffic lights, flood gates, parking systems and public displays, then combines their data into a real-time operational view.',
-      body: [
-        'Smart city systems span many domains, including traffic, environmental monitoring, emergency management, lighting, parking, waste and public safety.',
-        'WoT can describe mobile and fixed city assets with properties, actions, events, geolocation metadata and protocol bindings. This helps city platforms integrate devices from different vendors and agencies.',
-        'The result is a more reusable city data and control layer for dashboards, automation, open data portals and emergency response.',
-      ],
-      wotEnables: [
-        'Common descriptions for urban sensors, actuators and mobile assets.',
-        'City-wide discovery and visualization of Things by location, capability and status.',
-        'Interoperable automation across traffic, environment, safety and infrastructure systems.',
-      ],
-      primaryCapabilities: [
-        'thing-description',
-        'discovery',
-        'semantic-annotations',
-        'binding-templates',
-        'security-metadata',
-      ],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Smart City Dashboard',
-          url: 'https://www.w3.org/TR/wot-usecases/#smart-city-dashboard',
-          kind: 'w3c-note',
-          note: 'Scenario for city-wide visualization and management of sensors and actuators.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, Geolocation',
-          url: 'https://www.w3.org/TR/wot-usecases/#geolocation',
-          kind: 'w3c-note',
-          note: 'Reusable geolocation interface for mobile devices, sensors, vehicles and robots.',
-        },
-        {
-          label: 'W3C WoT Discovery',
-          url: 'https://www.w3.org/TR/wot-discovery/',
-          kind: 'w3c-spec',
-          note: 'Discovery of Things and Thing Descriptions across platforms and domains.',
-        },
-        {
-          label: 'OGC SensorThings API',
-          url: 'https://www.ogc.org/standard/sensorthings/',
-          kind: 'external-standard',
-          note: 'Geospatial IoT standard relevant to sensor data in smart city systems.',
-        },
-        {
-          label: 'W3C SSN/SOSA',
-          url: 'https://www.w3.org/TR/vocab-ssn/',
-          kind: 'w3c-spec',
-          note: 'Semantic model for describing sensors, observations and actuators.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
+        'Modbus',
+        'Brick Schema',
+        'BOT (Building Topology Ontology)',
+        'SAREF4BLDG',
         'SSN/SOSA',
-        'OGC SensorThings API',
-        'MQTT',
-        'CoAP',
-        'NGSI-LD',
-      ],
-      relatedOrganizations: ['W3C', 'OGC', 'ETSI', 'FIWARE Foundation'],
-      keywords: [
-        'traffic',
-        'waste',
-        'parking',
-        'lighting',
-        'city dashboard',
-        'geolocation',
-        'open data',
-        'urban infrastructure',
-      ],
-    },
-    {
-      title: 'Healthcare & Well-being',
-      icon: <Activity size={32} />,
-      subtitle:
-        'Connect medical devices, wearables and facility systems to improve care, remote monitoring and clinical workflows',
-      sellingPoint:
-        'WoT can expose medical and wellness devices through standardized, secure interfaces, helping clinical and care applications combine device data without being locked into one manufacturer ecosystem.',
-      heroUseCase:
-        'A care platform reads blood pressure, heart rate and wearable activity data, subscribes to alerts and shares patient status with authorized clinicians or caregivers.',
-      body: [
-        'Healthcare environments rely on medical devices, wearables, facility systems and software services that often have incompatible interfaces.',
-        'WoT Thing Descriptions can describe device measurements, alerts and control operations in a machine-readable way. Discovery and security metadata can help authorized applications find and access the right device capabilities.',
-        'This supports remote monitoring, health notifiers, hospital device integration, care coordination and patient-centered well-being services.',
-      ],
-      wotEnables: [
-        'Machine-readable interfaces for medical devices, wearables and care-environment sensors.',
-        'Secure discovery and access to health-related device data.',
-        'Interoperable workflows for remote monitoring, alerts and clinical dashboards.',
-      ],
-      primaryCapabilities: ['thing-description', 'discovery', 'security-metadata', 'semantic-annotations', 'profiles'],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Health Notifiers',
-          url: 'https://www.w3.org/TR/wot-usecases/#health-notifiers',
-          kind: 'w3c-note',
-          note: 'Use case for monitoring patient status with networked health devices.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, Public Health Monitoring',
-          url: 'https://www.w3.org/TR/wot-usecases/#public-health-monitoring',
-          kind: 'w3c-note',
-          note: 'Scenario using connected sensing, AI services and facility systems.',
-        },
-        {
-          label: 'OpenICE',
-          url: 'https://www.openice.info/',
-          kind: 'ecosystem',
-          note: 'Medical device interoperability ecosystem referenced by WoT healthcare use-case discussions.',
-        },
-        {
-          label: 'W3C WoT Security and Privacy Guidelines',
-          url: 'https://www.w3.org/TR/wot-security/',
-          kind: 'w3c-spec',
-          note: 'Security and privacy considerations for WoT systems.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'Describes device affordances, schemas and security metadata.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
-        'W3C WoT Security',
-        'HL7 FHIR',
-        'IEEE 11073',
-        'OpenICE',
-      ],
-      relatedOrganizations: ['W3C', 'HL7', 'IEEE', 'OpenICE'],
-      keywords: [
-        'remote patient monitoring',
-        'wearables',
-        'medical devices',
-        'alerts',
-        'care workflows',
-        'patient status',
-        'health data',
-      ],
-    },
-    {
-      title: 'Agriculture',
-      icon: <Tractor size={32} />,
-      subtitle:
-        'Use interoperable soil sensors, weather stations and irrigation controllers for data-driven crop and livestock management',
-      sellingPoint:
-        'WoT makes farm devices and agricultural data sources easier to combine, allowing precision-farming applications to discover sensors, read field conditions and control equipment across vendor boundaries.',
-      heroUseCase:
-        'A farm platform combines soil moisture, weather, greenhouse, irrigation and livestock sensors to optimize watering, fertilizer use and crop conditions.',
-      body: [
-        'Agricultural IoT systems often combine low-power sensors, gateways, farm machinery, greenhouse equipment, weather data and cloud analytics.',
-        'WoT can describe each sensor or actuator as a Thing with standardized properties, actions and events. Gateways can expose constrained or unreliable field devices through stable Thing Descriptions.',
-        'This supports precision irrigation, greenhouse automation, equipment monitoring, livestock health tracking and cross-manufacturer agricultural machinery integration.',
-      ],
-      wotEnables: [
-        'Consistent descriptions for field sensors, weather stations, irrigation controllers and farm machinery.',
-        'Gateway-based virtualization of constrained or intermittently connected devices.',
-        'Data-driven farming decisions using interoperable measurements and controls.',
-      ],
-      primaryCapabilities: [
-        'thing-description',
-        'thing-models',
-        'binding-templates',
-        'semantic-annotations',
-        'discovery',
       ],
       resources: [
         {
-          label: 'W3C WoT Use Cases and Requirements, Agriculture',
-          url: 'https://www.w3.org/TR/wot-usecases/#agriculture',
-          kind: 'w3c-note',
-          note: 'Use cases covering greenhouse systems, livestock health and agricultural machinery.',
+          title: 'Enabling IoT in buildings with BACnet and Web of Things',
+          url: 'https://github.com/w3c-cg/wot-cg/blob/main/Meetups/30/2025-11-WoTCG-Meetup30-WoT-BACnet-Fennibay-Siemens.pdf',
+          video_url: 'https://youtu.be/VSZA8wjjUIo',
+          note: '20 November 2025: Practical integration of BACnet building systems with WoT for interoperable IoT applications in commercial and residential buildings.',
         },
         {
-          label: 'WoT CG Tutorial, Industrial and Agriculture Systems',
-          url: 'https://w3c-cg.github.io/wot-cg/tutorials/whatiswot/docs/wot/application-domains/industrial-and-agriculture-systems',
-          kind: 'w3c-cg-tutorial',
-          note: 'Community tutorial material for agriculture and industrial systems.',
+          title: 'WoT Use Cases and Requirements - Smart Buildings & Portable Building Applications',
+          url: 'https://w3c.github.io/wot-usecases/#sec-smart-building',
         },
         {
-          label: 'W3C SSN/SOSA',
-          url: 'https://www.w3.org/TR/vocab-ssn/',
-          kind: 'w3c-spec',
-          note: 'Vocabulary for sensors, observations and actuators in agricultural monitoring.',
+          title: 'WoT Thing Description & Discovery Specifications',
+          url: 'https://www.w3.org/TR/wot-thing-description/',
         },
         {
-          label: 'OGC SensorThings API',
-          url: 'https://www.ogc.org/standard/sensorthings/',
-          kind: 'external-standard',
-          note: 'Relevant for geospatial agricultural sensor observations.',
-        },
-        {
-          label: 'WoT and IoT Semantic Interoperability in Agriculture',
-          url: 'https://arxiv.org/abs/2306.09079',
-          kind: 'research',
-          note: 'Research reference on WoT and semantic interoperability for agriculture.',
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
         },
       ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Binding Templates',
-        'SSN/SOSA',
-        'OGC SensorThings API',
-        'ISO 11783 / ISOBUS',
-      ],
-      relatedOrganizations: ['W3C', 'OGC', 'ISO'],
-      keywords: [
-        'precision farming',
-        'soil moisture',
-        'irrigation',
-        'greenhouse',
-        'weather station',
-        'livestock',
-        'farm machinery',
-      ],
+      cta: "Map your building portfolio's critical systems to WoT TDs. Start with energy-consuming equipment (HVAC, lighting) to unlock immediate ROI through optimization and fault detection apps. Use Thing Models to scale across sites.",
+      testimonialIds: ['siemens-microsoft', 'siemens', 'opc-foundation'],
     },
-    {
-      title: 'Transportation & Logistics',
-      icon: <Truck size={32} />,
-      subtitle:
-        'Support fleet tracking, supply-chain visibility and connected vehicle systems through standardized IoT descriptions',
-      sellingPoint:
-        'WoT provides a common vocabulary and interaction model for vehicles, cargo, infrastructure and logistics services, helping fragmented transport systems share data and coordinate actions.',
-      heroUseCase:
-        'A logistics platform tracks trucks, cargo conditions, port systems and traffic infrastructure, then optimizes routes and handovers using interoperable Thing Descriptions.',
-      body: [
-        'Transportation systems involve vehicles, road infrastructure, public transport, cargo, ports, airports, warehouses and last-mile services.',
-        'WoT can describe location, speed, route, cargo status, environmental conditions and control interfaces with a unified data and interaction model.',
-        'This enables fleet tracking, supply-chain visibility, smart parking, connected vehicle services and logistics optimization across independently operated systems.',
+
+    'Smart Cities': {
+      icon: <Building2 size={32} />,
+      description:
+        'Integrating urban infrastructure including traffic, waste, and environment monitoring into cohesive city-wide platforms using open standards',
+      useCase:
+        'WoT provides the open, scalable foundation for smart city platforms. It enables cities and their vendors to integrate traffic systems, waste management, environmental sensors, public lighting, parking, and more into unified dashboards and applications without being locked into proprietary city platforms. Citizens and businesses benefit from better services; city managers gain actionable insights and vendor choice.',
+      woTRole: {
+        text: "TDs describe heterogeneous urban assets (sensors, actuators, cameras, vehicles) with semantic context (location, type, capabilities). Discovery supports large-scale, cross-domain queries (e.g., 'all air quality sensors in district X'). Protocol bindings and security vocabularies ensure secure, interoperable data flows. Integration with geospatial standards and ontologies enables powerful city dashboards and digital twins.",
+        keyBenefits: [
+          'Break down data silos across city departments and vendors for holistic urban intelligence',
+          'Reduce procurement and integration costs through open standards and reusable components',
+          'Enable citizen-centric services: real-time mobility, environmental alerts, participatory governance',
+          'Support evidence-based policy making and sustainability reporting with high-quality, interoperable data',
+          'Attract innovation from startups and SMEs via open APIs and discovery mechanisms',
+          'Build resilient, future-proof city infrastructure aligned with EU smart city and green deal objectives',
+        ],
+      },
+      realWorldExamples: [
+        'Smart City Geolocation & Dashboard: Track mobile assets (vehicles, robots, sensors) with standardized location data; visualize environmental, traffic, and health data on maps with historical trends and actuator control.',
+        'Cross-Domain Discovery in Smart Campus: Discover devices across energy, buildings, and environment domains via SPARQL queries for energy saving or emergency response.',
+        'Cultural Spaces (Museums): Semantic monitoring of temperature/humidity for artifact preservation combined with energy optimization and visitor experience enhancements.',
       ],
-      wotEnables: [
-        'Reusable Thing Models for vehicles, cargo, transport infrastructure and logistics services.',
-        'Cross-stakeholder data sharing through standardized descriptions and discovery.',
-        'Interoperable tracking and control workflows for fleets, public transport and supply chains.',
-      ],
-      primaryCapabilities: [
-        'thing-description',
-        'thing-models',
-        'discovery',
-        'semantic-annotations',
-        'binding-templates',
-      ],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Transportation',
-          url: 'https://www.w3.org/TR/wot-usecases/#transportation',
-          kind: 'w3c-note',
-          note: 'Transportation use case covering roads, vehicles, cargo and route information.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, Geolocation',
-          url: 'https://www.w3.org/TR/wot-usecases/#geolocation',
-          kind: 'w3c-note',
-          note: 'Reusable interface for location-aware devices, vehicles and robots.',
-        },
-        {
-          label: 'W3C Automotive Working Group',
-          url: 'https://www.w3.org/auto/',
-          kind: 'external-organization',
-          note: 'W3C group relevant to connected vehicle data and web integration.',
-        },
-        {
-          label: 'W3C WoT Discovery',
-          url: 'https://www.w3.org/TR/wot-discovery/',
-          kind: 'w3c-spec',
-          note: 'Discovery support for finding transport-related Things and metadata.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'Core description format for vehicles, devices and logistics assets.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
-        'Vehicle Signal Specification',
-        'MQTT',
-        'CoAP',
-        'GS1 EPCIS',
-      ],
-      relatedOrganizations: ['W3C', 'COVESA', 'GS1', 'OGC'],
-      keywords: [
-        'fleet tracking',
-        'cargo',
-        'supply chain',
-        'connected vehicle',
-        'smart parking',
-        'geolocation',
-        'route optimization',
-      ],
-    },
-    {
-      title: 'Consumer & Smart Home',
-      icon: <Home size={32} />,
-      subtitle: 'Bridge cross-vendor smart home devices and ecosystems through WoT abstractions',
-      sellingPoint:
-        'WoT can sit above smart home ecosystems and expose appliances, lights, sensors, media devices and gateways through a shared web model, reducing app and ecosystem fragmentation.',
-      heroUseCase:
-        'A home automation app discovers lights, HVAC, security sensors, a smart TV and a cleaning robot, then orchestrates them for leaving home, returning home or entertainment scenarios.',
-      body: [
-        'Smart homes often contain devices from multiple ecosystems, including appliances, lights, sensors, entertainment systems and gateways.',
-        'WoT Thing Descriptions can expose these devices through common properties, actions and events. A gateway can map ecosystem-specific devices into WoT abstractions.',
-        'This supports cross-vendor automation, multimodal user interfaces, accessibility, routines and easier integration between smart home platforms.',
-      ],
-      wotEnables: [
-        'Common affordances for reading state, changing modes and subscribing to events across home devices.',
-        'Gateway-based bridging between ecosystems such as Matter, Zigbee, Z-Wave, ECHONET Lite and web applications.',
-        'User-centric automation that combines devices without one app per vendor.',
-      ],
-      primaryCapabilities: ['thing-description', 'discovery', 'profiles', 'binding-templates', 'security-metadata'],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Smart Home',
-          url: 'https://www.w3.org/TR/wot-usecases/#smart-home',
-          kind: 'w3c-note',
-          note: 'Smart home scenarios for device synchronization, routines and multimodal interfaces.',
-        },
-        {
-          label: 'W3C WoT Architecture 1.1',
-          url: 'https://www.w3.org/TR/wot-architecture11/',
-          kind: 'w3c-spec',
-          note: 'Architecture for exposing Things across protocols and domains.',
-        },
-        {
-          label: 'W3C WoT Profile',
-          url: 'https://www.w3.org/TR/wot-profile/',
-          kind: 'w3c-spec',
-          note: 'Profiles constrain implementations for easier out-of-the-box interoperability.',
-        },
-        {
-          label: 'Matter',
-          url: 'https://csa-iot.org/all-solutions/matter/',
-          kind: 'ecosystem',
-          note: 'Smart home ecosystem that can be bridged through a WoT abstraction layer.',
-        },
-        {
-          label: 'ECHONET Lite Web API',
-          url: 'https://echonet.jp/web_api/',
-          kind: 'ecosystem',
-          note: 'Smart home API ecosystem referenced in WoT smart home use-case material.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
-        'W3C WoT Profile',
-        'Matter',
-        'Zigbee',
-        'Z-Wave',
-        'ECHONET Lite',
-      ],
-      relatedOrganizations: ['W3C', 'Connectivity Standards Alliance', 'ECHONET Consortium'],
-      keywords: ['smart home', 'Matter', 'Zigbee', 'Z-Wave', 'appliances', 'routines', 'gateway', 'home automation'],
-    },
-    {
-      title: 'Environment Monitoring',
-      icon: <Leaf size={32} />,
-      subtitle: 'Standardize access to air, water, weather and ecological sensor networks through web protocols',
-      sellingPoint:
-        'WoT makes environmental sensors easier to discover, describe and reuse, so monitoring platforms can combine observations from many vendors and locations.',
-      heroUseCase:
-        'A regional dashboard combines air-quality sensors, water-quality stations, weather sensors and ecological monitoring devices into one interoperable observation platform.',
-      body: [
-        'Environmental monitoring depends on distributed sensors that measure air quality, water quality, pollution, weather, noise, soil and ecological conditions.',
-        'WoT can describe sensor properties, observed quantities, units, locations, events and data access protocols. Semantic vocabularies such as SSN/SOSA can make observations easier to interpret across systems.',
-        'This supports public dashboards, research data collection, emergency response, compliance monitoring and cross-domain environmental intelligence.',
-      ],
-      wotEnables: [
-        'Discoverable environmental sensors with machine-readable units, locations and observed properties.',
-        'Reusable web access to measurements, events and historical data endpoints.',
-        'Integration of sensor networks with smart city, agriculture, water and climate applications.',
-      ],
-      primaryCapabilities: ['thing-description', 'discovery', 'semantic-annotations', 'binding-templates'],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Smart City Dashboard',
-          url: 'https://www.w3.org/TR/wot-usecases/#smart-city-dashboard',
-          kind: 'w3c-note',
-          note: 'Includes environmental measurements such as temperature, humidity, UV and pollution.',
-        },
-        {
-          label: 'W3C SSN/SOSA',
-          url: 'https://www.w3.org/TR/vocab-ssn/',
-          kind: 'w3c-spec',
-          note: 'Core vocabulary for sensors, observations, observed properties and actuators.',
-        },
-        {
-          label: 'OGC SensorThings API',
-          url: 'https://www.ogc.org/standard/sensorthings/',
-          kind: 'external-standard',
-          note: 'Relevant for geospatial sensor observations and environmental data.',
-        },
-        {
-          label: 'Indoor Air Quality Monitoring Sensor for WoT',
-          url: 'https://www.mdpi.com/2504-3900/2/23/1466',
-          kind: 'research',
-          note: 'Research example of WoT-based air quality monitoring.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'Machine-readable interface model for environmental sensor Things.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
-        'SSN/SOSA',
-        'OGC SensorThings API',
-        'MQTT',
-        'CoAP',
-      ],
-      relatedOrganizations: ['W3C', 'OGC', 'environmental monitoring agencies'],
-      keywords: ['air quality', 'water quality', 'weather', 'pollution', 'ecology', 'sensor networks', 'observations'],
-    },
-  ],
-  'Technology Trend': [
-    {
-      title: 'Digital Twins',
-      icon: <Copy size={32} />,
-      subtitle: 'Use Thing Descriptions to describe and interact with digital representations of physical assets',
-      sellingPoint:
-        'WoT gives digital twins a standard interaction contract, so a twin is not only a dashboard representation but also a machine-readable interface to properties, actions, events and relationships.',
-      heroUseCase:
-        'A factory digital twin mirrors a physical production line, exposing live state, simulation functions and control affordances through WoT-compatible interfaces.',
-      body: [
-        'Digital twins need live asset data, control interfaces, metadata, relationships and sometimes simulation endpoints.',
-        'WoT Thing Descriptions can describe both physical Things and virtual Things. This lets applications interact with a real asset, a simulated asset or a twin through the same affordance model.',
-        'This supports predictive maintenance, what-if simulation, asset documentation, supply-chain integration and cross-vendor digital twin ecosystems.',
-      ],
-      wotEnables: [
-        'Standardized interaction contracts for physical assets, virtual Things and digital twin services.',
-        'Machine-readable affordances for reading state, invoking simulations and subscribing to events.',
-        'Reuse of the same client logic across real devices, simulated devices and twin representations.',
-      ],
-      primaryCapabilities: ['thing-description', 'thing-models', 'digital-twin', 'semantic-annotations', 'discovery'],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Digital Twin',
-          url: 'https://www.w3.org/TR/wot-usecases/#digital-twin',
-          kind: 'w3c-note',
-          note: 'Use case for virtual representations of physical assets and real-time status.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, Virtual Thing',
-          url: 'https://www.w3.org/TR/wot-usecases/#virtual-thing',
-          kind: 'w3c-note',
-          note: 'Scenario where software simulations conform to the same TD interface as physical Things.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'Core machine-readable model for describing physical and virtual assets.',
-        },
-        {
-          label: 'Industrial Digital Twin Association',
-          url: 'https://industrialdigitaltwin.org/',
-          kind: 'external-organization',
-          note: 'Relevant industrial digital twin and Asset Administration Shell ecosystem.',
-        },
-        {
-          label: 'Digital Twin Consortium',
-          url: 'https://www.digitaltwinconsortium.org/',
-          kind: 'external-organization',
-          note: 'Industry organization focused on digital twin interoperability and adoption.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
-        'Asset Administration Shell',
-        'Digital Twin Consortium frameworks',
-        'OPC UA',
-      ],
-      relatedOrganizations: ['W3C', 'IDTA', 'Digital Twin Consortium', 'OPC Foundation'],
-      keywords: [
-        'digital twin',
-        'virtual thing',
-        'simulation',
-        'predictive maintenance',
-        'asset model',
-        'thing model',
-        'real-time state',
-      ],
-    },
-    {
-      title: 'EU Cyber Resilience Act',
-      icon: <ShieldCheck size={32} />,
-      subtitle: 'Use machine-readable security metadata to support secure-by-design connected products',
-      sellingPoint:
-        'WoT can help connected-product ecosystems expose security requirements, authentication schemes and access constraints in a machine-readable way, supporting the documentation and automation needed for CRA-era products.',
-      heroUseCase:
-        'A manufacturer publishes Thing Descriptions that declare authentication methods, secure endpoints, scopes and links to security documentation for connected products.',
-      body: [
-        'The EU Cyber Resilience Act introduces cybersecurity requirements for products with digital elements, including obligations across design, development, production and the product support period.',
-        'WoT does not make a product CRA-compliant by itself. Its value is that Thing Descriptions can make security metadata explicit: schemes, scopes, endpoint forms, data schemas and links to supporting documentation.',
-        'This can support secure onboarding, automated conformance checks, vulnerability-response workflows and clearer communication between manufacturers, operators and integrators.',
-      ],
-      wotEnables: [
-        'Machine-readable security metadata for connected products.',
-        'Explicit authentication, authorization and endpoint information per interaction affordance.',
-        'Links from device descriptions to security documentation, update channels or vulnerability information.',
-      ],
-      primaryCapabilities: ['thing-description', 'security-metadata', 'discovery', 'profiles'],
-      resources: [
-        {
-          label: 'European Commission, Cyber Resilience Act summary',
-          url: 'https://digital-strategy.ec.europa.eu/en/policies/cra-summary',
-          kind: 'regulatory',
-          note: 'Official EU overview of CRA scope, dates and objectives.',
-        },
-        {
-          label: 'European Commission, CRA reporting obligations',
-          url: 'https://digital-strategy.ec.europa.eu/en/policies/cra-reporting',
-          kind: 'regulatory',
-          note: 'Official EU guidance on vulnerability and incident reporting obligations.',
-        },
-        {
-          label: 'W3C WoT Security and Privacy Guidelines',
-          url: 'https://www.w3.org/TR/wot-security/',
-          kind: 'w3c-spec',
-          note: 'Security and privacy guidance for WoT assets, TDs and scripting.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'TDs include security definitions and metadata for interaction affordances.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, OAuth2',
-          url: 'https://www.w3.org/TR/wot-usecases/#oauth2',
-          kind: 'w3c-note',
-          note: 'Use case mapping OAuth2 concepts to WoT entities and affordances.',
-        },
-      ],
-      relatedStandards: [
-        'EU Cyber Resilience Act',
-        'W3C WoT Thing Description',
-        'W3C WoT Security',
-        'OAuth 2.0',
-        'SBOM-related ecosystems',
-      ],
-      relatedOrganizations: ['European Commission', 'W3C', 'ENISA'],
-      keywords: [
-        'CRA',
-        'cybersecurity',
-        'secure by design',
-        'vulnerability reporting',
-        'security metadata',
-        'authorization',
-        'connected products',
-      ],
-    },
-    {
-      title: 'Digital Product Passport',
-      icon: <QrCode size={32} />,
-      subtitle: 'Use Thing Descriptions as machine-readable entry points for product lifecycle and sustainability data',
-      sellingPoint:
-        'WoT can complement Digital Product Passports by connecting static product information with live product interfaces, telemetry and lifecycle services.',
-      heroUseCase:
-        'A connected product exposes a TD that links to product identity, material information, repair instructions, sustainability data and live operational telemetry.',
-      body: [
-        'Digital Product Passports are intended to store and share product data such as sustainability, durability and environmental information across a product lifecycle.',
-        'A Thing Description can act as a machine-readable web entry point for a connected product. It can expose product metadata, links to passport records and affordances for reading lifecycle-relevant data.',
-        'This is useful for repair, reuse, recycling, compliance reporting, carbon tracking and circular-economy services.',
-      ],
-      wotEnables: [
-        'Machine-readable product identity, metadata and links to lifecycle records.',
-        'Live access to product state, usage, maintenance and sustainability-related telemetry.',
-        'A bridge between regulatory product data systems and connected-product runtime interfaces.',
-      ],
-      primaryCapabilities: ['thing-description', 'semantic-annotations', 'security-metadata', 'discovery'],
-      resources: [
-        {
-          label: 'European Commission, Digital Product Passport consultation',
-          url: 'https://single-market-economy.ec.europa.eu/news/commission-launches-consultation-digital-product-passport-2025-04-09_en',
-          kind: 'regulatory',
-          note: 'Official EU source describing DPP sustainability and lifecycle-data goals.',
-        },
-        {
-          label: 'European Commission, Ecodesign for Sustainable Products Regulation',
-          url: 'https://single-market-economy.ec.europa.eu/single-market/goods/sustainable-products/ecodesign-sustainable-products-regulation_en',
-          kind: 'regulatory',
-          note: 'Regulatory context for DPP under ESPR.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'TDs can carry product metadata, links and machine-readable affordances.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, Device Lifecycle',
-          url: 'https://www.w3.org/TR/wot-usecases/#device-lifecycle',
-          kind: 'w3c-note',
-          note: 'Lifecycle states and transitions for devices in WoT systems.',
-        },
-        {
-          label: 'W3C WoT Discovery',
-          url: 'https://www.w3.org/TR/wot-discovery/',
-          kind: 'w3c-spec',
-          note: 'Discovery can help applications locate product descriptions and related metadata.',
-        },
-      ],
-      relatedStandards: [
-        'Digital Product Passport',
-        'Ecodesign for Sustainable Products Regulation',
-        'W3C WoT Thing Description',
-        'GS1 Digital Link',
-        'Asset Administration Shell',
-      ],
-      relatedOrganizations: ['European Commission', 'W3C', 'GS1', 'IDTA'],
-      keywords: [
-        'DPP',
-        'product lifecycle',
-        'sustainability',
-        'repair',
-        'reuse',
-        'recycling',
-        'circular economy',
-        'product metadata',
-      ],
-    },
-    {
-      title: 'Agentic Systems',
-      icon: <Bot size={32} />,
-      subtitle:
-        'Let autonomous AI agents discover, understand and orchestrate IoT devices through standardized affordances',
-      sellingPoint:
-        'WoT gives AI agents a safe, structured interface to the physical world: what a device is, what it can do, how to call it and what security constraints apply.',
-      heroUseCase:
-        'An energy-saving agent discovers room sensors, HVAC controls and lighting systems, checks their affordances and policies, then proposes or executes an optimization plan.',
-      body: [
-        'AI agents need more than raw APIs. They need machine-readable descriptions of capabilities, input schemas, security requirements and real-world effects.',
-        'WoT Thing Descriptions expose device affordances as properties, actions and events. Discovery lets agents find Things by type, location, protocol, semantic category or capability.',
-        'This enables agentic orchestration of IoT systems while keeping policies, authentication and authorization explicit.',
-      ],
-      wotEnables: [
-        'Machine-readable affordances that agents can inspect before acting.',
-        'Discovery of devices and services by capability, context and constraints.',
-        'Safer orchestration because schemas, security requirements and interaction patterns are explicit.',
-      ],
-      primaryCapabilities: ['thing-description', 'discovery', 'semantic-annotations', 'security-metadata', 'profiles'],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Discovery',
-          url: 'https://www.w3.org/TR/wot-usecases/#discovery',
-          kind: 'w3c-note',
-          note: 'Discovery use case for finding Things by capability, constraints and metadata.',
-        },
-        {
-          label: 'W3C WoT Discovery',
-          url: 'https://www.w3.org/TR/wot-discovery/',
-          kind: 'w3c-spec',
-          note: 'Standard mechanism for distributing and locating Thing Descriptions.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'Machine-readable affordances, schemas, links and security metadata.',
-        },
-        {
-          label: 'W3C WoT Profile',
-          url: 'https://www.w3.org/TR/wot-profile/',
-          kind: 'w3c-spec',
-          note: 'Profiles reduce ambiguity for clients, including automated clients.',
-        },
-        {
-          label: 'W3C WoT Use Cases, Agentic Systems category',
-          url: 'https://www.w3.org/WoT/use-cases/',
-          kind: 'w3c-note',
-          note: 'Current W3C WoT use-case page includes Agentic Systems as a technology trend.',
-        },
-      ],
-      relatedStandards: ['W3C WoT Thing Description', 'W3C WoT Discovery', 'W3C WoT Profile', 'JSON Schema', 'JSON-LD'],
-      relatedOrganizations: ['W3C', 'AI and IoT research communities'],
-      keywords: [
-        'AI agents',
-        'autonomous systems',
-        'tool use',
-        'orchestration',
-        'affordances',
-        'discovery',
-        'policy-aware control',
-      ],
-    },
-    {
-      title: 'Neurosymbolic AI',
-      icon: <Brain size={32} />,
-      subtitle: 'Combine learned sensor intelligence with symbolic reasoning over WoT semantic descriptions',
-      sellingPoint:
-        'WoT Thing Descriptions can provide the symbolic layer that AI systems need to reason about device meaning, units, capabilities and constraints while neural models learn from sensor streams.',
-      heroUseCase:
-        'A building AI predicts occupancy from sensor data, then uses semantic TD annotations to identify which HVAC zones, sensors and control actions are relevant.',
-      body: [
-        'Neurosymbolic AI combines neural methods, such as machine learning from data, with symbolic methods, such as rules, knowledge graphs and formal relationships.',
-        'WoT TDs are JSON-LD-compatible and can be annotated with external vocabularies. This allows IoT devices to become part of knowledge graphs that describe what they measure, where they are and how they can be used.',
-        'The result is AI that can learn from sensor data while also reasoning over device capabilities, safety constraints, physical context and domain semantics.',
-      ],
-      wotEnables: [
-        'Knowledge-graph-compatible device descriptions for symbolic reasoning.',
-        'Semantic links between sensor data, physical assets, units, locations and actions.',
-        'AI workflows that combine learned predictions with explainable device and domain context.',
-      ],
-      primaryCapabilities: ['thing-description', 'semantic-annotations', 'thing-models', 'discovery'],
-      resources: [
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'TDs use JSON-LD processing and support machine-understandable descriptions.',
-        },
-        {
-          label: 'W3C SSN/SOSA',
-          url: 'https://www.w3.org/TR/vocab-ssn/',
-          kind: 'w3c-spec',
-          note: 'Ontology for sensors, observations, actuators and observed properties.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, Semantic Interoperability',
-          url: 'https://www.w3.org/TR/wot-usecases/#semantic-interoperability',
-          kind: 'w3c-note',
-          note: 'Use-case material on annotating TDs with external vocabularies.',
-        },
-        {
-          label: 'W3C JSON-LD 1.1',
-          url: 'https://www.w3.org/TR/json-ld11/',
-          kind: 'w3c-spec',
-          note: 'Linked-data serialization used by TD processing.',
-        },
-        {
-          label: 'W3C WoT Architecture 1.1',
-          url: 'https://www.w3.org/TR/wot-architecture11/',
-          kind: 'w3c-spec',
-          note: 'Architecture for integrating Things across application domains.',
-        },
-      ],
-      relatedStandards: ['W3C WoT Thing Description', 'JSON-LD', 'RDF', 'SSN/SOSA', 'OWL', 'SHACL'],
-      relatedOrganizations: ['W3C', 'semantic web research community', 'AI research community'],
-      keywords: [
-        'neurosymbolic AI',
-        'knowledge graph',
-        'semantic reasoning',
-        'machine learning',
-        'sensor data',
-        'JSON-LD',
-        'explainability',
-      ],
-    },
-    {
-      title: 'Edge Computing',
-      icon: <Network size={32} />,
-      subtitle: 'Discover and interact with computing resources near devices, users and physical processes',
-      sellingPoint:
-        'WoT can describe not only sensors and actuators, but also edge services that process data locally for lower latency, lower bandwidth use and stronger privacy.',
-      heroUseCase:
-        'A robot discovers a nearby edge vision service, sends camera frames locally and receives object-detection results without routing all data through the cloud.',
-      body: [
-        'Many IoT systems need low-latency processing, privacy-preserving computation or reduced network traffic. Sending every sensor stream to the cloud is often inefficient or unacceptable.',
-        'WoT can expose edge services as Things with properties, actions and events. Discovery can help applications find local compute services based on location, capability and protocol.',
-        'This supports computer vision, machine learning inference, robotics, industrial control, local analytics and bandwidth-constrained deployments.',
-      ],
-      wotEnables: [
-        'Standardized descriptions for edge services as callable Things.',
-        'Discovery of nearby compute resources by location, capability and constraints.',
-        'Composable workflows across devices, gateways, local compute and cloud systems.',
-      ],
-      primaryCapabilities: [
-        'thing-description',
-        'discovery',
-        'edge-services',
-        'binding-templates',
-        'security-metadata',
-      ],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Edge Computing',
-          url: 'https://www.w3.org/TR/wot-usecases/#edge-computing',
-          kind: 'w3c-note',
-          note: 'Use case for offloading computation to nearby edge resources.',
-        },
-        {
-          label: 'W3C WoT Discovery',
-          url: 'https://www.w3.org/TR/wot-discovery/',
-          kind: 'w3c-spec',
-          note: 'Useful for finding local edge services and their metadata.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'Can describe edge services using the same affordance model as devices.',
-        },
-        {
-          label: 'ETSI MEC',
-          url: 'https://www.etsi.org/technologies/multi-access-edge-computing',
-          kind: 'external-standard',
-          note: 'Edge computing ecosystem relevant to local compute services.',
-        },
-        {
-          label: 'OpenFog / Industrial IoT edge ecosystem',
-          url: 'https://www.iiconsortium.org/',
-          kind: 'external-organization',
-          note: 'Industrial edge and fog-computing ecosystem reference.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
-        'ETSI MEC',
-        'IETF IoT edge work',
-        'MQTT',
-        'CoAP',
-      ],
-      relatedOrganizations: ['W3C', 'ETSI', 'IETF', 'Industry IoT Consortium'],
-      keywords: [
-        'edge computing',
-        'local inference',
-        'latency',
-        'bandwidth',
-        'privacy',
-        'gateway',
-        'robotics',
-        'computer vision',
-      ],
-    },
-    {
-      title: 'Zero Trust Architecture',
-      icon: <Lock size={32} />,
-      subtitle: 'Make device authentication, authorization and access policies explicit and machine-verifiable',
-      sellingPoint:
-        "WoT supports zero-trust-style IoT integration by making each interaction's security requirements visible in the Thing Description instead of relying on implicit network trust.",
-      heroUseCase:
-        'An application discovers a pump but can only read status, while a maintenance service with stronger credentials can invoke calibration actions.',
-      body: [
-        'Zero Trust Architecture assumes that network location alone should not grant trust. Every request should be authenticated, authorized and evaluated in context.',
-        'WoT TDs can declare security schemes, required scopes and endpoint forms per Thing or per interaction affordance. Discovery can also be protected so sensitive metadata is only exposed to authorized consumers.',
-        'This helps IoT systems implement least privilege, clearer policy enforcement and safer cross-domain integration.',
-      ],
-      wotEnables: [
-        'Explicit security metadata for Things and individual affordances.',
-        'Policy-aware discovery and access control for IoT resources.',
-        'Least-privilege integration between applications, devices, gateways and services.',
-      ],
-      primaryCapabilities: ['security-metadata', 'thing-description', 'discovery', 'profiles'],
-      resources: [
-        {
-          label: 'W3C WoT Security and Privacy Guidelines',
-          url: 'https://www.w3.org/TR/wot-security/',
-          kind: 'w3c-spec',
-          note: 'Security and privacy guidance for WoT deployments.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'TDs include security definitions and affordance metadata.',
-        },
-        {
-          label: 'W3C WoT Discovery',
-          url: 'https://www.w3.org/TR/wot-discovery/',
-          kind: 'w3c-spec',
-          note: 'Discovery includes security, authentication and authorization considerations.',
-        },
-        {
-          label: 'NIST SP 800-207, Zero Trust Architecture',
-          url: 'https://csrc.nist.gov/pubs/sp/800/207/final',
-          kind: 'external-standard',
-          note: 'Foundational zero-trust architecture publication.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, OAuth2',
-          url: 'https://www.w3.org/TR/wot-usecases/#oauth2',
-          kind: 'w3c-note',
-          note: 'Use case mapping OAuth2 to WoT entities and interactions.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Security',
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
-        'NIST SP 800-207',
-        'OAuth 2.0',
-        'ACE-OAuth',
-      ],
-      relatedOrganizations: ['W3C', 'NIST', 'IETF'],
-      keywords: [
-        'zero trust',
-        'least privilege',
-        'authentication',
-        'authorization',
-        'access policy',
-        'security metadata',
-        'secure discovery',
-      ],
-    },
-    {
-      title: 'Semantic Interoperability',
-      icon: <Workflow size={32} />,
-      subtitle:
-        'Use linked data and semantic annotations to make IoT data Findable, Accessible, Interoperable and Reusable by design',
-      sellingPoint:
-        'WoT turns device APIs into semantically understandable web resources, allowing applications to combine IoT data across domains instead of only exchanging raw protocol messages.',
-      heroUseCase:
-        'A city energy application combines building sensors, weather stations and grid devices because their TDs describe units, observed properties, locations and domain concepts using shared vocabularies.',
-      body: [
-        'Syntactic interoperability means systems can exchange data formats. Semantic interoperability means they also share the meaning of that data.',
-        'WoT TDs use JSON-LD processing and can be annotated with external vocabularies. This lets device descriptions participate in knowledge graphs and domain models.',
-        'By combining TDs with vocabularies such as SSN/SOSA, Brick, BOT and SAREF, IoT data becomes easier to discover, interpret, validate and reuse across applications.',
-      ],
-      wotEnables: [
-        'JSON-LD-compatible descriptions for Things, affordances, schemas and links.',
-        'Cross-domain annotation with shared vocabularies and knowledge graphs.',
-        'FAIR-style IoT data access through discovery, web protocols, semantics and reusable metadata.',
-      ],
-      primaryCapabilities: ['thing-description', 'semantic-annotations', 'thing-models', 'discovery', 'profiles'],
-      resources: [
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'JSON-LD-compatible model for machine-understandable Thing descriptions.',
-        },
-        {
-          label: 'W3C WoT Profile',
-          url: 'https://www.w3.org/TR/wot-profile/',
-          kind: 'w3c-spec',
-          note: 'Profiles distinguish syntactic, semantic and organizational interoperability.',
-        },
-        {
-          label: 'W3C SSN/SOSA',
-          url: 'https://www.w3.org/TR/vocab-ssn/',
-          kind: 'w3c-spec',
-          note: 'Sensor, observation and actuator vocabulary for semantic IoT data.',
-        },
-        {
-          label: 'Brick Schema',
-          url: 'https://brickschema.org/',
-          kind: 'external-standard',
-          note: 'Semantic building model often combined with WoT TDs.',
-        },
-        {
-          label: 'ETSI SAREF',
-          url: 'https://saref.etsi.org/',
-          kind: 'external-standard',
-          note: 'Cross-domain smart applications ontology relevant to semantic IoT.',
-        },
-      ],
-      relatedStandards: ['W3C WoT Thing Description', 'JSON-LD', 'RDF', 'SSN/SOSA', 'Brick', 'BOT', 'SAREF', 'SHACL'],
-      relatedOrganizations: ['W3C', 'ETSI', 'semantic web community'],
-      keywords: [
-        'semantic interoperability',
-        'FAIR data',
-        'JSON-LD',
-        'linked data',
-        'knowledge graph',
-        'ontology',
-        'cross-domain integration',
-      ],
-    },
-    {
-      title: 'Sustainability & Green IoT',
-      icon: <Sun size={32} />,
-      subtitle:
-        'Use standardized device descriptions for energy-aware orchestration, carbon tracking and optimized resource usage',
-      sellingPoint:
-        'WoT helps sustainability systems discover what connected assets consume, produce, measure or control, then coordinate them to reduce energy use, waste and emissions.',
-      heroUseCase:
-        'A campus platform discovers buildings, batteries, solar inverters, EV chargers and HVAC systems, then optimizes operation based on occupancy, renewable availability and grid signals.',
-      body: [
-        'Sustainability use cases need data from many domains: energy meters, building systems, industrial equipment, transport, product lifecycle systems and environmental sensors.',
-        'WoT provides a standardized way to describe these connected resources, including how to read measurements, subscribe to events and invoke control actions.',
-        'This enables energy-aware orchestration, carbon-aware scheduling, resource optimization, predictive maintenance and integration with product lifecycle reporting.',
-      ],
-      wotEnables: [
-        'Discovery of energy-consuming, energy-producing and resource-monitoring Things.',
-        'Standardized access to telemetry needed for energy, carbon and resource optimization.',
-        'Cross-domain orchestration across buildings, grids, factories, transport and product systems.',
-      ],
-      primaryCapabilities: [
-        'thing-description',
-        'discovery',
-        'semantic-annotations',
-        'binding-templates',
-        'digital-twin',
-      ],
-      resources: [
-        {
-          label: 'W3C WoT Use Cases and Requirements, Smart Grids',
-          url: 'https://www.w3.org/TR/wot-usecases/#smart-grids',
-          kind: 'w3c-note',
-          note: 'Energy systems scenario involving generation, storage, grid management and consumption.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, Connected Building Energy Efficiency',
-          url: 'https://www.w3.org/TR/wot-usecases/#connected-building-energy-efficiency',
-          kind: 'w3c-note',
-          note: 'Building energy efficiency scenario using interoperable sensor and building metadata.',
-        },
-        {
-          label: 'W3C WoT Use Cases and Requirements, Manufacturing',
-          url: 'https://www.w3.org/TR/wot-usecases/#manufacturing',
-          kind: 'w3c-note',
-          note: 'Industrial production monitoring and optimization use cases.',
-        },
-        {
-          label: 'European Commission, Digital Product Passport consultation',
-          url: 'https://single-market-economy.ec.europa.eu/news/commission-launches-consultation-digital-product-passport-2025-04-09_en',
-          kind: 'regulatory',
-          note: 'DPP source for sustainability and lifecycle product data.',
-        },
-        {
-          label: 'W3C WoT Thing Description 1.1',
-          url: 'https://www.w3.org/TR/wot-thing-description11/',
-          kind: 'w3c-spec',
-          note: 'Core model for making sustainability-relevant devices and data machine-readable.',
-        },
-      ],
-      relatedStandards: [
-        'W3C WoT Thing Description',
-        'W3C WoT Discovery',
-        'Digital Product Passport',
-        'IEC 61850',
+      howItWorks:
+        'City assets expose or are wrapped with WoT TDs (often via gateways). A city-wide WoT Discovery service (directory or peer-to-peer) allows applications to find relevant Things by location, type, or capability. Data is normalized and semantically annotated for easy integration into GIS platforms, digital twins, or AI analytics. Security policies ensure appropriate access for public vs internal services.',
+      relevantStandardsIntegrations: [
+        'W3C Geolocation',
+        'OGC standards',
         'SSN/SOSA',
         'SAREF',
+        'MQTT',
+        'CoAP',
+        'Brick/BOT (for buildings)',
       ],
-      relatedOrganizations: ['W3C', 'European Commission', 'IEC', 'ETSI'],
-      keywords: [
-        'green IoT',
-        'sustainability',
-        'energy optimization',
-        'carbon tracking',
-        'resource efficiency',
-        'predictive maintenance',
-        'circular economy',
+      resources: [
+        {
+          title: 'WoT Use Cases and Requirements - Smart City section (Geolocation, Dashboard, Cross-Domain Discovery)',
+          url: 'https://w3c.github.io/wot-usecases/#smart-city',
+        },
+        {
+          title: 'WoT Discovery Specification',
+          url: 'https://www.w3.org/TR/wot-discovery/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
       ],
+      cta: 'Define a minimal WoT profile for city assets. Pilot cross-department data sharing (e.g., traffic + environment) using WoT Discovery. This creates immediate value and positions the city as an innovation hub.',
+      testimonialIds: ['hitachi'],
     },
-  ],
+
+    'Healthcare & Well-being': {
+      icon: <Activity size={32} />,
+      description:
+        'Connecting medical devices, wearables, and facility systems to improve patient care, remote monitoring, and clinical workflows',
+      useCase:
+        'WoT brings web-scale interoperability and security to the highly regulated healthcare domain. It enables safe integration of medical devices, wearables, hospital infrastructure (beds, pumps, monitors), and facility systems into unified platforms for real-time patient monitoring, predictive care, remote patient management, and operational efficiency while meeting strict privacy (GDPR/HIPAA), safety, and security requirements.',
+      woTRole: {
+        text: "TDs describe medical devices with precise affordances, data formats, and security requirements. Security Vocabulary and fine-grained access control protect sensitive patient data. Discovery supports rapid, secure onboarding in dynamic clinical environments. Semantic models align with health standards for interoperability. WoT's web foundation enables secure remote access and integration with EHR/EMR systems.",
+        keyBenefits: [
+          'Improve patient outcomes through real-time, interoperable data from diverse medical devices and wearables',
+          'Reduce clinical workflow friction and medical errors via automated data capture and closed-loop control',
+          'Enable scalable remote patient monitoring and telehealth with standardized, secure interfaces',
+          'Lower integration costs for hospital equipment and facility systems (HVAC, lighting, access for patient comfort)',
+          'Support regulatory compliance (MDR, CRA, GDPR/HIPAA) with auditable security and data provenance',
+          'Accelerate innovation in digital health and AI-assisted diagnostics/therapy',
+        ],
+      },
+      realWorldExamples: [
+        'Interconnected Medical Devices in ICU: Integrate monitors, infusion pumps, and sensors for Physiological Closed-Loop Control (PCLC); reduce errors with autonomous therapy adjustments based on real-time vitals.',
+        'Health Notifiers & Remote Monitoring: Networked devices for emergency alerts, vital signs tracking, and collaborative analysis with streaming data.',
+        'Facility Integration: Link building systems (lighting, temperature) with patient care workflows for improved healing environments and operational efficiency.',
+      ],
+      howItWorks:
+        'Medical devices expose TDs (or are wrapped via gateways). Clinical applications and AI services discover and interact with devices securely using WoT protocols and security mechanisms. Data is semantically described for integration into clinical decision support systems. Edge computing supports low-latency closed-loop control. Full audit trails and access policies are enforced via TD security metadata.',
+      relevantStandardsIntegrations: [
+        'ASTM F2761 (ICE)',
+        'OpenICE/DDS',
+        'HL7/FHIR (via mapping)',
+        'SSN/SOSA',
+        'WoT Security Vocabulary',
+      ],
+      resources: [
+        {
+          title: 'WoT Use Cases and Requirements - Healthcare & Medical Device Integration',
+          url: 'https://w3c.github.io/wot-usecases/',
+        },
+        {
+          title: 'WoT Security and Privacy Guidelines',
+          url: 'https://w3c.github.io/wot-security/',
+        },
+        {
+          title: 'WoT CG Meetups Repository (search for healthcare or medical)',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Identify high-value integration points (e.g., ICU monitoring or remote patient programs). Use WoT TDs to create secure, standardized interfaces. This reduces custom integration work and accelerates digital health initiatives while improving compliance posture.',
+    },
+
+    Agriculture: {
+      icon: <Tractor size={32} />,
+      description:
+        'Precision farming with interoperable soil sensors, weather stations, and irrigation controllers for data-driven crop management',
+      useCase:
+        'WoT enables the next generation of precision agriculture by providing open, interoperable interfaces for the diverse sensors, actuators, drones, and machinery found on modern farms. Farmers and ag-tech providers can build unified platforms that optimize water, fertilizer, and pesticide use; monitor livestock and crop health; and integrate with supply chain and carbon accounting systems independent of vendor ecosystems.',
+      woTRole: {
+        text: 'TDs describe agricultural devices (soil moisture sensors, weather stations, irrigation valves, drones, milking robots) with semantic context (location, depth, crop type). Protocol bindings support LPWAN, Modbus, MQTT, and proprietary farm protocols. Discovery enables dynamic field networks. Security protects farm data and equipment. Integration with SAREF4AGRI and SSN/SOSA ontologies provides rich semantic models for AI and decision support.',
+        keyBenefits: [
+          'Optimize resource use (water, energy, inputs) by 15-30% through precise, data-driven decisions',
+          'Reduce labor shortages via automation (e.g., robotic milking, drone-based pest control)',
+          'Improve yields and quality while minimizing environmental impact and input costs',
+          'Enable traceability and carbon farming programs through standardized, auditable data',
+          'Support resilience to climate variability with real-time monitoring and forecasting integration',
+          'Lower barriers for small and medium farms by avoiding proprietary lock-in',
+        ],
+      },
+      realWorldExamples: [
+        'Greenhouse Horticulture: Unified control of temperature, humidity, CO2, and lighting from multiple vendors for maximum photosynthesis and yield stability.',
+        'Open-field Agriculture & Irrigation: Sensors (soil moisture at depth, weather) + actuators (pumps, sprinklers) integrated via gateways; data drives AI irrigation advice and digital twins. Pilots in Italy, Brazil, Spain show significant water/energy savings.',
+        'Automatic Milking Systems (AMS): RFID, cameras, robots, and analyzers integrated for labor reduction, milk quality tracking, and health monitoring.',
+        'Pest Control & Livestock Health: UAVs + ground sensors for pest detection and targeted application; wearables for animal health prediction and early intervention.',
+      ],
+      howItWorks:
+        "Field gateways or edge devices host WoT runtimes that expose sensors/actuators as Things. TDs include geolocation, calibration info, and semantic links (e.g., 'this sensor measures root-zone moisture for field section Y'). Cloud or edge AI consumes standardized data for decision support. Farmers interact via web/mobile apps or automated rules. Historical and forecast data are linked via semantic models.",
+      relevantStandardsIntegrations: ['SAREF4AGRI', 'SSN/SOSA', 'SDI-12', 'LPWAN (LoRaWAN, NB-IoT)', 'MQTT', 'CoAP'],
+      resources: [
+        {
+          title:
+            'WoT Use Cases and Requirements - Smart Agriculture (Greenhouse, Open-field, Irrigation, AMS, Pest Control, Livestock, Machinery)',
+          url: 'https://w3c.github.io/wot-usecases/#agriculture',
+        },
+        {
+          title: 'WoT Thing Description & Binding Templates',
+          url: 'https://www.w3.org/TR/wot-thing-description/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Start with soil moisture + weather + irrigation control on one field or greenhouse. Use or extend existing Thing Models for rapid TD creation. Integrate data into your farm management platform or carbon accounting tools for quick ROI and compliance value.',
+    },
+
+    'Transportation & Logistics': {
+      icon: <Truck size={32} />,
+      description:
+        'Fleet tracking, supply chain visibility, and connected vehicle systems through standardized IoT descriptions and discovery',
+      useCase:
+        'WoT brings web-scale interoperability to the complex, multi-stakeholder world of transportation and logistics. It enables seamless integration of vehicle telematics, cargo sensors, warehouse systems, port equipment, and infrastructure (traffic lights, parking, charging) into unified platforms for end-to-end visibility, predictive logistics, and optimized multimodal transport while supporting stringent security and privacy requirements.',
+      woTRole: {
+        text: 'TDs describe vehicles, containers, sensors (location, temperature, shock), and infrastructure with standardized geolocation, status, and control affordances. Discovery supports dynamic fleets and large-scale networks. Security Vocabulary protects sensitive location and cargo data. Semantic models integrate with transport ontologies and geospatial standards for powerful routing, tracking, and digital twin applications.',
+        keyBenefits: [
+          'Achieve true end-to-end supply chain visibility across carriers, modes, and vendors',
+          'Reduce losses, delays, and insurance costs through real-time condition monitoring and predictive alerts',
+          'Optimize fleet utilization, routing, and last-mile delivery with interoperable data',
+          'Enable new services: cargo as a service, dynamic insurance, carbon tracking per shipment',
+          'Support regulatory compliance (e.g., dangerous goods, emissions reporting) with auditable data',
+          'Lower integration costs for 3PLs, shippers, and infrastructure operators',
+        ],
+      },
+      realWorldExamples: [
+        'Fleet Tracking & Supply Chain: Standardized location, status, and sensor data (temperature, humidity, shock) from vehicles and containers for real-time visibility and exception handling.',
+        'Smart City Geolocation: Dynamic tracking of mobile assets with geofencing notifications; integration with traffic and logistics platforms.',
+        'Infrastructure Integration: Connected traffic lights, parking, and charging stations discoverable and controllable via WoT for optimized urban logistics.',
+      ],
+      howItWorks:
+        'Vehicles and assets expose or are wrapped with TDs containing location (via GNSS or indoor tech), telemetry, and control interfaces. Discovery services (local on vehicles or cloud-based) allow platforms to find relevant Things. Data is semantically enriched for integration with TMS/ERP/WMS systems. Edge processing on vehicles or gateways supports low-latency decisions. Security policies ensure only authorized parties access sensitive data.',
+      relevantStandardsIntegrations: [
+        'W3C Geolocation API',
+        'OGC standards',
+        'NMEA',
+        'SSN/SOSA',
+        'MQTT',
+        '5G/Edge computing bindings',
+      ],
+      resources: [
+        {
+          title: 'WoT Use Cases and Requirements - Smart City Geolocation & Transportation-related scenarios',
+          url: 'https://w3c.github.io/wot-usecases/#smart-city',
+        },
+        {
+          title: 'WoT Discovery & Architecture Specifications',
+          url: 'https://www.w3.org/TR/wot-discovery/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Define a WoT profile for your telematics and cargo sensors. Pilot standardized data sharing with one key partner or platform. This unlocks visibility benefits quickly and positions you for advanced analytics and new service models.',
+    },
+
+    'Consumer & Smart Home': {
+      icon: <Home size={32} />,
+      description:
+        'Cross-vendor smart home device integration, bridging ecosystems like Matter, Zigbee, and Z-Wave via WoT abstractions',
+      useCase:
+        'WoT provides the universal translation layer for the smart home. It allows consumers, installers, and platform providers to integrate devices from any ecosystem (Matter, Zigbee, Z-Wave, proprietary Wi-Fi/Bluetooth) into unified, secure, and programmable experiences without being locked into a single voice assistant or hub vendor. This enables richer automation, better privacy, and future-proof smart homes.',
+      woTRole: {
+        text: 'WoT abstracts device capabilities into standardized TDs regardless of underlying protocol. Bindings and adapters translate between Matter, Zigbee, etc., and web protocols. Discovery makes devices findable across the home network. Security and privacy vocabularies give users fine-grained control. Thing Models simplify onboarding of common device types. Scripting API enables powerful local automations.',
+        keyBenefits: [
+          'True cross-ecosystem interoperability: control any device from any app or automation without vendor lock-in',
+          'Improved privacy and security by keeping sensitive home data local where possible and using standardized access controls',
+          'Faster innovation: developers build once against WoT abstractions and reach all devices',
+          'Better user experience: unified dashboards, voice control, and automations that actually work reliably',
+          'Support for accessibility and multi-user scenarios through standardized preferences and access policies',
+          'Future-proof homes as new protocols and AI agents emerge',
+        ],
+      },
+      realWorldExamples: [
+        'Cross-Vendor Integration: Lights, thermostats, locks, and sensors from different ecosystems (Matter + legacy Zigbee) unified in one dashboard or voice assistant via WoT.',
+        'Context-Aware Automations: Devices react intelligently to TV programs, presence, or schedules using standardized scene and mode descriptions.',
+        'Privacy-Preserving Local Control: Critical automations run locally on edge gateways using WoT Scripting API, reducing cloud dependency.',
+      ],
+      howItWorks:
+        'Gateways or hubs translate native device protocols to WoT TDs. Consumers discover and interact with all devices uniformly via web APIs or local runtimes. Thing Models provide templates for common device classes (light, thermostat, sensor). Security policies and consent flows are expressed in TDs. Advanced users or developers use the WoT Scripting API for custom logic that runs reliably even offline.',
+      relevantStandardsIntegrations: ['Matter', 'Zigbee', 'Z-Wave', 'MQTT', 'CoAP', 'WoT Scripting API'],
+      resources: [
+        {
+          title: 'WoT Use Cases and Requirements - Consumer & Smart Home scenarios',
+          url: 'https://w3c.github.io/wot-usecases/',
+        },
+        {
+          title: 'WoT Architecture, Thing Description, and Scripting API',
+          url: 'https://www.w3.org/TR/wot-architecture/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'If you build smart home products or platforms, adopt or map to WoT TDs. This dramatically expands your addressable market and reduces customer support burden from interoperability issues. For installers/integrators, WoT means faster, more reliable multi-vendor projects.',
+      testimonialIds: ['sifis-home'],
+    },
+
+    'Environment Monitoring': {
+      icon: <Leaf size={32} />,
+      description:
+        'Air quality, water quality, and ecological monitoring through standardized sensor networks accessible via web protocols',
+      useCase:
+        'WoT turns environmental sensors into first-class web citizens. Cities, researchers, industries, and citizen scientists can deploy interoperable sensor networks for air/water quality, noise, biodiversity, weather, and climate parameters. Data becomes discoverable, queryable, and integrable into dashboards, early warning systems, digital twins, and policy tools, accelerating environmental action and compliance.',
+      woTRole: {
+        text: 'TDs describe sensors with precise measurement capabilities, units, calibration info, and location. Semantic annotations (SSN/SOSA, SAREF) enable rich querying and integration. Discovery supports large-scale, distributed networks. Protocol bindings (MQTT, CoAP, HTTP) and edge runtimes enable efficient, low-power deployments. Security and provenance ensure trustworthy public or research data.',
+        keyBenefits: [
+          'Create open, interoperable environmental data platforms that multiple stakeholders can contribute to and consume',
+          'Reduce deployment and integration costs for sensor networks across cities, industrial sites, and research projects',
+          'Enable real-time alerts, trend analysis, and integration with climate/digital twin models',
+          'Support regulatory compliance (air/water quality directives) and ESG reporting with auditable, standardized data',
+          'Empower citizen science and participatory environmental monitoring',
+          'Accelerate scientific research and evidence-based environmental policy',
+        ],
+      },
+      realWorldExamples: [
+        'Air & Water Quality Networks: Standardized sensor descriptions allow unified platforms to ingest data from municipal, industrial, and citizen sensors for city-wide dashboards and alerts.',
+        'Integrated with Agriculture & Smart Cities: Soil, weather, and ecological sensors feed into precision farming and urban environmental management systems.',
+        'Cultural & Industrial Sites: Precise monitoring of conditions (temperature, humidity, pollutants) for preservation, compliance, and optimization.',
+      ],
+      howItWorks:
+        'Low-power sensors connect via gateways or directly expose WoT TDs (often using CoAP/MQTT). TDs include semantic metadata (observed property, unit, location, accuracy). Discovery services aggregate and index sensors for easy finding. Data consumers (dashboards, AI models, public portals) query and subscribe uniformly. Provenance and quality metadata build trust in the data.',
+      relevantStandardsIntegrations: [
+        'SSN/SOSA',
+        'SAREF',
+        'OGC SensorThings API (mapping)',
+        'MQTT',
+        'CoAP',
+        'W3C Geolocation',
+      ],
+      resources: [
+        {
+          title: 'WoT Use Cases and Requirements - Environment Monitoring scenarios across domains',
+          url: 'https://w3c.github.io/wot-usecases/',
+        },
+        {
+          title: 'WoT Thing Description & Discovery',
+          url: 'https://www.w3.org/TR/wot-thing-description/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Standardize your environmental sensor deployments with WoT TDs. This makes data immediately usable by internal systems, partners, regulators, and the public, maximizing the value of your monitoring investments and simplifying compliance.',
+    },
+  },
+
+  'Technology Trends': {
+    'Digital Twins': {
+      icon: <Copy size={32} />,
+      description:
+        'WoT Thing Descriptions provide a standardized way to describe and interact with digital representations of physical assets, enabling interoperable digital twin ecosystems',
+      useCase:
+        'WoT is the ideal foundation for scalable, interoperable digital twins. By providing standardized, machine-readable descriptions of physical assets (their capabilities, data, and relationships), WoT allows digital twins to be composed, queried, and synchronized across vendors, domains, and lifecycle stages, from factory floor twins to city-scale or product twins, without custom integration for every new asset type.',
+      woTRole: {
+        text: "Every physical asset gets a corresponding WoT TD that serves as its 'digital shadow' or interface contract. TDs link to 3D models, simulation parameters, historical data, and semantic models (Brick, BOT, SSN). Discovery and composition mechanisms allow building hierarchical or federated twins. Real-time synchronization uses WoT eventing and protocol bindings. Security ensures controlled access to twin data and control functions.",
+        keyBenefits: [
+          'Accelerate digital twin programs by reusing standardized asset descriptions instead of building custom connectors',
+          'Enable composable, multi-vendor twins (factory + building + grid) for system-level optimization and what-if scenarios',
+          'Reduce data integration effort for simulation, predictive analytics, and AI training on twin data',
+          'Support lifecycle management: design → commissioning → operation → decommissioning with persistent, queryable asset models',
+          'Improve collaboration between OEMs, operators, and service providers through shared, standardized interfaces',
+          'Lower total cost of ownership for enterprise digital twin platforms',
+        ],
+      },
+      realWorldExamples: [
+        'Factory Digital Twins: Production line assets described with TDs + Brick ontology; enable simulation, predictive maintenance, and optimization apps that work across equipment brands.',
+        'Building Digital Twins: HVAC, lighting, and structural elements linked via BOT + WoT TDs for energy modeling, fault detection, and space utilization twins.',
+        'Cross-Domain Twins: Integrate manufacturing, energy, and building twins for holistic sustainability and resilience analysis.',
+      ],
+      howItWorks:
+        'Physical assets are described with rich TDs that include not only runtime interfaces but also links to static models (CAD/BIM, ontologies). Digital twin platforms consume these TDs to auto-generate or synchronize virtual representations. Changes in the physical world (via events or polling) update the twin; commands flow back through the same standardized interface. Semantic graphs enable powerful querying and reasoning over the twin ecosystem.',
+      relevantStandardsIntegrations: [
+        'Brick Schema',
+        'BOT',
+        'SSN/SOSA',
+        'IFC',
+        'WoT TD + Discovery',
+        'MQTT/WebSockets for synchronization',
+      ],
+      resources: [
+        {
+          title:
+            'An Open-source Software Stack for IoT Virtualization and Convergence with Edge Computing Technologies',
+          url: 'https://github.com/w3c-cg/wot-cg/blob/main/Meetups/28/2025-07-WoTCG-Meetup28-VO-WoT.pdf',
+          video_url: 'https://youtu.be/EkeoQLWIhlI',
+          note: '17 July 2025: Covers IoT virtualization approaches highly relevant to building and maintaining digital twins at scale with edge convergence.',
+        },
+        {
+          title: 'WoT Use Cases and Requirements - Mentions of Digital Twins in multiple domains',
+          url: 'https://w3c.github.io/wot-usecases/',
+        },
+        {
+          title: 'WoT Architecture 1.1 & Thing Description',
+          url: 'https://www.w3.org/TR/wot-architecture/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: "Make WoT TDs the single source of truth for asset descriptions in your digital twin strategy. This dramatically reduces the 'integration tax' and enables you to compose twins across your ecosystem faster than competitors using proprietary approaches.",
+      testimonialIds: ['hitachi'],
+    },
+
+    'EU Cyber Resiliency Act': {
+      icon: <ShieldCheck size={32} />,
+      description:
+        "WoT's machine-readable security metadata and standardized vulnerability reporting align with the CRA's requirements for transparent, secure-by-design connected products",
+      useCase:
+        'The EU Cyber Resilience Act (CRA) mandates that connected products be secure by design, with transparent security properties, vulnerability handling, and documentation. WoT directly supports CRA compliance by embedding rich, machine-readable security descriptions, access control policies, and vulnerability metadata into every Thing Description, making security auditable, automatable, and verifiable across the supply chain.',
+      woTRole: {
+        text: "WoT Security Vocabulary in TDs declares supported security schemes (OAuth2, API keys, certificates, etc.), required policies, and encryption. TDs can reference or embed vulnerability information and SBOM-like data. Zero-trust patterns are supported via fine-grained, explicit access policies and authentication. Discovery and onboarding mechanisms include security checks. This makes CRA-required transparency and 'secure by design' claims machine-verifiable.",
+        keyBenefits: [
+          'Significantly reduce CRA compliance effort and cost by using standardized, reusable security descriptions instead of custom documentation per product',
+          'Enable automated security assessment, certification support, and supply-chain transparency',
+          "Build customer trust with verifiable 'secure by design' claims backed by machine-readable evidence",
+          'Support continuous compliance monitoring and rapid vulnerability response across deployed fleets',
+          "Align with 'secure by design' best practices and zero-trust architecture principles",
+          'Future-proof products for CRA, NIS2, and similar global regulations',
+        ],
+      },
+      realWorldExamples: [
+        'Zero-Trust IoT Oracles: WoT enables trusted, verifiable data feeds from devices to blockchain or enterprise systems with explicit security policies and provenance.',
+        'Industrial & Building Devices: TDs declare exact security capabilities and policies for PLCs, HVAC controllers, medical devices, etc., satisfying CRA documentation requirements.',
+        'Device Onboarding: Secure, authenticated onboarding flows using WoT security metadata reduce attack surface during deployment.',
+      ],
+      howItWorks:
+        "When creating a TD, security schemes and policies are declared explicitly (e.g., 'this property requires OAuth2 with specific scopes'). Vulnerability metadata or links to SBOM/advisories can be included. Consumers and regulators can automatically inspect TDs to verify compliance posture. WoT runtimes enforce declared policies. Updates to security metadata propagate via discovery mechanisms.",
+      relevantStandardsIntegrations: [
+        'WoT Security Vocabulary',
+        'OAuth 2.0 / OpenID Connect',
+        'X.509 / mTLS',
+        'SBOM standards',
+        'Zero Trust principles',
+      ],
+      resources: [
+        {
+          title: 'From WoT to Chain: Enabling Zero-Trust Oracles for Blockchain IoT Applications',
+          url: 'https://github.com/w3c-cg/wot-cg/blob/main/Meetups/32/2025-12-WoTCG-Meetup32-Zonia-Ivan.pdf',
+          video_url: 'https://youtu.be/-ZJ3A0txXD8',
+          note: "15 December 2025: Explores WoT's role in enabling zero-trust, secure data oracles and verifiable IoT interactions, directly relevant to CRA compliance and trustworthy connected products.",
+        },
+        {
+          title: 'WoT Security Guidelines & Vocabulary',
+          url: 'https://w3c.github.io/wot-security/',
+        },
+        {
+          title: 'WoT Thing Description Security Metadata',
+          url: 'https://www.w3.org/TR/wot-thing-description/#security',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Adopt WoT TDs as the vehicle for declaring and verifying security properties of your connected products. This turns CRA compliance from a documentation burden into a competitive advantage and enables automated security tooling across your product lifecycle.',
+      testimonialIds: ['ve3', 'sifis-home'],
+    },
+
+    'Digital Product Passport': {
+      icon: <QrCode size={32} />,
+      description:
+        'Thing Descriptions can serve as machine-readable product passports, carrying lifecycle data, material composition, and sustainability information for connected products',
+      useCase:
+        'The EU Digital Product Passport (DPP) initiative requires products to carry standardized digital information about composition, origin, repairability, recyclability, and environmental impact throughout their lifecycle. WoT Thing Descriptions are a natural, machine-readable implementation vehicle for DPP data, especially for connected products, because they already describe what a product is, what it can do, its interfaces, and can be extended with lifecycle and sustainability metadata.',
+      woTRole: {
+        text: "Core TD properties (title, description, security, affordances) are extended with DPP-relevant sections: material composition, manufacturing data, repair instructions, carbon footprint, end-of-life information, and links to circular economy data. Because TDs are dynamic and discoverable, the passport can evolve with the product (updates, repairs, ownership changes). WoT's semantic foundation allows rich querying and verification of passport data.",
+        keyBenefits: [
+          'Meet upcoming EU DPP mandates with a standards-based, machine-readable format instead of proprietary or PDF-based solutions',
+          'Enable automated compliance checking, circular economy platforms, and repair/refurbishment marketplaces',
+          'Provide customers and regulators with trustworthy, queryable product information (origin, materials, repairability, carbon data)',
+          'Support new business models: product-as-service, extended producer responsibility, and verified green claims',
+          'Reduce administrative burden by maintaining one living digital representation (the TD) instead of multiple static documents',
+          'Position your products for green public procurement and ESG-focused markets',
+        ],
+      },
+      realWorldExamples: [
+        'Connected Products: A smart HVAC unit or EV charger carries its full DPP data (materials, energy performance, repair guides) directly in its WoT TD, accessible via API or QR code.',
+        'Lifecycle Management: As products are repaired or upgraded, updated TDs reflect new components and sustainability metrics, maintaining an accurate passport over time.',
+        'Supply Chain Transparency: Downstream manufacturers and recyclers query upstream product TDs for material and disassembly information.',
+      ],
+      howItWorks:
+        "Product TDs are enriched with standardized or domain-specific DPP vocabularies (extensions to TD JSON-LD). Manufacturers publish initial TDs at production. Throughout the lifecycle, authorized parties (repair shops, owners, recyclers) can update relevant sections via secure WoT interfaces. Discovery and search mechanisms make passports findable by regulators, consumers, or circular platforms. Semantic queries verify claims (e.g., 'products with >30% recycled content').",
+      relevantStandardsIntegrations: [
+        'WoT Thing Description (extensible)',
+        'JSON-LD',
+        ' emerging DPP vocabularies',
+        'SAREF / circular economy ontologies',
+        'GS1 or other product identifiers',
+      ],
+      resources: [
+        {
+          title: 'WoT Thing Description Specification (extensibility model)',
+          url: 'https://www.w3.org/TR/wot-thing-description/',
+        },
+        {
+          title: 'WoT Use Cases and Requirements - mentions of lifecycle and sustainability data',
+          url: 'https://w3c.github.io/wot-usecases/',
+        },
+        {
+          title: 'WoT CG Meetups Repository (search for sustainability or DPP)',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Extend your product TDs with DPP-relevant metadata now. This prepares you for regulation, enables new circular business models, and turns compliance into a source of customer trust and operational efficiency.',
+    },
+
+    'Agentic Systems': {
+      icon: <Bot size={32} />,
+      description:
+        "Autonomous AI agents can leverage WoT's standardized affordances and discovery mechanisms to find, understand, and orchestrate IoT devices without human intervention",
+      useCase:
+        'Agentic AI systems (autonomous agents that plan and act) need reliable, machine-understandable interfaces to the physical world. WoT provides exactly that: standardized, self-describing affordances (properties, actions, events) that agents can discover, reason about, and safely invoke. Combined with semantic models, WoT turns the IoT into a programmable, agent-accessible environment that unlocks sophisticated automation, optimization, and adaptive systems at scale.',
+      woTRole: {
+        text: "WoT TDs expose clear, typed affordances that agents can parse and reason over (e.g., 'this action sets target temperature with safety bounds'). Discovery lets agents find relevant devices dynamically. Semantic annotations (ontologies) provide the knowledge graph context agents need for planning. Security policies and human-in-the-loop hooks ensure safe operation. WoT runtimes can execute agent-invoked actions reliably.",
+        keyBenefits: [
+          'Enable truly autonomous operations: agents monitor, decide, and act across complex IoT environments without constant human oversight',
+          'Accelerate development of advanced automation, optimization, and digital twin agents',
+          'Reduce operational costs and human error in industrial, building, energy, and logistics domains',
+          "Support 'human-on-the-loop' models where agents propose actions and humans approve high-impact ones",
+          'Create new value through agent-driven services (e.g., autonomous energy optimization, predictive maintenance agents)',
+          'Future-proof your IoT investments for the coming wave of agentic AI applications',
+        ],
+      },
+      realWorldExamples: [
+        'Cyber-Physical Multi-Agent Systems: WoT enables interoperable agents that coordinate robots, machines, and infrastructure in manufacturing or logistics scenarios.',
+        'Autonomous Building Optimization: Agents discover HVAC, lighting, and occupancy sensors; reason about comfort vs energy trade-offs; and execute optimizations safely.',
+        'Energy & Grid Agents: Agents monitor DERs, forecast, and autonomously participate in flexibility markets or balance local microgrids within policy bounds.',
+      ],
+      howItWorks:
+        'Agents use WoT Discovery to find relevant Things in their environment or assigned domain. They parse TDs to understand available actions and expected effects (via semantic models). Planning modules generate sequences of WoT actions. Execution happens through standard WoT protocol bindings with full security enforcement. Results and state changes are observed via events or polling. Agents can be hosted in cloud, edge, or on-device runtimes.',
+      relevantStandardsIntegrations: [
+        'WoT TD + Discovery + Scripting API',
+        'Semantic Web / Knowledge Graphs',
+        'Agent frameworks (LangChain, AutoGen, etc. via WoT clients)',
+      ],
+      resources: [
+        {
+          title: 'Interoperable Cyber-Physical Multi-Agent Systems Through WoT',
+          url: 'https://github.com/w3c-cg/wot-cg/blob/main/Meetups/33/2026-04-WoTCG-Meetup33-WoMaT-Binkert.pdf',
+          video_url: 'https://youtu.be/xMIHykB_ebg',
+          note: '24 April 2026: Explores how WoT enables interoperable, autonomous multi-agent systems in cyber-physical environments, a core capability for agentic IoT applications.',
+        },
+        {
+          title: 'WoT Architecture, Discovery, and Scripting API',
+          url: 'https://www.w3.org/TR/wot-architecture/',
+        },
+        {
+          title: 'WoT Use Cases and Requirements - Horizontal use cases relevant to automation',
+          url: 'https://w3c.github.io/wot-usecases/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Expose your key operational assets via WoT TDs today. This is the prerequisite for deploying or benefiting from agentic AI systems that can autonomously optimize your operations, reduce costs, and create new services. Start with read-only monitoring agents and progress to controlled actions.',
+      testimonialIds: ['microsoft', 'fujitsu'],
+    },
+
+    'Neurosymbolic AI': {
+      icon: <Brain size={32} />,
+      description:
+        "Combining neural networks with WoT's semantic, knowledge-graph-compatible Thing Descriptions enables AI systems that can both reason symbolically about devices and learn from sensor data",
+      useCase:
+        "Neurosymbolic AI combines the pattern-recognition power of neural networks with the reasoning and explainability of symbolic systems. WoT's Thing Descriptions are inherently symbolic and semantic-web compatible (JSON-LD + ontologies like SSN, Brick, BOT). This makes WoT the perfect bridge: neural models can learn from rich sensor time-series, while symbolic reasoners use TD knowledge graphs to plan, explain, and constrain actions, creating more robust, trustworthy, and data-efficient AI for IoT.",
+      woTRole: {
+        text: 'TDs provide the symbolic layer: explicit affordances, constraints, safety bounds, and semantic relationships. Neural components learn patterns from the continuous data streams described by those TDs. Hybrid systems use the symbolic TD model for planning and verification while neural models handle perception, forecasting, and anomaly detection. WoT Discovery and querying make the knowledge graph accessible to both neural and symbolic modules.',
+        keyBenefits: [
+          'Build more reliable and explainable AI systems for safety-critical or regulated IoT domains (manufacturing, healthcare, energy)',
+          'Reduce data requirements for training by injecting symbolic domain knowledge from TDs and ontologies',
+          'Enable hybrid agents that learn continuously while respecting hard constraints and safety rules',
+          'Improve debugging and auditing of AI decisions through symbolic traces linked to device models',
+          'Accelerate development of trustworthy AI for industrial and critical infrastructure applications',
+          'Position your organization at the forefront of the next wave of enterprise AI (beyond pure deep learning)',
+        ],
+      },
+      realWorldExamples: [
+        'Predictive Maintenance: Neural models detect anomalies in vibration/temperature data; symbolic reasoner uses TD + ontology knowledge to diagnose root cause, predict failure mode, and recommend actions within safety bounds.',
+        'Energy Optimization Agents: Neural forecasting of demand/renewables combined with symbolic optimization and constraint satisfaction over building/grid TDs.',
+        'Clinical Decision Support: Neural analysis of patient sensor streams + symbolic reasoning over medical device TDs and clinical guidelines.',
+      ],
+      howItWorks:
+        'Sensor data streams (described in TDs) feed neural models for perception/forecasting. The symbolic layer (TD knowledge graph + ontologies) provides context, constraints, and action models. Neurosymbolic planners generate candidate action sequences that are verified against TD safety metadata before execution. Learning can update neural weights while symbolic models evolve more slowly via ontology/TD updates. WoT provides the uniform interface layer between the hybrid AI and the physical world.',
+      relevantStandardsIntegrations: [
+        'WoT TD (JSON-LD)',
+        'SSN/SOSA',
+        'Brick',
+        'BOT',
+        'Semantic Web standards',
+        'Neuro-symbolic frameworks',
+      ],
+      resources: [
+        {
+          title: 'WoT Thing Description & Semantic Annotations',
+          url: 'https://www.w3.org/TR/wot-thing-description/',
+        },
+        {
+          title: 'WoT Use Cases and Requirements - Semantic aspects across domains',
+          url: 'https://w3c.github.io/wot-usecases/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Invest in semantic modeling of your key assets using WoT TDs and domain ontologies. This creates the symbolic foundation needed for neurosymbolic AI systems that are more robust, explainable, and efficient than pure neural approaches, especially in industrial and regulated environments.',
+    },
+
+    'Edge Computing': {
+      icon: <Network size={32} />,
+      description:
+        'WoT enables discovery and interaction with computing resources at the network edge, bringing standardized interfaces to latency-sensitive and bandwidth-constrained IoT deployments',
+      useCase:
+        'Edge computing is essential for low-latency, resilient, and bandwidth-efficient IoT. WoT brings standardization and interoperability to the edge: devices, gateways, and edge servers expose uniform interfaces via TDs. This allows applications and agents to discover edge capabilities dynamically, deploy logic close to data sources, and maintain operation even when cloud connectivity is intermittent, which is critical for manufacturing, autonomous systems, and remote sites.',
+      woTRole: {
+        text: 'WoT runtimes (including lightweight implementations) run on edge gateways and devices, exposing local Things and enabling local Scripting API execution. Discovery mechanisms work across edge networks (subnet spanning, mDNS, etc.). TDs describe not only sensors/actuators but also edge computing resources and their capabilities. Protocol bindings optimized for edge (MQTT, CoAP, WebSockets) reduce latency. Security is enforced locally.',
+        keyBenefits: [
+          'Achieve sub-second or millisecond latency for control loops that cloud round-trips cannot support',
+          'Reduce cloud bandwidth and egress costs dramatically by processing and filtering data at the edge',
+          'Improve resilience: critical automation continues even during cloud outages or poor connectivity',
+          'Enable privacy-preserving local processing of sensitive data (e.g., video, health, industrial)',
+          'Simplify deployment of AI/ML inference at the edge with standardized interfaces',
+          'Support scalable, distributed IoT architectures for factories, cities, and remote operations',
+        ],
+      },
+      realWorldExamples: [
+        'Factory Edge: Local WoT gateways host TDs and run control/optimization logic for production lines with <10ms latency requirements.',
+        'Autonomous Systems & Robotics: Edge WoT runtimes enable real-time perception-to-action loops while still exposing standardized interfaces to fleet management or digital twins.',
+        'Remote Sites (Agriculture, Energy): Intermittent connectivity is handled gracefully; local agents make decisions using cached TDs and resume sync when possible.',
+      ],
+      howItWorks:
+        'Edge gateways run WoT runtime software that hosts Exposed Things for local devices and can execute WoT Scripting API scripts or host lightweight agent runtimes. Discovery protocols allow applications to find edge-hosted Things and edge computing services. Data pipelines filter/aggregate at the edge before selective forwarding to cloud. TDs describe both the physical devices and the edge capabilities (compute, storage, models available). Security policies are enforced at the edge.',
+      relevantStandardsIntegrations: [
+        'WoT Scripting API',
+        'MQTT / CoAP (edge-optimized)',
+        'Edge computing frameworks',
+        '5G / private networks',
+      ],
+      resources: [
+        {
+          title:
+            'An Open-source Software Stack for IoT Virtualization and Convergence with Edge Computing Technologies',
+          url: 'https://github.com/w3c-cg/wot-cg/blob/main/Meetups/28/2025-07-WoTCG-Meetup28-VO-WoT.pdf',
+          video_url: 'https://youtu.be/EkeoQLWIhlI',
+          note: '17 July 2025: Presents open-source approaches to IoT virtualization and edge convergence using WoT principles, with strong relevance for scalable edge deployments.',
+        },
+        {
+          title: 'WoT Architecture 1.1 & Scripting API',
+          url: 'https://www.w3.org/TR/wot-architecture/',
+        },
+        {
+          title: 'WoT Binding Templates (edge-friendly protocols)',
+          url: 'https://w3c.github.io/wot-binding-templates/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Deploy WoT-enabled edge gateways as the standard interface layer in your IoT architecture. This gives you low-latency local intelligence today while creating a uniform platform for future edge AI and agent deployments without fragmenting your tech stack.',
+    },
+
+    'Zero Trust Architecture': {
+      icon: <Lock size={32} />,
+      description:
+        "WoT's fine-grained security descriptions support zero-trust models by making device authentication, authorization, and access policies explicit and machine-verifiable",
+      useCase:
+        "Zero Trust ('never trust, always verify') is the modern security paradigm for distributed systems. WoT natively supports Zero Trust principles through explicit, machine-readable security metadata in every TD: authentication requirements, authorization policies, encryption mandates, and audit hooks. This makes it possible to implement continuous verification, least-privilege access, and micro-segmentation for IoT devices and the applications that interact with them.",
+      woTRole: {
+        text: 'Every WoT interaction is governed by the security scheme and policy declared in the TD. No implicit trust based on network location. Fine-grained scopes and dynamic policy evaluation (via OAuth2, certificates, or custom schemes) enforce least privilege. WoT Discovery can include trust verification. Provenance and logging are supported. Integration with identity providers and policy engines enables enterprise Zero Trust architectures that encompass OT/IoT.',
+        keyBenefits: [
+          'Apply Zero Trust principles consistently to OT, IoT, and IT assets instead of creating security islands',
+          'Reduce attack surface through explicit, auditable, least-privilege access policies for every device capability',
+          'Enable continuous authentication and authorization even for long-lived device connections',
+          'Support compliance with CRA, NIS2, and Zero Trust mandates from regulators and large customers',
+          'Simplify auditing and incident response with machine-readable security context for every interaction',
+          'Build defensible, future-proof IoT deployments that align with modern enterprise security strategies',
+        ],
+      },
+      realWorldExamples: [
+        'Zero-Trust IoT Oracles for Blockchain: Devices prove their identity and data integrity via WoT security mechanisms before feeding trusted data into distributed ledgers.',
+        'Industrial OT Access: Engineers or applications must authenticate and receive just-in-time, scoped access to specific PLC functions or sensor data streams as declared in TDs.',
+        'Cross-Organizational IoT: Partners or service providers get verified, limited access to specific building or factory assets without broad network trust.',
+      ],
+      howItWorks:
+        "TD authors declare precise security requirements (e.g., 'this action requires mTLS + specific OAuth2 scope + geo-fence'). WoT runtimes and clients enforce these at every interaction. Identity and access management systems integrate via standard schemes. Policy engines can evaluate dynamic context (user, device posture, time, location). All access is logged with TD context for audit. No device or application is trusted by default based on network position.",
+      relevantStandardsIntegrations: [
+        'WoT Security Vocabulary',
+        'OAuth 2.0 / mTLS',
+        'Zero Trust Network Access (ZTNA) frameworks',
+        'SBOM + vulnerability management',
+      ],
+      resources: [
+        {
+          title: 'From WoT to Chain: Enabling Zero-Trust Oracles for Blockchain IoT Applications',
+          url: 'https://github.com/w3c-cg/wot-cg/blob/main/Meetups/32/2025-12-WoTCG-Meetup32-Zonia-Ivan.pdf',
+          video_url: 'https://youtu.be/-ZJ3A0txXD8',
+          note: '15 December 2025: Demonstrates practical Zero Trust patterns with WoT for trustworthy IoT data and interactions, directly applicable to enterprise Zero Trust strategies.',
+        },
+        {
+          title: 'WoT Security Guidelines',
+          url: 'https://w3c.github.io/wot-security/',
+        },
+        {
+          title: 'WoT Thing Description - Security Vocabulary',
+          url: 'https://www.w3.org/TR/wot-thing-description/#sec-security-vocabulary-definition',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Make WoT TDs the authoritative source of security policy for your IoT/OT assets. This allows you to implement consistent Zero Trust controls across heterogeneous devices and integrate them cleanly into your enterprise IAM and policy infrastructure, turning security from a blocker into an enabler of digital transformation.',
+      testimonialIds: ['sifis-home', 've3'],
+    },
+
+    'Semantic Interoperability': {
+      icon: <Workflow size={32} />,
+      description:
+        "WoT's use of linked data and semantic annotations enables cross-domain data integration, making IoT data FAIR (Findable, Accessible, Interoperable, Reusable) by design",
+      useCase:
+        'Semantic interoperability is the ability of systems to exchange and meaningfully use data across domains and vendors. WoT achieves this through Thing Descriptions that are JSON-LD documents rich with semantic annotations. Combined with standard ontologies (SSN/SOSA for sensors, Brick/BOT for buildings, SAREF for domains), WoT turns raw sensor readings into contextualized, queryable knowledge that AI, analytics, and applications can understand and act upon without custom mapping code.',
+      woTRole: {
+        text: "Every TD is a semantic description: properties and events are linked to concepts in shared ontologies. This allows SPARQL queries, reasoning engines, and AI systems to understand 'what this temperature value means in the context of this zone and this HVAC system'. Discovery services index semantic metadata. Cross-domain integration becomes a query problem rather than an integration project. Data becomes FAIR by construction.",
+        keyBenefits: [
+          'Eliminate expensive, brittle custom data mapping and integration projects between domains and vendors',
+          'Enable powerful cross-domain analytics, digital twins, and AI that understand context and relationships',
+          'Make IoT data discoverable and usable by internal and external systems without prior knowledge of proprietary schemas',
+          'Accelerate development of new applications and AI agents that can reason over your entire IoT estate',
+          'Support regulatory and ESG reporting with consistent, semantically rich, auditable data',
+          'Create compounding value as more systems adopt semantic standards through the network effect of interoperable data',
+        ],
+      },
+      realWorldExamples: [
+        'Building + Energy Integration: A single query finds all temperature sensors in zones served by heat pumps from any vendor, using Brick + WoT semantics, for portfolio-wide optimization.',
+        'Manufacturing + Sustainability: Production data linked to energy consumption and material flows via shared ontologies enables automated carbon accounting and optimization.',
+        'Smart City Dashboards: Environmental, traffic, and building data integrated semantically for holistic urban intelligence and decision support.',
+      ],
+      howItWorks:
+        'TD authors annotate affordances with terms from shared ontologies (e.g., sosa:observedProperty, brick:Temperature_Sensor). JSON-LD contexts make the semantics explicit and machine-processable. Discovery services expose semantic search. Applications and AI use SPARQL, GraphQL, or semantic reasoners over the resulting knowledge graph. No custom ETL or schema mapping is needed when new device types or domains are added, provided they follow the same ontologies.',
+      relevantStandardsIntegrations: [
+        'JSON-LD',
+        'SSN/SOSA',
+        'Brick Schema',
+        'BOT',
+        'SAREF (domain-specific)',
+        'WoT TD',
+        'SPARQL / Semantic Web stack',
+      ],
+      resources: [
+        {
+          title: 'Managing Device Descriptions with the Thing Model Catalog',
+          url: 'https://github.com/w3c-cg/wot-cg/blob/main/Meetups/31/2025_12_04-WoTCG-Meetup31-TMC-Siemens.pdf',
+          video_url: 'https://youtu.be/CuZo1NGshiI',
+          note: '04 December 2025: Covers management of semantic device descriptions at scale, a foundation for enterprise semantic interoperability strategies.',
+        },
+        {
+          title: 'WoT Thing Description (JSON-LD & semantic annotations)',
+          url: 'https://www.w3.org/TR/wot-thing-description/',
+        },
+        {
+          title: 'WoT Use Cases and Requirements - Semantic Interoperability aspects',
+          url: 'https://w3c.github.io/wot-usecases/',
+        },
+        {
+          title: 'WoT CG Meetups Repository',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Adopt WoT TDs + domain ontologies (start with Brick for buildings, SSN for sensors) as your standard for describing assets. This is the highest-leverage investment you can make for long-term data interoperability, AI readiness, and reduced integration costs across your organization and ecosystem.',
+      testimonialIds: ['intel', 'oracle', 've3'],
+    },
+
+    'Sustainability & Green IoT': {
+      icon: <Sun size={32} />,
+      description:
+        'Standardized device descriptions enable energy-aware orchestration, carbon footprint tracking, and optimized resource usage across connected infrastructure',
+      useCase:
+        'Sustainability is now a core business and regulatory driver. WoT provides the data foundation for Green IoT: standardized, interoperable descriptions of energy-consuming and energy-producing devices make it possible to measure, optimize, report, and automate sustainability performance at scale. From carbon-aware scheduling to circular economy tracking, WoT turns sustainability from a reporting burden into an operational advantage.',
+      woTRole: {
+        text: 'TDs describe energy-relevant properties (power consumption, efficiency modes, renewable source status) and link them to semantic models for carbon accounting. Discovery and orchestration allow energy-aware agents or rules to shift loads, optimize setpoints, or select low-carbon resources dynamically. Lifecycle metadata in extended TDs supports circularity (repairability, recyclability, material passports). Provenance ensures trustworthy ESG data.',
+        keyBenefits: [
+          'Achieve measurable, auditable reductions in energy consumption and carbon emissions through automated, data-driven optimization',
+          'Simplify and improve accuracy of Scope 1/2/3 emissions reporting and regulatory compliance (CSRD, EU Taxonomy, etc.)',
+          'Enable new revenue or cost-saving opportunities: flexibility markets, carbon credits, green premiums',
+          'Support circular economy initiatives with machine-readable product and material data',
+          'Attract ESG-focused investors, customers, and talent by demonstrating credible, technology-enabled sustainability leadership',
+          'Future-proof operations against rising energy costs and tightening environmental regulations',
+        ],
+      },
+      realWorldExamples: [
+        'Energy-Aware Manufacturing: Production schedules dynamically adjusted based on real-time renewable availability and grid carbon intensity, using WoT-described assets and smart grid data.',
+        'Green Buildings Portfolio: Unified optimization of HVAC, lighting, and on-site generation/storage across sites using semantic energy models and WoT orchestration.',
+        'Carbon-Aware Logistics & Agriculture: Route or irrigation decisions informed by real-time emissions factors and resource impact, enabled by standardized sensor and asset descriptions.',
+      ],
+      howItWorks:
+        'Energy and sustainability metadata is added to TDs (power profiles, efficiency classes, material composition links). Agents or optimization engines discover relevant devices and their energy characteristics. Real-time grid carbon intensity or renewable forecasts are integrated via additional WoT Things. Optimization algorithms (or neurosymbolic agents) generate schedules or setpoints that minimize cost + carbon subject to constraints. Results and provenance are logged for reporting. Extended TDs carry DPP/circular data for end-of-life decisions.',
+      relevantStandardsIntegrations: [
+        'WoT TD (energy & sustainability extensions)',
+        'SAREF4ENER',
+        'SSN/SOSA',
+        'Brick (energy aspects)',
+        'Emerging carbon accounting & DPP vocabularies',
+        'Grid carbon intensity APIs',
+      ],
+      resources: [
+        {
+          title:
+            'WoT Use Cases and Requirements - Energy efficiency, sustainability, and green scenarios across domains',
+          url: 'https://w3c.github.io/wot-usecases/',
+        },
+        {
+          title: 'WoT Architecture & Thing Description (extensibility for sustainability metadata)',
+          url: 'https://www.w3.org/TR/wot-architecture/',
+        },
+        {
+          title: 'WoT CG Meetups Repository (search for energy, sustainability, or green)',
+          url: 'https://github.com/w3c-cg/wot-cg/tree/main/Meetups',
+        },
+      ],
+      cta: 'Add energy and sustainability metadata to your WoT TDs now. This enables immediate optimization opportunities, credible ESG reporting, and positions you to participate in emerging flexibility and circular economy markets. Sustainability becomes a source of operational excellence and competitive differentiation rather than just compliance cost.',
+      testimonialIds: ['siemens', 'siemens-microsoft'],
+    },
+  },
 };
