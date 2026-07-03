@@ -1,6 +1,6 @@
 import { DevToolsInput } from './types.ts';
 
-// WARNING: Before changing this object, please make sure you read docs/developers/README.md
+// WARNING: Before changing this object, please make sure you read scripts/README.md
 export const devToolsInput: DevToolsInput = {
   'Thing Description': {
     'Editing and Validation': {
@@ -201,6 +201,9 @@ export const devToolsInput: DevToolsInput = {
           affiliation: 'Christian Jaller',
           ignoreFetch: true,
           name: 'WoT Wrench',
+          languages: [],
+          homepageUrl: null,
+          lastUpdated: null,
         },
         {
           repoUrl: 'https://github.com/wot-oss/tmc',
@@ -216,6 +219,8 @@ export const devToolsInput: DevToolsInput = {
           lastUpdated: '2026-05-04T00:00:00Z',
           ignoreFetch: true,
           homepageUrl: 'https://control-panel.hololinked.dev',
+          languages: [],
+          repoUrl: null,
         },
         {
           name: 'BLAST',
@@ -225,8 +230,7 @@ export const devToolsInput: DevToolsInput = {
           affiliation: 'Chair of Technical Information Systems, Friedrich-Alexander-Universität Erlangen-Nürnberg',
         },
         {
-          description:
-            'A development environment built for Web of Things',
+          description: 'A development environment built for Web of Things',
           repoUrl: 'https://github.com/tum-esi/wade',
           platforms: ['Application'],
           affiliation: 'TUM ESI',
@@ -316,13 +320,15 @@ export const devToolsInput: DevToolsInput = {
           affiliation: 'Eclipse Foundation',
         },
         {
+          ignoreFetch: true,
           name: 'Eclipse LMOS',
           description: 'Open-source, cloud-native platform for Multi-Agent systems',
           homepageUrl: 'https://eclipse.dev/lmos/',
           repoUrl: 'https://github.com/eclipse-lmos',
           platforms: ['Service'],
           affiliation: 'Eclipse Foundation',
-          ignoreFetch: true,
+          languages: [],
+          lastUpdated: null,
         },
         {
           repoUrl: 'https://github.com/tum-esi/wotify',

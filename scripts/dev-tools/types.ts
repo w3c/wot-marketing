@@ -7,18 +7,23 @@ export interface DevToolsInput {
   };
 }
 
-// parseTool() in dev-tools.ts requires optional for all non-truthy values
-// no undefined, no null, no empty strings allowed
-export interface ToolInput {
-  repoUrl?: string;
-  name?: string;
-  description?: string;
-  languages?: string[]; // only libraries can have languages
-  homepageUrl?: string;
-  platforms: ToolPlatform[];
-  lastUpdated?: string;
-  affiliation?: string;
-  ignoreFetch?: boolean; // if true, the tool will not be fetched from the provider
+export type ToolInput = { platforms: ToolPlatform[] } & (
+  | ({
+      ignoreFetch?: false;
+    } & Partial<ToolInputBase>)
+  | ({
+      ignoreFetch: true; // if fetching is ignored, the data has to be filled in manually
+    } & ToolInputBase)
+);
+
+interface ToolInputBase {
+  repoUrl: string | null;
+  name: string;
+  description: string;
+  languages: string[]; // only libraries can have languages
+  homepageUrl: string | null;
+  lastUpdated: string | null;
+  affiliation: string | null;
 }
 
 export type ToolPlatform =

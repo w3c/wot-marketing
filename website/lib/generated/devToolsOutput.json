@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-06-12T12:34:25Z",
+          "lastUpdated": "2026-07-03T09:17:45Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-06-26T13:10:14Z",
+          "lastUpdated": "2026-07-03T09:16:42Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-06-26T13:10:14Z",
+          "lastUpdated": "2026-07-03T09:16:42Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-06-27T21:50:29Z",
+          "lastUpdated": "2026-07-01T08:24:40Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -703,7 +703,7 @@
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [],
-          "lastUpdated": "2026-06-23T13:11:45Z",
+          "lastUpdated": "2026-06-29T09:12:16Z",
           "homepageUrl": null,
           "platforms": [
             "Application"

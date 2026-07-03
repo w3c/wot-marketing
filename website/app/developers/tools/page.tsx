@@ -9,7 +9,7 @@ import { Alert, Link, Modal, ModalClose, ModalDialog, Stack, Typography } from '
 import GitHubLogo from '@/public/github.png';
 import GitLabLogo from '@/public/gitlab.png';
 import Image, { StaticImageData } from 'next/image';
-import { Building, Clock, House, Monitor, Scale } from 'lucide-react';
+import { Building, Clock, FolderGit2, House, Monitor, Scale } from 'lucide-react';
 import { StyledTable } from '@/app/_components/StyledTable';
 
 export default function ToolsPage() {
@@ -81,6 +81,13 @@ export default function ToolsPage() {
     }, {} as DevToolsOutput);
   }, [categoryFilter, languageFilter, platformFilter, showObsoleteFilter, tools]);
 
+  let repoImg = undefined;
+  if (selectedTool?.repoUrl?.includes('github')) {
+    repoImg = GitHubLogo;
+  } else if (selectedTool?.repoUrl?.includes('gitlab')) {
+    repoImg = GitLabLogo;
+  }
+
   return (
     <PageLayout
       title="WoT Tools"
@@ -133,7 +140,8 @@ export default function ToolsPage() {
               {selectedTool.repoUrl && (
                 <DetailItem
                   href={selectedTool.repoUrl}
-                  src={selectedTool.repoUrl.includes('github') ? GitHubLogo : GitLabLogo}
+                  src={repoImg}
+                  icon={!repoImg ? <FolderGit2 size={18} /> : undefined}
                   label="Repository"
                   description={selectedTool.repoUrl}
                 />
