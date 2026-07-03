@@ -9,7 +9,7 @@ Node.js scripts used by GitHub workflows to generate data consumed by the [websi
 Generates `website/lib/generated/devToolsOutput.json`, the data behind the developer tools listing on the website.
 
 - Reads the curated tool list from [dev-tools/devToolsInput.ts](dev-tools/devToolsInput.ts).
-- For each tool with a `repoUrl`, fetches repository metadata (name, description, primary language, last update, license, homepage) from the **GitHub** or **GitLab** API.
+- For each tool with a `repoUrl`, fetches repository metadata (name, description, primary language, last update, license, homepage) from the **GitHub** or **GitLab** API. If the repo is not hosted on one of these two, set `ignoreFetch: true`.
 - Any field defined in the input file overrides the fetched value. Set `ignoreFetch: true` to skip fetching for a tool. In this case all the properties have to be filled manually. Set `lastUpdated: null` if you want to keep the tool non-obsolete.
 
 > The tool type definitions live in [dev-tools/types.ts](dev-tools/types.ts). Review them before changing the input file or the output structure.
