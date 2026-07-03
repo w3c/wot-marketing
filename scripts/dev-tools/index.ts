@@ -24,8 +24,8 @@ if (!gitlabToken) {
   throw new Error('GITLAB_TOKEN is not defined');
 }
 
-// Main script (called in the end of the file)
-async function fetchDevTools() {
+// Main script
+(async () => {
   const outputJSON: DevToolsOutput = {};
   for (const [groupName, subGroup] of Object.entries(devToolsInput)) {
     for (const [subGroupName, subGroupData] of Object.entries(subGroup)) {
@@ -48,7 +48,7 @@ async function fetchDevTools() {
   } catch (error) {
     console.error('Could not save the output file:', error);
   }
-}
+})();
 
 /**
  * Maps the tools to the fetched data. Properties can be overriden in the input file.
@@ -274,9 +274,10 @@ function cleanLine(text: string): string {
  * Parses the tool to the right format by checking the existence of the required properties
  */
 function parseTool(inputTool: ToolInput, fetchedData: RepoData | null): ToolOutput {
+  const filteredInputTool = Object.fromEntries(Object.entries(inputTool).filter(([, value]) => !!value)) as ToolInput;
   const mappedTool = {
     ...(fetchedData ?? {}),
-    ...inputTool,
+    ...filteredInputTool,
   };
   if (!mappedTool.name) {
     throw new Error('Name is missing');
@@ -308,6 +309,3 @@ function parseTool(inputTool: ToolInput, fetchedData: RepoData | null): ToolOutp
     affiliation: mappedTool.affiliation || null,
   };
 }
-
-// Call the main function
-fetchDevTools();

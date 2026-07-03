@@ -2,8 +2,6 @@
 
 The official [W3C Web of Things](https://www.w3.org/WoT/) website, built with **Next.js 16** (App Router), **Joy UI**, and **TypeScript**.
 
-> **Previous version**: The legacy website built with Jekyll can be found under [`/obsolete/docs`](/obsolete/docs).
-
 ## Setup & Running
 
 ### Prerequisites
@@ -47,7 +45,7 @@ website/
 │   ├── error.tsx           # Global error boundary
 │   └── not-found.tsx       # Custom 404 page
 ├── lib/                    # Data sets, utilities, and generated content
-├── public/                 # Static assets served at the root URL
+├── public/                 # Static assets
 └── next.config.ts          # Next.js configuration (static export, basePath, typed routes)
 
 ```
