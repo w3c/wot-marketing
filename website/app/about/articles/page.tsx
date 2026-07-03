@@ -2,9 +2,9 @@ import { PageLayout } from '@/app/_components/PageLayout';
 import { PageSection } from '@/app/_components/PageSection';
 import { StyledTable } from '@/app/_components/StyledTable';
 import { ARTICLES } from '@/lib/articles';
-import { RESEARCH_PAPERS } from '@/lib/research-papers';
-import { Alert, Link, Stack, Typography } from '@mui/joy';
 import { ExternalLink } from 'lucide-react';
+import RESEARCH_PAPERS from '@/lib/generated/researchPapers.json';
+import { Alert, Link } from '@mui/joy';
 
 export default function Articles() {
   return (
@@ -56,19 +56,21 @@ export default function Articles() {
       <PageSection title="Research Papers">
         <StyledTable
           header={[
-            { label: 'Publication', sx: { width: '40%', minWidth: '200px' } },
-            { label: 'Authors', sx: { minWidth: '150px' } },
-            { label: 'Publisher', sx: { width: '250px' } },
-            { label: 'Date', sx: { width: '60px' } },
+            { label: 'Title', sx: { minWidth: '50px' } },
+            { label: 'Authors', sx: { minWidth: '50px' } },
+            { label: 'Type', sx: { width: '100px' } },
+            { label: 'Publisher', sx: { width: '130px' } },
+            { label: 'Date', sx: { width: '140px' } },
             { label: 'Link', sx: { width: '50px' } },
           ]}
-          rows={RESEARCH_PAPERS.map((article) => ({
+          rows={RESEARCH_PAPERS.map((paper) => ({
             cells: [
-              article.title,
-              article.authors.join(', '),
-              article.publisher,
-              article.date,
-              <Link href={article.url} key={article.url} sx={{ display: 'flex', justifyContent: 'center' }}>
+              paper.title,
+              paper.authors.join(', '),
+              paper.type,
+              paper.publisher,
+              new Date(paper.date).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }),
+              <Link href={paper.link} key={paper.link} sx={{ display: 'flex', justifyContent: 'center' }}>
                 <ExternalLink size={17} />
               </Link>,
             ],
