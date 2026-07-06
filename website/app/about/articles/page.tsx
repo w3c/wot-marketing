@@ -56,7 +56,7 @@ export default function Articles() {
       <PageSection title="Research Papers">
         <Stack gap={2}>
           <Alert variant="outlined" sx={{ gap: 0.5 }}>
-            All research papers with a DOI number are accepted to this list. Please{' '}
+            All research papers related to the WoT with a DOI number are accepted to this list. Please{' '}
             <Link href="https://github.com/w3c/wot-marketing/issues" sx={{ fontSize: '14px' }}>
               create an issue
             </Link>{' '}
