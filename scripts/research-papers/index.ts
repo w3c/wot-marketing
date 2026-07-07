@@ -15,12 +15,12 @@ const HEADERS = {
 (async () => {
   const researchPapers: ResearchPaperFetchOutput[] = [];
   // Fetch sequentially to stay well within Crossref's rate limits; firing all
-  for (const [title, doi] of Object.entries(RESEARCH_PAPERS)) {
+  for (const doi of RESEARCH_PAPERS) {
     try {
       const result = await fetchWork(doi);
       researchPapers.push(result);
     } catch (err) {
-      console.error(`Could not fetch ${title} \n ${err}`);
+      console.error(`Could not fetch ${doi} \n ${err}`);
     }
   }
   // Save the fetched data in devToolsOutput.json
