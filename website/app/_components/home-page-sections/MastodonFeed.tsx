@@ -1,6 +1,7 @@
 'use client';
 
 import '../../mastodon.css';
+import mastodonIcon from '@/public/mastodon.svg';
 
 import Image from 'next/image';
 import { Stack } from '@mui/joy';
@@ -38,8 +39,8 @@ export function MastodonFeed({ sx }: { sx?: SxProps }) {
     <Stack gap={2} sx={sx}>
       <PageSection
         title={
-          <Stack direction="row" alignItems="center" gap={1.6}>
-            <Image width={24} height={24} alt="Mastodon" src="https://www.cdnlogo.com/logos/m/33/mastodon.svg" />
+          <Stack direction="row" alignItems="center" gap={1}>
+            <Image width={24} height={24} alt="Mastodon" src={mastodonIcon} />
             Latest on Mastodon
           </Stack>
         }
