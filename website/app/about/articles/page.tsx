@@ -57,7 +57,7 @@ export default function Articles() {
         <Stack gap={2}>
           <Alert variant="outlined" sx={{ gap: 0.5 }}>
             All research papers related to the WoT with a DOI number are accepted to this list. Please{' '}
-            <Link href="https://github.com/w3c/wot-marketing/issues" sx={{ fontSize: '14px' }}>
+            <Link href="https://github.com/w3c/wot-marketing/issues/new" sx={{ fontSize: '14px' }}>
               create an issue
             </Link>{' '}
             to add your paper.
