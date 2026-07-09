@@ -21,6 +21,12 @@ import {
   Lock,
   Workflow,
   Sun,
+  Globe,
+  FileCode,
+  Cpu,
+  Radio,
+  Boxes,
+  Braces,
 } from 'lucide-react';
 import { Stack } from '@mui/joy';
 import meetupLinks from './meetup_youtube_links.json';
@@ -69,6 +75,8 @@ export interface UseCaseEntry extends Domain {
   realWorldUseCases: { title: string; description: string }[];
   /** Referenced meetup recordings with timestamped fragments. */
   videos: UseCaseVideo[];
+  /** Ids of standards (see STANDARDS) most relevant to this area. */
+  standards: string[];
 }
 
 /** Resolve the YouTube video id for a meetup number (undefined if unpublished). */
@@ -120,6 +128,219 @@ export const RESOURCES: Resource[] = [
 ];
 
 /**
+ * Catalogue of standards relevant to the Web of Things, keyed by a short id.
+ * Each domain/trend entry references the ids of the standards relevant to it,
+ * and every entry links to the standard's official website.
+ */
+export const STANDARDS: Record<string, Resource> = {
+  wot: {
+    title: 'W3C Web of Things (WoT)',
+    description:
+      'The W3C standardization effort providing interoperable building blocks that connect IoT devices and services across platforms.',
+    url: 'https://www.w3.org/WoT/',
+    urlLabel: 'w3.org/WoT',
+    icon: <Globe size={24} />,
+  },
+  td: {
+    title: 'WoT Thing Description 1.1',
+    description:
+      'The W3C Recommendation defining the machine-readable metadata format that describes a Thing’s properties, actions and events.',
+    url: 'https://www.w3.org/TR/wot-thing-description11/',
+    urlLabel: 'w3.org/TR/wot-thing-description11',
+    icon: <FileText size={24} />,
+  },
+  architecture: {
+    title: 'WoT Architecture 1.1',
+    description:
+      'The W3C Recommendation describing the abstract architecture, terminology and building blocks of the Web of Things.',
+    url: 'https://www.w3.org/TR/wot-architecture11/',
+    urlLabel: 'w3.org/TR/wot-architecture11',
+    icon: <Network size={24} />,
+  },
+  binding: {
+    title: 'WoT Binding Templates',
+    description:
+      'W3C guidance for mapping Thing Description interactions onto concrete protocols such as HTTP, MQTT, Modbus, OPC UA and more.',
+    url: 'https://www.w3.org/TR/wot-binding-templates/',
+    urlLabel: 'w3.org/TR/wot-binding-templates',
+    icon: <Workflow size={24} />,
+  },
+  discovery: {
+    title: 'WoT Discovery',
+    description:
+      'The W3C Recommendation defining how Thing Descriptions are discovered securely across networks and directories.',
+    url: 'https://www.w3.org/TR/wot-discovery/',
+    urlLabel: 'w3.org/TR/wot-discovery',
+    icon: <QrCode size={24} />,
+  },
+  security: {
+    title: 'WoT Security & Privacy Guidelines',
+    description:
+      'The W3C guidance describing security and privacy considerations and best practices for building Web of Things systems.',
+    url: 'https://www.w3.org/TR/wot-security/',
+    urlLabel: 'w3.org/TR/wot-security',
+    icon: <ShieldCheck size={24} />,
+  },
+  jsonld: {
+    title: 'JSON-LD 1.1',
+    description:
+      'The W3C linked-data serialization that underpins Thing Descriptions, giving IoT metadata shared semantic meaning.',
+    url: 'https://www.w3.org/TR/json-ld11/',
+    urlLabel: 'w3.org/TR/json-ld11',
+    icon: <Braces size={24} />,
+  },
+  rdf: {
+    title: 'RDF 1.1',
+    description:
+      'The W3C framework for representing linked data as graphs, the semantic foundation for describing Things and their relationships.',
+    url: 'https://www.w3.org/TR/rdf11-concepts/',
+    urlLabel: 'w3.org/TR/rdf11-concepts',
+    icon: <Network size={24} />,
+  },
+  owl: {
+    title: 'OWL 2',
+    description:
+      'The W3C Web Ontology Language for modelling rich domain knowledge and enabling reasoning over IoT data.',
+    url: 'https://www.w3.org/TR/owl2-overview/',
+    urlLabel: 'w3.org/TR/owl2-overview',
+    icon: <Brain size={24} />,
+  },
+  saref: {
+    title: 'SAREF',
+    description:
+      'The ETSI Smart Applications REFerence ontology providing shared semantics for smart devices across energy, buildings and more.',
+    url: 'https://saref.etsi.org/',
+    urlLabel: 'saref.etsi.org',
+    icon: <Leaf size={24} />,
+  },
+  opcua: {
+    title: 'OPC UA',
+    description:
+      'The industrial interoperability standard from the OPC Foundation, widely bridged to WoT in manufacturing and energy scenarios.',
+    url: 'https://opcfoundation.org/about/opc-technologies/opc-ua/',
+    urlLabel: 'opcfoundation.org',
+    icon: <Cpu size={24} />,
+  },
+  modbus: {
+    title: 'Modbus',
+    description:
+      'The de-facto serial and TCP protocol for industrial devices and meters, commonly exposed through WoT Thing Descriptions.',
+    url: 'https://www.modbus.org/',
+    urlLabel: 'modbus.org',
+    icon: <Radio size={24} />,
+  },
+  bacnet: {
+    title: 'BACnet',
+    description:
+      'The ASHRAE communication protocol for building automation and control networks, integrable with WoT via binding templates.',
+    url: 'http://www.bacnet.org/',
+    urlLabel: 'bacnet.org',
+    icon: <Building size={24} />,
+  },
+  knx: {
+    title: 'KNX',
+    description:
+      'The open standard for commercial and residential building control, connecting lighting, HVAC and access systems.',
+    url: 'https://www.knx.org/',
+    urlLabel: 'knx.org',
+    icon: <Home size={24} />,
+  },
+  matter: {
+    title: 'Matter',
+    description:
+      'The Connectivity Standards Alliance protocol for smart-home interoperability across manufacturers and ecosystems.',
+    url: 'https://csa-iot.org/all-solutions/matter/',
+    urlLabel: 'csa-iot.org',
+    icon: <Boxes size={24} />,
+  },
+  zwave: {
+    title: 'Z-Wave',
+    description:
+      'The wireless mesh protocol widely used for residential smart-home devices such as locks, sensors and lighting.',
+    url: 'https://z-wave.com/',
+    urlLabel: 'z-wave.com',
+    icon: <Radio size={24} />,
+  },
+  mqtt: {
+    title: 'MQTT',
+    description:
+      'The lightweight OASIS publish/subscribe messaging protocol for constrained IoT devices, supported as a WoT protocol binding.',
+    url: 'https://mqtt.org/',
+    urlLabel: 'mqtt.org',
+    icon: <FileCode size={24} />,
+  },
+  coap: {
+    title: 'CoAP',
+    description:
+      'The IETF Constrained Application Protocol (RFC 7252) for RESTful communication with resource-limited edge devices.',
+    url: 'https://datatracker.ietf.org/doc/html/rfc7252',
+    urlLabel: 'datatracker.ietf.org',
+    icon: <Radio size={24} />,
+  },
+  lorawan: {
+    title: 'LoRaWAN',
+    description:
+      'The LoRa Alliance low-power wide-area networking standard for long-range, battery-efficient IoT sensor deployments.',
+    url: 'https://lora-alliance.org/about-lorawan/',
+    urlLabel: 'lora-alliance.org',
+    icon: <Radio size={24} />,
+  },
+  gs1: {
+    title: 'GS1 Digital Link',
+    description:
+      'The GS1 standard connecting physical products to web resources via identifiers, a foundation for product passports and traceability.',
+    url: 'https://www.gs1.org/standards/gs1-digital-link',
+    urlLabel: 'gs1.org',
+    icon: <QrCode size={24} />,
+  },
+  fhir: {
+    title: 'HL7 FHIR',
+    description:
+      'The HL7 standard for exchanging healthcare information electronically, relevant to connected medical and well-being devices.',
+    url: 'https://hl7.org/fhir/',
+    urlLabel: 'hl7.org/fhir',
+    icon: <Activity size={24} />,
+  },
+  isobus: {
+    title: 'ISOBUS (ISO 11783)',
+    description:
+      'The ISO standard for communication between tractors and agricultural implements, promoted by the AEF for interoperable farming.',
+    url: 'https://www.isobus.net/isobus/',
+    urlLabel: 'isobus.net',
+    icon: <Tractor size={24} />,
+  },
+  ngsild: {
+    title: 'NGSI-LD',
+    description:
+      'The ETSI context-information standard for smart-city and cross-domain data exchange based on linked-data principles.',
+    url: 'https://www.etsi.org/technologies/ngsi-ld',
+    urlLabel: 'etsi.org',
+    icon: <Landmark size={24} />,
+  },
+  oauth2: {
+    title: 'OAuth 2.0',
+    description:
+      'The IETF authorization framework used to grant scoped, token-based access to devices and services in zero-trust designs.',
+    url: 'https://oauth.net/2/',
+    urlLabel: 'oauth.net',
+    icon: <Lock size={24} />,
+  },
+  cra: {
+    title: 'EU Cyber Resilience Act',
+    description:
+      'The European Union regulation defining cybersecurity requirements for products with digital elements across their lifecycle.',
+    url: 'https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act',
+    urlLabel: 'digital-strategy.ec.europa.eu',
+    icon: <ShieldCheck size={24} />,
+  },
+};
+
+/** Resolve the standards relevant to a use-case entry from their ids. */
+export function getStandards(ids: string[]): Resource[] {
+  return ids.map((id) => STANDARDS[id]).filter((s): s is Resource => Boolean(s));
+}
+
+/**
  * Merged catalogue of application domains and technology trends. Each entry is
  * keyed by its slug so a dedicated page can be rendered by id. The two top-level
  * keys keep their original meaning: DOMAINS and TECH_TRENDS.
@@ -131,13 +352,14 @@ export const USE_CASES: {
   DOMAINS: {
     'smart-manufacturing': {
       slug: 'smart-manufacturing',
+      standards: ['wot', 'td', 'binding', 'opcua', 'modbus', 'mqtt'],
       category: 'domain',
       title: 'Smart Manufacturing',
       description:
-        'Connecting diverse industrial assets such as PLCs, robots, and sensors across factory floors using standardized Thing Descriptions for seamless integration.',
+        'Connecting diverse industrial assets such as PLCs, robots, and sensors across factory floors using standardized Thing Descriptions for seamless integration',
       icon: <Factory size={32} />,
       howWoT:
-        'Factory floors combine PLCs, robots, sensors and energy meters from many vendors, each speaking a different protocol. WoT Thing Descriptions give every asset a single, machine-readable contract describing its properties, actions and events, so the same integration works across OPC UA, Modbus and proprietary stacks — bridging operational technology (OT) and IT without hand-written glue code for each device.',
+        'Factory floors combine PLCs, robots, sensors and energy meters from many vendors, each speaking a different protocol. WoT Thing Descriptions give every asset a single, machine-readable contract describing its properties, actions and events, so the same integration works across OPC UA, Modbus and proprietary stacks. This bridges operational technology (OT) and IT without hand-written glue code for each device.',
       benefits: [
         'One protocol-agnostic Thing Description works across different integration stacks, tools and cloud platforms.',
         'Contract-first thing models let teams design device interfaces before hardware exists and reuse them across product lines.',
@@ -148,17 +370,17 @@ export const USE_CASES: {
         {
           title: 'OT/IT convergence at SICK',
           description:
-            'SICK exposes sensors and controllers through thing models, mapping edge data into cloud digital twins while preserving product relationships.',
+            'SICK exposes sensors and controllers through thing models, mapping edge data into cloud digital twins while preserving product relationships',
         },
         {
           title: 'Cross-stack asset onboarding (Siemens & Microsoft)',
           description:
-            'A Siemens PAC energy meter is described once and consumed unchanged across different vendor integration stacks and mapped to the OPC UA information model.',
+            'A Siemens PAC energy meter is described once and consumed unchanged across different vendor integration stacks and mapped to the OPC UA information model',
         },
         {
           title: 'Simulated robot cells (SimIS)',
           description:
-            'A virtual robot in CoppeliaSim moves in sync with the real robot through identical TDs, so control logic is tested in simulation and deployed without code changes.',
+            'A virtual robot in CoppeliaSim moves in sync with the real robot through identical TDs, so control logic is tested in simulation and deployed without code changes',
         },
       ],
       videos: [
@@ -239,7 +461,7 @@ export const USE_CASES: {
         },
         {
           meetupNumber: 34,
-          title: 'Process OPC — WoT Device Onboarding',
+          title: 'Process OPC: WoT Device Onboarding',
           fragments: [
             {
               start: 374,
@@ -252,13 +474,14 @@ export const USE_CASES: {
     },
     'energy-utilities': {
       slug: 'energy-utilities',
+      standards: ['wot', 'td', 'opcua', 'modbus', 'mqtt', 'saref'],
       category: 'domain',
       title: 'Energy & Utilities',
       description:
-        'Enabling smart grid management, renewable energy integration, and consumption optimization through interoperable device interfaces.',
+        'Enabling smart grid management, renewable energy integration, and consumption optimization through interoperable device interfaces',
       icon: <Zap size={32} />,
       howWoT:
-        'Energy systems mix smart meters, substations, renewable assets and building loads that rarely share a protocol. WoT Thing Descriptions provide interoperable interfaces to non-discoverable devices — even simple Modbus meters — and can be enriched with OPC UA energy-management semantics, so consumption and power-quality data flow into monitoring and optimization tools without bespoke integration.',
+        'Energy systems mix smart meters, substations, renewable assets and building loads that rarely share a protocol. WoT Thing Descriptions provide interoperable interfaces to non-discoverable devices, including simple Modbus meters, and can be enriched with OPC UA energy-management semantics, so consumption and power-quality data flow into monitoring and optimization tools without bespoke integration.',
       benefits: [
         'Interoperable access to non-discoverable meters and controllers over simple protocols like Modbus.',
         'TDs enriched with OPC UA energy-management models give raw registers semantic meaning (e.g. phases L1/L2/L3).',
@@ -274,18 +497,18 @@ export const USE_CASES: {
         {
           title: 'Groundwater pump handover (GridForce)',
           description:
-            'A WoT device database lets cloud teams understand pump capabilities and data resolution without direct communication with the embedded team.',
+            'A WoT device database lets cloud teams understand pump capabilities and data resolution without direct communication with the embedded team',
         },
         {
           title: 'Non-discoverable device connectivity (OPC UA binding)',
           description:
-            'WoT thing descriptions solve interoperability for simple energy meters that cannot be auto-discovered.',
+            'WoT thing descriptions solve interoperability for simple energy meters that cannot be auto-discovered',
         },
       ],
       videos: [
         {
           meetupNumber: 34,
-          title: 'Process OPC — WoT Device Onboarding',
+          title: 'Process OPC: WoT Device Onboarding',
           fragments: [
             {
               start: 482,
@@ -331,10 +554,11 @@ export const USE_CASES: {
     },
     'smart-buildings': {
       slug: 'smart-buildings',
+      standards: ['wot', 'td', 'binding', 'bacnet', 'knx', 'saref'],
       category: 'domain',
       title: 'Smart Buildings',
       description:
-        'Unified control of HVAC, lighting, access, and monitoring systems from multiple vendors within commercial and residential buildings.',
+        'Unified control of HVAC, lighting, access, and monitoring systems from multiple vendors within commercial and residential buildings',
       icon: <Building size={32} />,
       howWoT:
         'Buildings run HVAC, lighting, access, fire detection and metering from different vendors over BACnet, Modbus, KNX and Z-Wave. WoT consolidates these multivendor systems into a single standardized interface and building digital twin, enabling unified control, energy optimization and fine-grained, role-based access for residents, installers and operators.',
@@ -348,17 +572,17 @@ export const USE_CASES: {
         {
           title: 'Net-Zero building optimization',
           description:
-            'A gateway streams WoT data to a cloud building digital twin for energy modelling and space-utilization analytics against Net-Zero targets.',
+            'A gateway streams WoT data to a cloud building digital twin for energy modelling and space-utilization analytics against Net-Zero targets',
         },
         {
           title: 'BACnet binding',
           description:
-            'A WoT binding automates configuration of BACnet field devices, bridging the dominant building-automation protocol to modern web apps.',
+            'A WoT binding automates configuration of BACnet field devices, bridging the dominant building-automation protocol to modern web apps',
         },
         {
           title: 'Smart-lock capabilities (Seam)',
           description:
-            'The same API code programs access codes and reads battery status across Salto, Yale and Schlage locks.',
+            'The same API code programs access codes and reads battery status across Salto, Yale and Schlage locks',
         },
       ],
       videos: [
@@ -423,13 +647,14 @@ export const USE_CASES: {
     },
     'smart-cities': {
       slug: 'smart-cities',
+      standards: ['wot', 'td', 'discovery', 'ngsild', 'mqtt'],
       category: 'domain',
       title: 'Smart Cities',
       description:
-        'Integrating urban infrastructure including traffic, waste, and environment monitoring into cohesive city-wide platforms using open standards.',
+        'Integrating urban infrastructure including traffic, waste, and environment monitoring into cohesive city-wide platforms using open standards',
       icon: <Landmark size={32} />,
       howWoT:
-        'City infrastructure — libraries, bike-sharing, traffic, environment sensors and construction sites — is fragmented across departments and vendors. WoT turns municipal data sources and public APIs into discoverable Things with uniform property, action and event access, letting cities integrate services into cohesive, open, standards-based platforms.',
+        'City infrastructure, including libraries, bike-sharing, traffic, environment sensors and construction sites, is fragmented across departments and vendors. WoT turns municipal data sources and public APIs into discoverable Things with uniform property, action and event access, letting cities integrate services into cohesive, open, standards-based platforms.',
       benefits: [
         'Public data sources such as opening hours and bike stations exposed as standard WoT Things.',
         'Uniform interaction patterns over diverse backend APIs (OpenStreetMap, city-bike, ArtNet).',
@@ -440,17 +665,17 @@ export const USE_CASES: {
         {
           title: 'Public infrastructure as Things (Christian Paul)',
           description:
-            'Library opening hours from OpenStreetMap and city bike-station availability are exposed as WoT Things with time-zone-aware properties.',
+            'Library opening hours from OpenStreetMap and city bike-station availability are exposed as WoT Things with time-zone-aware properties',
         },
         {
           title: 'Construction digital twins (KOGITO)',
           description:
-            'The WoT Digital Twin Ontology represents construction-site twins built from satellite images, 3D scans and sensors across pilots in Austria, Denmark and Spain.',
+            'The WoT Digital Twin Ontology represents construction-site twins built from satellite images, 3D scans and sensors across pilots in Austria, Denmark and Spain',
         },
         {
           title: 'Trustless climate data (ZoNa)',
           description:
-            'Decentralized oracle networks aggregate city weather and climate sensors for parametric applications without trusting a single source.',
+            'Decentralized oracle networks aggregate city weather and climate sensors for parametric applications without trusting a single source',
         },
       ],
       videos: [
@@ -483,7 +708,7 @@ export const USE_CASES: {
         },
         {
           meetupNumber: 32,
-          title: 'ZoNa — Zero Trust Oracle Networks for IoT',
+          title: 'ZoNa: Zero Trust Oracle Networks for IoT',
           fragments: [
             {
               start: 1009,
@@ -496,10 +721,11 @@ export const USE_CASES: {
     },
     healthcare: {
       slug: 'healthcare',
+      standards: ['wot', 'td', 'security', 'fhir', 'mqtt'],
       category: 'domain',
       title: 'Healthcare & Well-being',
       description:
-        'Connecting medical devices, wearables, and facility systems to improve patient care, remote monitoring, and clinical workflows.',
+        'Connecting medical devices, wearables, and facility systems to improve patient care, remote monitoring, and clinical workflows',
       icon: <Activity size={32} />,
       howWoT:
         'Medical instruments, wearables and lab equipment often ship with proprietary interfaces that block automation and remote use. WoT gives instruments a standardized HTTP API and machine-readable description, enabling automated experimentation, remote diagnosis and integration of devices from different makers into clinical and research workflows.',
@@ -513,12 +739,12 @@ export const USE_CASES: {
         {
           title: 'Malaria diagnostics (OpenFlexure)',
           description:
-            'An automated 3D-printed microscope supports quality assurance and technician training for malaria diagnosis in sub-Saharan Africa.',
+            'An automated 3D-printed microscope supports quality assurance and technician training for malaria diagnosis in sub-Saharan Africa',
         },
         {
           title: 'Remote pathology',
           description:
-            'The microscope acts as a whole-slide imager so experts in different locations provide diagnoses without transporting samples.',
+            'The microscope acts as a whole-slide imager so experts in different locations provide diagnoses without transporting samples',
         },
       ],
       videos: [
@@ -538,13 +764,14 @@ export const USE_CASES: {
     },
     agriculture: {
       slug: 'agriculture',
+      standards: ['wot', 'td', 'isobus', 'lorawan', 'mqtt'],
       category: 'domain',
       title: 'Agriculture',
       description:
-        'Precision farming with interoperable soil sensors, weather stations, and irrigation controllers for data-driven crop management.',
+        'Precision farming with interoperable soil sensors, weather stations, and irrigation controllers for data-driven crop management',
       icon: <Tractor size={32} />,
       howWoT:
-        'Precision agriculture relies on tractors, pumps, soil sensors and weather stations that must coordinate autonomously. WoT Thing Descriptions expose these assets so autonomous agents can discover and orchestrate them, and so field data can feed irrigation, livestock and crop-management decisions — even trustless, insurance-grade weather feeds.',
+        'Precision agriculture relies on tractors, pumps, soil sensors and weather stations that must coordinate autonomously. WoT Thing Descriptions expose these assets so autonomous agents can discover and orchestrate them, and so field data can feed irrigation, livestock and crop-management decisions, including trustless, insurance-grade weather feeds.',
       benefits: [
         'Autonomous agents discover and control field equipment via Thing Descriptions.',
         'Operating instructions for pumps and controllers hand over cleanly from embedded to cloud teams.',
@@ -555,17 +782,17 @@ export const USE_CASES: {
         {
           title: 'Autonomous tractor (SERIA)',
           description:
-            'A tractor follows GPS waypoints to harvest fields, controlled through TDs exposing its controller, waypoint service, AI obstacle avoidance and human-in-the-loop service.',
+            'A tractor follows GPS waypoints to harvest fields, controlled through TDs exposing its controller, waypoint service, AI obstacle avoidance and human-in-the-loop service',
         },
         {
           title: 'Groundwater pumps (GridForce)',
           description:
-            'Firmware-driven pumps in an Arizona facility irrigate crops and supply livestock, with operating instructions handed over via WoT.',
+            'Firmware-driven pumps in an Arizona facility irrigate crops and supply livestock, with operating instructions handed over via WoT',
         },
         {
           title: 'Parametric crop insurance (ZoNa)',
           description:
-            'Multiple independent weather stations trigger blockchain smart-contract payouts automatically when rainfall thresholds are missed.',
+            'Multiple independent weather stations trigger blockchain smart-contract payouts automatically when rainfall thresholds are missed',
         },
       ],
       videos: [
@@ -604,7 +831,7 @@ export const USE_CASES: {
         },
         {
           meetupNumber: 32,
-          title: 'ZoNa — Zero Trust Oracle Networks for IoT',
+          title: 'ZoNa: Zero Trust Oracle Networks for IoT',
           fragments: [
             {
               start: 788,
@@ -617,13 +844,14 @@ export const USE_CASES: {
     },
     'transportation-logistics': {
       slug: 'transportation-logistics',
+      standards: ['wot', 'td', 'gs1', 'discovery', 'mqtt'],
       category: 'domain',
       title: 'Transportation & Logistics',
       description:
-        'Fleet tracking, supply chain visibility, and connected vehicle systems through standardized IoT descriptions and discovery.',
+        'Fleet tracking, supply chain visibility, and connected vehicle systems through standardized IoT descriptions and discovery',
       icon: <Truck size={32} />,
       howWoT:
-        'Fleets, supply chains and baggage systems combine cameras, sensors and controllers from many suppliers. WoT provides uniform interfaces and discovery so logistics data — dimensions, location, availability — can be captured and shared through standard property and event access, from airport baggage handling to city bike fleets.',
+        'Fleets, supply chains and baggage systems combine cameras, sensors and controllers from many suppliers. WoT provides uniform interfaces and discovery so logistics data, such as dimensions, location and availability, can be captured and shared through standard property and event access, from airport baggage handling to city bike fleets.',
       benefits: [
         'Uniform property and event access abstracts diverse sensor and camera APIs.',
         'Real-time fleet and asset availability exposed through standard Things.',
@@ -634,12 +862,12 @@ export const USE_CASES: {
         {
           title: 'Munich Airport baggage handling',
           description:
-            'Three RGBD cameras and a photo-electric sensor capture luggage images to extract dimensions and colour, optimizing aircraft loading, with WoT+Solid storage.',
+            'Three RGBD cameras and a photo-electric sensor capture luggage images to extract dimensions and colour, optimizing aircraft loading, with WoT+Solid storage',
         },
         {
           title: 'City bike fleet (Christian Paul)',
           description:
-            'Bike-sharing stations expose available bikes and free slots as standard WoT properties for real-time fleet visibility.',
+            'Bike-sharing stations expose available bikes and free slots as standard WoT properties for real-time fleet visibility',
         },
       ],
       videos: [
@@ -669,13 +897,14 @@ export const USE_CASES: {
     },
     'consumer-smart-home': {
       slug: 'consumer-smart-home',
+      standards: ['wot', 'td', 'matter', 'zwave', 'mqtt'],
       category: 'domain',
       title: 'Consumer & Smart Home',
       description:
-        'Cross-vendor smart home device integration, bridging ecosystems like Matter, Zigbee, and Z-Wave via WoT abstractions.',
+        'Cross-vendor smart home device integration, bridging ecosystems like Matter, Zigbee, and Z-Wave via WoT abstractions',
       icon: <Home size={32} />,
       howWoT:
-        'Smart homes are split across Matter, Zigbee, Z-Wave, Bluetooth and countless vendor clouds. WoT abstracts these ecosystems behind standard Thing Descriptions, so a single app, agent or visual tool can control locks, thermostats, bulbs and hubs regardless of the underlying protocol — and new devices work without new code.',
+        'Smart homes are split across Matter, Zigbee, Z-Wave, Bluetooth and countless vendor clouds. WoT abstracts these ecosystems behind standard Thing Descriptions, so a single app, agent or visual tool can control locks, thermostats, bulbs and hubs regardless of the underlying protocol, and new devices work without new code.',
       benefits: [
         'One abstraction bridges Matter, Zigbee, Z-Wave, Bluetooth and legacy protocols.',
         'Developers avoid device-specific APIs, dated SOAP interfaces and 900-page PDFs.',
@@ -686,7 +915,7 @@ export const USE_CASES: {
         {
           title: 'Universal device API (Seam)',
           description:
-            'Standard capabilities program Airbnb guest access codes across brands, handling per-device quirks through capability-aware assist functions.',
+            'Standard capabilities program Airbnb guest access codes across brands, handling per-device quirks through capability-aware assist functions',
         },
         {
           title: 'Matter bridge',
@@ -696,7 +925,7 @@ export const USE_CASES: {
         {
           title: 'Smart radiator thermostats (Bonix)',
           description:
-            'Millions of residential thermostats let residents control heating schedules remotely through a model-based digital twin.',
+            'Millions of residential thermostats let residents control heating schedules remotely through a model-based digital twin',
         },
         {
           title: 'Visual automation (BLAST)',
@@ -765,13 +994,14 @@ export const USE_CASES: {
     },
     'environment-monitoring': {
       slug: 'environment-monitoring',
+      standards: ['wot', 'td', 'lorawan', 'coap', 'mqtt'],
       category: 'domain',
       title: 'Environment Monitoring',
       description:
-        'Air quality, water quality, and ecological monitoring through standardized sensor networks accessible via web protocols.',
+        'Air quality, water quality, and ecological monitoring through standardized sensor networks accessible via web protocols',
       icon: <Leaf size={32} />,
       howWoT:
-        'Air, water, soil and climate monitoring depend on distributed sensor networks that are hard to integrate and trust. WoT gives sensors standardized, web-accessible interfaces and semantic metadata, and — combined with decentralized oracle networks — lets independent measurements be aggregated into trustworthy environmental data feeds.',
+        'Air, water, soil and climate monitoring depend on distributed sensor networks that are hard to integrate and trust. WoT gives sensors standardized, web-accessible interfaces and semantic metadata and, when combined with decentralized oracle networks, lets independent measurements be aggregated into trustworthy environmental data feeds.',
       benefits: [
         'Distributed sensors exposed through standard, web-accessible interfaces.',
         'Semantic metadata such as resolution and calibration travels with the data.',
@@ -782,12 +1012,12 @@ export const USE_CASES: {
         {
           title: 'Soil microbiome analysis (OpenFlexure)',
           description:
-            'A community group in Argentina uses the automated microscope to analyse soil microbiome and educate farmers about agrochemical effects.',
+            'A community group in Argentina uses the automated microscope to analyse soil microbiome and educate farmers about agrochemical effects',
         },
         {
           title: 'Trustless weather networks (ZoNa)',
           description:
-            'Independent weather stations feed decentralized oracle networks with reputation-based selection to prevent data manipulation.',
+            'Independent weather stations feed decentralized oracle networks with reputation-based selection to prevent data manipulation',
         },
         {
           title: 'Sensor data integrity (GridForce)',
@@ -805,7 +1035,7 @@ export const USE_CASES: {
         },
         {
           meetupNumber: 32,
-          title: 'ZoNa — Zero Trust Oracle Networks for IoT',
+          title: 'ZoNa: Zero Trust Oracle Networks for IoT',
           fragments: [
             {
               start: 1009,
@@ -831,13 +1061,14 @@ export const USE_CASES: {
   TECH_TRENDS: {
     'digital-twins': {
       slug: 'digital-twins',
+      standards: ['wot', 'td', 'architecture', 'jsonld', 'opcua'],
       category: 'trend',
       title: 'Digital Twins',
       description:
-        'WoT Thing Descriptions provide a standardized way to describe and interact with digital representations of physical assets, enabling interoperable digital twin ecosystems.',
+        'WoT Thing Descriptions provide a standardized way to describe and interact with digital representations of physical assets, enabling interoperable digital twin ecosystems',
       icon: <Copy size={32} />,
       howWoT:
-        'A digital twin needs a standardized, machine-readable description of the physical asset it mirrors. WoT Thing Descriptions and Thing Models provide exactly that contract — properties, actions, events and semantic annotations — so twins from different vendors interoperate, stay synchronized with their physical counterparts, and can even be generated or simulated automatically.',
+        'A digital twin needs a standardized, machine-readable description of the physical asset it mirrors. WoT Thing Descriptions and Thing Models provide exactly that contract, including properties, actions, events and semantic annotations, so twins from different vendors interoperate, stay synchronized with their physical counterparts, and can even be generated or simulated automatically.',
       benefits: [
         'TDs give twins a vendor-neutral, machine-readable contract.',
         'Thing Models with inheritance and composition keep twin data consistent and validated.',
@@ -848,17 +1079,17 @@ export const USE_CASES: {
         {
           title: 'Cloud twins at SICK',
           description:
-            'Edge-side TDs are synchronized into cloud digital twins with lifecycle traceability in the SICK Asset Hub.',
+            'Edge-side TDs are synchronized into cloud digital twins with lifecycle traceability in the SICK Asset Hub',
         },
         {
           title: 'Five-dimensional twin ontology',
           description:
-            'The WoT Digital Twin Ontology represents entity, virtual entity, data, services and connections for construction-domain twins.',
+            'The WoT Digital Twin Ontology represents entity, virtual entity, data, services and connections for construction-domain twins',
         },
         {
           title: 'Simulated twins (SimIS)',
           description:
-            'The simulation computes a robot reachable workspace and runs collision-checked dry-runs before the same logic drives the real robot.',
+            'The simulation computes a robot reachable workspace and runs collision-checked dry-runs before the same logic drives the real robot',
         },
       ],
       videos: [
@@ -919,7 +1150,7 @@ export const USE_CASES: {
         },
         {
           meetupNumber: 34,
-          title: 'Process OPC — WoT Device Onboarding',
+          title: 'Process OPC: WoT Device Onboarding',
           fragments: [
             {
               start: 962,
@@ -932,13 +1163,14 @@ export const USE_CASES: {
     },
     'eu-cyber-resiliency-act': {
       slug: 'eu-cyber-resiliency-act',
+      standards: ['wot', 'td', 'security', 'cra', 'architecture'],
       category: 'trend',
       title: 'EU Cyber Resiliency Act',
       description:
-        "WoT's machine-readable security metadata and standardized vulnerability reporting align with the CRA's requirements for transparent, secure-by-design connected products.",
+        "WoT's machine-readable security metadata and standardized vulnerability reporting align with the CRA's requirements for transparent, secure-by-design connected products",
       icon: <ShieldCheck size={32} />,
       howWoT:
-        'The EU Cyber Resilience Act pushes manufacturers toward secure-by-design connected products with transparent security properties and vulnerability handling. WoT Thing Descriptions carry machine-readable security schemes — authentication, authorization and access policies — directly in the device contract, and community work on delegated authorization, hub-mediated access and edge access control shows how WoT can make these obligations explicit and verifiable.',
+        'The EU Cyber Resilience Act pushes manufacturers toward secure-by-design connected products with transparent security properties and vulnerability handling. WoT Thing Descriptions carry machine-readable security schemes, including authentication, authorization and access policies, directly in the device contract, and community work on delegated authorization, hub-mediated access and edge access control shows how WoT can make these obligations explicit and verifiable.',
       benefits: [
         'Security schemes (authentication, authorization, access policies) are explicit in the TD.',
         'Delegated, time- and scope-limited authorization can be described and enforced.',
@@ -949,12 +1181,12 @@ export const USE_CASES: {
         {
           title: 'Delegated authorization (NAMI)',
           description:
-            'Guests receive scoped, time-limited access to room devices via ACE-OAuth authorization servers — a model for secure-by-design product access.',
+            'Guests receive scoped, time-limited access to room devices via ACE-OAuth authorization servers, a model for secure-by-design product access',
         },
         {
           title: 'Reduced attack surface (HiVoT)',
           description:
-            'Devices are never exposed directly; all access is mediated through a hub with centralized authentication.',
+            'Devices are never exposed directly; all access is mediated through a hub with centralized authentication',
         },
         {
           title: 'Fine-grained permissions (Solid)',
@@ -999,10 +1231,11 @@ export const USE_CASES: {
     },
     'digital-product-passport': {
       slug: 'digital-product-passport',
+      standards: ['wot', 'td', 'jsonld', 'gs1', 'cra'],
       category: 'trend',
       title: 'Digital Product Passport',
       description:
-        'Thing Descriptions can serve as machine-readable product passports, carrying lifecycle data, material composition, and sustainability information for connected products.',
+        'Thing Descriptions can serve as machine-readable product passports, carrying lifecycle data, material composition, and sustainability information for connected products',
       icon: <QrCode size={32} />,
       howWoT:
         'A Digital Product Passport must carry lifecycle, composition and provenance data in a machine-readable form that survives across the value chain. WoT Thing Descriptions and Thing Models can embed product metadata, sensor calibration, hardware specifications and semantic annotations, acting as a living, queryable passport for connected products throughout their lifecycle.',
@@ -1016,17 +1249,17 @@ export const USE_CASES: {
         {
           title: 'Product-centric bearings (Schaeffler)',
           description:
-            'Thing models map product properties, serial numbers and embedded sensors (load, lubrication) so customers query products through a REST API across their lifecycle.',
+            'Thing models map product properties, serial numbers and embedded sensors (load, lubrication) so customers query products through a REST API across their lifecycle',
         },
         {
           title: 'Embedded specs via IDO (GridForce)',
           description:
-            'An ISO Industrial Data Ontology model embeds sensor calibration, register sizes and step-size resolution inside the TD for downstream consumers.',
+            'An ISO Industrial Data Ontology model embeds sensor calibration, register sizes and step-size resolution inside the TD for downstream consumers',
         },
         {
           title: 'Lifecycle traceability (SICK)',
           description:
-            'The Asset Hub relates digital twins to physical devices with lifecycle traceability via semantic annotations.',
+            'The Asset Hub relates digital twins to physical devices with lifecycle traceability via semantic annotations',
         },
       ],
       videos: [
@@ -1063,15 +1296,16 @@ export const USE_CASES: {
     },
     'agentic-systems': {
       slug: 'agentic-systems',
+      standards: ['wot', 'td', 'discovery', 'jsonld', 'architecture'],
       category: 'trend',
       title: 'Agentic Systems',
       description:
-        "Autonomous AI agents can leverage WoT's standardized affordances and discovery mechanisms to find, understand, and orchestrate IoT devices without human intervention.",
+        "Autonomous AI agents can leverage WoT's standardized affordances and discovery mechanisms to find, understand, and orchestrate IoT devices without human intervention",
       icon: <Bot size={32} />,
       howWoT:
-        'Autonomous agents need to discover devices, understand their capabilities and act — without a developer hand-coding every integration. A WoT Thing Description already contains the full contract an agent needs: typing, security, transport and event schemas. Agents and LLMs consume TDs directly as tools, discovering and orchestrating IoT devices at runtime.',
+        'Autonomous agents need to discover devices, understand their capabilities and act without a developer hand-coding every integration. A WoT Thing Description already contains the full contract an agent needs: typing, security, transport and event schemas. Agents and LLMs consume TDs directly as tools, discovering and orchestrating IoT devices at runtime.',
       benefits: [
-        'TDs act as complete, ready-made agent tool definitions — no per-device hand-coding.',
+        'TDs act as complete, ready-made agent tool definitions, with no per-device hand-coding.',
         'LLMs drive previously unseen devices using only their Thing Descriptions.',
         'No-code environments turn TDs into functional blocks domain experts compose.',
         'Multi-agent systems map internal naming to shared ontologies for cross-agent action.',
@@ -1084,7 +1318,7 @@ export const USE_CASES: {
         {
           title: 'Multi-agent conversational AI (Deutsche Telekom)',
           description:
-            'A supervisor agent classifies intent and routes to specialized sub-agents described in TD format.',
+            'A supervisor agent classifies intent and routes to specialized sub-agents described in TD format',
         },
         {
           title: 'LLM device orchestration (Dashjoin)',
@@ -1141,10 +1375,11 @@ export const USE_CASES: {
     },
     'neurosymbolic-ai': {
       slug: 'neurosymbolic-ai',
+      standards: ['wot', 'td', 'jsonld', 'rdf', 'owl'],
       category: 'trend',
       title: 'Neurosymbolic AI',
       description:
-        "Combining neural networks with WoT's semantic, knowledge-graph-compatible Thing Descriptions enables AI systems that can both reason symbolically about devices and learn from sensor data.",
+        "Combining neural networks with WoT's semantic, knowledge-graph-compatible Thing Descriptions enables AI systems that can both reason symbolically about devices and learn from sensor data",
       icon: <Brain size={32} />,
       howWoT:
         'Neurosymbolic AI pairs neural learning with symbolic reasoning. WoT Thing Descriptions are semantic, JSON-LD, ontology-compatible contracts, so neural components such as LLMs can act on devices while symbolic components reason over the same descriptions. Agents map their internal, learned vocabularies onto shared WoT ontologies to translate between perception and structured action.',
@@ -1158,7 +1393,7 @@ export const USE_CASES: {
         {
           title: 'Ontology mapping across agents',
           description:
-            'Agents map internal naming conventions to shared WoT ontologies, enabling cross-agent semantic translation and plan execution.',
+            'Agents map internal naming conventions to shared WoT ontologies, enabling cross-agent semantic translation and plan execution',
         },
         {
           title: 'Schema-grounded LLM commands (Dashjoin)',
@@ -1209,13 +1444,14 @@ export const USE_CASES: {
     },
     'edge-computing': {
       slug: 'edge-computing',
+      standards: ['wot', 'td', 'binding', 'coap', 'mqtt'],
       category: 'trend',
       title: 'Edge Computing',
       description:
-        'WoT enables discovery and interaction with computing resources at the network edge, bringing standardized interfaces to latency-sensitive and bandwidth-constrained IoT deployments.',
+        'WoT enables discovery and interaction with computing resources at the network edge, bringing standardized interfaces to latency-sensitive and bandwidth-constrained IoT deployments',
       icon: <Network size={32} />,
       howWoT:
-        'Edge deployments are latency-sensitive and bandwidth-constrained, and increasingly span an edge-cloud continuum. WoT brings standardized interfaces and discovery to resources at the edge — local hubs, gateways and mediators expose devices through the same TDs used in the cloud, so processing can be placed dynamically where it makes most sense.',
+        'Edge deployments are latency-sensitive and bandwidth-constrained, and increasingly span an edge-cloud continuum. WoT brings standardized interfaces and discovery to resources at the edge. Local hubs, gateways and mediators expose devices through the same TDs used in the cloud, so processing can be placed dynamically where it makes most sense.',
       benefits: [
         'The same TD abstracts a device at the edge and in the cloud.',
         'Mediators map device protocols and encodings to a uniform API at the edge.',
@@ -1226,17 +1462,17 @@ export const USE_CASES: {
         {
           title: 'Edge-cloud mediators (Munich Airport)',
           description:
-            'An edge orchestrator with mediators maps device protocols and encodings to RDF/HTTP, creating a uniform API at both edge and cloud.',
+            'An edge orchestrator with mediators maps device protocols and encodings to RDF/HTTP, creating a uniform API at both edge and cloud',
         },
         {
           title: 'Local simulation feedback (SimIS)',
           description:
-            'CoppeliaSim runs on a laptop talking to a Node-WoT server over WebSockets, giving instant feedback without cloud infrastructure.',
+            'CoppeliaSim runs on a laptop talking to a Node-WoT server over WebSockets, giving instant feedback without cloud infrastructure',
         },
         {
           title: 'Edge hub without cloud (HiVoT)',
           description:
-            'Devices connect to a local edge hub for privacy-preserving automation with no external dependency.',
+            'Devices connect to a local edge hub for privacy-preserving automation with no external dependency',
         },
       ],
       videos: [
@@ -1299,13 +1535,14 @@ export const USE_CASES: {
     },
     'zero-trust-architecture': {
       slug: 'zero-trust-architecture',
+      standards: ['wot', 'td', 'security', 'discovery', 'oauth2'],
       category: 'trend',
       title: 'Zero Trust Architecture',
       description:
-        "WoT's fine-grained security descriptions support zero-trust models by making device authentication, authorization, and access policies explicit and machine-verifiable.",
+        "WoT's fine-grained security descriptions support zero-trust models by making device authentication, authorization, and access policies explicit and machine-verifiable",
       icon: <Lock size={32} />,
       howWoT:
-        'Zero-trust assumes no implicit trust and demands explicit, verifiable authentication and authorization for every interaction. WoT makes security policies part of the device contract, and community work shows delegated authorization, hub-mediated access, edge access-control lists and even blockchain-backed trustless data — all making device access explicit and machine-verifiable.',
+        'Zero-trust assumes no implicit trust and demands explicit, verifiable authentication and authorization for every interaction. WoT makes security policies part of the device contract, and community work shows delegated authorization, hub-mediated access, edge access-control lists and even blockchain-backed trustless data, all of which make device access explicit and machine-verifiable.',
       benefits: [
         'Security definitions and access policies are explicit and machine-verifiable in the TD.',
         'Delegated, scoped and time-limited credentials via ACE-OAuth.',
@@ -1316,17 +1553,17 @@ export const USE_CASES: {
         {
           title: 'Delegated authorization (NAMI)',
           description:
-            'ACE-OAuth authorization servers grant clients scoped access credentials for constrained IoT resources.',
+            'ACE-OAuth authorization servers grant clients scoped access credentials for constrained IoT resources',
         },
         {
           title: 'Hub-mediated access (HiVoT)',
           description:
-            'No direct consumer access to devices; all traffic passes through a hub with centralized authentication.',
+            'No direct consumer access to devices; all traffic passes through a hub with centralized authentication',
         },
         {
           title: 'Trustless oracle networks (ZoNa)',
           description:
-            'Blockchain plus WoT aggregates independent sensors with reputation-based selection so trust rests on the network, not one source.',
+            'Blockchain plus WoT aggregates independent sensors with reputation-based selection so trust rests on the network, not one source',
         },
       ],
       videos: [
@@ -1354,7 +1591,7 @@ export const USE_CASES: {
         },
         {
           meetupNumber: 32,
-          title: 'ZoNa — Zero Trust Oracle Networks for IoT',
+          title: 'ZoNa: Zero Trust Oracle Networks for IoT',
           fragments: [
             {
               start: 1009,
@@ -1374,10 +1611,11 @@ export const USE_CASES: {
     },
     'semantic-interoperability': {
       slug: 'semantic-interoperability',
+      standards: ['wot', 'td', 'jsonld', 'rdf', 'saref'],
       category: 'trend',
       title: 'Semantic Interoperability',
       description:
-        "WoT's use of linked data and semantic annotations enables cross-domain data integration, making IoT data FAIR (Findable, Accessible, Interoperable, Reusable) by design.",
+        "WoT's use of linked data and semantic annotations enables cross-domain data integration, making IoT data FAIR (Findable, Accessible, Interoperable, Reusable) by design",
       icon: <Workflow size={32} />,
       howWoT:
         'Cross-domain data integration needs shared meaning, not just shared syntax. WoT uses linked data and semantic annotations (JSON-LD, schema.org, domain ontologies) so devices from different vendors and domains describe themselves consistently, making IoT data findable, accessible, interoperable and reusable, and letting tools generate UIs and mappings automatically.',
@@ -1391,17 +1629,17 @@ export const USE_CASES: {
         {
           title: 'Standard device description language (Siemens & Microsoft)',
           description:
-            'A protocol-agnostic, extensible, W3C-governed TD becomes the common language across integration stacks.',
+            'A protocol-agnostic, extensible, W3C-governed TD becomes the common language across integration stacks',
         },
         {
           title: 'Auto-generated UIs (Dashjoin)',
           description:
-            'Forms are generated from the JSON schema in a TD, so one platform manages any device without device-specific code.',
+            'Forms are generated from the JSON schema in a TD, so one platform manages any device without device-specific code',
         },
         {
           title: 'Agent-to-device mapping',
           description:
-            'Agent acts such as tell, ask and achieve map to WoT interaction affordances for protocol-agnostic device control.',
+            'Agent acts such as tell, ask and achieve map to WoT interaction affordances for protocol-agnostic device control',
         },
       ],
       videos: [
@@ -1445,13 +1683,14 @@ export const USE_CASES: {
     },
     'sustainability-green-iot': {
       slug: 'sustainability-green-iot',
+      standards: ['wot', 'td', 'saref', 'mqtt', 'lorawan'],
       category: 'trend',
       title: 'Sustainability & Green IoT',
       description:
-        'Standardized device descriptions enable energy-aware orchestration, carbon footprint tracking, and optimized resource usage across connected infrastructure.',
+        'Standardized device descriptions enable energy-aware orchestration, carbon footprint tracking, and optimized resource usage across connected infrastructure',
       icon: <Sun size={32} />,
       howWoT:
-        'Sustainability goals need visibility into energy use and coordinated, efficient operation across connected infrastructure. Standardized WoT descriptions make consumption data comparable across vendors, feed building and grid optimization, and enable energy-aware orchestration — turning fragmented sensor data into actionable efficiency and carbon insights.',
+        'Sustainability goals need visibility into energy use and coordinated, efficient operation across connected infrastructure. Standardized WoT descriptions make consumption data comparable across vendors, feed building and grid optimization, and enable energy-aware orchestration that turns fragmented sensor data into actionable efficiency and carbon insights.',
       benefits: [
         'Comparable, vendor-neutral consumption data from heterogeneous meters.',
         'Building digital twins drive energy modelling toward Net-Zero targets.',
@@ -1462,17 +1701,17 @@ export const USE_CASES: {
         {
           title: 'Net-Zero building twins',
           description:
-            'A building digital twin models energy and space utilization, targeting the billions in savings lost to underused buildings.',
+            'A building digital twin models energy and space utilization, targeting the billions in savings lost to underused buildings',
         },
         {
           title: 'Energy dashboards (Dashjoin)',
           description:
-            'Heterogeneous sensor formats (watts vs. power plus unit) are normalized into per-floor energy-consumption dashboards.',
+            'Heterogeneous sensor formats (watts vs. power plus unit) are normalized into per-floor energy-consumption dashboards',
         },
         {
           title: 'Power-meter insight (Process OPC)',
           description:
-            'TDs enriched with OPC UA energy models turn raw registers into readable phase-level power data for optimization.',
+            'TDs enriched with OPC UA energy models turn raw registers into readable phase-level power data for optimization',
         },
       ],
       videos: [
@@ -1496,7 +1735,7 @@ export const USE_CASES: {
         },
         {
           meetupNumber: 34,
-          title: 'Process OPC — WoT Device Onboarding',
+          title: 'Process OPC: WoT Device Onboarding',
           fragments: [
             {
               start: 482,

@@ -3,7 +3,7 @@
 import { PageLayout } from '../_components/PageLayout';
 import { Typography, Stack, Box, Accordion, AccordionDetails, AccordionSummary, AccordionGroup } from '@mui/joy';
 import { Route } from 'next';
-import { RESOURCES, DOMAINS, TECH_TRENDS, TESTIMONIALS, Testimonial } from '@/lib/useCases';
+import { RESOURCES, DOMAINS, TECH_TRENDS, TESTIMONIALS, Testimonial } from '@/lib/use-cases/useCases';
 import { LinkCard } from '../_components/LinkCard';
 import { PageSection } from '../_components/PageSection';
 
