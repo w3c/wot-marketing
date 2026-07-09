@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { UseCaseDetail } from './UseCaseDetail';
+import { UseCaseSubpage } from './UseCaseSubpage';
 import { getAllUseCases, getUseCaseBySlug } from '@/lib/use-cases/useCasesData';
 
 export function generateStaticParams() {
@@ -16,5 +16,5 @@ export default async function UseCaseDetailPage({ params }: { params: Promise<{ 
     notFound();
   }
 
-  return <UseCaseDetail slug={slug} />;
+  return <UseCaseSubpage slug={slug} />;
 }

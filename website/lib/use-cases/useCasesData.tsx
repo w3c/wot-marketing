@@ -19,7 +19,7 @@ import {
   Workflow,
   Sun,
 } from 'lucide-react';
-import meetupLinks from './meetup_youtube_links.json';
+import { meetupLinks } from './meetup_youtube_links';
 import { Standard } from './standardsData';
 import { TestimonialId } from './testimonialsData';
 export interface Domain {
@@ -75,9 +75,9 @@ export interface UseCaseEntry extends Domain {
 
 /** Resolve the YouTube video id for a meetup number (undefined if unpublished). */
 export function getMeetupVideoId(meetupNumber: number): string | undefined {
-  const entry = meetupLinks.find((m) => m.meetupNumber === meetupNumber);
+  const entry = meetupLinks[meetupNumber];
   if (!entry) return undefined;
-  const match = entry.youtubeUrl.match(/(?:youtu\.be\/|[?&]v=)([\w-]+)/);
+  const match = entry.url.match(/(?:youtu\.be\/|[?&]v=)([\w-]+)/);
   return match?.[1];
 }
 
@@ -183,7 +183,7 @@ export const USE_CASES: {
             },
             {
               meetupNumber: 34,
-              title: 'Process OPC: WoT Device Onboarding',
+              title: 'Prosys OPC: WoT Device Onboarding',
               fragments: [
                 {
                   start: 374,
@@ -195,13 +195,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Simulated robot cells (SimIS)',
+          title: 'Simulated robot cells (SIMIS)',
           description:
             'A virtual robot in CoppeliaSim moves in sync with the real robot through identical TDs, so control logic is tested in simulation and deployed without code changes',
           videos: [
             {
               meetupNumber: 12,
-              title: 'Interactable Digital Twins Using WoT and Simulation (SimIS)',
+              title: 'Interactable Digital Twins Using WoT and Simulation (SIMIS)',
               fragments: [
                 {
                   start: 510,
@@ -238,13 +238,13 @@ export const USE_CASES: {
       ],
       realWorldUseCases: [
         {
-          title: 'Power-meter onboarding (Process OPC)',
+          title: 'Power-meter onboarding (Prosys OPC)',
           description:
             "A power meter's TD is enriched with the OPC UA energy-management specification, streaming live measurements into unified monitoring in minutes.",
           videos: [
             {
               meetupNumber: 34,
-              title: 'Process OPC: WoT Device Onboarding',
+              title: 'Prosys OPC: WoT Device Onboarding',
               fragments: [
                 {
                   start: 482,
@@ -267,13 +267,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Groundwater pump handover (GridForce)',
+          title: 'Groundwater pump handover (GRUNDFOS)',
           description:
             'A WoT device database lets cloud teams understand pump capabilities and data resolution without direct communication with the embedded team',
           videos: [
             {
               meetupNumber: 11,
-              title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
+              title: 'Industrial Data Ontology for IoT Operating Instructions (GRUNDFOS)',
               fragments: [
                 {
                   start: 415,
@@ -467,13 +467,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Trustless climate data (ZoNa)',
+          title: 'Trustless climate data (ZONIA)',
           description:
             'Decentralized oracle networks aggregate city weather and climate sensors for parametric applications without trusting a single source',
           videos: [
             {
               meetupNumber: 32,
-              title: 'ZoNa: Zero Trust Oracle Networks for IoT',
+              title: 'ZONIA: Zero Trust Oracle Networks for IoT',
               fragments: [
                 {
                   start: 1009,
@@ -588,13 +588,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Groundwater pumps (GridForce)',
+          title: 'Groundwater pumps (GRUNDFOS)',
           description:
             'Firmware-driven pumps in an Arizona facility irrigate crops and supply livestock, with operating instructions handed over via WoT',
           videos: [
             {
               meetupNumber: 11,
-              title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
+              title: 'Industrial Data Ontology for IoT Operating Instructions (GRUNDFOS)',
               fragments: [
                 {
                   start: 240,
@@ -606,13 +606,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Parametric crop insurance (ZoNa)',
+          title: 'Parametric crop insurance (ZONIA)',
           description:
             'Multiple independent weather stations trigger blockchain smart-contract payouts automatically when rainfall thresholds are missed',
           videos: [
             {
               meetupNumber: 32,
-              title: 'ZoNa: Zero Trust Oracle Networks for IoT',
+              title: 'ZONIA: Zero Trust Oracle Networks for IoT',
               fragments: [
                 {
                   start: 788,
@@ -816,13 +816,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Trustless weather networks (ZoNa)',
+          title: 'Trustless weather networks (ZONIA)',
           description:
             'Independent weather stations feed decentralized oracle networks with reputation-based selection to prevent data manipulation',
           videos: [
             {
               meetupNumber: 32,
-              title: 'ZoNa: Zero Trust Oracle Networks for IoT',
+              title: 'ZONIA: Zero Trust Oracle Networks for IoT',
               fragments: [
                 {
                   start: 1009,
@@ -834,13 +834,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Sensor data integrity (GridForce)',
+          title: 'Sensor data integrity (GRUNDFOS)',
           description:
             "Ontology-backed TDs and SPARQL validation ensure processing pipelines never inflate a sensor's real resolution.",
           videos: [
             {
               meetupNumber: 11,
-              title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
+              title: 'Industrial Data Ontology for IoT Operating Instructions (GRUNDFOS)',
               fragments: [
                 {
                   start: 631,
@@ -902,7 +902,7 @@ export const USE_CASES: {
             },
             {
               meetupNumber: 34,
-              title: 'Process OPC: WoT Device Onboarding',
+              title: 'Prosys OPC: WoT Device Onboarding',
               fragments: [
                 {
                   start: 962,
@@ -932,13 +932,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Simulated twins (SimIS)',
+          title: 'Simulated twins (SIMIS)',
           description:
             'The simulation computes a robot reachable workspace and runs collision-checked dry-runs before the same logic drives the real robot',
           videos: [
             {
               meetupNumber: 12,
-              title: 'Interactable Digital Twins Using WoT and Simulation (SimIS)',
+              title: 'Interactable Digital Twins Using WoT and Simulation (SIMIS)',
               fragments: [
                 {
                   start: 1550,
@@ -980,13 +980,13 @@ export const USE_CASES: {
       ],
       realWorldUseCases: [
         {
-          title: 'Delegated authorization (NAMI)',
+          title: 'Delegated authorization (NAMIB)',
           description:
             'Guests receive scoped, time-limited access to room devices via ACE-OAuth authorization servers, a model for secure-by-design product access',
           videos: [
             {
               meetupNumber: 4,
-              title: 'Delegated Authorization in the Web of Things (NAMI)',
+              title: 'Delegated Authorization in the Web of Things (NAMIB)',
               fragments: [
                 {
                   start: 398,
@@ -998,13 +998,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Reduced attack surface (HiVoT)',
+          title: 'Reduced attack surface (HiveOT)',
           description:
             'Devices are never exposed directly; all access is mediated through a hub with centralized authentication',
           videos: [
             {
               meetupNumber: 26,
-              title: 'HiVoT Edge Device',
+              title: 'HiveOT Edge Device',
               fragments: [
                 {
                   start: 614,
@@ -1071,13 +1071,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Embedded specs via IDO (GridForce)',
+          title: 'Embedded specs via IDO (GRUNDFOS)',
           description:
             'An ISO Industrial Data Ontology model embeds sensor calibration, register sizes and step-size resolution inside the TD for downstream consumers',
           videos: [
             {
               meetupNumber: 11,
-              title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
+              title: 'Industrial Data Ontology for IoT Operating Instructions (GRUNDFOS)',
               fragments: [
                 {
                   start: 935,
@@ -1319,13 +1319,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Local simulation feedback (SimIS)',
+          title: 'Local simulation feedback (SIMIS)',
           description:
             'CoppeliaSim runs on a laptop talking to a Node-WoT server over WebSockets, giving instant feedback without cloud infrastructure',
           videos: [
             {
               meetupNumber: 12,
-              title: 'Interactable Digital Twins Using WoT and Simulation (SimIS)',
+              title: 'Interactable Digital Twins Using WoT and Simulation (SIMIS)',
               fragments: [
                 {
                   start: 1257,
@@ -1338,13 +1338,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Edge hub without cloud (HiVoT)',
+          title: 'Edge hub without cloud (HiveOT)',
           description:
             'Devices connect to a local edge hub for privacy-preserving automation with no external dependency',
           videos: [
             {
               meetupNumber: 26,
-              title: 'HiVoT Edge Device',
+              title: 'HiveOT Edge Device',
               fragments: [
                 {
                   start: 274,
@@ -1376,13 +1376,13 @@ export const USE_CASES: {
       ],
       realWorldUseCases: [
         {
-          title: 'Delegated authorization (NAMI)',
+          title: 'Delegated authorization (NAMIB)',
           description:
             'ACE-OAuth authorization servers grant clients scoped access credentials for constrained IoT resources',
           videos: [
             {
               meetupNumber: 4,
-              title: 'Delegated Authorization in the Web of Things (NAMI)',
+              title: 'Delegated Authorization in the Web of Things (NAMIB)',
               fragments: [
                 {
                   start: 398,
@@ -1401,13 +1401,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Hub-mediated access (HiVoT)',
+          title: 'Hub-mediated access (HiveOT)',
           description:
             'No direct consumer access to devices; all traffic passes through a hub with centralized authentication',
           videos: [
             {
               meetupNumber: 26,
-              title: 'HiVoT Edge Device',
+              title: 'HiveOT Edge Device',
               fragments: [
                 {
                   start: 614,
@@ -1419,13 +1419,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Trustless oracle networks (ZoNa)',
+          title: 'Trustless oracle networks (ZONIA)',
           description:
             'Blockchain plus WoT aggregates independent sensors with reputation-based selection so trust rests on the network, not one source',
           videos: [
             {
               meetupNumber: 32,
-              title: 'ZoNa: Zero Trust Oracle Networks for IoT',
+              title: 'ZONIA: Zero Trust Oracle Networks for IoT',
               fragments: [
                 {
                   start: 1009,
@@ -1570,13 +1570,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Power-meter insight (Process OPC)',
+          title: 'Power-meter insight (Prosys OPC)',
           description:
             'TDs enriched with OPC UA energy models turn raw registers into readable phase-level power data for optimization',
           videos: [
             {
               meetupNumber: 34,
-              title: 'Process OPC: WoT Device Onboarding',
+              title: 'Prosys OPC: WoT Device Onboarding',
               fragments: [
                 {
                   start: 482,

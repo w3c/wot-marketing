@@ -25,7 +25,7 @@ import { getUseCaseBySlug, UseCaseVideo, getMeetupVideoId } from '@/lib/use-case
 import { getStandards } from '@/lib/use-cases/standardsData';
 import { getTestimonials } from '@/lib/use-cases/testimonialsData';
 
-export function UseCaseDetail({ slug }: { slug: string }) {
+export function UseCaseSubpage({ slug }: { slug: string }) {
   const entry = getUseCaseBySlug(slug);
 
   if (!entry) {
