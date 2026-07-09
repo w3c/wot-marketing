@@ -20,8 +20,8 @@ import {
   Sun,
 } from 'lucide-react';
 import meetupLinks from './meetup_youtube_links.json';
-import { Standard } from './standards';
-import { TestimonialId } from './testimonials';
+import { Standard } from './STANDARDS';
+import { TestimonialId } from './TESTIMONIALS';
 export interface Domain {
   title: string;
   description: string;

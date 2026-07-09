@@ -19,7 +19,7 @@ import {
   Lock,
   Activity,
 } from 'lucide-react';
-import { Resource } from './resources';
+import { Resource } from './RESOURCES';
 
 export type Standard =
   | 'jsonld'

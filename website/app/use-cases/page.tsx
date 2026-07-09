@@ -3,12 +3,12 @@
 import { PageLayout } from '../_components/PageLayout';
 import { Typography, Stack, Box, AccordionGroup } from '@mui/joy';
 import { Route } from 'next';
-import { DOMAINS, TECH_TRENDS } from '@/lib/use-cases/useCases';
+import { DOMAINS, TECH_TRENDS } from '@/lib/use-cases/USE_CASES';
 import { LinkCard } from '../_components/LinkCard';
 import { PageSection } from '../_components/PageSection';
 import { TestimonialItem } from '../_components/TestimonialItem';
-import { RESOURCES } from '@/lib/use-cases/resources';
-import { TESTIMONIALS } from '@/lib/use-cases/testimonials';
+import { RESOURCES } from '@/lib/use-cases/RESOURCES';
+import { TESTIMONIALS } from '@/lib/use-cases/TESTIMONIALS';
 
 export default function UseCasesPage() {
   return (

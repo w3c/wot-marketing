@@ -21,9 +21,9 @@ import { PageLayout } from '../../_components/PageLayout';
 import { PageSection } from '../../_components/PageSection';
 import { LinkCard } from '../../_components/LinkCard';
 import { TestimonialItem } from '../../_components/TestimonialItem';
-import { getUseCaseBySlug, UseCaseVideo, getMeetupVideoId } from '@/lib/use-cases/useCases';
-import { getStandards } from '@/lib/use-cases/standards';
-import { getTestimonials } from '@/lib/use-cases/testimonials';
+import { getUseCaseBySlug, UseCaseVideo, getMeetupVideoId } from '@/lib/use-cases/USE_CASES';
+import { getStandards } from '@/lib/use-cases/STANDARDS';
+import { getTestimonials } from '@/lib/use-cases/TESTIMONIALS';
 
 export function UseCaseDetail({ slug }: { slug: string }) {
   const entry = getUseCaseBySlug(slug);
