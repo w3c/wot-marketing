@@ -1,0 +1,905 @@
+0:00:10.640,0:00:18.800
+today uh we have Mikel from gridforce and he is 
+the chief data scientist at Gros uh and data and
+
+0:00:18.800,0:00:26.280
+AI he's uh he has a master's degree in physics 
+and also a PhD mathematics um yeah so he's also
+
+0:00:26.280,0:00:33.240
+one of the a member of the standardization board 
+in Denmark one on AI and on Industrial data which
+
+0:00:33.240,0:00:42.400
+we will learn in a bit from him so Mel thanks for 
+joining us and the floor is yours so hello my name
+
+0:00:42.400,0:00:51.440
+is Migel I'm from Gros um as e said I work as a 
+data scientist and an ontologist and sort of an
+
+0:00:51.440,0:00:59.600
+standardization nerd in in KFOR I would like to 
+sort of report on some work we've been doing uh
+
+0:00:59.600,0:01:11.440
+in the the last uh year or so while establishing 
+the iso TC 184 subcommittee 4 working group 26
+
+0:01:11.440,0:01:20.040
+called industrial data ontology I've been sort 
+of a part of making a use case for that uh called
+
+0:01:20.040,0:01:27.600
+pump with firmware where we have a referenced web 
+of things so I think that's why he wanted me to to
+
+0:01:27.600,0:01:35.120
+come here and talk and the use case is about iot 
+operating instruction so it's very much about web
+
+0:01:35.120,0:01:41.080
+of things and the things you work with I think 
+so I'm not alone in this you see a lot of people
+
+0:01:41.080,0:01:50.360
+here who has contributed uh Kaitlyn and Johan and 
+Maya and Melinda so I have to praise them also so
+
+0:01:50.360,0:01:59.840
+what is Ido in the industrial data ontology so 
+it's actually part three of a multi uh standard
+
+0:02:00.800,0:02:08.560
+arriving on ISO and it's about industrial data 
+it's an ontology for representing industrial data
+
+0:02:08.560,0:02:14.480
+and information building vocabularies and manage 
+asset models that employ reference data libraries
+
+0:02:14.480,0:02:24.800
+and exploit reasoning um so it is derived from 
+other sort of standards and it was formerly known
+
+0:02:24.800,0:02:33.040
+as ISO 5926 part 14 and maybe someone has used 
+that before it has actually been put in place
+
+0:02:33.040,0:02:40.960
+into several industrial projects and this Ido 
+Community grew out of uh out of that community
+
+0:02:40.960,0:02:49.920
+and we owe a lot to to that standard it has now 
+been deleted from the iso 5926 series and uh we
+
+0:02:49.920,0:02:58.640
+have sort of taken over uh it has been used a lot 
+within the oil and gas industry and that's sort
+
+0:02:58.640,0:03:05.680
+of logical because 59 to6 was was about oil and 
+gas and process plants but we are sort of taking
+
+0:03:05.680,0:03:11.440
+it out and using it also in gunas for instance we 
+use it for industrial discrete manufacturing and
+
+0:03:11.440,0:03:21.680
+so on it has a it's a standard it's an semantic 
+web ontology it has 54 classes some data type
+
+0:03:21.680,0:03:27.520
+properties and some object properties and you 
+see here to the right you see some of the I'll
+
+0:03:27.520,0:03:36.520
+just turn on my laser point you see the class 
+hierarchy so so it's not like a huge ontology
+
+0:03:36.520,0:03:45.280
+uh so I will sort of present the use case and the 
+use case I can sort of uh motivated by a use case
+
+0:03:45.280,0:03:51.560
+from our World of Water Solutions it's a little 
+contrived and and thought up but but it I think
+
+0:03:51.560,0:04:00.280
+it it holds water so so here you you see a a 
+a branch in the United States called bar X bar
+
+0:04:00.280,0:04:08.280
+range it's near Wilcox in Arizona and that place 
+it has actually groundwater pumps in the ground
+
+0:04:08.280,0:04:16.240
+pumping water and there's a some software in a PLC 
+that does some intelligence on how to control this
+
+0:04:16.240,0:04:22.000
+facility because sometimes it wants to pump it 
+should pump water to the livestock so the cows
+
+0:04:22.000,0:04:27.560
+get water and when they have enough water when 
+the sensor in in the water thrust they say that
+
+0:04:27.560,0:04:36.520
+okay there's enough water then they use water 
+to irrigate the vegetation because part of this
+
+0:04:36.520,0:04:41.600
+system is also for battling some of the drought 
+out there and and the very dry conditions and
+
+0:04:41.600,0:04:50.160
+and trying to reestablish vegetation out there 
+in general so there is this intelligence about
+
+0:04:50.160,0:04:55.320
+where to pump and that's exactly the things 
+that gas and and our teams has been working
+
+0:04:55.320,0:05:01.520
+on making Cloud solutions that do these kinds 
+of things um but it's not simple to manage all
+
+0:05:01.520,0:05:09.360
+of the iot equipment that goes into such a kind 
+of solution and so so this use case is about that
+
+0:05:09.360,0:05:18.240
+um the irrigation business of gfor is organized 
+under the water utility Division and uh one part
+
+0:05:18.240,0:05:25.600
+of gfor utility makes pumps for irrigation and a 
+whole different team makes Cloud solutions that
+
+0:05:25.600,0:05:33.480
+take uh advantage of these iot capabilities of the 
+devices these two teams are sort of the the people
+
+0:05:33.480,0:05:39.240
+who produce embedded software and the people who 
+make Cloud solutions they are actually sort of
+
+0:05:39.240,0:05:47.480
+far apart both physically and maybe also mentally 
+so they don't uh always convey and hand over the
+
+0:05:47.480,0:05:53.920
+information about how to use uh what we call e 
+products very well or at least they didn't used
+
+0:05:53.920,0:06:01.680
+to do it um so this is one of the things that 
+that has been a hurdle to to get these kinds
+
+0:06:01.680,0:06:10.240
+of intelligent Water Solutions up and running 
+um so I think Beacham research around 2020 They
+
+0:06:10.240,0:06:15.920
+concluded nearly three qus of iot projects won't 
+be considered successful so so what is it that's
+
+0:06:15.920,0:06:23.240
+so hard about making iot Solutions and I think 
+one of the things one of the stumbling blocks is
+
+0:06:23.240,0:06:31.680
+actually a operating sort of instruction Handover 
+from the manufacturers here to the left you can
+
+0:06:31.680,0:06:41.720
+see our embedded software as the manufacturers 
+to the sort of um solution developers our team
+
+0:06:41.720,0:06:47.040
+was sort of tasked with making this a little 
+better um and and sort of strengthening this
+
+0:06:47.040,0:06:55.240
+information Handover and around four years ago I 
+started looking around okay how can we then what
+
+0:06:55.240,0:07:01.920
+kind of things are there out there what Solutions 
+are there out there for for moving data from about
+
+0:07:01.920,0:07:08.320
+how to use iot equipment and I found the web of 
+things uh standard to be very useful and and we
+
+0:07:08.320,0:07:16.840
+based our internal sort of iot device database on 
+the thinking of web of things and on the sort of
+
+0:07:16.840,0:07:21.920
+how this works we don't have I have to be honest 
+and say we don't have exactly implemented web of
+
+0:07:21.920,0:07:30.320
+things as the the backbone solution yet but we 
+are sort of able to to construct a web of things
+
+0:07:30.320,0:07:40.360
+files from our database because we are using the 
+same kind of thinking in our our setup so here
+
+0:07:40.360,0:07:46.640
+the idea is that the web of things file would 
+be the information Handover from the embeded
+
+0:07:46.640,0:07:53.600
+software that tells the Cloud solution people 
+exactly how to use a given device and and what
+
+0:07:53.600,0:08:00.760
+what functionalities what affordances can it 
+actually use can it deliver when talking to
+
+0:08:00.760,0:08:09.920
+the cloud without sort of going into the detail 
+of exactly how it's implemented on the device um
+
+0:08:09.920,0:08:15.920
+so now I would like to switch to our the Ido model 
+that we have made that sort of fuels this system
+
+0:08:15.920,0:08:23.560
+and that's also the use case um our goal with this 
+use case my my sort of initial thought with this
+
+0:08:23.560,0:08:29.600
+use case was that we we want to meet the engineers 
+where they are we want to sort of figure out how
+
+0:08:29.600,0:08:39.240
+to pick out information from the existing practice 
+of systems engineering um and we want to be able
+
+0:08:39.240,0:08:46.720
+to do this at scale so in gas we actually have 
+a lot of types of pumps we we sell hundreds of
+
+0:08:46.720,0:08:57.160
+thousands of different types of pumps um so that 
+means having people uh being forced to talk to
+
+0:08:57.160,0:09:03.720
+to to people from the left and right having Cloud 
+Solutions people being forced to to call embedded
+
+0:09:03.720,0:09:07.720
+software people that really doesn't scale when you 
+have that many types of pumps because you have so
+
+0:09:07.720,0:09:16.760
+many teams that needed to talk so we needed to 
+do this automated um and we wanted to base our
+
+0:09:16.760,0:09:22.720
+thinking on Open Standards so so that's why we uh 
+found things like we things but also how we found
+
+0:09:22.720,0:09:30.480
+the Ido back then it was called ISO 5906 part 14 
+as I mentioned and there's a Community around the
+
+0:09:30.480,0:09:37.000
+POS Caesar Association that has released a lot 
+of design patterns that we actually adopted in
+
+0:09:37.000,0:09:42.880
+in this use case and and expanded upon that was 
+a part of the reasons why we we embarked on this
+
+0:09:42.880,0:09:49.360
+journey and the whole idea is to see H see how 
+standardized can we actually do the modeling H
+
+0:09:49.360,0:09:56.680
+how how can we lessen the dependency of these 
+hero developers that sit and make scripts that
+
+0:09:56.680,0:10:03.640
+make everything work but then you have a huge 
+risk if these uh key persons they get a new job
+
+0:10:03.640,0:10:11.560
+or things like that so the use case is about a 
+pump with a firmware so this is just sort of a
+
+0:10:11.560,0:10:18.160
+mental picture to keep in mind when when looking 
+at it and in order to sort of test if the web of
+
+0:10:18.160,0:10:24.640
+things file could do what we wanted it to do we 
+wanted to sort of go all the way to the actual
+
+0:10:24.640,0:10:31.720
+depth of modeling that was needed so in order to 
+do that we we we picked one data property or one
+
+0:10:31.720,0:10:38.640
+iot data point that had sort of a some interesting 
+features that made it a good use case and that was
+
+0:10:38.640,0:10:43.760
+the liquid temperature pump liquid temperature 
+so I don't know if you know but when you make
+
+0:10:43.760,0:10:50.720
+a pump uh sometimes the pump has some electronics 
+and sometimes it has an iot server inside it and
+
+0:10:50.720,0:10:57.440
+it can actually deliver pumped liquid temperature 
+but often it's not because there's a thermometer
+
+0:10:57.440,0:11:02.920
+directly IM immersed into to the fluid often 
+It's actually an estimated temperature and you
+
+0:11:02.920,0:11:10.680
+are maybe measuring um the temperature of for 
+instance the housing in this case because it
+
+0:11:10.680,0:11:16.920
+really doesn't make sense to to break the seal of 
+the the pump housing it it's it's hard to to keep
+
+0:11:16.920,0:11:24.520
+that seal so this means that software the software 
+side of this story is that in order to to report
+
+0:11:24.520,0:11:31.320
+the liquid temperature you actually has to have 
+to estimate the temperature based on the housing
+
+0:11:31.320,0:11:38.000
+temperature and you have to deal with maybe 
+uh different temperature sensors for different
+
+0:11:38.000,0:11:44.000
+product ranges but probably use the same line of 
+temperature estimation algorithms and so on so
+
+0:11:44.000,0:11:51.800
+you have to sort of put yourself in a place where 
+you can organize that complexity um so this means
+
+0:11:51.800,0:11:59.120
+in in the language of Ido it it it means there 
+are different activities or software processes
+
+0:11:59.120,0:12:05.440
+you can think of it going on there's an activity 
+on on measuring the observing the the LI the the
+
+0:12:05.440,0:12:13.120
+housing temperature there's an activity on storing 
+it locally in in a memory where the estimation
+
+0:12:13.120,0:12:18.240
+algorithm can get to it and then there's a 
+process of estimating the liquid temperature and
+
+0:12:18.240,0:12:23.680
+then there's a process of OBS serving this liquid 
+temperature out as you can see here there's some
+
+0:12:23.680,0:12:29.600
+numbering to it that's because in the model you'll 
+see three different processes we have sort of uh
+
+0:12:29.600,0:12:36.200
+bunched together the last two uh processes just 
+to make the model a little smaller so it actually
+
+0:12:36.200,0:12:42.640
+could fit in the iso document that was submitted 
+in the iso draft so this is an official use case
+
+0:12:42.640,0:12:51.320
+that was submitted to the to the iso community 
+in the iso draft in Paris in in this the spring
+
+0:12:51.320,0:13:01.280
+this year um the interesting thing about this data 
+point is is that it's actually important to know
+
+0:13:01.280,0:13:09.200
+the resolution of the data so that means and I'll 
+just maybe you all know this I'm sorry if this is
+
+0:13:09.200,0:13:14.520
+a basic and it feels like a math class but I I 
+will get out of the rabbit hole again I promise
+
+0:13:14.520,0:13:21.200
+but the the data resolution here is really about 
+H how do you represent a continuous number like
+
+0:13:21.200,0:13:28.920
+the temperature uh in in software and and and 
+here just to make it easier to to think about
+
+0:13:28.920,0:13:34.200
+then let's consider what if we only wanted 
+to use four bits in this the memory of the
+
+0:13:34.200,0:13:41.640
+pump to to store the the sort of temperature and 
+this makes sense actually because you can make a
+
+0:13:41.640,0:13:47.920
+pump a little cheaper if you put less memory in 
+it so if you if you can do with four bits then
+
+0:13:47.920,0:13:54.760
+you shouldn't use more than four bits and that's 
+that's a good design principle um then you would
+
+0:13:54.760,0:14:03.000
+probably sort of if if you have like a a simple 
+way of of of of representing this data then you
+
+0:14:03.000,0:14:10.160
+could you could think of a two to the power of 
+four that 16 different buckets that you then you
+
+0:14:10.160,0:14:15.960
+can basically only say if if your temperature is 
+in one of the buckets so it's it's a temperature
+
+0:14:15.960,0:14:22.880
+between the range of 0 to 10 degrees or 10 to 
+20 degrees and so on and this means I I skip
+
+0:14:22.880,0:14:28.280
+that but the calibration of the sensor is also 
+important so you need to know what was the the
+
+0:14:28.280,0:14:33.240
+minimum temperature the sensor is is calibrated 
+to to measure in the maximum maybe the saturation
+
+0:14:33.240,0:14:41.080
+where it will sort of not report any temperature 
+anymore so given the the range and the sort of
+
+0:14:41.080,0:14:49.360
+register size you sort of know the resolution 
+and that is you you know how many buckets can
+
+0:14:49.360,0:14:58.400
+I divide my my range into and if you want to keep 
+it sort of a number that is uh independent on the
+
+0:14:58.400,0:15:03.920
+Cali cration you can think about the sort of 
+percentage of the full range that the bucket
+
+0:15:03.920,0:15:16.120
+size fits so that means each bucket here is about 
+uh 6.25% or something uh so you can also think of
+
+0:15:16.120,0:15:23.160
+it as a step size so I put in here a a staircase 
+so we can really think about step sizes this is
+
+0:15:23.160,0:15:28.720
+how you get from zero to one in the percentage of 
+range these numbers you will see in the model and
+
+0:15:28.720,0:15:35.000
+this this is what they mean um so if we look at 
+the web of things file that we are really talking
+
+0:15:35.000,0:15:41.360
+about it's not so much about modeling up here in 
+the sort of the type hierarchy and the the product
+
+0:15:41.360,0:15:48.320
+hierarchy it's more about how do we get these 
+values right the minimum value the maximum value
+
+0:15:48.320,0:15:55.000
+and the multiple of sort of the the resolution 
+so the multiple of is basically what we want to
+
+0:15:55.000,0:16:01.800
+to talk about that corresponds to this step size 
+so so how come it should actually be one maybe
+
+0:16:01.800,0:16:07.480
+one it doesn't seem like a fantastic interesting 
+number but it's actually really important because
+
+0:16:07.480,0:16:12.680
+if you're are sitting and and making a Cloud 
+solution and you are you're looking at the data
+
+0:16:12.680,0:16:19.680
+and then you see a variation on the this sort 
+of the scale maybe your all your data has been
+
+0:16:19.680,0:16:25.040
+put into float so you don't know that this has 
+been forbit at some point you just have these
+
+0:16:25.040,0:16:33.560
+float numbers coming into your Cloud solution 
+into your C whatever function and it could be
+
+0:16:33.560,0:16:41.200
+that somehow somewhere some transformation 
+of the data uh has introduced and sort of
+
+0:16:41.200,0:16:49.560
+artificial resolution of this data it could be 
+that you get 1.1 and then maybe it it jumps to
+
+0:16:49.560,0:16:59.640
+1.5 and is that then a real thing is it or is 
+it just a noise due to the the data traffic and
+
+0:16:59.640,0:17:03.880
+that's actually what this files tell you if you 
+know that this data is going to be the multiple
+
+0:17:03.880,0:17:11.960
+of one then you can ignore that jump if it's 
+like high Precision uh medical plant you're
+
+0:17:11.960,0:17:17.120
+making and maybe that jump in temperature is 
+super important and you need to react to it
+
+0:17:17.120,0:17:22.760
+sometimes if you tell a customer to react to 
+something it's really expensive so this Farm
+
+0:17:22.760,0:17:27.080
+the the owner he could live hundreds of miles 
+away from the the station so if he has to go
+
+0:17:27.080,0:17:33.760
+into his car and drive for 3 hours you really 
+want him to to react to a real event and not
+
+0:17:33.760,0:17:40.760
+to some noise in the data and this is what this 
+uh this data point can actually help you with so
+
+0:17:40.760,0:17:46.760
+so this basically tells you that these are the 
+data points you should care about any smaller
+
+0:17:46.760,0:17:55.760
+change than this is just noise due to the whole 
+sort of a transportation of the data from the
+
+0:17:55.760,0:18:04.400
+sensor to the cloud but but this is the important 
+resolution of data uh I will now show you the the
+
+0:18:04.400,0:18:12.600
+model uh in order for it to fit on the slides 
+we have invented this condensed notation so
+
+0:18:12.600,0:18:21.280
+you see some bold things in a box and then you 
+see something that's not bold the Bold numbers
+
+0:18:21.280,0:18:28.040
+and the Bold IDs the Bold IR eyes they are 
+actually classes and what you see here is a
+
+0:18:28.040,0:18:35.440
+small class hierarchy so you can say this is 
+a way of saying that this e78 is a subass of
+
+0:18:35.440,0:18:41.440
+the cooling Pump class and the cooling pumps 
+class is a subass of the pump class which is
+
+0:18:41.440,0:18:49.760
+a subass of physical artifact and this list Nam 
+space here it stands for life cycle information
+
+0:18:49.760,0:18:58.680
+system and that's actually the Nam space of the 
+Ido standard so it it has been we have ad adopted
+
+0:18:58.680,0:19:06.480
+the old namespace in order for these existing 
+systems to to survive so this Lis that's the a
+
+0:19:06.480,0:19:16.920
+normal way to abbreviate the namespace of the Ido 
+so I've tried to in the model anchor everything in
+
+0:19:16.920,0:19:25.440
+Ido classes and Ido properties the II that's not 
+bold that's the the identifier for the the thing
+
+0:19:25.440,0:19:30.360
+that's the instance that's identifier for the 
+specific pump that has a serial number you can
+
+0:19:30.360,0:19:37.280
+go out you can you can touch it you can kick it 
+it's a real thing um and in the same sense there
+
+0:19:37.280,0:19:45.480
+you can have hierarchies of properties uh so 
+that means uh if you have these this stack in a
+
+0:19:45.480,0:19:51.560
+property relationship it just means that it's the 
+lowest one that you that we actually use but it's
+
+0:19:51.560,0:19:57.200
+a subproperty of consumes and it's a subproperty 
+of has participant so this is how it is anchored
+
+0:19:57.200,0:20:07.160
+in the the the Ido standard yes now for the 
+model I think maybe I consume let's see if I
+
+0:20:07.160,0:20:19.440
+can this kind of [Music]
+
+0:20:19.440,0:20:31.560
+system uh maybe maybe not maybe not in this fancy 
+uh way of of sharing anyway so I hope you have big
+
+0:20:31.560,0:20:38.160
+screens because then I I'll try to point anyway so 
+what you see here is a full model and and we have
+
+0:20:38.160,0:20:45.040
+uh colored it into to different uh colors just 
+to help you it's it's not really necessary for
+
+0:20:45.040,0:20:52.080
+the database to to consume it to have these colors 
+uh what we have modeled is both some Hardware so
+
+0:20:52.080,0:21:00.360
+that's all physical artifacts you see and then 
+we have some software um that's the the light
+
+0:21:00.360,0:21:07.480
+blue uh we also have these activities that I 
+I talked about earlier the three activities
+
+0:21:07.480,0:21:13.840
+and one of them actually has a sub activity so 
+so we're talking about parts of activities and
+
+0:21:13.840,0:21:19.160
+that's that's a very interesting way of thinking 
+it can can hurt a little bit trying to think about
+
+0:21:19.160,0:21:25.640
+it but but it actually works and then we have 
+um some functions and we have the data that's
+
+0:21:25.640,0:21:32.360
+actually important and I have just outl find in 
+red the the temperature data point as they sort
+
+0:21:32.360,0:21:41.040
+of move through the life cycles so you can see 
+here in the top right we have the activity that
+
+0:21:41.040,0:21:48.560
+that observes the the the housing temperature 
+that's this measurement and here um it's sort
+
+0:21:48.560,0:21:55.240
+of out of that we we we deliver what we call 
+Profile quantity datum that's that's a long
+
+0:21:55.240,0:21:59.720
+history why we call it that but you can ask me and 
+I'll I'll tell you yeah I don't have to do it now
+
+0:21:59.720,0:22:06.080
+it will bore a lot of you and then we generate 
+this first data point here and here we see we
+
+0:22:06.080,0:22:13.080
+have some metadata on the data point and that's 
+exactly these uh relative step sizes so this is
+
+0:22:13.080,0:22:20.000
+the important bit this number here 0.0 something 
+I can't actually read it it's so small but that's
+
+0:22:20.000,0:22:28.080
+that is the resolution of the data at this stage 
+in the sort of lineage of the data the data is
+
+0:22:28.080,0:22:37.360
+then uh consumed in another activity where it is 
+down down sampled and and stored on the local uh
+
+0:22:37.360,0:22:44.760
+hard drive or sorry Ram sorry not hard drive 
+and here you see it now it has a larger step
+
+0:22:44.760,0:22:54.640
+size so it has a more coarse granulation of the 
+data and and this basically just uh is a sort of
+
+0:22:54.640,0:23:02.360
+reflection of initially we started in six 16 bits 
+and now we start in 8 Bits And this is it's a way
+
+0:23:02.360,0:23:09.280
+of telling the story what if the pump manufacturer 
+had sourced a sensor in that was born with 16 bits
+
+0:23:09.280,0:23:14.880
+so that's sort of what you get from the sensor 
+vendor but you actually only have eight bits in
+
+0:23:14.880,0:23:21.560
+the memory of the pump so so then you would have 
+to down sample it to to fit it into this memory
+
+0:23:21.560,0:23:31.920
+it could happen um and then there is a sort of 
+the last activity is this activity of estimating
+
+0:23:31.920,0:23:41.320
+the the liquid temperature and serving it out 
+this is where we we keep the same sort of Step
+
+0:23:41.320,0:23:50.640
+size and now we also have a metadata where we say 
+okay this actually has a web of thing multiple of
+
+0:23:50.640,0:23:58.080
+metadata that's important at this point and 
+it's going to be one so what is the general
+
+0:23:58.080,0:24:06.080
+rule here the general rule is that you should not 
+see that this step size become finer you would not
+
+0:24:06.080,0:24:12.840
+see finer granulation in normal in these software 
+processes when you process data you should not see
+
+0:24:12.840,0:24:22.560
+this thing going going sort of up in resolution 
+as it moves along it can only be more course in
+
+0:24:22.560,0:24:28.960
+in resolution or stay the same and that we can 
+actually validate that so let me see if I can
+
+0:24:28.960,0:24:35.600
+get to that uh and these these are some modeling 
+things but I think I've talked through it the
+
+0:24:35.600,0:24:40.920
+fun thing is we can actually do a put this whole 
+graph I i' I've serialized it and put it into a
+
+0:24:40.920,0:24:48.760
+triple store with the all aums and so on and then 
+I've made this sparkle query that then validates
+
+0:24:48.760,0:24:58.560
+what if is all of the software activities are 
+they obeying this uh eristic that the sort
+
+0:24:58.560,0:25:10.520
+of you see here the the produced resolution 
+value is less than the consumed resolution
+
+0:25:10.520,0:25:18.320
+value oh sorry this the resolution value should 
+be more should be larger number than this consumed
+
+0:25:18.320,0:25:24.360
+resolution value this this is a what you want to 
+to have happen so and this is how you can actually
+
+0:25:24.360,0:25:29.480
+validate this whole product portfolio and make 
+sure what you're reporting in the web of thing
+
+0:25:29.480,0:25:38.400
+file makes sense so in this sense you have a 
+sort of a system where you would know how to
+
+0:25:38.400,0:25:45.880
+check what if I uh change this memory or what if 
+I change this sensor should I also change the web
+
+0:25:45.880,0:25:53.880
+of things file is or is it still valid you can 
+you can check it using this algorithm so that
+
+0:25:53.880,0:26:00.760
+was the rabbit hole I'll jump out now again so 
+uh what has this whole system done for us it's
+
+0:26:00.760,0:26:08.640
+just examplified how you can uh pull out different 
+informations about the hardware and the software
+
+0:26:08.640,0:26:15.920
+collected in a we thing file and collect it in 
+a industrial data ontology product ontology and
+
+0:26:15.920,0:26:25.960
+Knowledge Graph and then you can validate these 
+things um and the the sort of we have achieved
+
+0:26:25.960,0:26:32.560
+this value that we wanted from the outset we we 
+can now communicate quality informations from
+
+0:26:32.560,0:26:39.200
+the embeda software development team to the cloud 
+development team using for instance web of things
+
+0:26:39.200,0:26:46.360
+and think description files we could generate 
+from this database um we can validate it as
+
+0:26:46.360,0:26:51.800
+I so uh and it takes actually information both 
+from the hardware and the software perspective
+
+0:26:51.800,0:27:00.680
+to to to validate this um and if we put this 
+in place then instead of having sort of PDFs
+
+0:27:00.680,0:27:05.200
+as as the documents we could actually make a 
+database where we can roll out hot fixes much
+
+0:27:05.200,0:27:10.520
+quicker through the digital teams and digital 
+offerings and uh this could even be a standard
+
+0:27:10.520,0:27:18.680
+based system and and we could even extend this 
+because it's Open Standards it's worldwide Web
+
+0:27:18.680,0:27:26.080
+Consortium standards and ISO standards we could 
+actually negotiate a contract with partners and
+
+0:27:26.080,0:27:31.000
+and vendors and suppliers and so on and others 
+people in the whole ecosystem around the iot
+
+0:27:31.000,0:27:40.360
+devices could contribute to this model um so 
+that's B basically it what I had this is what
+
+0:27:40.360,0:27:47.880
+we did it is in the iso draft if you're part of 
+working group 26 you can probably see it there or
+
+0:27:47.880,0:27:53.560
+else you you saw it here and you can ask me 
+for for the files I'll give it to you thank
+
+0:27:53.560,0:27:57.520
+you

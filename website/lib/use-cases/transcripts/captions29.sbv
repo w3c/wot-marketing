@@ -1,0 +1,1455 @@
+0:00:08.480,0:00:15.200
+With us here today is first of all Eric Bashet 
+who is at Microsoft and he has started in the
+
+0:00:15.200,0:00:20.880
+Windows team and now and later on has joined 
+the Azure team and worked in automotive and
+
+0:00:20.880,0:00:29.920
+manufacturing verticals and uh he has founded the 
+Windows and Azure Azure industrial ID teams and
+
+0:00:29.920,0:00:34.560
+If you are aware of any industrial IT product 
+for Microsoft, you have probably seen his name
+
+0:00:34.560,0:00:42.320
+already. And he's also very involved recently in 
+industrial standards and their usage in Microsoft
+
+0:00:42.320,0:00:48.640
+and al as well the commitments to the open source 
+uh as the as a senior director and architect at
+
+0:00:48.640,0:00:56.480
+the corporate standards group at Microsoft. So 
+welcome Eric. Thank you for having me. Yeah. Yeah.
+
+0:00:56.480,0:01:03.920
+On the other hand, we have Sebastian Kish who is 
+a principal key expert at Semens Munich, Germany
+
+0:01:03.920,0:01:10.320
+and he's basically working on uh the efficient 
+realization and usage of standardized uh internet
+
+0:01:10.320,0:01:17.280
+and web technologies in the broad industrial 
+IoT domain and uh you probably see his name
+
+0:01:17.280,0:01:23.360
+in different places uh in strategic initiatives, 
+research or development topics with CMAS business
+
+0:01:23.360,0:01:28.720
+units but also outside uh in industrial and 
+building automation domains. He is also of course
+
+0:01:28.720,0:01:36.560
+the co-chair of the web of things working group 
+and also the UA binding at the OPC foundation.
+
+0:01:36.560,0:01:43.440
+Yeah. And with this we will start uh the 
+presentation and yeah the topic is OPCA and web
+
+0:01:43.440,0:01:51.440
+of things. So Eric and Sebastian you can take the 
+floor. Okay. Thank you so much. So um I'm going
+
+0:01:51.440,0:01:58.880
+to focus my presentation on basically the mapping 
+from Weber things to OPCA while Sebastian's going
+
+0:01:58.880,0:02:12.400
+to focus on the mapping from OPCA to Weber things. 
+So basically with that I will share my screen.
+
+0:02:12.400,0:02:21.840
+Um so you already heard where I work. Um I'm also 
+the chair of the cloud initiative inside the OPC
+
+0:02:21.840,0:02:28.000
+foundation and what you're seeing here today 
+is a big part of this cloud initiative which is
+
+0:02:28.000,0:02:38.480
+basically bundling all cloud related technologies 
+at the OPC foundation. So what we hear from
+
+0:02:38.480,0:02:44.960
+members of the OPC Foundation all the time is 
+that their biggest challenge is vendor lock in and
+
+0:02:44.960,0:02:52.080
+obviously um that can come in various different 
+shapes and sizes. So usually you're forced to use
+
+0:02:52.080,0:02:58.720
+a specific SDK or interface, communication 
+protocol or data model, but you can also be
+
+0:02:58.720,0:03:06.560
+locked into a specific software platform or have 
+to buy specific hardware. So the question is how
+
+0:03:06.560,0:03:16.560
+do we avoid vendor lock in? Well, for that we need 
+four things. We um need a standardized interface,
+
+0:03:16.560,0:03:23.760
+a standardized data format, standardized data 
+model, and standardized semantics. So I have this
+
+0:03:23.760,0:03:32.000
+analy an analogy here. I'm not sure if it works 
+for you, but those four things is what really
+
+0:03:32.000,0:03:40.960
+makes an interable solution that doesn't lock 
+you in to a proprietary ecosystem. So, OPCOA as
+
+0:03:40.960,0:03:48.560
+the industrial interoperability standard has this 
+interoperability at its heart. So, for example, if
+
+0:03:48.560,0:03:59.040
+you buy a modern industrial robot, which uh most 
+likely will have OPCA built in, you will see that
+
+0:03:59.040,0:04:06.000
+the interface to that robot is what OPCA calls 
+client server technology. It's the interface.
+
+0:04:06.000,0:04:12.960
+Um the data format would be a binary format that 
+the OPCOA standard which is incidentally an IEC
+
+0:04:12.960,0:04:23.280
+standard um defines and then there's also an opcua 
+information model. is actually very powerful the
+
+0:04:23.280,0:04:31.680
+opcua modeling language and then finally there is 
+specific semantics covered in so-called companion
+
+0:04:31.680,0:04:38.960
+specifications to the opcua standard and there's 
+one for robotics. So if you have such a robot,
+
+0:04:38.960,0:04:47.280
+you're lucky because you're completely agnostic 
+um and can use this robot without being locked in
+
+0:04:47.280,0:04:54.320
+to the ecosystem of the robot manufacturer. But 
+not every device that people use in industrial
+
+0:04:54.320,0:05:00.640
+environments are robots. So what happens for 
+example if it's a smaller device like a seaman's
+
+0:05:00.640,0:05:08.000
+energy meter? Well, in that case, more than likely 
+uh you will be faced with a simpler interface like
+
+0:05:08.000,0:05:14.800
+Modbus and then you're really stuck, right? 
+Because the data format, the data model and
+
+0:05:14.800,0:05:23.600
+semantics you will probably be handed in the form 
+of a PDF document that comes with the device with
+
+0:05:23.600,0:05:31.200
+the asset and then you need to read that PDF 
+to understand how to extract the data from it.
+
+0:05:31.840,0:05:38.480
+So this is where Weber things can help because 
+Weber things actually covers that gap right.
+
+0:05:38.480,0:05:45.200
+So web things uses as you know JSONLDD data 
+format. The data model is described in a
+
+0:05:45.200,0:05:51.760
+so-called thing description and then the semantics 
+for example for accessing the bunt bus interface
+
+0:05:51.760,0:06:00.000
+and describing exactly which Modbus register 
+uh you know corresponds to which tag that the
+
+0:06:00.000,0:06:06.960
+asset has is covered in the so-called protocol 
+binding. So with a thing description which is
+
+0:06:06.960,0:06:15.520
+machine readable you are again not locked in 
+to a proprietary ecosystem but the question is
+
+0:06:15.520,0:06:21.520
+how do you create that thing description I mean 
+ideally it's provided by asset vendor right so in
+
+0:06:21.520,0:06:29.760
+fact semens have provided a think description 
+for the central pack range on github but um
+
+0:06:29.760,0:06:40.720
+for all these other devices that don't have OPCA 
+built in. Uh what do you do? Right? So a lot of
+
+0:06:40.720,0:06:49.440
+uh manufacturers want to map every asset to a 
+common interface. For example, OPCUA. So if an
+
+0:06:49.440,0:06:57.520
+asset doesn't support OPCA natively, they want 
+to use connectivity software to connect to the
+
+0:06:57.520,0:07:06.240
+device and then translate it to OPCA. And our idea 
+was to actually feed that connectivity software
+
+0:07:06.240,0:07:14.000
+with a thing description. So why is OPCA so 
+important? Well, there's several reasons,
+
+0:07:14.000,0:07:24.160
+but the main reasons why OPCOA has become um a 
+worldwide standard and really you know there is no
+
+0:07:24.160,0:07:29.760
+alternative that I see. Um OPC Foundation is very 
+successful. This slide's actually out of date.
+
+0:07:29.760,0:07:36.960
+It's we have over a thousand members now in the 
+OPC Foundation. Um, and it's it's so successful
+
+0:07:36.960,0:07:42.960
+because mainly of these three properties of 
+the OPCOA standard. Like I mentioned already,
+
+0:07:42.960,0:07:49.920
+it's very interoperable. It's open source. There's 
+several open-source reference implementations on
+
+0:07:49.920,0:07:57.200
+GitHub. Uh, it's owned by a nonprofit, 
+the OPC Foundation, and it is, you know,
+
+0:07:57.200,0:08:02.400
+scalable from sensor to cloud. I already mentioned 
+the data modeling language. It's very powerful,
+
+0:08:02.400,0:08:11.600
+very flexible uh yet simple. Um but it can do 
+it can be extensible. It uses inheritance for
+
+0:08:11.600,0:08:18.400
+example. So you can inherit from an existing 
+type to create a new type um and so on. So it's
+
+0:08:18.400,0:08:24.800
+very powerful but pretty simple. Everything is a 
+node and the actual data model itself is a graph.
+
+0:08:24.800,0:08:31.200
+So you can have relationships that go beyond 
+simple parent child relationships. You can
+
+0:08:31.200,0:08:38.160
+have references to other nodes and so on which 
+is which is quite useful. And in my opinion it
+
+0:08:38.160,0:08:46.480
+has best-in-class security for uh operational 
+technology. So uh it uses certificates for
+
+0:08:46.480,0:08:55.760
+authentication. Um there's authorization built 
+in. All the important things that make up a good
+
+0:08:55.760,0:09:02.320
+security solution is already available and 
+the security standards in OBC way continue
+
+0:09:02.320,0:09:11.760
+to be developed further to always be one step 
+ahead of the bad actor. I already mentioned the
+
+0:09:11.760,0:09:17.600
+semantic information that is covered in so-called 
+companion specs and the VDMA the German machine
+
+0:09:17.600,0:09:25.280
+builder association have done an excellent job 
+with over 600 uh companies involved in building
+
+0:09:25.280,0:09:32.240
+these semantic companion specifications for 
+specific asset types. You can see an extract here.
+
+0:09:32.240,0:09:37.840
+This slide is always out of date because they're 
+continuously delivering new semantic models,
+
+0:09:37.840,0:09:43.840
+but you can see they're well on their way to 
+covering the entire range of products of assets
+
+0:09:43.840,0:09:53.120
+available today. And this will continue forever 
+probably because as new asset types come out,
+
+0:09:53.120,0:10:01.440
+new semantic models are created or existing ones 
+are updated. So really uh the BDMMA has has really
+
+0:10:01.440,0:10:08.080
+committed to using OPC way. So I mentioned 
+industrial connectivity software and this is
+
+0:10:08.080,0:10:18.640
+really what people use to take proprietary assets 
+and map them to OPCOA. Here's a a sample of um
+
+0:10:18.640,0:10:26.320
+these connectivity software solutions. Um there's 
+plenty of them. They all have an OPCA interface.
+
+0:10:27.200,0:10:34.240
+northbound to the customer and southbound to 
+the asset. They speak many different protocols
+
+0:10:34.240,0:10:39.520
+depending on what kind of asset you're connecting. 
+Uh they sometimes are referred to as protocol
+
+0:10:39.520,0:10:49.120
+drivers. Uh in web things speak their protocol 
+bindings, right? So again, you have a choice and
+
+0:10:49.120,0:10:56.880
+the idea is that eventually all of these offerings 
+will be able to use Weber things descriptions
+
+0:10:56.880,0:11:05.840
+as a input to configure specific assets. So 
+let's have a look at the size of the problem.
+
+0:11:06.400,0:11:11.120
+So these are estimated worldwide numbers, 
+but they've been confirmed several times
+
+0:11:11.120,0:11:20.160
+now with all sorts of uh members inside the OPC 
+Foundation. So we feel pretty positive about them.
+
+0:11:20.160,0:11:26.560
+Maybe they're off by a few percent here and there, 
+but you know, to show you the the problem space,
+
+0:11:26.560,0:11:32.880
+you can really argue that about 10% of all 
+assets are discoverable, which means that you
+
+0:11:32.880,0:11:40.320
+connect to them and you can extract the data 
+model and its meaning from the asset itself.
+
+0:11:40.320,0:11:53.760
+So no web things file required. However, 90% of 
+assets in industrial uh equipment today is not
+
+0:11:53.760,0:12:05.440
+discoverable which means that you need some form 
+of providing a description of the asset externally
+
+0:12:05.440,0:12:20.080
+for example through a web thinking description. 
+Now from those 90% roughly 63% um of the total
+
+0:12:20.080,0:12:27.840
+are fixed function assets. So their data model 
+is always the same for for example the central
+
+0:12:27.840,0:12:34.960
+pack right so that's great because it means that 
+you ship your product you create a web things file
+
+0:12:34.960,0:12:41.680
+once and you ship it along with your product and 
+you're done right where it gets complicated are
+
+0:12:41.680,0:12:51.760
+so-called programmable assets or programmable PLC 
+or you know PLC's programmable logic controllers
+
+0:12:51.760,0:12:56.960
+um and their data model changes all the 
+time. Every time you reprogram the PLC,
+
+0:12:56.960,0:13:03.280
+you end up with a different data model. 
+So the only way to onboard such an asset
+
+0:13:03.280,0:13:09.440
+if it's not discoverable is if you have the 
+engineering project that you use to program
+
+0:13:09.440,0:13:17.360
+your PLC and you extract the data model from that 
+engineering project, right? And that's possible,
+
+0:13:17.360,0:13:27.440
+right? It's not um uncommon and I know Semens is 
+working on um a way to extract the Weber things
+
+0:13:27.440,0:13:37.360
+um file from their from their um uh TR portal 
+engineering tool. They already have uh a
+
+0:13:37.360,0:13:47.680
+preview of a derivative called asset interface 
+description. Um but again is possible technically
+
+0:13:47.680,0:13:53.840
+it just needs to be done in the actual engineering 
+software and other automation companies have
+
+0:13:53.840,0:14:00.800
+similar tools and similar functionality but again 
+web things functionality is something that end
+
+0:14:00.800,0:14:07.280
+customers will have to ask for. So what does a 
+web thinks file look like? you're all uh here
+
+0:14:07.280,0:14:13.760
+in the Weber things um community. So I assume 
+you know what that looks like. So I'm going to
+
+0:14:13.760,0:14:22.960
+skip over this. But what we've basically done is 
+like I mentioned, we have created an interface
+
+0:14:22.960,0:14:34.240
+where we can provide a web file to industrial um 
+connectivity software to map an asset to OPC way.
+
+0:14:34.240,0:14:40.960
+So you know providing the interface was 
+actually relatively straightforward you know
+
+0:14:40.960,0:14:45.520
+I mean obviously all the connectivity software 
+already has an opcua server interface so it
+
+0:14:45.520,0:14:52.240
+was an obvious choice to say let's just extend 
+this opcua interface with the functionality to
+
+0:14:52.240,0:15:02.080
+upload a web things file but then we said could 
+we actually try to produce these web things files
+
+0:15:02.080,0:15:08.400
+automatically So large language models had just 
+been become widespread. I think when we started we
+
+0:15:08.400,0:15:18.560
+had GPT 3.5 which was okay. It wasn't great but it 
+did work. Um but certainly when GPT4 came out it
+
+0:15:18.560,0:15:27.280
+started to really take off and we could generate 
+these web things files with just prompting
+
+0:15:27.280,0:15:33.760
+um you know the large language model to generate 
+a web file for a certain asset and it would you
+
+0:15:33.760,0:15:44.480
+know to 90 95% complete completeness and accurate. 
+So we blogged about this on LinkedIn, got a lot of
+
+0:15:44.480,0:15:49.760
+responses in a very short amount of time. So we 
+realized we had a good thing going. So we said,
+
+0:15:49.760,0:15:55.280
+okay, let's start a working group inside the 
+OPC Foundation to define this interface. And
+
+0:15:55.280,0:15:59.520
+we actually set up another working group 
+specifically for large language models to
+
+0:15:59.520,0:16:06.720
+investigate what needs to be done to these large 
+language models to make them even more accurate.
+
+0:16:07.920,0:16:14.960
+So what we ended up with was in fact a companion 
+spec this time not for a particular semantic
+
+0:16:14.960,0:16:23.120
+uh model of a particular um asset type but with 
+that interface description and how to upload a web
+
+0:16:23.120,0:16:30.160
+things file to industrial connectivity software. 
+So in version 1.0 we had defined exactly two
+
+0:16:30.160,0:16:39.120
+new methods create asset and delete asset. 
+create asset would create an endpoint in the
+
+0:16:39.120,0:16:45.920
+um connectivity software and then basically use 
+that endpoint to upload the file the web things
+
+0:16:45.920,0:16:54.960
+file. So we use standard file transfer mechanisms 
+built into opca. So file upload was pretty much
+
+0:16:54.960,0:16:59.920
+um already present. We didn't need to define 
+that. So we just had to define create asset
+
+0:16:59.920,0:17:07.040
+and delete asset which was good enough for a 
+version 1.0 and of course we provided an open
+
+0:17:07.040,0:17:12.960
+source reference implementation that we used for 
+testing as a proof of concept and in the meantime
+
+0:17:12.960,0:17:20.080
+this is also available on the OPC Foundation 
+GitHub. Um feedback was prompt. They said it's
+
+0:17:20.080,0:17:27.760
+great but some functionality is missing. So we 
+created a 1.1 version straight afterwards where
+
+0:17:27.760,0:17:32.880
+we added some convenience functions that were 
+all optional. Didn't have to implement them,
+
+0:17:32.880,0:17:38.320
+but they're useful because they add 
+additional functionality. So for example,
+
+0:17:38.320,0:17:43.120
+you could call a method to do a simple 
+connection test to the assets to see if
+
+0:17:43.120,0:17:48.640
+the connectivity software actually, you know, is 
+able to connect to the asset in the first place.
+
+0:17:48.640,0:17:54.720
+discover assets was added in version 1.1 
+specifically for assets that were in fact
+
+0:17:54.720,0:18:06.240
+discoverable and you know um in that case you 
+could um provide and I I'll cover the questions
+
+0:18:06.240,0:18:12.960
+uh in a minute in that case you could provide 
+a web file um or the web file could be provided
+
+0:18:12.960,0:18:21.760
+automatically right so it would be generated from 
+the the um discovery process and then you could
+
+0:18:21.760,0:18:27.520
+simply call create asset for endpoint and you 
+could even download the web of things file from
+
+0:18:27.520,0:18:32.560
+the industrial connectivity software. So file 
+transfer happens in both directions. Right? So
+
+0:18:32.560,0:18:39.920
+this is useful um if you you know are not happy 
+with the generated web file from the industrial
+
+0:18:39.920,0:18:43.840
+connectivity software and you want to add 
+some additional information. So you would
+
+0:18:43.840,0:18:48.480
+first download it, you make some changes and then 
+you upload it again and that's what create asset
+
+0:18:48.480,0:18:54.160
+for endpoint is used. So you can generate the 
+web things file directly from the industrial
+
+0:18:54.160,0:19:00.160
+connectivity software and then download it. 
+Supported bindings basically returns the set
+
+0:19:00.160,0:19:07.680
+of watch protocol bindings that the industrial 
+software provides. configuration um is a way to
+
+0:19:07.680,0:19:13.760
+configure the industrial connectivity software 
+because a lot of uh offerings will require
+
+0:19:13.760,0:19:21.760
+additional configuration and then finally license 
+is for commissioning. So when you first you know
+
+0:19:21.760,0:19:27.280
+create uh an instance of industrial connectivity 
+software more than likely you will have to provide
+
+0:19:27.280,0:19:33.840
+some sort of license key or license file. So 
+we added that to the to the interface as well.
+
+0:19:33.840,0:19:43.520
+So the question was it's already already answered, 
+right? Okay, perfect. Um, lovely. So that's
+
+0:19:43.520,0:19:48.240
+basically the specification. It's available for 
+download off the OPC Foundation website free of
+
+0:19:48.240,0:19:53.200
+charge. You don't need to be a member of the 
+OPC Foundation to get to any of the OPC way
+
+0:19:53.200,0:20:03.040
+specifications, including this one. So anybody 
+can download them. So what does the question
+
+0:20:05.600,0:20:12.160
+No. So what does the reference implementation 
+look like? So I mentioned during the development
+
+0:20:12.160,0:20:16.400
+of the specification, we obviously wanted to try 
+this out and we created an open source project
+
+0:20:16.400,0:20:25.760
+on GitHub. Um that's called UAE translator and 
+it is available from the OPC Foundation website
+
+0:20:25.760,0:20:32.160
+and along with it we created a simple tool that 
+basically exercised the new interface. Um that
+
+0:20:32.160,0:20:40.320
+tool is also available on GitHub. Um and I you 
+see the link here for it's a UI based tool where
+
+0:20:40.320,0:20:53.440
+you can simply onboard asset with three steps 
+using chat GPT. So um you basically enter the
+
+0:20:53.440,0:20:59.920
+make a model of the asset you're interested in. 
+You generate the web of things file from chat GBT.
+
+0:20:59.920,0:21:10.720
+it downloads directly to your PC. Then you can 
+use something like um you know semens provided
+
+0:21:10.720,0:21:16.960
+uh a watt editor to the Eclipse Foundation 
+called editor with a D. So you can use that
+
+0:21:16.960,0:21:24.080
+um directly uh from your PC make modifications 
+to the file. It does semantic validation which
+
+0:21:24.080,0:21:35.840
+is useful and then you basically provide the file 
+that you're happy with to uh translator um by you
+
+0:21:35.840,0:21:43.120
+know typing in the the endpoint to h translator on 
+your network. Click on send and you've onboarded
+
+0:21:43.120,0:21:50.880
+the asset. So what does one of these thing 
+descriptions look like? Here's an example directly
+
+0:21:50.880,0:21:59.040
+for the central pack and you know I mentioned the 
+VDMA companion specifications right for particular
+
+0:21:59.040,0:22:06.240
+asset types and even that information can be 
+provided inside the web of things file which
+
+0:22:06.240,0:22:16.400
+gives you an additional feature. It allows 
+you to map not just to opcua but to specific
+
+0:22:16.400,0:22:25.920
+types defined in companion specs for certain asset 
+types. So for example um there is a profet energy
+
+0:22:25.920,0:22:32.400
+monitoring companion specification specifically 
+for energy monitoring equipment and the centron
+
+0:22:32.400,0:22:39.520
+pack is an energy monitoring asset and then 
+you can say okay the properties in that web of
+
+0:22:39.520,0:22:47.680
+things file should be mapped not just to opcua but 
+also to the opcaway types from the proofet energy
+
+0:22:47.680,0:22:53.920
+monitoring companion spec and a lot of customers 
+customers that are members of the OPC Foundation.
+
+0:22:53.920,0:22:59.040
+A lot of manufacturers that are members of the 
+OPC Foundation like that very much because they
+
+0:22:59.040,0:23:08.560
+in fact have created their own OPCA information 
+model and defined types from different sources,
+
+0:23:08.560,0:23:15.920
+different companion specs in them and want to 
+map all their assets to those set of types.
+
+0:23:15.920,0:23:23.680
+for example, energy monitoring type or robot type 
+or whatever it may be. So, this information can
+
+0:23:23.680,0:23:32.640
+also be provided. So, here is a screenshot of 
+the seaman's editor that they contributed to the
+
+0:23:32.640,0:23:41.360
+Eclipse Foundation. It's a what editor and it does 
+uh validation of your what files. So, for example,
+
+0:23:41.360,0:23:47.920
+make sure that JSON syntax is correct. the the 
+schema validation is also taken care of and it
+
+0:23:47.920,0:23:53.360
+renders the what file in a nice UI where you can 
+add and remove additional information easily and
+
+0:23:53.360,0:24:03.360
+of course it also has GPT integration as you 
+can see here on the top right here. So you
+
+0:24:03.360,0:24:12.560
+can generate thing description files through that 
+UI as well using chat. So then once you're happy
+
+0:24:12.560,0:24:20.400
+with the file like I mentioned all you have to do 
+is provide the uh endpoint to UAG translator on
+
+0:24:20.400,0:24:28.640
+your network. It's usually opc.tcp something. 
+Hit send provide the file and you're and the
+
+0:24:28.640,0:24:34.160
+file that you just generated and you're good to 
+go. Once you've done that, here's a screenshot
+
+0:24:34.160,0:24:41.280
+of the standard OPCA client application also 
+available open source from the OPC Foundation.
+
+0:24:41.280,0:24:48.080
+And you can see it is in fact connected to 
+UA Edge translator and also here's a link to
+
+0:24:48.080,0:24:54.000
+UAE translator on the OPC Foundation GitHub if 
+you're interested in it. And you can see that
+
+0:24:54.000,0:25:04.560
+it's already mapped the seaman centron pack into 
+its opca server address space. So like I mentioned
+
+0:25:04.560,0:25:10.000
+web things is part of the cloud initiative. Cloud 
+initiative is much bigger than web things but web
+
+0:25:10.000,0:25:18.160
+things is an important part and you can see it 
+here. connectivity uh working group is is in the
+
+0:25:18.160,0:25:26.000
+uh under the umbrella of the cloud initiative 
+let's say and here's a screenshot of the reference
+
+0:25:26.000,0:25:31.760
+architecture that the cloud initiative has 
+produced and number four here is the industrial
+
+0:25:31.760,0:25:39.680
+connectivity software component that is operating 
+on premises at the manufacturer site and if you
+
+0:25:39.680,0:25:46.080
+look at the equivalent architecture If you're 
+using open source, you can see that UA translator
+
+0:25:46.080,0:25:55.920
+is used there. So it has its place firmly in the 
+reference architecture of the OPC foundation cloud
+
+0:25:55.920,0:26:04.240
+initiative and you can try it out today. In 
+fact, UA translator now supports 11 southbound
+
+0:26:04.240,0:26:14.080
+protocols. everything from Seammens to Rockwell 
+to Beckov to Modbus of course for for Schneider
+
+0:26:14.080,0:26:22.640
+um and other uh PLC's but also a lot of 
+fixed function devices use Modbus there's
+
+0:26:22.640,0:26:28.880
+an experimental backnet implementation I'm 
+working on a matter implementation right now
+
+0:26:28.880,0:26:37.040
+which is non-trivial but you know as we add these 
+southbound protocol drivers, we obviously should
+
+0:26:37.040,0:26:45.120
+also look at creating what protocol bindings for 
+them to make sure that the what files that people
+
+0:26:45.120,0:26:52.400
+produce always look the same. So with that, I'm 
+at the end of my presentation. Yeah, that also a
+
+0:26:52.400,0:26:59.520
+very warm welcome from my side. And now I have 
+the pleasure to introduce you another opinion
+
+0:26:59.520,0:27:06.400
+specification document from the OBC foundation 
+that is called OPUA what binding and to give you
+
+0:27:06.400,0:27:16.080
+uh uh a little bit context here. I would like to 
+start with this um yeah overview and uh what you
+
+0:27:16.080,0:27:23.600
+see here is a high level use case or high level 
+representation how OBUA works. Yeah, usually you
+
+0:27:23.600,0:27:31.600
+have few field devices as Eric mentioned um uh 
+on your shop floor. Typical they are providing
+
+0:27:31.600,0:27:40.800
+um their runtime data to an opa based system and 
+the ops server then typical provides then its data
+
+0:27:40.800,0:27:47.920
+to yeah uh different application use cases uh 
+that comes from monitoring controlling or cloud
+
+0:27:47.920,0:27:57.280
+services. Yeah. Um what uh Eric just explained 
+is this onboarding. Yeah, this is typical still
+
+0:27:57.280,0:28:05.760
+um an issue and here with this companion standard 
+what connectivity you can also now use what sing
+
+0:28:05.760,0:28:13.520
+description to yeah make a kind of plug and play 
+integration of all the fe devices that you can see
+
+0:28:13.520,0:28:22.480
+here into into the opa system and so that you can 
+use all the data in your opa ecosystem. Now is the
+
+0:28:22.480,0:28:31.440
+issue that we say well what happen if the opusa 
+is also one of the endpoints of multiple other
+
+0:28:31.440,0:28:43.040
+endpoints which are not speaking um opusa. Yeah. 
+And it is not quite untypical that you have the
+
+0:28:43.040,0:28:54.160
+use case to uh develop IoT application that have 
+to interact with different kind of um interfaces
+
+0:28:54.160,0:29:02.480
+where for example opa is one of um one of them and 
+then you have also other protocols like bucknet,
+
+0:29:02.480,0:29:12.560
+opc and hgp. Yeah. And there is the question 
+well how we can we um make the interfaces more
+
+0:29:12.560,0:29:22.640
+attractive to be used and easy to be used for your 
+cross IoT application and uh if we have a look in
+
+0:29:22.640,0:29:30.480
+today's OPUA solution uh there is a little bit a 
+missing way how you can describe OPUA interfaces
+
+0:29:30.480,0:29:36.720
+they have our own description language that's 
+called XML notet file but yeah it's based on
+
+0:29:36.720,0:29:44.880
+XML right and it usually it's very complex yeah 
+you have to really understand OPC very well and
+
+0:29:44.880,0:29:53.040
+this is a little bit maybe not attractive uh for 
+a integrator which maybe not expert in OPUA if
+
+0:29:53.040,0:29:59.760
+they actually want just few data points from the 
+opa server in their target applications yeah and
+
+0:29:59.760,0:30:05.120
+the question is how we can we improve this and 
+make this integration of opoa system much more
+
+0:30:05.120,0:30:12.320
+easier in your target application and yeah what is 
+also missing at the moment opa just to describe a
+
+0:30:12.320,0:30:18.960
+small very small subset that you would like to 
+expose for external applications and yeah and
+
+0:30:18.960,0:30:25.920
+also to integrate very easily RDFbased semantic 
+technologies that is heavily used in the web
+
+0:30:25.920,0:30:32.240
+and so on and that was one of the motivation 
+that we should come up with this opa binding
+
+0:30:32.960,0:30:41.680
+at the OPC Foundation. Uh myself I leading this 
+group together with Eric Banchstead and yeah
+
+0:30:41.680,0:30:48.800
+uh just to give a short information about the 
+status of this uh document and uh publication
+
+0:30:48.800,0:30:53.520
+process. We are just passed the tech review. 
+We have received some comments which we are
+
+0:30:53.520,0:30:58.640
+currently look into it and if you have complete 
+that then we will publish this and more or
+
+0:30:58.640,0:31:03.840
+less I would expect this in the next couple of 
+weeks that we have officially released the 1.0
+
+0:31:03.840,0:31:12.000
+version then right um right this is just a big 
+picture so the idea is that we are providing also
+
+0:31:12.000,0:31:21.280
+an opportunity that we can simple describe opa 
+interfaces also as a what sing description and I
+
+0:31:21.280,0:31:28.080
+give you a simple example how a single description 
+can look like if you want to describe a single
+
+0:31:28.080,0:31:36.400
+data point from the opoa server which is typically 
+called a UA variable table and so what you can
+
+0:31:36.400,0:31:42.560
+see here on the very beginning is that you find 
+here the information that we have a endpoint that
+
+0:31:42.560,0:31:51.200
+starts with ops.tcp. So this is usually scheme uh 
+terminology to identify okay we are talking here
+
+0:31:51.200,0:31:59.520
+with OPCUA client server uh interface and then you 
+find of course here the the the location and also
+
+0:31:59.520,0:32:07.200
+the port address that is use then you find also 
+some security information uh which uses this auto
+
+0:32:07.200,0:32:13.920
+scheme. The reason for this auto scheme here 
+is that OBSA has their own security handshake
+
+0:32:13.920,0:32:21.600
+uh mechanism which is typically used on the 
+beginning and which clients have to um decide
+
+0:32:21.600,0:32:29.680
+which kind of the channels you like to use to uh 
+make the communication to the OBUA server. Well,
+
+0:32:29.680,0:32:35.040
+and then more or less that's it. Then you're just 
+coming already to the data points and if you have
+
+0:32:35.040,0:32:42.960
+one UA variable you can simple describe this as a 
+property and then you can provide all the details
+
+0:32:42.960,0:32:49.360
+which is the property about which data type it 
+use which unit it use the range etc and then
+
+0:32:49.360,0:32:58.480
+the very important information is about the node 
+ID uh which is encoded in the href field and all
+
+0:32:58.480,0:33:07.040
+the OBCA expert will already identify Oh, this is 
+a typical node ID pattern and uh which is then or
+
+0:33:07.040,0:33:17.520
+can be used then to yeah ramp up the addressing 
+assignment for your OPA driver right um that
+
+0:33:17.520,0:33:26.240
+that's it yeah of course we have defined much more 
+in our uh specification document uh because OPCISS
+
+0:33:26.240,0:33:35.920
+has different facets what you can specify there. 
+Um, regarding the URL scheme, we have here defined
+
+0:33:35.920,0:33:44.880
+this scheme here which tells you how you have 
+to set up your um your information when it comes
+
+0:33:44.880,0:33:52.560
+to the location of the UA server. But the most 
+important one uh how to share the node ids and
+
+0:33:52.560,0:33:57.920
+as you can know or as you know there are different 
+ways how you can share node ids. you can use the
+
+0:33:57.920,0:34:04.400
+name space within and without name spaces. So 
+there are different variation possible and with
+
+0:34:04.400,0:34:11.520
+this approach explained here uh it's simple then 
+explained uh how you should then use the specific
+
+0:34:11.520,0:34:20.640
+node ids for your use case. Um then uh also OPCU 
+experts now we have to handle a lot of with this
+
+0:34:20.640,0:34:28.400
+name spaces because uh different application 
+domains and opa has all uh specific name spaces
+
+0:34:28.400,0:34:38.080
+reserved already. Um but usually if you use this 
+standard OPCOA not set file this big XM XML file
+
+0:34:38.080,0:34:44.960
+you usually get this information what name spaces 
+exist and running on the server and if you want
+
+0:34:44.960,0:34:51.600
+to use all the name spaces and also one of the 
+attributes or variables in your sing description
+
+0:34:51.600,0:34:56.240
+then you should also mention this in the context 
+file. Yeah. And there we are explaining this how
+
+0:34:56.240,0:35:04.000
+we can transform this in the sing description and 
+it's actually actually quite straightforward. So
+
+0:35:04.000,0:35:10.480
+uh in in obly taking the order how the name 
+spaces show up. Uh so that means this is the
+
+0:35:10.480,0:35:16.160
+zero entry here. This is the first entry and 
+this is the second entry. And that's the reason
+
+0:35:16.160,0:35:24.160
+why we also follow this index value here which we 
+then simply take over uh in the thing description
+
+0:35:24.160,0:35:32.160
+and to make clear that specific definition comes 
+from this name spaces here. Um we also describe
+
+0:35:32.160,0:35:39.520
+and this is I think very interesting feature um 
+how you can use this terminology or the terms and
+
+0:35:39.520,0:35:46.960
+which were defined in the ontology uh that we also 
+define terms that can be used for making mapping
+
+0:35:46.960,0:35:53.760
+um um definitions. So if you have like here 
+a thing description that describe different
+
+0:35:53.760,0:36:04.000
+voltages values from different phases um then 
+you can also say well if you um have this kind
+
+0:36:04.000,0:36:14.880
+of definition and you already know this definition 
+makes sense to map to a specific place in a opa
+
+0:36:14.880,0:36:21.760
+description. Yeah. So this is example where 
+you for example can you map your different
+
+0:36:21.760,0:36:28.320
+phases wtage information to a predefined 
+opcua model that coming from our companion
+
+0:36:28.320,0:36:35.040
+specification document and has the type 
+RP data type and they are using typical
+
+0:36:35.040,0:36:42.640
+use to yeah represent this different 
+voltages uh of the different phases here
+
+0:36:42.640,0:36:51.280
+um well this is an overview of all the terms 
+terms that we have predefined um um in the what
+
+0:36:51.280,0:36:59.120
+ontology and which can be used in the in the thing 
+description. So if you can see the most of them
+
+0:36:59.120,0:37:06.320
+are optional they are just yeah can the reason why 
+it's optional because usually if you have just a
+
+0:37:06.320,0:37:12.640
+single description and mainly the node ID then you 
+have already typical all the information that is
+
+0:37:12.640,0:37:19.680
+needed to ramp up the communication to the opoa 
+server and to get the specific um um data point
+
+0:37:19.680,0:37:25.520
+or to execute a specific method but sometimes you 
+want to give more context yeah where does this
+
+0:37:25.520,0:37:31.920
+data line come from which is the parent node and 
+all this stuff and we are simple provide also this
+
+0:37:31.920,0:37:39.520
+features uh here in the specification document 
+and if you want to enrich this uh information with
+
+0:37:39.520,0:37:46.080
+this kind of information in your z description 
+then you have the opportunity here to doing so
+
+0:37:46.080,0:37:51.360
+um next sub mode which I like to present is the 
+asset in the face mapping confirmation oh what's
+
+0:37:51.360,0:38:00.960
+that the asset in the oh ah there is a video in 
+the background drone but because there is a old
+
+0:38:00.960,0:38:08.560
+uh I have to remove that I'm sorry about this 
+this was just a copy of old presentation okay
+
+0:38:08.560,0:38:15.600
+now it should disappear this voice over um right 
+so and this is just a slide to make aware of that
+
+0:38:15.600,0:38:26.800
+we are describing also um a process how you can 
+generate sing description uh out of Um yeah an opa
+
+0:38:26.800,0:38:33.600
+interface which is maybe discovered or browsed 
+by the services from opoa. Yeah they have this
+
+0:38:33.600,0:38:42.240
+browsing um uh service on board and based on this 
+browsing and going through all the trees that are
+
+0:38:42.240,0:38:53.280
+um on this opa um server then uh you can simple 
+generate the sing description um to it. You can
+
+0:38:53.280,0:38:59.920
+also do this based on the XML note set file. So 
+we have also described this how this is works and
+
+0:38:59.920,0:39:07.840
+how this look like and and this is of course very 
+helpful that you say well I would like to generate
+
+0:39:07.840,0:39:15.200
+a specific sub tree or specific part of my OBSA 
+model to a single description which you can simply
+
+0:39:15.200,0:39:21.200
+do it based on the specification document and yeah 
+here's also example which is also defined uh in
+
+0:39:21.200,0:39:28.880
+the specification document. So as you can see here 
+we have here different variables also methods here
+
+0:39:28.880,0:39:36.640
+and yeah based on this approach you can simple 
+generate the signal description which has done
+
+0:39:36.640,0:39:45.280
+uh for example the speed uh parameter here and you 
+see also some action here start motor and so on
+
+0:39:45.280,0:39:50.960
+uh start motor is defined here it's a method 
+and then you can also get all the input and
+
+0:39:50.960,0:39:56.640
+output information as defined here. So, no 
+pursues input argument, output argument,
+
+0:39:56.640,0:40:02.160
+etc. Yeah. And you're getting also the uh 
+equivalent information in the sign description and
+
+0:40:02.160,0:40:09.200
+all the information that you need to execute um 
+the actions or methods then in your yeah runtime
+
+0:40:09.200,0:40:18.880
+application. Uh when it comes to implementation 
+um um I like or I'm very proud to say that we are
+
+0:40:18.880,0:40:25.840
+seammens have a a very prominent uh internal 
+implementation it's called one connectivity
+
+0:40:25.840,0:40:35.200
+um that is uh used in many enterprise products or 
+at semens and it's um I I have to say it's very
+
+0:40:35.200,0:40:43.680
+successful and yeah it implements uh especially 
+uh the complete web of things uh stack and is
+
+0:40:43.680,0:40:52.400
+mainly used for integration purposes and yeah 
+and we have also the OPA binding there on board
+
+0:40:52.400,0:41:00.160
+and if you are looking for some more open-source 
+implementation there we have also the Zing web
+
+0:41:00.160,0:41:07.200
+um implementation that is uh under the umbrella 
+of the Eclipse Foundation and there you can also
+
+0:41:07.200,0:41:16.080
+find the latest OPUA um binding implementation 
+in there and for this I would show you how this
+
+0:41:16.080,0:41:24.880
+quickly look like in the last couple of minutes um 
+and maybe also especially for the people which not
+
+0:41:24.880,0:41:30.480
+are very in touch with of things yet and what 
+is the benefit to to have something like with
+
+0:41:30.480,0:41:39.920
+uh with zing description and let's assume we have 
+an IoT application uh of a pump yeah which you
+
+0:41:39.920,0:41:49.600
+like to read each read each pump speed at every 5 
+seconds. And if the pump speed is over 200, then
+
+0:41:49.600,0:42:00.000
+you want to increment a different service just to 
+count how much you meet this threshold, right? and
+
+0:42:00.000,0:42:05.520
+to make this implementation based on web of things 
+and to have this different things integrated there
+
+0:42:05.520,0:42:12.080
+and with the different protocols here one with 
+opa and http then you have just this few lines of
+
+0:42:12.080,0:42:20.080
+code yeah if you for example use this open source 
+tool uh in node what yeah so what does happen here
+
+0:42:20.080,0:42:26.320
+you integrate the single description of this opa 
+server here then the single description of the of
+
+0:42:26.320,0:42:32.320
+this hmp server there And then yeah you're making 
+your business logic here and this is I would say
+
+0:42:32.320,0:42:39.120
+one also the great magic of of web of things that 
+you really can concentrate on the business logic
+
+0:42:39.120,0:42:46.320
+that is asked here. Yeah. So like you checking 
+the speed of this open a server pump and if this
+
+0:42:46.320,0:42:53.520
+is reaching this limit here then you have to 
+increment the the counter here etc. And this
+
+0:42:53.520,0:42:58.880
+is a very cool thing here that you don't see any 
+protocol specific information here in the business
+
+0:42:58.880,0:43:04.960
+logic. Yeah. And this is really interesting when 
+it comes to reusage of business logic for other
+
+0:43:04.960,0:43:14.160
+use cases. Yeah. So you can start to abstract 
+um your business logic from the action yeah
+
+0:43:14.160,0:43:21.840
+um um interaction with the with the with the 
+devices where you usually need all the protocol
+
+0:43:21.840,0:43:32.320
+specifics. You can abstract this and you increase 
+your um business logic usage uh a lot. Right? This
+
+0:43:32.320,0:43:42.400
+is actually one of my last slide. I can also show 
+quickly a small demo um how this is look like in
+
+0:43:42.400,0:43:49.200
+a real life. So what you see here is a opa client 
+which is connected to our opa server and this is
+
+0:43:49.200,0:43:57.840
+one of yeah I would say classic fuse of um of 
+the opa server you have objects here the types
+
+0:43:57.840,0:44:04.800
+and fuse folder and the object is typical place 
+where you find then the runtime data. Yeah. And
+
+0:44:04.800,0:44:09.920
+uh if you have a robot or production line or 
+something like that, there would be a lot of
+
+0:44:09.920,0:44:17.520
+sub trees in here. And if you go here, you see 
+a lot of UI variables which you can for example
+
+0:44:17.520,0:44:26.400
+subscribe here. So I can move this here simple to 
+to this field here and this tool here just make
+
+0:44:26.400,0:44:32.240
+subscription on this UI variable and then you 
+can see here the runtime data. Yeah. Okay. This
+
+0:44:32.240,0:44:39.440
+is just how Opusa usually works. You see here the 
+node ids of all the runtime data. And if I want to
+
+0:44:39.440,0:44:53.200
+use this now with web of things then I go to this 
+slide here or I need to make this smaller. Yeah.
+
+0:44:53.200,0:45:01.760
+Then um then I prepared here or I have here some 
+small uh code of lines which do some subscription
+
+0:45:01.760,0:45:08.560
+of some runtime values like of volt and currents. 
+And as I mentioned before in the previous slide
+
+0:45:08.560,0:45:16.240
+what you have to do simply here is to um ramp 
+up all the information that you want to use the
+
+0:45:16.240,0:45:22.000
+stack. You pass here the zing description which 
+describe all the UI variables here and then you
+
+0:45:22.000,0:45:27.840
+have this few line of codes to just subscribe 
+to the UI variables here. Yeah. And if I'm going
+
+0:45:27.840,0:45:37.040
+to start this um then you can see that all the 
+runtime data will hopefully showing up exactly.
+
+0:45:37.040,0:45:43.920
+So we have called here the current here whatever 
+I can also show this in the other window that is
+
+0:45:43.920,0:45:52.560
+really happening. So here we have the volt 300 
+something here we have the current this is also
+
+0:45:52.560,0:45:59.440
+uh what is displayed here. Yeah. So if you want 
+to play around with it then keep in touch or
+
+0:45:59.440,0:46:07.200
+with the node what implementation on Eclipse and 
+if you are interested in more uh industry grade
+
+0:46:07.200,0:46:13.760
+implementation of web of things then yeah also 
+uh contact me uh for example if you like to get
+
+0:46:13.760,0:46:20.880
+more information about this one connectivity 
+then I'm happy to help you. Okay, that was
+
+0:46:20.880,0:46:28.240
+my last thing what I like to show you about 
+the W binding and I think we have time for Q&

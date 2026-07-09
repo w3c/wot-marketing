@@ -1,0 +1,1139 @@
+0:00:00.000,0:00:05.700
+so let me introduce Simon minor to you so he's 
+a professor from interaction and communication
+
+0:00:05.700,0:00:09.720
+based system at University of sangalan 
+and with this research group we explore
+
+0:00:09.720,0:00:14.460
+interaction among devices and people in Ruby 
+groups Computing environments is a seasoned
+
+0:00:14.460,0:00:20.400
+web of things expert who says was there from 
+the beginning right and yeah it's a pleasure
+
+0:00:20.400,0:00:25.440
+for us to have you here so the floor is 
+yours so we'll stop sharing my screen
+
+0:00:26.040,0:00:34.500
+Christianity I'm sure it's I'm not sure if 
+seasoned is something good in that sense um
+
+0:00:37.440,0:00:45.120
+let's hope welcome welcome and I'm just getting 
+my controls ready I hope that my that my
+
+0:00:45.120,0:00:50.520
+um that my internet connection is going to hold 
+up I'm sitting here in inchesena right now at the
+
+0:00:50.520,0:00:56.580
+University of bologna and I was quite looking 
+forward to to giving this talk and I must say
+
+0:00:56.580,0:01:03.900
+it was quite a bit of a of a of a challenge to 
+bring basically those things that interested me
+
+0:01:03.900,0:01:10.020
+about this project that is now running for three 
+or even four years almost to bring this into into
+
+0:01:10.020,0:01:15.900
+20 30 minutes so I called this talk internet I 
+call this talk Intel iot loves what what right
+
+0:01:15.900,0:01:21.960
+for for kind of obvious reasons and and as as say 
+all the times this is I get to present that this
+
+0:01:21.960,0:01:27.240
+is not my own work right so I have a few people 
+on here who were mostly contributing to this and
+
+0:01:27.240,0:01:36.300
+if you now see my transition then everything 
+works yes everything works okay perfect so
+
+0:01:36.300,0:01:41.880
+I'm I'm Simon I'm I'm leading a research group 
+on on interactions uh between agents and and
+
+0:01:41.880,0:01:48.300
+non-agents between agents and artifacts um 
+I myself have come from the first computing
+
+0:01:48.900,0:01:53.640
+area I was I was spending a lot of time with my 
+tears in the in the past when we're doing our phds
+
+0:01:54.480,0:01:58.080
+um and I focus nowadays on autonomy 
+on interoperability and human system
+
+0:01:58.080,0:02:03.120
+interactions uh and this is this is who I 
+work with so this is my current research group
+
+0:02:03.840,0:02:08.340
+um you can see from this slide there's quite a 
+few quite a quite a breadth of topics in there
+
+0:02:09.180,0:02:14.640
+um these topics however come together when we 
+when we look at the interaction of people with
+
+0:02:14.640,0:02:20.220
+ubiquitous Computing environments and to me uh 
+the web of things from its Beginnings right from
+
+0:02:20.220,0:02:26.460
+from from back in the days um over the over 
+the over the focus on hyper media about the
+
+0:02:26.460,0:02:33.720
+increasing focus on on on on risk specific and 
+Hyper media on Advanced or novel uh description
+
+0:02:33.720,0:02:39.600
+formats for things like like like like like 
+W3 and see what thing description um this has
+
+0:02:39.600,0:02:45.120
+been a beautiful interoperability journey I don't 
+I've I'm traditionally skeptical about about the
+
+0:02:45.120,0:02:49.500
+interface definition languages I'm a big fan 
+of late binding and I'm a big fan of solving
+
+0:02:49.500,0:02:55.200
+things at runtime and not compiling against ideas 
+and these things to me these are all instruments
+
+0:02:55.200,0:03:01.020
+into to to to enable flexible interactions 
+in in such ubiquitous Computing environments
+
+0:03:01.020,0:03:06.600
+so we are working in a diverse range of topics 
+and here is a quick overview of recent papers so
+
+0:03:06.600,0:03:10.980
+just that you see that you see what we're doing 
+other than uh worldwide autonomous systems so
+
+0:03:10.980,0:03:18.240
+this appears how is our it's our uh focus on 
+and I can get a laser pointer Excel I desire
+
+0:03:18.240,0:03:22.740
+focus on only ubiquitous Computing environments 
+and robots and online tracking applications
+
+0:03:23.700,0:03:30.420
+um also in interactions directly with with things 
+so I I'm a big iot fan if you if you want and down
+
+0:03:30.420,0:03:35.280
+here uh those aspects that I'm going to be more 
+emphasizing today specifically in the very end of
+
+0:03:35.280,0:03:40.500
+this talk I'm going to be emphasizing this paper 
+down here which will be presented in in a month at
+
+0:03:40.500,0:03:46.680
+the at the autonomous agency multi-agent systems 
+conference in London so this brings me to my talk
+
+0:03:47.760,0:03:54.180
+um I'm here to report about a project that we 
+have been working on with lots of other people
+
+0:03:54.180,0:04:00.780
+right as as these as these uh European produce 
+go where we are by far not alone uh this was
+
+0:04:00.780,0:04:04.560
+Seria so this was a research and Innovation 
+action so this was not a research project
+
+0:04:05.580,0:04:10.920
+um however as a university we obviously emphasize 
+the the research aspect the goal was from our
+
+0:04:10.920,0:04:14.760
+perspective from the University of sangalan 
+perspective to integrate web enabled industrial
+
+0:04:14.760,0:04:19.320
+devices autonomous agents within multi-aging 
+systems okay so this is this is what we wanted
+
+0:04:19.320,0:04:25.620
+there and we successfully deployed two use cases 
+in this context one in autonomous Agriculture and
+
+0:04:25.620,0:04:31.500
+one in industrial manufacturing and my personal 
+uh so so here you see these two right here over
+
+0:04:31.500,0:04:37.320
+here you see a autonomous factor in inshedaya 
+in Austria with one of our partners and down
+
+0:04:37.320,0:04:43.200
+here you see a Siemens robot that were that 
+were deployed in two different use cases um my
+
+0:04:43.200,0:04:48.840
+personal uh motivation this project was to drive 
+interoperability this is also what brings me close
+
+0:04:48.840,0:04:54.960
+to where both things right to enable decoupling 
+of different services so to increase the increase
+
+0:04:54.960,0:05:00.000
+the flexibility of these of these deployments 
+and ultimately and this is to me this is the
+
+0:05:00.000,0:05:07.020
+same story to me these two these two ideas lead 
+towards increasing autonomy in such Industrial
+
+0:05:07.020,0:05:12.720
+in this case but in such Internet of Things 
+environments how can we have these environments
+
+0:05:12.720,0:05:17.820
+how can we have entities in these environments 
+some call them agents behave more autonomously
+
+0:05:19.560,0:05:24.960
+so um I'll as an introduction I'll show you I'll 
+show you the the most recent videos this is a
+
+0:05:24.960,0:05:29.880
+video from last week the most recent videos 
+there's outputs of this of this project what
+
+0:05:29.880,0:05:35.460
+you're seeing here is not the not the the postman 
+interface that's not the it's not the interesting
+
+0:05:35.460,0:05:40.320
+part but what you can see here is our successful 
+integration of an autonomous agent that drives the
+
+0:05:40.320,0:05:47.160
+tractor through w3c over things thing descriptions 
+so one question that I don't know is why the front
+
+0:05:47.160,0:05:52.920
+left wheel doesn't move so please don't ask 
+me this but this tractor is you see it's it's
+
+0:05:52.920,0:05:58.800
+it's it's it's up on the on the scaffold right so 
+it's it's not actually driving but it is following
+
+0:05:58.800,0:06:04.020
+uh GPS coordinates that this is enabled through 
+things that expose what TDS some of these things
+
+0:06:04.020,0:06:08.400
+are attractor controllers to the driver of this 
+tractor a waypoint service for for resolving the
+
+0:06:08.400,0:06:14.220
+GPS coordinates for giving us the next waypoints 
+for resolving fields to be harvested to GPS
+
+0:06:14.220,0:06:19.680
+coordinates an AI service this is a local service 
+that enables the tractor to go around obstacles
+
+0:06:20.280,0:06:25.620
+a journaling service and a Human interloop 
+Service that kicks in when the AI service fails
+
+0:06:25.620,0:06:30.900
+okay so this is this is the and there's many more 
+right if you want to look at all the DDS that are
+
+0:06:30.900,0:06:36.660
+active in this scenario then down here is is 
+a is a GitHub repository with all our Intel
+
+0:06:36.660,0:06:43.200
+iot TDS that you're free to browse these TVs 
+are then exposed to be a platform for agents
+
+0:06:43.200,0:06:49.920
+and data effects that we refer to as a Brazil 
+um I can I can show you a quick and a quick um
+
+0:06:52.320,0:06:57.120
+a bit more of how this would work so 
+over here you see the Brazil platform
+
+0:06:57.900,0:07:02.940
+a specific workspace in that platform and this 
+workspace exposes for instance the action networks
+
+0:07:02.940,0:07:08.700
+make hard effect which tells us that I can create 
+an artifact at this workspace some such artifacts
+
+0:07:08.700,0:07:13.500
+are already created one of these is is a robot 
+in our laboratory so if I go and dereference
+
+0:07:13.500,0:07:20.160
+that robot I editing description of that robot 
+that this enables me to to steer this robot
+
+0:07:21.900,0:07:27.960
+um the actual TDS that we were using in Internet 
+iot the tractor DD is linked from here and all the
+
+0:07:27.960,0:07:33.300
+other cities are available as I was saying now 
+what is interesting about our project is that
+
+0:07:33.300,0:07:39.360
+what we did was we we discovered these TDS then at 
+runtime so they were registered in this platform
+
+0:07:39.360,0:07:45.120
+at runtime and then we discovered them through a 
+no code development environment so our our idea
+
+0:07:45.120,0:07:51.660
+here or our challenge our goal was to enable 
+non-programmers to be able to program agents
+
+0:07:51.660,0:07:59.040
+against WCC what TDS okay so we call these domain 
+experts this could be an Industrial Engineer it
+
+0:07:59.040,0:08:04.800
+could be a farming engineer but someone who is 
+who is comfortable with the with the domain it
+
+0:08:04.800,0:08:10.620
+was comfortable with the terminology of GPS and 
+driving a tractor of harvesting things like this
+
+0:08:10.620,0:08:16.080
+but this person is not comfortable with coding 
+and I'll show you what we did there and finally
+
+0:08:16.080,0:08:21.540
+at runtime an operator then issues goals a goals 
+such as harvest field 5 and these goals are taken
+
+0:08:21.540,0:08:26.340
+up by an agent and then the agent takes over the 
+coordination between these different things up
+
+0:08:26.340,0:08:30.660
+here so the agent will say hey tracks will go 
+over there and then the tractor will try to go
+
+0:08:30.660,0:08:36.480
+over there if it doesn't it will tell the agent 
+agent but I have a problem in my in my in my
+
+0:08:36.480,0:08:41.460
+field of view there's a tree the Aged will tell 
+it go ask the AI service what to do the tractor
+
+0:08:41.460,0:08:46.740
+will go to the AI service to ask what to do um and 
+if if it's successful it can circumvent the tree
+
+0:08:46.740,0:08:51.840
+if not it can escalate to the human in the loop 
+service in this case a partner from of ours opens
+
+0:08:51.840,0:08:57.720
+a virtual reality connection and a robot and 
+a human actually drives the the tractor around
+
+0:08:57.720,0:09:02.160
+the obstacle so there's many more components 
+here that I'm not that I'm not focusing on
+
+0:09:03.780,0:09:09.660
+um I will show you the the the the main points 
+from the paper about the no code environment in
+
+0:09:09.660,0:09:14.700
+a few minutes and we have an extended abstract 
+at the mass conference in London in a month
+
+0:09:14.700,0:09:20.880
+on this overall architecture so on our overall 
+proposals towards this architecture and I think
+
+0:09:20.880,0:09:26.940
+the slides will be shared a girl Cristiano and 
+the video anyway so I'm transitioning from the
+
+0:09:26.940,0:09:31.080
+agriculture to the industrial use case the second 
+interesting use case in this in this context
+
+0:09:31.740,0:09:37.920
+this looks exactly the same as before this was our 
+Our intention right that the the the the on the
+
+0:09:37.920,0:09:41.460
+system level that they're on the architecture 
+level that they look homogeneous in this case
+
+0:09:41.460,0:09:48.240
+what we do is that somebody um creates a a a a a 
+goal of Engraving something into a wooden plate
+
+0:09:49.020,0:09:55.860
+and then this this wooden plate should be selected 
+uh and and and and and an inline machine Learning
+
+0:09:55.860,0:10:00.180
+System tells the robot where to grab this thing 
+which is not our component but this is somebody
+
+0:10:00.180,0:10:06.060
+else's but you see the camera over here at the 
+robot gripper uh and then this this item this
+
+0:10:06.060,0:10:11.280
+wooden plate in this case is selected it's put 
+over here into the to the engraver uh then this
+
+0:10:11.280,0:10:16.200
+this custom designed by one of our colleagues 
+Custom Design platform over here will will will
+
+0:10:16.200,0:10:21.540
+insert it into the engraver or into the laser 
+laser engraver and then this thing will start
+
+0:10:21.540,0:10:27.660
+we'll start engraving the text that we wanted 
+so essentially this is again the same the same
+
+0:10:27.660,0:10:32.520
+storyline as before the things exposable TDS it's 
+different things now it's the robot controller the
+
+0:10:32.520,0:10:36.120
+engraver the grabspot service again the journaling 
+service and again a Human interloop Service
+
+0:10:37.200,0:10:41.700
+um they are again exposed via the same 
+platform uh they are again discovered by a
+
+0:10:41.700,0:10:47.340
+no-called development environment again programs 
+against by a biodomain expert and at runtime and
+
+0:10:47.340,0:10:52.620
+operator issues goals just this standard goal is 
+like engraved the text Intel iot at location XY
+
+0:10:53.640,0:10:56.580
+okay so this is what here 
+you're seeing writing now
+
+0:10:57.540,0:11:03.420
+so this is the introduction and and both these 
+use cases uh bring together lots of different
+
+0:11:03.420,0:11:08.040
+devices and these lots of different devices and 
+the different I must say in this in this in the
+
+0:11:08.040,0:11:13.020
+context of this of this project the different 
+non-functional requirements by our project
+
+0:11:13.020,0:11:18.900
+Partners this was what was driving our main our 
+main insights and I'll and I'll share some more
+
+0:11:18.900,0:11:25.380
+things now so what I will do next is I will 
+cover the following components and approaches
+
+0:11:25.380,0:11:29.400
+that that I would like to to share with you 
+and that I would like to get maybe also your
+
+0:11:29.400,0:11:35.700
+feedback from about or as already discussed 
+with AKA a few weeks ago see why these align
+
+0:11:35.700,0:11:42.660
+with discussion that you that you've been having 
+in the W3 in the WT sorry and let's use this WFT
+
+0:11:45.780,0:11:51.360
+um so first is the management of w3c what TDS in 
+our hyper media Mass infrastructure the second is
+
+0:11:51.360,0:11:57.180
+I'll show you the no code development the third 
+is uh what would be together with AKA I guess
+
+0:11:57.180,0:12:03.240
+we called this uh what TD negotiation for lazy 
+deployment in the in the context of this this
+
+0:12:03.240,0:12:09.000
+project and then two small points on journaling 
+of Asian artifact interactions and on what CDs
+
+0:12:09.000,0:12:15.420
+in the context of performance Theory as well I'll 
+start with the first one this is the overview of
+
+0:12:15.420,0:12:19.920
+the of the industry use case of the manufacturing 
+use case but it's similar for the agriculture use
+
+0:12:19.920,0:12:25.140
+case so we have our devices somewhere these can 
+be big devices like robots or small devices like
+
+0:12:25.140,0:12:29.700
+like this this Mirror card which is currently 
+being integrated into the use case but which
+
+0:12:29.700,0:12:35.100
+has been running around Laboratories for some time 
+now such as the battery-less device that we also
+
+0:12:35.100,0:12:41.340
+hide behind a a thing description then we have our 
+platform and these devices registered I think the
+
+0:12:41.340,0:12:46.200
+scripts and keep their thing descriptors updated 
+at the platform if there's no binding yet we can
+
+0:12:46.200,0:12:52.800
+also handle this case uh and in fact I'll get 
+to this specifically so then at the device and
+
+0:12:52.800,0:12:58.980
+service register then at at deployment time or at 
+configuration time at engineering time the domain
+
+0:12:58.980,0:13:03.720
+expert opens this this no code environment the 
+no code environment goes to the platform fetches
+
+0:13:03.720,0:13:08.940
+the TDS creates blocks from these TDS that the 
+domain expert can use to program and then deploys
+
+0:13:10.320,0:13:14.580
+um the creative agents so these are agents 
+programs in the in in the dialect of the
+
+0:13:14.580,0:13:19.620
+agent speak agent language um these agents 
+are then deployed to the platform and then
+
+0:13:19.620,0:13:24.420
+run over there and then they keep running until 
+until they get something to do like like humans
+
+0:13:24.420,0:13:29.520
+right like humans we toil around until somebody 
+tells us something to do some goal to achieve
+
+0:13:29.520,0:13:36.180
+this comes at runtime uh a user opener opens 
+up the the Intel iot interface configures the
+
+0:13:36.180,0:13:42.000
+goal like like engrave Intel iot here sends 
+this goal uh to the platform this goal is
+
+0:13:42.000,0:13:46.440
+taken up by an agent at the platform and then 
+the agent accomplishes this goal according to
+
+0:13:46.440,0:13:51.060
+its plan that was that was configured 
+earlier and using these devices up here
+
+0:13:51.660,0:13:58.500
+so these devices are used by the by the agents 
+and if a device is not bound so if we only have
+
+0:13:58.500,0:14:05.340
+a TD model or a thing model at this point then we 
+have a mechanism together with Siemens that that
+
+0:14:05.340,0:14:10.380
+binds devices only at one time we call this Edge 
+orchestration and and then they'll get through
+
+0:14:10.920,0:14:16.860
+finally interactions between agents there are and 
+artifacts are journaled these are joined in the
+
+0:14:16.860,0:14:21.960
+distributed Ledger system but it's not it's not at 
+all interesting but to me I should say it's it's
+
+0:14:21.960,0:14:26.760
+not at all relevant that this is a distributed 
+Ledger this could be any journaling system but
+
+0:14:26.760,0:14:31.260
+the point is that the agent will say what what it 
+what it wants to do the thing says what what the
+
+0:14:31.260,0:14:38.520
+agent told it to do and in line with this we also 
+register the the the TD that is active at runtime
+
+0:14:39.360,0:14:42.360
+but because this also becomes a relevant 
+part of the journaling in this case
+
+0:14:43.320,0:14:49.140
+so the first aspect is the center I started the 
+center at the at this this thing down here um the
+
+0:14:49.140,0:14:57.060
+the the uh the hyper media Mass infrastructure 
+then I will show you the the end user IDE down
+
+0:14:57.060,0:15:01.320
+here then I'll go into the lazy deployment 
+and then I'll briefly cover the journal link
+
+0:15:02.940,0:15:08.700
+so here is here is the infrastructure 
+um the this this infrastructure has been
+
+0:15:09.660,0:15:14.760
+republished a little bit about this already in the 
+past but what this mainly does is it supports the
+
+0:15:14.760,0:15:18.780
+creation of hyper media multi-agent systems 
+following the Jackhammer meta model which is
+
+0:15:18.780,0:15:25.320
+a meta model that is that comes out of autonomous 
+agents research for us as a practical application
+
+0:15:25.320,0:15:30.360
+of this the main things that we need to take 
+care of is is to to to to expose the agent's
+
+0:15:30.360,0:15:36.600
+environments specifically things in the agents 
+environment and also to to run to deploy and run
+
+0:15:36.600,0:15:42.120
+the agents themselves so we need quite quite down 
+to earth we need a scalable runtime for agents
+
+0:15:43.740,0:15:50.460
+um as a as a as a as a bit of background knowledge 
+this this research uh has of course the research
+
+0:15:50.460,0:15:55.560
+on autonomous agents multi-aging systems has 
+of course been going on for for decades but
+
+0:15:55.560,0:16:03.600
+only recently um have we started considering the 
+web as a as a prime environment for these agents
+
+0:16:03.600,0:16:07.980
+and this brings interesting problems to the to 
+the agents community that were traditionally not
+
+0:16:07.980,0:16:12.540
+there right classically it's a different thing 
+whether you know what your system is going to
+
+0:16:12.540,0:16:17.580
+be looking like at runtime like in a like in a 
+traditional agent container if you don't know
+
+0:16:17.580,0:16:24.060
+what it's going to be looking like and this brings 
+interesting challenges um one one one expert in
+
+0:16:24.060,0:16:30.180
+multi-agent systems has recently called the the 
+whip chaotic and I think I completely understand
+
+0:16:30.180,0:16:36.660
+what they mean so so so I didn't know that the 
+whip was that chaotic and I I love that that
+
+0:16:37.920,0:16:42.840
+so this is what exerson supports the execution 
+computational artifacts ages to instantiate
+
+0:16:42.840,0:16:47.760
+artifacts to explore this interfaces to to these 
+active artifacts these include workspaces so they
+
+0:16:47.760,0:16:53.340
+include agent oriented abstractions of how we 
+can arrange things at the age in the room and
+
+0:16:53.340,0:16:58.500
+it also generates what TDS for these artifacts 
+and of course it also complements its internal
+
+0:16:58.500,0:17:03.420
+artifacts by by what it is for external device 
+services so this is the registration process
+
+0:17:03.420,0:17:09.120
+that I was that was talking about before the 
+resulting environment is represented rdf and
+
+0:17:09.120,0:17:14.640
+the infrastructure is compatible with with search 
+engines for the for the w3c what for instance uh
+
+0:17:14.640,0:17:23.100
+a search engine that we published a few years ago 
+but nothing nothing huge but but but um but uh an
+
+0:17:23.100,0:17:29.940
+engine that allows a proximate searching uh for 
+four things in the web of things or proposal is
+
+0:17:29.940,0:17:35.160
+that this can be a blueprint for a w3c what TV 
+based system that may include autonomous agents
+
+0:17:35.880,0:17:43.740
+providing a runtime and providing the environment 
+the required environment distractions second um we
+
+0:17:45.480,0:17:50.100
+sorry sorry I don't I don't know if my own 
+office here so it's a little bit loud around me
+
+0:17:50.940,0:17:55.320
+um the the second aspect I want to go into is 
+the no code development for multi-agent systems
+
+0:17:55.860,0:17:58.320
+so here's the subtraction 
+that you have up here up there
+
+0:17:59.460,0:18:07.380
+um the uh we created we created this system over 
+the past year and what this what this can do is it
+
+0:18:07.380,0:18:12.720
+can can be used to configure and deploy up medium 
+multi-aging systems and we've recently extended
+
+0:18:12.720,0:18:17.580
+this also to organizations of these multi-agents 
+what is interesting for this group is that our
+
+0:18:17.580,0:18:23.340
+functional blocks are automatically generated from 
+w3c Port TDS and then they map to two abstractions
+
+0:18:23.340,0:18:27.300
+in the agent speak language so the map to 
+abstractions and completely the Json language
+
+0:18:28.140,0:18:33.720
+not to be confused with Jason right so the 
+Json with an a in there which is a language
+
+0:18:33.720,0:18:40.500
+for for programming uh procedural knowledge of 
+Ages now what happens there is at runtime the
+
+0:18:40.500,0:18:44.400
+web-based I always at that deployment time 
+at that configuration time the web-based ID
+
+0:18:44.400,0:18:49.260
+fetches uh TDS from explosil and then generates 
+these functional blocks and then these functional
+
+0:18:49.260,0:18:54.300
+blocks are composed by the by the uh by the domain 
+expert and then they are deployed to it plus ill
+
+0:18:55.200,0:19:02.160
+our underlying assumption somewhat verified 
+assumption but but to some degree still
+
+0:19:02.160,0:19:08.340
+still hope that underlies this is that an agent 
+abstraction to program these environments is a
+
+0:19:08.340,0:19:15.300
+better fit for humans for non for non-programmers 
+for humans to program applications in these in
+
+0:19:15.300,0:19:21.360
+these uh in these environments okay the idea 
+would be that that it's it's closer to to how
+
+0:19:21.360,0:19:28.560
+I think anyway uh that I would delegate tasks to 
+agents rather than programming Loops for instance
+
+0:19:29.640,0:19:36.300
+so this this is the underlying Point here so we 
+can with this we can resolve protocol bindings
+
+0:19:36.300,0:19:40.500
+only at runtime which is pretty cool and I'll 
+get to this next and our proposed list that this
+
+0:19:40.500,0:19:45.360
+could be used to create agents based on w3c world 
+TDS we did a limited user study with this where
+
+0:19:45.360,0:19:52.260
+we had users who were who were programming 
+for the first time and they accomplished uh
+
+0:19:53.700,0:19:59.700
+amazingly much using this using this 
+uh this uh this abstraction so I'm
+
+0:19:59.700,0:20:03.000
+not claiming that this is that this is 
+the Hope for for end user development
+
+0:20:03.000,0:20:07.620
+but it might be an idea to consider agent 
+programming for for end user development
+
+0:20:09.180,0:20:16.500
+um here's the paper that documents this and over 
+here is is a quick a quick view of what it looks
+
+0:20:16.500,0:20:23.460
+like quick quick enzyme what it looks like um 
+so let me just show you the part back here with
+
+0:20:25.140,0:20:32.520
+hey now here we go so this is what the agent speak 
+code the code will look there Json code would look
+
+0:20:32.520,0:20:41.040
+like and then here's this running a task in our 
+in our um in our own Laboratory and in a second
+
+0:20:41.040,0:20:50.460
+over here we will see the blocks that form this 
+right so so this is formulated as if I was talking
+
+0:20:50.460,0:20:57.360
+to a colleague right when the agent decides to 
+achieve bring block then it always says bring
+
+0:20:57.360,0:21:03.720
+block and then it asks the thing spockpot this 
+is this bot down here two wheel control I admit
+
+0:21:03.720,0:21:10.620
+that this is a bit tough right with that input of 
+object access speed duration okay but but I hope
+
+0:21:10.620,0:21:17.760
+that you see the idea this is basically Trigger 
+action rules um that we that we map to from w30s
+
+0:21:19.380,0:21:26.340
+my next point is WCC board TD negotiation our 
+partners in the project desired uh that they are
+
+0:21:26.340,0:21:32.700
+able to deploy Services only as late as possible 
+there their main main issue is that they try to
+
+0:21:32.700,0:21:39.600
+optimize the industrial Edge right so they try 
+to to bring to bring um to for instance uh at
+
+0:21:39.600,0:21:44.940
+one time well first to undeploy service that 
+are not used and second to add runtime deploy
+
+0:21:44.940,0:21:49.920
+services in a way that is optimal for the for for 
+their own infrastructure maybe regarding resource
+
+0:21:49.920,0:21:57.300
+use maybe regarding latency um but really to us 
+whatever non-functional property they would like
+
+0:21:59.160,0:22:04.740
+um and we took this up and therefore we supported 
+the usage of of what TD templates from version
+
+0:22:04.740,0:22:09.420
+one and the end of what thing models for 
+version 1.1 for permitting late binding
+
+0:22:09.420,0:22:14.400
+of edge orchestrated Services uh concretely this 
+takes the form of the Intel iot Edge orchestrator
+
+0:22:14.400,0:22:20.160
+this emits WCC what thing models so I can I 
+can program against the affordance centers
+
+0:22:20.760,0:22:24.960
+but there are no protocol bindings and 
+then I can program my agents using a web
+
+0:22:24.960,0:22:30.060
+IDE against these thing models but at 
+runtime the deployed agent will inline
+
+0:22:30.060,0:22:34.380
+request the service to be bound from The Edge 
+orchestrator and the edge orchestrator will
+
+0:22:34.380,0:22:41.340
+then decide how to best deploy the service and 
+then return a protocol bound thing description
+
+0:22:43.020,0:22:48.360
+um in The Proposal is to investigate 
+deliciously what TD negotiation a bit more
+
+0:22:49.560,0:22:53.940
+um what we are what our partners were also 
+proposing in this context is that we could
+
+0:22:53.940,0:22:58.560
+also negotiate parameters of machine Learning 
+Systems so also lead binding in that sense
+
+0:22:59.460,0:23:04.560
+and of course all security parameters could be 
+could be bound in this sense right I request
+
+0:23:04.560,0:23:10.260
+this functionality but I don't require security 
+and maybe I get maybe get a different deployment
+
+0:23:10.260,0:23:15.480
+so so to have an intermediary in there perfectly 
+in line with the web architecture so to have an
+
+0:23:15.480,0:23:22.140
+intermediary that Brokers these these requests and 
+overall we could we could have any non-functional
+
+0:23:22.140,0:23:28.320
+parameter of a thing or service uh to be to be to 
+be used in this negotiation process in this sense
+
+0:23:29.580,0:23:34.200
+which I found quite quite interesting this 
+brings me to the to the last two aspects
+
+0:23:34.740,0:23:39.780
+um we created journaling system for agile artifact 
+interactions so we have a prototype of this but
+
+0:23:39.780,0:23:45.060
+the purpose of this is to monitor auditing root 
+cause analysis and possibly payments processing
+
+0:23:45.060,0:23:53.100
+for using of of w3c or TD Services um we record 
+the concrete exchange messages according to the
+
+0:23:53.100,0:23:56.460
+TD binding and we also record the service 
+descriptions that are effective at runtime
+
+0:23:57.360,0:24:00.000
+um which we which we think is 
+rather rather rather makes sense
+
+0:24:01.080,0:24:05.100
+um in in our project we implemented this using 
+a distributed Ledger but of course any other
+
+0:24:05.700,0:24:12.840
+system can be used for this but we are not bound 
+to to dlts and the final aspect that I have is
+
+0:24:12.840,0:24:17.040
+is the business report TVs in the context of 
+performance Theory together with another project
+
+0:24:17.940,0:24:23.280
+with the hyper agents project over here we were 
+investigating affordance theory in the context
+
+0:24:23.280,0:24:29.400
+of the guidance of interactions of autonomous 
+hypermedia clients and what we did in a paper
+
+0:24:29.400,0:24:35.340
+that will be present in a month is that we propose 
+the introduction of signifiers as a first class
+
+0:24:35.340,0:24:41.220
+abstraction in in web-based multi-aging systems 
+why we do this is that this would allow us to
+
+0:24:41.220,0:24:47.400
+differentiate between signifiers and affordances 
+to allow runtime adaptation of exposed idls so
+
+0:24:47.400,0:24:53.760
+concretely what we have proposed in that paper 
+is that we that we have signifiers TDS in the
+
+0:24:53.760,0:24:58.980
+end that are that are adapted at runtime to agent 
+calls and those to agent abilities including agent
+
+0:24:58.980,0:25:05.520
+cognitive abilities so one way how we could do 
+this is here you see two such two such signifiers
+
+0:25:05.520,0:25:11.760
+and the the one on the left is is created for 
+an agent that implements a procedural reasoning
+
+0:25:11.760,0:25:18.540
+system so BDI architecture specifically that is 
+based on a PRS the one on the right implements the
+
+0:25:18.540,0:25:24.060
+same functionality function wise or outcome wise 
+but this time for an agent for an agent that is a
+
+0:25:24.060,0:25:29.340
+strip splanner also over here we have stripped 
+planners over here we have BDI agents and the
+
+0:25:29.340,0:25:33.600
+interesting or the the relevant difference between 
+these two is that a planner of course requires
+
+0:25:33.600,0:25:39.060
+things such as such as preconditions and effects 
+right where we use pdal for for for for describing
+
+0:25:39.060,0:25:44.040
+this time here while the BDI agent if I give this 
+agent preconditional effects it cannot do anything
+
+0:25:44.040,0:25:50.640
+with this right so this this one needs things 
+uh such as such as abilities such as such as
+
+0:25:51.300,0:26:00.660
+um such as perhaps something such as properties 
+down here okay so this is the this is the overall
+
+0:26:00.660,0:26:08.760
+idea here so to enable to enable a deeper runtime 
+negotiation if you want runtime uh adaptation of
+
+0:26:08.760,0:26:14.460
+TTS to the agents that use them a bit like if you 
+think about a human abstraction a bit like a sign
+
+0:26:14.460,0:26:20.580
+that always shows its content in the language 
+that you understand best right you at runtime
+
+0:26:20.580,0:26:27.600
+understand best and not just in English all the 
+time so this brings me to the end the last thing
+
+0:26:27.600,0:26:32.400
+that I want to that I want to uh to to mention 
+is I would like to introduce a new WCC community
+
+0:26:32.400,0:26:37.980
+group the group is called agents autonomous 
+agents on the web and this is this is an outcome
+
+0:26:38.760,0:26:43.200
+of a recent actual seminar some people in 
+this picture you might you might recognize
+
+0:26:43.200,0:26:47.040
+so recently we have a doctoral seminar 
+that was bringing together the traditional
+
+0:26:47.040,0:26:52.320
+fragmented communities of what of web architecture 
+autonomous ages multi-aging system semantic web
+
+0:26:53.280,0:26:57.960
+um and this this one one outcome of 
+this seminar was the WCC community group
+
+0:26:58.800,0:27:05.520
+the idea behind this is that it seems that what 
+we are enabling with w3cbot Tiki and other systems
+
+0:27:06.540,0:27:11.460
+um this interoperability and the flexibility 
+that this interoperability gives us at runtime
+
+0:27:11.460,0:27:19.080
+is an ideal fit to more autonomous Behavior by 
+entities at runtime not just by people but also
+
+0:27:19.080,0:27:24.180
+by artificial Solutions so our proposal here 
+is to join forces to drive interoperability
+
+0:27:24.180,0:27:30.120
+and drive autonomous behavior in a world in a 
+web of things and to to to make this worldwide
+
+0:27:30.120,0:27:34.980
+through the web and make this more autonomous 
+through multi-aging systems and autonomous agents
+
+0:27:35.940,0:27:40.020
+and I believe that this should be my last 
+slide so I'll leave I'll leave this slide on
+
+0:27:41.520,0:27:44.160
+um as an overview slide probably 
+this one is better suitable
+
+0:27:45.000,0:27:48.240
+let me take this one and I'm 
+happy to discuss anything

@@ -1,0 +1,747 @@
+0:00:07.080,0:00:15.400
+with us today is Andreas eart from Dash join and 
+Andreas has a long history of yeah Enterprise
+
+0:00:15.400,0:00:19.920
+Cloud linked and Big Data as well as systems 
+architecture and development he also has a
+
+0:00:19.920,0:00:29.160
+PHD and has co-founded two startups and actually 
+managed two successful exits by selling them to
+
+0:00:29.160,0:00:36.520
+um Silicon Valley giants like HP and veritas and 
+he he has an extensive background in um research
+
+0:00:36.520,0:00:42.320
+and yeah unique ability to address projects from 
+technical time to Market and return of investment
+
+0:00:42.320,0:00:49.560
+angles and yeah currently he is the CEO of Dash 
+join a provider of an Innovative low code platform
+
+0:00:49.560,0:00:57.440
+which we will actually see today so with this 
+Andreas the floor is yours so this is actually
+
+0:00:57.440,0:01:08.160
+um it's actually join B with with IG here um so so 
+we we met um through the Chason schema Community
+
+0:01:08.160,0:01:14.200
+actually where we're both uh Chason schema 
+ambassadors um and so we we got in contact and
+
+0:01:14.200,0:01:21.240
+you know started bouncing back and forth um ideas 
+about about Jason schema and and he was mentioning
+
+0:01:21.240,0:01:26.640
+some of the you know use cases and and things 
+and and so basically we started this this you
+
+0:01:26.640,0:01:33.160
+know paper as and the paper goes along with a with 
+a running prototype which we actually presented at
+
+0:01:33.160,0:01:41.400
+the API days last year in in Paris so that's I'm 
+just reusing the slides here um so it's um it's a
+
+0:01:41.400,0:01:48.400
+it's a presentation um with a live demo um and 
+then we also have the uh the paper that that's
+
+0:01:48.400,0:01:53.200
+sort of accompanying the the thing where you can 
+read up about all the details and of course we
+
+0:01:53.200,0:01:59.960
+also have the G GitHub repository with a code 
+available um yeah and please fre feel free to
+
+0:01:59.960,0:02:07.320
+to you know ask questions and interrupt at any 
+time so um a don't worry I deleted all of the
+
+0:02:07.320,0:02:15.520
+introductory um um web of things lies so obviously 
+in this community we don't need to repeat that um
+
+0:02:15.520,0:02:23.320
+and we can jump straight into the design goals 
+for the um web of uh things manager so the the
+
+0:02:23.320,0:02:29.840
+idea is really to focus on the consumption side 
+um so we have all of these great um devices
+
+0:02:30.680,0:02:39.560
+billions of devices um available on the on the 
+internet um of all shades and forms and and
+
+0:02:39.560,0:02:45.360
+different features and functionalities and that's 
+obviously a huge challenge uh from a consumption
+
+0:02:45.360,0:02:51.760
+point of view because you're confronted with 
+a huge support Matrix um specifically uh and
+
+0:02:51.760,0:03:00.160
+that's sort of the inspiration um also you 
+know shout out to to um to Cristiano um
+
+0:03:00.160,0:03:05.320
+they also wrote a paper on this a couple years 
+ago which you know inspired a lot of the work
+
+0:03:05.320,0:03:13.000
+we did here as well um so the the design goal 
+is really um to be able to manage any device
+
+0:03:13.000,0:03:20.280
+uh so specifically um also devices that are 
+published and described after we wrote the
+
+0:03:20.280,0:03:27.560
+software so the goal is to be generic and really 
+Leverage The descriptive nature of of webo things
+
+0:03:27.560,0:03:36.120
+descriptions um to manage devices generically um 
+and then also you know obviously you can provide
+
+0:03:36.120,0:03:41.840
+some base functionality like an inventory you 
+know displaying properties allowing to trigger
+
+0:03:41.840,0:03:49.480
+actions um but then you might also want to be 
+able to you know provide some custom special
+
+0:03:49.480,0:03:54.640
+functionality for a certain use case let's 
+say Energy Management things like that so so
+
+0:03:54.640,0:03:59.840
+the idea is that you can have plugins to you 
+know the base platform that provides you with
+
+0:03:59.840,0:04:07.320
+basic Services um and to easily add some of 
+these use cases um and the value ad that we
+
+0:04:07.320,0:04:14.280
+want to provide is obviously securely connect to 
+devices so obviously security um is very critical
+
+0:04:14.280,0:04:21.760
+in this in this realm um we want to be able to 
+control so call actions um on all of these devices
+
+0:04:21.760,0:04:29.720
+display the properties and show dashport and 
+also react to device events um in a generic way
+
+0:04:31.160,0:04:39.680
+so this is the architecture um of the solution 
+um so we as as the implementation platform we we
+
+0:04:39.680,0:04:44.920
+basically used our platform so it's an open- 
+Source uh low code development platform so
+
+0:04:44.920,0:04:51.240
+low code basically means that you can um a lot of 
+the plumbing is given to you and you can you know
+
+0:04:51.240,0:04:57.400
+using some small constructs and maybe by dragging 
+some widgets onto a screen um you can build a
+
+0:04:57.400,0:05:03.600
+solution and we use that because um it provides 
+us with a lot of the base features that we that
+
+0:05:03.600,0:05:10.200
+we need and and really allows us to express the 
+functionality of the web of things manager in a
+
+0:05:10.200,0:05:15.680
+in a very concise way um and we also have some 
+listings to to demonstrate that so that's why
+
+0:05:15.680,0:05:21.840
+we chose to base it on this platform um it really 
+starts on sort of on the right side with an open
+
+0:05:21.840,0:05:28.600
+ID provider so um if you log into the web of 
+things manager um you you know you have a your
+
+0:05:28.600,0:05:33.800
+your open ID entity you log in there and then 
+you have a bunch of security claims which are
+
+0:05:33.800,0:05:40.440
+then known to the platform and then you can can 
+log in and and work from there um the platform
+
+0:05:40.440,0:05:47.600
+itself is uh sort of you know deployed as as a 
+bunch of Docker containers and a horizontal uh
+
+0:05:47.600,0:05:54.440
+scaleup fashion um there's a config database the 
+config database um basically contains of the logic
+
+0:05:54.440,0:06:00.000
+of what manager basically the stuff that you find 
+in the GitHub repository when you fire up a new
+
+0:06:00.000,0:06:07.600
+instance um these that's basically the program 
+code um is loaded into the confict database and
+
+0:06:07.600,0:06:13.760
+and serve there Northbound you have a GUI which 
+will show in the demo and of course also an API so
+
+0:06:13.760,0:06:22.120
+you can uh consume um sort of the the aggregated 
+set of web of things devices uh through that API
+
+0:06:22.120,0:06:29.000
+as well um and then southbounds um sort of as 
+the as the plumbing on the right side we have
+
+0:06:29.000,0:06:37.080
+the actual webo things apis um so today in the in 
+the demo we support rest apis um but of course we
+
+0:06:37.080,0:06:44.640
+you know plan to support other protocols um 
+through some Pro protocol mappings as well
+
+0:06:44.640,0:06:52.800
+um then we have a postris database that's sort of 
+the the the brain or the the the the memory cache
+
+0:06:52.800,0:07:00.760
+of um web of things manager um when we discover 
+um devices the device descriptions basically get
+
+0:07:00.760,0:07:06.160
+loaded in there and that thrives the application 
+uh and we also have a large language model because
+
+0:07:06.160,0:07:11.760
+we use it to both trigger actions as well as do 
+some more sophisticated planning things which
+
+0:07:11.760,0:07:22.600
+we'll see uh later um so that's the that's the 
+core architecture okay now let's jump into um
+
+0:07:22.600,0:07:28.800
+the the features that we have so let's start with 
+um a very very important feature and that's uh
+
+0:07:28.800,0:07:35.880
+the discovery and the role based access control 
+um so when you you discover devices basically
+
+0:07:35.880,0:07:45.680
+by uh pointing uh what manager to their device 
+subscription URLs and um um so so they basically
+
+0:07:45.680,0:07:53.600
+get loaded and um U basically saved into the post 
+press database now the platform offers a um Ro
+
+0:07:53.600,0:08:02.760
+level security feature and you can basically also 
+specify um what kind of credentials are required
+
+0:08:02.760,0:08:11.440
+to access such um a given device so the design 
+choice is basically to use impersonation rather
+
+0:08:11.440,0:08:17.720
+than direct access um the rationale for that is 
+if you consider a factory floor or a building
+
+0:08:17.720,0:08:24.560
+where you have thousands or 10, sensors um that 
+probably makes more sense than requiring the user
+
+0:08:24.560,0:08:29.200
+to be able to log in into each and every device 
+so that's why we chose this imp impersonation
+
+0:08:29.200,0:08:36.200
+approach roach um so you basically specify the 
+the keys or the credentials in the platform make
+
+0:08:36.200,0:08:43.480
+them known to the platform and then then you can 
+specify which key is um required to access which
+
+0:08:43.480,0:08:52.560
+device and which role according to the uh open ID 
+um uh identity management provider is required for
+
+0:08:52.560,0:09:00.120
+you to actually use that key right so that's how 
+the the uh Access Control uh is implemented and
+
+0:09:00.120,0:09:05.320
+we can have a look later in the in the product 
+um to see how it's actually then what that looks
+
+0:09:05.320,0:09:13.880
+like um the next step is to so so now we basically 
+have loaded we have discovered all the devices and
+
+0:09:13.880,0:09:19.960
+we have loaded all of their uh device description 
+and the great news is that the device descriptions
+
+0:09:19.960,0:09:27.320
+leverage Jason schema to specify um what the 
+properties look like basically what structure
+
+0:09:27.320,0:09:34.000
+um they have and they also contain uh information 
+that we that we actually use uh for some generic
+
+0:09:34.000,0:09:41.480
+forms so in the screenshot here on the right side 
+you can see the um uh the the coffee machine demo
+
+0:09:41.480,0:09:50.200
+that's that you're probably aware of um and that 
+has um um um no so sorry first of all let's start
+
+0:09:50.200,0:09:56.880
+with the water milk chocolate so those are the 
+properties um which um we retrieve live from the
+
+0:09:56.880,0:10:03.840
+system using the credentials um and you can see 
+the code there um so we basically do um so this
+
+0:10:03.840,0:10:10.960
+is jonata code this is actually um sort of 
+the programming language that we use to in
+
+0:10:10.960,0:10:17.240
+the locco U uh platform to to express the logic 
+so we're basically saying read the current so
+
+0:10:17.240,0:10:22.680
+you're browsing you're basically on the page 
+of that of that device and uh read the thing
+
+0:10:22.680,0:10:29.160
+description and check the credentials um that the 
+that the administrator specified and then use Curl
+
+0:10:29.160,0:10:34.200
+um um to to actually get the values and display 
+them on the screen so that works generically so
+
+0:10:34.200,0:10:40.040
+that's basically to to get the current state of 
+you know what uh how much water how much milk is
+
+0:10:40.040,0:10:46.200
+in that in that specific coffee machine and then 
+to perform the actions um the action inputs are
+
+0:10:46.200,0:10:53.000
+also described using Chason schema and we have a 
+a methodology to also use or to basically render
+
+0:10:53.000,0:10:58.680
+Chason schema as forms um and so that's nice 
+here because you can see for instance that the
+
+0:10:58.680,0:11:05.480
+size is in enum um and the enum automatically 
+is uh displayed as a as a dropdown box so long
+
+0:11:05.480,0:11:13.560
+story short nobody program this form the form is 
+autogenerated uh simply by interpreting the thing
+
+0:11:13.560,0:11:20.960
+description right so that allows us to um really 
+deal with any kind of device and if um let's say
+
+0:11:20.960,0:11:28.280
+the the drink ID on the make drink action is then 
+also changed to a uh to a combo box um you know
+
+0:11:28.280,0:11:32.680
+we just have to load the new thing description 
+and the software automatically adapts to this
+
+0:11:32.680,0:11:44.960
+change okay so far so good so we looked at 
+generically displaying properties and um and
+
+0:11:44.960,0:11:50.120
+uh you know generically triggering actions 
+now we talk a little bit about background
+
+0:11:50.120,0:11:57.040
+knowledge so for certain use cases um let's say 
+Energy Management um it's important if I have an
+
+0:11:57.040,0:12:02.960
+energy sensor it's important to know uh Which 
+floor the energy sensor is is installed on but
+
+0:12:02.960,0:12:08.360
+that's probably data that the device isn't aware 
+of itself that probably resides in a different
+
+0:12:08.360,0:12:15.440
+database um and the same with the specifications 
+um so I have typically a data sheets that I find
+
+0:12:15.440,0:12:22.160
+on the web on the Sean website for instance and um 
+they contain some information about specifications
+
+0:12:22.160,0:12:27.080
+and so on and that's probably also something 
+that I don't find on the rest API of the of the
+
+0:12:27.080,0:12:34.840
+thing um so what we do here is that we sort of 
+Leverage a link data type approach and we allow
+
+0:12:34.840,0:12:42.240
+other data sources to be loaded into um into the 
+database and then match that over the device ID
+
+0:12:42.240,0:12:51.200
+to be able to join that data and that allows 
+us to drive dashboards um now when we want to
+
+0:12:51.200,0:12:59.240
+build dashboards um we're confronted with a with 
+a problem now let's let's consider a case where
+
+0:12:59.240,0:13:05.600
+you have thousands of energy sensors but some of 
+the sensors are a different version or maybe a
+
+0:13:05.600,0:13:12.760
+different um come from a different manufacturer 
+and they report the energy um in slightly
+
+0:13:12.760,0:13:19.240
+different ways so one talks about um the wattage 
+right away just says 45 watts and the other one
+
+0:13:19.240,0:13:26.880
+says power unit is watts and the amount is 45 
+um now that's a problem right because um I can
+
+0:13:26.880,0:13:33.200
+certainly dump that information on the screen but 
+I don't really have the semantic information about
+
+0:13:33.200,0:13:38.880
+how to interpret those values and to be able to 
+feed them into a dashboard to provide a sum and
+
+0:13:38.880,0:13:45.840
+aggregate value over all energy sensors um so 
+what we do here is we actually use this little
+
+0:13:45.840,0:13:52.280
+um a little formula here so right now this is 
+written by hand right so I as the domain subject
+
+0:13:52.280,0:13:59.840
+matter expert I need to um write this by hand and 
+basically interpret depending on which properties
+
+0:13:59.840,0:14:07.760
+show up put it into a some sort of normalization 
+code um but that's actually some an area of active
+
+0:14:07.760,0:14:14.440
+research where we want to collaborate um where 
+we you know use some sort of further semantic
+
+0:14:14.440,0:14:21.880
+descriptions to maybe autogenerate these mappings 
+or or allow these mappings to be loaded generally
+
+0:14:21.880,0:14:28.160
+or provided once such that that they can be 
+reused to arrive at a truly generic um solution
+
+0:14:28.160,0:14:35.320
+so right now um this this small little piece of 
+of code is written by hand but um that's that's
+
+0:14:35.320,0:14:42.320
+active research that we're that we're engaged 
+in uh natural language commands are are super
+
+0:14:42.320,0:14:49.880
+interesting so it's basically a slightly different 
+way of um rather than using a form to trigger a
+
+0:14:49.880,0:14:55.600
+device action we use a voice command and again 
+here Jason schema plays a huge role because
+
+0:14:55.600,0:15:02.760
+the large language models have a uh information 
+extract action mode when I say one huge coffee I
+
+0:15:02.760,0:15:08.760
+can tell the large language model please translate 
+that into Jason and please use the following Jason
+
+0:15:08.760,0:15:14.600
+schema to do so right and on the right side you 
+see the outcome of that and there's one thing
+
+0:15:14.600,0:15:21.920
+that's really kind of cool um on the left side 
+in my voice command I said huge coffee but the
+
+0:15:21.920,0:15:29.200
+enom in the Chason schema only says small medium 
+and large and the large language model chooses l
+
+0:15:29.200,0:15:35.240
+Which is semantically closest to huge right so 
+that's actually pretty cool it's a small small
+
+0:15:35.240,0:15:43.160
+Minor Detail but it shows you the power of this 
+approach again um completely generic using a thing
+
+0:15:43.160,0:15:52.600
+description and Chas scheme um now we can take 
+that a step further and use um so we can call
+
+0:15:52.600,0:15:58.920
+of all of these things we can use large language 
+model to invoke the actions now we can actually
+
+0:15:59.600,0:16:07.680
+you know use a use a use an agent framework so 
+to to basically call a chain or make a make a
+
+0:16:07.680,0:16:16.000
+chain of calls uh to satisfy a certain goal um 
+and you basically tell the large language model
+
+0:16:16.000,0:16:22.240
+please solve the following problem and these are 
+the tools that you can use to fulfill the so plus
+
+0:16:22.240,0:16:28.160
+your background knowledge but you can use these 
+tools and the tools are basically the what actions
+
+0:16:28.160,0:16:38.320
+right and so this is a transcript um of of one of 
+these um thought processes that um that the AI is
+
+0:16:38.320,0:16:46.680
+actually going through the um the goal or the the 
+user request that it's being given is to turn off
+
+0:16:46.680,0:16:54.240
+all the unused lights in the building and in order 
+to to solve that problem it actually makes first a
+
+0:16:54.240,0:17:01.760
+call to um the security system to ask who's still 
+in the building right so people that have already
+
+0:17:01.760,0:17:06.440
+if somebody's still in the building you shouldn't 
+turn the light off right in the next step you talk
+
+0:17:06.440,0:17:15.160
+to the um elab system to figure out um um you know 
+which office a certain person is located in uh or
+
+0:17:15.160,0:17:22.000
+or sits in then you call an asset database to 
+find out which entry sensor is or the sensor ID
+
+0:17:22.000,0:17:28.960
+of that um or the light switch ID of that of that 
+office and then um you can actually turn off the
+
+0:17:28.960,0:17:34.200
+right there and so it's quite amazing that the 
+large language model actually you know does a
+
+0:17:34.200,0:17:41.360
+sequence of these four calls to you know fulfill 
+an ad hoc or or dynamic goal so that's that's
+
+0:17:41.360,0:17:52.480
+quite nice right so so demo is um so first of all 
+um this is the this is the GitHub page so this is
+
+0:17:52.480,0:17:59.040
+the actual source code um here's the link to 
+the demo and here's the link to the paper uh
+
+0:17:59.040,0:18:06.280
+that IG and I wrote um with all the glory details 
+so now let's jump in the demo so um you can just
+
+0:18:06.280,0:18:16.520
+use a Google user to to log in um and so let's we 
+have a bunch of energy sensors here um which are
+
+0:18:16.520,0:18:22.200
+actually hosted uh on this on this very system 
+and we have the coffee machine so if I click
+
+0:18:22.200,0:18:28.360
+on the coffee machine um you can see the dynamic 
+information so this is sort of static information
+
+0:18:28.360,0:18:35.000
+from the thing description uh and these are the 
+dynamic properties that are being retrieved so
+
+0:18:35.000,0:18:40.600
+we can see the different uh resource levels we can 
+see the list of possible drings and the schedules
+
+0:18:40.600,0:18:47.240
+that have been set and here are the forms um 
+basically for every action there's a form so
+
+0:18:47.240,0:18:57.840
+let me let we can do make make um medium L here 
+one and so look at the coffee beans we have 60
+
+0:18:57.840,0:19:08.520
+here so if I Brew or coffee uh it jumped down to 
+59 okay so I used one one coffee bean um and the
+
+0:19:08.520,0:19:13.760
+sort of again the the cool thing is we can now 
+go into edit mode and look at the source code so
+
+0:19:13.760,0:19:19.240
+I can so this is the low code designer now I can 
+basically click on that thing and here you can see
+
+0:19:19.240,0:19:26.080
+the code that we uh that we listed on the slide 
+so these two lines again first line retrieves the
+
+0:19:26.080,0:19:31.440
+credentials and the second line makes the actual 
+curve call to the to the system and then uses the
+
+0:19:31.440,0:19:39.520
+display widget to basically generically display 
+any Chason that comes back so that's quite nice
+
+0:19:39.520,0:19:46.600
+um now let's do the voice commands so here again 
+um if we look at the source code it's a bit more
+
+0:19:46.600,0:19:52.800
+complex this is the so we're using open AI so 
+this is the the source code here is basically
+
+0:19:52.800,0:20:00.400
+the Chas and schema mode um so we we basically 
+set the response form should be Chas and schema
+
+0:20:00.400,0:20:05.880
+and here is the where we basically talk to the 
+database and insert dynamically the the Chas
+
+0:20:05.880,0:20:15.960
+and schema that we retrieved for the coffee maker 
+so let me try this one huge coffee please okay so
+
+0:20:15.960,0:20:23.640
+we have voice recognition in there as well and 
+we brew a huge coffee and here we go right so
+
+0:20:23.640,0:20:31.480
+uh first we had the voice to text then the text 
+was translated into this Chason down here so we
+
+0:20:31.480,0:20:39.160
+for debugging purposes we we also list that here 
+and um and then it actually went through and and
+
+0:20:39.160,0:20:49.680
+made a request and last but not least we show a 
+um the energy consumption dashboard so um what
+
+0:20:49.680,0:20:55.920
+we did here is that you can uh you can see an 
+assets table um where we have the different uh
+
+0:20:55.920,0:21:04.160
+the different assets we also have um here we have 
+the floor so again this information is ETL from a
+
+0:21:04.160,0:21:09.520
+different data source so we just use a CSV where 
+we basically say this something that the architect
+
+0:21:09.520,0:21:15.040
+for instance would provide us once we take over 
+the building uh and here we have the sensor so
+
+0:21:15.040,0:21:24.600
+this is the uh Json link data identifier for the 
+thing type and uh we basically materialize those
+
+0:21:24.600,0:21:30.880
+into a table and we also materialize the status 
+value again this is the normal alized value um
+
+0:21:30.880,0:21:39.440
+where this little jonata script normalized the 
+values into a coherent energy reading and now
+
+0:21:39.440,0:21:44.840
+as a result we can join those tables together 
+and provide some sort of dashboard here where
+
+0:21:44.840,0:21:51.960
+we can see the energy consumption per floor um 
+and again here in the local developer um editor
+
+0:21:51.960,0:21:58.520
+we can go in and you know change this to a line 
+chart and play around with aggregations and so on
+
+0:21:59.640,0:22:04.120
+all right so that concludes the 
+presentation and the demo um
+
+0:22:04.120,0:22:17.720
+thanks for your attention and I'm 
+looking forward to your questions

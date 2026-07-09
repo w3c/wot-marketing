@@ -1,0 +1,1047 @@
+0:00:07.680,0:00:14.240
+Yeah. So today with us we have two um speakers 
+from the net mode lab at the national tech
+
+0:00:14.240,0:00:20.400
+technical university of atoms. So specifically 
+it's Dimmitrios and Nikos and Dimitrios
+
+0:00:20.400,0:00:27.120
+specifically is a postto fellow at the net mode 
+lab and he's basically focusing on IoT and cyber
+
+0:00:27.120,0:00:34.240
+physical systems and how edge and cloud computing 
+plays a role here and maybe you even know him from
+
+0:00:34.240,0:00:41.120
+different EU projects that uh has happened over 
+the years and are still happening. So he's very
+
+0:00:41.120,0:00:48.160
+active in the research committee around the IoT 
+systems. On the other hand, Nicholas is a PhD um
+
+0:00:48.160,0:00:55.760
+yeah he's pursing his PhD at the same university 
+and uh are basically he's basically working on
+
+0:00:55.760,0:01:01.520
+more intelligent orchestration mechanisms for 
+cloud on edge um and also different techniques
+
+0:01:01.520,0:01:08.880
+like reinforcement learning and also software 
+stacks for for IoT and today basically they will
+
+0:01:08.880,0:01:14.400
+be talking about the Nefellia project and more 
+specifically the open source stack that they have
+
+0:01:14.400,0:01:23.440
+the up there and how this opensource software 
+stack enables IoT virtualization and how it can
+
+0:01:23.440,0:01:29.040
+be used for convergence with the edge 
+computing technologies. So with this
+
+0:01:29.040,0:01:38.560
+um Demetrius you can uh take the screen. Thanks 
+for the for the invitation and for giving us the
+
+0:01:38.560,0:01:46.960
+opportunity uh to to present what we are doing in 
+Nephil. Um I'm Limitus Patharakis and along with
+
+0:01:46.960,0:01:53.760
+uh Nikos we are going to present you today the 
+open source software stack that we have developed
+
+0:01:53.760,0:02:01.840
+uh during the Neph project um to solve mainly uh 
+virtualization and convergence challenges with
+
+0:02:01.840,0:02:12.000
+uh of IoT with edge computing uh technologies. So 
+uh Nephil project actually um will be finalized
+
+0:02:12.000,0:02:18.400
+in September. The purpose of the project was to 
+to to provide a lightweight uh software stack
+
+0:02:18.400,0:02:24.000
+and the synerggetic meta orchestration framework 
+for the next generation compute continuum. So we
+
+0:02:24.000,0:02:33.440
+try to integrate the IoT part with the rest of 
+uh the cloud continuum infrastructure. So um a
+
+0:02:33.440,0:02:39.840
+few words about our lab here in national technical 
+university of Athens. So we come from the network
+
+0:02:39.840,0:02:46.240
+management and optimal design laboratory 
+uh called net mode uh which is under the
+
+0:02:46.240,0:02:53.920
+school of electrical and computer engineering of 
+NUA. through net mode has uh uh five professors,
+
+0:02:53.920,0:03:02.640
+many postoc researchers uh more than 20 PhD 
+candidates and the main focus of the lab regards
+
+0:03:02.640,0:03:09.680
+the 5G 6G communication and computing systems like 
+edge fog or cloud computing the optimal resource
+
+0:03:09.680,0:03:15.280
+allocation and orchestration data modeling 
+dynamical systems modeling and optimal decision
+
+0:03:15.280,0:03:23.360
+making hardware software code design and so on. 
+uh so uh our lab is actively involved in various
+
+0:03:23.360,0:03:32.480
+EU and national projects and you can find also the 
+uh the link of the laboratory here. Uh so when we
+
+0:03:32.480,0:03:41.280
+started the Nephil project actually we identified 
+two main challenges um also working together with
+
+0:03:41.280,0:03:50.400
+with Eclipse. the need for convergence of various 
+IoT technologies trying to to guarantee seamless
+
+0:03:50.400,0:03:58.400
+and continuous open openness and interoperability 
+and try to build a a solution that could provide
+
+0:03:58.400,0:04:04.800
+the backbone as a so as a software for all the 
+use cases that we had in the project and more
+
+0:04:04.800,0:04:11.680
+than that we tried to to a main challenge was 
+to provision an integrated met orchestration
+
+0:04:11.680,0:04:18.960
+environment ment or as we call it platform for the 
+hyperdistributed applications orchestration trying
+
+0:04:18.960,0:04:29.120
+to build a synergy between IoT edge and cloud uh 
+platforms. Um so the general vision of our project
+
+0:04:29.120,0:04:38.240
+was to to to build a systems relying on a systems 
+uh system of systems approach uh beginning from a
+
+0:04:38.240,0:04:46.240
+met orchestration uh and going to different uh 
+levels of control regarding the cloud computing
+
+0:04:46.240,0:04:52.720
+infrastructure, the edge computing infrastructure 
+and the IoT devices to build several orchestration
+
+0:04:52.720,0:05:00.880
+mechanisms that work together trying to to provide 
+convergence with IoT uh with the IoT part and the
+
+0:05:00.880,0:05:09.200
+edge cloud and the main scope was to to have to 
+to provide um to develop and provide the software
+
+0:05:09.200,0:05:16.640
+stack uh and achieve interoperability across the 
+whole continuum to facilitate the orchestration
+
+0:05:16.640,0:05:24.160
+and deployment of uh distributed applications. Uh 
+so this is a very uh short overview of what we are
+
+0:05:24.160,0:05:33.840
+doing in the project. Um just here we we just want 
+to mention that uh in the beginning of the project
+
+0:05:33.840,0:05:42.640
+what we did was to to find an old implementation 
+of uh web of things in python. So what we did
+
+0:05:42.640,0:05:47.840
+uh in the first place was to to update the 
+repository of the old Python implementation,
+
+0:05:47.840,0:05:54.960
+update all the packages and provide um some 
+extensions in the software necessary for the
+
+0:05:54.960,0:06:05.360
+means and what we try to do in the project and 
+actually we upon uh the the extension of what
+
+0:06:05.360,0:06:14.480
+uh two as we call it, we provide a software stack 
+that acts actually as a wrapper binding the WPI
+
+0:06:14.480,0:06:21.120
+implementation with additional functionalities to 
+enable the orchestration of IoT application graphs
+
+0:06:21.120,0:06:29.120
+and uh therefore we have also two implementations 
+of the uh VO uh both inter uh the one is
+
+0:06:29.120,0:06:35.680
+interoperable with W3C web of things and the other 
+one is interoperable inter interoperable with open
+
+0:06:35.680,0:06:48.560
+mobile alliance and lightweight machine to machine 
+uh uh semantic. Um, so just to to for the for for
+
+0:06:48.560,0:06:54.880
+the presentation, we have here two definitions 
+that we utilize throughout our work. The first
+
+0:06:54.880,0:07:02.320
+one is the definition of the virtual object as we 
+call it VO which is the virtual count counterpart
+
+0:07:02.320,0:07:09.200
+of a physical device on the internet of things 
+domain. So the VO provides a set of abstractions
+
+0:07:09.200,0:07:16.000
+for managing any type of IoT device through a 
+virtualized instance that is usually deployed
+
+0:07:16.000,0:07:21.920
+in the edge of the network trying to augment the 
+supported functionalities of the devices through
+
+0:07:21.920,0:07:30.000
+this software stack that we call it VO stack. Uh 
+the second definition um is the composite virtual
+
+0:07:30.000,0:07:37.760
+object which is a software entity that is able 
+to manage different uh virtual objects. Uh so
+
+0:07:37.760,0:07:46.000
+it is like an aggregation point for data coming 
+from multiple vos uh to provide also advanced
+
+0:07:46.000,0:07:52.960
+functionalities uh and be part usually of an 
+application graph. So this applies both for the
+
+0:07:52.960,0:07:59.840
+VOS and CVOS that we consider that is the entry 
+point for data coming from the IoT layer towards
+
+0:07:59.840,0:08:06.720
+applications application graphs that we deploy 
+across the continuum. Just to mention that the
+
+0:08:06.720,0:08:15.200
+vio stack implementation uh is part of the W3C web 
+of things developer uh resources uh and we try to
+
+0:08:15.200,0:08:23.200
+build an active community uh both coming from 
+from the use cases of Nephil project and also
+
+0:08:23.200,0:08:29.600
+uh during the the support of the two open call 
+phases that we had in the project. So we had a
+
+0:08:29.600,0:08:35.920
+lot of developers that tried to utilize uh our 
+software to to to provide application graphs
+
+0:08:35.920,0:08:46.720
+that consist of uh vos and cos. Um so here I will 
+go into a bit of details about what we are doing
+
+0:08:46.720,0:08:53.680
+uh the extensions that we have in the python 
+implementation of web web of things and the
+
+0:08:53.680,0:09:00.320
+vo stack. So we will start with some general 
+assumptions that we had or let's say directions
+
+0:09:00.320,0:09:09.200
+that we have regarding the vos and specifically 
+we um we consider that the vos are deployed
+
+0:09:09.200,0:09:19.120
+on on edge servers and consumes h things and 
+here we will refer to to this presentation to
+
+0:09:19.120,0:09:26.560
+uh the web of things uh implementation. So we have 
+two deployment types. We consider that we may have
+
+0:09:26.560,0:09:32.320
+some devices with computing capabilities 
+or either we can have some devices without
+
+0:09:32.320,0:09:40.480
+computing capability. So for the second case 
+for example uh some sensors are able to perform
+
+0:09:40.480,0:09:48.960
+read write operations directly uh accessing the 
+URLs of the exposed thing uh as part of the web
+
+0:09:48.960,0:09:55.920
+of things uh standard. In the first case, uh 
+we consider that the virtual object contains
+
+0:09:55.920,0:10:02.240
+both a consumed thing and an exposed thing. 
+The exposed thing is utilized as a northbound
+
+0:10:02.240,0:10:10.000
+interface towards CVOS or application graphs 
+while the consumed thing is able to interact with
+
+0:10:10.000,0:10:17.200
+um uh with an exposed thing that runs on a device 
+with computing capabilities. So these are the two
+
+0:10:17.200,0:10:25.040
+deployment types that we utilize throughout the 
+project. Um just to give you an example here this
+
+0:10:25.040,0:10:30.880
+is one of the use cases of the project. So you 
+can see that we have several application graph
+
+0:10:30.880,0:10:41.920
+nodes that have some application components or VOS 
+and CVOS and here we define let's say a a business
+
+0:10:41.920,0:10:54.400
+logic taking data coming from the device layer 
+that are um redirected towards the virtual objects
+
+0:10:54.400,0:11:02.560
+uh through some gateways uh utilizing here the 
+MQTT protocol uh and trying to to have different
+
+0:11:02.560,0:11:09.040
+communication schemes and uh and support advanced 
+functionalities using the composite uh virtual
+
+0:11:09.040,0:11:15.680
+objects uh to facilitate the specific application 
+graph. This is just an example of what we are
+
+0:11:15.680,0:11:25.280
+trying to build. Um so here we have the virtual 
+object stack architecture. So we have three main
+
+0:11:25.280,0:11:31.520
+layers. The first one h has to do with the 
+physical convergence layer. So we considered
+
+0:11:31.520,0:11:38.800
+that we can support several devices uh and more 
+specifically several communication protocols HTTP,
+
+0:11:38.800,0:11:45.680
+MQTT, co-op, websockets and Zeno and I will go 
+through the details afterwards and different
+
+0:11:45.680,0:11:53.520
+security schemes trying to solve the convergence 
+challenges between the digital replica so the
+
+0:11:53.520,0:12:01.520
+virtual object and the IoT devices that are 
+part of uh for example the physical layer. Uh
+
+0:12:01.520,0:12:07.760
+the second layer has to do with the backend 
+logic layer which actually implements some
+
+0:12:07.760,0:12:18.560
+functionalities uh that the virtual logic wants to 
+to augment to to to the IoT to the IoT devices. So
+
+0:12:18.560,0:12:26.320
+for example we have uh developed two data two 
+two databases one for time series data and one
+
+0:12:26.320,0:12:32.080
+for more static information coming from from the 
+devices and we have a set of functions that we
+
+0:12:32.080,0:12:40.320
+will speak in the next slides trying to to provide 
+intelligent mechanisms uh to the devices. For
+
+0:12:40.320,0:12:47.440
+example, we can have custom logic about the web 
+of things events and actions or provide task of
+
+0:12:47.440,0:12:56.480
+loading modules or tiny ML implementations trying 
+to achieve um different uh levels of control both
+
+0:12:56.480,0:13:03.040
+for the device part and and the application graph. 
+So for the third layer the edge cloud convergence
+
+0:13:03.040,0:13:11.040
+layer we uh are exposing a lot of information 
+in uh towards the synergetic met orchestrator
+
+0:13:11.040,0:13:17.040
+that we developed in the project. So we want 
+to solve scaling issues regarding uh the the
+
+0:13:17.040,0:13:24.080
+virtual object for example or uh to provide the 
+the necessary monitoring expose the properties or
+
+0:13:24.080,0:13:33.280
+the metrics towards a h a monitoring system uh and 
+try to solve multi-tenency issues and challenges.
+
+0:13:33.280,0:13:42.800
+So this is the architecture of the vo stack and uh 
+one important note is that we because we uh we are
+
+0:13:42.800,0:13:51.200
+using virtualization to develop uh virtualization 
+solutions to to to deploy the vos. Uh we bind all
+
+0:13:51.200,0:13:57.840
+this information utilizing a common descriptor 
+that we call it vo descriptor used both for the
+
+0:13:57.840,0:14:04.240
+virtual virtual objects and the composite virtual 
+objects. So we consider that we can deploy the VOS
+
+0:14:04.240,0:14:11.440
+for example in Kubernetes or Docker environments 
+and provide along with the VOS some side cars
+
+0:14:11.440,0:14:18.720
+uh and extend the functionalities with for example 
+ML based network agents or ML based orchestration
+
+0:14:18.720,0:14:25.120
+agents but we have a couple of slides with 
+works that we have done uh uh the last year
+
+0:14:25.120,0:14:33.600
+about uh these examples. Um so what what is quite 
+important is that when we started the project we
+
+0:14:33.600,0:14:42.080
+were trying to find out a way to to facilitate the 
+development of virtual objects uh to developers or
+
+0:14:42.080,0:14:50.160
+people that don't have a lot of experience with 
+with web of things. So we came up with an idea
+
+0:14:50.160,0:14:58.960
+of actually trying to automate the process of the 
+instantiation of uh virtual objects. So this means
+
+0:14:58.960,0:15:08.400
+that um we have developed a a CLI as we call it 
+or a script runner as you can see here in the
+
+0:15:08.400,0:15:16.880
+figure that takes three different files. the thing 
+description erh of of the thing uh based on the
+
+0:15:16.880,0:15:26.800
+W3C web of things standard the Python script that 
+usually um is contained in the examples of web of
+
+0:15:26.800,0:15:33.600
+things and also the virtual object descriptor that 
+we have developed and Nikos will speak about this
+
+0:15:33.600,0:15:42.720
+later on in his presentation. So these three files 
+actually we we we utilize them. We parse these
+
+0:15:42.720,0:15:49.760
+files and we try to automatically instantiate a 
+virtual object that uh has a specific thing thing
+
+0:15:49.760,0:15:55.120
+descriptor has some custom functionalities 
+coming from the Python script with some
+
+0:15:55.120,0:16:07.600
+conventions that we that we have and also taking 
+as a declaration thing all all the things that
+
+0:16:07.600,0:16:16.720
+uh the vo descriptor contains. So for example in 
+the vo descriptor uh a developer can um state that
+
+0:16:16.720,0:16:25.280
+uh wants a specific database and the script runner 
+is able to to instantiate a virtual object that
+
+0:16:25.280,0:16:34.160
+uh also contains for example inflex DB. So here 
+in this slide we have uh let's say the the four
+
+0:16:34.160,0:16:39.920
+main extensions that we did in in web of things 
+in the Python implementation of web of thing of
+
+0:16:39.920,0:16:47.120
+web of things we have extended some protocol 
+bindings we have extended or developed again
+
+0:16:47.120,0:16:53.920
+uh some security mechanisms we have included some 
+periodic functions that uh we are able to repeat
+
+0:16:53.920,0:17:02.640
+some functions in irregular uh intervals and 
+we have added inflex DB and SQLite as databases
+
+0:17:02.640,0:17:13.120
+to store information of of of a thing. Erh so uh 
+this means that the uh supported protocol bindings
+
+0:17:13.120,0:17:20.640
+right now for the Python implementation of web of 
+thing of web of things uh are HTTP and HTTPS co-op
+
+0:17:20.640,0:17:29.120
+websockets MQTT and we have included also Zeno 
+protocol which is a popsup protocol like MQTT
+
+0:17:29.120,0:17:36.800
+uh that is based on Zeno routers. It it is a 
+quite new protocol developed to to facilitate
+
+0:17:36.800,0:17:43.840
+a robotic application. So we uh needed to 
+develop this under the nele project. Also
+
+0:17:43.840,0:17:49.760
+we have developed some authentication mechanisms 
+basic username password authentication schemes
+
+0:17:49.760,0:17:56.080
+and better token authentication to facilitate 
+uh the trusted part between the data exchange
+
+0:17:56.080,0:18:03.440
+of the application graph and the vos. Also 
+we have the inflex DB integration. So uh we
+
+0:18:03.440,0:18:12.480
+automatically each time a property is uh has a new 
+value uh we use some packets in in in flex DB to
+
+0:18:12.480,0:18:19.440
+to save and store this information and data and 
+also this facilitates the process of for example
+
+0:18:19.440,0:18:27.120
+uh time series analysis or try we at some point 
+we had some predictions as external functions
+
+0:18:27.120,0:18:35.120
+of of the stack. Erh so we have a time series 
+database that also logs action invocations or
+
+0:18:35.120,0:18:41.520
+event emissions and also is able to propagate 
+this information in a centralized monitoring
+
+0:18:41.520,0:18:50.720
+uh engine uh as we had in Nephil. Uh influx DB 
+is also able to be uh deployed as a sidecar in
+
+0:18:50.720,0:18:59.920
+case that we have a a virtualized environment like 
+Kubernetes. Erh so here we will speak about the vo
+
+0:18:59.920,0:19:05.360
+stack functionalities that we have developed 
+and we continuously develop to support all
+
+0:19:05.360,0:19:13.760
+uh the research work that we are doing in 
+the lab. Uh so five main categories we have
+
+0:19:13.760,0:19:20.720
+the a lot of work trying to provide automatic 
+orchestration and virtualization of the stack.
+
+0:19:20.720,0:19:27.360
+uh we had some security mechanism uh open ID for 
+verifiable credentials but I will speak about this
+
+0:19:27.360,0:19:33.760
+uh later. We have an RTSP server for video 
+streams, some network optimization sidecards
+
+0:19:33.760,0:19:41.760
+and a proxy mode that I will discuss in a few 
+slides. So one by one what we did was trying to
+
+0:19:41.760,0:19:50.240
+to deploy the virtual object um as a Kubernetes 
+deployment. So we started with developing a
+
+0:19:50.240,0:19:57.920
+a a specific Docker image for the virtual object 
+and then we developed a Helm package that was
+
+0:19:57.920,0:20:05.840
+quite helpful because we could override the 
+defaults with de developer declared values uh so
+
+0:20:05.840,0:20:12.880
+facilitate the whole process of developing custom 
+VOS or VO that are quite similar to each other.
+
+0:20:12.880,0:20:20.480
+Erh and this also means that we were able to to 
+integrate the virtual objects and the composite
+
+0:20:20.480,0:20:28.480
+virtual objects in a micro micros service based 
+architecture that we call application graph. So
+
+0:20:28.480,0:20:39.280
+the second part uh has to do with open ID for 
+verifiable credentials. So here um what we uh
+
+0:20:39.280,0:20:47.360
+assumed uh was that there is an issuer component 
+that actually is able to issue credentials
+
+0:20:47.360,0:20:55.280
+uh uh trying to to has to to to provide access 
+control to the information for example that a
+
+0:20:55.280,0:21:03.200
+VO stores. So here we have an example that a CVO 
+wants to communicate with a virtual object and
+
+0:21:03.200,0:21:11.760
+the workflow actually is that the the VO uses 
+a holder sidecard that stores uh the specific
+
+0:21:11.760,0:21:20.880
+credentials and the CVO H queries the issuer and 
+then tries to h get some information from the
+
+0:21:20.880,0:21:30.960
+virtual object and actually this h the virtual 
+object proxies the request through the holder
+
+0:21:30.960,0:21:40.960
+to verify the the credentials of of the CDO. Uh 
+so this was quite helpful to uh uh realize uh
+
+0:21:40.960,0:21:47.280
+the trusted data exchange between the application 
+graphs that we had in the project. Uh also we have
+
+0:21:47.280,0:21:57.680
+developed an RTSP uh server as a sidecar. So uh 
+actually we have a ffmpeg library that redirects
+
+0:21:57.680,0:22:05.120
+a video stream to a specific sidecar and we have 
+developed a video property that can be exposed
+
+0:22:05.120,0:22:12.640
+uh as a URL through the the video stream. Uh so 
+we again we are using a redirection to the RTSP
+
+0:22:12.640,0:22:23.200
+server but the video is stored as a property under 
+the uh web of things implementation. Erh also uh
+
+0:22:23.200,0:22:30.880
+utilizing VOS and CVOS we were able to proxy uh 
+different invocations. So for example for readrite
+
+0:22:30.880,0:22:41.920
+operations or to uh proxy some action invocations 
+uh subscriptions and uh proxy also events. We h
+
+0:22:41.920,0:22:50.720
+we were able to to uh declare utilizing the vo 
+descriptor uh this mode that for example a vo
+
+0:22:50.720,0:23:00.480
+that needs to to proxy a specific event towards 
+a an IoT device. So we consider that we have a
+
+0:23:00.480,0:23:06.320
+an event that is emitted for some reason in in in 
+the layer of the virtual object but then it needs
+
+0:23:06.320,0:23:13.120
+to communicate with the IoT device to control it 
+or change some parts. We were able to proxy this
+
+0:23:13.120,0:23:24.000
+event to to another exposed thing. Here we have 
+also two examples uh that we developed uh during
+
+0:23:24.000,0:23:30.960
+the project that has to do with softwaredefined 
+networking. So we had some uh topologies in the
+
+0:23:30.960,0:23:39.360
+IoT level and the virtual object acted as a as a 
+controller uh for reactive routing in the first
+
+0:23:39.360,0:23:45.840
+case and in the second case of timesensitive 
+networking. uh the virtual object communicated
+
+0:23:45.840,0:23:53.360
+with the dedicated netcom server deployed in a 
+IoT gateway in the physical layer uh providing
+
+0:23:53.360,0:24:01.520
+different schedules of uh for the TSN. Uh this is 
+just two examples on how to control for example
+
+0:24:01.520,0:24:11.520
+different uh uh network capabilities uh utilizing 
+the virtual objects and more specifically we
+
+0:24:11.520,0:24:20.960
+um we have developed some digital twins and we 
+believe that this modular nature of vos and cobs
+
+0:24:20.960,0:24:30.080
+that work together is able to to provide the 
+modular erh erh it is to actually control from
+
+0:24:30.080,0:24:36.160
+the one hand the physical layer that consists 
+of IoT devices, access network or different
+
+0:24:36.160,0:24:41.600
+communication protocols and from the other side 
+the application layer. So we can have different
+
+0:24:41.600,0:24:48.160
+application requirements many application graphs 
+uh and for example one of the main challenges is
+
+0:24:48.160,0:24:55.200
+to provide adaptive orchestration and resource 
+management. So the VO acts here as a as a bridge
+
+0:24:55.200,0:25:03.280
+between these two layers uh trying to to control 
+from the one hand the uh the devices and from
+
+0:25:03.280,0:25:10.400
+the other hand to expose information that can be 
+capitalized and used from an orchestrator for the
+
+0:25:10.400,0:25:19.120
+application layer. So we have h here two different 
+examples. The first one was a research work that
+
+0:25:19.120,0:25:28.320
+we submitted recently that the virtual object er 
+in the first level has a specific reinforcement
+
+0:25:28.320,0:25:35.600
+learning agent that takes information about the 
+quality of the transmission coming from a device
+
+0:25:35.600,0:25:42.640
+and controls the rate that the device uh sends 
+information towards an application graph. And this
+
+0:25:42.640,0:25:50.560
+information is pre-processed in the virtual object 
+and propagated to a CBO and then to specific pods
+
+0:25:50.560,0:26:03.040
+that uh has a a specific business logic. Here the 
+the the image was uh first it goes through it each
+
+0:26:03.040,0:26:08.720
+offloaded image goes through a noise reduction 
+application and an image detection. So this
+
+0:26:08.720,0:26:18.560
+was uh to an an inference application graph. So 
+the composite virtual object here also provided
+
+0:26:18.560,0:26:27.200
+um to the to the uh dedicated Kubernetes 
+infrastructure that I had utilizing a simple
+
+0:26:27.200,0:26:34.240
+machine learning algorithm uh provided the scaling 
+decisions for the application both uh considering
+
+0:26:34.240,0:26:46.000
+also historical data and previous decisions. Um so 
+the second example that we also submitted research
+
+0:26:46.000,0:26:54.720
+work recently was in the context of internet of 
+robotic things. Uh so here we consider that we
+
+0:26:54.720,0:27:03.840
+have a robotic agent that uh has the capability of 
+performing some uh object detection and inference
+
+0:27:03.840,0:27:12.880
+application on premises or to offload uh to a more 
+powerful ED server. that has also the capability
+
+0:27:12.880,0:27:20.720
+for example to deploy LLM services and uh provide 
+more information about the inferred image.
+
+0:27:20.720,0:27:29.200
+So here we just showcase again how we utilize the 
+virtual object that uh we deployed as a sidecar an
+
+0:27:29.200,0:27:36.320
+AI assisted mechanism that controls the task of 
+loading h in this scenario and also the virtual
+
+0:27:36.320,0:27:45.520
+object was able to emit an event and trigger 
+the uh automatic or on on demand deployment
+
+0:27:45.520,0:27:54.560
+of resources exposing a specific metric in 
+Prometheus and uh uh providing this information to
+
+0:27:54.560,0:28:04.560
+the synergetic met orchestrator layer to deploy uh 
+the applications on the ed server on demand. Uh so
+
+0:28:04.560,0:28:12.400
+uh coming to the end uh we have a a road map for 
+the next period for this software. H we want to
+
+0:28:12.400,0:28:19.680
+keep it alive and more specifically we are going 
+to follow the ongoing activities for W3C web of
+
+0:28:19.680,0:28:28.560
+things. Erh try to see that now that we have a bit 
+more time try try to see what updates there are
+
+0:28:28.560,0:28:35.120
+in the specification or in NodeJS implementation 
+and try to see where we can contribute also in the
+
+0:28:35.120,0:28:42.720
+Python implementation. Erh so what we aim to do 
+is to support and develop new features in what pi
+
+0:28:42.720,0:28:52.400
+in the web of things python implementation. Erh 
+also we aim to release the v stack either as an
+
+0:28:52.400,0:28:59.600
+eclipse opensource project or as part of eclipse 
+things web and here we would like also to thanks
+
+0:28:59.600,0:29:05.920
+Eclipse for the fruitful collaboration that we 
+had all these years and the support they provided.
+
+0:29:05.920,0:29:15.200
+Um and uh finally we are going to to continuously 
+work and provide contributions to the vio stack
+
+0:29:15.200,0:29:24.560
+uh to bridge the gap between orchestration and 
+control of IoT devices. Uh here you can find the
+
+0:29:24.560,0:29:31.440
+links towards the GitLab repository hosted by 
+Eclipse and also the documentation that we have
+
+0:29:31.440,0:29:41.360
+uh developed for the VO stack and I think 
+that's it just a final uh thank you to the
+
+0:29:41.360,0:29:49.520
+web of things community for the continuous 
+interaction and support all these years.
+
+0:29:49.520,0:29:56.480
+Hello everyone from my side as well. My name is 
+Nikos. Uh so I will uh show to you briefly the
+
+0:29:56.480,0:30:03.840
+documentation that we have created for the for 
+the VO. Uh so for example I think the important
+
+0:30:03.840,0:30:11.040
+part here is uh the YAML file that has the V 
+descriptor that we talked about before that deit
+
+0:30:11.040,0:30:18.000
+talked about and uh it basically avoids having 
+all the boilerplate code of uh instantiating
+
+0:30:18.000,0:30:24.800
+HTTP servers and servers uh which ports they 
+will use etc. So all the configuration options
+
+0:30:24.800,0:30:32.000
+uh will go in here and uh once we start the script 
+runner uh this file will be read and uh the view
+
+0:30:32.000,0:30:39.760
+will be automatically configured. Uh so yeah we 
+have more info here if you want to have a look and
+
+0:30:39.760,0:30:46.160
+uh right now the the code uh as we showed in 
+the last slide of the presentation is hosted at
+
+0:30:46.160,0:30:58.960
+Eclipse Research Labs uh which you can see over 
+here. Uh so yeah we have also prepared a video.
+
+0:30:58.960,0:31:09.440
+So yeah specifically this one uh uh will show uh 
+an example of using the the influx uh DB database
+
+0:31:09.440,0:31:16.160
+uh which we use to to automatically save all 
+property values to log all action invocations
+
+0:31:16.160,0:31:22.720
+uh and all events that have been emitted. So over 
+here we have the coffee machine example. Uh right
+
+0:31:22.720,0:31:31.200
+now I started the uh I started the VO and I use 
+the client to consume its uh its data. And over
+
+0:31:31.200,0:31:39.840
+here we can see for example that uh we can find 
+uh historical data about uh the property values uh
+
+0:31:39.840,0:31:46.560
+which are stored here. And later on uh users can 
+uh work with this data and uh extract more useful
+
+0:31:46.560,0:31:54.720
+uh info. Uh so moving on uh over here I would 
+like to highlight how we do the mapping between
+
+0:31:54.720,0:32:01.520
+uh uh between the various properties actions and 
+events and the Python code. So for example here
+
+0:32:01.520,0:32:08.400
+by using specific names for the properties the 
+values and the events we can bind them to specific
+
+0:32:08.400,0:32:14.320
+uh parts of the code. So over here we have 
+the all available resources property and
+
+0:32:14.320,0:32:21.040
+by using a variable with the underscore 
+init uh name we can basically feed the
+
+0:32:21.040,0:32:36.800
+initial value of the property. Uh the same 
+goes for the for the next few variables.
+
+0:32:36.800,0:32:43.040
+Uh yeah then uh then we have a property that 
+can be observed and over here we have all
+
+0:32:43.040,0:32:49.600
+the functions that will run once uh certain 
+events have been emitted. Uh we we can also
+
+0:32:49.600,0:32:56.400
+specify specific write handlers each time 
+we write to this property. Uh over here we
+
+0:32:56.400,0:33:01.680
+have a handler for an action that is to make a 
+drink and it contains all the logic about this
+
+0:33:01.680,0:33:09.200
+uh action. And lastly we have a set schedule 
+action that again is bound to this to this
+
+0:33:09.200,0:33:20.160
+code. Uh so lastly we have uh uh an platform 
+which is uh which uh includes a platform where
+
+0:33:20.160,0:33:30.000
+we can store specific artifacts. 
+Uh so over here we have vos CVOS
+
+0:33:30.000,0:33:37.680
+and we can also host application components 
+shaped as helm charts and uh we connect all
+
+0:33:37.680,0:33:43.840
+of these by having application graphs. So we 
+have created the YAML file that includes all
+
+0:33:43.840,0:33:52.480
+the all the software components. Over here we 
+can see a visualization of the graph as well.
+
+0:34:02.720,0:34:06.160
+And assuming of course that we 
+have a Kubernetes cluster deployed
+
+0:34:06.160,0:34:12.000
+uh uh somewhere uh we can also request 
+the instantiation of this graph. And
+
+0:34:12.000,0:34:17.120
+after we click save and start the 
+uh our application graph will be
+
+0:34:17.120,0:34:21.760
+sent to our synerggetic meta orchestrator 
+component which will then deploy the graph.
+
+0:34:37.520,0:34:40.800
+So yeah, over here we can see that 
+the graph has been played. Sorry,
+
+0:34:40.800,0:35:01.200
+but I kept it a bit too short. Uh 
+yeah, and uh that's all for my side.

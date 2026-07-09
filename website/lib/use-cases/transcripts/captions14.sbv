@@ -1,0 +1,1062 @@
+0:00:06.880,0:00:12.960
+let me introduce Ben Francis I think many 
+of us know Ben already and he is a software
+
+0:00:12.960,0:00:20.040
+engineer and founder of cran who and he has also 
+founded the wean and web things projects and um
+
+0:00:20.040,0:00:25.680
+from the calization point of view he is also 
+an invited expert uh web of teams but also in
+
+0:00:25.680,0:00:31.320
+the web locations groups working groups and he 
+has previously worked from Mozilla and Google
+
+0:00:31.320,0:00:39.680
+and he is here to talk about uh how he has 
+built um smart Building Solutions built on
+
+0:00:39.680,0:00:46.040
+web things and web of things as an extension 
+so Ben the floor is yours great hello everyone
+
+0:00:46.040,0:00:50.720
+thank you very much for having me as you heard 
+I'm Ben Francis founder of kran who provides
+
+0:00:50.720,0:00:55.520
+smart Building Solutions I'm also the founder 
+of the web things open source project and I'm
+
+0:00:55.520,0:01:01.600
+here today to talk about how I've used the web 
+of things in commercial smart building things
+
+0:01:01.600,0:01:05.200
+so I just want to spend a little bit of time 
+talking about the business side of things to
+
+0:01:05.200,0:01:10.000
+give you an idea of the kind of problems kind 
+of use cases that I'm trying to help businesses
+
+0:01:10.000,0:01:17.800
+to solve so businesses are wasting a lot of 
+money on unutilized and inefficient buildings
+
+0:01:17.800,0:01:22.240
+59% of businesses say that their office based 
+requirements have reduced as a result of the
+
+0:01:22.240,0:01:28.760
+pandemic and meanwhile Energy prices tripled in 
+the space of the year in the UK so a lot of money
+
+0:01:28.760,0:01:36.040
+is being wasted on rent energy bills for spaces 
+which aren't being fully utilized if businesses
+
+0:01:36.040,0:01:42.160
+meet the UK government's Energy Efficiency targets 
+for 2030 they stand to save six billion pounds a
+
+0:01:42.160,0:01:48.280
+year so there's some serious potential energy 
+savings but I've spoken to facilities managers
+
+0:01:48.280,0:01:52.880
+at lots of medium-sized businesses who 
+say they've been given top- down Net Zero
+
+0:01:52.880,0:01:57.800
+targets to meet and they just don't know where to 
+start they manage buildings with multiple complex
+
+0:01:57.800,0:02:01.880
+building management systems that don't talk to 
+each other other which makes it very hard to get
+
+0:02:01.880,0:02:08.480
+an overall picture of how a building is being used 
+so krelan will provide a smart building Hub which
+
+0:02:08.480,0:02:13.920
+consolidates multivendor building management 
+systems into a single standardized interface
+
+0:02:13.920,0:02:19.320
+using the web of things data from that Hub will 
+then be streamed to a cloud service to create a
+
+0:02:19.320,0:02:26.920
+digital twin of a building to model how it's being 
+used and identify potential optimizations so this
+
+0:02:26.920,0:02:32.280
+solution helps facilities managers to meet their 
+Net Zero targets while saving money by optimizing
+
+0:02:32.280,0:02:40.920
+space utilization and reducing energy consumption 
+that's the business pitch bit over so last year
+
+0:02:40.920,0:02:47.480
+I was involved in a project funded by innovate 
+UK we run won a grant um so innovate UK is the
+
+0:02:47.480,0:02:53.880
+UK's National Innovation agency and the project 
+was to create a minimum viable product of the
+
+0:02:53.880,0:02:59.960
+Kellan cloud service to provide real-time data 
+analytics for smart buildings and as part of of
+
+0:02:59.960,0:03:06.280
+that project I worked on bringing the existing 
+web things Gateway software into line with the
+
+0:03:06.280,0:03:16.200
+latest w3c what standards so first of all let's 
+talk a bit about web things so web things is an
+
+0:03:16.200,0:03:22.280
+open source implementation of the web of things 
+I started it at Milla where it was incubated
+
+0:03:22.280,0:03:27.680
+for about four years before being spun out as an 
+independent open- source project and that project
+
+0:03:27.680,0:03:32.640
+is now sponsored by Kellan my company there are 
+two main components to web things there's web
+
+0:03:32.640,0:03:40.320
+things Gateway which was originally designed as 
+a smart building hub for DIY Smart Homes and then
+
+0:03:40.320,0:03:45.840
+there's web things framework which is a collection 
+of software libraries essentially what produce
+
+0:03:45.840,0:03:52.200
+their implementations in about a dozen different 
+programming languages so this was the um this is
+
+0:03:52.200,0:03:57.200
+the web things Gateway web interface so web things 
+Gateway Bridges a range of different smart home
+
+0:03:57.200,0:04:03.120
+protocols to the web of things and provides you 
+with this unified uh web interface to control
+
+0:04:03.120,0:04:10.160
+all your devices regardless of which underlying 
+protocol or technology they use if you click on
+
+0:04:10.160,0:04:17.800
+a device you can read and write properties you 
+can invoke actions you can view a log of events
+
+0:04:17.800,0:04:22.320
+there's also a drag and drop rules engine so 
+you can create if this the that style rules
+
+0:04:22.320,0:04:27.960
+to automate your home and there's a floor plan 
+feature where you can arrange devices on the
+
+0:04:27.960,0:04:35.000
+floor plan of your home for ataglance monitoring 
+and control but this is designed for homes and so
+
+0:04:35.000,0:04:40.280
+we wanted to apply it to commercial buildings 
+which maybe a s story office block and so this
+
+0:04:40.280,0:04:45.840
+doesn't really work for that you can't zoom in or 
+pan around you have multiple floors there's also
+
+0:04:45.840,0:04:53.600
+a basic logging feature for logging sensor data on 
+the Gateway itself um so this works really well in
+
+0:04:53.600,0:04:58.680
+the context of a smart home where you're logging 
+some basic data um but again it doesn't scale very
+
+0:04:58.680,0:05:03.000
+well to larger commercial buildings especially 
+if you're running on a Raspberry Pi with an SD
+
+0:05:03.000,0:05:09.440
+card because you're soon going to wear out the 
+SD card with so many rights and the Gateway has
+
+0:05:09.440,0:05:15.960
+this extensible add-on space system where you 
+can add support for different types of um smart
+
+0:05:15.960,0:05:22.920
+home protocols and uh Technologies like Zig B 
+zwave homekit but also vendor specific things
+
+0:05:22.920,0:05:29.560
+like Philips Hue so we wanted to try and adapt 
+this for use in commercial buildings using a
+
+0:05:29.560,0:05:35.440
+to support commercial building management 
+systems this is the uh basic architecture
+
+0:05:35.440,0:05:41.520
+of web things Gateway so the front end is a web 
+application written in HTML CSS and JavaScript
+
+0:05:41.520,0:05:47.280
+it communicates with the back end using HTTP and 
+websockets the back end is written in typescript
+
+0:05:47.280,0:05:52.800
+and then you have individual adapter add-ons which 
+each run in their own process and communicate with
+
+0:05:52.800,0:05:57.960
+the backend using an internal websocket based 
+IPC mechanism and the add-ons themselves can be
+
+0:05:57.960,0:06:03.920
+written in different languages like no JS Python 
+and rust so part of the innovate UK project was
+
+0:06:03.920,0:06:10.640
+to bring the Gateway first of all in line with w3c 
+wat standards because up until this point it just
+
+0:06:10.640,0:06:19.880
+implemented milla's Legacy web thing API which um 
+predated these standards so after the project the
+
+0:06:19.880,0:06:27.200
+Gateway is now a thing description 1.1 producer 
+and it's also a producer for two of the profiles
+
+0:06:27.200,0:06:32.760
+defining the what profile specification 
+the HTTP basic profile and the HTP ssse
+
+0:06:32.760,0:06:43.040
+profile so that's the Gateway so now let's talk 
+about Kellan Cloud so this was a brand new service
+
+0:06:43.040,0:06:49.680
+um as a result of the innovate UK project pran 
+Cloud provides real-time data analytics for
+
+0:06:49.680,0:06:55.680
+buildings to model how they're being used and 
+identify potential optimizations is currently
+
+0:06:55.680,0:07:02.080
+in closed Alpha but if you want to request an 
+invite code to try it out you can go to kion.com
+
+0:07:02.080,0:07:10.120
+Cloud so this is the basic architecture of 
+Kellan cloud and how it relates to web things
+
+0:07:10.120,0:07:17.360
+Gateway it's a cloud service hosted on AWS 
+using ec2 instances backed by elastic block
+
+0:07:17.360,0:07:24.760
+storage and elastic IP addresses the front end 
+again is a web application written in HTML CSS
+
+0:07:24.760,0:07:29.080
+and JavaScript which communicates with the back 
+end using HTTP and websockets the same as the
+
+0:07:29.080,0:07:36.840
+gate and the back ends written in node.js so the 
+cloud service listens to sensor data coming from
+
+0:07:36.840,0:07:42.720
+the Gateway on premises in buildings so you 
+can listen to multiple buildings stream all
+
+0:07:42.720,0:07:48.640
+the data to the cloud and then store it in a 
+database and for the database I chose mongodb
+
+0:07:48.640,0:07:55.320
+for a couple of reasons um but the main one 
+being that I could use the same database as
+
+0:07:55.320,0:08:01.160
+an object store for storing structured metadata 
+like thing descriptions but also as a Time series
+
+0:08:01.160,0:08:06.680
+database using the relatively new time series 
+collections feature of mongodb which is a much
+
+0:08:06.680,0:08:12.280
+more efficient way of storing large volumes 
+of Time series data and it provides a more
+
+0:08:12.280,0:08:21.920
+sophisticated mechanism for querying um uh time 
+series data for doing analytics so this is the
+
+0:08:21.920,0:08:29.680
+user interface of Kellan Cloud you can sign up 
+you can log in and then you go to this device Dev
+
+0:08:29.680,0:08:38.240
+screen where to add a device you click the 
+Big Green Plus button and you add a device
+
+0:08:38.240,0:08:43.240
+by entering its web thing URL what I 
+mean by that is the URL of its thing
+
+0:08:43.240,0:08:49.320
+description when you click next it will try 
+and prefetch the thing description and if it
+
+0:08:49.320,0:08:54.240
+finds that that thing description requires 
+authentication uh then it will prompt you
+
+0:08:54.240,0:08:59.200
+for credentials this is what's known as Security 
+bootstrapping in a What discovery specification
+
+0:09:01.320,0:09:09.640
+now what this was meant to do was to use aor 
+2 um to redirect to the user interface the
+
+0:09:09.640,0:09:14.320
+web interface of the Gateway and have the user 
+authenticate using their username and password
+
+0:09:14.320,0:09:20.680
+and then automatically be uh issued a token 
+which would then be could then be refreshed
+
+0:09:20.680,0:09:26.720
+later on turns out that web things Gateway 
+doesn't Implement o or2 as fully as I thought
+
+0:09:26.720,0:09:33.640
+it did and so this wasn't possible um so for the 
+time being it just prompts you to manually enter
+
+0:09:33.640,0:09:37.640
+a token which isn't very user friendly because 
+you essentially have to use developer tools to
+
+0:09:37.640,0:09:41.600
+get a hold of that token on the back end um 
+so that's something that's going to have to
+
+0:09:41.600,0:09:48.720
+be added later and full o or2 support So once 
+you've added your credentials it has another
+
+0:09:48.720,0:09:54.240
+go prefetching the thing description and passes 
+some basic metadata like the title of the thing to
+
+0:09:54.240,0:09:59.320
+make sure you're adding the thing that you think 
+you're adding then once you've added a bunch of
+
+0:09:59.320,0:10:05.200
+devices they're all listed on a dashboard like 
+this and if you click on a device you can view
+
+0:10:05.200,0:10:11.680
+its properties So currently these are just the 
+basic Json types of string number and Boolean and
+
+0:10:11.680,0:10:16.960
+it's read only it's not doing anything yet Fancy 
+with semantic annotations like the Gateway does to
+
+0:10:16.960,0:10:22.120
+provide a more sophisticated user interface and 
+you can't write properties yet it's just about
+
+0:10:22.120,0:10:27.800
+reading them so once you've added your devices 
+you can then add your building representation
+
+0:10:27.800,0:10:33.240
+of your building to add a building you give it a 
+name you say how many floors the building has and
+
+0:10:33.240,0:10:42.240
+you give each floor a name and then once you've 
+added the building it goes onto this dashboard
+
+0:10:42.240,0:10:47.640
+so you can you can actually um monitor multiple 
+buildings from this web interface so if you're
+
+0:10:47.640,0:10:53.920
+a facilities manager that has a portfolio of real 
+estate you can monitor multiple buildings from the
+
+0:10:53.920,0:10:59.240
+same application when you click on a building 
+you go to this view which is a kind of Google
+
+0:10:59.240,0:11:06.720
+Map style view where you can pan and zoom and you 
+can switch floor you can upload a floor plan for
+
+0:11:06.720,0:11:12.400
+each floor so this is the floor plan of the urban 
+Sciences Building at Newcastle University who we
+
+0:11:12.400,0:11:18.880
+were working with once you've added a floor plan 
+you can add devices to that floor so you pick one
+
+0:11:18.880,0:11:24.640
+of the devices you already added to the dashboard 
+and then it gets res represented as this blue pin
+
+0:11:24.640,0:11:30.640
+which you can drag and drop around to place it at 
+the point where the device exists the real world
+
+0:11:30.640,0:11:35.320
+so once you've added a bunch of devices you have 
+something that looks like this it's uh so you've
+
+0:11:35.320,0:11:42.720
+got the location data now to go with the sensor 
+data to help with visualization later on so once
+
+0:11:42.720,0:11:47.400
+you've added the devices and the buildings 
+then you can start adding analytics so you
+
+0:11:47.400,0:11:53.000
+add a metric you give it a name you say which 
+device you want to log data from and you pick
+
+0:11:53.000,0:11:58.760
+the property of the device that you want to log 
+and then you pick a retention period And so this
+
+0:11:58.760,0:12:04.720
+is is using uh features of mongodb on the back 
+end uh which will automatically expire data over
+
+0:12:04.720,0:12:12.640
+time in a much more efficient way so once You' 
+added metric you click on the metric and over
+
+0:12:12.640,0:12:19.960
+time you'll see this just line line graph of the 
+sensor data over time so again this is a minimum
+
+0:12:19.960,0:12:25.320
+viable product this is the simplest possible 
+visualization we could start with so it's logging
+
+0:12:25.320,0:12:35.920
+data so kran cloud is acting as a thing 
+description 1.1 consumer it's also an
+
+0:12:35.920,0:12:41.680
+implementation of a thing description directory 
+from the What discovery specification and it's
+
+0:12:41.680,0:12:51.200
+acting as a consumer of the HTTP basic profile to 
+read properties and the HTTP SS profile to observe
+
+0:12:51.200,0:12:59.960
+properties which causes some issues which I'm 
+going to discuss in a moment so Lessons Learned
+
+0:12:59.960,0:13:05.040
+and next steps um I tried to write a list of 
+things that I'd learned building this and it
+
+0:13:05.040,0:13:09.400
+got very long there were about 10 or 15 things 
+I really wanted to talk about don't have time to
+
+0:13:09.400,0:13:16.560
+talk about them all so I'm going to talk about my 
+top five so number one is starting on a positive
+
+0:13:16.560,0:13:22.880
+note the web of things is an extremely powerful 
+tool for consolidating multivendor building
+
+0:13:22.880,0:13:29.160
+management systems into a standardized interface 
+that can be consumed by web services this is very
+
+0:13:29.160,0:13:34.280
+simple and Powerful idea of giving physical 
+devices in the real world URLs on the web
+
+0:13:34.280,0:13:39.960
+using some basic standardized metadata and then 
+getting sensor data in a standardized format that
+
+0:13:39.960,0:13:46.040
+can be consumed by web services which can lead 
+to a whole ecosystem of web services to help
+
+0:13:46.040,0:13:53.640
+monitor control and optimize buildings so this is 
+really exciting lesson number two however is that
+
+0:13:53.640,0:14:00.960
+neither SS Service Center events nor web hooks 
+scaled well enough for this use case I want to
+
+0:14:00.960,0:14:06.600
+dig into that a bit more so I'm one of the editors 
+of the profile specification and we spent a lot of
+
+0:14:06.600,0:14:14.880
+time debating which Eventing mechanism to use 
+for the HTTP profile because HTTP um 1.0 at
+
+0:14:14.880,0:14:24.040
+least doesn't have its own push mechanism but you 
+can do push I pushing data from the server to the
+
+0:14:24.040,0:14:31.040
+client by using various approaches that extend 
+the HTP protocol one of those is web hooks now
+
+0:14:31.040,0:14:36.000
+web hooks is not really a standard it's just 
+a design pattern and the way that it works is
+
+0:14:36.000,0:14:42.920
+essentially by reversing the client server roles 
+so when you subscribe to an event you tell um
+
+0:14:42.920,0:14:48.000
+The Entity thing in this case that every time 
+something changes every time there's an event
+
+0:14:48.000,0:14:53.960
+or a property changes I want you to send me an 
+HTTP request now that's the other way around to
+
+0:14:53.960,0:15:00.480
+what um a thing and a consumer would usually work 
+with the the HTP basic profile where the thing is
+
+0:15:00.480,0:15:04.600
+a server and the consumer is a client so that 
+means that if you want to use the full set of
+
+0:15:04.600,0:15:11.440
+operations uh your thing has to be both an HTTP 
+client and an HTTP server which conversely means
+
+0:15:11.440,0:15:19.320
+that the consumer has to be an HTTP server and 
+an HTP client which isn't too bad in in the case
+
+0:15:19.320,0:15:24.240
+of a cloud service like krillan Cloud because you 
+can do that but in some deployment scenarios like
+
+0:15:24.240,0:15:30.040
+if your consumer is a mobile application native 
+mobile application uh that's a bit of a problem
+
+0:15:30.040,0:15:36.360
+because if you want the consumer to be an HTTP 
+server that's always accessible um it's going
+
+0:15:36.360,0:15:40.240
+to drop offline a lot of the time and you have 
+to Tunnel through firewalls and all kinds of
+
+0:15:40.240,0:15:44.440
+things so it doesn't work for all deployment 
+scenarios the other thing about web hooks is
+
+0:15:44.440,0:15:53.080
+that every event is a separate HTTP request um 
+which means a separate TCP socket and there's
+
+0:15:53.080,0:15:59.920
+no built-in rate limiting mechanism for web hooks 
+at least not in the current current webook profile
+
+0:15:59.920,0:16:05.040
+which means that if you're not careful you can 
+very easily accidentally launch a distributed
+
+0:16:05.040,0:16:10.400
+denial of service attack at your own service if 
+I tell hundreds of devices to send me hundreds of
+
+0:16:10.400,0:16:15.560
+sensor readings a second I'm very quickly going 
+to overwhelm my own service so the conclusion is
+
+0:16:15.560,0:16:22.120
+that web hooks is um good for listening to lowf 
+frequency events from a large number of devices
+
+0:16:22.120,0:16:26.800
+the other approach we looked at was Service andent 
+events these are the the two separate profiles
+
+0:16:26.800,0:16:32.520
+we ended up with and we and service ENT events so 
+service ENT events is an existing w3c and what WG
+
+0:16:32.520,0:16:39.560
+standard it's an upgraded HTTP connection so you 
+send an HTTP request then it gets um kept open and
+
+0:16:39.560,0:16:43.360
+then from that point on it's a unidirectional 
+communication mechanism from the server to the
+
+0:16:43.360,0:16:49.760
+client so the server can keep pushing events down 
+to the client whenever something changes now the
+
+0:16:49.760,0:16:55.800
+downside of this approach is it requires keeping 
+a separate TCP socket open for each affordance
+
+0:16:55.800,0:17:02.680
+the way the HTTP ssse profile works is to have a 
+URL endpoint for each interaction perance which
+
+0:17:02.680,0:17:10.400
+means that if you want to listen to um hundreds 
+of sensors in a building generating potentially
+
+0:17:10.400,0:17:16.320
+hundreds of readings a second um you have a 
+very large number of TCP sockets that have
+
+0:17:16.320,0:17:21.960
+got to be kept open simultaneously and it turns 
+out there are upper limits to this so if you're
+
+0:17:21.960,0:17:26.760
+if you're trying to do this um in client side 
+JavaScript there's actually a very low limit
+
+0:17:26.760,0:17:33.320
+if you're using um h hp1 of how many simultaneous 
+SS SS connections you can have an open at a time
+
+0:17:33.320,0:17:41.080
+and it's six six connections per domain um if 
+you're doing http2 the limits a bit higher but
+
+0:17:41.080,0:17:45.560
+that's not how cran Cloud Works cran Cloud does 
+it on the back end using an Event Source library
+
+0:17:45.560,0:17:51.400
+and node.js but even on the back end there's an 
+upper limit so in a Linux based operating system
+
+0:17:51.400,0:17:56.560
+there's an upper limit to the number of outgoing 
+TCP sockets you can have open at any one time by
+
+0:17:56.560,0:18:02.160
+default in most Linux dis R it's about about 470 
+if you reconfigure the kernel you can get that up
+
+0:18:02.160,0:18:07.280
+to about 1,500 but there's still an upper limit 
+and if you're if we're talking about hundreds
+
+0:18:07.280,0:18:11.280
+of devices in a building and multiple buildings 
+you're pretty quickly going to hit that limit what
+
+0:18:11.280,0:18:16.480
+that means is you're going to have to scale the 
+cloud service horizontally need multiple nodes in
+
+0:18:16.480,0:18:21.440
+the cluster just to keep all these TCP sockets 
+open so that's not great either so service and
+
+0:18:21.440,0:18:27.280
+events good for listening to very high frequency 
+events from a small number of devices because once
+
+0:18:27.280,0:18:32.800
+the connection open it actually is very efficient 
+at sending lots of events but neither of these
+
+0:18:32.800,0:18:38.480
+Solutions scales well for a high frequency events 
+from a large number of devices which is really
+
+0:18:38.480,0:18:47.200
+what we're trying to do here enter websockets so 
+websockets is an existing w3c and what WG standard
+
+0:18:47.200,0:18:53.440
+it is bidirectional so it's it's an upgraded HTTP 
+connection like Service andent events but once
+
+0:18:53.440,0:18:59.040
+it's open it can be used for all operation types 
+not just observing properties and subscribing to
+
+0:18:59.040,0:19:03.680
+events you can read and write properties invoke 
+and query actions you can do everything you can
+
+0:19:03.680,0:19:09.280
+also share a single TCP connection or a websocket 
+connection between multiple affordances of a thing
+
+0:19:09.280,0:19:16.680
+and even between multiple things but you have to 
+Define your own subprotocol because a websocket
+
+0:19:16.680,0:19:21.120
+is essentially just a raw TCP socket with no 
+semantics attached to it you have to Define your
+
+0:19:21.120,0:19:28.520
+own protocol in order to use it there are arguably 
+also refinements needed to thing description in
+
+0:19:28.520,0:19:34.560
+order to use websockets effectively um because 
+in a thing description you have to provide a
+
+0:19:34.560,0:19:38.640
+separate URL endpoint for each affordance and 
+consumers aren't generally smart enough to know
+
+0:19:38.640,0:19:46.880
+to reuse that same um end point and especially 
+how to know when to reuse an existing connection
+
+0:19:46.880,0:19:51.800
+rather than opening a new one so you can kind 
+of work around this by defining those things
+
+0:19:51.800,0:19:57.560
+in a subprotocol but um there's some work planned 
+for the next Charter period to try and be able to
+
+0:19:57.560,0:20:03.440
+describe this kind of persistent Connection 
+in a better way in a thing description so a
+
+0:20:03.440,0:20:09.400
+while back I created this uh community group at 
+the w3c called the web thing protocol community
+
+0:20:09.400,0:20:14.480
+group with the aim of defining a common protocol 
+for communicating with connected devices over the
+
+0:20:14.480,0:20:21.480
+web and specifically one of the deliverables was 
+creating a websocket subprotocol fairly recently I
+
+0:20:21.480,0:20:27.120
+submitted a strawman proposal for above socket sub 
+protocol which covers the full set of operations
+
+0:20:27.120,0:20:33.160
+and the web of things and allows you to share the 
+same websocket between multiple affordances of the
+
+0:20:33.160,0:20:38.280
+same thing and even between multiple things so if 
+you'd like to find out more about that you search
+
+0:20:38.280,0:20:43.960
+for web thing protocol community group love to 
+get your feedback and also try and get people to
+
+0:20:43.960,0:20:54.360
+implement the the um websocket sub protocol lesson 
+number three so there's no way to automatically
+
+0:20:54.360,0:21:00.320
+keep a thing description in a thing description 
+directory in sync with with its original Source
+
+0:21:00.320,0:21:05.160
+now let me explain what I mean by this if you're 
+trying to add a thing description to a directory
+
+0:21:05.160,0:21:11.720
+from a URL you essentially have to download 
+the thing description and then re-upload it
+
+0:21:11.720,0:21:17.040
+to the directory but there's no record when you 
+registered in the directory of the original URL
+
+0:21:17.040,0:21:22.320
+you got it from which means that if the original 
+thing description hosted either by where a thing
+
+0:21:22.320,0:21:26.640
+is hosting its own thing description or perhaps 
+another directory like a Gateway is hosting it if
+
+0:21:26.640,0:21:31.440
+the original thing description changes is there's 
+no way to know that it's changed to update the
+
+0:21:31.440,0:21:37.760
+directory there are expires and TTL members in 
+the registration metadata in a directory but
+
+0:21:37.760,0:21:42.520
+it wasn't clear to me exactly what should happen 
+once the TD expires I'm not really sure what the
+
+0:21:42.520,0:21:47.320
+solution to this is but I think there could be 
+um more worked done on on keeping a directory in
+
+0:21:47.320,0:21:55.960
+sync than there's an original source of a thing 
+description lesson number four so I had this um
+
+0:21:55.960,0:22:01.560
+really basic use case of a directory where I 
+for analytical uh analytics purposes where I
+
+0:22:01.560,0:22:09.200
+wanted to say give me a list of all the devices 
+in a building that have a temperature sensor and
+
+0:22:09.200,0:22:15.440
+the way um that web things Gateway marks this up 
+is using semantic annotations so in the apps type
+
+0:22:15.440,0:22:22.080
+member of a thing description there's an array 
+and and I can put a say temperature sensor but
+
+0:22:22.080,0:22:28.160
+you can't really query that using Json path so 
+Json path is one of the ways of um searching
+
+0:22:28.160,0:22:32.960
+a directory there are a couple of other options 
+Sparkle and X path but I wanted to use Json path
+
+0:22:32.960,0:22:39.560
+because I'm using Json data um but there are a 
+couple of limitations so there's there's there
+
+0:22:39.560,0:22:46.320
+are no standardized filter options so you can't 
+filter by the presence of a value in an array at
+
+0:22:46.320,0:22:50.520
+least not in a standardized way there are there 
+are kind of implementation specific ways of doing
+
+0:22:50.520,0:22:56.920
+this and there's also no jld support and by that 
+I mean expand automatically expanding prefixes
+
+0:22:56.920,0:23:05.680
+from compact U so that means it's very difficult 
+to filter results by semantic annotations I think
+
+0:23:05.680,0:23:11.240
+there's some work planned in the next Charter 
+period for um alternative approaches to search
+
+0:23:11.240,0:23:18.000
+Okay number five finally profiles and binding 
+templates could work better together now I'm not
+
+0:23:18.000,0:23:23.080
+going to talk about this in a lot of depth because 
+this is a huge topic and I recently um presented
+
+0:23:23.080,0:23:28.240
+a couple of strawman proposals for the web of 
+things working group some ideas about different
+
+0:23:28.240,0:23:34.520
+approach to profiles in 2.0 but essentially there 
+are profiles and binding templates provide two
+
+0:23:34.520,0:23:39.320
+separate ways of providing protocol bindings in 
+the web of things that sometimes conflict with
+
+0:23:39.320,0:23:44.640
+each other and the protocol bindings to finded 
+in profiles kind of go beyond what's possible
+
+0:23:44.640,0:23:49.000
+currently to describe in a thing description which 
+is a bit of a problem things like asynchronous
+
+0:23:49.000,0:23:55.680
+action cues is a well-known example and so I have 
+this proposal of um profiles which use a default
+
+0:23:55.680,0:24:00.760
+protocol binding from a binding template document 
+but if you'd like to know more about that um head
+
+0:24:00.760,0:24:06.560
+over to the web of things working group public 
+mailing list where you can find all the links
+
+0:24:06.560,0:24:12.800
+so next steps on the Gateway side um full aor 
+2 implementation which I thought was already
+
+0:24:12.800,0:24:16.800
+there uh there are a bunch of things that the 
+Gateway already does but in a non-standard way
+
+0:24:16.800,0:24:20.920
+so it provides a directory of things but not 
+using the directory service API and it does
+
+0:24:20.920,0:24:29.440
+DNS mdns based Discovery um but they need to bring 
+you into line with the new w3c stand s similarly
+
+0:24:29.440,0:24:33.800
+um the Gateway provides a websocket subprotocol 
+but I'd like to implement the the new one from
+
+0:24:33.800,0:24:38.320
+the community group that's being worked on and 
+there are various standards compliance books
+
+0:24:38.320,0:24:43.680
+as well but the thing I'm most excited about is 
+a produ production Quality Distribution of web
+
+0:24:43.680,0:24:48.600
+thingss Gateway built on a two core so I've just 
+applied for some funding for a collaboration with
+
+0:24:48.600,0:24:54.120
+canonical to build a version of web things 
+Gateway packaged in a a containerized in a
+
+0:24:54.120,0:24:59.640
+snap package with a strict security confinement 
+model and then bundling that snap package with a
+
+0:24:59.640,0:25:05.840
+custom OS image built on a buntu core and what 
+that will enable apart from better security is
+
+0:25:05.840,0:25:10.600
+automatic transactional over theair updates 
+for both the Gateway app and the underlying
+
+0:25:10.600,0:25:16.800
+OS because the Gateway is currently distributed 
+either as a Docker image or as a Raspberry Pi OS
+
+0:25:16.800,0:25:21.080
+based image where we can't update the underlying 
+OS we're starting to hit problems where we can't
+
+0:25:21.080,0:25:26.880
+update the Gateway application because the OS is 
+too old and doesn't support what we need on the
+
+0:25:26.880,0:25:32.840
+cloud side again a two implementation I would like 
+it to be a directory service API consumer so that
+
+0:25:32.840,0:25:37.280
+you can add a whole building worth of devices in 
+one go rather than doing them one at a time which
+
+0:25:37.280,0:25:42.920
+is very laborious also implement the websocket 
+subprotocol when it's ready much richer data
+
+0:25:42.920,0:25:50.560
+visualization so um heat Maps which display uh the 
+change of occupancy in energy usage over time in
+
+0:25:50.560,0:25:55.040
+a very visual way and a rich user interface 
+for things which lets you control as well as
+
+0:25:55.040,0:26:00.720
+monitor devices and eventually use machine 
+learning to automatically identify potential
+
+0:26:00.720,0:26:07.880
+optimizations another thing I want to mention 
+is cran Hub which when it is released will be
+
+0:26:07.880,0:26:12.800
+a firstof its kind commercial web of things 
+Gateway product which is an actual physical
+
+0:26:12.800,0:26:17.880
+Hardware product you can buy off the shelf if 
+you'd like to register your interest in that
+
+0:26:17.880,0:26:24.840
+go to kion.com HUB and finally I just wanted 
+to mention that kran does provide a Consulting
+
+0:26:24.840,0:26:30.040
+service web of things Consulting service as the 
+UK's leading experts on the web of things kran can
+
+0:26:30.040,0:26:34.800
+help you understand the latest w3c wat standards 
+and Implement them in your project product or
+
+0:26:34.800,0:26:39.200
+service so if you want some help building a web 
+thing thing directory or what consumer or you
+
+0:26:39.200,0:26:46.440
+just want to know how w3c what standards um might 
+help uh your organization then please do get in
+
+0:26:46.440,0:26:53.080
+touch with me and that's it I will stop talking 
+and open the floor for questions thank you very
+
+0:26:53.080,0:26:57.600
+much

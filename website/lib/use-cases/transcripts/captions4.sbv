@@ -1,0 +1,820 @@
+0:00:00.000,0:00:07.200
+today I want to talk to you about delegated 
+U.S authorization in the verbal things
+
+0:00:08.100,0:00:21.360
+and yeah in this context I want to present to you 
+some results from my Master's project I was a part
+
+0:00:22.080,0:00:33.240
+of the U.S preserved payment called Nami which 
+stands for network access Max iot better and total
+
+0:00:33.240,0:00:42.300
+the the project lasted about two years actually so 
+that was already a first phase of the project and
+
+0:00:42.300,0:00:50.040
+the bachelor's program which was then continued 
+in the the Masters program computer science and
+
+0:00:50.040,0:01:00.540
+yeah these two phases heads 18 and 12 participants 
+respectively and we're supervised by custom Bowman
+
+0:01:00.540,0:01:08.640
+Auto Bowman and school of Beckman who yeah 
+I would say also quite well known in the iot
+
+0:01:09.780,0:01:18.180
+um context and um yeah the gods of the project 
+and it's two phases were to improve the security
+
+0:01:18.180,0:01:25.020
+and the interoperability in the iot with 
+the focus on self-description standards
+
+0:01:26.880,0:01:33.900
+um yeah coming to our motivation and goals so 
+um yeah to motivate our project we envisioned
+
+0:01:33.900,0:01:43.080
+a scenario that took place in a hotel where 
+we visited with an Envision that had guests
+
+0:01:43.080,0:01:49.920
+want to check in and um yeah of course 
+want to access the capabilities provided
+
+0:01:49.920,0:01:56.460
+by the hotel in their their rooms so for 
+in this example iot devices in particular
+
+0:01:57.060,0:02:05.160
+and the hotel of course does not want that 
+guests can do whatever they want what the
+
+0:02:05.160,0:02:15.180
+devices provided by it so they have an interest 
+to limit the permissions of the guests by space so
+
+0:02:15.840,0:02:24.120
+um to to the individual rooms of the guests 
+then time wise so um the commissions to access
+
+0:02:24.120,0:02:34.260
+the devices should expire once the guest has left 
+the hotel and um yeah finally by scope and Status
+
+0:02:34.260,0:02:43.200
+so for example guests should not have the same 
+rights to access the devices as no child stuff
+
+0:02:43.200,0:02:51.000
+or maybe you could also think about um yeah 
+differentiation by room status for example or
+
+0:02:51.660,0:03:03.060
+yeah these would be examples for yeah a different 
+scope a guest and yeah to enable a seamless
+
+0:03:03.060,0:03:11.040
+interaction with the devices the solutions we 
+wanted to develop yeah should be yeah of course
+
+0:03:11.040,0:03:20.700
+interoperable and should also use Open Standards 
+to be also reusable for example in other contexts
+
+0:03:23.340,0:03:35.340
+um yeah a project was then divided into three main 
+working areas I would say so um the working area I
+
+0:03:35.340,0:03:43.800
+will present to you today dealt with um authorized 
+you know the authorized device interactions
+
+0:03:43.800,0:03:53.100
+themselves using uh the ace oauth Co-op and of 
+course a web of things standards and this was
+
+0:03:53.820,0:03:59.400
+um I would say the the core of the hotel scenario 
+with the actual interactions with their devices
+
+0:04:01.080,0:04:08.160
+um but yeah there were also two other main working 
+areas which would Reserve their own talks I would
+
+0:04:08.160,0:04:17.100
+say so um I kind of um left them out for this 
+talk um so on the one hand we had also onboarding
+
+0:04:17.100,0:04:27.300
+solutions that were developed um particular one 
+student dealt with um an existing RFC or itf's
+
+0:04:27.300,0:04:36.360
+proposed standards called Eep Noob and developed 
+um yeah improved Solutions with less [Music]
+
+0:04:36.360,0:04:49.320
+which can be used for onboarding devices 
+and yeah third area dealt with restricting
+
+0:04:50.880,0:04:58.500
+um network access of devices and Trulia detection 
+utilizing a second self-description standards
+
+0:04:58.500,0:05:07.200
+besides otd called the manufacturer usage 
+description uh short much which is specified
+
+0:05:07.200,0:05:17.280
+by NFC 8520 but as a but as I said in this 
+talk I will focus on the first area primarily
+
+0:05:19.440,0:05:28.380
+um yeah this area our most important goals were 
+were was were to develop an interoperable solution
+
+0:05:28.380,0:05:39.120
+for access the iot devices in an authorized manner 
+using openstands implementations and yeah we also
+
+0:05:39.120,0:05:46.200
+want it of course to investigate potential 
+specification improvements and contributions
+
+0:05:46.200,0:05:54.660
+and this included a better integration of ace 
+of and co-op in general into the global things
+
+0:05:57.120,0:06:05.100
+um yeah before I go into the the details of the 
+implementation or architecture I want to briefly
+
+0:06:05.100,0:06:15.480
+talk about a few specifications namely is oauth 
+Co-op and third one called opaque so starting
+
+0:06:15.480,0:06:29.400
+with Ace oauth this has been recently become a 
+an ITF proposed standard as I've seen 90 9020
+
+0:06:30.300,0:06:37.320
+and you can think about it as an adoption of 
+oauth 2 for constrained environments and devices
+
+0:06:38.340,0:06:46.080
+and yeah the delegation of the authorization 
+that I already mentioned happens um by using
+
+0:06:46.080,0:06:56.700
+a so-called authorization server short as we are 
+both clients that want to access resources and the
+
+0:06:56.700,0:07:06.180
+resource servers themselves and need to register 
+and um yeah the authorization service then able to
+
+0:07:07.620,0:07:16.140
+yeah to Grant access to the resources 
+via credentials which can be used for
+
+0:07:17.580,0:07:24.120
+um it's accruing either the transfer or for 
+using either transport or object security
+
+0:07:24.840,0:07:31.920
+which is specified by different profiles 
+so for example there's one for detail as
+
+0:07:31.920,0:07:37.800
+in Co-op and one for Oscar which 
+is an object security standard
+
+0:07:38.400,0:07:45.000
+and due to the fact that um it's auth is 
+supposed to be used in constrained environments
+
+0:07:46.200,0:07:54.480
+um the access tokens are primarily encoded 
+using cbar and Co-op is used as a as an
+
+0:07:54.480,0:08:04.200
+application layer protocol in contrast to Json 
+and HTTP which are used for or or wealth 2.0
+
+0:08:05.940,0:08:16.620
+the general protocol flow is of looks like 
+like this so after the client which you can
+
+0:08:16.620,0:08:23.640
+see on the left and the resource server on the 
+bottom right have established um yeah relation
+
+0:08:23.640,0:08:32.220
+to the authorization server or registered with 
+it my client needs to request a token from the
+
+0:08:32.220,0:08:41.220
+authorization server and yeah receives um yeah 
+then receives an access token which can be can use
+
+0:08:41.220,0:08:49.920
+to request the actual resource from the resource 
+server and um yeah this resource server is then
+
+0:08:51.180,0:08:58.320
+um yeah returning the resource in a protected and 
+secure manner and yeah on the on the right you can
+
+0:08:58.320,0:09:07.740
+see an optional part of the protocol flow where 
+resource servers are also capable of validating
+
+0:09:07.740,0:09:15.720
+the credentials they received from a client 
+but this is an optional part of the protocol
+
+0:09:17.580,0:09:28.380
+um yeah Co-op yeah Co-op which is used for yeah 
+for the actual interactions between the different
+
+0:09:28.380,0:09:38.160
+components and the protocol flow is um yes a 
+short reminder maybe a web transfer protocol
+
+0:09:38.160,0:09:49.920
+that is a model of the http which has a much lower 
+overheads in this primarily UDP based um yeah the
+
+0:09:49.920,0:09:55.440
+neighbors interactions between constrained 
+nodes and within constraint environments
+
+0:09:55.440,0:10:02.520
+and yeah in contrast to http is it's also 
+has a number of additional features built in
+
+0:10:03.060,0:10:11.400
+so an observed mechanism and multicast and 
+um yeah it supports Transport Security via
+
+0:10:11.400,0:10:18.480
+DTS and object security via Oscar 
+and it can also be used in other
+
+0:10:19.560,0:10:29.040
+with other transport protocols for example gcp and 
+web sockets but also in theory Via SMS for example
+
+0:10:30.480,0:10:38.700
+yeah and last but not least a third relevant 
+specification we used is a opaque which we use
+
+0:10:38.700,0:10:48.900
+to register and login or um or guests which 
+is a secure yeah isometric password of the
+
+0:10:48.900,0:10:58.740
+candidate or they can authenticated key exchange 
+and um yeah this is a very nice feature of this
+
+0:10:58.740,0:11:05.160
+protocol is actually that it's yeah that 
+the server does not learn the password
+
+0:11:05.160,0:11:14.100
+that is used to generate the key material 
+which was a very interesting feature and
+
+0:11:15.720,0:11:23.340
+um yeah this um protocol was then used whereas 
+four as I said the registration and the login
+
+0:11:24.660,0:11:32.400
+yeah based on these theoretical 
+foundations um we built our architecture
+
+0:11:33.180,0:11:41.940
+which are only show a party here as I said I'm 
+focusing on one of the three main areas in this
+
+0:11:41.940,0:11:49.920
+talk and um yeah the the co-op architecture 
+was um yeah the domain of the guests so
+
+0:11:51.120,0:11:59.400
+um yeah they are hotel room for example where they 
+were able to check in using their own clients and
+
+0:12:00.060,0:12:07.920
+and opaque key exchange with the authorization 
+server which you can see on the the bottom
+
+0:12:08.640,0:12:15.780
+and also you are not showing the very bottom 
+part or something oh is it is it cropped
+
+0:12:17.400,0:12:26.280
+me yeah it's corrupt the very bottom but okay 
+fine maybe it's fine yeah no it's fine okay yeah
+
+0:12:28.200,0:12:33.480
+okay that's uh that's great um yeah and 
+uh yeah using the opaque protocol the
+
+0:12:33.480,0:12:42.540
+client was able to or was able to check in 
+and um using the um yeah registration with
+
+0:12:42.540,0:12:50.160
+the authorization server the client is then able 
+to request uh access tokens using it is off and
+
+0:12:51.840,0:13:02.340
+um yeah can then both use or start a discovery 
+procedure using a so-called core resource
+
+0:13:02.340,0:13:10.680
+directory which you can see on the right and uh 
+also um yeah they able to actually access the
+
+0:13:12.180,0:13:20.880
+um yeah the resources hosted by the iot devices 
+which are yeah described in the uh yeah in the
+
+0:13:20.880,0:13:30.060
+watch thing descriptions which they are able to 
+obtain uh during the discovery process and yeah
+
+0:13:31.140,0:13:40.800
+therefore um using the the login uh yeah the 
+guess is then able to to obtain a scoped access
+
+0:13:40.800,0:13:49.440
+to the device of steel toe Channel provides yeah 
+this um already brings us to the implementation
+
+0:13:50.520,0:13:56.100
+so um we had four types of components we then used
+
+0:13:57.060,0:14:03.120
+um or Yeah we actually implemented so 
+we had an authorization server with
+
+0:14:03.120,0:14:12.720
+the opaque provided check-in mechanism dot 
+devices themselves and the guest clients and
+
+0:14:13.320,0:14:20.040
+um yeah last but not least there was also the 
+resource directory which we could simply reuse
+
+0:14:20.040,0:14:31.020
+from a co-op library for python names AIO co-app 
+so um yeah this was actually reusable right away
+
+0:14:32.940,0:14:41.340
+um for the three remaining components we developed 
+two kinds of libraries on the one hand rest based
+
+0:14:41.340,0:14:48.180
+swans and on the other hand database bonds 
+for the guest line which was flutter app
+
+0:14:49.140,0:14:58.080
+and um yeah um so you can see that there are a 
+couple of similarities on both sides so on the
+
+0:14:58.080,0:15:09.360
+one hand we had um decaf libraries for the Ace of 
+data models and serialization and deserialization
+
+0:15:09.360,0:15:20.520
+we then we then created bindings to libco app and 
+Tiny detail as which are yeah two implementations
+
+0:15:20.520,0:15:31.440
+of core Banks details and C and um yeah we 
+then also then primarily reused an opaque crate
+
+0:15:33.000,0:15:41.940
+um yeah for for the opaque implementation on the 
+rust side um yeah on the the dot sides we had a
+
+0:15:41.940,0:15:50.400
+similar um yeah we had some similarities so on the 
+one hand we had also a decaf Library we developed
+
+0:15:51.780,0:16:00.480
+um dtls libraries were developed by us or 
+further developed and we also created our
+
+0:16:00.480,0:16:09.060
+own web of things implementation.watch which is 
+modeled after a note watch and yeah which I will
+
+0:16:09.060,0:16:20.640
+also present a bit more detail later and um yeah 
+using an uh we then also contributed uh yeah quite
+
+0:16:20.640,0:16:28.680
+heavily to an existing Co-op library on the Dart 
+side and we're able to reuse and opaque Library
+
+0:16:30.840,0:16:37.140
+um coming to the individual components um or 
+authorization server was then of course also
+
+0:16:37.140,0:16:46.980
+implemented in Rust using the decaf rust and 
+the core press trades um yeah they are the the
+
+0:16:46.980,0:16:55.980
+check-in was also supported using opaque which 
+enabled us to generate a one-time passwords and
+
+0:16:57.360,0:17:07.740
+um yeah the check-in was then able to be conducted 
+when via QR codes there is still a web interface
+
+0:17:07.740,0:17:15.240
+that has been worked on but we didn't um yeah 
+we haven't been able to finish it during the
+
+0:17:15.840,0:17:22.620
+project itself so yeah there's still a 
+bit of work to to be done but the general
+
+0:17:24.060,0:17:32.340
+um registration and lock and flow already work and 
+the floats are already built yeah the individual
+
+0:17:32.340,0:17:43.500
+iot devices were also developed on a rust basis 
+and um yeah we used esp32s for that using the
+
+0:17:43.500,0:17:54.600
+ISP IDF framework and rust bindings provided by 
+expressive the manufacturer of these P boards
+
+0:17:56.040,0:18:02.940
+um yeah ideally we would have been able to also 
+use the return operating system riots for that
+
+0:18:02.940,0:18:10.320
+but the rest support for Riot was a bit Limited 
+at the time which should have been a bit different
+
+0:18:10.320,0:18:17.220
+at the in the meantime so yeah I guess future 
+projects should be able to also use write for that
+
+0:18:18.240,0:18:25.440
+and um yeah for the devices we also 
+we're also able to use decaf last
+
+0:18:26.040,0:18:34.320
+and um yeah use the the watchd crates for the 
+generation of the actual TDS um I think the
+
+0:18:34.320,0:18:41.820
+watch ID create was already presented in 
+the future media in a past Meetup by Luca
+
+0:18:44.100,0:18:53.280
+um yeah there's there's currently a bit of 
+a drawback that um some of the crates or
+
+0:18:53.280,0:19:02.820
+especially decompressed but also what should he uh 
+require an allocator so they can be used in a yeah
+
+0:19:04.680,0:19:13.080
+yeah pretty bare metal environment so to say um 
+yeah so there's also a bit more work to to be done
+
+0:19:13.080,0:19:23.880
+to make the libraries more compatible with really 
+constrained devices but on the other hand this
+
+0:19:23.880,0:19:33.000
+allowed us to use the standard library for these 
+demonstration devices and um yeah future work
+
+0:19:33.000,0:19:39.600
+should then focus on making the batteries more 
+compatible with your concerned devices as well
+
+0:19:42.240,0:19:47.760
+um yeah I think I will skip this for now 
+but we can maybe come back to that later
+
+0:19:49.860,0:19:53.700
+um yeah our final component 
+was then the the guest client
+
+0:19:54.540,0:20:02.940
+um which was uh which is a flatter app which 
+was motivated by the fact that we needed
+
+0:20:02.940,0:20:09.360
+UDP sockets for for Co-Op and therefore 
+we couldn't simply use a web client
+
+0:20:10.860,0:20:16.560
+um other Solutions like for example react 
+native seemed a bit uh difficult to use
+
+0:20:17.220,0:20:23.280
+which was a bit unfortunate since um if we 
+were able to use something like react native
+
+0:20:23.280,0:20:30.960
+we would have also be able to reuse node Watts 
+the yeah scripting API reference implementation
+
+0:20:31.860,0:20:40.140
+but um yeah this was certainly not possible 
+and um yeah native Android for example would
+
+0:20:40.140,0:20:48.300
+have also been an option but um on requirements we 
+wanted to fulfill was also cross-platform support
+
+0:20:48.300,0:20:55.500
+and yeah using flutter Matrix relatively 
+easy to support multiple platforms at once
+
+0:20:56.460,0:21:03.600
+and um yeah therefore we use platter 
+and created Our Guest clients
+
+0:21:04.620,0:21:12.960
+with uh that framework which is based on 
+darts and which uh enabled us to support
+
+0:21:14.460,0:21:23.280
+um Android iOS Linux Mac OS and windows in theory 
+at least at the same time and um yeah the art has
+
+0:21:23.280,0:21:30.960
+had also the benefit of having a very strong 
+type system and of compiling to native code
+
+0:21:31.680,0:21:40.560
+so these were nice benefits that using that also 
+has perhaps um yeah on the right hand side you can
+
+0:21:40.560,0:21:47.820
+see two screenshots of Our Guest clients on the 
+one hand on the left side you see the check-in
+
+0:21:48.540,0:21:58.380
+mechanism where you could either log in 
+manually into authorization server or so
+
+0:21:58.380,0:22:07.320
+scan the QR code I've shown earlier and on the 
+right hand side you see a very rough example for
+
+0:22:08.760,0:22:15.240
+a test thing that would enable us to yeah in this 
+case we don't properties provide by the thing
+
+0:22:17.880,0:22:24.720
+um yeah but using flutter I had also some 
+drawbacks so yeah the library support for
+
+0:22:24.720,0:22:34.140
+what and is off was not existent and we 
+definitely needed to create memories for
+
+0:22:34.140,0:22:40.500
+that and we also needed to add detail 
+support to the existing Corp Library
+
+0:22:41.400,0:22:46.860
+and yeah therefore we had to also 
+fill some gaps in this ecosystem
+
+0:22:49.920,0:22:57.660
+um yeah short Spotlight on on dot 
+what then our dots implementation for
+
+0:22:59.460,0:23:07.260
+um yeah the dots ecosystem of the work of things 
+so yeah as I said it's modeled after an old watts
+
+0:23:07.260,0:23:16.860
+and currently supports HTTP Co-op and mqtt 
+but it's um yeah currently not implementing
+
+0:23:16.860,0:23:25.860
+the exposure functionality so it's only acting 
+as a consumer and a discoverer but in the as a
+
+0:23:25.860,0:23:33.540
+regard it has support for security bootstrapping 
+and various Discovery methods and also of course
+
+0:23:33.540,0:23:44.580
+yeah it's author support using decaf and Co-op 
+Library which we enhanced with DJs support
+
+0:23:47.160,0:23:54.960
+um yeah I think I will skip these code examples 
+from now as well but we can come to back to these
+
+0:23:55.620,0:24:07.380
+later oh oh maybe no um I think I will go to to 
+this example so um in order to support the is off
+
+0:24:07.380,0:24:14.340
+during the discovery and the discovery process 
+and the actual interactions with the advices
+
+0:24:15.000,0:24:24.780
+we um yeah used a slightly different approach than 
+node was by defining a so-called security provider
+
+0:24:25.380,0:24:31.980
+which enabled us to Define callbacks for 
+the different credentials credential types
+
+0:24:33.660,0:24:46.440
+and um yeah um as you can see this this um 
+security providers defined at the top and
+
+0:24:47.160,0:24:59.280
+accepts yeah number of arguments so first of all 
+except the URL of the resource that is being tried
+
+0:24:59.280,0:25:10.020
+to to be accessed then in the case of a regular 
+interaction with a device it's accepts form
+
+0:25:10.800,0:25:23.280
+and uh yeah an optional creation hints which I 
+should have explained maybe earlier yeah so yeah
+
+0:25:25.500,0:25:26.000
+um
+
+0:25:28.560,0:25:38.340
+yeah so yeah based on the the arguments that are 
+passed to the to the Callback user can Define
+
+0:25:38.340,0:25:46.680
+their own implementation of the token retrieval 
+in this in this case and it's also capable of
+
+0:25:46.680,0:25:55.920
+identifying um potentially invalid credentials 
+from from the first try and yeah this Dynamic
+
+0:25:55.920,0:26:04.800
+setting of credentials in contrast to a static 
+setting of credentials at setup yeah enabled us to
+
+0:26:06.060,0:26:11.940
+um yeah to yeah to implement the 
+security bootstrapping mechanism so
+
+0:26:13.200,0:26:23.340
+um yeah to access a CD that is protected by 
+uh by a mechanism like as auth for example
+
+0:26:25.860,0:26:37.500
+um yeah but yeah and um yeah using this this 
+information that is passed to the to the serbians
+
+0:26:38.100,0:26:45.360
+um uh Library users then able to trigger 
+the Discover process in this case
+
+0:26:46.020,0:26:56.400
+um direct Discovery is used at the bottom at the 
+bottom and um is then able to iterate over the
+
+0:26:56.400,0:27:05.220
+obtain theme descriptions and then asynchronous 
+manner uh yeah the security provider I've
+
+0:27:05.220,0:27:13.380
+mentioned um yeah also supports the other other 
+credential types for the defined security schemes
+
+0:27:13.380,0:27:22.500
+so for example psk credentials callback can 
+be passed which can be used for pre-shot
+
+0:27:22.500,0:27:30.840
+keys with details but also um yeah basic 
+credential callback for basic security
+
+0:27:32.220,0:27:42.600
+um when using username password and um yeah 
+this um I think is uh uh yeah work quite well
+
+0:27:42.600,0:27:49.140
+as an API which could maybe also be adapted to 
+other implementations like or what for example
+
+0:27:51.900,0:27:59.280
+um yeah this already brings us to a couple of 
+mutations of problems I wanted to discuss so
+
+0:28:00.660,0:28:07.800
+um as I said or implementations for the iot 
+devices are not yet completely suitable for
+
+0:28:07.800,0:28:12.660
+constrained devices so there needs 
+to be some uh some open some adoption
+
+0:28:13.200,0:28:19.740
+to able to use it also in this in these 
+environments furthermore um we've noticed
+
+0:28:19.740,0:28:25.740
+that the serialization and deserialization of 
+theme descriptions is very costly for constraints
+
+0:28:25.740,0:28:33.720
+and devices so maybe a different approach 
+could be should be examined in the future
+
+0:28:35.640,0:28:45.120
+um furthermore we did not Implement yeah all 
+features of ace of for example so there's still
+
+0:28:45.120,0:28:55.680
+Oscar support missing um then um yeah we could 
+see that opaque Works quite well for establishing
+
+0:28:56.700,0:29:05.100
+um trust to be used with Ace auth but um it is 
+not formally specified to be usable with it yet
+
+0:29:06.000,0:29:15.240
+so um yeah there's still some standardization work 
+needed in this regard and yeah last aspect is also
+
+0:29:15.240,0:29:22.560
+that our results are not completely finished 
+and published yet but yeah we're working on
+
+0:29:22.560,0:29:29.340
+that and hopefully you were able to access 
+them in our GitHub organization eventually
+
+0:29:31.200,0:29:36.960
+um yeah we'll jump to the conclusion 
+then already um so the architecture and
+
+0:29:37.740,0:29:44.640
+um yeah oh implementation uh already work quite 
+well sadly I haven't been able to show you a demo
+
+0:29:44.640,0:29:54.960
+today but yeah maybe that can happen another 
+meter for example um yeah then um yeah we're
+
+0:29:54.960,0:29:59.700
+able to conclude that Ace auth can be used for 
+delegated authorization in the web of things
+
+0:30:00.360,0:30:06.840
+however there's still more specification and 
+implementation work needed for example is auth
+
+0:30:06.840,0:30:14.520
+does not have a well-defined security scheme yet 
+there's an example in the GG specification but
+
+0:30:15.780,0:30:23.580
+um yeah Future Works should actually formally 
+specify that and then it should be usable quite
+
+0:30:23.580,0:30:32.100
+well in the web of things and yeah with that I 
+want to thank you for your attention for now and
+
+0:30:32.640,0:30:39.240
+um at last yeah you can find us on GitHub as I 
+mentioned we have a GitHub optimization there
+
+0:30:39.900,0:30:44.760
+the number project and there 
+you can find the libraries we've
+
+0:30:44.760,0:30:52.920
+already published and eventually also the 
+actual applications without yeah thank you
+
+0:30:59.520,0:31:00.540
+thank you very much John

@@ -1,0 +1,1334 @@
+0:00:00.360,0:00:07.200
+so it's my pleasure to intoduce to introduce you 
+sa boy from SIM uh probably you already know him
+
+0:00:07.200,0:00:13.560
+he has a background in multiple Engineers field 
+and startups now is a COO of sim and with with Sim
+
+0:00:13.560,0:00:20.280
+he has the goal to build an API for the things 
+around us so the floor is all yours s you can
+
+0:00:20.280,0:00:29.080
+start yeah so so um like chrisan mentioned I'm Sai 
+I'm the CEO at seam um I'm pretty happy to be here
+
+0:00:29.080,0:00:35.800
+um you know it's it's um we've been sort of like 
+kind of reading the kind of the web of things um
+
+0:00:35.800,0:00:40.160
+and also some of the work Milla has has done on 
+on the topic of sort of standardization around
+
+0:00:40.160,0:00:47.720
+iot for a while uh we drew a lot of inspiration 
+from it um so kind of the topic of the talk today
+
+0:00:47.720,0:00:52.840
+is designing an API for the physical world uh and 
+you'll sort of see what that means over time and
+
+0:00:52.840,0:00:59.920
+and where you know we draw heavily um from kind 
+of like the work that you guys have done and then
+
+0:00:59.920,0:01:06.480
+areas where you know we sort of really take a user 
+story driven approach and we diverge a bit because
+
+0:01:06.480,0:01:11.880
+ultimately you know as a as a business I guess 
+we're we're trying to um solve you know problems
+
+0:01:11.880,0:01:18.240
+that customers are willing to pay for like you 
+know and provide solutions to their problem um
+
+0:01:18.240,0:01:27.560
+so just real quick some like background on um 
+myself um so uh I grew up in in the French Alps
+
+0:01:27.560,0:01:34.880
+uh I attended Stanford uh for college uh I was 
+sort of cursed with the uh you know everything
+
+0:01:34.880,0:01:39.600
+is kind of interesting and so I'm just going to 
+go you know study a bunch of different stuff um
+
+0:01:39.600,0:01:43.440
+you know so I did some material science which 
+is actually where I got my degree uh did a ton
+
+0:01:43.440,0:01:47.880
+of electrical engineering this is a kind of a 
+photoi not photo I found of of myself going to
+
+0:01:47.880,0:01:56.520
+building my first uh op app uh and obviously a 
+lot of uh computer science uh my first job um
+
+0:01:56.520,0:02:03.640
+actually started as an internship uh and it was 
+at NES the uh you know the thermostat company um
+
+0:02:03.640,0:02:08.600
+and it was a really interesting point in time uh 
+specifically for iot because you basically had um
+
+0:02:08.600,0:02:13.840
+you know sort of the people that had brought you 
+the iPod and the iPhone and who had worked to sort
+
+0:02:13.840,0:02:20.680
+of kind of shrink computers uh such that they 
+could be put in your pocket and they were sort
+
+0:02:20.680,0:02:25.680
+of standing at sort of the the tail end of that 
+of those efforts and kind of realizing like okay
+
+0:02:25.680,0:02:30.760
+well uh Computing components are super small and 
+they're also super cheap because we've shipped
+
+0:02:30.760,0:02:36.760
+over you know a billion mobile devices and so now 
+you know there's um very lowcost RAM and CPUs and
+
+0:02:36.760,0:02:42.760
+so forth and their realization is that Computing 
+was going to get embedded into absolutely every
+
+0:02:42.760,0:02:48.160
+object around us um and you know they kind of were 
+looking for an entry point and um that entry point
+
+0:02:48.160,0:02:52.960
+to build sort of a consumer uh facing company 
+was was to build a thermostat for um initially
+
+0:02:52.960,0:02:59.440
+the American home and um you know eventually sort 
+of like every every home globally um and so like I
+
+0:02:59.440,0:03:05.440
+said I I joined as an intern um I think my intent 
+at the time at least I would have desired to kind
+
+0:03:05.440,0:03:12.600
+of go back for a PhD probably to Stanford and uh 
+the founder of Nest sort of kind of grabbed me and
+
+0:03:12.600,0:03:16.280
+and you know toward the end of the summer of the 
+internship was like you you're not going back to
+
+0:03:16.280,0:03:21.520
+school um you're you're going to get a PhD in 
+building things um you know and so I stayed at
+
+0:03:21.520,0:03:29.560
+Nest um and uh you know um we sort of you know we 
+get acquired by Google a few years later um and it
+
+0:03:29.560,0:03:36.120
+was really interesting um and I think a lot of the 
+um lessons that come out of sort of seeing the iot
+
+0:03:36.120,0:03:40.960
+space the consumer but also the Enterprise space 
+of iot sort of evolved over the last 10 years uh
+
+0:03:40.960,0:03:45.680
+eventually lead us to kind of starting seam um 
+and so I'll talk a little bit sort of in the
+
+0:03:45.680,0:03:52.360
+next slides about that context so um you know we 
+started seam in in 2020 um you know we we really
+
+0:03:52.360,0:03:57.320
+spent a lot of time kind of understanding like the 
+the customer needs um what exactly was going on in
+
+0:03:57.320,0:04:03.080
+the space uh we are now based in Sou Isco in the 
+Mission District but we have people kind of all
+
+0:04:03.080,0:04:09.760
+over the world which helps with that sort of 247 
+uh support um you know service that we want to
+
+0:04:09.760,0:04:15.880
+provide um so so the context around see real quick 
+before I I go like into like some some the more
+
+0:04:15.880,0:04:23.160
+technical parts of this talk you know I I think 
+sort of 10 years after Nest was sort of started
+
+0:04:23.160,0:04:28.800
+um I still like to think that iot is just kind of 
+getting started um you know right now I think the
+
+0:04:28.800,0:04:34.840
+net deployment rate is is on the over two billion 
+devices how many iot in the world devices are in
+
+0:04:34.840,0:04:39.160
+the world today is not entirely clear you kind 
+of keep hearing different numbers uh depending
+
+0:04:39.160,0:04:45.520
+on who who you talk to um what's very very clear 
+is that it's still growing very very very rapidly
+
+0:04:45.520,0:04:53.360
+and you know at the start of seam um what we saw 
+as a problem is we had you know being in Silicon
+
+0:04:53.360,0:04:57.880
+Valley we had a lot of friends kind of doing 
+startups or you know writing applications for
+
+0:04:57.880,0:05:04.080
+you know larger tech companies and and very 
+often we heard um you know oh I'm trying to
+
+0:05:04.080,0:05:10.160
+integrate um you know I'm trying to control this 
+iot device from my application uh and it's very
+
+0:05:10.160,0:05:14.880
+difficult because um you know I contacted the 
+manufacturer and I asked for you know do they
+
+0:05:14.880,0:05:22.160
+have a third- party API and the answer was well 
+we have a soap API that we wrote 20 years ago and
+
+0:05:22.160,0:05:27.600
+um you know pay us a quar million dollar to give 
+you access to the documentation and you know and
+
+0:05:27.600,0:05:31.880
+I'm exaggerating a little bit but like I think 
+often is actually not that far from the truth um
+
+0:05:31.880,0:05:36.640
+you know you you get these these big PDF that are 
+like 900 pages long and it's impossible to search
+
+0:05:36.640,0:05:40.400
+and you're just like trying to I'm like dude I'm 
+just trying to unlock a door like it shouldn't
+
+0:05:40.400,0:05:47.160
+be this hard um and so kind of the realization for 
+us then was like okay so in the history of Silicon
+
+0:05:47.160,0:05:52.360
+Valley and sort of like the last kind of 20 years 
+every time you've had um sort of an economically
+
+0:05:52.360,0:05:59.200
+important uh you know piece of infrastructure that 
+you know really controls a lot of sort of the GDP
+
+0:05:59.200,0:06:04.640
+output put of our economy and and so forth but 
+that piece of infrastructure or that ecosystem
+
+0:06:04.640,0:06:09.520
+is very difficult uh for software developers to 
+integrate with we've seen sort of a great you know
+
+0:06:09.520,0:06:15.640
+API company uh emerge out of that problem right 
+for payments you have stripe for banking you have
+
+0:06:15.640,0:06:21.000
+plaid for telecommunication you have twio and and 
+I think we sort of saw this and we're like well
+
+0:06:21.000,0:06:26.880
+iot is very important it controls the physical 
+world software is very important because it sort
+
+0:06:26.880,0:06:31.800
+of runs you know to some extent the physical world 
+how come these two things don't talk to each other
+
+0:06:31.800,0:06:38.640
+right so that's why we started seeing and so 
+the kind of mission sort of implicit um idea
+
+0:06:38.640,0:06:43.800
+behind um you know SE is to build the API to the 
+physical world but I think like the more um sort
+
+0:06:43.800,0:06:48.520
+of comprehensible kind of like mission statement 
+is uh you know we we sort of it's on it's been on
+
+0:06:48.520,0:06:53.560
+a website for like two or three years but you know 
+seam builds digital and physical infrastructure
+
+0:06:53.560,0:06:58.200
+and a physical basically means Hardware by the 
+way to enable software developers and businesses
+
+0:06:58.200,0:07:03.080
+to connect their application with the physical 
+devices around us so we're not going to create
+
+0:07:03.080,0:07:07.320
+like a full stack solution that does XYZ for a 
+particular industry we're also probably not going
+
+0:07:07.320,0:07:10.960
+to get into the game of like building an actual 
+thermostat or a Smart Lock but we're going to
+
+0:07:10.960,0:07:15.640
+sort of focus on like kind of doing everything 
+uh in between right to sort of make sure that
+
+0:07:15.640,0:07:20.720
+if you're creating an application and you know you 
+need to like unlock doors you need to control the
+
+0:07:20.720,0:07:25.920
+energy of a building um and you need to do that 
+across thousands of locations and and hundreds of
+
+0:07:25.920,0:07:29.800
+different brands that you don't have to do um 
+one by one integration right like we're going
+
+0:07:29.800,0:07:33.720
+to provide you a solution and then similarly 
+if you're a manufacturer and you're like wow
+
+0:07:33.720,0:07:39.400
+okay I just created a device um now I need to be 
+compatible with the vast landscape of software
+
+0:07:39.400,0:07:42.840
+applications that are out there that need to tap 
+into my device like we're going to make sure that
+
+0:07:42.840,0:07:47.880
+your device is like very quickly um sort of 
+integratable with with all the you know the
+
+0:07:47.880,0:07:52.800
+apps and and services that are out there so in 
+in terms of like what the product looks like um
+
+0:07:52.800,0:07:58.440
+sort of like kind of removing a lot of the grand 
+ideas and and the abstracts um we like to kind of
+
+0:07:58.440,0:08:03.240
+explain our product as has like three uh different 
+pieces um and again it's completely targeted um as
+
+0:08:03.240,0:08:07.880
+an API for software developers um the first thing 
+we provide is kind of like an authorization flow
+
+0:08:07.880,0:08:11.280
+um so if some of you are familiar with plaid 
+you know when you connect your bank account
+
+0:08:11.280,0:08:16.120
+with venmo or you know some of these um financial 
+apps and you know it's sort of ask you like hey
+
+0:08:16.120,0:08:20.760
+which bank do you have uh you know log with your 
+bank credentials and eventually your bank account
+
+0:08:20.760,0:08:26.320
+gets connected to to an application it's the same 
+idea for sort of iot um there are obviously some
+
+0:08:26.320,0:08:30.200
+differences here and there when you start to get 
+into like on Prem you know uh systems that need
+
+0:08:30.200,0:08:34.640
+to be bridged but conceptually the idea is we 
+make it really easy to kind of uh connect your
+
+0:08:34.640,0:08:38.600
+you know device account with an application um 
+the second thing this is where we're going to
+
+0:08:38.600,0:08:43.960
+focus a lot today is sort of this idea of like 
+providing a standardized API so that you know if
+
+0:08:43.960,0:08:49.400
+I'm a software developer and I need to integrate 
+with like 120 different brands of smart locks and
+
+0:08:49.400,0:08:53.160
+access control system and so forth um you don't 
+have to know about all the difference between
+
+0:08:53.160,0:08:56.920
+them like really the idea is to provide a single 
+API that kind of works across them and so we'll
+
+0:08:56.920,0:09:04.240
+we'll discuss like you know where this ideal can 
+be done and where there are some limitations and
+
+0:09:04.240,0:09:08.480
+then how do we address those limitations um 
+the last thing is um we also provide a lot of
+
+0:09:08.480,0:09:13.000
+UI components and so a lot of that is also open 
+source but basically um sometimes it's not just
+
+0:09:13.000,0:09:17.200
+enough to provide like an API to devices you also 
+have to provide like a little bit of UI for users
+
+0:09:17.200,0:09:22.480
+to be able to like kind of see all their devices 
+across like a portfolio of say buildings or um
+
+0:09:22.480,0:09:27.000
+you know so forth so like we we provide kind of 
+like embeddable um sort of web components that
+
+0:09:27.000,0:09:31.920
+you can put directly in your application and help 
+your users kind of like see what's going on with
+
+0:09:31.920,0:09:34.920
+their devices and it doesn't really matter what 
+the application does right like these things are
+
+0:09:34.920,0:09:39.320
+sort of like industry ad meltic but the idea is 
+really like we take care of all the DAT binding
+
+0:09:39.320,0:09:45.160
+and and sort of putting everything uh front and 
+center for customers um I'll actually skip this
+
+0:09:45.160,0:09:49.880
+slide but I think I want to get now to the um sort 
+of like the Inception of seam and how we think
+
+0:09:49.880,0:09:57.120
+about stuff so the the mission that you guys have 
+um is is rather um is actually basically the same
+
+0:09:57.120,0:10:01.800
+one that we have right we're just kind of stating 
+it different differently um you know when you look
+
+0:10:01.800,0:10:08.200
+at you know w3c web the thing like it's like 
+unlock commercial potential being held back by
+
+0:10:08.200,0:10:13.640
+iot fragmentation and and I completely agree like 
+when you look at iot devices today like there are
+
+0:10:13.640,0:10:20.800
+Point Solutions um they get you know manufactured 
+by a company and they get programmed to do one
+
+0:10:20.800,0:10:26.640
+thing and then um that's kind of where it stops 
+and the world we're effectively in is almost like
+
+0:10:26.640,0:10:33.120
+the world of the iPhone before the App Store it's 
+like yeah you just bought a phone from from Apple
+
+0:10:33.120,0:10:39.400
+or from whoever from Samsung and it's got a couple 
+of apps on it that are made by you know apple and
+
+0:10:39.400,0:10:44.960
+it's it's nice like it actually does some useful 
+stuff but like it's not as powerful as it could
+
+0:10:44.960,0:10:50.720
+be it is grossly underleveraged and the reason 
+it's underleveraged is because like this entire
+
+0:10:50.720,0:10:55.960
+ecosystem of people who write code cannot actually 
+control and tap into the hardware and I think
+
+0:10:55.960,0:11:00.680
+that's effectively the same thing that's going 
+on with iot today like we have devices uh We've
+
+0:11:00.680,0:11:06.640
+completely commoditized the hardware layer like 
+you can buy you know a device in any shape and
+
+0:11:06.640,0:11:11.760
+color today for just about anything you can think 
+of we have we have Wi-Fi connected toothbrush now
+
+0:11:11.760,0:11:16.680
+right so like all of that is here but it's just 
+still very hard to control it and so for SE like
+
+0:11:16.680,0:11:21.120
+we sort of say well you know for us it's about 
+making it possible to control uh devices from
+
+0:11:21.120,0:11:25.240
+applications so inherently it's it's kind of the 
+same idea as the way you guys sort of approach
+
+0:11:25.240,0:11:33.240
+it um so so when we started and and when we start 
+to think a lot about that stuff you know in um in
+
+0:11:33.240,0:11:37.440
+philosophy you know there are different schools of 
+philosophy in um the European and North American
+
+0:11:37.440,0:11:41.760
+ones are are a bit different but like generally 
+you're supposed to kind of quote the greats and
+
+0:11:41.760,0:11:46.480
+and you know you don't really just like come up 
+with ideas in a vacuum um it's Preposterous right
+
+0:11:46.480,0:11:51.480
+like nobody does that but you have to kind of like 
+look at like hey what exactly has been done before
+
+0:11:51.480,0:11:56.280
+uh how do people think about stuff and really 
+the coolest idea is is kind of like the thing
+
+0:11:56.280,0:12:02.560
+description I like the idea that um device can be 
+um can sort of self-describe you know their their
+
+0:12:02.560,0:12:09.000
+affordances and I I think what's an even you know 
+even cooler idea is the idea that that you can
+
+0:12:09.000,0:12:13.960
+take these you know thing description you can take 
+a device and basically say like well it has a set
+
+0:12:13.960,0:12:20.240
+of actions it has a set of events it has a set of 
+Poes right and that sort of encapsulate everything
+
+0:12:20.240,0:12:23.560
+you can do with this device like basically this 
+device like can tell you what's going if it's
+
+0:12:23.560,0:12:27.400
+it has a state it can tell you what's happening 
+to its own state or maybe like the state of the
+
+0:12:27.400,0:12:31.560
+world around itself and you can also ask the 
+device to perform certain actions and I think
+
+0:12:31.560,0:12:38.200
+it's like just a very beautiful summarization of 
+like what iot can do and and how to abstract that
+
+0:12:38.200,0:12:46.680
+now the problem still with with thing description 
+um is when you talk to our customers uh who need
+
+0:12:46.680,0:12:51.240
+to integrate to a bunch of different brands 
+um thing description doesn't actually solve
+
+0:12:51.240,0:12:55.760
+the standardization problem right like or um it 
+doesn't solve rather the fragmentation problem
+
+0:12:55.760,0:13:01.960
+meaning that yeah it's great like if a device 
+tells me exactly how you know to interact with it
+
+0:13:01.960,0:13:07.600
+um you know and like it's it's very useful because 
+at least I don't have to necessar like go contact
+
+0:13:07.600,0:13:12.680
+the manufacturer to get like again like a 900 page 
+PDF that's impossible to search to understand how
+
+0:13:12.680,0:13:19.240
+to ingrate this thing but I'm still dealing with 
+a bunch of different you know standards or things
+
+0:13:19.240,0:13:25.360
+descriptions that I have to kind of like um sort 
+of code around and so when you talk to people that
+
+0:13:25.360,0:13:30.960
+are trying to do useful things with iot devices 
+um what they really want is you know ultimately
+
+0:13:30.960,0:13:34.280
+what we provide as a company today but it's kind 
+of like the standardization layer of like hey
+
+0:13:34.280,0:13:39.000
+there's a bunch of things description for each 
+device but ultimately what you really care about
+
+0:13:39.000,0:13:44.120
+is is this a door lock and can I unlock it right 
+and I don't want to have to worry about you know
+
+0:13:44.120,0:13:48.200
+it's this brand or that brand or you know it's 
+located in this country or that country like I
+
+0:13:48.200,0:13:51.480
+just want to unlock the door like I just want to 
+program an access code I just want to change the
+
+0:13:51.480,0:13:56.680
+temperature on this thermostat so the question for 
+us like early on was like okay well we know about
+
+0:13:56.680,0:14:01.840
+things description uh what sort of things have 
+been done along the way of like kind of providing
+
+0:14:01.840,0:14:06.920
+more of sort of a uniform layer of standardization 
+on top of all that um and I think the answer like
+
+0:14:06.920,0:14:11.000
+at least the one we found you know kind of like 
+looking around and and thinking through stuff and
+
+0:14:11.000,0:14:14.080
+and ultimately the one that we sort of picked 
+is the idea that you can basically have device
+
+0:14:14.080,0:14:21.560
+capabilities right so the the the idea is like 
+yes you have a bunch of individual devices um
+
+0:14:21.560,0:14:25.560
+they have dur thing description they have a 
+certain way by which you interact with them
+
+0:14:25.560,0:14:32.680
+but if my primary concern is to uh you know make 
+two completely different devices from different
+
+0:14:32.680,0:14:38.400
+brands kind of do the same thing then like think 
+description again doesn't really help me that much
+
+0:14:38.400,0:14:42.120
+if I now need to think about all the different 
+permutations and different ways I need to reason
+
+0:14:42.120,0:14:46.640
+about these devices so capabilities are pretty 
+helpful because all a sudden you can grab you
+
+0:14:46.640,0:14:50.520
+start with a single device and you can say okay 
+what are the set of features of this device and
+
+0:14:50.520,0:14:55.040
+what are some of the features that are common to 
+other devices potentially in its device category
+
+0:14:55.040,0:14:59.960
+or or just kind of broadly speaking and so for 
+kind of like a door lock you know you can have
+
+0:14:59.960,0:15:04.200
+like well it has a lock and lock functionality um 
+you know people some people call it closures but
+
+0:15:04.200,0:15:08.640
+it's the same idea um you got access code you got 
+battery and then you got some sort of networking
+
+0:15:08.640,0:15:13.800
+you know Wi-Fi Bluetooth Etc and then what is 
+also interesting this is where kind of like um
+
+0:15:13.800,0:15:19.400
+you know capabilities is almost like TD like is 
+a capability can kind of like break itself down
+
+0:15:19.400,0:15:25.560
+into popt action and events right it's it's kind 
+of bringing back sort of together and so um I I
+
+0:15:25.560,0:15:29.440
+try to kind of go back and look at like you know 
+where these ideas kind of came from but I think
+
+0:15:29.440,0:15:35.520
+um you know zwave uh the zwave alliance I think 
+like sort of refers to it as kind of like command
+
+0:15:35.520,0:15:39.800
+classes which I think is inherently kind of the 
+same idea uh smart things did a lot of really good
+
+0:15:39.800,0:15:43.880
+work on this I you know pretty pretty narrowly 
+on sort of like the the context of like the smart
+
+0:15:43.880,0:15:50.520
+home but but still um and then obviously Milla 
+um kind of WEP things uh Ben Francis primarily
+
+0:15:50.520,0:15:55.280
+um when there they really sort of I think it was 
+like the most um one of the most detailed sort
+
+0:15:55.280,0:16:01.640
+of schema around capabilities now I think our 
+experience um you know i' seem is is like hey
+
+0:16:01.640,0:16:07.600
+these were all like super awesome efforts um but 
+they all had they all suffered from kind of like
+
+0:16:07.600,0:16:15.880
+the same um like a limitation almost like of of 
+having seen the entire universe of devices like
+
+0:16:15.880,0:16:21.360
+um you know it's not it's not possible for example 
+for Ben to like you know um when you read like the
+
+0:16:21.360,0:16:26.840
+K schema to really know about like oh like here 
+are the you know 100 plus different smart locks
+
+0:16:26.840,0:16:31.920
+that are out there um actually 600 plus is is 
+how many we've counted so far um and this is
+
+0:16:31.920,0:16:35.480
+like all the different ways things can work and 
+so when you read kind of the capability schema
+
+0:16:35.480,0:16:41.560
+very quickly you start to see uh holes in um sort 
+of the Precision of the logic or you can identify
+
+0:16:41.560,0:16:45.040
+areas where like well this isn't really going 
+to work for like this particular brand or this
+
+0:16:45.040,0:16:49.560
+particular brand right so I think I think the 
+the initial premise was really good I think it
+
+0:16:49.560,0:16:55.320
+it just kind of lacked um you know a lot of um 
+sort of hands-on experience right and and that
+
+0:16:55.320,0:17:00.800
+takes you cannot fault them for this this takes 
+time um you need an entire Hardware lab where
+
+0:17:00.800,0:17:05.840
+you play with devices where you actually purchase 
+them install them uh control them um and then you
+
+0:17:05.840,0:17:09.920
+also need customers that tell you like things 
+that they want to do and you start to run into
+
+0:17:09.920,0:17:15.480
+edge cases um that they're running into right and 
+so I think for us it was just like okay this is a
+
+0:17:15.480,0:17:19.320
+really good starting point but like you know we 
+need to sort of improve upon it but the idea of
+
+0:17:19.320,0:17:24.840
+capabilities is like really awesome because it 
+it sort of lets you do like um things in like
+
+0:17:24.840,0:17:29.280
+a standardized manner from from here on out right 
+like um I have this like little code sample here
+
+0:17:29.280,0:17:36.000
+but um you know you can unlock a door um and it 
+doesn't really matter if it's like a Salto device
+
+0:17:36.000,0:17:41.280
+a Yale device a schl device you know it just it 
+just unlocks like it will work like this every
+
+0:17:41.280,0:17:46.960
+single time now we do a lot of things behind the 
+scene to um sort of asynchronously sort of take
+
+0:17:46.960,0:17:49.960
+care and making sure that these things eventually 
+do happen like I don't think you can just kind of
+
+0:17:49.960,0:17:52.920
+like connect two things with a piece of code you 
+actually need quite a bit of infastructure to
+
+0:17:52.920,0:17:57.520
+make this work but the idea of capability is 
+pretty strong um similarly you know creating
+
+0:17:57.520,0:18:02.960
+access codes um you know on devices and so that's 
+the approach that we take at seam it's like we
+
+0:18:02.960,0:18:09.800
+are trying to you know every single time try to 
+grab like an entire sort of device uh landscape
+
+0:18:09.800,0:18:13.760
+or device category and sort of say okay what are 
+the capabilities within these devices and then um
+
+0:18:13.760,0:18:18.360
+how do we need to sort of craft you know our um 
+you know our API and our our sdks to kind of kind
+
+0:18:18.360,0:18:28.640
+of make this work um now the truth is some brands 
+are just not going to fully like you're not going
+
+0:18:28.640,0:18:32.880
+to be able to like completely standardize things 
+right like you you could imagine this like create
+
+0:18:32.880,0:18:36.560
+access code function that we have where you can 
+actually specify the code that you want you could
+
+0:18:36.560,0:18:44.640
+say like hey I want the code to be like 1 two 3 
+4 or 048 in this example and maybe in like 90%
+
+0:18:44.640,0:18:50.160
+of the um use cases or the the brands that are 
+out there that's going to work but there's also
+
+0:18:50.160,0:18:55.040
+going to be Brands and some of them are quite 
+large where you just can't do that because the
+
+0:18:55.040,0:19:01.880
+brand doesn't you know allow a leading zero right 
+and and it's like what why is that well I don't
+
+0:19:01.880,0:19:06.000
+know like you know but they just don't allow it 
+I I actually have my suspicion that it basically
+
+0:19:06.000,0:19:11.080
+comes down to like the way they're storing these 
+digits they're storing them as like integers as
+
+0:19:11.080,0:19:15.240
+opposed to storing them as string and so like you 
+know there's no such thing as an integer that is
+
+0:19:15.240,0:19:19.240
+starting with zero right it's I mean it's it's 
+hard to it's hard to you can but it's hard to
+
+0:19:19.240,0:19:23.600
+represent in terms of like the exact length and 
+all that stuff so you know but but the reality is
+
+0:19:23.600,0:19:31.160
+like you cannot completely sort of blanket over 
+um the differences uh that exist you know in in
+
+0:19:31.160,0:19:35.720
+the world of iot right like there there are just 
+going to be things that that kind of you know rear
+
+0:19:35.720,0:19:39.000
+their their hugly heads and and you just have 
+to kind of deal with it and I don't think it's
+
+0:19:39.000,0:19:44.560
+also realistic by the way to sort of say well uh 
+we're just not going to support certain devices
+
+0:19:44.560,0:19:48.880
+uh because that's not the way the physical world 
+Works um there are people who've already installed
+
+0:19:48.880,0:19:53.240
+millions of those devices and so you need to find 
+a way to support them and I also don't think you
+
+0:19:53.240,0:19:59.880
+can sort of force manufacturers into complying 
+with well we want to basically make sure that
+
+0:19:59.880,0:20:05.760
+I can have leading zero on an access code um you 
+know manufacturers have many many things to worry
+
+0:20:05.760,0:20:11.640
+about um and I think that this poly would not 
+be very high up on the list and on top of that
+
+0:20:11.640,0:20:17.080
+like even if they were interested in doing it um 
+you know there are still very hard limitations to
+
+0:20:17.080,0:20:22.040
+doing that like sometimes the hardware doesn't 
+support you know doing something very specific
+
+0:20:22.040,0:20:27.840
+uh or it requires an notaa right an over the a 
+update uh for the devices so it's it's very very
+
+0:20:27.840,0:20:32.880
+difficult kind of like really hope for like an 
+idealistic world of where everybody sort of like
+
+0:20:32.880,0:20:36.560
+you know Kumbaya and everything starts to work 
+like exactly the same across brand like that's
+
+0:20:36.560,0:20:43.360
+just not going to happen so the reality is like 
+capabilities are not perfect but you can still
+
+0:20:43.360,0:20:47.480
+document the rules especially across different 
+brands and different models and different firmware
+
+0:20:47.480,0:20:52.520
+version to help sort of guide the logic around 
+sort of say setting access codes right so for
+
+0:20:52.520,0:20:58.320
+Seam for example we sort of say hey like um you 
+have a device one of its um capabilities you know
+
+0:20:58.320,0:21:04.720
+access codes um and then you can basically say hey 
+look like this is the set of code length that this
+
+0:21:04.720,0:21:13.640
+device takes this is the maximum number of code 
+that you can have um you can't start with a zero
+
+0:21:13.640,0:21:17.360
+right like you can have constraints um you can 
+even have constraints on the name of the access
+
+0:21:17.360,0:21:21.760
+code right so when you do stuff like this then 
+there's some interesting um things that emerge
+
+0:21:21.760,0:21:25.080
+out of this so like this kind of sucks like to 
+some extent because you're kind of saying like
+
+0:21:25.080,0:21:30.160
+well now you have a leaky abstraction like now 
+as a software veler I'm not fully back at square
+
+0:21:30.160,0:21:35.640
+one but kind of right like I kind of need now to 
+think about like the differences uh between like
+
+0:21:35.640,0:21:40.520
+you know say an igloo door lock versus you know 
+a schlag one whatever but it actually turns out
+
+0:21:40.520,0:21:45.600
+like if you're very very user story driven you 
+can still solve for these things to bring it
+
+0:21:45.600,0:21:51.000
+back into sort of Innocence land of like I don't 
+have to worry about these these differences so
+
+0:21:51.000,0:21:56.760
+um this is like a pseudo real example but like 
+you know say you have um it's very very common
+
+0:21:56.760,0:22:02.280
+in the world of Airbnb that uh the reservation 
+softwares they want to program and access code
+
+0:22:02.280,0:22:07.400
+for a guest an Airbnb guest that needs to enter 
+a home and they want the code on the door to be
+
+0:22:07.400,0:22:15.080
+the last four digits of the uh Airbnb guest 
+telephone number and again like we're kind of
+
+0:22:15.080,0:22:19.000
+like well that might not always be possible 
+Right like what if there's a zero like in in
+
+0:22:19.000,0:22:23.920
+a telephone number or what if there's you know 
+some some weird like code length requirements
+
+0:22:23.920,0:22:28.760
+or whatnot or what if there's already an access 
+code that matches the exact last four digit and
+
+0:22:28.760,0:22:33.920
+so the way to kind of solve this is to sort of say 
+like well you know on top of the capabilities now
+
+0:22:33.920,0:22:40.080
+we can sort of offer like um kind of like assist 
+functions where you know um you can say well okay
+
+0:22:40.080,0:22:45.480
+so I want to create an access code uh on this 
+device I'm going to give it this name like an
+
+0:22:45.480,0:22:52.360
+Airbnb reservation and then I want to I want to 
+be as close as possible to the telephone number
+
+0:22:52.360,0:22:58.960
+of the guest and and maybe preferably using the 
+last four digits but if that's not possible use
+
+0:22:58.960,0:23:03.840
+any other sequence of four digits that's in their 
+phone number because that will still be an easily
+
+0:23:03.840,0:23:09.840
+memorable code that the guest can use and so when 
+you send that to seam or you know conceptually to
+
+0:23:09.840,0:23:16.280
+like anyone um well we can basically say okay 
+like the last four digits is 0550 z well we got
+
+0:23:16.280,0:23:21.640
+a problem because we can't start for zero and so 
+what we say is like well you know if you drop kind
+
+0:23:21.640,0:23:25.760
+of like the internationalization number and just 
+like look at the area code and stuff it's like
+
+0:23:25.760,0:23:31.520
+okay 5158 yeah we can do that we can grab that and 
+that will effectively satisfy the user requirement
+
+0:23:31.520,0:23:37.440
+the user story requirement which is the code that 
+gets set on the door for this Airbnb guest it has
+
+0:23:37.440,0:23:42.320
+to be easy for that Airbnb guest to remember that 
+code well it turns out the code is the first four
+
+0:23:42.320,0:23:46.800
+digits of their telephone number right so this 
+is kind of like how you start to get around some
+
+0:23:46.800,0:23:52.680
+of these these sort of fragmentation of of even 
+just simple things like what is the the format of
+
+0:23:52.680,0:23:58.440
+um of an access code so um I I hope this kind of 
+makes sense like how we're we're kind of coming
+
+0:23:58.440,0:24:02.160
+at this like you know from from a slightly um 
+kind of different point of view and and I think
+
+0:24:02.160,0:24:11.560
+like generally like our um our strategy is is to 
+say okay when and where there are um economically
+
+0:24:11.560,0:24:17.760
+important uh devices um devices that you know may 
+or may not exist inside of a smart home right it
+
+0:24:17.760,0:24:23.240
+could be out in the world it could be um inside 
+of a building um we're going to try to figure
+
+0:24:23.240,0:24:28.800
+out a way to create that standardization layer so 
+that third party software applications um can you
+
+0:24:28.800,0:24:33.880
+know control these devices and and sort of kind of 
+like unleash their their full potential and so as
+
+0:24:33.880,0:24:39.080
+a company like again being very sort of user and 
+customer driven we actually chose to start with
+
+0:24:39.080,0:24:44.200
+kind of Access Control um and smart locks and and 
+things like that um we didn't really try to take
+
+0:24:44.200,0:24:49.120
+like a sort of boil the ocean approach of like try 
+to you know do everything that's inside of a house
+
+0:24:49.120,0:24:54.440
+or everything inside of a building it was very 
+much like show me where are the problems let's
+
+0:24:54.440,0:24:58.600
+figure out a solution people are you know build 
+something people want right right and it turned
+
+0:24:58.600,0:25:05.240
+out that the idea of programmatic access like 
+being able to programmatically uh Grant access to
+
+0:25:05.240,0:25:10.880
+a unit of space to an individual is is something 
+that you know people want right so that's that's
+
+0:25:10.880,0:25:15.560
+kind of where why we started there but even though 
+like the majority of the Integrations and and
+
+0:25:15.560,0:25:18.600
+the things we sort of support today is access 
+control like if you actually look at like some
+
+0:25:18.600,0:25:22.600
+of the things that we're starting to do or talk 
+about publicly it's like we're starting to expand
+
+0:25:22.600,0:25:27.080
+to like other stuff like we're starting to do we 
+have a couple of thermostat Integrations now um we
+
+0:25:27.080,0:25:32.360
+have a couple of um I think you're going to see us 
+move probably next into kind of like submeters you
+
+0:25:32.360,0:25:35.800
+know things that you see in buildings for like 
+individual like energy usage because we we are
+
+0:25:35.800,0:25:41.400
+seeing customers asking for these and then kind of 
+the big one for us that um I still don't entirely
+
+0:25:41.400,0:25:45.320
+know exactly when we release it but like the idea 
+of like sensors and specially cameras like there
+
+0:25:45.320,0:25:50.760
+are a lot of applications that are trying 
+to utilize Vision you know sort of computer
+
+0:25:50.760,0:25:57.720
+vision to do things around safety or monitoring 
+or whatever and um they run into the fragmentation
+
+0:25:57.720,0:26:00.960
+problem of like hey there are too many different 
+standards or too many different brands and it's
+
+0:26:00.960,0:26:06.560
+too complicated and so being able to just kind 
+of like have an API you connect to your camera
+
+0:26:06.560,0:26:11.640
+system and all sudden we give you a live stream 
+perhaps we even enrich it right with like um uh
+
+0:26:11.640,0:26:15.200
+sort of like object segmentations and things 
+like that on top of it and construct that as
+
+0:26:15.200,0:26:20.360
+an API product um to let other people build stuff 
+on top I think that's a really cool idea right so
+
+0:26:20.360,0:26:26.920
+that's that's kind of a that's kind of how we uh 
+we sort of approach uh approach that um this by
+
+0:26:26.920,0:26:35.120
+the way this camera set is really really hard um 
+I think video infrastructure is non-trivial um you
+
+0:26:35.120,0:26:41.760
+know we we primarily write stuff in in typescript 
+um and you know for that obviously we're starting
+
+0:26:41.760,0:26:46.640
+to do a lot of rust um because you just have like 
+latency requirements and and things like that so
+
+0:26:46.640,0:26:51.200
+it's it's pretty tricky um but you know I think 
+I think it is again like an important like an
+
+0:26:51.200,0:26:56.960
+economically important um device category that 
+you have to go after um so on that note uh kind
+
+0:26:56.960,0:27:03.800
+of like the last slide um you know we are hiring 
+um it's a little bit of a global company I think
+
+0:27:03.800,0:27:09.080
+most people many people are here in San Francisco 
+but um you know we have people throughout the uh
+
+0:27:09.080,0:27:15.920
+the United States we have a couple of folks in 
+Europe uh same for Asia um you know we we tend
+
+0:27:15.920,0:27:22.400
+to sort of say like um you know we're looking 
+for Sharp minds of kind Souls um you know we
+
+0:27:22.400,0:27:27.360
+could have sort of said curious and sharp Minds 
+um I think when people are you know if you look
+
+0:27:27.360,0:27:34.440
+at people on our team like they tend to be very 
+uh into this idea of like I can write code and uh
+
+0:27:34.440,0:27:38.760
+you know I can unlock a door in Japan uh from 
+you know my desk in San Francisco like that's
+
+0:27:38.760,0:27:43.680
+that's such a cool um you know it's it's such 
+a cool idea and so I think like the people here
+
+0:27:43.680,0:27:48.000
+tend to be like pretty uh pretty motivated by by 
+sort of like what this can potentially enable um
+
+0:27:48.000,0:27:52.120
+and so I think that's generally kind of what we 
+look for um we don't generally segments between
+
+0:27:52.120,0:27:55.280
+like back end or front end or whatever we kind 
+of want people that can sort of go anywhere in
+
+0:27:55.280,0:28:00.640
+the stack and do things uh because generally you 
+you kind of need to have like a sort of a broad
+
+0:28:00.640,0:28:05.480
+understanding of like how everything kind of works 
+um so it it makes it harder to find people to be
+
+0:28:05.480,0:28:10.400
+very honest with with you guys but um it it is 
+important for us um and we're also looking for
+
+0:28:10.400,0:28:15.280
+like technical sales and product managers because 
+like selling uh well first of all you have to
+
+0:28:15.280,0:28:20.200
+build a real business right so um you know why do 
+we need sales like well you know we have customers
+
+0:28:20.200,0:28:24.400
+that come in and sales is fundamentally about 
+helping people it's not about making money it's
+
+0:28:24.400,0:28:28.840
+about helping people the natural consequence 
+of helping people is that you get paid right
+
+0:28:28.840,0:28:33.200
+at least in this particular context but finding 
+people that really understand iot that understand
+
+0:28:33.200,0:28:37.800
+apis that understand how software developers work 
+like uh not a whole lot of people like that and so
+
+0:28:37.800,0:28:42.160
+we actually spend a lot of time looking for um 
+you know folks that can do technical sales and
+
+0:28:42.160,0:28:48.440
+then same for product managers um we interview a 
+lot of product managers uh from you know really
+
+0:28:48.440,0:28:53.800
+really awesome companies and very often we're 
+like great like you shipped you know an app to
+
+0:28:53.800,0:29:00.280
+a billion people for photo sharing um and you seem 
+super smart and super good but when it comes to
+
+0:29:00.280,0:29:07.960
+the realm of iot devices this doesn't quite cut it 
+for us like it's it's not sharp enough right so um
+
+0:29:07.960,0:29:11.720
+I think generally like these are sort of like the 
+three or four roles we can look for if you have
+
+0:29:11.720,0:29:17.320
+you know if you really want to work at seam you 
+you find you know the the PO interesting um you
+
+0:29:17.320,0:29:21.520
+know you you still kind of believe in the mission 
+like but you know the thing that you know how to
+
+0:29:21.520,0:29:26.400
+do isn't necess listed on here like always reach 
+out you know I think um again I think the the the
+
+0:29:26.400,0:29:31.880
+fundamental Uris stick is sharp minds of kind 
+Souls so um I'll leave you here I think we'll
+
+0:29:31.880,0:29:41.320
+um

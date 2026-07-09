@@ -1,0 +1,667 @@
+0:00:06.720,0:00:13.760
+Stay with us is Thomas Va from Fderick 
+Alexander University in Langan Nuremberg and
+
+0:00:13.760,0:00:21.600
+uh Thomas is pursuing his PhD at the chair of 
+technical information systems since March 2024
+
+0:00:21.600,0:00:27.040
+and actually the the chair's research projects 
+involve web of things in different ways where we
+
+0:00:27.040,0:00:33.760
+have actually seen them handling packages at the 
+Munich airport in meetup 17 from a colleague of
+
+0:00:33.760,0:00:42.480
+Thomas and they also developed an Android health 
+app to interact with variables described TDS or
+
+0:00:42.480,0:00:49.520
+extending TDS preconditions and so on to enable 
+planning and in the broader sense the chair's
+
+0:00:49.520,0:00:55.680
+uh research is around the semantic web link data 
+knowledge graphs sometimes going towards the data
+
+0:00:55.680,0:01:02.880
+spaces and uh and there they work also together 
+with the uh data spaces and internal thinking
+
+0:01:02.880,0:01:12.960
+solutions department at the Franhoffer Institute 
+for Integrated Circuits and with this uh we can go
+
+0:01:12.960,0:01:19.120
+towards the presentation. So later on when you're 
+asking questions just quickly introduce yourself
+
+0:01:19.120,0:01:26.400
+and yeah so with this Thomas you have the floor. 
+Um yes hello as ega said my name is Thomas and
+
+0:01:26.400,0:01:36.080
+today I'll present to you a tool we developed at 
+our chair for visually creating what consumers um
+
+0:01:36.080,0:01:43.760
+I'll start my presentation with a brief motivation 
+for this tool. Next I got a short slide on visual
+
+0:01:43.760,0:01:51.280
+programming um in case anyone here hasn't heard 
+the term before. Then I'll show our tool called
+
+0:01:51.280,0:01:57.920
+BAST um for block applications for things and 
+present some of its features along with examples.
+
+0:01:57.920,0:02:05.920
+Then I'll explain how Blast dynamically generates 
+new blocks for devices added during runtime. And
+
+0:02:05.920,0:02:11.600
+afterwards I'll give you a quick demo of BLAST. 
+And lastly, well, I'll just summarize everything
+
+0:02:11.600,0:02:20.400
+again. So um when we started developing Blast, we 
+just had a handful of Bluetooth and HID devices
+
+0:02:20.400,0:02:28.320
+and wanted to write programs for them quickly. So 
+we wanted to create a programming environment but
+
+0:02:28.320,0:02:36.320
+um with some requirements. First of all um 
+it should be portable meaning it should be
+
+0:02:36.320,0:02:42.000
+usable on as many devices as possible which 
+is why we decided to make it browser based.
+
+0:02:42.880,0:02:50.320
+Additionally, we wanted this environment to be 
+as accessible as possible. So, people without
+
+0:02:50.320,0:02:57.840
+programming experience um should be able to 
+create programs to interact with IoT devices. So,
+
+0:02:57.840,0:03:03.920
+we decided to make it a visual programming 
+environment. Um, and in a minute I'll explain
+
+0:03:03.920,0:03:10.800
+more about visual programming, but first our next 
+requirement, which was that we wanted to be able
+
+0:03:10.800,0:03:16.880
+to add new devices without changing any code of 
+the environment. Well, and I guess all of you know
+
+0:03:16.880,0:03:24.720
+the solution to that. We used the web of things um 
+enabling us to add new devices by simply pausing
+
+0:03:24.720,0:03:34.000
+its thing description. And then lastly, we needed 
+support for Bluetooth and HID devices, which is
+
+0:03:34.000,0:03:42.080
+why we developed custom protocol bindings. Now, as 
+promised, a quick slide on visual programming. Um,
+
+0:03:42.080,0:03:49.440
+to make sure everyone knows what we mean by this 
+term. Um, so visual programming in general refers
+
+0:03:49.440,0:03:56.800
+to a programming environment where you arrange 
+graphical elements to create programs. um instead
+
+0:03:56.800,0:04:02.480
+of creating them textually. Now there's many 
+types of different many different types of visual
+
+0:04:02.480,0:04:09.360
+programming like um flowcharts or node graphs. 
+You might have seen node red before which is also
+
+0:04:09.360,0:04:16.880
+considered visual programming and it has a node a 
+bot integration. Then there's state machines data
+
+0:04:16.880,0:04:26.240
+flow programming and many more. But in blast um 
+we decided to employ block based programming. In
+
+0:04:26.240,0:04:34.320
+block based programming you just snap predefined 
+blocks which represent program constructs together
+
+0:04:34.320,0:04:41.680
+like puzzle pieces to create programs. Um block 
+based programming is very popular in education.
+
+0:04:41.680,0:04:48.240
+It's used to teach children how to program. Uh 
+for example, when we presented blast at a fair
+
+0:04:48.240,0:04:52.640
+last year, we had a lot of children coming 
+up to our stand and say, "Oh, I know that it
+
+0:04:52.640,0:04:58.480
+looks just like Scratch." And they were able 
+to create programs without any instructions.
+
+0:04:58.480,0:05:09.920
+So I think it's fair to say that um blockbased 
+programming is very intuitive and easy to use in
+
+0:05:09.920,0:05:17.440
+animation. um you arrange matching blocks together 
+to build programs and compatible pieces will
+
+0:05:17.440,0:05:25.200
+just snap together whereas uh incompatible 
+pieces won't. Therefore, you cannot make
+
+0:05:25.200,0:05:34.160
+any syntax errors um if the visual programming 
+environment is implemented correctly. Of course,
+
+0:05:34.160,0:05:41.600
+now let's look at how we use visual programming 
+with the web of things. um our tool called blast,
+
+0:05:41.600,0:05:51.920
+an acronym for block applications for things. 
+um is built on Blockley uh and the M library by
+
+0:05:51.920,0:06:01.280
+Google for building block based visual programming 
+environments and node what um and we in blast
+
+0:06:01.280,0:06:06.800
+um you have a browser based visual programming 
+environment for creating what consumers and for
+
+0:06:06.800,0:06:16.000
+executing them to do so blast offers a number of 
+predefined blocks for example to define program
+
+0:06:16.000,0:06:24.880
+control flow like uh loops or if statements. Um 
+just looking at this example down here you can see
+
+0:06:24.880,0:06:31.600
+um we read a possible drinks drinks property 
+of a coffee machine um which returns an array
+
+0:06:31.600,0:06:39.680
+or blast has a predefined block for iterating 
+over array elements. So um in here we iterate
+
+0:06:39.680,0:06:46.080
+over the return value and if one of the elements 
+is equal to espresso we can output a text message
+
+0:06:46.080,0:06:53.920
+saying espresso is available. Additionally um 
+blast provides a couple of blocks for string
+
+0:06:53.920,0:07:02.080
+operations like text input and text output and 
+many common string operations. Um using those we
+
+0:07:02.080,0:07:10.160
+can extend this previous example and um prompt the 
+user to ask which drink you like and then later on
+
+0:07:10.160,0:07:18.400
+use the provided value when iterating over this 
+uh returned array. Um also there's a lot more a
+
+0:07:18.400,0:07:26.160
+lot more predefined blocks uh way too many to show 
+you examples for all of them. uh but to name a few
+
+0:07:26.160,0:07:35.040
+um blast includes common mathematical operations, 
+HTTP requests, texttospech, speechtoext function
+
+0:07:35.040,0:07:41.440
+definitions, function calls, uh blocks handling 
+objects and many more. So for example, we can
+
+0:07:41.440,0:07:50.720
+um execute an HTTP request via BLAST and then 
+pass the return text as a JSON or to receive
+
+0:07:50.720,0:07:57.760
+an object then access a specific property of this 
+object, convert it to a number and lastly perform
+
+0:07:57.760,0:08:08.400
+a math operations on this number and output the 
+result. Um, now this is um a very interesting
+
+0:08:08.400,0:08:13.440
+feature because you don't see it very often in 
+textual programming languages or at least not as
+
+0:08:13.440,0:08:21.920
+accessible as here. Um, blast has an own event 
+loop and allows to define custom states and uh
+
+0:08:21.920,0:08:30.080
+triggers for when blast enters or exit a defined 
+state. For example, this is a very simple example.
+
+0:08:30.080,0:08:38.720
+Um this block down here defines a state called 
+even and with the condition that a variable number
+
+0:08:38.720,0:08:45.680
+module 2 is zero. So the number is even. Um now 
+this block here says whenever my variable is even
+
+0:08:45.680,0:08:51.520
+so blast enters this state uh this given condition 
+is true. Then I want to output a text and up here
+
+0:08:51.520,0:08:58.560
+you can see that we um increment this number from 
+1 to 10. And well on the right side you can see
+
+0:08:58.560,0:09:08.240
+the output of this program. So whenever the number 
+is even we output things. Um this is a feature we
+
+0:09:08.240,0:09:16.800
+often use when calling sensor values. For example, 
+if the um Zeno device does not offer own event
+
+0:09:16.800,0:09:25.920
+notifications, then this comes in very handy 
+because you can define own events using this.
+
+0:09:25.920,0:09:35.280
+Now the cool feature what allows us to do is 
+adding new devices without changing any code. bus
+
+0:09:35.280,0:09:43.200
+only needs to consume a thin description of the 
+device and can generate custom blocks for um the
+
+0:09:43.200,0:09:52.560
+devices interaction affordances. Let me show you 
+what that looks like. So if the thing description
+
+0:09:52.560,0:09:59.840
+contains readable properties, then blast generates 
+a read property block with a dropown listing all
+
+0:09:59.840,0:10:06.320
+the readable properties. And of course, blast 
+does the same for all writable properties. So
+
+0:10:06.320,0:10:12.800
+here you have a write property block listing 
+all writable properties. Um, additionally,
+
+0:10:12.800,0:10:20.640
+BLAST passes the provided data schema for all 
+inputs and outputs to make sure only blocks of the
+
+0:10:20.640,0:10:28.320
+correct data type can be attached to the generated 
+blocks. Um, for example, if you think about the uh
+
+0:10:28.320,0:10:33.440
+possible drinks property I showed earlier, which 
+returned an array, um, then you won't be able to
+
+0:10:33.440,0:10:40.720
+directly perform string operations on it because 
+it's an array and not a string. Um, blast also
+
+0:10:40.720,0:10:51.200
+passes the properties description to display a 
+hover text when the user moves this uh cursor up.
+
+0:10:51.200,0:10:55.120
+And very similarly um blast 
+creates blocks for events
+
+0:10:55.120,0:11:01.280
+uh for actions sorry and blast passes the 
+input and output type to eliminate syntax
+
+0:11:01.280,0:11:10.080
+error and the actions description 
+again to pass hover text.
+
+0:11:10.080,0:11:14.800
+what's very similar. We create event 
+blocks but um this one looks a little
+
+0:11:14.800,0:11:20.000
+different because in event blocks you 
+cannot just place input and output
+
+0:11:20.000,0:11:28.320
+uh blocks but you can um attach statements. 
+So an event needs an event handler to to do
+
+0:11:28.320,0:11:33.520
+something when the event is emitted. So right 
+here you can see that if the coffee machine for
+
+0:11:33.520,0:11:40.720
+example emits an out of resource event then this 
+block will execute every blocks placed in here.
+
+0:11:40.720,0:11:47.280
+So in this example we would display a text saying 
+coffee machine is out of resources and then the
+
+0:11:47.280,0:11:53.520
+um return string of the um out of resource event. 
+But of course, you can also place, for example,
+
+0:11:53.520,0:12:03.600
+uh an invoke refill action event in here to refill 
+the coffee machine whenever it's out of resources.
+
+0:12:03.600,0:12:13.200
+Then, as I said, last is built on node watt, which 
+um did almost everything we needed out of the box,
+
+0:12:13.200,0:12:20.080
+but there was two things we had to adapt. Um 
+we needed to support Bluetooth and HID devices.
+
+0:12:20.080,0:12:27.440
+So we build our own protocol bindings for these. 
+Um yeah, since blast is primarily used within the
+
+0:12:27.440,0:12:39.360
+web browser, the protocol bindings we use um 
+use the W3C web Bluetooth and web hid HP APIs.
+
+0:12:39.360,0:12:44.560
+But we also have a node adapter for 
+both of them which use popular npm
+
+0:12:44.560,0:12:53.520
+packages called B host and node HID. And the 
+second modification or extension we had to do
+
+0:12:53.520,0:13:01.600
+um was we extended the TED stream codec because 
+we have a lot of devices that communicate with
+
+0:13:01.600,0:13:10.400
+byte streams and to simplify the usage we added 
+two more JSON schema keywords namely scale and
+
+0:13:10.400,0:13:20.400
+default and I got examples for this on my next 
+two slides. So for example the scale keyword
+
+0:13:20.400,0:13:28.480
+we needed for a device called Truvitech. This is 
+a small um small sensor device which broadcasts
+
+0:13:28.480,0:13:35.280
+um measurements over Bluetooth every couple 
+hundred milliseconds like temperature, humidity,
+
+0:13:35.280,0:13:43.680
+pressure and acceleration and so on. And well, 
+these measurement values are all sent in one
+
+0:13:43.680,0:13:52.160
+big byte stream byte string. And yes, the Ruby 
+techch documentation explains um which measurement
+
+0:13:52.160,0:13:58.080
+starts at what offset and gives the measurement 
+length, data type, unit and so on. And in this
+
+0:13:58.080,0:14:08.240
+documentation, we can see that for example, the 
+humidity measurement is broadcast in 0.00.25%
+
+0:14:09.840,0:14:17.680
+Therefore to get a meaningful result 
+um our what consumer would have to
+
+0:14:17.680,0:14:23.440
+multiply the transmitted value with a scale 
+factor first. Um now instead of including
+
+0:14:23.440,0:14:28.400
+this multiplication in every program that 
+reads the Ruby text humidity measurement,
+
+0:14:28.400,0:14:34.720
+we wanted to describe this in its thing 
+description. Um so we added a scale
+
+0:14:34.720,0:14:42.800
+keyword and extended the oct octet stream 
+codec to do this multiplication for us.
+
+0:14:42.800,0:14:50.640
+Next I got an example for the default usage. Um 
+very similarly we added a default keyboard to
+
+0:14:50.640,0:15:00.640
+the octet stream codec because another device 
+we have um which controls colored LED lights
+
+0:15:00.640,0:15:10.880
+um also accessible via Bluetooth um communicates 
+with bits bits byte strings too um and in this
+
+0:15:10.880,0:15:16.000
+case this byte string contains a lot of bytes 
+that don't change for the same operation.
+
+0:15:16.640,0:15:24.160
+but have to be included like byes indicating 
+the command start command length and so on.
+
+0:15:24.160,0:15:32.000
+Um so with a default keyword the user does 
+not need to know these byes or whoever uses
+
+0:15:32.000,0:15:37.680
+right property operation. You can just say 
+um command we can just set command start for
+
+0:15:37.680,0:15:46.320
+example to 126 by default or command length to 
+seven and so on. Um because these commands just
+
+0:15:46.320,0:15:52.320
+indicate well these byes just indicate what 
+commands we're going to use. Then there is
+
+0:15:52.320,0:16:01.440
+uh three values the user has to provide namely the 
+red green and blue value the LED should be set to
+
+0:16:01.440,0:16:08.720
+afterwards again there's some fixed byes that 
+we can set by default. Now using this default
+
+0:16:08.720,0:16:17.840
+keyword um we don't have to pass all of these 
+values anymore when writing a color property but
+
+0:16:17.840,0:16:29.040
+instead we can just write um write property color 
+with uh only providing red green and blue values.
+
+0:16:29.040,0:16:39.600
+Now enough theory let's see uh blast in action. 
+So when you open blast, this is what you see.
+
+0:16:39.600,0:16:47.280
+You have um a workspace in the middle for 
+placing blocks in and a couple of block
+
+0:16:47.280,0:16:56.560
+categories on the left side. Now a very basic 
+hello world void program could look like this.
+
+0:16:56.560,0:17:07.360
+Hello. You can execute programs up here. So this 
+one just outputs hello world. Then we have some
+
+0:17:07.360,0:17:14.800
+predefined programs. For example, the one you've 
+seen when I talked about how you can define states
+
+0:17:14.800,0:17:22.560
+and events in blast. So this one has a predefined 
+um state for when number is even and when number
+
+0:17:22.560,0:17:30.480
+is odd. Um and outputs text whenever one of 
+these states get uh entered. So if I execute
+
+0:17:30.480,0:17:40.320
+this well as you would expect you see outputs for 
+whenever number is set to an odd or even value but
+
+0:17:40.320,0:17:50.160
+um more interesting devices. So today I have one 
+device called stream deck. This is a small device
+
+0:17:50.160,0:17:59.120
+with six buttons. So connecting this we should um 
+be able to listen to button events. Um, and last
+
+0:17:59.120,0:18:07.040
+I can connect to Bluetooth and HID devices. And 
+the stream deck is already preconfigured. So I can
+
+0:18:07.040,0:18:16.000
+just select it in here. Give it a name. Let's call 
+it SD for stream deck. Then last generates a new
+
+0:18:16.000,0:18:23.280
+block representing the device or the um exposed 
+thing in what terms. And in case of the stream leg
+
+0:18:23.280,0:18:30.560
+I get some blocks for writing a color property or 
+writing a numbers strings booleans on the display
+
+0:18:30.560,0:18:40.640
+and of course an event block which listens to 
+button presses of the stream deck. Um yes. So
+
+0:18:40.640,0:18:46.960
+the demo I thought of was we have the stream deck 
+and the second device Bluetooth controlled um
+
+0:18:46.960,0:18:55.200
+light bulb the go light bulb. Let's connect this 
+one too. And then we control this light pipe via
+
+0:18:55.200,0:19:05.280
+turn it on first via the stream deck. The light 
+pipe right here. Let's name it lamp. This created
+
+0:19:05.280,0:19:11.840
+um property blocks for the lamp. So now I can 
+control the lamp's power. For example, I can set
+
+0:19:11.840,0:19:20.640
+the lamp lamp's color to any of these values or 
+uh create my own color value with a color block.
+
+0:19:20.640,0:19:32.720
+But let's not over complicate things here and say 
+whenever I say press the first button. So whenever
+
+0:19:32.720,0:19:42.320
+button one is two, button one two, 
+color should be set to red. If I click
+
+0:19:42.320,0:19:56.480
+um another button, say button two, button 
+three, you can just copy paste blocks. Um,
+
+0:19:56.480,0:20:03.680
+so let's make uh button two set the lamp to 
+yellow and button three set the lamp to green.
+
+0:20:03.680,0:20:09.840
+So we can have our own little uh little traffic 
+light right here. Let's execute this program.
+
+0:20:09.840,0:20:15.680
+See if it works. If I press button three, the 
+lamp turns green. Button two makes it red. Uh
+
+0:20:15.680,0:20:22.720
+yellow. The first button red. Um yes, of course 
+you can extend this program with uh all of these
+
+0:20:22.720,0:20:30.480
+different blocks in here. Like um as I said, 
+we have loops for control structures. We have
+
+0:20:30.480,0:20:39.600
+um sparkle queries to query RDF data. You 
+can send HTTP requests and so on. Um I guess
+
+0:20:39.600,0:20:47.120
+it makes most sense if you just try it out 
+yourself. It's fairly easy to use as I said.
+
+0:20:47.120,0:20:54.720
+Um yes with that let me just quickly summarize 
+what I showed you. Turn off the slide bit quicker.
+
+0:20:54.720,0:21:03.520
+Okay so I presented blast a visual programming 
+and execution environment for what consumers
+
+0:21:03.520,0:21:11.040
+um which provides some predefined blocks for 
+basic programming constructs and for some devices.
+
+0:21:11.040,0:21:17.680
+But it's also blast is also able to consume 
+thing descriptions to generate blocks for
+
+0:21:17.680,0:21:25.520
+new devices. Um it has its own event loop for 
+defining states and state transitions. And we
+
+0:21:25.520,0:21:32.960
+also implemented custom protocol bindings and 
+extended the octet stream codec to handle the
+
+0:21:32.960,0:21:44.640
+JSON schema keywords scale and default. You can 
+find Blast on GitHub at github.com/intechisblast.
+
+0:21:44.640,0:21:49.440
+And yes, that's my presentation. Thanks 
+for your attention. In this slide,
+
+0:21:49.440,0:22:00.880
+you can find my contact information, but I'm also 
+on the what Discord server if uh you prefer it.

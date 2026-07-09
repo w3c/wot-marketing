@@ -1,0 +1,1031 @@
+0:00:08.320,0:00:14.000
+Uh without further ado, it's my pleasure to 
+introduce you Dan Fenibai. He's a principal
+
+0:00:14.000,0:00:19.840
+key expert at Simmons specializ in automation and 
+system architecture. He has a deep expertise in
+
+0:00:19.840,0:00:23.760
+industrial media automation and he focus on 
+advancing the transformation of automation
+
+0:00:23.760,0:00:32.000
+system in IoT era. Of course, thanks to the open 
+nature of the web. So it's all yours. Go ahead.
+
+0:00:32.000,0:00:37.440
+Hi colleagues, my name is Don Fendai. I will be 
+talking about how we brought web of things and
+
+0:00:37.440,0:00:46.000
+bucknet together. I like to start with maybe the 
+uh like how does our system look like right? So
+
+0:00:46.000,0:00:52.400
+this is typical maybe rather large scale example 
+of a building or excerpt from a building. So what
+
+0:00:52.400,0:00:57.760
+you see here is uh we have these field bus 
+protocols at the bottom. Yeah. So we have the
+
+0:00:57.760,0:01:05.200
+field bus protocols right um these are various 
+and then in the middle what I call management
+
+0:01:05.200,0:01:09.520
+layer or you could also call it control layer. 
+So between our controllers and the management
+
+0:01:09.520,0:01:15.040
+platform management station and other controller 
+to controller communication this is where bucknet
+
+0:01:15.040,0:01:21.040
+is used and nowadays of course we have cloud using 
+x in the semens offering and there we have the
+
+0:01:21.040,0:01:28.480
+cloud integration which is using other protocols 
+not bucknet directly. So here um basically of
+
+0:01:28.480,0:01:34.160
+course we have to start why do this why why 
+bring in web of things right because bucknet
+
+0:01:34.160,0:01:41.200
+I will talk more about it has a market share of 
+77% which is very impressive so why don't we need
+
+0:01:41.200,0:01:48.080
+to bring something else so this I like to little 
+bit clarify so one thing is we we see more and
+
+0:01:48.080,0:01:56.080
+more IoT integration this is increasing so that 
+means new apps so cloud apps web apps edge apps
+
+0:01:56.080,0:02:02.400
+coming into the buildings domain and they like 
+to have something like a webl like paradigm to
+
+0:02:02.400,0:02:09.360
+work against and not some specific protocol in the 
+building. Another thing is this specific verticals
+
+0:02:09.360,0:02:15.200
+or like the integration of the building into the 
+energy grid for instance or like where bucknet is
+
+0:02:15.200,0:02:21.680
+not used or integration of course data centers 
+vertical is a hot topic of course right now. Um
+
+0:02:21.680,0:02:26.800
+and there we see different standards, different 
+domains and they don't have a direct integration
+
+0:02:26.800,0:02:32.480
+type to bucknet and this is where actually this 
+web like approach or bridging bucknet with the
+
+0:02:32.480,0:02:38.880
+web using web of things really helps smart 
+peripherals. So this this strict layering of
+
+0:02:38.880,0:02:44.480
+the field management control and the cloud this is 
+also kind of disappearing because some peripherals
+
+0:02:44.480,0:02:50.560
+they get some control functionality right and then 
+they also want to participate in the control loop.
+
+0:02:50.560,0:02:56.880
+So they also want to talk bucknet or they also 
+want to talk other protocols. IP everywhere is
+
+0:02:56.880,0:03:02.400
+more and more increasing. The push for IPv6 
+is there of course and then we are going away
+
+0:03:02.400,0:03:09.520
+from the serial protocols towards more IP based 
+protocols that is also changing the landscape. Um
+
+0:03:09.520,0:03:14.640
+essentially the high level picture is we are 
+transitioning from the automation pyramid to
+
+0:03:14.640,0:03:22.000
+what I like to call the IoT hourglass. So with a 
+narrow waste and then with a large southbound and
+
+0:03:22.000,0:03:28.240
+northbound ecosystem and of course not to forget 
+cyber security and zero trust is coming and there
+
+0:03:28.240,0:03:33.040
+we cannot have silos. This is the solution for 
+this protocol this is the solution for that other
+
+0:03:33.040,0:03:39.600
+protocol. So the message is we need to keep the 
+power of bucknet which is quite big quite strong
+
+0:03:39.600,0:03:45.040
+and we need to extend it with web of things for 
+100% openness and integration. So that's where web
+
+0:03:45.040,0:03:52.720
+of things comes in. So it's very simple outline 
+today. I will talk about bucknet briefly. I will
+
+0:03:52.720,0:03:58.640
+talk about web of things briefly but maybe I don't 
+need to for this group of audience and then I will
+
+0:03:58.640,0:04:04.640
+talk about how we did the web of things bucknet 
+binding. Christian already gave me very nice
+
+0:04:04.640,0:04:12.560
+reflection. So just I am Don Fenai. I work as 
+a principal key expert for system architecture
+
+0:04:12.560,0:04:19.440
+and core assets in semen infrastructure buildings 
+mostly in the comfort applications. So HVAC and uh
+
+0:04:19.440,0:04:25.760
+lighting applications my interest areas. So feel 
+free to reach out to me if you'd like to discuss
+
+0:04:25.760,0:04:34.640
+any of these topics or maybe something else. Uh 
+I'm I would be happy to discuss. So okay now let's
+
+0:04:34.640,0:04:40.240
+talk about bucknet. So it's a communication 
+protocol specifically targeting building
+
+0:04:40.240,0:04:47.760
+automation. It has an application layer network 
+layer and it supports multiple data link layers.
+
+0:04:47.760,0:04:53.360
+So it's it is already doing a lot of stuff like 
+in terms of discovery, routing, handling message
+
+0:04:53.360,0:05:00.400
+fragmentation and also um in the application 
+layer allowing confirmed unconfirmed messages,
+
+0:05:00.400,0:05:07.680
+state machines, change of value services etc etc. 
+So it establishes already an inter network that
+
+0:05:07.680,0:05:13.920
+can be multidata link with routers and all that 
+stuff. It provides object types for application
+
+0:05:13.920,0:05:19.360
+interoperability. So there are data point types, 
+domain specific types like schedule, calendar,
+
+0:05:19.360,0:05:25.360
+elevator etc. There are also some infrastructure 
+types. I call them infrastructure. What does it
+
+0:05:25.360,0:05:31.120
+mean the automation infrastructure in terms of 
+the devices, the network ports, you can even do
+
+0:05:31.120,0:05:38.320
+file download, upload and all that functionality 
+and it can be extended with proprietary extensions
+
+0:05:38.320,0:05:44.880
+by the vendors. This is also regulated how this 
+how this can be done. ecosystems. It is hosted
+
+0:05:44.880,0:05:52.400
+by Ashri the standard number 135. It has also 
+an international standard and it has also a
+
+0:05:52.400,0:06:00.480
+certification process and test labs where you can 
+get a logo for your devices. The um market impact
+
+0:06:00.480,0:06:10.000
+I mentioned 77% right um it is very impressive. 
+If you see the graph on the left in the North
+
+0:06:10.000,0:06:17.200
+American market which is not a small market in the 
+buildings domain it has a market share of 95%. So
+
+0:06:17.200,0:06:24.160
+this is very impressive actually for any kind of 
+protocol in any kind of domain. Uh further numbers
+
+0:06:24.160,0:06:29.600
+are like if you look at the BTL listings are how 
+many products were certified like close to 1500
+
+0:06:29.600,0:06:38.560
+products from 233 manufacturers 1,500 vendor IDs 
+assigned. it there are some alternatives just to
+
+0:06:38.560,0:06:48.240
+understand like what is this remaining part of the 
+77% it is opcua if it is mixed it can be conx in
+
+0:06:48.240,0:06:53.120
+the Europe you see in the smaller buildings maybe 
+that I don't want to go into political discussion
+
+0:06:53.120,0:06:59.120
+here but they exist of course for lighting 
+applications there's deli if you go to smaller end
+
+0:06:59.120,0:07:04.160
+of course home automation is not the place where 
+you find a lot of bucknet of course there you find
+
+0:07:04.160,0:07:11.440
+Apple homekit and matter etc. is coming up. Uh but 
+the key message is bucknet is irreplaceable in the
+
+0:07:11.440,0:07:19.280
+buildings market. We have to be aware of that. 
+Um history is it was started in 87. So it was a
+
+0:07:19.280,0:07:28.560
+US effort 95 the US standard was published and two 
+since 2003 it's an international standard. By the
+
+0:07:28.560,0:07:34.160
+way I cannot see if you are raising your hand 
+because my of my screens. Uh maybe we take the
+
+0:07:34.160,0:07:39.680
+questions at the end. I hope everything is clear 
+until then. Yeah, we will take the questions at
+
+0:07:39.680,0:07:48.400
+the end. Yeah. Okay. Thank you. Um so the web of 
+things uh I don't need to explain much but maybe
+
+0:07:48.400,0:07:54.960
+what's interesting for you is how I see it or how 
+we see it. So how I see it is there's this IoT
+
+0:07:54.960,0:08:00.160
+fragmentation problem meaning I mean we onboarded 
+lots of southbound systems to lots of northbound
+
+0:08:00.160,0:08:07.040
+systems but because there is no common abstraction 
+layer these are all onetoone integrations so if I
+
+0:08:07.040,0:08:14.160
+engineer an app uh like this it has to understand 
+the complete complexity of the whatever field
+
+0:08:14.160,0:08:19.360
+protocols are out there whatever different vendors 
+are out there different kind of devices are out
+
+0:08:19.360,0:08:25.200
+there which doesn't really scale like a Good 
+ecosystem be it the internet or be it I don't
+
+0:08:25.200,0:08:30.720
+know an operating system with its drivers and 
+applications has to have a narrow waste and this
+
+0:08:30.720,0:08:36.080
+is the promise of web of things how I see it which 
+is what you see here in the middle the properties
+
+0:08:36.080,0:08:41.920
+actions and events that's this unified interaction 
+model a common interaction model whatever protocol
+
+0:08:41.920,0:08:48.160
+whatever vendor it is it is domain agnostic so web 
+of things doesn't contain anything specific about
+
+0:08:48.160,0:08:55.040
+buildings so this we have to extend on top and it 
+is very lightweight. So it's not like if I would
+
+0:08:55.040,0:08:59.760
+print out the web of things specification, 
+it wouldn't be thousand pages, it's a very
+
+0:08:59.760,0:09:05.920
+lightweight standard and it is um it refers to 
+existing web standard. It doesn't reinvent. Right?
+
+0:09:05.920,0:09:13.760
+For instance, for data model, it just uses JSON 
+for URI URI syntax. It just uses existing RFCS
+
+0:09:13.760,0:09:20.960
+and so on, which I actually quite like and which 
+also makes it very friendly to uh web developers.
+
+0:09:22.400,0:09:28.640
+Why web of things? What are the alternatives? 
+Like again, we I mean I see some vendor specific
+
+0:09:28.640,0:09:33.920
+standards, some protocol-driven data models and 
+some consortiondriven standards. And consortium
+
+0:09:33.920,0:09:40.320
+just tells me it's a not one vendor but a bunch 
+of vendors. And in comparison, web of things is
+
+0:09:40.320,0:09:45.520
+driven by a neutral entity. So worldwide web 
+consortium, it is lightweight and it is well
+
+0:09:45.520,0:09:54.480
+accepted. So that's why so far we are working with 
+web of things and we are happy with it. Um this is
+
+0:09:54.480,0:10:02.160
+the reason why we choose web of things. Um now I'm 
+going into web of things. Why are we doing it? And
+
+0:10:02.160,0:10:10.880
+maybe it's best to start with some use cases. On 
+the left you see a simple case. I have a actuator
+
+0:10:10.880,0:10:17.200
+which talks bucknet right and I have a team model. 
+The blue things are the thing models here meaning
+
+0:10:17.200,0:10:22.960
+representing a type and then I instantiate it by 
+adding this instance specific information like
+
+0:10:22.960,0:10:28.960
+bucknet device ID and maybe other things and with 
+that distinct description is enough to describe
+
+0:10:28.960,0:10:34.560
+that device for a building management system. 
+You can say scattera for buildings which which
+
+0:10:34.560,0:10:42.240
+is like in our case it would be disco and then 
+it can talk to bucknet or this actuator is maybe
+
+0:10:42.240,0:10:47.040
+working with a controller together and then maybe 
+I'm not importing the thing description directly
+
+0:10:47.040,0:10:52.800
+into the controller but into a tool then it 
+understands what this device can do what are its
+
+0:10:52.800,0:10:57.200
+uh properties actions and events and then 
+this controller can work with that bucket
+
+0:10:57.200,0:11:02.560
+and of course the the cool thing about web of 
+things is if I have a similar action ator not
+
+0:11:02.560,0:11:09.040
+using bucknet by mod bus maybe from a different 
+vendor whatever I can have a similar thing model
+
+0:11:09.040,0:11:14.320
+and I can repeat the whole process in a very 
+similar fashion except the protocol specifics
+
+0:11:14.320,0:11:21.760
+of course not everything else is common um on the 
+right you see a slightly different use case I can
+
+0:11:21.760,0:11:29.280
+have a controller and that controller is a freely 
+programmable controller in this example meaning I
+
+0:11:29.280,0:11:34.480
+cannot really create a team model for that because 
+I don't know what it will look like. It depends
+
+0:11:34.480,0:11:40.480
+on how the user programmed that controller. So 
+here actually I rely on my tool that creates team
+
+0:11:40.480,0:11:46.000
+description representing the specific capabilities 
+of that programmed controller and this I can use
+
+0:11:46.000,0:11:51.680
+to onboard it into my onremise building management 
+system or cloud-based building management system
+
+0:11:51.680,0:11:58.560
+or edge and same thing I can also use it to use 
+it for a controller. So it's like this this cool
+
+0:11:58.560,0:12:04.320
+thing is it's always the same description I 
+can use for multiple purposes and that's the
+
+0:12:04.320,0:12:10.800
+cool thing about uh web of things this narrow 
+based and always the same description I don't
+
+0:12:10.800,0:12:18.640
+need to reinvent it for different scenarios. 
+Now let's come to like how it look how it looks
+
+0:12:18.640,0:12:24.320
+on the inside. So what we need to start is we 
+need to look at the domain model and we need to
+
+0:12:24.320,0:12:30.160
+layer it properly. I will start in the middle 
+which is what you see in the interaction side.
+
+0:12:30.160,0:12:36.800
+is I said it now I think multiple times property 
+action event this is how I model my device right
+
+0:12:36.800,0:12:41.920
+it has these interactions the interaction 
+affordances they have a data schema of course
+
+0:12:41.920,0:12:47.680
+but this is the how we handle it with the JSON 
+primitives is it integer is the boolean is the
+
+0:12:47.680,0:12:54.320
+floating point what is minimum maximum unit and 
+all that stuff we can model security here if the
+
+0:12:54.320,0:13:02.000
+device offers some security features and then 
+we bring in the protocol so all is we consider
+
+0:13:02.000,0:13:08.480
+that's the IoT domain right so this is nothing to 
+do with buildings yet but on top we need to extend
+
+0:13:08.480,0:13:15.680
+it with the building specific so this is one side 
+is the classification classification is like am
+
+0:13:15.680,0:13:21.600
+I talking about the set point or is it the sensor 
+am I doing something about heating or ventilation
+
+0:13:21.600,0:13:26.800
+and cooling so that would be the classification 
+of this interaction which is valuable for lots
+
+0:13:26.800,0:13:32.000
+of northbound applications and on On the other 
+side we have the structure information. This is
+
+0:13:32.000,0:13:37.200
+again domain specific. This is like what is your 
+building structure, what is your equ structure,
+
+0:13:37.200,0:13:42.400
+what is your network structure and you can also 
+imagine different kinds of structures based on the
+
+0:13:42.400,0:13:51.200
+automation automation system. So this we extend on 
+top of web of things using different models. Now
+
+0:13:51.200,0:13:57.280
+I come to solution domain. Sorry I was a bit too 
+fast. Uh so the for the IoT domain we use web of
+
+0:13:57.280,0:14:03.200
+things for the buildings domain there are actually 
+more that there's actually more than one standard
+
+0:14:03.200,0:14:08.480
+um so brick and real estate core is definitely we 
+are looking into that we have also offerings that
+
+0:14:08.480,0:14:14.160
+work with a stack but at the same time we are 
+also working we have a large portfolio with a
+
+0:14:14.160,0:14:21.520
+223P and uh connects it also as an information 
+model and if you go out there you also run into
+
+0:14:21.520,0:14:29.600
+proprietary models for that but We try to stick 
+to the uh public standard building models and
+
+0:14:29.600,0:14:36.240
+all this is peripheral. The the focus of today is 
+actually what we do in this layer in the protocol
+
+0:14:36.240,0:14:43.760
+binding for the Ashley protocol binding. So now I 
+I scoped it and now I can talk about the content
+
+0:14:43.760,0:14:52.000
+a little bit. So this uh in 2022 we started this 
+work with Claus Hart and Michael Coster. I think
+
+0:14:52.000,0:15:00.000
+they are in the poll. Um and then in March 2023 
+we released the first product which was before
+
+0:15:00.000,0:15:06.080
+we published the first draft that can happen 
+doing these things. uh October we published the
+
+0:15:06.080,0:15:13.040
+first draft where we supported read write observe 
+operations and then in March the next year 2024
+
+0:15:13.040,0:15:19.120
+we made the second release in our products and of 
+course because of because we released before the
+
+0:15:19.120,0:15:23.840
+standard the draft was published we had to do 
+some adaptations we had to take care about the
+
+0:15:23.840,0:15:30.560
+compatibility impact and so on to our product 
+but it's okay we handled it and in July last
+
+0:15:30.560,0:15:37.280
+year we published the event part and of course the 
+small fixes and improvements, it never stops. We
+
+0:15:37.280,0:15:46.880
+keep working on that. um on the mindset so how we 
+worked with uh Claus and Michael is like we said
+
+0:15:46.880,0:15:54.080
+first of all less is more for instance like it was 
+never about modeling the complete bucknet right
+
+0:15:54.080,0:16:01.200
+because bucknet is a huge protocol and we don't 
+intend to uh model the whole thing there is like
+
+0:16:01.200,0:16:08.240
+good implementations of bucknet good certification 
+processes etc that is how it is the value was
+
+0:16:08.240,0:16:13.600
+establishing ing web of things interperability. 
+For instance, I think from 2012 or so there's a
+
+0:16:13.600,0:16:21.200
+buck old ontology which has I think its value and 
+it's a huge ontology. It contains almost 18,000
+
+0:16:21.200,0:16:28.480
+triples. In comparison our work it's just 174 
+triples which is by intention. So this is not
+
+0:16:28.480,0:16:34.400
+is not intending to uh do what Bakol is doing. 
+We are just doing the interoperability layer to
+
+0:16:34.400,0:16:42.080
+web of things. We proceeded uh in analysis more 
+fashion also for use case driven for instance
+
+0:16:42.080,0:16:50.720
+we looked for the from the eventing model um we 
+didn't um bucknet can do a lot for instance when
+
+0:16:50.720,0:16:56.240
+you are subscribing to the events you can specify 
+which days of the week you want to receive events
+
+0:16:56.240,0:17:03.200
+as an example but we we made a survey none of our 
+clients and n typical building automation client
+
+0:17:03.200,0:17:08.240
+doesn't really use that so we said okay let's 
+not model it yet. We can add it later to keep
+
+0:17:08.240,0:17:14.240
+it simple, right? It can definitely be extended 
+later when we have the concrete need. And we also
+
+0:17:14.240,0:17:20.480
+left the data link layer specifics out because 
+as you saw data link layers and there is no value
+
+0:17:20.480,0:17:26.560
+in modeling them because once I have the network 
+layer device ID then I can do the addressing and
+
+0:17:26.560,0:17:34.560
+identification of my device. In the spirit of web 
+of things we did not reinvent existing things. So
+
+0:17:34.560,0:17:40.000
+for instance the URI syntax is actually borrowed 
+from the bucknet standard. There was no value in
+
+0:17:40.000,0:17:46.480
+reinventing it. And we also had a clear opinion 
+for web meaning like bucknet of course has a
+
+0:17:46.480,0:17:53.040
+history that dates back to the 80s and there 
+we tried to push a little bit towards web for
+
+0:17:53.040,0:17:58.800
+instance bucknet uses timestamps in a certain 
+format and it's based on the cents right it's a
+
+0:17:58.800,0:18:07.920
+100 of a second and here we just chose to use the 
+ISO 8601 time stamp so that sort of opinionation
+
+0:18:07.920,0:18:17.840
+for web uh now I am coming more to the content. 
+Um, so first of all in bucknet we have objects and
+
+0:18:17.840,0:18:23.520
+properties. So on the left you see an analog input 
+object that represents a temperature for instance
+
+0:18:23.520,0:18:31.040
+and these things you see the present value units 
+etc. These are the so-called bucknet properties.
+
+0:18:31.040,0:18:36.480
+Um in team description we also have something 
+called a property but we should not come to the
+
+0:18:36.480,0:18:42.480
+wrong conclusion where we say a bucknet property 
+corresponds to a thing property. No actually it's
+
+0:18:42.480,0:18:50.640
+little bit uh how do you say shifted h a bucknet 
+object corresponds to a thing property affordance
+
+0:18:50.640,0:18:56.560
+I didn't mention it before essentially this is 
+about how our clients conceive a data point so
+
+0:18:56.560,0:19:02.240
+this this temperature would be a data point and 
+if you look at the details it makes a lot of sense
+
+0:19:02.240,0:19:07.440
+because what we see on the left for instance 
+with the units minimum present value maximum
+
+0:19:07.440,0:19:12.640
+present value these map one to one to this unit 
+minimum and maximum you would find on a property
+
+0:19:12.640,0:19:19.920
+affordance. So that's how we did it. Here we 
+make a some sort of categorization where we
+
+0:19:19.920,0:19:26.240
+say okay there are static attributes and dynamic 
+attributes static meaning they don't change during
+
+0:19:26.240,0:19:32.800
+runtime they change when somebody changes the 
+configuration maybe at commissioning time. Uh
+
+0:19:32.800,0:19:38.960
+so these can go into the thing description because 
+thing description is rather static right but the
+
+0:19:38.960,0:19:44.480
+thing itself the value of the temperature of 
+course is dynamic that changes at runtime and
+
+0:19:44.480,0:19:50.320
+among static attributes we have standardized 
+like minimum maximum units and then we have
+
+0:19:50.320,0:19:56.320
+the not so standardized these are domain specific 
+attributes and here you see I think here I just
+
+0:19:56.320,0:20:02.320
+use the terminology from haste but if it it would 
+be different if I was using brick for instance And
+
+0:20:02.320,0:20:08.960
+these we model also in in the team description 
+as custom attributes using the context extension
+
+0:20:08.960,0:20:16.160
+mechanism of thing description. Then we have the 
+dynamic domain specific attributes. These are
+
+0:20:16.160,0:20:22.400
+what we call they are not points by themselves. 
+They are point attributes like reliability out
+
+0:20:22.400,0:20:28.160
+of service. So these are also in turn modeled as 
+property affordances because they also have all
+
+0:20:28.160,0:20:35.920
+the things that you would find in terms of a data 
+model like enumeration or minimax and unit and all
+
+0:20:35.920,0:20:43.040
+that stuff is also there. So this is how we map it 
+which makes sense because if you go one level up
+
+0:20:43.040,0:20:48.880
+if you have a room sensor that can correspond very 
+well to a thing a thing in the sense of a device
+
+0:20:48.880,0:20:53.680
+or peripheral or as I was saying it could also 
+be a software based functionality like a control
+
+0:20:53.680,0:21:02.240
+program but in this case it's just a sensor um and 
+this is this is a convention by the way we don't
+
+0:21:02.240,0:21:08.400
+force this if you need to map a certain bucknet 
+property to a team property this as possible
+
+0:21:08.400,0:21:15.920
+because we allow this in the URI syntax. I think 
+I will come it uh come to it in the details and
+
+0:21:15.920,0:21:24.800
+now I come to the details. So here I like to 
+switch to the web page. Um so the things I want
+
+0:21:24.800,0:21:33.360
+to talk about is um not much because I encourage 
+you to have a look at it later. Um first of all
+
+0:21:33.360,0:21:40.640
+the URI syntax it is extensively defined here. I 
+think this was Michael's work mostly. Uh I just
+
+0:21:40.640,0:21:47.040
+jump to the examples that's easier to consume. 
+So basically this is how a URI looks like in
+
+0:21:47.040,0:21:58.560
+bucknet. It's based on um the bucknext bucknet 
+specs onxq8. So we did not we made some uh small
+
+0:21:58.560,0:22:06.720
+changes to it but not big in the URI variables 
+exactly in the examples. So basically it's the
+
+0:22:06.720,0:22:13.120
+device ID first and then something to indicate 
+the object ID. This is divided into object type
+
+0:22:13.120,0:22:19.360
+and object instance number and then this part is 
+optional. You can also specify a property. This is
+
+0:22:19.360,0:22:27.280
+what I was saying. So we are not forcing to map a 
+property or object to a thing property. Always if
+
+0:22:27.280,0:22:33.040
+you need to map something to directly to a point 
+you can specify the prop property ID and then you
+
+0:22:33.040,0:22:38.240
+have the complete freedom. So we were careful 
+to not to make it too uh constrained. So that's
+
+0:22:38.240,0:22:47.920
+the URI syntax topic. uh URI variables are uh we 
+specify some URI variables and the reason is for
+
+0:22:47.920,0:22:54.320
+instance in bucknet we have a mechanism called 
+commanding uh commanding is some in a building
+
+0:22:54.320,0:22:58.800
+what we have is we have the multiple writers 
+problem often because in a building lots of
+
+0:22:58.800,0:23:04.480
+things happen at the same time like it can be that 
+the the normal operation is running for instance
+
+0:23:04.480,0:23:11.760
+I'm now in a meeting room and then I want to maybe 
+change the uh set point for the temperature here
+
+0:23:11.760,0:23:19.200
+which I actually did but then there's a schedule 
+which sets the optimal uh room temperature but it
+
+0:23:19.200,0:23:26.720
+can also be such that maybe a service guy or gal 
+comes in and wants to also stop an actuator from
+
+0:23:26.720,0:23:32.240
+operating because they need to clean it or because 
+of some other reason like for instance we need to
+
+0:23:32.240,0:23:38.400
+prevent condensation to prevent water damage to 
+the equipment and that also kicks in. So there is
+
+0:23:38.400,0:23:46.880
+something like a priority order like the economize 
+economizing option should be less important than
+
+0:23:46.880,0:23:52.320
+my comfort and my comfort is less important 
+than equipment protection. So that deflects
+
+0:23:52.320,0:23:58.720
+itself in terms of when I'm writing I need to 
+sometimes specify a priority for this writing
+
+0:23:58.720,0:24:04.160
+and we decided or we discussed okay let's do it 
+with actions but if you do it with action for the
+
+0:24:04.160,0:24:08.160
+same point when you are reading you are reading 
+from another interaction affordance and when
+
+0:24:08.160,0:24:12.640
+you are writing you are writing to a different 
+intellection affordance that doesn't make sense so
+
+0:24:12.640,0:24:18.240
+we needed something that I can read from the same 
+thing and write to the same thing but I need to
+
+0:24:18.240,0:24:24.560
+specify a priority when I'm writing and there URI 
+variables were actually very nice match. So when
+
+0:24:24.560,0:24:30.240
+when you are writing you can specify command 
+prior as a URI variable and along with your
+
+0:24:30.240,0:24:35.280
+u the value that you want to write and this 
+we can translate to bucknet very nicely. So I
+
+0:24:35.280,0:24:47.280
+think this was a quite good story. Um yeah um on 
+the events um so that's URI topic URI variables
+
+0:24:47.280,0:24:54.880
+topic and maybe on the mappings um bucknet has a 
+very extensive data model so you can have a lot
+
+0:24:54.880,0:25:01.600
+of things it's based on as.1 um if you know the 
+certificates encodings a little bit it's the same
+
+0:25:01.600,0:25:08.640
+underlying mechanism I would say here the point 
+was how do we map this to a JSON world and here
+
+0:25:08.640,0:25:14.560
+you see like the bucknet specific types how they 
+map to web of things status schema the takeaway
+
+0:25:14.560,0:25:21.840
+for you is following often or like actually always 
+the JSON model that you specify in the data model
+
+0:25:21.840,0:25:29.360
+is good but it's not sufficient for bucknet 
+encoding for instance here you see a good example
+
+0:25:29.360,0:25:35.280
+you can have a number in JSON but in bucknet 
+sometimes it is encoded as real and sometimes
+
+0:25:35.280,0:25:40.400
+it's encoded as a double so that's like a single 
+precision, double precision story, right? And
+
+0:25:40.400,0:25:45.920
+this you need to specify in the bucknet form in 
+order to have a proper interoperability with the
+
+0:25:45.920,0:25:52.400
+bucknet device you are communicating with. And you 
+can do a lot of things. Um please check it later
+
+0:25:52.400,0:25:57.520
+if you're interested in terms of like mapping 
+arrays, mapping objects, mapping complex types,
+
+0:25:57.520,0:26:04.560
+mapping varants. So oneoff etc. This is all 
+possible. Um please check it on your own time.
+
+0:26:05.200,0:26:14.080
+um events is a quite a big portion but essentially 
+what I want to say is in bucknet you can subscribe
+
+0:26:14.080,0:26:21.200
+not to an uh to a data point directly but you 
+always subscribe to a notification class um there
+
+0:26:21.200,0:26:26.480
+we model notification classes as event affordances 
+so you subscribe to them and then out of those
+
+0:26:26.480,0:26:31.920
+notification classes you get the events the events 
+that you receive will contain the actual event
+
+0:26:31.920,0:26:38.320
+sending object everything is detailed. Maybe I 
+just pick your interest and stop there. That would
+
+0:26:38.320,0:26:49.200
+be uh maybe a good idea for time management. Um 
+yeah, and we also used action affordances to get
+
+0:26:49.200,0:26:55.360
+for alarm synchronization purposes. So this is 
+like I I wasn't subscribing yesterday. I want to
+
+0:26:55.360,0:27:02.240
+know the alarms that are active since like since 
+before then I use the get current events action
+
+0:27:02.240,0:27:07.040
+affordance and there's also an acknowledge event 
+process and there you can use the acknowledge
+
+0:27:07.040,0:27:16.800
+event action affordance um now I switch back to 
+yeah so what are the next steps now I learned
+
+0:27:16.800,0:27:23.600
+uh the colleague set up a bindings registry uh I 
+check with egg that uh first they will do it for
+
+0:27:23.600,0:27:31.120
+HTTP and then we will follow uh we don't have 
+a registry registered uh schema scheme for the
+
+0:27:31.120,0:27:37.040
+for the URI that I showed it is specified in the 
+bucknet here the point was I mean bucknet didn't
+
+0:27:37.040,0:27:42.240
+have it registered in Ayanna the one that they 
+defined so then we didn't feel in position to
+
+0:27:42.240,0:27:49.600
+do it on behalf of Ashley so we need to check with 
+them uh potential like now 2.0 zero is coming. So
+
+0:27:49.600,0:27:56.320
+we need to check potential adaptations and further 
+is this an explicit model for the point attributes
+
+0:27:56.320,0:28:01.040
+and also bucknet has something for time series. 
+So there you can have point time series and
+
+0:28:01.040,0:28:06.400
+alarm time series, trend log, event log. These are 
+things that we are looking at and but if you have
+
+0:28:06.400,0:28:13.680
+maybe further needs feel free to ping us and then 
+we will try to address. And now I think I'm at the
+
+0:28:13.680,0:28:25.120
+end. These are the links if you like to reach 
+out and now I think we can open the questions.

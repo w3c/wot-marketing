@@ -1,0 +1,1003 @@
+0:00:06.520,0:00:13.160
+so with us we have M FR from Fran Hofer IAS and 
+he's part of the data spaces and iot solutions
+
+0:00:13.160,0:00:22.320
+group and also the part of the chair of technical 
+information systems at the F air nag and he is
+
+0:00:22.320,0:00:29.280
+basically has a focuses focusing on enabling 
+read write link data interfaces for iot and
+
+0:00:29.280,0:00:34.480
+uses semantic web Technologies for that where the 
+web of things and solids are solid are involved
+
+0:00:34.480,0:00:40.480
+and this is also part of his PhD topics at the 
+University he also has a solid pod I'll share it
+
+0:00:40.480,0:00:47.840
+in a bit M the floor is yours and go ahead and 
+take the screen yes uh thank you very much for
+
+0:00:47.840,0:00:55.280
+the introduction as EIG already said my name is 
+Mikel fre and I work at frover for I and today I
+
+0:00:55.280,0:01:01.040
+want to talk about how we integrated the web of 
+things with solid and and I want to talk about
+
+0:01:01.040,0:01:07.200
+the architecture that we used the benefits that we 
+think this architecture brings and the real world
+
+0:01:07.200,0:01:16.040
+application that we have in general I will start 
+with a background on the web of things and solid
+
+0:01:16.040,0:01:21.840
+so that everybody is on the same page then I will 
+talk about how we combined the web of things with
+
+0:01:21.840,0:01:29.880
+solid how we generate the uniform API for Edge and 
+cloud and about our real world deployment which
+
+0:01:29.880,0:01:39.240
+which is at Munich Airport and finally I will 
+conclude so um the first thing I want to talk
+
+0:01:39.240,0:01:48.960
+about is what is the web of things and I think the 
+web of things is about describing any kind of API
+
+0:01:48.960,0:01:55.480
+for different iot devices using any protocol 
+and for that we use a thing description as an
+
+0:01:55.480,0:02:04.600
+abstraction and a thing description is basically a 
+interface description which is in rdf and the file
+
+0:02:04.600,0:02:16.280
+is serialized in Chas ND so um I will basically 
+show it with this image so we have different iot
+
+0:02:16.280,0:02:26.360
+devices um which can be sensors or machines and 
+so on and they use different protocols communicate
+
+0:02:26.360,0:02:35.120
+like HTTP mqtt and so on and each device is 
+described with a thing description so like
+
+0:02:35.120,0:02:41.560
+the semantic interface description and everything 
+that the device can do is grouped into interaction
+
+0:02:41.560,0:02:47.640
+affordances and these interaction affordances 
+are the properties which are used to represent
+
+0:02:47.640,0:02:57.040
+the internal state of a device actions which allow 
+invocation of long running tasks and also events
+
+0:02:57.040,0:03:05.040
+that are used for asynchronous event data pushes 
+and based on that abstraction we can develop
+
+0:03:05.040,0:03:12.880
+web of things applications um how does a thing 
+description look like um so this is an example
+
+0:03:12.880,0:03:20.080
+thing description of a sensor and we have um 
+semantic annotations on top for example using the
+
+0:03:20.080,0:03:29.120
+SAR fonty where we can Define that um the sensor 
+is of type sarf sensor then we have um thing
+
+0:03:29.120,0:03:36.760
+metadata which means that we have a title for 
+the sensor or a description what the sensor does
+
+0:03:36.760,0:03:45.800
+for humans then we also have security data which 
+allows us um to figure out how to interact with
+
+0:03:45.800,0:03:53.960
+this device and to authenticate ourselves and then 
+we have the interactions of orces as I already
+
+0:03:53.960,0:04:02.160
+said these are the properties the actions and the 
+events and if we look at this um property which
+
+0:04:02.160,0:04:12.040
+is called sensitivity which is of type number and 
+if I want to uh read that property I use basically
+
+0:04:12.040,0:04:21.920
+the hre formula which tells me how to dreference 
+um and interact with the device and using the
+
+0:04:21.920,0:04:30.200
+protocol specific vocabulary I also know that I 
+need to send a get request so that's basically
+
+0:04:30.200,0:04:39.040
+short introduction to the web of things and 
+next I want to talk about solid so um solid
+
+0:04:39.040,0:04:47.720
+is basically a set of specifications that enables 
+a secure decentralized and access controlled web
+
+0:04:47.720,0:04:55.400
+data storage and this storage is based on Open 
+Standards such as the link data platform HTTP
+
+0:04:55.400,0:05:04.960
+and rdf and the fundamental architectural time 
+principle of solid is that we separate data which
+
+0:05:04.960,0:05:13.480
+is in the storage from the applications that use 
+that data so from the apps um this looks something
+
+0:05:13.480,0:05:20.960
+like this so we can have a solid server which 
+has ldp containers and these ldp containers can
+
+0:05:20.960,0:05:30.480
+contain other containers but they also can contain 
+documents and now if I have an application um it
+
+0:05:30.480,0:05:36.960
+basically reads the data from the solid server 
+and then processes that information and writes the
+
+0:05:36.960,0:05:46.040
+result back to the solid server and with that um 
+I will be always or I responsible of my data and
+
+0:05:46.040,0:05:52.760
+that's basically a good thing and another thing 
+about solid is that I can have um Access Control
+
+0:05:52.760,0:06:03.160
+lists and with them I can set um what resources 
+the user caness access so for example one user or
+
+0:06:03.160,0:06:10.680
+application might be able to access these uh ldp 
+containers and this document but he won't be able
+
+0:06:10.680,0:06:20.040
+to access these documents and these ltp containers 
+yeah so now is the question how do we combine that
+
+0:06:20.040,0:06:25.920
+two things so on the one hand we have the web of 
+things and on the other hand we have solid and
+
+0:06:25.920,0:06:36.880
+our goal was to be able to use iot data and store 
+it for a long term and then um perform continuous
+
+0:06:36.880,0:06:43.480
+analysis and monitoring on that data that we 
+gathered and we also wanted to have fine Grand
+
+0:06:43.480,0:06:51.440
+access control which would enable participation of 
+extern internal and external stakeholders while we
+
+0:06:51.440,0:06:59.520
+still want to maintain privacy and security 
+um the initial situation that we had was
+
+0:07:00.120,0:07:06.720
+so we had a lot of individual iot devices and 
+a composite system which is basically a more
+
+0:07:06.720,0:07:13.440
+complex iot system which consists of individual 
+iot devices and these systems produce Dynamic
+
+0:07:13.440,0:07:20.600
+data at runtime for example sensor sensor 
+measurements or something like that and they
+
+0:07:20.600,0:07:29.960
+also have Associated static data for example 
+manuals in PDF format but these iot devices
+
+0:07:29.960,0:07:37.360
+are limited in computation computational power 
+the memory they have and also the power since a
+
+0:07:37.360,0:07:46.640
+lot of them run on batteries and therefore we 
+needed or we couldn't make data available on
+
+0:07:46.640,0:07:54.480
+the devices themselves so this was basically our 
+challenge that we faced and therefore we need to
+
+0:07:54.480,0:08:05.120
+find um how do we offload that data to other comp 
+components of the systems in our case is solid and
+
+0:08:05.120,0:08:11.120
+we need the storage component with findra Access 
+Control to manage data as multiple stakeholders
+
+0:08:11.120,0:08:19.760
+are involved and not every stakeholder has the 
+same rights as other stakeholders so we basically
+
+0:08:19.760,0:08:27.440
+came up with an architecture like this um where 
+we have things in the lowest layer so things are
+
+0:08:27.440,0:08:34.720
+basically iot devices described by descriptions 
+and they were constrained in energy computation
+
+0:08:34.720,0:08:41.760
+and storage and all of the iot devices that we 
+have are described with a thing description so
+
+0:08:41.760,0:08:49.400
+at this level we basically have a a common and 
+UNIF uniform interface for our uh to access the
+
+0:08:49.400,0:08:56.920
+iot devices next we said oh yeah we need an an 
+orchestrator which is basically the glue between
+
+0:08:56.920,0:09:04.560
+the things and the solid server and it's an edge 
+device and therefore we said it is constrainted in
+
+0:09:04.560,0:09:13.120
+storage but not in computation and not in energy 
+and the orchestration orchestrator basically gets
+
+0:09:13.120,0:09:21.480
+the data from the properties and so on from the 
+things maps that data to rdf and then uploads
+
+0:09:21.480,0:09:29.560
+that rdf data to the solid server and in this 
+scenario our orchestrator is a client and and
+
+0:09:29.560,0:09:37.600
+the solid server and the things or servers which 
+is quite nice to have this separation the solid
+
+0:09:37.600,0:09:45.280
+server is basically our cloud storage which is 
+unconstrained and the server is then used to store
+
+0:09:45.280,0:09:54.880
+the static and dynamic data um of the devices in 
+rdf format and it also hosts a task queue which
+
+0:09:54.880,0:10:04.000
+is accessible by users via HTTP this means that 
+users and stakeholders on top are able to access
+
+0:10:04.000,0:10:12.560
+data from solid via uniform solid interface 
+which is basically an HTTP rdf based Red rlink
+
+0:10:12.560,0:10:23.120
+Data interface to a um restful server and so we 
+can view data and if we want to um give tasks to
+
+0:10:23.120,0:10:29.280
+our machines we basically post the new task to 
+the solid server which is then fetched by the o
+
+0:10:29.280,0:10:35.400
+orchestrator and distribute it to the things that 
+execute that command so with that architecture we
+
+0:10:35.400,0:10:45.440
+were able to include the users and um send control 
+commands to the things but if we look at the goost
+
+0:10:45.440,0:10:51.200
+that we had before they were that we want to have 
+long-term data storage this is something that we
+
+0:10:51.200,0:10:59.000
+have in a solid server and fine gr access control 
+which is also something that solid provides to us
+
+0:10:59.000,0:11:07.280
+so we can check that but what is missing is the 
+continuous analysis and monitoring because no
+
+0:11:07.280,0:11:14.880
+user wants to do that but we need applications for 
+that and therefore our next question that we tried
+
+0:11:14.880,0:11:24.000
+to answer is how do we effectively integrate 
+applications into that architecture and we
+
+0:11:24.000,0:11:31.240
+basically came up or we found out that we have two 
+kind of two kinds of applications that we want to
+
+0:11:31.240,0:11:39.040
+integrate with different requirements on the one 
+hand we have latency sensitive applications these
+
+0:11:39.040,0:11:46.760
+are applications that Implement feedback loops 
+and need access to near realtime data and only to
+
+0:11:46.760,0:11:54.800
+a small part of the most recent data so they only 
+need data from the last 5 seconds for example and
+
+0:11:54.800,0:12:00.880
+these applications are then used to send control 
+commands to different devices and these devices
+
+0:12:00.880,0:12:09.800
+typically access the data at the edge very close 
+to the devices so that we have low latency on the
+
+0:12:09.800,0:12:16.920
+other hand we have the data intensive applications 
+which um are used to support highle business
+
+0:12:16.920,0:12:25.480
+decisions and um yeah really high level process 
+orchestration and these applications perform
+
+0:12:25.480,0:12:32.360
+long-term data analysis or machine learning tasks 
+and therefore need access to a significant amount
+
+0:12:32.360,0:12:38.760
+of historical data so they don't care if the data 
+is five or 10 seconds old as long as you have
+
+0:12:38.760,0:12:46.760
+access to multiple years of data and this data is 
+typically stored in the cloud and therefore these
+
+0:12:46.760,0:12:56.040
+applications typically operate in the cloud 
+so then we said yeah so just put the latency
+
+0:12:56.040,0:13:02.200
+sensitive applications near the edge near our 
+orchest rator and the data intensive applications
+
+0:13:02.200,0:13:10.240
+near the cloud at the solid server and we wanted 
+also to be able to access the cloud via from the
+
+0:13:10.240,0:13:18.680
+latency sensitive applications and then we faced 
+new challenges namely in the old implementation
+
+0:13:18.680,0:13:25.320
+The Edge orchestrator was only a client and now 
+we want to access data so it also needs to be a
+
+0:13:25.320,0:13:34.640
+server and it's kind of hard hard if we want to 
+access data in the cloud and the edge if we have
+
+0:13:34.640,0:13:41.520
+different apis at the edge and therefore we said 
+it would be much easier to develop applications
+
+0:13:41.520,0:13:49.480
+if we could have a uniform API at the edge and the 
+cloud so basically an edge to Cloud Continuum an
+
+0:13:49.480,0:13:58.440
+API Continuum basically and what we came up with 
+was that we split the edge orchestrator in two
+
+0:13:58.440,0:14:06.400
+parts one that is still called Edge orchestrator 
+which is only used at startup and basically
+
+0:14:06.400,0:14:15.520
+creates the API structure in the solid server 
+and spawns our new entity the mediators and the
+
+0:14:15.520,0:14:24.480
+mediators so this is the new architecture that we 
+had basically perform the tasks of the me of the
+
+0:14:24.480,0:14:32.600
+old orchestrator namely mapping different data 
+encodings to rdf so that we have one data format
+
+0:14:32.600,0:14:39.840
+across the edge and the cloud and map different 
+protocols to HTP since it's a lot easier to use
+
+0:14:39.840,0:14:48.920
+HTTP than other uh communication protocols such 
+as Bluetooth or mqtt and the mediator should
+
+0:14:48.920,0:14:56.680
+be implemented as a servient and we said that we 
+want um each thing should have one mediator which
+
+0:14:56.680,0:15:06.360
+basically is the digital replica of the thing plus 
+Dynamic data so this would be like the most recent
+
+0:15:06.360,0:15:13.520
+sensor measurements and so on and as you can see 
+here in this architecture we have a thing one
+
+0:15:13.520,0:15:22.040
+which is connected via IP and HTTP and sends the 
+data in Json and we have a mediator that maps that
+
+0:15:22.040,0:15:31.200
+data from Json to rdf and the protocol mapping is 
+necessary at this step and it basically offers an
+
+0:15:31.200,0:15:37.960
+API where the latency sensitive applications can 
+access the data and also is connected to the solid
+
+0:15:37.960,0:15:45.360
+pod where the data can be stored for long term 
+the same thing for thing to but this time it
+
+0:15:45.360,0:15:52.280
+is connected via Bluetooth and got and sends the 
+data in binary so mediator 2 basically performs
+
+0:15:52.280,0:16:01.040
+mapping to http and the binary data to rdf and 
+with that we have a uniform API structure in the
+
+0:16:01.040,0:16:11.000
+cloud and at the edge which is easier to develop 
+applications for so um now I want to talk how
+
+0:16:11.000,0:16:19.040
+we can generate such a uniform API as I already 
+said we need to create an uniform API structure
+
+0:16:19.040,0:16:27.720
+we need to map the data to rdf and we need to map 
+protocols to http um I want to stay uh start with
+
+0:16:27.720,0:16:35.200
+how we create the uniform API structure so what 
+we do is our Edge orchestrator discovers all the
+
+0:16:35.200,0:16:42.960
+things and creates based on the thing hierarchy 
+and API so our API in the cloud and at the edge is
+
+0:16:42.960,0:16:51.880
+basically dictated by the hierarchy of the things 
+that we use and the thing hierarchy is derived
+
+0:16:51.880,0:16:59.240
+from semantic annotations in thing descriptions 
+the algorithm that we use for that is basically
+
+0:16:59.240,0:17:06.560
+this so we first generate the tree structure by 
+creating tree node instances for each device then
+
+0:17:06.560,0:17:13.320
+we establish the tre's hierarchy by setting up 
+parent child relations between tree nodes which
+
+0:17:13.320,0:17:22.400
+is guided in our case by soura hosts and soura 
+is hosted by annotations and third we generate
+
+0:17:22.400,0:17:29.200
+uis for each tree node by traversing the tree and 
+mirroring the position of each node in inside the
+
+0:17:29.200,0:17:37.880
+tree um I have an example for that so imagine you 
+have this structure so you have one Standalone
+
+0:17:37.880,0:17:45.320
+thing called thing five and one composite thing 
+like uh thing one which consists of thing two
+
+0:17:45.320,0:17:53.840
+and thing three and Thing Two also consists of 
+thing four so our API would for thing five would
+
+0:17:53.840,0:18:02.760
+basically be the base U followed by thing five 
+since this is a stand alone device but for thing
+
+0:18:02.760,0:18:10.200
+four it would be the base U followed by thing 
+one followed by thing two and followed by thing
+
+0:18:10.200,0:18:18.400
+four as you can see here we have basically thing 
+one thing two thing four and this will be the ltp
+
+0:18:18.400,0:18:28.880
+container structure that is created inside the 
+solid pod and also at the edge um I have a video
+
+0:18:28.880,0:18:35.080
+about how it works so we have an implementation 
+of that and it basically generates a URI with
+
+0:18:35.080,0:18:42.600
+the base example.org thing one and then we have um 
+property one action one and event one so thing one
+
+0:18:42.600,0:18:50.000
+has basically these interaction of forces and all 
+the data that is gathered is stored in there and
+
+0:18:50.000,0:18:57.960
+the same for thing one thing two with property two 
+action two and event two and so on and with that
+
+0:18:57.960,0:19:05.920
+we are able to create the uniform API at the edge 
+and the cloud which only differs by the base IP
+
+0:19:05.920,0:19:15.520
+address basically the next thing I want to talk 
+about is how we map different protocols to http
+
+0:19:15.520,0:19:26.640
+and for that we um so why are we doing this um 
+so not all applications can support all protocols
+
+0:19:26.640,0:19:31.840
+a good example is Brutus low energy since we 
+require additional hardware for Bluetooth low
+
+0:19:31.840,0:19:41.360
+energy and you always need to be close by so that 
+you can connect and this is somewhat inconvenient
+
+0:19:41.360,0:19:48.880
+when you develop applications and therefore 
+um we perform a protocol mapping based on the
+
+0:19:48.880,0:19:57.640
+web of things abstraction using existing protocol 
+bindings and for that we use the what method as an
+
+0:19:57.640,0:20:04.440
+intermediary represent presentation in our Gateway 
+so um for example these are the binding templates
+
+0:20:04.440,0:20:13.400
+for HTTP and we can see that get is mapped to a 
+read property put to a write property post to an
+
+0:20:13.400,0:20:20.800
+invoke action and get to And subscribe event 
+and if we have a look at Bluetooth we can do
+
+0:20:20.800,0:20:28.880
+the same basically so we can map read property to 
+Bluetooth got read right property to Bluetooth got
+
+0:20:28.880,0:20:37.560
+write without response invoke action to write 
+with response and subscribe event to notify and
+
+0:20:37.560,0:20:46.840
+we basically already have so we must connect the 
+read property via get to um read and this looks
+
+0:20:46.840,0:20:54.600
+like that so we basically have IP HTTP get which 
+is mapped to read property and read property is
+
+0:20:54.600,0:21:01.440
+then mapped to read which is Bluetooth SC and and 
+we do this for WR property and invoke action and
+
+0:21:01.440,0:21:09.800
+subscribe event event and with that we are able 
+to transform the Bluetooth data or mqtt data to
+
+0:21:09.800,0:21:20.400
+http which again is easier to access and Implement 
+in applications um the last part I want to talk
+
+0:21:20.400,0:21:28.520
+about is how we map different data encodings to 
+a uniform data encoding namely rdf um for that
+
+0:21:29.120,0:21:35.640
+we want to have mappings that should be adjustable 
+at runtime at the mediator level so we don't want
+
+0:21:35.640,0:21:45.960
+to hardcode them and for this we can describe the 
+mappings using the rdf mapping language short rml
+
+0:21:45.960,0:21:54.720
+which is basically the defecto standard when 
+transforming non rdf data to rdf and rml is a
+
+0:21:54.720,0:22:02.040
+declarate t language and it works like this so 
+you have for example XML CSV or Json as input
+
+0:22:02.040,0:22:10.720
+to an rml engine and the mapping rule in rml 
+where you define how your rdf graph should look
+
+0:22:10.720,0:22:19.000
+like and then the engine basically takes in the 
+input and transform the data to rdf following the
+
+0:22:19.000,0:22:27.440
+specify graph structure um we use for the mapping 
+execution a program called Flex rml which is our
+
+0:22:27.440,0:22:36.960
+own development um since other existing rml 
+processors are basically targeting only Cloud
+
+0:22:36.960,0:22:45.160
+environments and are therefore not suitable for 
+constrained edged environments and therefore we
+
+0:22:45.160,0:22:53.600
+have develop Flex rml from ground up um here you 
+can see uh the difference this makes so this is
+
+0:22:53.600,0:23:02.560
+basically a benchmark of flex rml so this is the 
+data set size so 10 K 100K and 1 million and these
+
+0:23:02.560,0:23:11.960
+are the mapping rules that have been used so this 
+one is basically a simple mapping the five ref is
+
+0:23:11.960,0:23:20.760
+a self join and five join is basically yeah a real 
+join between two data sets and the blue uh bars
+
+0:23:20.760,0:23:28.120
+are flex rml and the red one are morph KGC and 
+the yellow one or SDM rdf Isa which are basically
+
+0:23:28.120,0:23:35.680
+state of the art um Knowledge Graph materializer 
+but they are applied in the cloud and here on top
+
+0:23:35.680,0:23:40.760
+you can see the run time the elapse time to 
+map that data and you can see that Flex rml
+
+0:23:40.760,0:23:48.400
+is basically the fastest for small data sets and 
+also requires um the least amount of memory which
+
+0:23:48.400,0:23:56.960
+is relevant in constrainted Edge environments so 
+therefore we use that um yeah and with that we
+
+0:23:56.960,0:24:03.880
+are able to map the data that we get to rdf and 
+now we have everything that we need so we have
+
+0:24:03.880,0:24:12.680
+data in rdf protocols mapped to http and we have a 
+uniform API structure at the edge and in the cloud
+
+0:24:12.680,0:24:19.800
+and therefore I want to talk about our real well 
+deployment of this architecture which is at Munich
+
+0:24:19.800,0:24:28.360
+Airport and our goal there is to take pictures 
+of luggage and extract features based on that
+
+0:24:28.960,0:24:34.960
+so um yeah as I already said we have a prototype 
+of that which is installed at the checking counter
+
+0:24:34.960,0:24:43.080
+at Munich Airport the checking counter processes 
+around 3,000 pieces of luggage each day and has
+
+0:24:43.080,0:24:50.440
+only I think between 2 a.m. and 400 p.m. uh 
+400 a.m. there is no luggage but otherwise
+
+0:24:50.440,0:25:03.240
+it's evenly distributed um we for the devices we 
+have three rgbd so these are um RGB cameras with
+
+0:25:03.240,0:25:12.440
+an integrated depth sensor so for that we can um 
+derive the size of object um and these cameras are
+
+0:25:12.440,0:25:21.960
+the Intel real sense D 435 I and we also have a 
+camera controller that controls the three cameras
+
+0:25:21.960,0:25:29.640
+um as a trigger we use a photo electric sensor 
+which basically indicates if luggage is there and
+
+0:25:29.640,0:25:39.680
+we can trigger our three rgbd cameras the cameras 
+are basically um so the cameras are so we have one
+
+0:25:39.680,0:25:45.720
+camera on top and one on the right side and one 
+on the left side so that we can get an image of
+
+0:25:45.720,0:25:55.120
+each side of the luggage um on the edge we have 
+one Edge PC that hosts the orchestrator and two
+
+0:25:55.120,0:26:03.280
+mediators so for the camera controller and one for 
+the photo electric sensor and in the cloud we use
+
+0:26:03.280,0:26:11.480
+a community solid server for our data storage 
+so the architecture looks like this basically
+
+0:26:11.480,0:26:21.160
+so we have the three cameras which have a camera 
+controller so this is our composite thing and this
+
+0:26:21.160,0:26:28.240
+camera controller has one mediator and we have the 
+photo electric sensor which also has one mediator
+
+0:26:29.040,0:26:35.240
+and both mediators push their data into 
+the solid server and retain like 5 Seconds
+
+0:26:35.240,0:26:44.280
+of the L data um at the edge basically then we 
+have three applications one control Loop which
+
+0:26:44.280,0:26:52.480
+reads the mediator of the photo electric sensor 
+and checks if the sensor was triggered if the
+
+0:26:52.480,0:27:00.040
+sensor was triggered we wait two seconds because 
+this is the time it takes the luggage to um move
+
+0:27:00.040,0:27:06.000
+from the photo electric sensor to the camera 
+setup and then we send a command to mediator
+
+0:27:06.000,0:27:14.920
+one that we want to take images so this control 
+Loop basically is responsible to generate images
+
+0:27:14.920,0:27:22.520
+then mediator one annotates these images and 
+sends them to the solid po or solid server where
+
+0:27:22.520,0:27:28.160
+we store the data and in the cloud we have two 
+applications one is the size and color extraction
+
+0:27:29.120,0:27:38.400
+where we basically um generate the 3D Point Cloud 
+out of the um three color images and three depth
+
+0:27:38.400,0:27:47.640
+images and we extract the size of the luggage and 
+the color and we use that or we want to use that
+
+0:27:47.640,0:27:58.240
+in order to optimize loading plans for aircraft 
+because it is um more convenient to um move the
+
+0:27:58.240,0:28:05.200
+the the larger package back in the aircraft 
+and the smaller one to the front for example
+
+0:28:05.200,0:28:13.400
+and another um app that we have is the package 
+type classification which also reads the image
+
+0:28:13.400,0:28:19.800
+so just the color image this time of the solid 
+server and then classifies what type of luggage
+
+0:28:19.800,0:28:28.120
+it is so for example is it a backpack or 
+is it a normal suitcase and with that we
+
+0:28:28.680,0:28:34.960
+or this information we want to use to analyze 
+for example if backpacks take longer in our
+
+0:28:34.960,0:28:44.880
+process than suitcases or if there's some kind of 
+luggage that is um especially slow to handle so
+
+0:28:44.880,0:28:54.600
+that we can find process improvements um this is 
+our setup so here you can see the cameras here is
+
+0:28:54.600,0:29:03.880
+one from one side here's the top camera and here 
+is the other side camera and this computer here
+
+0:29:03.880,0:29:11.920
+is the um camera controller and the luggage 
+basically moves on this conveyor belt from
+
+0:29:11.920,0:29:18.200
+from the bottom of the image to the top and the um 
+photo electric sensor is in front of that image so
+
+0:29:18.200,0:29:25.040
+it can't be seen but it's around here and if it is 
+triggered it sends a Bluetooth command a Bluetooth
+
+0:29:25.040,0:29:34.960
+signal to the mediator the then the control Loop 
+reads that and sends a command to the um camera
+
+0:29:34.960,0:29:43.080
+controller which then triggers the image capturing 
+process and here on behind this wall on the back
+
+0:29:43.080,0:29:50.440
+is basically the checkin so this is where you um 
+leave your luggage and it is transported into the
+
+0:29:50.440,0:29:58.280
+package handling system um this is an image from 
+the top camera so if you look at it you can see
+
+0:29:58.280,0:30:04.640
+and this is a test luggage and a 3D Point cloud 
+of that image would look like this so you can see
+
+0:30:04.640,0:30:10.480
+that we have um some missing information which 
+is basically the white part since we only take
+
+0:30:10.480,0:30:16.280
+pictures from the side and from the top and 
+sadly this luggage was a little bit too close
+
+0:30:16.280,0:30:23.560
+to the wall around here and therefore this side 
+is also missing but it is still enough to extract
+
+0:30:23.560,0:30:33.640
+the dimensions of the luggage and um the data that 
+we store in our solid server looks like this so we
+
+0:30:33.640,0:30:40.360
+have the first part which is the top part this 
+is generated by the mediator that controls the
+
+0:30:40.360,0:30:48.080
+camera controller so we have an image which is we 
+have some Provence information we know what format
+
+0:30:48.080,0:30:56.040
+it is when it was generated and where to find it 
+and we know what camera took this image this is
+
+0:30:56.040,0:31:04.880
+um quite handy if you need to find some errors or 
+do some troubleshooting and we also have like the
+
+0:31:04.880,0:31:12.760
+bagage top which is just annotated and we know 
+what is observed and this part is added by the
+
+0:31:12.760,0:31:21.280
+image processing agent which extracts the size 
+and the color and it basically reads the the the
+
+0:31:21.280,0:31:31.440
+blue data fetches the image from the solid Po and 
+then we have the agent that processes or performs
+
+0:31:31.440,0:31:39.320
+the image processing activity and uses image one 
+for that and it generates the result and writes
+
+0:31:39.320,0:31:46.440
+that back into the solid server so we have the 
+backage height which is 0.1 for example and the
+
+0:31:46.440,0:31:58.160
+color which is ff0000 and with that we have all 
+the data and metadata inside our solid server
+
+0:31:58.160,0:32:04.920
+um I'm already at the conclusion now and I want to 
+look back at the initial goals that we had when we
+
+0:32:04.920,0:32:12.040
+started this so first of all we wanted to have 
+long-term iot data storage and we wanted to have
+
+0:32:12.040,0:32:19.600
+continuous analysis and monitoring on that data 
+and secondly we want to have fer Access Control
+
+0:32:19.600,0:32:26.240
+to enable participation by internal and external 
+stakeholders while still maintaining privacy and
+
+0:32:26.240,0:32:35.360
+security so by combining what and solid we 
+can achieve this so first we use um or we can
+
+0:32:35.360,0:32:41.800
+integrate various iot devices using different 
+data encodings and communication protocols by
+
+0:32:41.800,0:32:49.200
+using the web of things which is kind of nice 
+then we want to store the data and the metadata
+
+0:32:49.200,0:32:57.440
+that we have with f gr Access Control to involve 
+stakeholders we can do that with solid and we
+
+0:32:57.440,0:33:04.040
+want to enable the development of applications 
+which should be easy and our applications only
+
+0:33:04.040,0:33:11.520
+require support for HTTP and rdf and the data 
+can be accessed in the cloud and the Edge by
+
+0:33:11.520,0:33:20.160
+only changing the base IP this means that we have 
+the same API structure at dcloud and D Edge and
+
+0:33:20.160,0:33:27.760
+this is thank thanks to the uniform API so we can 
+say that we achieved our goals from the beginning
+
+0:33:28.480,0:33:37.120
+yeah and um that's it um here are my contact 
+information if you're interested to get in touch
+
+0:33:37.120,0:33:45.320
+you can write me an email and otherwise um thank 
+you very much for your attention I hope you liked
+
+0:33:45.320,0:33:57.720
+it and now I'm open to answer questions 
+and discuss with you thank you very much

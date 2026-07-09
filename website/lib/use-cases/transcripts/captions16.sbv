@@ -1,0 +1,527 @@
+0:00:06.840,0:00:13.440
+so today we are welcoming Salvador um from the 
+ontology Engineering Group at the University of
+
+0:00:13.440,0:00:20.400
+PL Technica de Madrid um and he's a researcher 
+in the AI domain with um yeah with an extent
+
+0:00:20.400,0:00:26.400
+knowledge on semantic um characterization of 
+digital twins um he has graduated graduated in
+
+0:00:26.400,0:00:33.240
+computer engineering um with a masters focusing on 
+AI and and yeah now he is focusing on yeah sematic
+
+0:00:33.240,0:00:40.160
+characterization and interoperability um with 
+different digital twins which is the topic of his
+
+0:00:40.160,0:00:47.680
+uh PhD work and with this I am giving the floor 
+to sadar afterwards if you're asking questions
+
+0:00:47.680,0:00:56.560
+just make sure to introduce yourself but Flor is 
+your H this work is called what digital onology H
+
+0:00:56.560,0:01:03.720
+this work has been made by me Andrea chimino and 
+Gia Castro and this comes uh this word comes from
+
+0:01:03.720,0:01:12.760
+the kogito European project that is a construction 
+Railway project that is made with a digital twin
+
+0:01:12.760,0:01:22.400
+so let's let's start with what is a digital twin 
+so a digital twin is a digital representation of
+
+0:01:22.400,0:01:30.520
+a physical object or system that can be used to 
+analyze Its Behavior and Effectiveness so also
+
+0:01:30.520,0:01:36.520
+this h digal t can be represent can be represented 
+in three dimensions so the First Dimension as we
+
+0:01:36.520,0:01:42.800
+can see here is the real world entity which 
+represents the act the actual entity H in the
+
+0:01:42.800,0:01:48.640
+real world and the digital entity which represents 
+the software representation of the entity in the
+
+0:01:48.640,0:01:54.720
+digital world and the third dimension that is from 
+the this three-dimensional architecture is the bir
+
+0:01:54.720,0:02:00.560
+directional information flow that is the that are 
+the connections so we have the real world entity
+
+0:02:00.560,0:02:06.360
+the digal ID entity and the connections between 
+them H as we can see here in the real war entity
+
+0:02:06.360,0:02:13.160
+we can have real world actions and in the digital 
+entity we can have for example simulations what is
+
+0:02:13.160,0:02:19.480
+the information that is H stored in the different 
+dimensions so in the real world entity we have
+
+0:02:19.480,0:02:27.360
+the sources of data the data retrieved from the 
+real entities and uh sensors or actuators or uh
+
+0:02:27.360,0:02:32.240
+different systems that are in the real world so H 
+that's it the in the digital team we have the data
+
+0:02:32.240,0:02:38.360
+the services and the models H data can free can 
+be from erogeneous to homogeneous data services
+
+0:02:38.360,0:02:43.440
+can be for example for the simulations and models 
+can be for example an ontology that models all
+
+0:02:43.440,0:02:51.640
+the data in the the digital TN so next H we have 
+explained the three-dimensional model but also
+
+0:02:51.640,0:02:59.560
+there is a five-dimensional model presented by 
+toal that is presented by different H dimensions
+
+0:02:59.560,0:03:05.000
+in this this case we have the real war entity with 
+the source of data that is the entity Dimension
+
+0:03:05.000,0:03:12.200
+the models is the virtual entity Dimension the 
+connections between them and the between the
+
+0:03:12.200,0:03:17.440
+digital entity and the real world entity are the 
+the dimension of the digital twin connections the
+
+0:03:17.440,0:03:22.080
+services are the digital twin services and the 
+data is the digital twin data so we have right
+
+0:03:22.080,0:03:28.480
+now five five dimensional architecture within 
+the digital TN that is going to be the the main
+
+0:03:28.480,0:03:35.000
+architecture that we are going to focus within 
+the the presentation so next we have the Kito
+
+0:03:35.000,0:03:41.720
+project what we have in the Kito project and how 
+can be represented in the by the digital twin so
+
+0:03:41.720,0:03:46.760
+first of all we have the real world entity 
+where we have three pilots in specifically
+
+0:03:46.760,0:03:54.040
+Austria Denmark and Spain pilots and we here we 
+have uh the digital entity where all the data
+
+0:03:54.040,0:04:00.560
+is captured from satellite images 3D scanning H 
+devices and sensors and we have also H data from
+
+0:04:00.560,0:04:08.800
+3D geometry H budet and cost and activity Schedule 
+H also we have a a part that is the digital twin
+
+0:04:08.800,0:04:15.040
+platform where all the data is processed and then 
+this all of this data is used by the digital twin
+
+0:04:15.040,0:04:20.680
+applications H following the five dimensional 
+approach that we explained earlier we have the
+
+0:04:20.680,0:04:27.080
+entity for the different Pilots the digital 
+doing data for the data captured uh by the
+
+0:04:27.080,0:04:35.480
+reality uh tools the digital T connections between 
+the reality capture Tools H the digital T platform
+
+0:04:35.480,0:04:41.240
+and the digital Twi applications and finally 
+we have the virtual entity for the digital T
+
+0:04:41.240,0:04:46.320
+platform that is the one that is going to model 
+all the data and the digital T services that are
+
+0:04:46.320,0:04:56.360
+going to be the used by the digital twin to make 
+the respective simulations or or information er
+
+0:04:56.360,0:05:04.320
+er Transformations so once we explain the the 
+project I'm going to explain the The Proposal
+
+0:05:04.320,0:05:10.320
+that we made in this case we have the what DT 
+onology what DT ontology has been developed within
+
+0:05:10.320,0:05:15.360
+the ontology the cogit project and describe the 
+five dimension of a digital twin and its Futures
+
+0:05:15.360,0:05:26.000
+extending web of things so what thing what not 
+what web of things what are the the reasons why
+
+0:05:26.000,0:05:35.040
+we made the what digital TN onology so is for it 
+is because allows for conceptualizing the five
+
+0:05:35.040,0:05:41.080
+dimensional model architecture and its features 
+and also H thanks to for example web of things
+
+0:05:41.080,0:05:47.480
+thing descriptions we can describe the services of 
+different dimensions thanks to What discovery we
+
+0:05:47.480,0:05:54.880
+can discover service Services across dimensions 
+and also thanks for what H thing descriptions
+
+0:05:54.880,0:05:59.760
+we can Define the security specification 
+of each Dimension and facilitates the data
+
+0:05:59.760,0:06:07.200
+accessibility of a specific Dimension finally have 
+to promote the data interoperability in all the
+
+0:06:07.200,0:06:12.920
+different dimensions and provide the direct access 
+to all the digital T functionalities and this can
+
+0:06:12.920,0:06:25.800
+be seen in a in a workshop paper that we just got 
+accepted just got accepted in the ldac workshop
+
+0:06:25.800,0:06:34.960
+next uh as we can see here we can use what in the 
+digital twin to represent two different dimension
+
+0:06:34.960,0:06:42.080
+right now the digital twin data D Dimension 
+and the digital twin Services Dimension but
+
+0:06:42.080,0:06:48.080
+with what DT onology we can represent also the 
+virtual entity the digal te connections and the
+
+0:06:48.080,0:06:58.520
+dimensions what okay so H once we explain the 
+digital T what digal antology I'm going to show
+
+0:06:58.520,0:07:06.080
+you like an over view of the ontology where we 
+have for example here the class digital twin that
+
+0:07:06.080,0:07:15.640
+is subclass of thing in this case from the W TD 
+onology and we have here the different dimension
+
+0:07:15.640,0:07:22.440
+represented in the diagram so for example you have 
+the digital twin entity for the entity Dimension
+
+0:07:22.440,0:07:28.560
+the model for the viral entity Dimension the 
+resource for the digital twin data the interaction
+
+0:07:28.560,0:07:34.760
+forance from H thing description onology for the 
+digital twin services and finally the connections
+
+0:07:34.760,0:07:41.440
+uh within the digital twin connections ER 
+Dimension as you can see here we can we
+
+0:07:41.440,0:07:47.080
+are representing the five dimensional approach but 
+also if we look for this class we have the digital
+
+0:07:47.080,0:07:53.800
+entity so it this onology also can represent the 
+three-dimensional approach with the real world
+
+0:07:53.800,0:08:00.760
+entity the digital entity and the connections 
+between them okay so let's start for example
+
+0:08:00.760,0:08:07.960
+with the what H what D context that is going to be 
+for example if you want to write it in a Json LD
+
+0:08:07.960,0:08:15.800
+with the within a thin description so the context 
+we have the thin description uh ontolog U URI and
+
+0:08:15.800,0:08:25.160
+the discovery core also URI but also we have here 
+the r have a a link that contains all the context
+
+0:08:25.160,0:08:31.480
+of this uh onology and also we have here the name 
+spaces for the data are going to be used along
+
+0:08:31.480,0:08:40.560
+the the examples of the what the ontology use case 
+Okay so let's start for the first uh dimension in
+
+0:08:40.560,0:08:46.480
+this case we have the entity Dimension represented 
+by the class entity so for example imagine that
+
+0:08:46.480,0:08:54.280
+you want to represent an digital twin of of a wall 
+for example in this case is called the element one
+
+0:08:54.280,0:09:02.480
+48 86 so we have the context that we saw earlier 
+an identifier for the digital twin in this case
+
+0:09:02.480,0:09:08.640
+this is going to be the identifier for the digital 
+twin this case is a a tape a type of theal twin
+
+0:09:08.640,0:09:15.160
+the titoist element and this number and finally we 
+have the entity that is the entity that is going
+
+0:09:15.160,0:09:23.680
+to be represented as a digital twin in this case 
+this W so next we have the models in this case
+
+0:09:23.680,0:09:30.680
+the virtual entity Dimension that can be from 
+non-semantic Models to semantic models in this
+
+0:09:30.680,0:09:35.640
+Cas we have the rules models behavioral models 
+physical model geometrical model and on the other
+
+0:09:35.640,0:09:40.800
+way we have the semantic models like ontologies 
+shapes or mappings in this case we have for
+
+0:09:40.800,0:09:50.520
+example H the ontology of Bot that is used for the 
+construction H modeling here we can see an example
+
+0:09:50.520,0:09:58.960
+of the digital twin entity sorry sorry for the 
+digital entity representation and in this case for
+
+0:09:58.960,0:10:05.560
+the model here we have the ontology that is the 
+B ontology and can be represented by the subclass
+
+0:10:05.560,0:10:11.800
+of ontology model the tile build element ontology 
+and all the information about it for example the
+
+0:10:11.800,0:10:20.200
+different format that can be obtained Etc okay 
+so next is the digital TN data Dimension that
+
+0:10:20.200,0:10:28.240
+is represented by the dcat resource reusing the 
+Decat ontology H that is the data catalog ontology
+
+0:10:28.240,0:10:36.200
+to represent the different data sources and uh 
+data services that provide uh the information so
+
+0:10:36.200,0:10:42.440
+in this example we are going to represent like a 
+data set that for example can be a Knowledge Graph
+
+0:10:42.440,0:10:48.400
+and here we can see that the data Dimension is 
+represented right here like with thecat resource
+
+0:10:48.400,0:10:54.640
+and in this case we have a thecut data set that 
+is a knowledge graph with its description it's it
+
+0:10:54.640,0:11:03.400
+access URL and the do that URL if you want to to 
+obtain the home Knowledge Graph once this uh part
+
+0:11:03.400,0:11:09.840
+is explained we are going to explain the digital 
+doing services that is H obtain it basically for
+
+0:11:09.840,0:11:16.760
+from the th description onology so we can 
+see here the interaction affordance from the
+
+0:11:16.760,0:11:22.960
+properties affordance and the action affordance 
+like for example to validate an rdf graph in this
+
+0:11:22.960,0:11:29.760
+case we have the the URI to to access to that 
+service and also the action for the registering
+
+0:11:29.760,0:11:37.000
+a cycle model that also we have here the URI to 
+obtain the the different H access to register the
+
+0:11:37.000,0:11:45.920
+different cycle models okay so finally for the 
+last Dimension we have the connection Dimension
+
+0:11:45.920,0:11:51.560
+that is represented by the digital T Connection 
+in this case we have a provider and a consumer in
+
+0:11:51.560,0:11:59.360
+this case for example we have h a model and that 
+is a provider and the consumer is a service that
+
+0:11:59.360,0:12:06.680
+wants to operate with that model so H we have 
+different types of connections for example model
+
+0:12:06.680,0:12:11.360
+to model connection model data connection model 
+service connection and data service connection
+
+0:12:11.360,0:12:19.360
+that are conceptualized like this to model model 
+model interation affordance Etc and the different
+
+0:12:19.360,0:12:23.560
+subclasses of the connection point that we 
+can have are the decard resources that are
+
+0:12:23.560,0:12:30.160
+the digital twin data D Dimension information the 
+Ser interaction affordances that are the digital
+
+0:12:30.160,0:12:36.800
+twin service Dimension and the the different 
+models that are the virtual entity Dimension
+
+0:12:36.800,0:12:43.600
+okay so here we have for example here an example 
+of a connection that is uh in Json LD that is
+
+0:12:43.600,0:12:49.680
+in this in this case a connection between a data 
+and a service and in this case is going to be the
+
+0:12:49.680,0:12:58.480
+consumer the service that in this case is El that 
+is going to um materialize the the this the data
+
+0:12:58.480,0:13:04.320
+obtained from from here to rdf so here we have the 
+consumer that is the service and the provider is
+
+0:13:04.320,0:13:09.160
+at the cat data set that in this case is an IC 
+file this IC file is going to be materialized
+
+0:13:09.160,0:13:18.960
+to rdf data and here we have for example like 
+this is AR rest and service and uh the data
+
+0:13:18.960,0:13:29.440
+so what were what were the challenges on reducing 
+we things in Kito the the different um challenges
+
+0:13:29.440,0:13:35.120
+that we had were the lack of conceptualization to 
+represent the digital TN Dimensions the lack of
+
+0:13:35.120,0:13:41.360
+conceptualization also to represent some digital 
+twin Dimensions features and finally the lack of
+
+0:13:41.360,0:13:48.920
+representation of the connections between digital 
+twin dimensions and the dimension features so
+
+0:13:48.920,0:13:55.360
+finally as conclusions what ontology is developed 
+as an exection of the th description ontology to
+
+0:13:55.360,0:14:01.240
+describe the five dimensional architecture 
+approach of digital twins thanks to things
+
+0:14:01.240,0:14:06.320
+this onology enables a more precise comprehension 
+of the digital Twins and provides a direct access
+
+0:14:06.320,0:14:12.440
+to all the system functionalities and despite 
+being initially designed for the construction
+
+0:14:12.440,0:14:19.960
+domain this onology is flexible to incorporate new 
+places and subes H to cover different domains not
+
+0:14:19.960,0:14:27.080
+only the construction domain and a future Char 
+that I propose you is the aggregation of digital
+
+0:14:27.080,0:14:33.120
+twins to create an ecosystem of digital twins the 
+first of all an aggregation of digal twin consist
+
+0:14:33.120,0:14:38.760
+of the combination of two digal twins in order 
+to provide the benefits of one digital twin to
+
+0:14:38.760,0:14:45.120
+the other one linked ER an ecosystem of digital 
+twins also can be created within the combination
+
+0:14:45.120,0:14:53.400
+of different digital twins to generate like a 
+composed digital twin uh of multiple digital
+
+0:14:53.400,0:15:01.440
+twins so how to the the challenge is how to 
+digital twins can be combined and how we things
+
+0:15:01.440,0:15:06.760
+can help at this aggregation so here for example 
+is a little explanation with a representation of
+
+0:15:06.760,0:15:12.360
+the digital twins that we have a first digital 
+twin and another one and another digital twin that
+
+0:15:12.360,0:15:21.040
+want ER that the user wants to to interoperate 
+with them so how can we create this ecosystem
+
+0:15:21.040,0:15:44.880
+ER that allows this kind of uh aggregation and so 
+that's all many things so you have any questions

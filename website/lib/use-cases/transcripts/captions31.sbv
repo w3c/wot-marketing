@@ -1,0 +1,1392 @@
+0:00:08.320,0:00:13.040
+Uh it's my very pleasure to introduce you Egay 
+Corknan for the ones who still doesn't know
+
+0:00:13.040,0:00:18.960
+him. Eay is a longtime supporter of the web of 
+things to the co-chair of this community group
+
+0:00:18.960,0:00:25.200
+together with me and he's also very active in open 
+source activities and also in the working group.
+
+0:00:25.200,0:00:29.920
+uh he works as an IoT architect at the 
+CTO office in Simmons and is responsible
+
+0:00:29.920,0:00:35.600
+for leading the development of the thing model 
+catalog project that we'll see today. So again,
+
+0:00:35.600,0:00:40.160
+thank you for preparing this presentation. We're 
+looking forward to know more about the theme model
+
+0:00:40.160,0:00:47.120
+catalog. Yeah, thank you. Yours Yeah, thank 
+you for the introduction. Welcome everyone. So
+
+0:00:47.120,0:00:53.440
+um I'll talk about the team model catalog and 
+which is actually a project that was also started
+
+0:00:53.440,0:01:01.200
+before me. So so pedram um from semens has started 
+that you may know from some other events and
+
+0:01:01.200,0:01:06.800
+uh since some time I am basically responsible 
+for basically yeah like leading the further
+
+0:01:06.800,0:01:12.960
+development of this and I will actually start 
+first with some motivation on on why we want to do
+
+0:01:12.960,0:01:22.880
+this. Um so when we talk about adding a new device 
+so I try to remove any kind of specific words we
+
+0:01:22.880,0:01:27.920
+think of different um like scenarios and there 
+are different words that are used like onboarding,
+
+0:01:27.920,0:01:34.560
+commissioning, provisioning, integration, data 
+on boarding whatever um you want to call. So,
+
+0:01:34.560,0:01:41.440
+so we basically think of this problem and I will 
+show it in detail and for the beginning at least
+
+0:01:41.440,0:01:48.240
+like just to give some sort of a story line I 
+will focus on the Modbus TCP protocol and I will
+
+0:01:48.240,0:01:58.400
+show some uh yeah examples from home automation 
+forums. So so going to some yeah websites. So
+
+0:01:58.400,0:02:08.480
+um if you go to in this case to open HAB um we see 
+somebody buying a 15,000 euro um heat pump and uh
+
+0:02:08.480,0:02:13.840
+basically they have to almost reverse engineer 
+from the documentation the types of registers
+
+0:02:13.840,0:02:21.440
+they need to put into their um like driver 
+at home. So yeah, even if you pay that much,
+
+0:02:21.440,0:02:30.000
+that's like kind of the the experience you get 
+as a user of this device. Um if you go a bit
+
+0:02:30.000,0:02:34.640
+somewhere else in this case home assistant 
+uh which is probably the most popular home
+
+0:02:34.640,0:02:42.240
+automation or smart home um product or project 
+you also see something like quite similar again
+
+0:02:42.240,0:02:46.880
+you need to provide some sort of a YAML file 
+to the Modbus driver and you need to think of
+
+0:02:46.880,0:02:55.600
+a lot of like small details and actually I uh 
+tried to look a bit and if you want to do this
+
+0:02:55.600,0:03:00.720
+um the the help that is provided is of course 
+the manual of the the provider of the the
+
+0:03:00.720,0:03:06.480
+manufacturer. But um if you want to learn how to 
+do it, that's basically the help you get. And I
+
+0:03:06.480,0:03:12.480
+just want to scroll kind of fast to show that this 
+is like all you need to learn if you just want to
+
+0:03:12.480,0:03:18.640
+onboard a Modbus device. So all of the different 
+types of configurations which are provided with
+
+0:03:18.640,0:03:25.600
+examples and all the possible whatever stuff 
+you can do and I'll just go all the way just
+
+0:03:25.600,0:03:30.880
+to show you that it's just quite long. So so this 
+basically of course grows over time with the use
+
+0:03:30.880,0:03:36.000
+cases that they see from the the community. So 
+it's in the end open source. So it's just to
+
+0:03:36.000,0:03:44.400
+show that it's not something so easy to do just 
+seeing the the length of the documentation here.
+
+0:03:44.400,0:03:53.840
+And um of course uh we at the semens we do it 
+better um or or maybe not in general. Um so
+
+0:03:53.840,0:04:00.560
+actually if you go again to these kind of forums 
+you see some people um yeah like again trying to
+
+0:04:00.560,0:04:06.960
+integrate it. This time it's a energy meter and 
+they don't manage to do some specific thing which
+
+0:04:06.960,0:04:12.640
+is actually like reading the voltage um level 
+and uh the the way they solve it is somebody
+
+0:04:12.640,0:04:16.560
+else responding. Thankfully it's an open source 
+project. So right they say that okay like you
+
+0:04:16.560,0:04:22.800
+should actually just change the like something in 
+here in your configuration and uh then it should
+
+0:04:22.800,0:04:29.200
+work. Of course it does and that the the forum 
+thread is closed. That's fine. But you just keep
+
+0:04:29.200,0:04:35.680
+seeing this more and more. So again for a semen 
+device you basically are um yeah met with this
+
+0:04:35.680,0:04:45.280
+kind of in yeah integration work and of course 
+yeah this is in the home automation uh field. Um
+
+0:04:45.280,0:04:50.880
+what these people are in the end doing is writing 
+these kind of YAML files or in some cases you can
+
+0:04:50.880,0:04:57.360
+also use um some some UI um to to help you with 
+this but in the end it doesn't change the fact
+
+0:04:57.360,0:05:04.000
+that you need to like go one by one and change 
+stuff in your driver configuration to make sure
+
+0:05:04.000,0:05:11.440
+that you can like properly communicate with 
+this with this device. Um, if you go to other
+
+0:05:11.440,0:05:18.400
+platforms, it's the same. By the way, if you go to 
+Hive MQ Edge, which is using an Apache PLC4X like
+
+0:05:18.400,0:05:23.360
+project to do this, it's again the same thing. If 
+you go to Node Red and use the most popular Modbus
+
+0:05:23.360,0:05:28.400
+driver, it's again the same thing. So, it keeps 
+like repeating, right? And I think everybody here
+
+0:05:28.400,0:05:33.920
+with the who has the knowledge of web of things, 
+this is like yeah, like we kind of know this,
+
+0:05:33.920,0:05:39.600
+but here I'm just trying to show this very 
+specific like use case of onboarding a device.
+
+0:05:40.400,0:05:44.160
+H but in the end it's just doing this right so 
+like people just want to have a dashboard they
+
+0:05:44.160,0:05:49.200
+want to have some basic logic to control the 
+their stuff if it's a heat pump they probably
+
+0:05:49.200,0:05:56.400
+want to like know how much energy it's generating 
+or like if they basically should uh do some basic
+
+0:05:56.400,0:06:04.480
+control logic to use the solar power more and so 
+on and so forth. Um or some other examples. This
+
+0:06:04.480,0:06:09.600
+is like from um Semen's product. You basically 
+want to onboard a device and see the live values.
+
+0:06:09.600,0:06:18.160
+For example, you want to average the like some 
+um energy consumption of some um device. So,
+
+0:06:18.160,0:06:24.000
+so like just to show that like the the end goal 
+is typically rather simple looking, but there's
+
+0:06:24.000,0:06:31.200
+always this heavy lifting of the onboarding um 
+that is like not adding any value to anyone.
+
+0:06:32.240,0:06:38.880
+So, so, so in the end this this onboarding is 
+like yeah not really what the customers want but
+
+0:06:38.880,0:06:43.840
+the the effort is the onboarding. So, so that's 
+uh basically happening to multiple protocols.
+
+0:06:43.840,0:06:50.160
+It's very similar in many protocols. In some 
+cases you have of course more self-discovery
+
+0:06:50.160,0:06:56.880
+uh principles but um even in those cases you don't 
+have any offline information about what the device
+
+0:06:56.880,0:07:03.600
+um can really do. Yeah. And this is quite costly 
+actually. So of course from semens we like are not
+
+0:07:03.600,0:07:08.080
+in the smart home uh area where there is no cost 
+of onboarding since it's just you doing it for
+
+0:07:08.080,0:07:13.680
+your own home. But if you basically need somebody 
+to do it for your customers then somebody needs to
+
+0:07:13.680,0:07:21.280
+pay for this and this is quite costly right and 
+I also try to quantify a bit like the problems
+
+0:07:21.280,0:07:27.680
+also in the like smart home space like how big 
+is like the yeah the people you could address.
+
+0:07:27.680,0:07:34.560
+Um and actually if you look again at the Modbus 
+with Home Assistant which uh is used in 2.6% 6%
+
+0:07:34.560,0:07:41.280
+of their installations sound doesn't sound a 
+lot but it's in the end uh 13,000 like cases
+
+0:07:41.280,0:07:47.680
+um for for home assistant and I also looked at 
+another platform called IO broker there the small
+
+0:07:47.680,0:07:54.800
+bus driver is installed in 14,000 800 times and 
+of course in the case of semens this is not the
+
+0:07:54.800,0:08:01.360
+target market but in some ways you don't like it's 
+quite a similar like pattern when you look at more
+
+0:08:01.360,0:08:10.800
+um commercial things. Um, yeah. Right. So, so 
+in a way I would say easily 30,000 different
+
+0:08:10.800,0:08:17.680
+uh gateways were configured and like on boarded 
+and so on probably the ones who admitted or like
+
+0:08:17.680,0:08:27.120
+who said yes to sharing their their data. Um 
+then uh like for for the devices so like if
+
+0:08:27.120,0:08:32.320
+taking semens as um the device manufacturer 
+like why not build integrations for all these
+
+0:08:32.320,0:08:39.360
+platforms. So instead of like using the Modbus 
+driver why not um just build a integration for
+
+0:08:39.360,0:08:44.640
+that specific device. The the problem is then 
+then which device should we do it for and for
+
+0:08:44.640,0:08:49.040
+which platform? Like in the end of course there 
+are some popular ones but it's not all. And if
+
+0:08:49.040,0:08:54.880
+you look into more commercial settings, it's like 
+you have even more variety actually. And also it
+
+0:08:54.880,0:08:59.600
+doesn't work seamlessly if there is no built-in 
+protocol uh to to discover what the device can
+
+0:08:59.600,0:09:09.360
+do. So in the case of the devices um at CMS we 
+have a rather big device portfolio. Um so even if
+
+0:09:09.360,0:09:16.720
+you go to a specific domain like to let's say the 
+the electricity protection devices like current
+
+0:09:16.720,0:09:22.640
+protection or to motor starters you will be met 
+with a page with some like categories but even
+
+0:09:22.640,0:09:28.640
+inside of them there is maybe easily 10 different 
+varieties for different like configurations and
+
+0:09:28.640,0:09:33.600
+so on and so forth. So it's like it just doesn't 
+scale like of course then with all these different
+
+0:09:33.600,0:09:39.760
+uh platforms um that is just again looking 
+at the the like open source or smart home
+
+0:09:39.760,0:09:45.040
+um domain like this is not even all platforms so 
+these are not really all platforms but still quite
+
+0:09:45.040,0:09:50.080
+a lot and they all have their own modeling 
+language right so if we are building one
+
+0:09:50.080,0:09:58.000
+uh device you need to um write this YML file 
+uh for your users to all of these um platforms
+
+0:10:00.240,0:10:06.800
+Yeah. So of course our solution is the web 
+of things. Um so so basically we want to make
+
+0:10:06.800,0:10:11.760
+sure that all of this work is happening with 
+the thing descriptions and that you basically
+
+0:10:11.760,0:10:17.040
+abstract everything to our nice properties actions 
+events abstraction and then you can build all the
+
+0:10:17.040,0:10:25.040
+stuff you want with much much less effort. And uh 
+looking at this example from before, we can very
+
+0:10:25.040,0:10:30.400
+typically translate it to to thing descriptions 
+like um so if basically instead of doing this
+
+0:10:30.400,0:10:37.200
+manual work, you could have used a TD to to 
+configure this. Um and of course this part at the
+
+0:10:37.200,0:10:42.720
+bottom that we see in the forms, this basically 
+repeats for each instance of this device, right?
+
+0:10:42.720,0:10:51.440
+And the top part where we see the IP address, 
+this doesn't repeat. So this is basically the TD
+
+0:10:51.440,0:10:57.680
+and the the part at the bottom is what you would 
+find in the thing model like which doesn't change.
+
+0:10:57.680,0:11:03.360
+So so in a way everything that is static for that 
+specific device we can like have it in an offline
+
+0:11:03.360,0:11:09.760
+format and uh don't need to think of like where we 
+get the TD and uh where where is it stored. So we
+
+0:11:09.760,0:11:16.720
+can actually just get as an email as a USB stick 
+as an like yeah like or through a catalog. That's
+
+0:11:16.720,0:11:24.800
+what I'll show in a bit. Right. So the thing model 
+I think most of the people here know but also uh
+
+0:11:24.800,0:11:32.800
+just to repeat it's basically um talks about the 
+common metadata of um of the yeah the devices. So
+
+0:11:32.800,0:11:40.160
+it's about the device model whereas of course the 
+thing description is about the specific instance
+
+0:11:40.160,0:11:45.600
+and what we say that generally that the the top 
+part you can actually find it in a catalog whereas
+
+0:11:45.600,0:11:51.440
+the part in the bottom is found in the field it 
+could be in a TD directory but it still needs the
+
+0:11:51.440,0:11:59.360
+information of the field and is like definitely an 
+online um yeah service and uh today basically we
+
+0:11:59.360,0:12:05.120
+will focus on this part and of course since the 
+beta Perhaps the title is the catalog. We will
+
+0:12:05.120,0:12:13.760
+basically explain how we are managing this and how 
+you can also manage it. Um as you may know um we
+
+0:12:13.760,0:12:19.440
+with the standardization we have seen two kinds of 
+usages of the thing model and uh on the left hand
+
+0:12:19.440,0:12:27.040
+side is what I've uh taken from the eclipse dto 
+project where um a generic device or data model is
+
+0:12:27.040,0:12:34.000
+modeled with a thing model where we have anything 
+switchable that is modeled with on toggle and
+
+0:12:34.000,0:12:40.320
+uh switch on affordances. So this is what you can 
+use if you are basically trying to have a data
+
+0:12:40.320,0:12:45.200
+model of your devices that you can have a like 
+a smooth interface on top of them that you can
+
+0:12:45.200,0:12:50.960
+easily like abstract and talk with them. However, 
+what we will talk today is this specific device
+
+0:12:50.960,0:12:58.560
+that is just not instantiated. So we are looking 
+very specifically on on the like a device on the
+
+0:12:58.560,0:13:07.920
+field that has all these endpoints uh that we want 
+to um um take and this is by the way one of the
+
+0:13:07.920,0:13:14.320
+team models that we have published like a year ago 
+open source that you can use if you're using this
+
+0:13:14.320,0:13:22.720
+um like this specific device right so then the 
+thing model catalog um so model catalog It's
+
+0:13:22.720,0:13:28.880
+a catalog in a way but it's actually first of 
+all the tooling um to build such cataloges and
+
+0:13:28.880,0:13:35.920
+it's also a home for different tools um that like 
+come together with it and different services and
+
+0:13:35.920,0:13:42.160
+um it's here so you can look for the what oss 
+organization on GitHub and then find the TMC
+
+0:13:42.160,0:13:49.360
+repository in there. So when we started this 
+uh we had some design goals um I'm not going
+
+0:13:49.360,0:13:55.840
+through all of them but uh we first of thought 
+of this like workflow where there is an author
+
+0:13:55.840,0:14:03.040
+um or some sort of an authority um contributing 
+to thing models of their devices like or device
+
+0:14:03.040,0:14:09.600
+models um of a specific manufacturer. So you will 
+see later on that the thing models they are very
+
+0:14:09.600,0:14:17.520
+categorized based on the author device model and 
+the manufacturer. Um we also wanted to make sure
+
+0:14:17.520,0:14:22.240
+that the people who have a physical device in 
+front of them can find the corresponding team
+
+0:14:22.240,0:14:26.320
+model um because that's what you're doing when 
+you're onboarding the device. So you need to
+
+0:14:26.320,0:14:33.600
+basically able to find based on what you're seeing 
+in front of you the corresponding um team model.
+
+0:14:33.600,0:14:39.920
+um we want to make sure that the the models are 
+available online so through an API but also for
+
+0:14:39.920,0:14:45.920
+offline cases where we basically would like don't 
+have necessarily the the the internet access
+
+0:14:45.920,0:14:52.880
+uh for like deploying devices like as a initial 
+step most of the time and we want to make sure
+
+0:14:52.880,0:15:00.240
+it is like friendly with git workflows and CI/CD 
+pipelines so we are not saving anything in binary
+
+0:15:00.240,0:15:06.400
+formats or that like changes are easy to see 
+and that you can basically have your own like
+
+0:15:06.400,0:15:11.760
+specific language and generate team models out of 
+it if you are basically already invested in some
+
+0:15:11.760,0:15:18.880
+other format and we didn't put any domain specific 
+requirements. So you're not required to use let's
+
+0:15:18.880,0:15:25.360
+say the brick haste surf kind of ontologies. Um 
+so there is nothing about the domain that you
+
+0:15:25.360,0:15:31.520
+have to like put into the team models. And we 
+also wanted to make sure that we can like have
+
+0:15:31.520,0:15:38.320
+what what I call the federated deployment. So you 
+can basically take um team models from different
+
+0:15:38.320,0:15:45.840
+um repositories and you can um like share it 
+to your users um under one one roof so to say.
+
+0:15:46.960,0:15:53.840
+Um and maybe very importantly we do not intend 
+to centralize thing models in this in one place.
+
+0:15:53.840,0:15:58.720
+So this basically takes like another type 
+of responsibility and this is something we
+
+0:15:58.720,0:16:06.320
+are currently avoiding. Um so the goal is for 
+you to build like your cataloges yourself by
+
+0:16:06.320,0:16:11.840
+using some some tools that help you with this. 
+Yeah. So it's providing the tooling for to you
+
+0:16:11.840,0:16:19.120
+to manage your own uh thing model catalog. 
+Yeah. So of course these were documented um
+
+0:16:19.120,0:16:23.360
+since the beginning. So all of these kind 
+of like design decisions that like yeah
+
+0:16:23.360,0:16:31.760
+motivated the way this is developed are all on 
+um GitHub. Yeah. So and as I mentioned Pedram
+
+0:16:31.760,0:16:40.640
+has made the first publications and you can 
+basically see um these um centron smart fuses
+
+0:16:40.640,0:16:47.040
+um published on GitHub with the Apache license 
+and these are coming from the manufacturer. So
+
+0:16:47.040,0:16:52.640
+hopefully they are uh correct. So so that's uh 
+so we are not generating from a PDF but we know
+
+0:16:52.640,0:16:58.800
+the source of the truth. So yeah it's should 
+reflect exactly what you have in front of you.
+
+0:17:00.160,0:17:10.560
+Um and then yeah we can go a bit to the tooling. 
+So uh what we have uh with the TMC is in yeah if
+
+0:17:10.560,0:17:15.840
+you're like more on the developer side it's a CLI 
+that is quite advanced and can help you basically
+
+0:17:15.840,0:17:22.400
+do like a lot of things and um basically if you 
+go ahead uh with the TMC CLI I just recommend you
+
+0:17:22.400,0:17:27.920
+to use the help function which is available in all 
+the levels. So into every commands you can go and
+
+0:17:27.920,0:17:32.960
+like find what you like can do with this and a lot 
+of these things are also available on on the rest
+
+0:17:32.960,0:17:39.760
+API. So actually if you go and like serve then all 
+of the thing models will be served over an API and
+
+0:17:39.760,0:17:45.600
+um you can do all of these kind of um operations 
+there. So basically you can search with free
+
+0:17:45.600,0:17:52.800
+text search um using a search engine that is 
+built in. You can like of course adding models
+
+0:17:52.800,0:18:01.200
+get thing models out of it. um you can manage the 
+attachments of them and so on and so forth. Um we
+
+0:18:01.200,0:18:07.120
+also have documentation that uh works quite easily 
+and I will actually use some of this today when I
+
+0:18:07.120,0:18:12.880
+am doing the initial part of the demo and uh yeah 
+so this basically lets you get started. Everything
+
+0:18:12.880,0:18:21.280
+is available to download over the the go package 
+manager and uh over GitHub and so on of course and
+
+0:18:21.280,0:18:28.320
+we also started building a web UI. This is quite 
+new um where you can actually configure the the
+
+0:18:28.320,0:18:34.080
+endpoint so it uses the rest API so that you can 
+configure it to point to your own catalog and you
+
+0:18:34.080,0:18:39.760
+can customize the teams. So we can basically put 
+a seaman's specific colors and fonts on top of it.
+
+0:18:39.760,0:18:44.080
+You can also open the T models in different 
+uh things like the editor project or the TD
+
+0:18:44.080,0:18:50.800
+playground or just download of course. And 
+um yeah, this is again not centralizing. It's
+
+0:18:50.800,0:19:00.560
+basically for you to build uh your own dashboards 
+for the team models you're um building. Yeah. So
+
+0:19:00.560,0:19:05.920
+maybe if you already know um the the standards and 
+a bit the details, maybe some things are important
+
+0:19:05.920,0:19:11.520
+to to show. Um first of all we as I said we are 
+really talking about authors, manufacturers and
+
+0:19:11.520,0:19:18.800
+product names. So for the team models you want 
+to manage with our CLI you need to provide this
+
+0:19:18.800,0:19:25.200
+um annotations. So schema or is used here to to 
+give these things. So in TMS you need to provide
+
+0:19:25.200,0:19:32.960
+this and also the ids you are providing will be 
+rewritten. So actually we are doing something
+
+0:19:32.960,0:19:41.920
+with the ids where um we basically make sure that 
+we generate an ID that reflects this manufacturer
+
+0:19:41.920,0:19:48.400
+author um information plus um time stamp and a 
+hash so that we know that there is the uniqueness
+
+0:19:48.400,0:19:56.240
+we can sort the thing models based on time and so 
+on and so forth right so let's see it in action so
+
+0:19:56.240,0:20:02.960
+I have prepared two demos uh one is the the simple 
+flow where Yeah, I'm just going to do what is kind
+
+0:20:02.960,0:20:07.040
+of already in the documentation and in the second 
+one I will show a bit different workflows with
+
+0:20:07.040,0:20:14.640
+um some other toolings. So what will I do? Um I 
+basically have already installed the CLI. You just
+
+0:20:14.640,0:20:21.280
+go ahead with go install and like you can install 
+it and um I will add different repositories and I
+
+0:20:21.280,0:20:29.760
+will do some um operations and I will add another 
+repository. So a TM repository and uh show how we
+
+0:20:29.760,0:20:37.680
+can basically have multiple repositories under 
+a single roof. So um basically if you want to
+
+0:20:37.680,0:20:46.320
+install you simply go to our GitHub and you can 
+just go ahead and like yeah install the the latest
+
+0:20:46.320,0:20:54.960
+version of the T-model catalog. So the latest one 
+that is released just yeah 3 days ago is 014 and
+
+0:20:54.960,0:21:03.920
+um after you install you can basically do 
+everything with the CLA. So I will make
+
+0:21:03.920,0:21:09.760
+it a little bigger maybe so it's better for 
+the recording. Right. So as I said I always
+
+0:21:09.760,0:21:17.760
+recommend going through the CLI. So really use 
+it um like a normal Linux um yeah CLA tool and
+
+0:21:17.760,0:21:23.920
+for everything you do you can just like always ask 
+for the help. So you can go like for the repo and
+
+0:21:23.920,0:21:29.040
+then do help and it will tell you what you can 
+do under the repo command with all the possible
+
+0:21:29.040,0:21:38.960
+um commands you have and so on and so forth. 
+Um like I said first um what I will do is show
+
+0:21:38.960,0:21:46.480
+that I have zero repositories. So here I showing 
+that there is no like repositories added. So now
+
+0:21:46.480,0:21:55.520
+I will first go ahead and add um a repository and 
+here um this is the example repository we have on
+
+0:21:55.520,0:22:02.800
+GitHub and that I just basically cloned so that I 
+will show you how I can add a file repository. So
+
+0:22:02.800,0:22:07.680
+here I basically add a file repository and give it 
+a name. You can this one here it can be whatever
+
+0:22:07.680,0:22:14.400
+you want. And now if I run the same command from 
+before, you see that now there is a repository
+
+0:22:14.400,0:22:23.520
+addit. I can now go ahead and like list all the 
+thing models I have in this um repository and
+
+0:22:23.520,0:22:30.080
+um these are just some dummy stuff and this is my 
+test that I forgot to delete. So yeah, we will see
+
+0:22:30.080,0:22:40.080
+this again happening in a bit. Um yeah, sorry for 
+the spoilers. Um so what you can of course do is
+
+0:22:40.080,0:22:49.120
+um go ahead and for example fetch this specific 
+thing model and once you do this you see that you
+
+0:22:49.120,0:22:55.920
+are basically getting exactly the um the thing 
+model and this um gets dumped but you can pipe
+
+0:22:55.920,0:23:04.720
+it into your own workflows and do whatever 
+you want. Um you can let's see what else I
+
+0:23:04.720,0:23:14.080
+can quickly show. Um oh yeah so for example 
+I can go ahead and search for something like
+
+0:23:14.080,0:23:23.360
+light ah sorry did the so here I am creating a 
+search index that I can easily use later on. So
+
+0:23:23.360,0:23:32.400
+then when I do this should have worked. Okay. 
+Um okay I will do the search in a bit. Okay.
+
+0:23:32.400,0:23:38.000
+Yeah some demo effect. Um anyway so here I will 
+basically do um start the rest API and here you're
+
+0:23:38.000,0:23:47.040
+saying that we basically started and the API 
+description is available in open API format where
+
+0:23:47.040,0:23:56.240
+um I'll show quickly the description. So you 
+can basically take um this and put it into
+
+0:23:56.240,0:24:05.600
+your favorite um tools um to to talk with APIs. 
+So what I have here is uh Bruno and uh you will
+
+0:24:05.600,0:24:17.680
+see that basically this oops again another 
+one. Yes, sorry. Um where you can basically
+
+0:24:17.680,0:24:28.400
+um do all of these kind of operations over 
+the um REST API. So I can go ahead and get the
+
+0:24:28.400,0:24:37.040
+list of all the TMS and uh basically this gives 
+me first the metadata and I can go ahead and get
+
+0:24:37.040,0:24:42.880
+the specific thing models I want. So for example 
+for this one here with the light all I can go and
+
+0:24:42.880,0:24:54.080
+get that one with the um other end points. All 
+right. So, so all of the different operations
+
+0:24:54.080,0:25:00.960
+are available over the API. So, you can also 
+see the list of authors um like who has like
+
+0:25:00.960,0:25:10.960
+contributed so far and um so on and so forth. Um 
+so right now I will add another repository to show
+
+0:25:10.960,0:25:18.800
+what we can do if we um can federate it. So here 
+I will actually do something else. So here this
+
+0:25:18.800,0:25:25.680
+is the other uh repository we have published on 
+um GitHub which contains this centron smart fuses
+
+0:25:25.680,0:25:30.560
+I talked about. So when I do this now there will 
+be two repositories managed which have different
+
+0:25:30.560,0:25:35.600
+types. So one is actually I don't download at 
+all the other one is downloaded locally on my
+
+0:25:35.600,0:25:46.640
+computer. So now when I do repo list um uh you 
+will see that there are two um repositories added.
+
+0:25:46.640,0:25:54.320
+And now if I do TMC create search index again 
+it will also fetch that one and create a search
+
+0:25:54.320,0:26:04.880
+index. So that when I do um something like this 
+I will then also find the exact ids of um of the
+
+0:26:04.880,0:26:13.200
+matches. So then I can do something like this TMC 
+fetch like this. So then I will get the the thing
+
+0:26:13.200,0:26:19.920
+model of the entire the sphusees based on the 
+the search query I had and of course when I do
+
+0:26:19.920,0:26:31.680
+again the serve command I will get the list of all 
+the yeah team models. So again I can do this and
+
+0:26:31.680,0:26:37.120
+uh I will basically see all of them. This time 
+there's of course much more. So there's like 16
+
+0:26:37.120,0:26:51.840
+now. So there was just four just before and um uh 
+I can do again same kind of searches over the API.
+
+0:26:51.840,0:26:58.080
+Yeah. So that's basically the the yeah the 
+simple um way of using it and that's like
+
+0:26:58.080,0:27:04.640
+already quite a lot which helps you with the 
+consistency and uh using the same kind of yeah
+
+0:27:04.640,0:27:10.640
+logic in the CLI and on the rest API side. 
+So in a way it's a rather simple tool but it
+
+0:27:10.640,0:27:17.680
+just does quite a bit of the heavy lifting so 
+that we have some like consistency guarantees.
+
+0:27:17.680,0:27:24.080
+Um right. So this way basically um yeah I do 
+did the similar operations over CLI and rest
+
+0:27:24.080,0:27:28.400
+API added two types of repositories 
+and show that we can have multiple
+
+0:27:28.400,0:27:33.360
+repositories under one roof. Um so that 
+you don't need to necessarily centralize
+
+0:27:33.360,0:27:37.360
+everything and you can let different teams 
+manage their own repositories and just like
+
+0:27:37.360,0:27:46.560
+federated under one roof um or yeah so it's 
+basically um allows you some flexibility.
+
+0:27:46.560,0:27:51.920
+Um right. So how do we contribute thing models? So 
+this was the other workflow we worked on over the
+
+0:27:51.920,0:27:59.200
+last year where we basically leverage the editor 
+project uh on how to create uh TIG models and
+
+0:27:59.200,0:28:05.760
+contribute them to the catalog. Of course you 
+can use the editor to basically have some like
+
+0:28:05.760,0:28:11.600
+rendering um capabilities of your team models but 
+you can also now contribute to different T model
+
+0:28:11.600,0:28:19.840
+cataloges. So this is the the new button so to say 
+that is added and um you can now go ahead and once
+
+0:28:19.840,0:28:25.520
+you have written your thing model you can go ahead 
+and like add the different information that is
+
+0:28:25.520,0:28:32.160
+needed by the TMC. So these are the three required 
+fields like the model author and the manufacturer.
+
+0:28:32.160,0:28:37.440
+There's some basic validation happening. So 
+that's like yeah let's goes further and another
+
+0:28:37.440,0:28:44.080
+nice thing we have added is that you can actually 
+verify whether your thing model is act actually
+
+0:28:44.080,0:28:49.360
+correct where you really specify the correct mode 
+bus registers or the resources and here you can
+
+0:28:49.360,0:28:55.760
+actually use any kind of gateway that is aware 
+of thing like thing descriptions so that you can
+
+0:28:55.760,0:29:04.000
+um conserve the ids and uh proxy different um 
+protocols so that the the editor which works on
+
+0:29:04.000,0:29:10.160
+the browser can talk with different um protocols 
+and actually here the requests are also sent with
+
+0:29:10.160,0:29:17.840
+the node what uh browser bundle and then once you 
+have done this you can actually then go ahead and
+
+0:29:17.840,0:29:22.400
+uh submit your thing model and you will get 
+back the ID you can open in a new tab and so
+
+0:29:22.400,0:29:28.800
+on and so forth so this is now what I will show 
+in the second one um so I will basically start
+
+0:29:28.800,0:29:36.240
+or have started already the editor locally um 
+I am starting ing again just to keep the same
+
+0:29:36.240,0:29:44.000
+uh storyline modus device and I will also start 
+a gateway this um is just basically doing the um
+
+0:29:44.000,0:29:49.680
+the protocol proxying I will write it TM so in 
+this case it's like written but basically this
+
+0:29:49.680,0:29:55.920
+is the task you can do in different ways so this 
+I won't go into too much and then I will basically
+
+0:29:55.920,0:30:00.800
+start the contribution workflow and uh test 
+the endpoints and contribute it to the catalog
+
+0:30:03.760,0:30:12.000
+All right. So, let's go. So, here as you can see, 
+it's just the um the local uh editor that I have
+
+0:30:12.000,0:30:20.080
+started. And as you can see, this is my TM. Maybe 
+I'll zoom a little bit. So, this is a power meter
+
+0:30:20.080,0:30:26.640
+um that has some yeah, basically properties we 
+have added to to make something interesting.
+
+0:30:26.640,0:30:34.080
+And uh of course this is a TM I wrote um so I 
+know that it's correct but uh just for making
+
+0:30:34.080,0:30:42.560
+it interesting I will create something wrong 
+with the grid voltage for example. So this
+
+0:30:42.560,0:30:50.240
+is something you probably won't know if it 
+is wrong or not unless you really have this
+
+0:30:50.240,0:30:56.000
+domain knowledge but I will yeah I'll show that 
+I I hope this will show something interesting.
+
+0:30:56.000,0:31:00.000
+Right. So basically once you are kind of sure 
+about how your team model looks like you can
+
+0:31:00.000,0:31:07.040
+basically click here and as I said you can 
+enter the information that is uh needed for
+
+0:31:07.040,0:31:12.640
+for the contribution to the TMC and you can write 
+additional stuff like the copyright year and like
+
+0:31:12.640,0:31:20.240
+like who's the copyright holder. So all this kind 
+of stuff you can like validate and uh go next.
+
+0:31:20.240,0:31:25.600
+So here of course if you want to really interact 
+with a specific device you of course need to know
+
+0:31:25.600,0:31:31.760
+the the IP address. So in the typical workflows 
+we see it's either the technician who can find
+
+0:31:31.760,0:31:37.280
+the IP in the field like if the device is in a 
+small screen or you can do some network level
+
+0:31:37.280,0:31:49.360
+discovery to find the IP address. So for myself I 
+have noted it down. Sorry this is my teams thingy.
+
+0:31:52.240,0:31:58.400
+Okay. Yes, I have it noted down here.
+
+0:31:58.400,0:32:04.960
+Um, right. So, this is the IP address that 
+I have in my computer and then the port. Um,
+
+0:32:04.960,0:32:12.160
+here we configure the gateway. So, you basically 
+need to know where you can send the um the TD that
+
+0:32:12.160,0:32:17.200
+is basically generated in the background and where 
+you can get the the proxy TD. And in this case,
+
+0:32:17.200,0:32:22.000
+this is something we had to add to make sure that 
+we in the case that the gateways are wrapping
+
+0:32:22.000,0:32:27.280
+um payloads into like an object, you can 
+basically extract the value again. But anyways,
+
+0:32:27.280,0:32:39.360
+so with this you can go ahead and I hope it 
+will work. Oh, didn't work. Ah, sorry. Oh,
+
+0:32:39.360,0:32:44.080
+okay. Some demo effects. Let's see. Oh,
+
+0:32:44.080,0:32:57.200
+okay. I think I know. Wait a second. It's 
+my IP address that is probably wrong again.
+
+0:32:57.200,0:33:06.160
+Okay, let me quickly fix this. 
+Yes, because I changed com the
+
+0:33:06.160,0:33:13.920
+I changed the location. So 
+now this should work up.
+
+0:33:13.920,0:33:14.880
+Okay.
+
+0:33:18.240,0:33:29.120
+Uh yes. Okay. Well, this was a nice 
+demo effect. Let me see if it is
+
+0:33:29.120,0:33:32.400
+okay. I will do one quick 
+restart and if it doesn't work,
+
+0:33:32.400,0:33:46.160
+I'll hope that you'll trust 
+the screenshots I've shown. Um,
+
+0:33:46.160,0:33:50.480
+okay.
+
+0:33:50.480,0:33:56.880
+This is also good. So good.
+
+0:33:56.880,0:34:00.560
+Okay. So, maybe something 
+indeed did not work. I'll
+
+0:34:00.560,0:34:05.840
+do a quick test and otherwise I'll give up. Ah.
+
+0:34:15.200,0:34:24.000
+I must have done something wrong here. Ah,
+
+0:34:24.000,0:34:30.160
+so basically what you can do is Okay. Yeah, 
+for some reason it not works. Anyways, so
+
+0:34:30.160,0:34:35.600
+uh on the the TM window with but what you can do 
+is basically verify that your values are correct.
+
+0:34:35.600,0:34:43.360
+So you can do this here or in this big table view 
+where you can um also do group operations and see
+
+0:34:43.360,0:34:48.240
+the values of everything. And actually if you go 
+to the grid voltage probably will see something
+
+0:34:48.240,0:34:54.640
+a bit weird like with the e to the minus 16 um 
+because we basically put something that was a bit
+
+0:34:54.640,0:35:06.560
+wrong. Anyway, so going back to this um if you go 
+through this and um you can now go ahead and like
+
+0:35:06.560,0:35:12.720
+uh contribute to a to the catalog and here I will 
+basically go ahead and submit it to the example
+
+0:35:12.720,0:35:21.360
+catalog I had in my computer where we basically 
+will get the um yeah the the TM registered. And
+
+0:35:21.360,0:35:27.520
+as you can see the ID is indeed changing um 
+compared to the input I had. And of course
+
+0:35:27.520,0:35:37.840
+the different stuff are added to the TM where I 
+basically provide this uh authorship information.
+
+0:35:37.840,0:35:46.080
+Okay. So uh not the best demo but um yeah I 
+I hope this was uh like uh still clear that
+
+0:35:46.080,0:35:51.280
+we can basically validate the TD TM before 
+contributing to a catalog so that the the
+
+0:35:51.280,0:35:59.360
+quality inside the catalog is like better and we 
+can indicate that it's like tested beforehand.
+
+0:35:59.360,0:36:04.960
+So I will also show one uh small extract that 
+you may remember from meetup 20 where we also
+
+0:36:04.960,0:36:08.800
+show the the thing model catalog working in the 
+background. We just didn't go into the details
+
+0:36:08.800,0:36:17.040
+last time. So basically in that meetab Andre from 
+cments had presented how we can basically onboard
+
+0:36:17.040,0:36:22.320
+devices and you these are the screenshots from the 
+video that is available on our YouTube channel.
+
+0:36:22.320,0:36:27.760
+Um where you basically are in this kind of page 
+where this is running on an edge device. You can
+
+0:36:27.760,0:36:33.360
+go ahead and click on the add sorry this one. 
+And once you're in there you are basically met
+
+0:36:33.360,0:36:39.040
+with a UI that is actually querying the the TMC. 
+So here basically these are the filter options we
+
+0:36:39.040,0:36:45.920
+have within the TMC so that you can go ahead and 
+um search for the different manufacturers, authors
+
+0:36:45.920,0:36:52.160
+and so on based on what you have in front of you 
+so that you can on board it uh to the system and
+
+0:36:52.160,0:36:57.520
+of course in this case as well uh Andre wrote the 
+IP address and port since you cannot have this
+
+0:36:57.520,0:37:02.720
+information from the thing model and then once 
+he does this then the device gets automatically
+
+0:37:02.720,0:37:08.400
+onboarded to the edge device and the data can be 
+basically Yeah. Proxied to somewhere else in the
+
+0:37:08.400,0:37:19.600
+northbound to an MQTT broker to a specific CMA 
+solution or your own yeah Azure IoT um instance,
+
+0:37:19.600,0:37:26.800
+right? And with this uh with Cristiano, we also 
+had the idea of uh doing an activity over the
+
+0:37:26.800,0:37:32.800
+holiday period as the community group. So this 
+is also something I'll announce right now. And
+
+0:37:32.800,0:37:38.560
+of course you are maybe aware of things like 
+Htober Fest and the advent of code and which
+
+0:37:38.560,0:37:43.280
+will end in Christmas. So we said okay like 
+once that ends uh we can also have our own
+
+0:37:43.280,0:37:50.960
+um event where we can basically write models for 
+the IoT devices around ourselves. So if you have
+
+0:37:50.960,0:37:57.840
+some yeah smart home devices you can participate 
+in this event where um yeah you not necessarily
+
+0:37:57.840,0:38:03.680
+as the manufacturer but just as a as an individual 
+you can write the thing models of the the devices.
+
+0:38:03.680,0:38:10.080
+So you need to understand a bit their API and 
+like the like go ahead with the documentation and
+
+0:38:10.080,0:38:14.400
+uh as I showed that the TMC can pull thing models 
+from different repositories. You don't even need
+
+0:38:14.400,0:38:19.840
+to like commit them to the CG repository. We 
+just have a bash script that I'll show where
+
+0:38:19.840,0:38:24.880
+like we can pull the repositories at the end of 
+the challenge and show them during a meeting.
+
+0:38:24.880,0:38:31.280
+So we don't even need to like yeah agree that 
+those TMS are correct and so on. We just show
+
+0:38:31.280,0:38:38.240
+that these are from different people and um I'll 
+show the instructions but basically you create
+
+0:38:38.240,0:38:47.200
+a new repository under your own username and you 
+create a you yeah install the CLI so that um yeah
+
+0:38:47.200,0:38:53.600
+the TMC CLI and create this this TM repository 
+under that. So you write your team model. We
+
+0:38:53.600,0:39:00.480
+don't kind of know exactly what uh it is. And 
+then you run the the TMC commands and you make
+
+0:39:00.480,0:39:09.680
+a pull request to just add the the this TMC repo 
+add uh commands. If you cannot do a pull request,
+
+0:39:09.680,0:39:17.040
+we also accept issues and discord messages. So um 
+so it's easy to contribute and we will announce
+
+0:39:17.040,0:39:24.320
+it next week as well. And I also will paste the 
+instructions here. So that's really what it is.
+
+0:39:24.320,0:39:30.000
+And this is the only place where you would need 
+to make a pull request. So this is how a single
+
+0:39:30.000,0:39:36.640
+um like so this the example repository right. So 
+this is what you can basically pull in into the
+
+0:39:36.640,0:39:46.560
+here and you can add a new line to the script 
+to basically add new um like TM repositories.
+
+0:39:46.560,0:39:53.200
+And for myself, I basically got recently this tau 
+um thermostats that have the matter built in. So
+
+0:39:53.200,0:39:59.360
+basically my uh my challenge during this period 
+is to write the thing model for this and there
+
+0:39:59.360,0:40:04.800
+also some activities around having a meta binding. 
+So I will do some tests and there also there was
+
+0:40:04.800,0:40:11.120
+also a meetup presentation by Doe Telecom and 
+that is sort of my inspiration is to use this
+
+0:40:11.120,0:40:21.200
+uh chip CLI tool to um find what are the different 
+clusters in this uh thermostat and um yeah write
+
+0:40:21.200,0:40:31.280
+the the model. Yeah. So that was it and uh thank 
+you for listening and I'm open for questions.

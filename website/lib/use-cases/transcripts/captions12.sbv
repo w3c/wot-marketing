@@ -1,0 +1,902 @@
+0:00:09.640,0:00:16.480
+without further Ado let me introduce the speakers 
+of today have you started the registration because
+
+0:00:16.480,0:00:21.400
+I didn't get the notification you can the 
+recording has started yeah okay I'm sorry
+
+0:00:21.400,0:00:26.760
+I didn't get the notification so okay let me 
+introduce the speaker of today we have uh two
+
+0:00:26.760,0:00:33.800
+figures well known in the community in the web of 
+things landscape we have today with us EGA corkman
+
+0:00:33.800,0:00:38.080
+which is the co-chair together with me of the 
+community group and this is a research scientist
+
+0:00:38.080,0:00:45.600
+at simis AG uh he worked for quite a lot of time 
+in webble things topics in the working group and
+
+0:00:45.600,0:00:53.320
+also doing his PhD and together with him there's 
+P Salama which is a PhD candidate at tum Institute
+
+0:00:53.320,0:00:59.920
+in Germany uh he works is also a very wellknown 
+figure in the web of things working group and the
+
+0:00:59.920,0:01:05.560
+community group he does with the testing task 
+force and these work centers around exploring
+
+0:01:05.560,0:01:13.400
+how what can be used in industrial application 
+with some additions so uh fat e the floor is
+
+0:01:13.400,0:01:21.800
+yours all right so today we will be talking about 
+digital twins uh twins more specifically about
+
+0:01:21.800,0:01:28.200
+interactable digital Twins and uh we will focus on 
+the robots and the way we will accomplish this is
+
+0:01:28.200,0:01:34.560
+of course with the webop things and that's why 
+we here and as um Christiana has introduced so
+
+0:01:34.560,0:01:41.440
+it will be down by me and F and we have a long on 
+going collaboration with the university in Munich
+
+0:01:41.440,0:01:52.200
+and that's also like a joint work between c s 
+to yeah so I'll go um straight into the topic
+
+0:01:52.200,0:01:59.080
+and um I'll first start with Device connectivity 
+it's something that is sometimes ambiguous but
+
+0:01:59.080,0:02:06.840
+actually um what we really want to focus on is how 
+we interact with the devices um yeah we there are
+
+0:02:06.840,0:02:12.640
+different patterns but in the end um what we want 
+to focus on is the control logic or mesh UPS or
+
+0:02:12.640,0:02:18.600
+the application logic business logic however you 
+call it and there are different patterns like I
+
+0:02:18.600,0:02:24.400
+said so we could be in a factory or building 
+or yeah like in a smart home environment and
+
+0:02:24.400,0:02:29.520
+we could interact directly with the the devices to 
+move the robots to read temperature or turn on and
+
+0:02:29.520,0:02:36.120
+turn off the lights and there could be a Gateway 
+in the middle but in the end what the control
+
+0:02:36.120,0:02:43.040
+logic cares about is the logic itself right and 
+we can do it also differently um maybe there
+
+0:02:43.040,0:02:50.160
+are different rules um on the network so we cannot 
+just yeah be interacting directly so we need maybe
+
+0:02:50.160,0:02:58.200
+some Cloud access h where we are still controlling 
+those devices through this Cloud endpoint and in
+
+0:02:58.200,0:03:05.240
+that case we are starting to see those um virtual 
+devices or virtual assets and maybe at that point
+
+0:03:05.240,0:03:13.800
+we start discussing a bit about digital twins 
+but this is still quite simplistic so um with
+
+0:03:13.800,0:03:18.840
+digital twins we are expecting to see something a 
+bit more than just the Translating request and so
+
+0:03:18.840,0:03:26.040
+on and that's why today we are actually looking 
+into simulation software and I think everybody
+
+0:03:26.040,0:03:31.600
+knows about simulation software in general but we 
+want to highlight some the common aspects and the
+
+0:03:31.600,0:03:39.720
+type of simulation software we are focusing on um 
+yeah so simulation and nowadays they are sometimes
+
+0:03:39.720,0:03:47.400
+wrapped as digital Twins and yeah this is like a 
+big discussion that I won't go into but um but in
+
+0:03:47.400,0:03:53.880
+the end with simulations what we want to do is 
+predict the the behavior um or the outcome of
+
+0:03:53.880,0:03:59.320
+of a real world or system so all of the weather 
+reports we are seeing is basically result of such
+
+0:03:59.320,0:04:05.320
+simulation ations whether the weather reports are 
+accurate or not it's depends on where you live but
+
+0:04:05.320,0:04:13.400
+um they are also yeah maybe simulations and um 
+in all of these systems we have the model system
+
+0:04:13.400,0:04:19.960
+and we have the round simulation and we then get 
+the results you order to compare with real life
+
+0:04:19.960,0:04:29.880
+um and very importantly me fatty or anybody in my 
+immediate like vicinity is a simulation expert um
+
+0:04:29.880,0:04:34.600
+so we do not want to reinvent how simulations 
+are done nor do we have the knowledge but of
+
+0:04:34.600,0:04:43.240
+course um the yeah so cens among many others have 
+very sophisticated simulation software and yeah
+
+0:04:43.240,0:04:48.280
+there's no way we want to reinvent such stuff so 
+with such software for example on the right hand
+
+0:04:48.280,0:04:57.880
+side you can simulate how a factory works and uh 
+you can plan ahead and um actually there are two
+
+0:04:57.880,0:05:06.920
+types that we have uh um yeah seen um so on 
+one side um they are more or less real time
+
+0:05:06.920,0:05:13.320
+or can be made real time if you think of it even 
+a state machine simulation is a simulation and
+
+0:05:13.320,0:05:19.760
+that is very typically something that happens 
+in millisecond so yeah you don't even see the
+
+0:05:19.760,0:05:24.880
+simulation running or if you think of a wind 
+turbine of course that is something much more
+
+0:05:24.880,0:05:31.160
+complicated where they are generally much slower 
+than real time you want to look at the turbulences
+
+0:05:31.160,0:05:37.520
+and so on in a wind turbine um and generally 
+these are software running in your computer
+
+0:05:37.520,0:05:44.520
+very typically it's a desktop application um and 
+generally you can also use like high performance
+
+0:05:44.520,0:05:51.920
+clusters so that you can yeah get your results 
+much faster and today um we will focus on the
+
+0:05:51.920,0:06:00.200
+first one um because at least for us the second uh 
+category was not suitable for interactable digital
+
+0:06:00.200,0:06:08.640
+twins since when you interact with the real world 
+in order to get your your new simulation you need
+
+0:06:08.640,0:06:14.080
+too much time so for us it's more for design 
+stage optimizations so if you want to design
+
+0:06:14.080,0:06:20.760
+your V turbine you may want to use something with 
+much much more Precision so you can really see the
+
+0:06:20.760,0:06:30.200
+real life right so then more specifically today we 
+are looking at this um information software it's
+
+0:06:30.200,0:06:37.960
+called cilia Sim and it's yeah it's a commercial 
+software but has a free and educational licenses
+
+0:06:37.960,0:06:47.120
+so if you are part of uh University you can use it 
+for free and um we are we ask oursel one question
+
+0:06:47.120,0:06:51.760
+so we know that we have thing models in the 
+web of things so that um yeah if I'm building
+
+0:06:51.760,0:06:58.880
+a device that will be develop deployed I can have 
+te models and and then once they are deployed we
+
+0:06:58.880,0:07:05.160
+get the thing descriptions so in a way team model 
+is something that the manufacturer provides and
+
+0:07:05.160,0:07:09.480
+what about the same for the robot models so on 
+the left hand side you're seeing that there are
+
+0:07:09.480,0:07:16.200
+actually some robots sort of in the inventory 
+like from CA and um actually there is a similar
+
+0:07:16.200,0:07:22.360
+concept and it's called the urdf universal robot 
+description format it has nothing to do with the
+
+0:07:22.360,0:07:29.760
+semantic web rdf format but it is also an XML 
+file format and it's very simplistic in nature
+
+0:07:29.760,0:07:35.920
+it's basically just for describing robots so 
+that you can describe the hierarchy of links
+
+0:07:35.920,0:07:42.080
+and joints and yeah of course with this you can 
+describe the geometry and physical attributes
+
+0:07:42.080,0:07:48.640
+also that inertia so that you can adjust how fast 
+the robot moves and you can then wrap this sort of
+
+0:07:48.640,0:07:55.120
+like rectangles in like realistic stls for like 
+the 3D cat files so that it looks like the real
+
+0:07:55.120,0:08:00.680
+robot and then in the end you can exchange the 
+robot models and it's actually already happening
+
+0:08:00.680,0:08:08.760
+so in on GitHub there are companies like well 
+known in the robotics space sharing their um yeah
+
+0:08:08.760,0:08:15.080
+urdf files that means that you you can take these 
+and use them in different simulation software a
+
+0:08:15.080,0:08:19.600
+bit like yeah taking a thing model and or thing 
+description and using it in other software so
+
+0:08:19.600,0:08:30.400
+it has nice decoupling effect yeah and then with 
+this we basically built robot or robot and um and
+
+0:08:30.400,0:08:36.040
+I will actually go straight to demo and yeah so 
+we will show it for robots but of course we can
+
+0:08:36.040,0:08:45.560
+extend it for other uh things yeah so as I said um 
+I'll go straight to demo and what we will see will
+
+0:08:45.560,0:08:52.800
+be on one side the the realtime video stream of a 
+lab setup in t minic that is exposed to the public
+
+0:08:52.800,0:08:59.920
+internet but behind the secure proxy and we have 
+a digital twin off it working in my laptop with
+
+0:08:59.920,0:09:06.920
+the Cel Sim and then we will show some code that 
+will be executed on both systems okay so this is
+
+0:09:06.920,0:09:12.720
+what it is now before we started anything just see 
+so on the left hand side this the real time camera
+
+0:09:12.720,0:09:19.440
+feed so you're seeing the time incrementing here 
+and on the right hand side is the the simulating
+
+0:09:19.440,0:09:24.320
+simulated instance so the left hand side is 
+basically this table specifically but we have
+
+0:09:24.320,0:09:31.520
+some other stuff in this room like another table 
+another robot so basically I will be focusing on
+
+0:09:31.520,0:09:40.160
+this side um and basically what I have on here 
+is the code which is by the way open source so
+
+0:09:40.160,0:09:48.920
+we will show that in a second I will start one 
+um thing that is basically interfacing with
+
+0:09:48.920,0:09:59.120
+the simulation environment and then I will 
+start our code so now let's go back to the
+
+0:10:02.240,0:10:10.840
+here but I will need to zoom again and 
+you are now seeing um the simulation and
+
+0:10:10.840,0:10:19.920
+the real life um behaving the same 
+way so as you can see the robot is
+
+0:10:19.920,0:10:22.560
+the both robots are moving sort 
+of the same so if you look like
+
+0:10:22.560,0:10:36.640
+this yeah so they both move to the right and now 
+they will both move to the left and of course the
+
+0:10:36.640,0:10:42.080
+the speeds are not exactly the same and movements 
+might not be exactly the same but that's sort of
+
+0:10:42.080,0:10:49.920
+not the point um and then in a second I will 
+show exactly what code is working behind the
+
+0:10:49.920,0:10:57.040
+scenes and if you're familiar with not what 
+uh you will see that it's not so different
+
+0:10:57.040,0:11:03.000
+not it's not so foreign right so I will come 
+to this in a second but just to show that we
+
+0:11:03.000,0:11:09.720
+have some basically usual um yeah Imports of 
+the library and then we basically have the
+
+0:11:09.720,0:11:17.680
+thing descriptions of the virtual um devices and 
+the real devices and what is actually happening
+
+0:11:17.680,0:11:24.720
+so I'll then skip here is this very boring code 
+and we are quite happy that it's very boring um
+
+0:11:24.720,0:11:31.200
+because actually thanks to thing description you 
+are able to abstract yourself from all the yeah
+
+0:11:31.200,0:11:34.760
+like inner workings and like what kind of requests 
+you need to generate and you can really focus on
+
+0:11:34.760,0:11:39.200
+your control logic which we're seeing here and 
+as you can see we are basically calling the same
+
+0:11:39.200,0:11:46.520
+action on the two entities so this is the virtual 
+um robot and this is the real robot and similarly
+
+0:11:46.520,0:11:53.000
+we have the conveyor belts here and we are always 
+calling the same action but of course this one the
+
+0:11:53.000,0:11:59.680
+virtual one is going into my laptop so using Local 
+Host and so on and this one is using a the secure
+
+0:11:59.680,0:12:08.720
+proxy which means I need to provide credentials 
+and so on in order to um yeah re call This And
+
+0:12:08.720,0:12:14.360
+if you look into their thing descriptions actually 
+you will see it but in the real one we are seeing
+
+0:12:14.360,0:12:25.840
+um um we are seeing the uh yeah the the domain 
+names and on the virtual ones as expected we will
+
+0:12:25.840,0:12:32.880
+be seeing the local host and and the best thing is 
+actually for the local ones we can even change the
+
+0:12:32.880,0:12:39.000
+protocols and this code I've have just shown will 
+not change so actually you don't even have to know
+
+0:12:39.000,0:12:43.280
+what code well what protocol is being used since 
+we are able to abstract it away with the thing
+
+0:12:43.280,0:12:53.080
+description right so with this I will stop the 
+first demo and I will give away give it to fedy
+
+0:12:53.080,0:13:01.320
+who will explain to us how it's really working um 
+behind the scenes so hi everyone one ready and I
+
+0:13:01.320,0:13:09.840
+will try now to explain how this framework has 
+been developed in the University so our so the
+
+0:13:09.840,0:13:20.520
+idea was we start only using the urdf so you have 
+the robots you have its urdf we wanted to reach
+
+0:13:20.520,0:13:29.720
+a a level of uh autonomy in which basically you 
+just start with the urdf and more most the most
+
+0:13:29.720,0:13:38.720
+of the work that is being for generating the the 
+robot simulation and its interactions and the
+
+0:13:38.720,0:13:46.720
+server that you com communicate with happens uh 
+autonomously without or with very minimal human
+
+0:13:46.720,0:13:55.080
+intervention so you just start by importing urdf 
+in your simulator which in this case is scasm and
+
+0:13:55.080,0:14:04.560
+then uh we do some generation for the workspace 
+basically the workspace means what the place where
+
+0:14:04.560,0:14:15.040
+the robot can move um and we will see how this is 
+happening or why do we do this then uh we enhance
+
+0:14:15.040,0:14:20.080
+the TD using some information that we gathered 
+with the workspace to make sure that we can
+
+0:14:20.080,0:14:30.800
+describe the robot effectively and then now that 
+you have a server and uh that can communicate with
+
+0:14:30.800,0:14:40.280
+the simulator you can now have some user interact 
+with the SIM simulated robots and it should work
+
+0:14:40.280,0:14:51.400
+fine so that's generally just the big overview 
+but let's look at exactly how a developer would
+
+0:14:51.400,0:15:02.240
+normally use uh such a simulation so the first 
+thing would be he would would probably get the so
+
+0:15:02.240,0:15:09.120
+if you have a robot the you the developer would 
+probably get its thing model which is basically
+
+0:15:09.120,0:15:18.640
+its interface uh all the interfaces that described 
+from the manufacturer then possibly also the urdf
+
+0:15:18.640,0:15:27.800
+with the STL files from the manufacturer and then 
+here re use a simulation software here in our case
+
+0:15:27.800,0:15:37.960
+ciaim to do the simulation then there needs to H 
+there needs to be a bridge between how the thing
+
+0:15:37.960,0:15:45.000
+model uh looks so basically how the interfaces 
+of the device network interfaces look and the
+
+0:15:45.000,0:15:53.000
+simulation logic that happens via the code so 
+we need a bridge that does that uh basically
+
+0:15:53.000,0:16:02.600
+uh translation and then you start Pro a program 
+that would then generate the TD so the instance
+
+0:16:02.600,0:16:07.920
+the thing description that will describe the 
+this instance of the robot on simulation and
+
+0:16:07.920,0:16:15.080
+then the simulation is interactive and the good 
+thing with our approach all of this all of these
+
+0:16:15.080,0:16:23.560
+steps one two three and five they can happen with 
+no development effort at all so the developer does
+
+0:16:23.560,0:16:30.240
+not need to do anything to so these come from the 
+manfacturer anyway this is a simulation software
+
+0:16:30.240,0:16:38.240
+that is from the outside and this we'll see not 
+what will help us with that the only thing that
+
+0:16:38.240,0:16:44.880
+the developer needs to do is to write the small 
+Snippets of code that will do the interaction
+
+0:16:44.880,0:16:52.040
+with the with the simulation so how when doing an 
+interaction for example what should happen in the
+
+0:16:52.040,0:17:03.320
+simulation um and the nice thing is is that 
+because the interfaces are the same so you
+
+0:17:03.320,0:17:11.000
+have the same thing model and the same thing 
+model would describe the real robot and the uh
+
+0:17:11.000,0:17:17.720
+simulation of it you basically get the same 
+control logic and your control logic stays
+
+0:17:17.720,0:17:25.000
+the same even if the two uh even if you have a 
+different like a physical robot and a virtual
+
+0:17:25.000,0:17:34.840
+robot so how do we do this so we 
+have a thing model which describes
+
+0:17:34.840,0:17:39.280
+the interaction handling that 
+uh that the robot has what what
+
+0:17:39.280,0:17:46.120
+kind of interactions the robot provides and 
+these interaction handles can influence the
+
+0:17:46.120,0:17:56.520
+simulation so that's one block using 
+that thing model we can instantiate a
+
+0:17:56.520,0:18:04.320
+server at or a thing and using 
+that and of course also it's
+
+0:18:04.320,0:18:16.360
+TD then there there's a network communication 
+happening between the uh the web of things
+
+0:18:16.360,0:18:22.480
+side of things so that's your web of things 
+stack and the simulation stack here is the
+
+0:18:22.480,0:18:28.680
+simulation instance or the scene and then the 
+control logic does not interact with the simul
+
+0:18:28.680,0:18:34.520
+itself that control object is interacting 
+with the server that is describing the robot
+
+0:18:34.520,0:18:43.800
+sport simulation of the robot and indirectly 
+use through this uh Communication channel it
+
+0:18:43.800,0:18:49.880
+influences what is happening in the simulation 
+scene so in essence the control logic that we
+
+0:18:49.880,0:18:59.680
+are writing is not directly uh communicating with 
+the simulation it's doing it indirectly through
+
+0:18:59.680,0:19:08.480
+the web of things stack that we have and all the 
+instantiation that's happening here is happening
+
+0:19:08.480,0:19:18.560
+using Eclipse not what so uh I for those who 
+do not know about what notw is it's basically
+
+0:19:18.560,0:19:25.440
+a scripting API uh or an implementation of 
+the scripting API described by the web of
+
+0:19:25.440,0:19:34.080
+things uh standard and it basically makes every 
+instantiating a server or even a client in the
+
+0:19:34.080,0:19:44.440
+web of things context very easy and abstracts away 
+from the protocols and uh giving you access to the
+
+0:19:44.440,0:19:49.120
+basically the control logic without the need 
+to really think about which protocol you are
+
+0:19:49.120,0:19:54.520
+going to use or how the protocols influence 
+your your logic so your logic is just based
+
+0:19:54.520,0:20:03.720
+on what kind of interactions you want to do 
+so that's how it generally looks like and of
+
+0:20:03.720,0:20:12.040
+course the simulation software can change even 
+this the scripting API stack can change but that
+
+0:20:12.040,0:20:18.840
+this is the framework itself and how the concept 
+looks like in our case we we have the simulation
+
+0:20:18.840,0:20:28.160
+software as pilia Sim simply because it has 
+a very good uh U facility for uh for like uh
+
+0:20:30.800,0:20:39.280
+um generating uh robots from urdf as well 
+as a good remote API that can be used from
+
+0:20:39.280,0:20:49.040
+the outside by any other stack then uh here 
+we have the web of things node what and for
+
+0:20:49.040,0:20:57.160
+each robot we instantiate a new server or a 
+new thing that can then be interacted with
+
+0:20:57.160,0:21:04.400
+and the communication between that server 
+and copia is happening via websockets and
+
+0:21:04.400,0:21:17.560
+yeah and we can look at uh robot so the the the 
+whole framework is open source you can look at
+
+0:21:17.560,0:21:25.880
+it yourself you can try it yourself uh and you 
+can even contribute to it if you want and we can
+
+0:21:25.880,0:21:38.440
+also have a look at the con belt uh example and 
+how the conver belts in um the in our simulation
+
+0:21:38.440,0:21:48.560
+looks like so basically you can see here what 
+we do is very s like it's very streamlined the
+
+0:21:48.560,0:21:54.440
+first thing we have is a conveyor belt TM a thing 
+model that describes what interactions we expect
+
+0:21:54.440,0:22:04.320
+the conver belt to have in our case uh moving 
+it forward and backwards and stopping it then
+
+0:22:04.320,0:22:13.880
+we have we introduc a class virtual conveyor belt 
+which basically allows us to cons to be able to
+
+0:22:13.880,0:22:25.160
+instantiate diff like multiple instances of that 
+conveyor belt [Music] um you can see here we for
+
+0:22:25.160,0:22:34.920
+starting a thing we look at the conveyor bels and 
+then here we can you can see the in what produce
+
+0:22:34.920,0:22:43.480
+we are doing what we normally do in node what 
+which is basically produce a new um instance or
+
+0:22:43.480,0:22:57.160
+thing and we program very nor like normally and 
+here for example in a thing set action Handler
+
+0:22:57.160,0:23:07.000
+we in we tell ex exactly what should we do when 
+we want when we when we get an interaction uh
+
+0:23:07.000,0:23:16.400
+request start built backwards and only that part 
+in line 38 awaits this Converse Bel speed this is
+
+0:23:16.400,0:23:24.680
+the only part where it is basically developer 
+work where you B where he needs the developer
+
+0:23:24.680,0:23:32.160
+he or she needs to uh say what should happen 
+in the simulation so for example changing the
+
+0:23:32.160,0:23:41.640
+speed of the conveyor belt to move it forward or 
+backwards other then we ex after we finish all
+
+0:23:41.640,0:23:48.240
+our inter like describing or our interactions 
+and how what they do in the simulation we just
+
+0:23:48.240,0:23:57.160
+expose uh the thing and then it is accessible and 
+can be interacted with so at the same time the we
+
+0:23:57.160,0:24:03.280
+did a side contribution so to say um since we 
+realize that using robots in the web of te is
+
+0:24:03.280,0:24:13.120
+not so easy so actually there is a limitation um 
+so robots are in a way very special devices and
+
+0:24:13.120,0:24:19.200
+so what you see here is a robot suspended in space 
+which never happens and they are always mounted on
+
+0:24:19.200,0:24:25.800
+something and they have stuff around them like we 
+saw with the conveyor bels um so we can actually
+
+0:24:25.800,0:24:30.840
+not describe it perfectly and um so we cannot 
+basically describe the available workspace of
+
+0:24:30.840,0:24:37.400
+the robots and yeah it's actually much worse if 
+there are other objects other robots around it um
+
+0:24:37.400,0:24:44.440
+and so so for that we took an approach where we 
+look at the scene that's what we saw before and
+
+0:24:44.440,0:24:52.120
+we do um different movements in order to calculate 
+where we can really move um so unless that's so we
+
+0:24:52.120,0:24:58.920
+do this in the U virtual space meaning that yeah 
+of course you cannot hit the con about since the
+
+0:24:58.920,0:25:06.160
+simulation knows to calculate such intersections 
+and so on and in the end we are able to build um
+
+0:25:06.160,0:25:13.720
+a workspace so of course this is a very complex 
+representation like it's like a half donut but
+
+0:25:13.720,0:25:19.200
+it's not empty in the middle neither and it's not 
+circular so yeah mathematically it's difficult
+
+0:25:19.200,0:25:24.720
+but you can actually give the STL file as like 
+an action input description if there are such
+
+0:25:24.720,0:25:30.480
+consumers but this is very unlikely and so 
+for those things you have to actually keep
+
+0:25:30.480,0:25:36.160
+the simulation in the loop um in order to re 
+really be able to check whether those inputs
+
+0:25:36.160,0:25:42.240
+are possible of course you can also just do trial 
+and error but for dynamic systems that will not be
+
+0:25:42.240,0:25:50.160
+so possible since um yeah whatever you tried 
+before may not work when you really deployed
+
+0:25:50.160,0:25:56.680
+yeah so in the end what we really enable um so 
+as we said it's one side is the the dry running
+
+0:25:56.680,0:26:04.280
+or simulation blue and what you can do is yeah 
+like move a robot to a certain position and then
+
+0:26:04.280,0:26:08.680
+if it is yeah colliding then maybe you should 
+not move to that position exactly so you can
+
+0:26:08.680,0:26:14.880
+now like switch to something else and uh when 
+you know that you can move there on possibly
+
+0:26:14.880,0:26:21.560
+if your whole control logic works then you can 
+deploy it without changing your control logic
+
+0:26:21.560,0:26:27.720
+and so that you can move the real robot the 
+same way and since we've shown already so the
+
+0:26:27.720,0:26:33.440
+same affordances means same logic so you don't 
+need to change much in your code and you can of
+
+0:26:33.440,0:26:38.520
+course very easily compare the reality with the 
+plan so maybe the robot hit something on the way
+
+0:26:38.520,0:26:45.280
+so what uh you're seeing in real life doesn't 
+shouldn't match what should what is supposed to
+
+0:26:45.280,0:26:52.520
+happen so there you can really easily identify 
+yeah discrepancies and of course maybe more
+
+0:26:52.520,0:27:01.080
+interesting is that you can add such connectivity 
+um to your stimation software since um yeah this
+
+0:27:01.080,0:27:09.160
+basically does it in an interpal way for everyone 
+and will which will be also standardized and that
+
+0:27:09.160,0:27:16.360
+way your sim software could become a digital T 
+application that um is usable over the network
+
+0:27:16.360,0:27:20.800
+um yeah so in the end this is not like a silver 
+bullet that will work everywhere I mean the code
+
+0:27:20.800,0:27:27.840
+itself um there are of course the code to bridge 
+it to prop Sim in the specific case but I hope
+
+0:27:27.840,0:27:32.920
+that you can be inspired from this and implement 
+it in your own way with maybe other simulation
+
+0:27:32.920,0:27:41.320
+software but I hope this gives motivation for it 
+and right so with this I have one more thing and
+
+0:27:41.320,0:27:48.040
+hopefully it will work so we leave this at the to 
+the end since uh there are more chances of things
+
+0:27:48.040,0:27:55.600
+going wrong so as you've seen in the previous 
+uh demo there were more things around us but we
+
+0:27:55.600,0:28:03.000
+didn't um like interact with all of them yeah 
+so since it's similar to the previous one but
+
+0:28:03.000,0:28:07.440
+there are many more sequential interactions 
+with the robots and so there's more risk of
+
+0:28:07.440,0:28:13.000
+something going wrong yeah so if we get a failure 
+we'll just cut it in the video and not put it on
+
+0:28:13.000,0:28:27.440
+YouTube

@@ -1,0 +1,1098 @@
+0:00:07.000,0:00:13.920
+so today with us we have Thomas yle from bonx 
+IO Thomas is a software engineer and currently
+
+0:00:13.920,0:00:19.040
+working at bonx to build the iot foundation that 
+they want to use for different use cases in real
+
+0:00:19.040,0:00:23.600
+estate domain uh where they want to connect 
+different devices with the help of help of
+
+0:00:23.600,0:00:30.440
+digital Twins and Eclipse ditto formerly he was 
+at Bosch to create a part of the Bosch iot SU
+
+0:00:30.440,0:00:36.840
+um which is concerning digital twins was brought 
+by the eclipse uh iot working group as Eclipse
+
+0:00:36.840,0:00:43.560
+ditto project and Thomas is still the Project 
+Lead and the main committer for it and also
+
+0:00:43.560,0:00:49.280
+previously in at Bosch he also participated in the 
+web of team's working group especially around the
+
+0:00:49.280,0:00:58.360
+team models and that is also the topic of today 
+um yeah welcome so as as EGA mentioned um it's
+
+0:00:58.360,0:01:06.960
+mainly about using web of things thing models um 
+which we adopt in the housing sector and the real
+
+0:01:06.960,0:01:14.880
+estate domain um and yeah I want to talk a little 
+bit about that um so some introducing words words
+
+0:01:14.880,0:01:22.320
+about bonic IO um so we are in the real estate 
+in the housing sector um we are our our vision
+
+0:01:22.320,0:01:29.480
+or mission is to yeah digitized real estate and 
+the housing sector um we are quite young startup
+
+0:01:29.480,0:01:35.280
+so let's less than three years three years 
+old we are part of a bigger group the novan
+
+0:01:35.280,0:01:43.560
+group which is in the real estate domain um and 
+we're connecting different types of devices to
+
+0:01:43.560,0:01:54.640
+our own or mainly our own iot back end um the 
+headquarters is in Hamburg Germany however our
+
+0:01:54.640,0:01:59.840
+colleagues are all over spread it all over 
+Europe so we are really an international
+
+0:02:01.240,0:02:10.280
+um small startup I would say so our world um is 
+we we connect yeah millions of private households
+
+0:02:10.280,0:02:19.440
+in apartments um so it's mainly about um apart 
+apartments and our customers are not the residents
+
+0:02:19.440,0:02:25.040
+living in these apartments our customers are 
+the housing companies and the landlords so
+
+0:02:25.040,0:02:36.200
+we have a B2B model um our we do directly have 
+the the residents as our customers however the
+
+0:02:36.200,0:02:43.880
+residents use our devices as a service so we 
+come later to the device or the device types
+
+0:02:43.880,0:02:50.320
+scen support one of these devices is a smart 
+radi radiator thermostat and the residents use
+
+0:02:50.320,0:02:57.240
+them completely as a service so the they do 
+not need to exchange the battery they do not
+
+0:02:57.240,0:03:02.800
+need to provide connectivity to the device and 
+and also they do not install it by themselves
+
+0:03:02.800,0:03:13.080
+or exchange it if it's broken so it's a complete 
+service um yeah so historically we or the group
+
+0:03:13.080,0:03:19.680
+The Noti group started more in the submetering 
+um domain so that's the main or the first main
+
+0:03:19.680,0:03:28.880
+use case of our um company as well so to collect 
+and allocate heat and water consumption um also
+
+0:03:28.880,0:03:36.440
+electricity Assumption of of residents using 
+different metering devices um who send the
+
+0:03:36.440,0:03:43.880
+data now electronically nowadays into some kind of 
+cloud or into some kind of back end in the middle
+
+0:03:43.880,0:03:53.400
+we have for example a Gateway which collects 
+this data via a specific protocol and a rather
+
+0:03:53.400,0:04:02.120
+new device types um which we also connect um is 
+yeah smart heating device deves um in this case
+
+0:04:02.120,0:04:09.040
+we see a smart radiative thermostat I also 
+have one on my desk here so that looks very
+
+0:04:09.040,0:04:15.880
+similar to the one on the on the screenshot um 
+so that's really then targeted for the for the
+
+0:04:15.880,0:04:23.400
+residents to give them control over how much heat 
+um they consume so they can configure for example
+
+0:04:23.400,0:04:31.360
+time schedules they can remotely interact with 
+the device using a mobile application to yeah
+
+0:04:31.360,0:04:37.720
+turn on the heating when they are on on their 
+way back to the apartment so that the apartment
+
+0:04:37.720,0:04:44.240
+is warm when they when they got back when they 
+get back um that's a screenshot of the of the
+
+0:04:44.240,0:04:53.360
+app and the app is is um yeah for the residents um 
+downloadable via app store um Android and iOS App
+
+0:04:53.360,0:05:01.800
+Store um yeah the different device types are also 
+quite different connected so the metering devices
+
+0:05:01.800,0:05:08.080
+are traditionally connected via ambus um it's 
+short for meter bus it's know European Standard
+
+0:05:08.080,0:05:16.600
+for remote reading of water gas or electricity 
+and these are typically unidirectional so the
+
+0:05:16.600,0:05:25.080
+devices send the the current consumption 
+um periodically to some gateways which are
+
+0:05:25.080,0:05:31.480
+mounted in the house and the gateways then send 
+the the measurings to to to a back end via VIA
+
+0:05:31.480,0:05:41.880
+internet um the yeah rather new um protocol we are 
+we are supporting and using is laavan and that's
+
+0:05:41.880,0:05:49.040
+a technology using a license free radio frequency 
+to connect many devices with only a few gateways
+
+0:05:49.040,0:05:57.040
+in the house over a long range Network long range 
+white area network is the abbreviation for laavan
+
+0:05:57.040,0:06:05.320
+and uh it it aims for low power consumption of the 
+of the end devices so that um Ty typical device
+
+0:06:05.320,0:06:12.640
+such like this um could um last several years 
+on a single battery because as I mentioned the
+
+0:06:12.640,0:06:18.200
+residents are not responsible for exchanging the 
+battery but an installer would have to exchange
+
+0:06:18.200,0:06:26.880
+battery and that's of course very expensive um 
+and lowan is capable of doing bir directional
+
+0:06:26.880,0:06:36.400
+communication um however the devices are not all 
+the time online um so our devices are most of the
+
+0:06:36.400,0:06:43.080
+time offline to save battery and that means also 
+of course I cannot just call an API of the device
+
+0:06:43.080,0:06:51.000
+and get the current measuring from it because yeah 
+like 90 or 95% of the time it is not available it
+
+0:06:51.000,0:06:59.600
+is offline saving battery um so these are quite 
+special devices I would say and a little bit um
+
+0:06:59.600,0:07:07.320
+challenging to to interact with of course um and 
+of course also the environment especially in the
+
+0:07:07.320,0:07:16.680
+housing sector is is important here so in which 
+apartment are devices installed in which building
+
+0:07:16.680,0:07:23.360
+um so where are they installed and also to 
+which customer so here in that case the to
+
+0:07:23.360,0:07:29.760
+which housing company or to which landlord do the 
+devices belong so who is the owner of the devices
+
+0:07:29.760,0:07:37.360
+um but also of course who is the current resident 
+of an apartment allowed to control the devices
+
+0:07:37.360,0:07:44.560
+and what happens if there resident moves out and 
+another one moves in um so that the permissions
+
+0:07:44.560,0:07:51.920
+um of of of controlling the ter thermostats in 
+an apartment is then also um passed to the next
+
+0:07:51.920,0:08:01.120
+Resident that's also of course important in our 
+use cases so that leads us to the digital twin
+
+0:08:01.120,0:08:07.760
+chapter um more than just a boss password so 
+we really have special challenges to solve as
+
+0:08:07.760,0:08:15.280
+I just mentioned we have really heterogeneous 
+device types our devices are mostly offline
+
+0:08:15.280,0:08:22.160
+and we have very different user groups we have 
+the residents using the the apps for using the
+
+0:08:22.160,0:08:29.840
+devices we have installers installing the devices 
+in the Resident Apartments but we also have yeah
+
+0:08:29.840,0:08:38.280
+operators grid operators who manag the the grid 
+of all of these um smart smart devices and also
+
+0:08:38.280,0:08:43.960
+submetering devices in the back end making 
+sure that when devices are broken or when
+
+0:08:43.960,0:08:53.680
+batteries are depleted that those are exchanged 
+um and we also have multiple development teams
+
+0:08:53.680,0:08:59.480
+um which either connect their device types so we 
+have different teams for different device types
+
+0:08:59.480,0:09:06.160
+types making sure that for example a smart the 
+smart radio thermostat is um connected to the
+
+0:09:06.160,0:09:14.480
+cloud and that messages from the device are 
+translated uh into a yeah an abstraction and
+
+0:09:14.480,0:09:23.040
+that also messages can be sent to the device but 
+we also have teams just using the devices and just
+
+0:09:23.040,0:09:32.280
+using the device functionality um for example the 
+mobile application team um sending a new Target
+
+0:09:32.280,0:09:40.640
+temperature of room to the devices or adjusting um 
+time schedules of the devices so that the device
+
+0:09:40.640,0:09:45.360
+for example starts Heating in the morning and 
+stops Heating in the evening in order to save
+
+0:09:45.360,0:09:57.560
+energy so a solution to all of these um various 
+challenges is or can be a digital twin so and we
+
+0:09:57.560,0:10:05.360
+understand by that we Pro apis for accessing the 
+device data but also to interact with the devices
+
+0:10:05.360,0:10:12.280
+to send commands or invoke actions speaking 
+in web of things um we have a digital twin
+
+0:10:12.280,0:10:17.000
+can abstract from the protocols the devices 
+are connected with so we saw we have we have
+
+0:10:17.000,0:10:22.880
+at least two different protocols devices are 
+connected with on the digital twin API the
+
+0:10:22.880,0:10:28.440
+protocol um is basically irrelevant does not 
+matter how the devices are connected but the
+
+0:10:28.440,0:10:35.320
+data is still presented in the same same way 
+um access control is handled by our digital
+
+0:10:35.320,0:10:44.280
+twin so uh granting access for various user 
+groups is uh is managed by by our twin and
+
+0:10:44.280,0:10:51.120
+we also enable higher order twins for example to 
+control not only the devices but also to control
+
+0:10:51.120,0:10:59.240
+rooms or even um complete apartments or even 
+complete buildings for the land LS for example
+
+0:11:01.360,0:11:08.080
+um and digital twin is kind of used or it's used 
+by not only one team but it's used by different
+
+0:11:08.080,0:11:13.680
+development teams some teams providing the 
+devices and providing the digital twin of
+
+0:11:13.680,0:11:21.160
+the devices and other teams using the the API 
+of the digital twin and so we see that digital
+
+0:11:21.160,0:11:29.720
+twin uh as iot middleware in our iot platform to 
+center pillar which many teams can can interact
+
+0:11:29.720,0:11:38.920
+with and can rely on um coming to Eclipse ditto 
+which is our preferred digital twin solution um
+
+0:11:38.920,0:11:44.880
+so Eclipse ditto we think the first um Meetup 
+in this community group was about Eclipse ditto
+
+0:11:44.880,0:11:50.520
+unfortunately there's no recording about it but we 
+have some other um recordings available on YouTube
+
+0:11:50.520,0:12:00.600
+as well um so ditto is an I such an iot or digital 
+twin middleware and it connects the devices um
+
+0:12:00.600,0:12:11.360
+via device connectivity abstraction and from the 
+north side then applications iot Solutions mobile
+
+0:12:11.360,0:12:17.120
+applications or web applications can directly 
+interact with the apis provided by Eclipse
+
+0:12:17.120,0:12:23.200
+ditto to interact with the digital twins of the 
+devices so to send commands or to to receive the
+
+0:12:23.200,0:12:30.360
+the last state of the device and in this um 
+special case where devices are made offline
+
+0:12:30.360,0:12:39.200
+the mobile applications or the applications would 
+get the state from digital twin um how the the or
+
+0:12:39.200,0:12:46.040
+the last reported state from the device would 
+be available at the API of of the tour in our
+
+0:12:46.040,0:12:55.920
+case at bionic our device connectivity layer is um 
+AWS iot core um which we use as a laavan network
+
+0:12:55.920,0:13:05.960
+server um so really short um refresher 
+or introduction about how ditto does that
+
+0:13:05.960,0:13:12.520
+providing these apis so this is a typical 
+Json representation of a thing so rather
+
+0:13:12.520,0:13:21.200
+Min minimalistic one so a thing has a thing ID um 
+which uniquely identifies the thing um in in Ditto
+
+0:13:21.200,0:13:28.600
+it contain it links to a policy ID or to a policy 
+the policy contains the access control information
+
+0:13:28.600,0:13:35.280
+about this thing it consists of attributes 
+which can be seen as static metadata which
+
+0:13:35.280,0:13:41.160
+does not change over time so a serial number of a 
+device should never change over time and normally
+
+0:13:41.160,0:13:49.480
+also the building in where the where the device is 
+mounted also does never change and it contains of
+
+0:13:49.480,0:13:58.480
+several features and features typically contain 
+sensor data um of provided by the devices but
+
+0:13:58.480,0:14:05.680
+also config eration of the device which can 
+be adjusted over the the API and what ditto
+
+0:14:05.680,0:14:13.840
+does with such ajason it automatically provides 
+um HTP apis for for the complete thing um which
+
+0:14:13.840,0:14:21.640
+you can interact with HTP webs bu but it also 
+provides for each hierarchy level in this Json
+
+0:14:21.640,0:14:29.240
+it provides an endpoint so you can for example 
+get the current temperature value by invoking
+
+0:14:29.240,0:14:33.600
+this HTTP endpoint and then you will 
+just as a result get this current
+
+0:14:33.600,0:14:43.520
+value um D web of thing integration um briefly 
+shown is now in addition to the thing ID and
+
+0:14:43.520,0:14:52.280
+the policy D we can add a definition to 
+the thing to our digital twin and this
+
+0:14:52.280,0:14:59.040
+can reference a web of things thing model so in 
+our case we use it similar to this we have some
+
+0:14:59.880,0:15:10.480
+um HTP domain some publicly available models and 
+here we link a thing model Json LD file and that
+
+0:15:10.480,0:15:18.120
+means this thing is defined by the following 
+thing model and what what does this that mean
+
+0:15:18.120,0:15:24.920
+that will bring some different Integrations based 
+on that definition for example when creating a new
+
+0:15:24.920,0:15:34.480
+thing uh Json skeleton is generated based on the 
+defined properties of the thing model um for each
+
+0:15:34.480,0:15:41.560
+thing which links to a thing model ditto can on 
+the Fly create a web of thing thing description
+
+0:15:41.560,0:15:51.280
+and serve it as as HTTP API using uh the the 
+specific accept header to to fetch the thing
+
+0:15:51.280,0:15:59.720
+description and so it uses it does that by using 
+the model but um generating the the comp complete
+
+0:15:59.720,0:16:10.320
+uh forms as H HTP um yeah HTP binding so for all 
+of the properties actions and events defined in
+
+0:16:10.320,0:16:19.360
+the model that will automatically generate the 
+correct form entries and now very new since ditto
+
+0:16:19.360,0:16:26.440
+version 36 which we just released two weeks ago um 
+ditto will also use the thing model to or it can
+
+0:16:26.440,0:16:35.120
+be configured to to validate thing modifications 
+based on the thing model so when you for example
+
+0:16:35.120,0:16:43.560
+change um property to a data type which is not 
+defined in the model so you change want to adjust
+
+0:16:43.560,0:16:49.360
+a string to a Boolean then ditto will prevent 
+this and will um respond with an error message
+
+0:16:49.360,0:17:00.360
+why this was not possible to do um and on that 
+I want to um Show an example um so what I just
+
+0:17:00.360,0:17:08.680
+said for example if you want to adjust the serial 
+number which was a metadata before so an attribute
+
+0:17:08.680,0:17:15.000
+if we want to adj adjust that to false which is 
+adjacent Boolean but it is defined in the model
+
+0:17:15.000,0:17:23.480
+as a string um ditto will respond with that error 
+message so it will reject the API call with a bad
+
+0:17:23.480,0:17:31.640
+request HTTP state is 400 and it will say that 
+proed did payad does not conform to the specified
+
+0:17:31.640,0:17:40.520
+model and it's then um says in more detail the 
+serial attribute contain validation errors and
+
+0:17:40.520,0:17:47.360
+then we have an an an object of of that could also 
+contain several validation errors if for example
+
+0:17:47.360,0:17:54.360
+modifying the complete thing at once and here 
+it would say okay in adjacent poter annotation
+
+0:17:54.360,0:18:02.040
+the c um we find tyan but string was expected so 
+I really have to change that for example to and
+
+0:18:02.040,0:18:10.680
+use quotes around that um false then then would 
+it would be a string adjacent string and why do
+
+0:18:10.680,0:18:17.040
+we want to do that and why do we also need bionic 
+want to do that yeah programming errors happen um
+
+0:18:17.040,0:18:23.440
+we have multiple teams um injecting data into 
+our digital Twins and we always want to be sure
+
+0:18:23.440,0:18:29.840
+that the contract is met which we which we 
+build a lot of tooling on and and and rely
+
+0:18:29.840,0:18:34.920
+and for for other things that that this contract 
+which we defined as a web of things thing model
+
+0:18:34.920,0:18:43.400
+is always um met by the thing or by the digital 
+twin and also for for example for Action inputs
+
+0:18:43.400,0:18:52.560
+the validation is also very useful so guiding 
+third party users or Partners um with the for the
+
+0:18:52.560,0:18:58.920
+twin API with helpful error messages in case they 
+they make errors when when invoking an action for
+
+0:18:58.920,0:19:08.560
+example so coming to the models part um yeah I 
+already talked about we use web of things thing
+
+0:19:08.560,0:19:17.800
+models um a lot and I also def talked about that 
+contract so they are really important for us to to
+
+0:19:17.800,0:19:23.680
+have a modelbased approach of defining first 
+a model and then afterwards implementing the
+
+0:19:23.680,0:19:32.480
+the ingestion and filling the the digital 
+twin with data based on the defined model
+
+0:19:32.480,0:19:40.000
+and now how we use them in our thing models 
+we use inheritance so using TM extends from
+
+0:19:40.000,0:19:46.720
+the web of things specification and we also use 
+composition using TM sub model applying a really
+
+0:19:46.720,0:19:54.560
+objectoriented way of modeling our entities 
+so for example uh this SRT this therat is a
+
+0:19:54.560,0:20:02.960
+device so this would extend a device model and a 
+device is aware of its identity so device would
+
+0:20:02.960,0:20:11.520
+or device model would extend an identity model 
+which provides an identifier and also a location
+
+0:20:11.520,0:20:20.000
+for example where the device is located and coming 
+to composition a thermostat has a functionality
+
+0:20:20.000,0:20:27.120
+regarding temperature control on child loock and 
+battery usage uh and these are then mapped in in
+
+0:20:27.120,0:20:32.640
+ditto to Features so to the more Dynamic part 
+of the digal digital twin containing sensor
+
+0:20:32.640,0:20:40.640
+data and configuration but also a room can have 
+a functionality regarding temperature control
+
+0:20:40.640,0:20:47.600
+because for example the mobile application would 
+want to control the room and not every single s
+
+0:20:47.600,0:20:53.600
+device of the room but the room does not have 
+a child L functionality and not a battery usage
+
+0:20:53.600,0:21:00.320
+functionality and O occasionally we also import
+
+0:21:00.320,0:21:06.760
+single capabilities cross model using 
+the TM reference um keyboard of the
+
+0:21:06.760,0:21:16.320
+standard um yeah so what we really do we do really 
+OB objectoriented um way of modeling our world um
+
+0:21:16.320,0:21:25.200
+and as I as I told you for example this smart 
+th thermostat this is Aura device Laura device
+
+0:21:25.200,0:21:31.000
+always contain a def eui Allura device is a 
+device device for us devices always contain a
+
+0:21:31.000,0:21:37.400
+serial number and a manufacturer and a device is 
+aware of its location so in which building it's
+
+0:21:37.400,0:21:45.560
+located in which apartment in which room and when 
+was it mounted and they are identifiable so which
+
+0:21:45.560,0:21:53.960
+ID in our system do they have and which type 
+of of device is is that and we also have for
+
+0:21:53.960,0:21:59.920
+example not only we have devices modeled we are 
+web of things thing models but also for example
+
+0:21:59.920,0:22:07.880
+a room and a room would also be identifiable it 
+has an ID and a type and it also contains links
+
+0:22:07.880,0:22:15.840
+to an apartment ID and a building ID and in that 
+case we also see here the the composition a room
+
+0:22:15.840,0:22:22.120
+has a temperature control and the smart thermostat 
+also has a temperature control but in addition to
+
+0:22:22.120,0:22:30.640
+the temperature control child lock and and Battery 
+um yeah so that clust diagram can be broken down
+
+0:22:30.640,0:22:40.720
+into web of things thing model and extensions and 
+sub models now how do we create models um yeah we
+
+0:22:40.720,0:22:49.440
+just use our favorite IDE and that's in our case 
+it's intellig to create um new thing models um
+
+0:22:49.440,0:22:57.600
+the first ones I created and and as we are kind of 
+being already expert on the thing model um format
+
+0:22:57.600,0:23:03.280
+and if you have of course more and more thing 
+models um you can also use copy and paste from
+
+0:23:03.280,0:23:10.520
+existing thing models to get quickly started with 
+the stuff you want to model um we apply semantic
+
+0:23:10.520,0:23:15.480
+versioning so you can already see we we use the 
+version number in the in the thing mod in the
+
+0:23:15.480,0:23:24.400
+file name and also um in the version model field 
+of the of the thing model and we commit and push
+
+0:23:24.400,0:23:31.240
+the thing models to a Version Control so to a git 
+um and our cicd pipeline automatically publishes
+
+0:23:31.240,0:23:39.440
+the thing models to a development website 
+whenever we make changes to it we create G
+
+0:23:39.440,0:23:46.080
+Texs to release thing models or to release the 
+complete model repository the git repository at
+
+0:23:46.080,0:23:54.400
+once and based on that git tags or on the released 
+thing models we can deploy deploy basically that
+
+0:23:54.400,0:24:03.920
+um also with our cicd pipeline to a q QA website 
+or to a productive website and there the released
+
+0:24:03.920,0:24:11.800
+models are basic are mutable so once we create our 
+version and publish it to QA and prod we can never
+
+0:24:11.800,0:24:17.920
+again change this version but instead we would 
+have to create a new semantic version so either a
+
+0:24:17.920,0:24:23.960
+bug fix version or a feature Edition or breaking 
+the version by increasing the major version
+
+0:24:23.960,0:24:32.680
+number um yeah that's how we use and create 
+models and also we build quite some tooling
+
+0:24:32.680,0:24:38.680
+around the models so because M thing thing 
+models are really great and we yeah wanted
+
+0:24:38.680,0:24:46.720
+and needed to invest um tooling around them 
+because yeah still writing enhancing thing
+
+0:24:46.720,0:24:52.160
+models from hand is is is very hard so the 
+learning cve curve for for newcomers um it's
+
+0:24:52.160,0:24:59.280
+it's not e easy it's very steep learning curve 
+and also reading the thing models we experience
+
+0:24:59.280,0:25:10.000
+that this is also not trivial to do um so there 
+is some some some tooling um needed in order to
+
+0:25:10.000,0:25:16.080
+to to yeah get all of the developers um 
+up to speed and working with our uh thing
+
+0:25:16.080,0:25:25.160
+models um for example we create created a tooling 
+to generate open API definition files for complete
+
+0:25:25.160,0:25:32.120
+dto Things based on only the thing model and on 
+yeah on the ditto knowledge to which end points
+
+0:25:32.120,0:25:39.640
+the the the thing model will will map in HTTP 
+and point speak and to which HTTP vers this will
+
+0:25:39.640,0:25:47.480
+translate and we during that step of generating 
+this open API we also ensure and make sure that
+
+0:25:47.480,0:25:52.840
+the web of thing thing thing model can be passed 
+correctly so that it's valid Jason that it's
+
+0:25:52.840,0:25:58.440
+a valid thing model and that the output is or 
+that all the required fields of the thing model
+
+0:25:58.440,0:26:06.800
+are present which we need for generating the 
+open API we integrated that tooling um in our
+
+0:26:06.800,0:26:14.400
+cicd um so that we automatically generate this 
+open API for Merch request or for p pull request
+
+0:26:14.400,0:26:20.320
+so whenever there are changes to the models 
+this tooling will automatically generate an
+
+0:26:20.320,0:26:28.440
+open API definition we publish it to our website 
+and from there we can use Swagger UI to pass the
+
+0:26:28.440,0:26:37.360
+the the newly updated open API definition and 
+that's for example how this can look like um so
+
+0:26:37.360,0:26:45.400
+in the example um of the thermostat so I created a 
+simple example model um we have to complete thing
+
+0:26:45.400,0:26:51.000
+which we can get and which we can patch um we have 
+all of the attributes as separate endpoints as I
+
+0:26:51.000,0:26:58.400
+briefly showed the will create separate each 
+one end point for each Json hierarchy and J
+
+0:26:58.400,0:27:05.360
+Jason leave and if we look at the schema 
+of this swager UI we see the the complete
+
+0:27:05.360,0:27:13.800
+schema from in Json schema and also using the 
+defined um Json schema restrictions from the
+
+0:27:13.800,0:27:21.360
+model so regular Expressions defined as pattern 
+or min max values in the Target temperature for
+
+0:27:21.360,0:27:30.880
+example um we also created a tooling about code 
+generation so we had challenges to keep our things
+
+0:27:30.880,0:27:40.600
+con consistent um often we used yeah or manually 
+written updating the digital twin resulted in
+
+0:27:40.600,0:27:49.880
+typos or in wrong data types for example we 
+modeled a number but um someone put um quotes
+
+0:27:49.880,0:27:55.440
+around it and then suddenly in the Twin it was no 
+longer number but ajacent string and these kind
+
+0:27:55.440,0:28:03.720
+of Errors um yeah often so we created also some 
+tooling to help our development teams with that
+
+0:28:03.720,0:28:10.360
+we mainly use cotland as a programming language 
+um so we created um a code generator for cotlin
+
+0:28:10.360,0:28:18.320
+data classes also for computor things for example 
+for the this thermostat and we also generate a
+
+0:28:18.320,0:28:26.360
+codlin DSL to simplify it to build new instances 
+of the of the things including compiler check for
+
+0:28:26.360,0:28:33.160
+example if we use wrong data type we will see that 
+shortly and we provided that as a maven plugin so
+
+0:28:33.160,0:28:42.440
+that it can be um in a Java or a cotlin project 
+just be be automatically executed during the
+
+0:28:42.440,0:28:49.400
+build it will fetch the thing model from the HTTP 
+URL download it and then generate classes on the
+
+0:28:49.400,0:28:58.040
+Fly writing it to a folder and adding it to the to 
+the maven project compiling the generated sources
+
+0:28:58.600,0:29:05.120
+that's how this looks like for example so in 
+the Thad example um we generate something like
+
+0:29:05.120,0:29:11.880
+this uh it's a thermostart class it contains 
+certain blocks to build then the attributes
+
+0:29:11.880,0:29:19.200
+and the features and this is part of the cotland 
+DSL um and we will also for each feature create
+
+0:29:19.200,0:29:26.760
+generate um uh a Class A data class and for its 
+properties as well and for future actions we
+
+0:29:26.760,0:29:34.800
+will also generate the actions input and output 
+to a sub package and on the right side we see
+
+0:29:34.800,0:29:43.480
+the the cotland DSL so this feels really like 
+writing Json however with the benefit that we
+
+0:29:43.480,0:29:51.000
+can that the compiler does type checks so for 
+example here when when we create um or create
+
+0:29:51.000,0:29:59.400
+an update for the battery feature and want to set 
+the voltage to a to a to a 3.8 and and now we did
+
+0:29:59.400,0:30:05.520
+the mistake of of adding the the quotes around 
+it the compiler will reject that change because
+
+0:30:05.520,0:30:12.400
+we generated that voltage type as a double or as 
+an optional double and we provided string so we
+
+0:30:12.400,0:30:18.920
+won't be able to compile this piece of code 
+and then what we get here is an an instance
+
+0:30:18.920,0:30:27.960
+of a thermostat and we can just use the Jackson 
+Java Json serializer to generate Json out of it
+
+0:30:29.600,0:30:36.800
+and our new tool is about model migration so we 
+also of course want to involve things over time
+
+0:30:36.800,0:30:42.840
+with new capabilities or thing models with new 
+capabilities with new properties for example we
+
+0:30:42.840,0:30:48.320
+also do firmware updates for the devices and then 
+they learn new tricks over the time which we have
+
+0:30:48.320,0:30:57.080
+to also Place into the model of course to to use 
+those new apis for example um so we provide the
+
+0:30:57.080,0:31:04.360
+tooling all to to migrate similar to a database 
+migration things from one referen thing model
+
+0:31:04.360,0:31:12.560
+version to another one and we patch the Delta 
+into the things by by In This tooling created
+
+0:31:12.560,0:31:21.640
+um so this is also an example of of this tooling 
+that's also included in our um cicd pipeline so
+
+0:31:21.640,0:31:29.520
+whenever we created a new version and merged it um 
+we can run this um this this this tooling can say
+
+0:31:29.520,0:31:37.520
+okay for the thermostat we now have model version 
+1.5 and then we get a suggestion of a migration
+
+0:31:37.520,0:31:44.480
+payload which is automatically um calculated by 
+our tooling basically applying a diff which new
+
+0:31:44.480,0:31:52.200
+properties were added in this example for example 
+here an attribute would have been added uh we can
+
+0:31:52.200,0:31:58.800
+Define its default value and a new feature would 
+have been added a party mode and and we could also
+
+0:31:58.800,0:32:06.760
+provide a default value here and then we could for 
+all available twins in the our dit installation
+
+0:32:06.760,0:32:15.320
+Define a filter to which we want to apply this 
+patch um if we now would authenticate with a bar
+
+0:32:15.320,0:32:21.760
+token of or of we would then here get a live count 
+how many things would be affected by this patch or
+
+0:32:21.760,0:32:30.160
+by this migration and then we can submit and that 
+form will then create a new pipeline in our cicd
+
+0:32:30.160,0:32:36.440
+and start a migration of all of the thousands 
+10 thousands 100 thousand things to a new model
+
+0:32:36.440,0:32:44.600
+version um and what is also part of this 
+tooling that we have a a diff tool in
+
+0:32:44.600,0:32:50.480
+act a diff tool where we can say okay what 
+please show me the diff What is what changed
+
+0:32:50.480,0:32:58.160
+between version 1.4 and 1.5 and then we see 
+similar to a to a div and inversion control
+
+0:32:58.160,0:33:05.280
+or a patch we see what what changed basically here 
+version numbers changed of the of the link thing
+
+0:33:05.280,0:33:16.000
+model and for example here an offset property was 
+added um to to this sub model um yeah sub model
+
+0:33:16.000,0:33:28.440
+version so wrapping it up um we mainly use web of 
+things thing models um did however and and ditto
+
+0:33:28.440,0:33:33.200
+can now since the latest version ensure that 
+all of the changes we do to the digital twins
+
+0:33:33.200,0:33:41.640
+are always conforming to the web of things thing 
+model or adhere to the model ditto can generate
+
+0:33:41.640,0:33:49.360
+thing descriptions um to be prepared for future 
+Integrations for API descriptions for partners for
+
+0:33:49.360,0:33:57.720
+example so we are still 100% or still fully 
+um comp complying to the thing description
+
+0:33:58.800,0:34:06.760
+um but we can can just generate that and at bionic 
+we invest invest a lot in in tooling around the
+
+0:34:06.760,0:34:14.240
+thing models and also in the ditto integration of 
+web of things for example this um validation um
+
+0:34:14.240,0:34:21.360
+we just recently added to ditto which was quite 
+an invest um but we really see a lot of value
+
+0:34:21.360,0:34:27.920
+in making sure that the model is always um as it 
+was or the things always adhere to the thing model
+
+0:34:27.920,0:34:37.480
+it's really great thing to have um and for 
+example regarding the the open API generation
+
+0:34:37.480,0:34:44.520
+and also regarding cotland code generator we aim 
+to make those generic toolings around ditto and
+
+0:34:44.520,0:34:53.440
+thing models open source soon um so as a sub 
+project of the eclipse ditto repositories we
+
+0:34:53.440,0:34:59.680
+will um open source these tool LS so that 
+they can also be used by by any other ditto
+
+0:34:59.680,0:35:11.360
+user and wanting to or needing to um yeah use 
+the thing model integration so thanks a lot for
+
+0:35:11.360,0:35:27.640
+attending and your interest I would say and now 
+I'm happy to answer our questions if you have any

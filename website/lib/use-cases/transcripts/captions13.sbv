@@ -1,0 +1,1258 @@
+0:00:07.440,0:00:12.640
+so as a pleasure to introduce you uh Richard 
+Bowman from University of Glasgow uh Richard
+
+0:00:12.640,0:00:17.640
+works on microscopy and experimental Automation 
+and he also transferred a number of Technologies
+
+0:00:17.640,0:00:23.320
+to commercial Partners but he also the leads 
+of the open flexship project today he's going
+
+0:00:23.320,0:00:29.520
+to talk about how it learned about the web things 
+and how it applied to its open flexure project so
+
+0:00:29.520,0:00:36.720
+Richard the floor is your yours please go ahead 
+okay so um I'll I'll start with the Steve Jobs
+
+0:00:36.720,0:00:44.800
+intro uh this is not a toy it's made of colorful 
+plastic it costs less than an Xbox and it fits
+
+0:00:44.800,0:00:51.600
+in a shoe box um but nonetheless it's a serious 
+piece of scientific equipment um this is an open
+
+0:00:51.600,0:00:59.920
+flexure microscope and it's a useful laboratory 
+microscope um that can be motorized and automated
+
+0:01:03.200,0:01:09.040
+uh so why would you want to print a microscope um 
+for starters it means we can integrate everything
+
+0:01:09.040,0:01:14.200
+very tightly together um have it very small fit 
+it into places where a big microscope might not
+
+0:01:14.200,0:01:22.320
+go um it reduces the cost because a huge amount 
+of the cost of a microscope is mechanics um and
+
+0:01:22.320,0:01:28.720
+the 3D printing here uh makes it much cheaper um 
+it also makes it easy to replicate and I think
+
+0:01:28.720,0:01:36.360
+this is where the project becomes exciting 
+um the open flexure microscope doesn't have
+
+0:01:36.360,0:01:40.840
+many custom pieces and the custom pieces it 
+does have come off your 3D printer more or
+
+0:01:40.840,0:01:50.800
+less ready to go um and lastly because it's 
+easier to replicate because 3D printing and
+
+0:01:50.800,0:01:56.480
+so on decreases the barrier between the 
+digital design and the physical reality
+
+0:01:56.480,0:02:00.520
+um people can make them improve them 
+share those improvements back with the
+
+0:02:00.520,0:02:11.880
+community um I usually put my croscopy for 
+everyone in the talk title um and perhaps it
+
+0:02:11.880,0:02:17.080
+will help to understand where the the projects 
+come from um if I say why does everyone need
+
+0:02:17.080,0:02:24.080
+microscopy there's loads of reasons education 
+scientific research inspecting products um but
+
+0:02:24.080,0:02:29.800
+what's really pushed this project over the last 
+few years is this guy uh so this is a plasmodium
+
+0:02:29.800,0:02:35.840
+Alum is the parasite that's responsible for 
+giving you malaria um it lives inside a red
+
+0:02:35.840,0:02:41.320
+blood cell and that's what those kind of Cloudy 
+purple things in the background are malaria is a
+
+0:02:41.320,0:02:48.440
+big problem uh there are about 200 million cases 
+of malaria every year and about 500,000 deaths
+
+0:02:48.440,0:02:53.520
+and that burden is borne disproportionately by 
+children under the age of five in subsaharan
+
+0:02:53.520,0:03:01.800
+Africa the open flexure microscope because it's 
+digital and automated um is really good for
+
+0:03:01.800,0:03:07.360
+quality assurance a huge part of the problem 
+of using microscopes to diagnose malaria is
+
+0:03:07.360,0:03:12.760
+it's very hard to check that it's being done 
+competently um keeping records would help with
+
+0:03:12.760,0:03:23.920
+that it also helps to train uh new technicians 
+so um if you can look at an image on a screen
+
+0:03:23.920,0:03:29.320
+you avoid that classic microscopy problem of 
+I look down the eyepieces and I see the sample
+
+0:03:29.320,0:03:35.920
+you look turn the eyepieces and you see a very 
+enlarged image of your own eyelash um and lastly
+
+0:03:35.920,0:03:41.640
+and I think this is the most exciting thing the 
+open fleure microscope is something that can be
+
+0:03:41.640,0:03:48.880
+produced locally and so um our engineering 
+partners and our healthc Care Partners in
+
+0:03:48.880,0:03:54.640
+various countries in Africa especially 
+Tanzania um are able to make a relatively
+
+0:03:54.640,0:04:00.680
+sophisticated modern microscope without relying 
+on unreliable supply chain chains and expensive
+
+0:04:00.680,0:04:09.880
+Imports I mentioned that it's easy to replicate 
+um and that has led to this wonderful picture
+
+0:04:09.880,0:04:14.800
+of all the countries in the world where open 
+flexure microscopes have been produced and
+
+0:04:14.800,0:04:21.920
+the vast majority of these have been produced 
+with very little interaction with the original
+
+0:04:21.920,0:04:26.880
+uh design team um and pleasingly this map is 
+always out of date I think we're up to about
+
+0:04:26.880,0:04:34.040
+50 countries now um and the reason that it's 
+been successful is that it's easy to build um
+
+0:04:34.040,0:04:39.880
+that's good for scientific reproducibility it's 
+good for making it accessible to lots of people
+
+0:04:39.880,0:04:44.400
+um and it's good because it means that people can 
+hack around with it uh and the community is able
+
+0:04:44.400,0:04:51.280
+to improve the design um everything in here is 
+openly licensed so I have the privilege of not
+
+0:04:51.280,0:04:58.120
+having ever to worry about uh what I can say to 
+whom um we all have the permission to look at the
+
+0:04:58.120,0:05:06.240
+source code and indeed to make them and sell them 
+um and one or two organizations do um and lastly
+
+0:05:06.240,0:05:12.280
+we've put a lot of effort into this project to 
+build that Community um it started very much as
+
+0:05:12.280,0:05:19.280
+something that we did in an academic lab um but 
+it's very much bigger than that now and uh I'll
+
+0:05:19.280,0:05:23.760
+talk a bit later about some of the things we've 
+done to promote that and some of the cool things
+
+0:05:23.760,0:05:31.120
+that have happened because of that Community um it 
+wouldn't be fair to do a microscope talk without
+
+0:05:31.120,0:05:40.960
+showing some pretty pictures um and so what we've 
+got here is a 3.2 gigapixel uh stitched Panorama
+
+0:05:40.960,0:05:47.880
+of a papsmear um so this is from I think about 500 
+individual images taken by the microscope and then
+
+0:05:47.880,0:05:54.320
+we've scanned the stage around uh and stitched all 
+of those images together um we're still working on
+
+0:05:54.320,0:05:59.760
+getting rid of some of the stitching artifacts uh 
+I think we can do slightly better than this now um
+
+0:05:59.760,0:06:05.800
+but uh that's the sort of thing that's possible 
+if you have a microscope that is computerized
+
+0:06:05.800,0:06:13.200
+and so able to move itself around record digital 
+images and do a bit of processing going to treat
+
+0:06:13.200,0:06:19.920
+us to that again right this very busy slide 
+um is intended to give you a bit of a flavor
+
+0:06:19.920,0:06:25.800
+of what the open flexure Community do with the 
+open flexure microscope um I've already mentioned
+
+0:06:25.800,0:06:32.720
+malaria Diagnostics uh and so there are teams in 
+Tanzania and Cameroon um who are working on making
+
+0:06:32.720,0:06:38.560
+them locally and using them for Diagnostics 
+also using them for um scientific research
+
+0:06:38.560,0:06:46.760
+and educational things um we have colleagues in 
+the US um who have been using them for training
+
+0:06:46.760,0:06:53.240
+Medics um where they effectively function 
+as wholes slide imagers on a budget um and
+
+0:06:53.240,0:06:59.400
+that opens a lot of doors not just to building up 
+great teaching resources but also to doing teley
+
+0:06:59.400,0:07:05.720
+medicine where you have a slide scanner in one 
+hospital and an expert in a different hospital
+
+0:07:05.720,0:07:11.320
+who is able to provide a diagnosis to the first 
+place without having to physically ship samples
+
+0:07:11.320,0:07:19.360
+um and that opens up a lot of possibilities for 
+example for um people in one place Pathologists
+
+0:07:19.360,0:07:24.880
+in one place to support the Health Care system 
+in a completely different place uh and that's
+
+0:07:24.880,0:07:32.440
+something that we're looking at piloting in the 
+nearish future um there's lots of other things I
+
+0:07:32.440,0:07:40.160
+think the the last project that I'll highlight is 
+a community group in um Argentina that picked up
+
+0:07:40.160,0:07:48.400
+the open flexure microscope and has been using it 
+to look at the soil microbiome um generating some
+
+0:07:48.400,0:07:54.600
+data uh and helping educate Farmers about the 
+effect of different agrochemicals uh and trying
+
+0:07:54.600,0:08:00.800
+to perhaps gather evidence to inform better 
+farming practices that take better care of the
+
+0:08:00.800,0:08:13.440
+soil right all of this as an open project 
+is enabled by vast reams of documentation
+
+0:08:13.440,0:08:18.800
+uh there's been a great deal of effort gone into 
+our assembly instructions in fact we have now a
+
+0:08:18.800,0:08:24.080
+custom build system that's spun out as its own 
+open source project for managing the hardware
+
+0:08:24.080,0:08:30.720
+instructions um but in order to make it useful 
+you need more than just instructions on how to
+
+0:08:30.720,0:08:37.920
+build it um so we have a forum where a lot of 
+the microscopy users are able to discuss it um
+
+0:08:37.920,0:08:44.480
+share what's happening we have a friendly website 
+that tries to give you a nice place to start with
+
+0:08:44.480,0:08:51.160
+the project um and we have lots of documentation 
+of the software API um and I think that's really
+
+0:08:51.160,0:08:56.040
+important for the more advanced users who need 
+to go beyond what you can do with the graphical
+
+0:08:56.040,0:09:02.360
+interface um and I suspect most of the people in 
+this audience are going to recognize uh I think
+
+0:09:02.360,0:09:10.080
+this is the red doly interface to our open API 
+docs um and yeah that that comes pretty much for
+
+0:09:10.080,0:09:18.960
+free with uh the fast API back end we use but it's 
+incredibly useful um in terms of the front end uh
+
+0:09:18.960,0:09:23.880
+if I'm feeling really foolish and have some time 
+left I'll try and do a live demo of this for you
+
+0:09:23.880,0:09:33.800
+but um we have a friendly graphical interface um 
+this is provided as a vue.js single page web app
+
+0:09:33.800,0:09:40.120
+which is served from the microscope um so if 
+you want to start using it we have an electron
+
+0:09:40.120,0:09:47.040
+app that you can install on your computer but 
+pretty much all that does is mdns Discovery and
+
+0:09:47.040,0:09:54.680
+then opens a web page um that is served from the 
+microscope and that means that the client software
+
+0:09:54.680,0:10:01.520
+is always up to dat with the serers side software 
+on the microscope um we don't have to worry about
+
+0:10:01.520,0:10:07.480
+Distributing the two things separately uh which 
+we tried once and it got really tedious really
+
+0:10:07.480,0:10:14.040
+quickly um and the intention with this interface 
+is to produce something that's fairly intuitive
+
+0:10:14.040,0:10:23.600
+fairly point and click um that has all of the 
+features that our users need most of the time
+
+0:10:23.600,0:10:30.120
+um but it doesn't aim to give you everything 
+it aims to give the features that are useful to
+
+0:10:30.120,0:10:35.720
+someone who wants a microscope that works out of 
+the box um I think a lot of the excitement comes
+
+0:10:35.720,0:10:43.560
+when you start customizing it and integrating it 
+with other instruments um oh I should say the the
+
+0:10:43.560,0:10:47.920
+demo there was click to move so I'm clicking on 
+the image and then I'm bringing the point that
+
+0:10:47.920,0:10:54.120
+I clicked to the center of the screen um so it's 
+also demonstrating that the relationship between
+
+0:10:54.120,0:10:59.760
+the translation stage and the camera is calibrated 
+um which is quite a useful tool when you're doing
+
+0:10:59.760,0:11:07.360
+this kind of work um right now to the bit that 
+is probably most interesting to this audience
+
+0:11:07.360,0:11:14.400
+um which is the the software architecture that 
+powers it um and perhaps I should introduce this
+
+0:11:14.400,0:11:21.560
+by saying that um with the open flexure project 
+we have quite a range of different users there
+
+0:11:21.560,0:11:28.520
+are some people who are are microscopists um 
+biologists Medics they use microscopes quite
+
+0:11:28.520,0:11:34.320
+frequently um but they don't build them and 
+they're definitely not software people so what
+
+0:11:34.320,0:11:40.680
+they want is to put their sample in and be able 
+to very rapidly image it um perhaps even stitch
+
+0:11:40.680,0:11:47.120
+together one of those big panoramas um but pretty 
+much with the minimum number of clicks required
+
+0:11:47.120,0:11:57.920
+and if you need a training manual it's probably 
+too complicated um so the microscope itself um
+
+0:11:57.920,0:12:03.960
+includes a camera which is the Raspberry Pi camera 
+module um and a motor controller which was based
+
+0:12:03.960,0:12:13.400
+on a an Arduino Nano um now it's based around an 
+rp240 on our own PCB um and it's all tied together
+
+0:12:13.400,0:12:20.640
+by some software running on a Raspberry Pi um and 
+one of the big reasons we chose that platform is
+
+0:12:20.640,0:12:26.280
+that it means that it can be Standalone you can 
+plug in a monitor to the Raspberry Pi and you have
+
+0:12:26.280,0:12:32.800
+everything you need it works really pretty well 
+um you could do pretty much everything with the
+
+0:12:32.800,0:12:40.640
+IDS of a mobile phone um but tempting though that 
+idea is I think there are quite a lot of problems
+
+0:12:40.640,0:12:46.720
+with it when you try and do it at any kind of 
+scale and when you try to get consistency between
+
+0:12:46.720,0:12:51.960
+different microscopes um because either you have 
+to build a phone into the bill of materials which
+
+0:12:51.960,0:13:01.160
+makes it quite expensive and provides a component 
+that is very very stealable um or you have to rely
+
+0:13:01.160,0:13:06.920
+on people bringing a phone um which means you 
+never know quite what phone you're going to get
+
+0:13:06.920,0:13:10.920
+and if you want to leave it running and doing a 
+scan for three hours well when was the last time
+
+0:13:10.920,0:13:18.040
+you didn't look at your phone for three hours so 
+the Raspberry Pi is a nice platform to work with
+
+0:13:18.040,0:13:24.160
+um and of course it's got a network interface 
+so as well as displaying the interface locally
+
+0:13:24.160,0:13:29.680
+we can plug in a laptop with an ethernet cable um 
+if you're feeling really Brave you can try and do
+
+0:13:29.680,0:13:36.400
+it wirelessly um and then you can pop up exactly 
+the same graphical interface uh but on a remote
+
+0:13:36.400,0:13:41.920
+computer and we found that's really helpful 
+because some people just want an all-in-one
+
+0:13:41.920,0:13:47.640
+box with a screen attached um other people find 
+it much more convenient to use a separate device
+
+0:13:47.640,0:13:54.840
+for the interface um and uh then of course there 
+are more advanced users who might want to use
+
+0:13:54.840,0:14:01.920
+scripting in addition to the graphical interface 
+this is a slightly more detailed picture of the
+
+0:14:01.920,0:14:07.680
+same thing where I've tried to uh break down the 
+architecture slightly more um and there's a paper
+
+0:14:07.680,0:14:16.440
+published that goes into a bit more detail on this 
+um essentially on the Raspberry Pi we're running a
+
+0:14:16.440,0:14:23.600
+python web server um in that python web server is 
+the code responsible for talking to the hardware
+
+0:14:23.600,0:14:32.560
+um being the the motor controller and the camera 
+um that then exposes an HTTP API that um is web
+
+0:14:32.560,0:14:43.200
+of things compliant uh it also serves the static 
+web app um and so there is one HTTP server uh that
+
+0:14:43.200,0:14:49.880
+is responsible for the web app and for all the 
+hardware control um and on the resb pi we also
+
+0:14:49.880,0:14:56.720
+advertise the server using mdns service Discovery 
+um which is how we make it simple for people
+
+0:14:56.720,0:15:02.560
+to connect to the microscope um just with an an 
+Ethernet cable so we're not assuming that there's
+
+0:15:02.560,0:15:08.520
+a DHCP server on the network we're not trying to 
+hardcode the IP addresses so you can find it that
+
+0:15:08.520,0:15:16.480
+way um but the mdns service Discovery seems to 
+work really well um and then you can either use
+
+0:15:16.480,0:15:24.120
+an electron app um that's open flexure connect in 
+this picture um or just a web browser obviously if
+
+0:15:24.120,0:15:32.600
+you just use a web browser you don't get the nice 
+mdn SSD discovery uh but if you know the host name
+
+0:15:32.600,0:15:42.440
+that it advertises itself as on mdns for um name 
+lookup you can still get that up in a web browser
+
+0:15:42.440,0:15:49.120
+um and the bottom one which wasn't on the previous 
+slide is you can also use this API from scripting
+
+0:15:49.120,0:15:58.200
+um and we had Python and Matlab um client modules 
+that let you control the microscope um from a
+
+0:15:58.200,0:16:08.040
+script and one thing that I'll highlight um that 
+is perhaps not that obvious but when you spend a
+
+0:16:08.040,0:16:12.880
+lot of time working with scientific instruments 
+it becomes really important is that you can have
+
+0:16:12.880,0:16:18.760
+your guey and your script running at the same 
+time I've lost count of the number of weeks of
+
+0:16:18.760,0:16:26.480
+my life that have been sunk into reimplementing 
+a GUI um in the scripting language of my choice
+
+0:16:26.480,0:16:32.440
+because I want to run a relatively simple script 
+so let's say I just want to take an image move the
+
+0:16:32.440,0:16:41.240
+stage take an image move the stage implementing 
+just those features is usually quite easy but so
+
+0:16:41.240,0:16:47.160
+often I need to implement a lot more I need 
+a live feed of the camera so that I can get
+
+0:16:47.160,0:16:55.520
+everything set up um I need the ability to control 
+all the camera settings um and I can do that with
+
+0:16:55.520,0:16:59.920
+a manufacturer's interface with the manufacturer's 
+software but but I have to shut it all down before
+
+0:16:59.920,0:17:04.120
+I can start my experiment script because of course 
+the hardware will only talk to One process at a
+
+0:17:04.120,0:17:11.760
+time um and often times it loses all my settings 
+when I do that um wouldn't it be so much better if
+
+0:17:11.760,0:17:16.720
+I could use the manufacturer's interface for all 
+of the stuff that I do only once at the start of
+
+0:17:16.720,0:17:24.160
+the experiment and then the experiment code that I 
+write just has to do the kind of the recipe if you
+
+0:17:24.160,0:17:31.840
+like the protocol for that experiment um which 
+is usually far far easier to code um and with
+
+0:17:31.840,0:17:37.160
+this network architecture uh that is possible 
+now because of course there's only one process
+
+0:17:37.160,0:17:44.120
+that ever talks to the hardware which is sitting 
+on the Raspberry Pi um and my client code can sit
+
+0:17:44.120,0:17:50.080
+on the Raspberry Pi or somewhere else um but it 
+means that I can monitor what's happening at the
+
+0:17:50.080,0:17:54.960
+same time as running my experiment script without 
+the need to build all of that monitoring into the
+
+0:17:54.960,0:18:02.040
+experiment um what else have I written on this 
+slide uh I talked about headless or unattended
+
+0:18:02.040,0:18:06.080
+operation essentially what I'm meaning there is 
+that I can start an action that might run for
+
+0:18:06.080,0:18:15.760
+an hour um and if I disconnect my uh client from 
+the microscope the action keeps running and again
+
+0:18:15.760,0:18:24.200
+this is fantastic uh because uh a common bug bear 
+in experimental Labs is that Windows decides to
+
+0:18:24.200,0:18:31.400
+update um and your computer spontaneous L reboots 
+halfway through an experiment that needed to run
+
+0:18:31.400,0:18:37.040
+continuously for a week um you can imagine the 
+level of frustration and tears in the coffee cup
+
+0:18:37.040,0:18:44.760
+that this uh this produces um whereas if you've 
+got all of the experimental control embedded in
+
+0:18:44.760,0:18:56.240
+the instrument um on a nice simple fairly minimal 
+uh Linux distribution um then when your Windows
+
+0:18:56.240,0:19:02.480
+laptop is forced to reboot you you don't kill 
+the experiment um and lastly of course it means
+
+0:19:02.480,0:19:06.760
+you can have one computer but you can control a 
+whole Bank of microscopes and so if you need to
+
+0:19:06.760,0:19:14.120
+scan lots of samples or run things in parallel 
+um that's possible and the load on the control
+
+0:19:14.120,0:19:19.520
+computer is never that great because all of 
+the real time stuff is happening on the device
+
+0:19:19.520,0:19:29.680
+itself um to give perhaps slightly more detail 
+on the implementation of all this um we're now
+
+0:19:29.680,0:19:38.000
+using fast API for the python back end um that's 
+a recent change the software has mostly been done
+
+0:19:38.000,0:19:47.360
+using um flask as our web library and then 
+um added in marshmallow for managing types
+
+0:19:47.360,0:19:55.640
+and generating schemas there was marshmallow Json 
+schema um and then a separate package to provide
+
+0:19:55.640,0:20:03.040
+the open API documentation and so on um that stack 
+was starting to Creek pretty badly we were still
+
+0:20:03.040,0:20:11.200
+on flask one um and rather than go through an 
+amount of pain to update everything I decided
+
+0:20:11.200,0:20:18.680
+it was probably a good opportunity to jump ship 
+and try out fast API um which I have to say has
+
+0:20:18.680,0:20:27.120
+proven a good change um and we've also taken the 
+opportunity to try and align the structure um a
+
+0:20:27.120,0:20:35.520
+bit better with the web of things um previously 
+we had a kind of clunky extension system um and
+
+0:20:35.520,0:20:42.120
+so the microscope was one thing and then there was 
+a list of extensions which had all the properties
+
+0:20:42.120,0:20:48.960
+of a thing but they were kind of sub things and 
+it it all got a bit messy um so now there's only
+
+0:20:48.960,0:20:54.520
+one kind of entity which is a thing um and the 
+microscope is a collection of things there's no
+
+0:20:54.520,0:21:02.240
+there's no single microscope thing um there's one 
+HD TTP server um which then provides a whole bunch
+
+0:21:02.240,0:21:10.760
+of things um I think there are six or seven of 
+them at the moment um so a thing in Python in our
+
+0:21:10.760,0:21:17.600
+um what I've called lab things fast API um the 
+the underlying library that helps make the web
+
+0:21:17.600,0:21:26.400
+of things interface um each thing is a python 
+class an action is a python function um you
+
+0:21:26.400,0:21:31.160
+can decorate that and then it it turns into to a 
+descriptor um for those of you familiar with that
+
+0:21:31.160,0:21:41.200
+Parlin um properties again they are they work like 
+python properties um and so if you were using that
+
+0:21:41.200,0:21:49.960
+class in Python functions are actions properties 
+are properties um it all feels quite natural and
+
+0:21:49.960,0:21:54.960
+that also means that the signature of of the 
+thing which is responsible for all the kind of
+
+0:21:54.960,0:22:03.280
+nitty-gritty Hardware control um is pretty well 
+the same as the signature of the client code uh
+
+0:22:03.280,0:22:08.640
+that we generate based on the thing description 
+so it has the same functions which are actions
+
+0:22:08.640,0:22:17.280
+it has the same properties um the client code is 
+not yet nicely typed but when that's implemented
+
+0:22:17.280,0:22:25.280
+um because we're in the middle of a big rewrite of 
+everything uh to migrate to fast API um the types
+
+0:22:25.280,0:22:30.520
+will all be the same and that has been really 
+helpful because it means that we can develop
+
+0:22:30.520,0:22:36.160
+codes in a nice friendly convenient environment 
+you know we can paste it in an IPython notebook um
+
+0:22:36.160,0:22:42.240
+and we can work through our various actions that 
+we want and then that code pretty much copy pastes
+
+0:22:42.240,0:22:50.000
+directly into a thing which runs on the server 
+rather than in a python client um and that's
+
+0:22:50.000,0:22:56.880
+really sped up development uh I'll briefly mention 
+that fast API has a nice dependency injection
+
+0:22:56.880,0:23:06.400
+system where it uses the types of arguments to 
+functions um to provide things like data from
+
+0:23:06.400,0:23:12.640
+the request context or in our case um to allow 
+things to depend on other things so I can have
+
+0:23:12.640,0:23:19.920
+an action that um we'll find another thing in the 
+same server and use that um and the dependency
+
+0:23:19.920,0:23:27.160
+injection is quite a nice way to declare those 
+dependencies just as function arguments um the
+
+0:23:27.160,0:23:33.760
+front end at least the graphical front end is all 
+written in vue.js um at some point soon I will
+
+0:23:33.760,0:23:39.920
+need to update that and migrate to a newer version 
+of Vu um because again this is all a few years old
+
+0:23:39.920,0:23:47.600
+and starting to Creek um the communication with 
+the server is just done in axos at the moment um
+
+0:23:47.600,0:23:55.560
+we're only using HTTP so there are no other 
+protocol bindings yet um and uh I have sort
+
+0:23:55.560,0:24:01.800
+of it would be a Str stretch to call it a client 
+module but we have a couple of Vu components that
+
+0:24:01.800,0:24:10.360
+are responsible for running actions and uh dealing 
+with properties both getting and setting um and so
+
+0:24:10.360,0:24:18.080
+they provide quite a nice way to create a a useful 
+interface um but centralize all the code that that
+
+0:24:18.080,0:24:28.160
+deals with the web of things back end um I had 
+hoped to switch to using node web of things um as
+
+0:24:28.160,0:24:34.960
+a proper client module um I'll mention briefly 
+that uh I was defeated by trying to run this
+
+0:24:34.960,0:24:41.240
+in my Vu application because it made webpack 
+fall over um I think one of the dependencies
+
+0:24:41.240,0:24:46.440
+doesn't play nicely with webpack and I've yet 
+to find the time to debug that properly uh but
+
+0:24:46.440,0:24:52.040
+if any webpack plus node web of things ninjas 
+want to come and help me out later uh I'm all
+
+0:24:52.040,0:25:00.560
+ears um this slide is a picture picture of 
+one of the really fun projects that the web
+
+0:25:00.560,0:25:07.240
+of things architecture enabled for us um and so 
+what we did was we took an open fleure microscope
+
+0:25:07.240,0:25:15.640
+um we put it in a liquid handling robot um and 
+then we connected it up to some other hardware
+
+0:25:15.640,0:25:21.040
+and uh some machine learning libraries such 
+that we were able to design an experiment
+
+0:25:21.040,0:25:27.080
+that did microscopy um that was doing liquid 
+handling and sort of pipetting things around
+
+0:25:27.080,0:25:31.560
+um then it was doing some image analysis and 
+the results of the image analysis were fed
+
+0:25:31.560,0:25:38.160
+back uh to inform what the liquid handling 
+robot did next um and so it's it's properly
+
+0:25:38.160,0:25:43.720
+kind of Clos Loop experiment um with a bunch 
+of different instruments connected together
+
+0:25:43.720,0:25:50.680
+all of that is enabled by the fact that all 
+of the instruments in question um had a web
+
+0:25:50.680,0:25:57.760
+of things style interface um the open transon 
+petting robot isn't web of things compliant
+
+0:25:57.760,0:26:03.680
+doesn't have a thing description but it does have 
+an HTTP API um it would be quite cool if we could
+
+0:26:03.680,0:26:09.320
+persuade them um to have a thing description uh 
+that would that would make this work even more
+
+0:26:09.320,0:26:17.240
+nicely um another fun thing enabled by the 
+network API is that you can have clients
+
+0:26:17.240,0:26:22.600
+that are in Friendly scripting languages and 
+so this is an example using blockly to control
+
+0:26:22.600,0:26:28.440
+the microscope and I think we initially developed 
+this for for school children but I think actually
+
+0:26:28.440,0:26:33.880
+there are a lot of people working in research 
+Labs who simply don't have time to learn a new
+
+0:26:33.880,0:26:40.880
+language or learn a new API um but if they can 
+drag and drop some graphical blocks to automate
+
+0:26:40.880,0:26:45.840
+their microscope then they will use that feature 
+because it will help them get their research done
+
+0:26:45.840,0:26:53.800
+faster uh there's also a voice control module 
+um for the Curious uh implemented by the the
+
+0:26:53.800,0:26:59.120
+same guy who put this together um I don't 
+think we've used that in Anger yet uh but
+
+0:26:59.120,0:27:03.320
+it was it was quite fun to demonstrate 
+that it's possible and of course you can
+
+0:27:03.320,0:27:07.320
+have that as a client running somewhere in 
+addition to whatever other interface you're
+
+0:27:07.320,0:27:16.280
+using so uh I was asked some questions um in 
+advance uh that I will try and answer before
+
+0:27:16.280,0:27:24.120
+I go over time um I guess we learned about the 
+web of things maybe four years ago when we were
+
+0:27:24.120,0:27:30.840
+looking around for standards that we could build 
+our um HTTP interface on um so my postto at the
+
+0:27:30.840,0:27:36.960
+time Joel Collins was the one who came across uh 
+the web of things and also the Mozilla web things
+
+0:27:36.960,0:27:45.120
+project as it was then um and those were really 
+helpful in teaching us how to structure the API
+
+0:27:45.120,0:27:52.240
+in a a sensible way um what it solved for us well 
+it gave us an obvious way to control Hardware with
+
+0:27:52.240,0:27:58.560
+HTTP um reading about rest interfaces generally 
+was helpful but it was quite nice to have it
+
+0:27:58.560,0:28:04.720
+spelled out in a bit more detail for Hardware 
+um particularly because the thing description
+
+0:28:04.720,0:28:12.840
+then provides a natural way to integrate the 
+documentation uh with that um it provides cross
+
+0:28:12.840,0:28:19.840
+language and crossplatform Hardware control uh 
+which is great because in most scientific Labs
+
+0:28:19.840,0:28:24.160
+there are a variety of operating systems people 
+have a variety of different programming languages
+
+0:28:24.160,0:28:29.120
+that they're comfortable with um and not tying 
+yourself down to any particular one is really
+
+0:28:29.120,0:28:35.600
+helpful um and in the future and I have another 
+slide on this if there's time um we love to link
+
+0:28:35.600,0:28:42.800
+up existing control Frameworks um and I think the 
+semantic typing mechanism um has huge potential
+
+0:28:42.800,0:28:51.600
+for making that work we've hit a few pain points 
+um firstly I think the the standard generally
+
+0:28:51.600,0:28:57.000
+thinks that actions are quite short things um and 
+some of them are like if I click autofocus that's
+
+0:28:57.000,0:29:05.720
+done in a few seconds um but if I click create 
+a 3.2 gigapixel scan that could take an hour um
+
+0:29:05.720,0:29:12.160
+and so there sort of there are Illusions to the 
+idea that you could do long polling or you could
+
+0:29:12.160,0:29:16.880
+return an object that you can pull in order 
+to find out information about a long running
+
+0:29:16.880,0:29:23.920
+action um but I would have invented a lot less 
+myself um if that had already been spelled out
+
+0:29:23.920,0:29:32.560
+for me um one thing I have across recently is 
+I'd like to have an action that tells me when
+
+0:29:32.560,0:29:38.320
+it's done the first step and then continues 
+running um that would be really helpful for a
+
+0:29:38.320,0:29:45.600
+bunch of things um and I think there isn't really 
+provision at the moment in the model for that to
+
+0:29:45.600,0:29:52.400
+happen um I can have an event but the event is 
+associated with the thing so if I want to take
+
+0:29:52.400,0:29:58.000
+a picture and then process and save the picture 
+but provide a synchronization event after I've
+
+0:29:58.000,0:30:03.560
+taken the picture um I'd like that to be tied to 
+a particular action because of course there might
+
+0:30:03.560,0:30:08.120
+be multiple actions running simultaneously and 
+it' be useful to know that the action I've just
+
+0:30:08.120,0:30:16.800
+started has now passed into phase two um more 
+detail on protocol bindings uh would be great
+
+0:30:16.800,0:30:23.440
+I think that's uh that's something the community 
+is aware of and working on um but in particular
+
+0:30:23.440,0:30:28.520
+I've done a little playing with websockets we've 
+not used them much in Anger um but I'm slightly
+
+0:30:28.520,0:30:34.640
+wary of sinking too much effort into inventing 
+my own websocket protocol that then ends up being
+
+0:30:34.640,0:30:42.680
+superseded by an official one um so I'd be I'd be 
+Keen to figure that one out um and then the thing
+
+0:30:42.680,0:30:47.360
+description is great the thing description I 
+think is really the right documentation for
+
+0:30:47.360,0:30:55.000
+your piece of Hardware um open API is lovely 
+but you end up with lots of open API entries
+
+0:30:55.000,0:31:04.320
+for each action for example um and I think the 
+equivalent of swagger for thing description um
+
+0:31:04.320,0:31:10.280
+would really make it much easier to use and much 
+more welcoming for someone to learn the API uh
+
+0:31:10.280,0:31:17.200
+and then lastly I have invested a lot of faffing 
+around in converting between Json schema which
+
+0:31:17.200,0:31:23.360
+I have really good tools to generate and thing 
+description which is almost but not quite Json
+
+0:31:23.360,0:31:29.240
+schema at least according to my understanding 
+um I I'm guessing that is something that might
+
+0:31:29.240,0:31:35.960
+converge in the future um but at the moment 
+the bits of my code that I'm least happy with
+
+0:31:35.960,0:31:43.320
+uh in lab things fast API are the ones converting 
+between Json schema and um the data types of thing
+
+0:31:43.320,0:31:52.920
+description um I'm aware that I'm probably pushing 
+time now I am very nearly done um but I'll I'll
+
+0:31:52.920,0:31:59.280
+briefly mention that there are a whole bunch 
+of Frameworks in use um some in Java some in
+
+0:31:59.280,0:32:09.400
+Python some in C uh for controlling scientific 
+instruments um and I think a common problem is
+
+0:32:09.400,0:32:16.680
+that they all try to come up with an abstraction 
+for specific classes of instruments so uh a class
+
+0:32:16.680,0:32:23.600
+that will handle any camera or or any stage 
+um and the advantage there is that in theory
+
+0:32:23.600,0:32:28.640
+I can write my code for an experiment and then 
+I can Implement with whatever Hardware I have
+
+0:32:28.640,0:32:34.360
+to hand and that's really useful um but the 
+disadvantage is that it's not very flexible
+
+0:32:34.360,0:32:39.640
+and so if you come up with a camera or a stage 
+that works in a slightly different way it's very
+
+0:32:39.640,0:32:46.000
+hard to Crowbar that into the existing API and of 
+course because most scientific software is written
+
+0:32:46.000,0:32:53.560
+by scientists who have very little bandwidth for 
+making good control Frameworks anything that tries
+
+0:32:53.560,0:33:00.680
+to be Universal is never quite as universal as 
+it thinks um most of these Frameworks also tie
+
+0:33:00.680,0:33:06.840
+you into a particular language um they often 
+have quite honorous setup of the programming
+
+0:33:06.840,0:33:12.760
+environment um and generally they suffer from 
+the one process at a time problem so if I'm
+
+0:33:12.760,0:33:19.320
+controlling my thing with micromanager I can't 
+simultaneously control it with the manufacturer's
+
+0:33:19.320,0:33:28.200
+guey um which is a bit of a pain um I won't go 
+into any more detail on that because I have time
+
+0:33:28.200,0:33:33.640
+um but how could we how could we Square this 
+circle how could we achieve interoperability
+
+0:33:33.640,0:33:40.560
+without trying to persuade everyone to use one 
+universal framework um so we'd need a standard
+
+0:33:40.560,0:33:48.600
+crossplatform language independent way to run 
+actions get and set properties watch for events
+
+0:33:48.600,0:33:54.560
+and tie that all together with nice documentation 
+and that's exactly what the web of things um
+
+0:33:54.560,0:34:01.360
+standard does so I think it's a perfect fit bit 
+there um and I think the the next ingredient you
+
+0:34:01.360,0:34:10.440
+need is some way to gradually and in an optin 
+non-exclusive way align your instrument with a
+
+0:34:10.440,0:34:16.880
+particular taxonomy of how a Stage Works how a 
+camera works and I think with a bit of thought
+
+0:34:16.880,0:34:23.040
+the semantic typing mechanism could really help 
+with that it would allow my thing to say I am a
+
+0:34:23.040,0:34:29.480
+translation stage it would allow you to say 
+this action moves the translation stage this
+
+0:34:29.480,0:34:35.040
+property represents the current position of the 
+translation stage um this property represents
+
+0:34:35.040,0:34:41.920
+the axis names that sort of thing and because 
+you can have multiple ontologies on the goal at
+
+0:34:41.920,0:34:48.240
+the same time it means my thing can then expose 
+itself in a way that's compatible with multiple
+
+0:34:48.240,0:34:56.560
+Frameworks um and we can gradually opt in more 
+and more intercompatibility between Frameworks
+
+0:34:56.560,0:35:02.400
+with without ever having to ask someone to SN 
+a huge amount of time and effort into jumping
+
+0:35:02.400,0:35:10.000
+over to a different framework um and perhaps it 
+helps soften the blow to Scientific scientific
+
+0:35:10.000,0:35:16.560
+egos um you don't have to suddenly put your 
+framework into somebody else's framework
+
+0:35:16.560,0:35:26.800
+we're all sort of moving into a common way of 
+communicating um you can still keep your framework
+
+0:35:28.880,0:35:33.960
+I think one thing that I'd love to be able to do 
+incidentally is have two thing descriptions and
+
+0:35:33.960,0:35:42.040
+figure out if one thing description is compatible 
+with another um sort of like um duck typing for
+
+0:35:42.040,0:35:50.280
+sub classes um I feel like it ought to be possible 
+but I've not got any code that does it yet right
+
+0:35:50.280,0:35:57.320
+I'm done uh sorry that is slightly over time isn't 
+it um I hope that was interesting um I hope there
+
+0:35:57.320,0:36:04.360
+are some questions uh I'm going to stop now and um 
+yeah I'd be delighted to hear some feedback from
+
+0:36:04.360,0:36:14.440
+everyone
