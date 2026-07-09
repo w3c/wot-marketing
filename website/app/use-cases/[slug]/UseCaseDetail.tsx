@@ -19,7 +19,8 @@ import { CheckCircle2, Clock, Play } from 'lucide-react';
 import { PageLayout } from '../../_components/PageLayout';
 import { PageSection } from '../../_components/PageSection';
 import { LinkCard } from '../../_components/LinkCard';
-import { getUseCaseBySlug, UseCaseVideo, getMeetupVideoId, getStandards } from '@/lib/use-cases/useCases';
+import { getUseCaseBySlug, UseCaseVideo, getMeetupVideoId } from '@/lib/use-cases/useCases';
+import { getStandards } from '@/lib/use-cases/standards';
 
 export function UseCaseDetail({ slug }: { slug: string }) {
   const entry = getUseCaseBySlug(slug);
@@ -58,11 +59,7 @@ export function UseCaseDetail({ slug }: { slug: string }) {
           }}
         >
           {entry.realWorldUseCases.map((useCase) => (
-            <Card
-              key={useCase.title}
-              variant="outlined"
-              sx={{ borderTop: '3px solid', borderColor: 'primary.main', height: '100%' }}
-            >
+            <Card key={useCase.title} variant="outlined">
               <CardContent>
                 <Typography level="title-md" mb={1}>
                   {useCase.title}

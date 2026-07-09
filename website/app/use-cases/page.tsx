@@ -3,9 +3,11 @@
 import { PageLayout } from '../_components/PageLayout';
 import { Typography, Stack, Box, Accordion, AccordionDetails, AccordionSummary, AccordionGroup } from '@mui/joy';
 import { Route } from 'next';
-import { RESOURCES, DOMAINS, TECH_TRENDS, TESTIMONIALS, Testimonial } from '@/lib/use-cases/useCases';
+import { DOMAINS, TECH_TRENDS } from '@/lib/use-cases/useCases';
 import { LinkCard } from '../_components/LinkCard';
 import { PageSection } from '../_components/PageSection';
+import { RESOURCES } from '@/lib/use-cases/resources';
+import { TESTIMONIALS, Testimonial } from '@/lib/use-cases/testimonials';
 
 export default function UseCasesPage() {
   return (

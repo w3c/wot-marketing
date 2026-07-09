@@ -1,6 +1,4 @@
 import { ReactNode } from 'react';
-import youtubeIcon from '@/public/youtube.png';
-import Image from 'next/image';
 import {
   FileText,
   Network,
@@ -28,16 +26,9 @@ import {
   Boxes,
   Braces,
 } from 'lucide-react';
-import { Stack } from '@mui/joy';
 import meetupLinks from './meetup_youtube_links.json';
-
-export interface Resource {
-  title: string;
-  description: ReactNode;
-  url: string;
-  urlLabel: string;
-  icon: ReactNode;
-}
+import { Standard } from './standards';
+import { Resource } from './resources';
 
 export interface Domain {
   title: string;
@@ -76,7 +67,7 @@ export interface UseCaseEntry extends Domain {
   /** Referenced meetup recordings with timestamped fragments. */
   videos: UseCaseVideo[];
   /** Ids of standards (see STANDARDS) most relevant to this area. */
-  standards: string[];
+  standards: Standard[];
 }
 
 /** Resolve the YouTube video id for a meetup number (undefined if unpublished). */
@@ -85,259 +76,6 @@ export function getMeetupVideoId(meetupNumber: number): string | undefined {
   if (!entry) return undefined;
   const match = entry.youtubeUrl.match(/(?:youtu\.be\/|[?&]v=)([\w-]+)/);
   return match?.[1];
-}
-
-export interface Testimonial {
-  id: string;
-  name: string;
-  content?: string;
-  author?: string;
-  isJoint?: boolean;
-  quotes?: { quote: string; author: string }[];
-}
-
-export const RESOURCES: Resource[] = [
-  {
-    title: 'WoT Community Group Case Studies',
-    description: (
-      <Stack justifyContent="space-between">
-        Presentations of WoT adopters in the WoT Community Group are case studies of WoT is used in the industry,
-        academia and enthusiasts.
-      </Stack>
-    ),
-    url: 'https://www.youtube.com/playlist?list=PL7z9Jd8H_9zpDd7Y5pEw6lBrPehKpVKxZ',
-    urlLabel: 'youtube.com',
-    icon: <Image src={youtubeIcon} alt="Youtube" height={24} />,
-  },
-  {
-    title: 'WoT Use Cases & Requirements',
-    description:
-      'The official W3C document detailing use cases gathered from WoT stakeholders, including functional and technical requirements.',
-    url: 'https://w3c.github.io/wot-usecases/',
-    urlLabel: 'w3c.github.io/wot-usecases',
-    icon: <FileText size={24} />,
-  },
-  {
-    title: 'WoT Architecture: Application Domains',
-    description:
-      'Section of the WoT Architecture 1.1 specification describing the key application domains where WoT technologies are applied.',
-    url: 'https://www.w3.org/TR/wot-architecture11/#sec-application-domains',
-    urlLabel: 'w3.org/TR/wot-architecture11',
-    icon: <Network size={24} />,
-  },
-];
-
-/**
- * Catalogue of standards relevant to the Web of Things, keyed by a short id.
- * Each domain/trend entry references the ids of the standards relevant to it,
- * and every entry links to the standard's official website.
- */
-export const STANDARDS: Record<string, Resource> = {
-  wot: {
-    title: 'W3C Web of Things (WoT)',
-    description:
-      'The W3C standardization effort providing interoperable building blocks that connect IoT devices and services across platforms.',
-    url: 'https://www.w3.org/WoT/',
-    urlLabel: 'w3.org/WoT',
-    icon: <Globe size={24} />,
-  },
-  td: {
-    title: 'WoT Thing Description 1.1',
-    description:
-      'The W3C Recommendation defining the machine-readable metadata format that describes a Thing’s properties, actions and events.',
-    url: 'https://www.w3.org/TR/wot-thing-description11/',
-    urlLabel: 'w3.org/TR/wot-thing-description11',
-    icon: <FileText size={24} />,
-  },
-  architecture: {
-    title: 'WoT Architecture 1.1',
-    description:
-      'The W3C Recommendation describing the abstract architecture, terminology and building blocks of the Web of Things.',
-    url: 'https://www.w3.org/TR/wot-architecture11/',
-    urlLabel: 'w3.org/TR/wot-architecture11',
-    icon: <Network size={24} />,
-  },
-  binding: {
-    title: 'WoT Binding Templates',
-    description:
-      'W3C guidance for mapping Thing Description interactions onto concrete protocols such as HTTP, MQTT, Modbus, OPC UA and more.',
-    url: 'https://www.w3.org/TR/wot-binding-templates/',
-    urlLabel: 'w3.org/TR/wot-binding-templates',
-    icon: <Workflow size={24} />,
-  },
-  discovery: {
-    title: 'WoT Discovery',
-    description:
-      'The W3C Recommendation defining how Thing Descriptions are discovered securely across networks and directories.',
-    url: 'https://www.w3.org/TR/wot-discovery/',
-    urlLabel: 'w3.org/TR/wot-discovery',
-    icon: <QrCode size={24} />,
-  },
-  security: {
-    title: 'WoT Security & Privacy Guidelines',
-    description:
-      'The W3C guidance describing security and privacy considerations and best practices for building Web of Things systems.',
-    url: 'https://www.w3.org/TR/wot-security/',
-    urlLabel: 'w3.org/TR/wot-security',
-    icon: <ShieldCheck size={24} />,
-  },
-  jsonld: {
-    title: 'JSON-LD 1.1',
-    description:
-      'The W3C linked-data serialization that underpins Thing Descriptions, giving IoT metadata shared semantic meaning.',
-    url: 'https://www.w3.org/TR/json-ld11/',
-    urlLabel: 'w3.org/TR/json-ld11',
-    icon: <Braces size={24} />,
-  },
-  rdf: {
-    title: 'RDF 1.1',
-    description:
-      'The W3C framework for representing linked data as graphs, the semantic foundation for describing Things and their relationships.',
-    url: 'https://www.w3.org/TR/rdf11-concepts/',
-    urlLabel: 'w3.org/TR/rdf11-concepts',
-    icon: <Network size={24} />,
-  },
-  owl: {
-    title: 'OWL 2',
-    description:
-      'The W3C Web Ontology Language for modelling rich domain knowledge and enabling reasoning over IoT data.',
-    url: 'https://www.w3.org/TR/owl2-overview/',
-    urlLabel: 'w3.org/TR/owl2-overview',
-    icon: <Brain size={24} />,
-  },
-  saref: {
-    title: 'SAREF',
-    description:
-      'The ETSI Smart Applications REFerence ontology providing shared semantics for smart devices across energy, buildings and more.',
-    url: 'https://saref.etsi.org/',
-    urlLabel: 'saref.etsi.org',
-    icon: <Leaf size={24} />,
-  },
-  opcua: {
-    title: 'OPC UA',
-    description:
-      'The industrial interoperability standard from the OPC Foundation, widely bridged to WoT in manufacturing and energy scenarios.',
-    url: 'https://opcfoundation.org/about/opc-technologies/opc-ua/',
-    urlLabel: 'opcfoundation.org',
-    icon: <Cpu size={24} />,
-  },
-  modbus: {
-    title: 'Modbus',
-    description:
-      'The de-facto serial and TCP protocol for industrial devices and meters, commonly exposed through WoT Thing Descriptions.',
-    url: 'https://www.modbus.org/',
-    urlLabel: 'modbus.org',
-    icon: <Radio size={24} />,
-  },
-  bacnet: {
-    title: 'BACnet',
-    description:
-      'The ASHRAE communication protocol for building automation and control networks, integrable with WoT via binding templates.',
-    url: 'http://www.bacnet.org/',
-    urlLabel: 'bacnet.org',
-    icon: <Building size={24} />,
-  },
-  knx: {
-    title: 'KNX',
-    description:
-      'The open standard for commercial and residential building control, connecting lighting, HVAC and access systems.',
-    url: 'https://www.knx.org/',
-    urlLabel: 'knx.org',
-    icon: <Home size={24} />,
-  },
-  matter: {
-    title: 'Matter',
-    description:
-      'The Connectivity Standards Alliance protocol for smart-home interoperability across manufacturers and ecosystems.',
-    url: 'https://csa-iot.org/all-solutions/matter/',
-    urlLabel: 'csa-iot.org',
-    icon: <Boxes size={24} />,
-  },
-  zwave: {
-    title: 'Z-Wave',
-    description:
-      'The wireless mesh protocol widely used for residential smart-home devices such as locks, sensors and lighting.',
-    url: 'https://z-wave.com/',
-    urlLabel: 'z-wave.com',
-    icon: <Radio size={24} />,
-  },
-  mqtt: {
-    title: 'MQTT',
-    description:
-      'The lightweight OASIS publish/subscribe messaging protocol for constrained IoT devices, supported as a WoT protocol binding.',
-    url: 'https://mqtt.org/',
-    urlLabel: 'mqtt.org',
-    icon: <FileCode size={24} />,
-  },
-  coap: {
-    title: 'CoAP',
-    description:
-      'The IETF Constrained Application Protocol (RFC 7252) for RESTful communication with resource-limited edge devices.',
-    url: 'https://datatracker.ietf.org/doc/html/rfc7252',
-    urlLabel: 'datatracker.ietf.org',
-    icon: <Radio size={24} />,
-  },
-  lorawan: {
-    title: 'LoRaWAN',
-    description:
-      'The LoRa Alliance low-power wide-area networking standard for long-range, battery-efficient IoT sensor deployments.',
-    url: 'https://lora-alliance.org/about-lorawan/',
-    urlLabel: 'lora-alliance.org',
-    icon: <Radio size={24} />,
-  },
-  gs1: {
-    title: 'GS1 Digital Link',
-    description:
-      'The GS1 standard connecting physical products to web resources via identifiers, a foundation for product passports and traceability.',
-    url: 'https://www.gs1.org/standards/gs1-digital-link',
-    urlLabel: 'gs1.org',
-    icon: <QrCode size={24} />,
-  },
-  fhir: {
-    title: 'HL7 FHIR',
-    description:
-      'The HL7 standard for exchanging healthcare information electronically, relevant to connected medical and well-being devices.',
-    url: 'https://hl7.org/fhir/',
-    urlLabel: 'hl7.org/fhir',
-    icon: <Activity size={24} />,
-  },
-  isobus: {
-    title: 'ISOBUS (ISO 11783)',
-    description:
-      'The ISO standard for communication between tractors and agricultural implements, promoted by the AEF for interoperable farming.',
-    url: 'https://www.isobus.net/isobus/',
-    urlLabel: 'isobus.net',
-    icon: <Tractor size={24} />,
-  },
-  ngsild: {
-    title: 'NGSI-LD',
-    description:
-      'The ETSI context-information standard for smart-city and cross-domain data exchange based on linked-data principles.',
-    url: 'https://www.etsi.org/technologies/ngsi-ld',
-    urlLabel: 'etsi.org',
-    icon: <Landmark size={24} />,
-  },
-  oauth2: {
-    title: 'OAuth 2.0',
-    description:
-      'The IETF authorization framework used to grant scoped, token-based access to devices and services in zero-trust designs.',
-    url: 'https://oauth.net/2/',
-    urlLabel: 'oauth.net',
-    icon: <Lock size={24} />,
-  },
-  cra: {
-    title: 'EU Cyber Resilience Act',
-    description:
-      'The European Union regulation defining cybersecurity requirements for products with digital elements across their lifecycle.',
-    url: 'https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act',
-    urlLabel: 'digital-strategy.ec.europa.eu',
-    icon: <ShieldCheck size={24} />,
-  },
-};
-
-/** Resolve the standards relevant to a use-case entry from their ids. */
-export function getStandards(ids: string[]): Resource[] {
-  return ids.map((id) => STANDARDS[id]).filter((s): s is Resource => Boolean(s));
 }
 
 /**
@@ -391,12 +129,12 @@ export const USE_CASES: {
             {
               start: 159,
               timestamp: '2:39',
-              label: 'Connecting controllers and sensors to the cloud while preserving product data.',
+              label: 'Connecting controllers and sensors to the cloud while preserving product data',
             },
             {
               start: 286,
               timestamp: '4:46',
-              label: 'Contract-first thing models defining product interactions before implementation.',
+              label: 'Contract-first thing models defining product interactions before implementation',
             },
           ],
         },
@@ -407,12 +145,12 @@ export const USE_CASES: {
             {
               start: 233,
               timestamp: '3:53',
-              label: 'Field-level heterogeneity: many vendors, protocols and security requirements.',
+              label: 'Field-level heterogeneity: many vendors, protocols and security requirements',
             },
             {
               start: 1296,
               timestamp: '21:36',
-              label: 'Mapping a Siemens PAC 4200 energy meter to the OPC UA model via a TD.',
+              label: 'Mapping a Siemens PAC 4200 energy meter to the OPC UA model via a TD',
             },
           ],
         },
@@ -423,12 +161,12 @@ export const USE_CASES: {
             {
               start: 510,
               timestamp: '8:30',
-              label: 'A virtual robot moves in sync with the real robot through identical TDs.',
+              label: 'A virtual robot moves in sync with the real robot through identical TDs',
             },
             {
               start: 800,
               timestamp: '13:20',
-              label: 'Framework: URDF import to TD enhancement to simulation interaction.',
+              label: 'Framework: URDF import to TD enhancement to simulation interaction',
             },
           ],
         },
@@ -439,7 +177,7 @@ export const USE_CASES: {
             {
               start: 45,
               timestamp: '0:45',
-              label: 'Electrical, building and substation devices unified via thing models.',
+              label: 'Electrical, building and substation devices unified via thing models',
             },
           ],
         },
@@ -450,12 +188,12 @@ export const USE_CASES: {
             {
               start: 239,
               timestamp: '3:59',
-              label: 'OPC UA client-server interface as the manufacturing interoperability standard.',
+              label: 'OPC UA client-server interface as the manufacturing interoperability standard',
             },
             {
               start: 606,
               timestamp: '10:06',
-              label: 'Mapping proprietary manufacturing assets to OPC UA using WoT descriptions.',
+              label: 'Mapping proprietary manufacturing assets to OPC UA using WoT descriptions',
             },
           ],
         },
@@ -466,7 +204,7 @@ export const USE_CASES: {
             {
               start: 374,
               timestamp: '6:14',
-              label: 'Thing descriptions eliminate manual Modbus register mapping from Excel docs.',
+              label: 'Thing descriptions eliminate manual Modbus register mapping from Excel docs',
             },
           ],
         },
@@ -513,7 +251,7 @@ export const USE_CASES: {
             {
               start: 482,
               timestamp: '8:02',
-              label: 'TD enriched with an OPC UA energy model for rapid power-meter integration.',
+              label: 'TD enriched with an OPC UA energy model for rapid power-meter integration',
             },
           ],
         },
@@ -524,7 +262,7 @@ export const USE_CASES: {
             {
               start: 300,
               timestamp: '5:00',
-              label: 'TDs give interoperability to non-discoverable energy meters using Modbus.',
+              label: 'TDs give interoperability to non-discoverable energy meters using Modbus',
             },
           ],
         },
@@ -535,7 +273,7 @@ export const USE_CASES: {
             {
               start: 415,
               timestamp: '6:55',
-              label: 'WoT as an information-handover mechanism between embedded and cloud teams.',
+              label: 'WoT as an information-handover mechanism between embedded and cloud teams',
             },
           ],
         },
@@ -546,7 +284,7 @@ export const USE_CASES: {
             {
               start: 364,
               timestamp: '6:04',
-              label: 'Standardized thing models avoid duplicating energy-device onboarding work.',
+              label: 'Standardized thing models avoid duplicating energy-device onboarding work',
             },
           ],
         },
@@ -593,12 +331,12 @@ export const USE_CASES: {
             {
               start: 77,
               timestamp: '1:17',
-              label: 'Net-Zero targets could save UK businesses £6 billion a year, motivating digitalization.',
+              label: 'Net-Zero targets could save UK businesses £6 billion a year, motivating digitalization',
             },
             {
               start: 409,
               timestamp: '6:49',
-              label: 'Cloud service streams WoT data into a building digital twin for long-term analytics.',
+              label: 'Cloud service streams WoT data into a building digital twin for long-term analytics',
             },
           ],
         },
@@ -609,9 +347,9 @@ export const USE_CASES: {
             {
               start: 414,
               timestamp: '6:54',
-              label: 'WoT chosen as a neutral, lightweight standard for building automation.',
+              label: 'WoT chosen as a neutral, lightweight standard for building automation',
             },
-            { start: 587, timestamp: '9:47', label: 'Thing descriptions automate BACnet device configuration.' },
+            { start: 587, timestamp: '9:47', label: 'Thing descriptions automate BACnet device configuration' },
           ],
         },
         {
@@ -621,7 +359,7 @@ export const USE_CASES: {
             {
               start: 904,
               timestamp: '15:04',
-              label: 'Standard smart-lock capabilities across Salto, Yale and Schlage brands.',
+              label: 'Standard smart-lock capabilities across Salto, Yale and Schlage brands',
             },
           ],
         },
@@ -632,7 +370,7 @@ export const USE_CASES: {
             {
               start: 487,
               timestamp: '8:07',
-              label: 'Digital-twin APIs with access control for residents, installers and operators.',
+              label: 'Digital-twin APIs with access control for residents, installers and operators',
             },
           ],
         },
@@ -640,7 +378,7 @@ export const USE_CASES: {
           meetupNumber: 23,
           title: 'Web of Things Manager (Dashjoin)',
           fragments: [
-            { start: 952, timestamp: '15:52', label: 'An LLM agent turns off unused lights in occupied offices.' },
+            { start: 952, timestamp: '15:52', label: 'An LLM agent turns off unused lights in occupied offices' },
           ],
         },
       ],
@@ -686,12 +424,12 @@ export const USE_CASES: {
             {
               start: 258,
               timestamp: '4:18',
-              label: 'Library opening hours from OpenStreetMap exposed as a WoT Thing.',
+              label: 'Library opening hours from OpenStreetMap exposed as a WoT Thing',
             },
             {
               start: 488,
               timestamp: '8:08',
-              label: 'City bike-sharing stations with live bike and slot availability.',
+              label: 'City bike-sharing stations with live bike and slot availability',
             },
           ],
         },
@@ -702,7 +440,7 @@ export const USE_CASES: {
             {
               start: 221,
               timestamp: '3:41',
-              label: 'Construction-site digital twins from satellite images, 3D scans and sensors.',
+              label: 'Construction-site digital twins from satellite images, 3D scans and sensors',
             },
           ],
         },
@@ -713,7 +451,7 @@ export const USE_CASES: {
             {
               start: 1009,
               timestamp: '16:49',
-              label: 'Decentralized oracle networks aggregate sensors to prevent data manipulation.',
+              label: 'Decentralized oracle networks aggregate sensors to prevent data manipulation',
             },
           ],
         },
@@ -755,9 +493,9 @@ export const USE_CASES: {
             {
               start: 149,
               timestamp: '2:29',
-              label: 'Automated microscope for malaria-diagnosis quality assurance and training.',
+              label: 'Automated microscope for malaria-diagnosis quality assurance and training',
             },
-            { start: 406, timestamp: '6:46', label: 'Whole-slide imaging for medical training and remote pathology.' },
+            { start: 406, timestamp: '6:46', label: 'Whole-slide imaging for medical training and remote pathology' },
           ],
         },
       ],
@@ -803,7 +541,7 @@ export const USE_CASES: {
             {
               start: 324,
               timestamp: '5:24',
-              label: 'Autonomous tractor following GPS waypoints to harvest fields via TDs.',
+              label: 'Autonomous tractor following GPS waypoints to harvest fields via TDs',
             },
           ],
         },
@@ -814,7 +552,7 @@ export const USE_CASES: {
             {
               start: 240,
               timestamp: '4:00',
-              label: 'Groundwater pumps for livestock and irrigation handed over via WoT.',
+              label: 'Groundwater pumps for livestock and irrigation handed over via WoT',
             },
           ],
         },
@@ -825,7 +563,7 @@ export const USE_CASES: {
             {
               start: 460,
               timestamp: '7:40',
-              label: 'Soil-microbiome analysis to educate farmers about agrochemical effects.',
+              label: 'Soil-microbiome analysis to educate farmers about agrochemical effects',
             },
           ],
         },
@@ -836,7 +574,7 @@ export const USE_CASES: {
             {
               start: 788,
               timestamp: '13:08',
-              label: 'Parametric insurance triggers payouts from independent weather stations.',
+              label: 'Parametric insurance triggers payouts from independent weather stations',
             },
           ],
         },
@@ -878,7 +616,7 @@ export const USE_CASES: {
             {
               start: 1468,
               timestamp: '24:28',
-              label: 'Cameras and sensors extract luggage dimensions and colour to optimize loading.',
+              label: 'Cameras and sensors extract luggage dimensions and colour to optimize loading',
             },
           ],
         },
@@ -889,7 +627,7 @@ export const USE_CASES: {
             {
               start: 488,
               timestamp: '8:08',
-              label: 'City bike-sharing stations with live bike and parking-slot availability.',
+              label: 'City bike-sharing stations with live bike and parking-slot availability',
             },
           ],
         },
@@ -941,12 +679,12 @@ export const USE_CASES: {
             {
               start: 293,
               timestamp: '4:53',
-              label: 'Difficult manufacturer APIs: dated SOAP interfaces and 900-page PDFs.',
+              label: 'Difficult manufacturer APIs: dated SOAP interfaces and 900-page PDFs',
             },
             {
               start: 1442,
               timestamp: '24:02',
-              label: 'Programming Airbnb guest access codes via capability-aware assist functions.',
+              label: 'Programming Airbnb guest access codes via capability-aware assist functions',
             },
           ],
         },
@@ -957,7 +695,7 @@ export const USE_CASES: {
             {
               start: 63,
               timestamp: '1:03',
-              label: 'Matter as an open local-connectivity standard abstracted through WoT.',
+              label: 'Matter as an open local-connectivity standard abstracted through WoT',
             },
           ],
         },
@@ -968,7 +706,7 @@ export const USE_CASES: {
             {
               start: 170,
               timestamp: '2:50',
-              label: 'Smart radiator thermostats let residents control heating remotely.',
+              label: 'Smart radiator thermostats let residents control heating remotely',
             },
           ],
         },
@@ -976,7 +714,7 @@ export const USE_CASES: {
           meetupNumber: 27,
           title: 'BLAST Visual Programming',
           fragments: [
-            { start: 1145, timestamp: '19:05', label: 'Button-triggered colour changes on a Bluetooth smart bulb.' },
+            { start: 1145, timestamp: '19:05', label: 'Button-triggered colour changes on a Bluetooth smart bulb' },
           ],
         },
         {
@@ -986,7 +724,7 @@ export const USE_CASES: {
             {
               start: 1246,
               timestamp: '20:46',
-              label: 'An LLM discovers WoT smart-home devices and converts them into agent tools.',
+              label: 'An LLM discovers WoT smart-home devices and converts them into agent tools',
             },
           ],
         },
@@ -1030,7 +768,7 @@ export const USE_CASES: {
           meetupNumber: 13,
           title: 'Open Flexure Microscope & Web of Things',
           fragments: [
-            { start: 460, timestamp: '7:40', label: 'Soil-microbiome analysis and farmer education in Argentina.' },
+            { start: 460, timestamp: '7:40', label: 'Soil-microbiome analysis and farmer education in Argentina' },
           ],
         },
         {
@@ -1040,7 +778,7 @@ export const USE_CASES: {
             {
               start: 1009,
               timestamp: '16:49',
-              label: 'Reputation-based aggregation of independent sensors resists manipulation.',
+              label: 'Reputation-based aggregation of independent sensors resists manipulation',
             },
           ],
         },
@@ -1051,7 +789,7 @@ export const USE_CASES: {
             {
               start: 631,
               timestamp: '10:31',
-              label: 'Modelling sensor data lifecycle with resolution metadata in the TD.',
+              label: 'Modelling sensor data lifecycle with resolution metadata in the TD',
             },
           ],
         },
@@ -1100,7 +838,7 @@ export const USE_CASES: {
             {
               start: 608,
               timestamp: '10:08',
-              label: 'Asset Hub manages digital twins with lifecycle traceability to physical devices.',
+              label: 'Asset Hub manages digital twins with lifecycle traceability to physical devices',
             },
           ],
         },
@@ -1111,7 +849,7 @@ export const USE_CASES: {
             {
               start: 527,
               timestamp: '8:47',
-              label: 'Product-centric thing models map properties, interactions and sensors.',
+              label: 'Product-centric thing models map properties, interactions and sensors',
             },
           ],
         },
@@ -1122,7 +860,7 @@ export const USE_CASES: {
             {
               start: 426,
               timestamp: '7:06',
-              label: 'Ontology represents entity, models, data, services and connections.',
+              label: 'Ontology represents entity, models, data, services and connections',
             },
           ],
         },
@@ -1133,7 +871,7 @@ export const USE_CASES: {
             {
               start: 1443,
               timestamp: '24:03',
-              label: 'Dry-run testing detects collisions before the same logic drives the real robot.',
+              label: 'Dry-run testing detects collisions before the same logic drives the real robot',
             },
           ],
         },
@@ -1144,7 +882,7 @@ export const USE_CASES: {
             {
               start: 1248,
               timestamp: '20:48',
-              label: 'What-Twins auto-generates Markov models from observed device interactions.',
+              label: 'What-Twins auto-generates Markov models from observed device interactions',
             },
           ],
         },
@@ -1155,7 +893,7 @@ export const USE_CASES: {
             {
               start: 962,
               timestamp: '16:02',
-              label: 'Onboarding creates a digital representation in the OPC UA address space automatically.',
+              label: 'Onboarding creates a digital representation in the OPC UA address space automatically',
             },
           ],
         },
@@ -1201,7 +939,7 @@ export const USE_CASES: {
             {
               start: 547,
               timestamp: '9:07',
-              label: 'ACE-OAuth delegates authorization for constrained IoT environments.',
+              label: 'ACE-OAuth delegates authorization for constrained IoT environments',
             },
           ],
         },
@@ -1212,7 +950,7 @@ export const USE_CASES: {
             {
               start: 614,
               timestamp: '10:14',
-              label: 'No direct device access; a hub with centralized auth reduces attack surface.',
+              label: 'No direct device access; a hub with centralized auth reduces attack surface',
             },
           ],
         },
@@ -1223,7 +961,7 @@ export const USE_CASES: {
             {
               start: 352,
               timestamp: '5:52',
-              label: 'Solid Access Control Lists grant stakeholders fine-grained permissions.',
+              label: 'Solid Access Control Lists grant stakeholders fine-grained permissions',
             },
           ],
         },
@@ -1270,7 +1008,7 @@ export const USE_CASES: {
             {
               start: 560,
               timestamp: '9:20',
-              label: 'schema.org semantic annotations carry product model, serial number and version.',
+              label: 'schema.org semantic annotations carry product model, serial number and version',
             },
           ],
         },
@@ -1281,7 +1019,7 @@ export const USE_CASES: {
             {
               start: 935,
               timestamp: '15:35',
-              label: 'IDO model embeds calibration, register sizes and resolution in the TD.',
+              label: 'IDO model embeds calibration, register sizes and resolution in the TD',
             },
           ],
         },
@@ -1289,7 +1027,7 @@ export const USE_CASES: {
           meetupNumber: 5,
           title: 'Empowering Industrial Automation with WoT (SICK)',
           fragments: [
-            { start: 608, timestamp: '10:08', label: 'Asset Hub tracks digital twins with lifecycle traceability.' },
+            { start: 608, timestamp: '10:08', label: 'Asset Hub tracks digital twins with lifecycle traceability' },
           ],
         },
       ],
@@ -1334,7 +1072,7 @@ export const USE_CASES: {
             {
               start: 465,
               timestamp: '7:45',
-              label: 'No-code blocks generated from TDs composed by domain experts in AgentSpeak.',
+              label: 'No-code blocks generated from TDs composed by domain experts in AgentSpeak',
             },
           ],
         },
@@ -1345,7 +1083,7 @@ export const USE_CASES: {
             {
               start: 245,
               timestamp: '4:05',
-              label: 'Hierarchical multi-agent architecture with a supervisor doing intent classification.',
+              label: 'Hierarchical multi-agent architecture with a supervisor doing intent classification',
             },
           ],
         },
@@ -1356,7 +1094,7 @@ export const USE_CASES: {
             {
               start: 227,
               timestamp: '3:47',
-              label: 'Agents map internal naming to shared ontologies for cross-agent execution.',
+              label: 'Agents map internal naming to shared ontologies for cross-agent execution',
             },
           ],
         },
@@ -1367,7 +1105,7 @@ export const USE_CASES: {
             {
               start: 889,
               timestamp: '14:49',
-              label: "Voice command 'huge coffee' mapped to the coffee-machine schema enum 'large'.",
+              label: "Voice command 'huge coffee' mapped to the coffee-machine schema enum 'large'",
             },
           ],
         },
@@ -1414,7 +1152,7 @@ export const USE_CASES: {
             {
               start: 227,
               timestamp: '3:47',
-              label: 'Mapping internal naming to shared ontologies for cross-agent reasoning.',
+              label: 'Mapping internal naming to shared ontologies for cross-agent reasoning',
             },
           ],
         },
@@ -1425,7 +1163,7 @@ export const USE_CASES: {
             {
               start: 889,
               timestamp: '14:49',
-              label: 'LLM translates natural language into a schema-valid device action.',
+              label: 'LLM translates natural language into a schema-valid device action',
             },
           ],
         },
@@ -1436,7 +1174,7 @@ export const USE_CASES: {
             {
               start: 387,
               timestamp: '6:27',
-              label: 'Agent and tool descriptions expressed in WoT Thing Description format.',
+              label: 'Agent and tool descriptions expressed in WoT Thing Description format',
             },
           ],
         },
@@ -1483,7 +1221,7 @@ export const USE_CASES: {
             {
               start: 507,
               timestamp: '8:27',
-              label: 'Mediators map device protocols to RDF/HTTP for a uniform edge and cloud API.',
+              label: 'Mediators map device protocols to RDF/HTTP for a uniform edge and cloud API',
             },
           ],
         },
@@ -1494,7 +1232,7 @@ export const USE_CASES: {
             {
               start: 590,
               timestamp: '9:50',
-              label: 'Local simulation talks to a Node-WoT server for instant feedback without cloud.',
+              label: 'Local simulation talks to a Node-WoT server for instant feedback without cloud',
             },
           ],
         },
@@ -1505,7 +1243,7 @@ export const USE_CASES: {
             {
               start: 274,
               timestamp: '4:34',
-              label: 'An edge hub manages IoT devices without requiring a central cloud.',
+              label: 'An edge hub manages IoT devices without requiring a central cloud',
             },
           ],
         },
@@ -1516,7 +1254,7 @@ export const USE_CASES: {
             {
               start: 121,
               timestamp: '2:01',
-              label: 'Integrating IoT with the edge-cloud continuum for orchestration.',
+              label: 'Integrating IoT with the edge-cloud continuum for orchestration',
             },
           ],
         },
@@ -1527,7 +1265,7 @@ export const USE_CASES: {
             {
               start: 643,
               timestamp: '10:43',
-              label: 'Processing allocated dynamically across the edge-cloud continuum.',
+              label: 'Processing allocated dynamically across the edge-cloud continuum',
             },
           ],
         },
@@ -1574,7 +1312,7 @@ export const USE_CASES: {
             {
               start: 547,
               timestamp: '9:07',
-              label: 'ACE-OAuth grants scoped access credentials for constrained resources.',
+              label: 'ACE-OAuth grants scoped access credentials for constrained resources',
             },
           ],
         },
@@ -1585,7 +1323,7 @@ export const USE_CASES: {
             {
               start: 614,
               timestamp: '10:14',
-              label: 'All communication passes through a hub with centralized authentication.',
+              label: 'All communication passes through a hub with centralized authentication',
             },
           ],
         },
@@ -1596,7 +1334,7 @@ export const USE_CASES: {
             {
               start: 1009,
               timestamp: '16:49',
-              label: 'Reputation-based selection across independent sensors prevents manipulation.',
+              label: 'Reputation-based selection across independent sensors prevents manipulation',
             },
           ],
         },
@@ -1604,7 +1342,7 @@ export const USE_CASES: {
           meetupNumber: 17,
           title: 'Web of Things + Solid at Munich Airport',
           fragments: [
-            { start: 352, timestamp: '5:52', label: 'Solid Access Control Lists enforce fine-grained permissions.' },
+            { start: 352, timestamp: '5:52', label: 'Solid Access Control Lists enforce fine-grained permissions' },
           ],
         },
       ],
@@ -1650,7 +1388,7 @@ export const USE_CASES: {
             {
               start: 527,
               timestamp: '8:47',
-              label: 'WoT as a standard, protocol-agnostic, W3C-governed device description language.',
+              label: 'WoT as a standard, protocol-agnostic, W3C-governed device description language',
             },
           ],
         },
@@ -1658,14 +1396,14 @@ export const USE_CASES: {
           meetupNumber: 23,
           title: 'Web of Things Manager (Dashjoin)',
           fragments: [
-            { start: 603, timestamp: '10:03', label: 'Forms auto-generated from JSON schema in Thing Descriptions.' },
+            { start: 603, timestamp: '10:03', label: 'Forms auto-generated from JSON schema in Thing Descriptions' },
           ],
         },
         {
           meetupNumber: 33,
           title: 'Multi-Agent Systems with Web of Things',
           fragments: [
-            { start: 1006, timestamp: '16:46', label: 'Agent acts map to WoT properties, actions and events.' },
+            { start: 1006, timestamp: '16:46', label: 'Agent acts map to WoT properties, actions and events' },
           ],
         },
         {
@@ -1675,7 +1413,7 @@ export const USE_CASES: {
             {
               start: 585,
               timestamp: '9:45',
-              label: 'A thing model catalog abstracts M-Bus, LoRaWAN and Modbus differences.',
+              label: 'A thing model catalog abstracts M-Bus, LoRaWAN and Modbus differences',
             },
           ],
         },
@@ -1719,7 +1457,7 @@ export const USE_CASES: {
           meetupNumber: 14,
           title: 'Smart Buildings & Digital Twins with WoT',
           fragments: [
-            { start: 77, timestamp: '1:17', label: 'Net-Zero targets could save UK businesses £6 billion a year.' },
+            { start: 77, timestamp: '1:17', label: 'Net-Zero targets could save UK businesses £6 billion a year' },
           ],
         },
         {
@@ -1729,7 +1467,7 @@ export const USE_CASES: {
             {
               start: 1249,
               timestamp: '20:49',
-              label: 'Energy dashboard normalizes heterogeneous sensor formats by floor.',
+              label: 'Energy dashboard normalizes heterogeneous sensor formats by floor',
             },
           ],
         },
@@ -1740,7 +1478,7 @@ export const USE_CASES: {
             {
               start: 482,
               timestamp: '8:02',
-              label: 'OPC UA energy model turns raw registers into readable power data.',
+              label: 'OPC UA energy model turns raw registers into readable power data',
             },
           ],
         },
@@ -1762,88 +1500,3 @@ export function getUseCaseBySlug(slug: string): UseCaseEntry | undefined {
 /** Backwards-compatible arrays of domains and trends for listing views. */
 export const DOMAINS: UseCaseEntry[] = Object.values(USE_CASES.DOMAINS);
 export const TECH_TRENDS: UseCaseEntry[] = Object.values(USE_CASES.TECH_TRENDS);
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: 'fujitsu',
-    name: 'Fujitsu',
-    content:
-      '"We are pleased to endorse the updated Web of Things (WoT) standard. This update has made the specifications more practical and applicable, and we committed to continuing our support. As an integrator, we aim to build out digital transformation (DX) solutions based on the global standards, driven by 5G and IoT technologies. Fujitsu believes that this approach will enable us to seamlessly connect to AI-powered solutions, thereby enhancing our ability to deliver innovative and efficient services to our clients."',
-    author:
-      'Bun Kimura, Head of Strategic Planning Department, Product Planning Div., Mobile System Business Unit, Fujitsu Limited',
-  },
-  {
-    id: 'hitachi',
-    name: 'Hitachi',
-    content:
-      '"To feedback effective solutions from digital twins to real-world systems, it is essential that we are able to quickly find devices in the physical environment and understand their roles and the context of the data which they provide. The updated recommendations to which we contributed in part, include enhanced capabilities such as Thing Discovery that will facilitate this link between the physical and cyberspace. We\'re enthusiastic that these leaps in cyber-physical systems will stimulate progress across diverse sectors and contribute to the realization of a better society."',
-    author: 'Itaru Nishizawa, Vice President and Executive Officer, Chief Technology Officer, Hitachi, Ltd.',
-  },
-  {
-    id: 'intel',
-    name: 'Intel',
-    content:
-      '"Intel congratulates the WoT WG for the updated WoT standard. This update solidifies support for the descriptive approach to IoT interoperability. IoT fragmentation remains a major barrier to greater IoT adoption. The WoT standard addresses a key challenge in the integration of IoT devices and services from different IoT ecosystems by providing a common format for describing data and interaction. This descriptive approach strongly differentiates it from other prescriptive approaches to IoT interoperability, and is designed to work with and enhance other standards, not compete with them."',
-    author: 'Eric Siow, Director, Web Standards and Ecosystem Strategies, Intel Corporation',
-  },
-  {
-    id: 'microsoft',
-    name: 'Microsoft',
-    content:
-      '"We built a reference implementation that uses the new Web of Things (WoT) release with our Azure OpenAI service to demonstrate how to automatically onboard industrial assets and were pleased with how easy it was to generate WoT Thing Descriptions automatically. In addition, the open-source WoT tools available from the Eclipse Foundation made automatic validation of the generated Thing Description an easy value add."',
-    author:
-      'Erich Barnstedt, Chief Architect Standards, Consortia and Industrial IoT, Azure Edge + Platform Team, Microsoft Corporation',
-  },
-  {
-    id: 'oracle',
-    name: 'Oracle',
-    content:
-      '"The Web of Things set of specifications, including the updated version 1.1, serves as a unifying framework to address complex IoT use cases requiring interoperability across diverse ecosystems at massive scale. Oracle is pleased with the progression of this set of specifications to the Recommendation status and is proud to have been an active contributor, leader, and co-editor of this effort. We believe that this will benefit customers and users by enabling much-needed interoperability between different vendor solutions for IoT."',
-    author: 'Jai Suri, Vice President, IoT and Blockchain Applications Development, Oracle',
-  },
-  {
-    id: 'siemens',
-    name: 'Siemens',
-    content:
-      '"Addressing today\'s market challenges, such as energy optimization, requires technologies that facilitate easy heterogeneous system integration and optimization implementation. The Web of Things, which is one of the key technology building blocks, facilitates addressing such challenges by integrating efficient diverse data sources from a variety of device systems. Our in-house solution sayWoT! implements the latest WoT Thing Description 1.1 and is successfully used in various IoT projects by customers. One of the highlights is the usage of sayWoT! in the Wunsiedel Energy Park, Germany, to enable smart control to ensure green hydrogen production."',
-    author: 'Thomas Kiessling, Chief Technology Officer at Smart Infrastructure, Siemens AG',
-  },
-  {
-    id: 've3',
-    name: 'VE3 (formerly "Banksly")',
-    content:
-      '"The W3C\'s enhanced Web of Things (WoT) standards, including WoT Architecture 1.1, WoT Thing Description 1.1, and WoT Discovery, represent a significant leap in addressing the challenges of IoT interoperability and system fragmentation. The harmonization of IoT devices and services brought about by these standards resonates with our pursuit of seamless and integrated digital solutions. We particularly appreciate the advancements in Thing Models and Discovery, which align with our focus on scalable, modular, and privacy-conscious digital infrastructure. Through the implementation of these WoT standards, we envision an accelerated progression in developing intelligent, interconnected systems that are not only efficient but also accessible and secure. This aligns perfectly with our mission at VE3 to drive technological advancements that are both innovative and sustainable."',
-    author: 'Manish Garg, Director, VE3',
-  },
-  {
-    id: 'siemens-microsoft',
-    name: 'Siemens & Microsoft Joint Statement',
-    isJoint: true,
-    quotes: [
-      {
-        quote:
-          '"This collaboration with Microsoft reflects our shared vision of enabling customers to harness the full potential of IoT through open standards and interoperability. The improved data access will provide portfolio managers with granular visibility into critical metrics such as energy efficiency and consumption. With IoT data often being siloed, this level of transparency is a game-changer for an industry seeking to optimize building operations and meet sustainability targets."',
-        author: 'Susanne Seitz, CEO, Siemens Smart Infrastructure Buildings',
-      },
-      {
-        quote:
-          '"Siemens shares Microsoft\'s focus on interoperability and open IoT standards. This collaboration is a significant step forward in making IoT data more actionable. Microsoft\'s strategy underscores our commitment to partnering with industry leaders to empower customers with greater choice and control over their IoT solutions."',
-        author: 'Erich Barnstedt, Senior Director & Architect, Corporate Standards Group, Microsoft',
-      },
-    ],
-  },
-  {
-    id: 'opc-foundation',
-    name: 'OPC Foundation',
-    content:
-      '"The OPC Foundation welcomes the new releases of the W3C Web of Things. Current OPC Foundation group activities are working on a solution how WoT Thing Descriptions can be used as a data model mapping service from non-OPC UA asset interfaces to OPC UA systems. This reduces the onboarding effort (e.g. of Modbus-based assets) and enables smooth use of asset data interfaces in the OPC UA address space. We see this as a big win for the manufacturing industry and another important step towards improving the interoperability of heterogeneous asset landscapes."',
-    author: 'Stefan Hoppe, President, OPC Foundation',
-  },
-  {
-    id: 'sifis-home',
-    name: 'SIFIS-Home Consortium',
-    content:
-      '"The SIFIS-Home consortium is looking forward to the new W3C Web of Things standards. The SIFIS-Home project focused on proving that it is possible to have more awareness on the risks and hazards related to the deployment of connected devices in the Home environment. The Thing Description model proved to be the ideal match to deliver the additional information."',
-    author: 'Luca Barbato, SIFIS-Home Consortium Member and Andrea Saracino, SIFIS-Home Project Coordinator',
-  },
-];
