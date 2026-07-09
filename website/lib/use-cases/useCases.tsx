@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import meetupLinks from './meetup_youtube_links.json';
 import { Standard } from './standards';
-
+import { TestimonialId } from './testimonials';
 export interface Domain {
   title: string;
   description: string;
@@ -60,6 +60,8 @@ export interface UseCaseEntry extends Domain {
   videos: UseCaseVideo[];
   /** Ids of standards (see STANDARDS) most relevant to this area. */
   standards: Standard[];
+  /** Ids of testimonials (see TESTIMONIALS) most relevant to this area. */
+  relatedTestimonials?: TestimonialId[];
 }
 
 /** Resolve the YouTube video id for a meetup number (undefined if unpublished). */
@@ -83,6 +85,7 @@ export const USE_CASES: {
     'smart-manufacturing': {
       slug: 'smart-manufacturing',
       standards: ['opcua', 'modbus', 'mqtt'],
+      relatedTestimonials: ['microsoft', 'opc-foundation', 'siemens-microsoft', 'fujitsu'],
       category: 'domain',
       title: 'Smart Manufacturing',
       description:
@@ -205,6 +208,7 @@ export const USE_CASES: {
     'energy-utilities': {
       slug: 'energy-utilities',
       standards: ['opcua', 'modbus', 'mqtt', 'saref'],
+      relatedTestimonials: ['siemens', 'siemens-microsoft'],
       category: 'domain',
       title: 'Energy & Utilities',
       description:
@@ -285,6 +289,7 @@ export const USE_CASES: {
     'smart-buildings': {
       slug: 'smart-buildings',
       standards: ['bacnet', 'knx', 'saref'],
+      relatedTestimonials: ['siemens-microsoft', 'siemens'],
       category: 'domain',
       title: 'Smart Buildings',
       description:
@@ -378,6 +383,7 @@ export const USE_CASES: {
     'smart-cities': {
       slug: 'smart-cities',
       standards: ['ngsild', 'mqtt'],
+      relatedTestimonials: ['hitachi'],
       category: 'domain',
       title: 'Smart Cities',
       description:
@@ -628,6 +634,7 @@ export const USE_CASES: {
     'consumer-smart-home': {
       slug: 'consumer-smart-home',
       standards: ['matter', 'zwave', 'mqtt'],
+      relatedTestimonials: ['sifis-home'],
       category: 'domain',
       title: 'Consumer & Smart Home',
       description:
@@ -792,6 +799,7 @@ export const USE_CASES: {
     'digital-twins': {
       slug: 'digital-twins',
       standards: ['jsonld', 'opcua'],
+      relatedTestimonials: ['hitachi', 'microsoft'],
       category: 'trend',
       title: 'Digital Twins',
       description:
@@ -1027,6 +1035,7 @@ export const USE_CASES: {
     'agentic-systems': {
       slug: 'agentic-systems',
       standards: ['jsonld'],
+      relatedTestimonials: ['fujitsu', 'microsoft'],
       category: 'trend',
       title: 'Agentic Systems',
       description:
@@ -1266,6 +1275,7 @@ export const USE_CASES: {
     'zero-trust-architecture': {
       slug: 'zero-trust-architecture',
       standards: ['oauth2'],
+      relatedTestimonials: ['sifis-home', 've3'],
       category: 'trend',
       title: 'Zero Trust Architecture',
       description:
@@ -1342,6 +1352,7 @@ export const USE_CASES: {
     'semantic-interoperability': {
       slug: 'semantic-interoperability',
       standards: ['jsonld', 'rdf', 'saref'],
+      relatedTestimonials: ['intel', 'oracle', 've3', 'fujitsu'],
       category: 'trend',
       title: 'Semantic Interoperability',
       description:
@@ -1414,6 +1425,7 @@ export const USE_CASES: {
     'sustainability-green-iot': {
       slug: 'sustainability-green-iot',
       standards: ['saref', 'mqtt', 'lorawan'],
+      relatedTestimonials: ['siemens'],
       category: 'trend',
       title: 'Sustainability & Green IoT',
       description:

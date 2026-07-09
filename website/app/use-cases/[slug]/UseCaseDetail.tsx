@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Route } from 'next';
 import {
   AspectRatio,
+  AccordionGroup,
   Box,
   Button,
   Card,
@@ -19,8 +20,10 @@ import { CheckCircle2, Clock, Play } from 'lucide-react';
 import { PageLayout } from '../../_components/PageLayout';
 import { PageSection } from '../../_components/PageSection';
 import { LinkCard } from '../../_components/LinkCard';
+import { TestimonialItem } from '../../_components/TestimonialItem';
 import { getUseCaseBySlug, UseCaseVideo, getMeetupVideoId } from '@/lib/use-cases/useCases';
 import { getStandards } from '@/lib/use-cases/standards';
+import { getTestimonials } from '@/lib/use-cases/testimonials';
 
 export function UseCaseDetail({ slug }: { slug: string }) {
   const entry = getUseCaseBySlug(slug);
@@ -30,6 +33,7 @@ export function UseCaseDetail({ slug }: { slug: string }) {
   }
 
   const standards = getStandards(entry.standards);
+  const testimonials = getTestimonials(entry.relatedTestimonials ?? []);
 
   return (
     <PageLayout title={entry.title} subtitle={entry.description} breadcrumbs={{ startingPath: '/use-cases' as Route }}>
@@ -93,6 +97,20 @@ export function UseCaseDetail({ slug }: { slug: string }) {
               />
             ))}
           </Box>
+        </PageSection>
+      )}
+
+      {testimonials.length > 0 && (
+        <PageSection title="Related Testimonials" id="testimonials">
+          <Typography level="body-md" mb={2}>
+            Leading organizations describe how the Web of Things supports work in this area. Select each to read their
+            testimonial.
+          </Typography>
+          <AccordionGroup disableDivider>
+            {testimonials.map((testimonial) => (
+              <TestimonialItem key={testimonial.id} testimonial={testimonial} />
+            ))}
+          </AccordionGroup>
         </PageSection>
       )}
 
