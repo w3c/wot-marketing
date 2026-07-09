@@ -20,8 +20,8 @@ import {
   Sun,
 } from 'lucide-react';
 import meetupLinks from './meetup_youtube_links.json';
-import { Standard } from './STANDARDS';
-import { TestimonialId } from './TESTIMONIALS';
+import { Standard } from './standardsData';
+import { TestimonialId } from './testimonialsData';
 export interface Domain {
   title: string;
   description: string;
@@ -751,7 +751,7 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Smart radiator thermostats (Bonix)',
+          title: 'Smart radiator thermostats (beyonnex)',
           description:
             'Millions of residential thermostats let residents control heating schedules remotely through a model-based digital twin',
           videos: [

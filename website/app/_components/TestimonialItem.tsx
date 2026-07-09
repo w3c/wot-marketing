@@ -1,7 +1,7 @@
 'use client';
 
 import { Accordion, AccordionDetails, AccordionSummary, Box, Stack, Typography } from '@mui/joy';
-import { Testimonial } from '@/lib/use-cases/testimonials';
+import { Testimonial } from '@/lib/use-cases/testimonialsData';
 
 export function TestimonialItem({
   testimonial,

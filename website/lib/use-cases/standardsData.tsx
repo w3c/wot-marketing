@@ -19,7 +19,7 @@ import {
   Lock,
   Activity,
 } from 'lucide-react';
-import { Resource } from './RESOURCES';
+import { Reference } from './referencesData';
 
 export type Standard =
   | 'jsonld'
@@ -47,7 +47,7 @@ export type Standard =
  * Each domain/trend entry references the ids of the standards relevant to it,
  * and every entry links to the standard's official website.
  */
-export const STANDARDS: Record<Standard, Resource> = {
+export const STANDARDS: Record<Standard, Reference> = {
   jsonld: {
     title: 'JSON-LD 1.1',
     description:
@@ -203,6 +203,6 @@ export const STANDARDS: Record<Standard, Resource> = {
 };
 
 /** Resolve the standards relevant to a use-case entry from their ids. */
-export function getStandards(ids: Standard[]): Resource[] {
-  return ids.map((id) => STANDARDS[id]).filter((s): s is Resource => Boolean(s));
+export function getStandards(ids: Standard[]): Reference[] {
+  return ids.map((id) => STANDARDS[id]).filter((s): s is Reference => Boolean(s));
 }

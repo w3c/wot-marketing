@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { UseCaseDetail } from './UseCaseDetail';
-import { getAllUseCases, getUseCaseBySlug } from '@/lib/use-cases/USE_CASES';
+import { getAllUseCases, getUseCaseBySlug } from '@/lib/use-cases/useCasesData';
 
 export function generateStaticParams() {
   return getAllUseCases().map((entry) => ({ slug: entry.slug }));

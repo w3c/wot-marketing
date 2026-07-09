@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import Image from 'next/image';
 import youtubeIcon from '@/public/youtube.png';
 
-export interface Resource {
+export interface Reference {
   title: string;
   description: ReactNode;
   url: string;
@@ -12,7 +12,7 @@ export interface Resource {
   icon: ReactNode;
 }
 
-export const RESOURCES: Resource[] = [
+export const USE_CASES_REFERENCES: Reference[] = [
   {
     title: 'WoT Community Group Case Studies',
     description: (
