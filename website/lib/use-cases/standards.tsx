@@ -22,12 +22,6 @@ import {
 import { Resource } from './resources';
 
 export type Standard =
-  | 'wot'
-  | 'td'
-  | 'architecture'
-  | 'binding'
-  | 'discovery'
-  | 'security'
   | 'jsonld'
   | 'rdf'
   | 'owl'
@@ -54,54 +48,6 @@ export type Standard =
  * and every entry links to the standard's official website.
  */
 export const STANDARDS: Record<Standard, Resource> = {
-  wot: {
-    title: 'W3C Web of Things (WoT)',
-    description:
-      'The W3C standardization effort providing interoperable building blocks that connect IoT devices and services across platforms.',
-    url: 'https://www.w3.org/WoT/',
-    urlLabel: 'w3.org/WoT',
-    icon: <Globe size={24} />,
-  },
-  td: {
-    title: 'WoT Thing Description 1.1',
-    description:
-      'The W3C Recommendation defining the machine-readable metadata format that describes a Thing’s properties, actions and events.',
-    url: 'https://www.w3.org/TR/wot-thing-description11/',
-    urlLabel: 'w3.org/TR/wot-thing-description11',
-    icon: <FileText size={24} />,
-  },
-  architecture: {
-    title: 'WoT Architecture 1.1',
-    description:
-      'The W3C Recommendation describing the abstract architecture, terminology and building blocks of the Web of Things.',
-    url: 'https://www.w3.org/TR/wot-architecture11/',
-    urlLabel: 'w3.org/TR/wot-architecture11',
-    icon: <Network size={24} />,
-  },
-  binding: {
-    title: 'WoT Binding Templates',
-    description:
-      'W3C guidance for mapping Thing Description interactions onto concrete protocols such as HTTP, MQTT, Modbus, OPC UA and more.',
-    url: 'https://www.w3.org/TR/wot-binding-templates/',
-    urlLabel: 'w3.org/TR/wot-binding-templates',
-    icon: <Workflow size={24} />,
-  },
-  discovery: {
-    title: 'WoT Discovery',
-    description:
-      'The W3C Recommendation defining how Thing Descriptions are discovered securely across networks and directories.',
-    url: 'https://www.w3.org/TR/wot-discovery/',
-    urlLabel: 'w3.org/TR/wot-discovery',
-    icon: <QrCode size={24} />,
-  },
-  security: {
-    title: 'WoT Security & Privacy Guidelines',
-    description:
-      'The W3C guidance describing security and privacy considerations and best practices for building Web of Things systems.',
-    url: 'https://www.w3.org/TR/wot-security/',
-    urlLabel: 'w3.org/TR/wot-security',
-    icon: <ShieldCheck size={24} />,
-  },
   jsonld: {
     title: 'JSON-LD 1.1',
     description:

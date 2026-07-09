@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import {
-  FileText,
   Network,
   Factory,
   Zap,
@@ -19,16 +18,9 @@ import {
   Lock,
   Workflow,
   Sun,
-  Globe,
-  FileCode,
-  Cpu,
-  Radio,
-  Boxes,
-  Braces,
 } from 'lucide-react';
 import meetupLinks from './meetup_youtube_links.json';
 import { Standard } from './standards';
-import { Resource } from './resources';
 
 export interface Domain {
   title: string;
@@ -90,7 +82,7 @@ export const USE_CASES: {
   DOMAINS: {
     'smart-manufacturing': {
       slug: 'smart-manufacturing',
-      standards: ['wot', 'td', 'binding', 'opcua', 'modbus', 'mqtt'],
+      standards: ['opcua', 'modbus', 'mqtt'],
       category: 'domain',
       title: 'Smart Manufacturing',
       description:
@@ -212,7 +204,7 @@ export const USE_CASES: {
     },
     'energy-utilities': {
       slug: 'energy-utilities',
-      standards: ['wot', 'td', 'opcua', 'modbus', 'mqtt', 'saref'],
+      standards: ['opcua', 'modbus', 'mqtt', 'saref'],
       category: 'domain',
       title: 'Energy & Utilities',
       description:
@@ -292,7 +284,7 @@ export const USE_CASES: {
     },
     'smart-buildings': {
       slug: 'smart-buildings',
-      standards: ['wot', 'td', 'binding', 'bacnet', 'knx', 'saref'],
+      standards: ['bacnet', 'knx', 'saref'],
       category: 'domain',
       title: 'Smart Buildings',
       description:
@@ -385,7 +377,7 @@ export const USE_CASES: {
     },
     'smart-cities': {
       slug: 'smart-cities',
-      standards: ['wot', 'td', 'discovery', 'ngsild', 'mqtt'],
+      standards: ['ngsild', 'mqtt'],
       category: 'domain',
       title: 'Smart Cities',
       description:
@@ -459,7 +451,7 @@ export const USE_CASES: {
     },
     healthcare: {
       slug: 'healthcare',
-      standards: ['wot', 'td', 'security', 'fhir', 'mqtt'],
+      standards: ['fhir', 'mqtt'],
       category: 'domain',
       title: 'Healthcare & Well-being',
       description:
@@ -502,7 +494,7 @@ export const USE_CASES: {
     },
     agriculture: {
       slug: 'agriculture',
-      standards: ['wot', 'td', 'isobus', 'lorawan', 'mqtt'],
+      standards: ['isobus', 'lorawan', 'mqtt'],
       category: 'domain',
       title: 'Agriculture',
       description:
@@ -582,7 +574,7 @@ export const USE_CASES: {
     },
     'transportation-logistics': {
       slug: 'transportation-logistics',
-      standards: ['wot', 'td', 'gs1', 'discovery', 'mqtt'],
+      standards: ['gs1', 'mqtt'],
       category: 'domain',
       title: 'Transportation & Logistics',
       description:
@@ -635,7 +627,7 @@ export const USE_CASES: {
     },
     'consumer-smart-home': {
       slug: 'consumer-smart-home',
-      standards: ['wot', 'td', 'matter', 'zwave', 'mqtt'],
+      standards: ['matter', 'zwave', 'mqtt'],
       category: 'domain',
       title: 'Consumer & Smart Home',
       description:
@@ -732,7 +724,7 @@ export const USE_CASES: {
     },
     'environment-monitoring': {
       slug: 'environment-monitoring',
-      standards: ['wot', 'td', 'lorawan', 'coap', 'mqtt'],
+      standards: ['lorawan', 'coap', 'mqtt'],
       category: 'domain',
       title: 'Environment Monitoring',
       description:
@@ -799,7 +791,7 @@ export const USE_CASES: {
   TECH_TRENDS: {
     'digital-twins': {
       slug: 'digital-twins',
-      standards: ['wot', 'td', 'architecture', 'jsonld', 'opcua'],
+      standards: ['jsonld', 'opcua'],
       category: 'trend',
       title: 'Digital Twins',
       description:
@@ -901,7 +893,7 @@ export const USE_CASES: {
     },
     'eu-cyber-resiliency-act': {
       slug: 'eu-cyber-resiliency-act',
-      standards: ['wot', 'td', 'security', 'cra', 'architecture'],
+      standards: ['cra'],
       category: 'trend',
       title: 'EU Cyber Resiliency Act',
       description:
@@ -969,7 +961,7 @@ export const USE_CASES: {
     },
     'digital-product-passport': {
       slug: 'digital-product-passport',
-      standards: ['wot', 'td', 'jsonld', 'gs1', 'cra'],
+      standards: ['jsonld', 'gs1', 'cra'],
       category: 'trend',
       title: 'Digital Product Passport',
       description:
@@ -1034,7 +1026,7 @@ export const USE_CASES: {
     },
     'agentic-systems': {
       slug: 'agentic-systems',
-      standards: ['wot', 'td', 'discovery', 'jsonld', 'architecture'],
+      standards: ['jsonld'],
       category: 'trend',
       title: 'Agentic Systems',
       description:
@@ -1113,7 +1105,7 @@ export const USE_CASES: {
     },
     'neurosymbolic-ai': {
       slug: 'neurosymbolic-ai',
-      standards: ['wot', 'td', 'jsonld', 'rdf', 'owl'],
+      standards: ['jsonld', 'rdf', 'owl'],
       category: 'trend',
       title: 'Neurosymbolic AI',
       description:
@@ -1182,7 +1174,7 @@ export const USE_CASES: {
     },
     'edge-computing': {
       slug: 'edge-computing',
-      standards: ['wot', 'td', 'binding', 'coap', 'mqtt'],
+      standards: ['coap', 'mqtt'],
       category: 'trend',
       title: 'Edge Computing',
       description:
@@ -1273,7 +1265,7 @@ export const USE_CASES: {
     },
     'zero-trust-architecture': {
       slug: 'zero-trust-architecture',
-      standards: ['wot', 'td', 'security', 'discovery', 'oauth2'],
+      standards: ['oauth2'],
       category: 'trend',
       title: 'Zero Trust Architecture',
       description:
@@ -1349,7 +1341,7 @@ export const USE_CASES: {
     },
     'semantic-interoperability': {
       slug: 'semantic-interoperability',
-      standards: ['wot', 'td', 'jsonld', 'rdf', 'saref'],
+      standards: ['jsonld', 'rdf', 'saref'],
       category: 'trend',
       title: 'Semantic Interoperability',
       description:
@@ -1421,7 +1413,7 @@ export const USE_CASES: {
     },
     'sustainability-green-iot': {
       slug: 'sustainability-green-iot',
-      standards: ['wot', 'td', 'saref', 'mqtt', 'lorawan'],
+      standards: ['saref', 'mqtt', 'lorawan'],
       category: 'trend',
       title: 'Sustainability & Green IoT',
       description:
