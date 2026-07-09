@@ -45,6 +45,17 @@ export interface UseCaseVideo {
   fragments: UseCaseFragment[];
 }
 
+/**
+ * A real-life example drawn from the meetup recordings, together with the
+ * referenced recordings and timestamped fragments that expand on it.
+ */
+export interface RealWorldUseCase {
+  title: string;
+  description: string;
+  /** Meetup recordings with timestamped fragments that tell more about this example. */
+  videos: UseCaseVideo[];
+}
+
 /** Extended content used to render a dedicated page for a domain or trend. */
 export interface UseCaseEntry extends Domain {
   /** URL slug and lookup id. */
@@ -54,10 +65,8 @@ export interface UseCaseEntry extends Domain {
   howWoT: string;
   /** Key benefits WoT brings to this area. */
   benefits: string[];
-  /** Real-life use cases drawn from the meetup recordings. */
-  realWorldUseCases: { title: string; description: string }[];
-  /** Referenced meetup recordings with timestamped fragments. */
-  videos: UseCaseVideo[];
+  /** Real-life use cases drawn from the meetup recordings, each with its supporting recordings. */
+  realWorldUseCases: RealWorldUseCase[];
   /** Ids of standards (see STANDARDS) most relevant to this area. */
   standards: Standard[];
   /** Ids of testimonials (see TESTIMONIALS) most relevant to this area. */
@@ -104,102 +113,107 @@ export const USE_CASES: {
           title: 'OT/IT convergence at SICK',
           description:
             'SICK exposes sensors and controllers through thing models, mapping edge data into cloud digital twins while preserving product relationships',
+          videos: [
+            {
+              meetupNumber: 5,
+              title: 'Empowering Industrial Automation with WoT (SICK)',
+              fragments: [
+                {
+                  start: 234,
+                  timestamp: '3:54',
+                  label:
+                    'Transferring controller and sensor data from the edge to the cloud with their product information',
+                },
+                {
+                  start: 286,
+                  timestamp: '4:46',
+                  label: 'Contract-first thing models defining product interactions before implementation',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Cross-stack asset onboarding (Siemens & Microsoft)',
           description:
             'A Siemens PAC energy meter is described once and consumed unchanged across different vendor integration stacks and mapped to the OPC UA information model',
+          videos: [
+            {
+              meetupNumber: 6,
+              title: 'Automated Industry Asset Onboarding (Siemens & Microsoft)',
+              fragments: [
+                {
+                  start: 233,
+                  timestamp: '3:53',
+                  label: 'Field-level heterogeneity: many vendors, protocols and security requirements',
+                },
+                {
+                  start: 1214,
+                  timestamp: '20:14',
+                  label: 'Adding the OPC UA companion specification to a Siemens PAC 4200 Thing Description',
+                },
+              ],
+            },
+            {
+              meetupNumber: 20,
+              title: 'Siemens Smart Connector & Thing Model Catalog',
+              fragments: [
+                {
+                  start: 45,
+                  timestamp: '0:45',
+                  label: 'Electrical, building and substation devices unified via thing models',
+                },
+              ],
+            },
+            {
+              meetupNumber: 29,
+              title: 'OPC UA and Web of Things Binding',
+              fragments: [
+                {
+                  start: 239,
+                  timestamp: '3:59',
+                  label: 'OPC UA client-server interface as the manufacturing interoperability standard',
+                },
+                {
+                  start: 606,
+                  timestamp: '10:06',
+                  label: 'Mapping proprietary manufacturing assets to OPC UA using WoT descriptions',
+                },
+              ],
+            },
+            {
+              meetupNumber: 34,
+              title: 'Process OPC: WoT Device Onboarding',
+              fragments: [
+                {
+                  start: 374,
+                  timestamp: '6:14',
+                  label: 'Thing descriptions eliminate manual Modbus register mapping from Excel docs',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Simulated robot cells (SimIS)',
           description:
             'A virtual robot in CoppeliaSim moves in sync with the real robot through identical TDs, so control logic is tested in simulation and deployed without code changes',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 5,
-          title: 'Empowering Industrial Automation with WoT (SICK)',
-          fragments: [
+          videos: [
             {
-              start: 159,
-              timestamp: '2:39',
-              label: 'Connecting controllers and sensors to the cloud while preserving product data',
-            },
-            {
-              start: 286,
-              timestamp: '4:46',
-              label: 'Contract-first thing models defining product interactions before implementation',
-            },
-          ],
-        },
-        {
-          meetupNumber: 6,
-          title: 'Automated Industry Asset Onboarding (Siemens & Microsoft)',
-          fragments: [
-            {
-              start: 233,
-              timestamp: '3:53',
-              label: 'Field-level heterogeneity: many vendors, protocols and security requirements',
-            },
-            {
-              start: 1296,
-              timestamp: '21:36',
-              label: 'Mapping a Siemens PAC 4200 energy meter to the OPC UA model via a TD',
-            },
-          ],
-        },
-        {
-          meetupNumber: 12,
-          title: 'Interactable Digital Twins Using WoT and Simulation (SimIS)',
-          fragments: [
-            {
-              start: 510,
-              timestamp: '8:30',
-              label: 'A virtual robot moves in sync with the real robot through identical TDs',
-            },
-            {
-              start: 800,
-              timestamp: '13:20',
-              label: 'Framework: URDF import to TD enhancement to simulation interaction',
-            },
-          ],
-        },
-        {
-          meetupNumber: 20,
-          title: 'Siemens Smart Connector & Thing Model Catalog',
-          fragments: [
-            {
-              start: 45,
-              timestamp: '0:45',
-              label: 'Electrical, building and substation devices unified via thing models',
-            },
-          ],
-        },
-        {
-          meetupNumber: 29,
-          title: 'OPC UA and Web of Things Binding',
-          fragments: [
-            {
-              start: 239,
-              timestamp: '3:59',
-              label: 'OPC UA client-server interface as the manufacturing interoperability standard',
-            },
-            {
-              start: 606,
-              timestamp: '10:06',
-              label: 'Mapping proprietary manufacturing assets to OPC UA using WoT descriptions',
-            },
-          ],
-        },
-        {
-          meetupNumber: 34,
-          title: 'Process OPC: WoT Device Onboarding',
-          fragments: [
-            {
-              start: 374,
-              timestamp: '6:14',
-              label: 'Thing descriptions eliminate manual Modbus register mapping from Excel docs',
+              meetupNumber: 12,
+              title: 'Interactable Digital Twins Using WoT and Simulation (SimIS)',
+              fragments: [
+                {
+                  start: 510,
+                  timestamp: '8:30',
+                  label: 'A virtual robot moves in sync with the real robot through identical TDs',
+                },
+                {
+                  start: 800,
+                  timestamp: '13:20',
+                  label: 'Framework: URDF import to TD enhancement to simulation interaction',
+                },
+              ],
             },
           ],
         },
@@ -227,60 +241,64 @@ export const USE_CASES: {
           title: 'Power-meter onboarding (Process OPC)',
           description:
             "A power meter's TD is enriched with the OPC UA energy-management specification, streaming live measurements into unified monitoring in minutes.",
+          videos: [
+            {
+              meetupNumber: 34,
+              title: 'Process OPC: WoT Device Onboarding',
+              fragments: [
+                {
+                  start: 482,
+                  timestamp: '8:02',
+                  label: 'TD enriched with an OPC UA energy model for rapid power-meter integration',
+                },
+              ],
+            },
+            {
+              meetupNumber: 31,
+              title: 'Thing Model Catalog',
+              fragments: [
+                {
+                  start: 364,
+                  timestamp: '6:04',
+                  label: 'Standardized thing models avoid duplicating energy-device onboarding work',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Groundwater pump handover (GridForce)',
           description:
             'A WoT device database lets cloud teams understand pump capabilities and data resolution without direct communication with the embedded team',
+          videos: [
+            {
+              meetupNumber: 11,
+              title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
+              fragments: [
+                {
+                  start: 415,
+                  timestamp: '6:55',
+                  label: 'WoT as an information-handover mechanism between embedded and cloud teams',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Non-discoverable device connectivity (OPC UA binding)',
           description:
             'WoT thing descriptions solve interoperability for simple energy meters that cannot be auto-discovered',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 34,
-          title: 'Process OPC: WoT Device Onboarding',
-          fragments: [
+          videos: [
             {
-              start: 482,
-              timestamp: '8:02',
-              label: 'TD enriched with an OPC UA energy model for rapid power-meter integration',
-            },
-          ],
-        },
-        {
-          meetupNumber: 29,
-          title: 'OPC UA and Web of Things Binding',
-          fragments: [
-            {
-              start: 300,
-              timestamp: '5:00',
-              label: 'TDs give interoperability to non-discoverable energy meters using Modbus',
-            },
-          ],
-        },
-        {
-          meetupNumber: 11,
-          title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
-          fragments: [
-            {
-              start: 415,
-              timestamp: '6:55',
-              label: 'WoT as an information-handover mechanism between embedded and cloud teams',
-            },
-          ],
-        },
-        {
-          meetupNumber: 31,
-          title: 'Thing Model Catalog',
-          fragments: [
-            {
-              start: 364,
-              timestamp: '6:04',
-              label: 'Standardized thing models avoid duplicating energy-device onboarding work',
+              meetupNumber: 29,
+              title: 'OPC UA and Web of Things Binding',
+              fragments: [
+                {
+                  start: 300,
+                  timestamp: '5:00',
+                  label: 'TDs give interoperability to non-discoverable energy meters using Modbus',
+                },
+              ],
             },
           ],
         },
@@ -308,74 +326,83 @@ export const USE_CASES: {
           title: 'Net-Zero building optimization',
           description:
             'A gateway streams WoT data to a cloud building digital twin for energy modelling and space-utilization analytics against Net-Zero targets',
+          videos: [
+            {
+              meetupNumber: 14,
+              title: 'Smart Buildings & Digital Twins with WoT',
+              fragments: [
+                {
+                  start: 102,
+                  timestamp: '1:42',
+                  label: 'Net-Zero targets could save UK businesses £6 billion a year, motivating digitalization',
+                },
+                {
+                  start: 409,
+                  timestamp: '6:49',
+                  label: 'Cloud service streams WoT data into a building digital twin for long-term analytics',
+                },
+              ],
+            },
+            {
+              meetupNumber: 19,
+              title: 'WoT Thing Models in Real Estate',
+              fragments: [
+                {
+                  start: 487,
+                  timestamp: '8:07',
+                  label: 'Digital-twin APIs with access control for residents, installers and operators',
+                },
+              ],
+            },
+            {
+              meetupNumber: 23,
+              title: 'Web of Things Manager (Dashjoin)',
+              fragments: [
+                { start: 998, timestamp: '16:38', label: 'An LLM agent turns off unused lights in occupied offices' },
+              ],
+            },
+          ],
         },
         {
           title: 'BACnet binding',
           description:
             'A WoT binding automates configuration of BACnet field devices, bridging the dominant building-automation protocol to modern web apps',
+          videos: [
+            {
+              meetupNumber: 30,
+              title: 'BACnet and Web of Things Binding',
+              fragments: [
+                {
+                  start: 585,
+                  timestamp: '9:45',
+                  label: 'WoT chosen as a neutral, lightweight standard for building automation',
+                },
+                {
+                  start: 642,
+                  timestamp: '10:42',
+                  label:
+                    'A Thing Description tells a tool what a BACnet device can do — its properties, actions and events',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Smart-lock capabilities (Seam)',
           description:
             'The same API code programs access codes and reads battery status across Salto, Yale and Schlage locks',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 14,
-          title: 'Smart Buildings & Digital Twins with WoT',
-          fragments: [
+          videos: [
             {
-              start: 77,
-              timestamp: '1:17',
-              label: 'Net-Zero targets could save UK businesses £6 billion a year, motivating digitalization',
+              meetupNumber: 10,
+              title: 'Designing an API for the Physical World (Seam)',
+              fragments: [
+                {
+                  start: 904,
+                  timestamp: '15:04',
+                  label: 'Standard smart-lock capabilities: lock state, access codes, battery and networking',
+                },
+              ],
             },
-            {
-              start: 409,
-              timestamp: '6:49',
-              label: 'Cloud service streams WoT data into a building digital twin for long-term analytics',
-            },
-          ],
-        },
-        {
-          meetupNumber: 30,
-          title: 'BACnet and Web of Things Binding',
-          fragments: [
-            {
-              start: 414,
-              timestamp: '6:54',
-              label: 'WoT chosen as a neutral, lightweight standard for building automation',
-            },
-            { start: 587, timestamp: '9:47', label: 'Thing descriptions automate BACnet device configuration' },
-          ],
-        },
-        {
-          meetupNumber: 10,
-          title: 'Designing an API for the Physical World (Seam)',
-          fragments: [
-            {
-              start: 904,
-              timestamp: '15:04',
-              label: 'Standard smart-lock capabilities across Salto, Yale and Schlage brands',
-            },
-          ],
-        },
-        {
-          meetupNumber: 19,
-          title: 'WoT Thing Models in Real Estate',
-          fragments: [
-            {
-              start: 487,
-              timestamp: '8:07',
-              label: 'Digital-twin APIs with access control for residents, installers and operators',
-            },
-          ],
-        },
-        {
-          meetupNumber: 23,
-          title: 'Web of Things Manager (Dashjoin)',
-          fragments: [
-            { start: 952, timestamp: '15:52', label: 'An LLM agent turns off unused lights in occupied offices' },
           ],
         },
       ],
@@ -402,54 +429,58 @@ export const USE_CASES: {
           title: 'Public infrastructure as Things (Christian Paul)',
           description:
             'Library opening hours from OpenStreetMap and city bike-station availability are exposed as WoT Things with time-zone-aware properties',
+          videos: [
+            {
+              meetupNumber: 21,
+              title: 'Web of Things for Everyone (Christian Paul)',
+              fragments: [
+                {
+                  start: 258,
+                  timestamp: '4:18',
+                  label: 'Library opening hours from OpenStreetMap exposed as a WoT Thing',
+                },
+                {
+                  start: 488,
+                  timestamp: '8:08',
+                  label: 'City bike-sharing stations with live bike and slot availability',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Construction digital twins (KOGITO)',
           description:
             'The WoT Digital Twin Ontology represents construction-site twins built from satellite images, 3D scans and sensors across pilots in Austria, Denmark and Spain',
+          videos: [
+            {
+              meetupNumber: 16,
+              title: 'WoT Digital Twin Ontology for Construction',
+              fragments: [
+                {
+                  start: 221,
+                  timestamp: '3:41',
+                  label: 'Construction-site digital twins from satellite images, 3D scans and sensors',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Trustless climate data (ZoNa)',
           description:
             'Decentralized oracle networks aggregate city weather and climate sensors for parametric applications without trusting a single source',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 21,
-          title: 'Web of Things for Everyone (Christian Paul)',
-          fragments: [
+          videos: [
             {
-              start: 258,
-              timestamp: '4:18',
-              label: 'Library opening hours from OpenStreetMap exposed as a WoT Thing',
-            },
-            {
-              start: 488,
-              timestamp: '8:08',
-              label: 'City bike-sharing stations with live bike and slot availability',
-            },
-          ],
-        },
-        {
-          meetupNumber: 16,
-          title: 'WoT Digital Twin Ontology for Construction',
-          fragments: [
-            {
-              start: 221,
-              timestamp: '3:41',
-              label: 'Construction-site digital twins from satellite images, 3D scans and sensors',
-            },
-          ],
-        },
-        {
-          meetupNumber: 32,
-          title: 'ZoNa: Zero Trust Oracle Networks for IoT',
-          fragments: [
-            {
-              start: 1009,
-              timestamp: '16:49',
-              label: 'Decentralized oracle networks aggregate sensors to prevent data manipulation',
+              meetupNumber: 32,
+              title: 'ZoNa: Zero Trust Oracle Networks for IoT',
+              fragments: [
+                {
+                  start: 1009,
+                  timestamp: '16:49',
+                  label: 'Decentralized oracle networks aggregate sensors to prevent data manipulation',
+                },
+              ],
             },
           ],
         },
@@ -476,24 +507,36 @@ export const USE_CASES: {
           title: 'Malaria diagnostics (OpenFlexure)',
           description:
             'An automated 3D-printed microscope supports quality assurance and technician training for malaria diagnosis in sub-Saharan Africa',
+          videos: [
+            {
+              meetupNumber: 13,
+              title: 'Open Flexure Microscope & Web of Things',
+              fragments: [
+                {
+                  start: 149,
+                  timestamp: '2:29',
+                  label: 'Automated microscope for malaria-diagnosis quality assurance and training',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Remote pathology',
           description:
             'The microscope acts as a whole-slide imager so experts in different locations provide diagnoses without transporting samples',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 13,
-          title: 'Open Flexure Microscope & Web of Things',
-          fragments: [
+          videos: [
             {
-              start: 149,
-              timestamp: '2:29',
-              label: 'Automated microscope for malaria-diagnosis quality assurance and training',
+              meetupNumber: 13,
+              title: 'Open Flexure Microscope & Web of Things',
+              fragments: [
+                {
+                  start: 406,
+                  timestamp: '6:46',
+                  label: 'Whole-slide imaging for medical training and remote pathology',
+                },
+              ],
             },
-            { start: 406, timestamp: '6:46', label: 'Whole-slide imaging for medical training and remote pathology' },
           ],
         },
       ],
@@ -519,60 +562,64 @@ export const USE_CASES: {
           title: 'Autonomous tractor (SERIA)',
           description:
             'A tractor follows GPS waypoints to harvest fields, controlled through TDs exposing its controller, waypoint service, AI obstacle avoidance and human-in-the-loop service',
+          videos: [
+            {
+              meetupNumber: 7,
+              title: 'Autonomous Agents on the Web of Things (SERIA)',
+              fragments: [
+                {
+                  start: 324,
+                  timestamp: '5:24',
+                  label: 'Autonomous tractor following GPS waypoints to harvest fields via TDs',
+                },
+              ],
+            },
+            {
+              meetupNumber: 13,
+              title: 'Open Flexure Microscope & Web of Things',
+              fragments: [
+                {
+                  start: 460,
+                  timestamp: '7:40',
+                  label: 'Soil-microbiome analysis to educate farmers about agrochemical effects',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Groundwater pumps (GridForce)',
           description:
             'Firmware-driven pumps in an Arizona facility irrigate crops and supply livestock, with operating instructions handed over via WoT',
+          videos: [
+            {
+              meetupNumber: 11,
+              title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
+              fragments: [
+                {
+                  start: 240,
+                  timestamp: '4:00',
+                  label: 'Groundwater pumps for livestock and irrigation handed over via WoT',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Parametric crop insurance (ZoNa)',
           description:
             'Multiple independent weather stations trigger blockchain smart-contract payouts automatically when rainfall thresholds are missed',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 7,
-          title: 'Autonomous Agents on the Web of Things (SERIA)',
-          fragments: [
+          videos: [
             {
-              start: 324,
-              timestamp: '5:24',
-              label: 'Autonomous tractor following GPS waypoints to harvest fields via TDs',
-            },
-          ],
-        },
-        {
-          meetupNumber: 11,
-          title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
-          fragments: [
-            {
-              start: 240,
-              timestamp: '4:00',
-              label: 'Groundwater pumps for livestock and irrigation handed over via WoT',
-            },
-          ],
-        },
-        {
-          meetupNumber: 13,
-          title: 'Open Flexure Microscope & Web of Things',
-          fragments: [
-            {
-              start: 460,
-              timestamp: '7:40',
-              label: 'Soil-microbiome analysis to educate farmers about agrochemical effects',
-            },
-          ],
-        },
-        {
-          meetupNumber: 32,
-          title: 'ZoNa: Zero Trust Oracle Networks for IoT',
-          fragments: [
-            {
-              start: 788,
-              timestamp: '13:08',
-              label: 'Parametric insurance triggers payouts from independent weather stations',
+              meetupNumber: 32,
+              title: 'ZoNa: Zero Trust Oracle Networks for IoT',
+              fragments: [
+                {
+                  start: 788,
+                  timestamp: '13:08',
+                  label: 'Parametric insurance triggers payouts from independent weather stations',
+                },
+              ],
             },
           ],
         },
@@ -599,33 +646,35 @@ export const USE_CASES: {
           title: 'Munich Airport baggage handling',
           description:
             'Three RGBD cameras and a photo-electric sensor capture luggage images to extract dimensions and colour, optimizing aircraft loading, with WoT+Solid storage',
+          videos: [
+            {
+              meetupNumber: 17,
+              title: 'Web of Things + Solid at Munich Airport',
+              fragments: [
+                {
+                  start: 1468,
+                  timestamp: '24:28',
+                  label: 'Cameras and sensors extract luggage dimensions and colour to optimize loading',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'City bike fleet (Christian Paul)',
           description:
             'Bike-sharing stations expose available bikes and free slots as standard WoT properties for real-time fleet visibility',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 17,
-          title: 'Web of Things + Solid at Munich Airport',
-          fragments: [
+          videos: [
             {
-              start: 1468,
-              timestamp: '24:28',
-              label: 'Cameras and sensors extract luggage dimensions and colour to optimize loading',
-            },
-          ],
-        },
-        {
-          meetupNumber: 21,
-          title: 'Web of Things for Everyone (Christian Paul)',
-          fragments: [
-            {
-              start: 488,
-              timestamp: '8:08',
-              label: 'City bike-sharing stations with live bike and parking-slot availability',
+              meetupNumber: 21,
+              title: 'Web of Things for Everyone (Christian Paul)',
+              fragments: [
+                {
+                  start: 488,
+                  timestamp: '8:08',
+                  label: 'City bike-sharing stations with live bike and parking-slot availability',
+                },
+              ],
             },
           ],
         },
@@ -653,77 +702,83 @@ export const USE_CASES: {
           title: 'Universal device API (Seam)',
           description:
             'Standard capabilities program Airbnb guest access codes across brands, handling per-device quirks through capability-aware assist functions',
+          videos: [
+            {
+              meetupNumber: 10,
+              title: 'Designing an API for the Physical World (Seam)',
+              fragments: [
+                {
+                  start: 322,
+                  timestamp: '5:22',
+                  label: 'Difficult manufacturer APIs: dated SOAP interfaces and 900-page PDFs',
+                },
+                {
+                  start: 1442,
+                  timestamp: '24:02',
+                  label: 'Programming Airbnb guest access codes via capability-aware assist functions',
+                },
+              ],
+            },
+            {
+              meetupNumber: 25,
+              title: 'Agentic Systems (Deutsche Telekom)',
+              fragments: [
+                {
+                  start: 1263,
+                  timestamp: '21:03',
+                  label: 'An LLM discovers WoT smart-home devices and converts them into agent tools',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Matter bridge',
           description:
             "Matter's hierarchical device model is mapped to WoT properties, actions and events for a unified smart-home abstraction.",
+          videos: [
+            {
+              meetupNumber: 15,
+              title: 'Bridging Matter & Web of Things',
+              fragments: [
+                {
+                  start: 171,
+                  timestamp: '2:51',
+                  label: 'Matter as an open local-connectivity standard abstracted through WoT',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Smart radiator thermostats (Bonix)',
           description:
             'Millions of residential thermostats let residents control heating schedules remotely through a model-based digital twin',
+          videos: [
+            {
+              meetupNumber: 19,
+              title: 'WoT Thing Models in Real Estate',
+              fragments: [
+                {
+                  start: 170,
+                  timestamp: '2:50',
+                  label: 'Smart radiator thermostats let residents control heating remotely',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Visual automation (BLAST)',
           description:
             "Non-programmers snap together blocks generated from TDs to make a button change a Bluetooth bulb's colour.",
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 10,
-          title: 'Designing an API for the Physical World (Seam)',
-          fragments: [
+          videos: [
             {
-              start: 293,
-              timestamp: '4:53',
-              label: 'Difficult manufacturer APIs: dated SOAP interfaces and 900-page PDFs',
-            },
-            {
-              start: 1442,
-              timestamp: '24:02',
-              label: 'Programming Airbnb guest access codes via capability-aware assist functions',
-            },
-          ],
-        },
-        {
-          meetupNumber: 15,
-          title: 'Bridging Matter & Web of Things',
-          fragments: [
-            {
-              start: 63,
-              timestamp: '1:03',
-              label: 'Matter as an open local-connectivity standard abstracted through WoT',
-            },
-          ],
-        },
-        {
-          meetupNumber: 19,
-          title: 'WoT Thing Models in Real Estate',
-          fragments: [
-            {
-              start: 170,
-              timestamp: '2:50',
-              label: 'Smart radiator thermostats let residents control heating remotely',
-            },
-          ],
-        },
-        {
-          meetupNumber: 27,
-          title: 'BLAST Visual Programming',
-          fragments: [
-            { start: 1145, timestamp: '19:05', label: 'Button-triggered colour changes on a Bluetooth smart bulb' },
-          ],
-        },
-        {
-          meetupNumber: 25,
-          title: 'Agentic Systems (Deutsche Telekom)',
-          fragments: [
-            {
-              start: 1246,
-              timestamp: '20:46',
-              label: 'An LLM discovers WoT smart-home devices and converts them into agent tools',
+              meetupNumber: 27,
+              title: 'BLAST Visual Programming',
+              fragments: [
+                { start: 1145, timestamp: '19:05', label: 'Button-triggered colour changes on a Bluetooth smart bulb' },
+              ],
             },
           ],
         },
@@ -750,45 +805,49 @@ export const USE_CASES: {
           title: 'Soil microbiome analysis (OpenFlexure)',
           description:
             'A community group in Argentina uses the automated microscope to analyse soil microbiome and educate farmers about agrochemical effects',
+          videos: [
+            {
+              meetupNumber: 13,
+              title: 'Open Flexure Microscope & Web of Things',
+              fragments: [
+                { start: 460, timestamp: '7:40', label: 'Soil-microbiome analysis and farmer education in Argentina' },
+              ],
+            },
+          ],
         },
         {
           title: 'Trustless weather networks (ZoNa)',
           description:
             'Independent weather stations feed decentralized oracle networks with reputation-based selection to prevent data manipulation',
+          videos: [
+            {
+              meetupNumber: 32,
+              title: 'ZoNa: Zero Trust Oracle Networks for IoT',
+              fragments: [
+                {
+                  start: 1009,
+                  timestamp: '16:49',
+                  label: 'Reputation-based aggregation of independent sensors resists manipulation',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Sensor data integrity (GridForce)',
           description:
             "Ontology-backed TDs and SPARQL validation ensure processing pipelines never inflate a sensor's real resolution.",
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 13,
-          title: 'Open Flexure Microscope & Web of Things',
-          fragments: [
-            { start: 460, timestamp: '7:40', label: 'Soil-microbiome analysis and farmer education in Argentina' },
-          ],
-        },
-        {
-          meetupNumber: 32,
-          title: 'ZoNa: Zero Trust Oracle Networks for IoT',
-          fragments: [
+          videos: [
             {
-              start: 1009,
-              timestamp: '16:49',
-              label: 'Reputation-based aggregation of independent sensors resists manipulation',
-            },
-          ],
-        },
-        {
-          meetupNumber: 11,
-          title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
-          fragments: [
-            {
-              start: 631,
-              timestamp: '10:31',
-              label: 'Modelling sensor data lifecycle with resolution metadata in the TD',
+              meetupNumber: 11,
+              title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
+              fragments: [
+                {
+                  start: 631,
+                  timestamp: '10:31',
+                  label: 'Modelling sensor data lifecycle with resolution metadata in the TD',
+                },
+              ],
             },
           ],
         },
@@ -818,82 +877,86 @@ export const USE_CASES: {
           title: 'Cloud twins at SICK',
           description:
             'Edge-side TDs are synchronized into cloud digital twins with lifecycle traceability in the SICK Asset Hub',
+          videos: [
+            {
+              meetupNumber: 5,
+              title: 'Empowering Industrial Automation with WoT (SICK)',
+              fragments: [
+                {
+                  start: 859,
+                  timestamp: '14:19',
+                  label: 'Digital twins managed in the SICK Asset Hub with lifecycle traceability to physical devices',
+                },
+              ],
+            },
+            {
+              meetupNumber: 8,
+              title: 'Web of Things for Digital Twins at Schaeffler',
+              fragments: [
+                {
+                  start: 527,
+                  timestamp: '8:47',
+                  label: 'Product-centric thing models map properties, interactions and sensors',
+                },
+              ],
+            },
+            {
+              meetupNumber: 34,
+              title: 'Process OPC: WoT Device Onboarding',
+              fragments: [
+                {
+                  start: 962,
+                  timestamp: '16:02',
+                  label: 'Onboarding creates a digital representation in the OPC UA address space automatically',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Five-dimensional twin ontology',
           description:
             'The WoT Digital Twin Ontology represents entity, virtual entity, data, services and connections for construction-domain twins',
+          videos: [
+            {
+              meetupNumber: 16,
+              title: 'WoT Digital Twin Ontology for Construction',
+              fragments: [
+                {
+                  start: 426,
+                  timestamp: '7:06',
+                  label: 'Ontology represents entity, models, data, services and connections',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Simulated twins (SimIS)',
           description:
             'The simulation computes a robot reachable workspace and runs collision-checked dry-runs before the same logic drives the real robot',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 5,
-          title: 'Empowering Industrial Automation with WoT (SICK)',
-          fragments: [
+          videos: [
             {
-              start: 608,
-              timestamp: '10:08',
-              label: 'Asset Hub manages digital twins with lifecycle traceability to physical devices',
+              meetupNumber: 12,
+              title: 'Interactable Digital Twins Using WoT and Simulation (SimIS)',
+              fragments: [
+                {
+                  start: 1550,
+                  timestamp: '25:50',
+                  label: 'Dry-run testing detects collisions before the same logic drives the real robot',
+                },
+              ],
             },
-          ],
-        },
-        {
-          meetupNumber: 8,
-          title: 'Web of Things for Digital Twins at Schaeffler',
-          fragments: [
             {
-              start: 527,
-              timestamp: '8:47',
-              label: 'Product-centric thing models map properties, interactions and sensors',
-            },
-          ],
-        },
-        {
-          meetupNumber: 16,
-          title: 'WoT Digital Twin Ontology for Construction',
-          fragments: [
-            {
-              start: 426,
-              timestamp: '7:06',
-              label: 'Ontology represents entity, models, data, services and connections',
-            },
-          ],
-        },
-        {
-          meetupNumber: 12,
-          title: 'Interactable Digital Twins Using WoT and Simulation (SimIS)',
-          fragments: [
-            {
-              start: 1443,
-              timestamp: '24:03',
-              label: 'Dry-run testing detects collisions before the same logic drives the real robot',
-            },
-          ],
-        },
-        {
-          meetupNumber: 18,
-          title: 'Digital Twins & WoT in Structural Monitoring',
-          fragments: [
-            {
-              start: 1248,
-              timestamp: '20:48',
-              label: 'What-Twins auto-generates Markov models from observed device interactions',
-            },
-          ],
-        },
-        {
-          meetupNumber: 34,
-          title: 'Process OPC: WoT Device Onboarding',
-          fragments: [
-            {
-              start: 962,
-              timestamp: '16:02',
-              label: 'Onboarding creates a digital representation in the OPC UA address space automatically',
+              meetupNumber: 18,
+              title: 'Digital Twins & WoT in Structural Monitoring',
+              fragments: [
+                {
+                  start: 1248,
+                  timestamp: '20:48',
+                  label: 'What-Twins auto-generates Markov models from observed device interactions',
+                },
+              ],
             },
           ],
         },
@@ -920,48 +983,52 @@ export const USE_CASES: {
           title: 'Delegated authorization (NAMI)',
           description:
             'Guests receive scoped, time-limited access to room devices via ACE-OAuth authorization servers, a model for secure-by-design product access',
+          videos: [
+            {
+              meetupNumber: 4,
+              title: 'Delegated Authorization in the Web of Things (NAMI)',
+              fragments: [
+                {
+                  start: 398,
+                  timestamp: '6:38',
+                  label: 'ACE-OAuth adapts OAuth 2 to constrained devices and delegates authorization',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Reduced attack surface (HiVoT)',
           description:
             'Devices are never exposed directly; all access is mediated through a hub with centralized authentication',
+          videos: [
+            {
+              meetupNumber: 26,
+              title: 'HiVoT Edge Device',
+              fragments: [
+                {
+                  start: 614,
+                  timestamp: '10:14',
+                  label: 'No direct device access; a hub with centralized auth reduces attack surface',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Fine-grained permissions (Solid)',
           description: 'Access Control Lists give installers, operators and residents different resource permissions.',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 4,
-          title: 'Delegated Authorization in the Web of Things (NAMI)',
-          fragments: [
+          videos: [
             {
-              start: 547,
-              timestamp: '9:07',
-              label: 'ACE-OAuth delegates authorization for constrained IoT environments',
-            },
-          ],
-        },
-        {
-          meetupNumber: 26,
-          title: 'HiVoT Edge Device',
-          fragments: [
-            {
-              start: 614,
-              timestamp: '10:14',
-              label: 'No direct device access; a hub with centralized auth reduces attack surface',
-            },
-          ],
-        },
-        {
-          meetupNumber: 17,
-          title: 'Web of Things + Solid at Munich Airport',
-          fragments: [
-            {
-              start: 352,
-              timestamp: '5:52',
-              label: 'Solid Access Control Lists grant stakeholders fine-grained permissions',
+              meetupNumber: 17,
+              title: 'Web of Things + Solid at Munich Airport',
+              fragments: [
+                {
+                  start: 352,
+                  timestamp: '5:52',
+                  label: 'Solid Access Control Lists grant stakeholders fine-grained permissions',
+                },
+              ],
             },
           ],
         },
@@ -988,46 +1055,51 @@ export const USE_CASES: {
           title: 'Product-centric bearings (Schaeffler)',
           description:
             'Thing models map product properties, serial numbers and embedded sensors (load, lubrication) so customers query products through a REST API across their lifecycle',
+          videos: [
+            {
+              meetupNumber: 8,
+              title: 'Web of Things for Digital Twins at Schaeffler',
+              fragments: [
+                {
+                  start: 527,
+                  timestamp: '8:47',
+                  label:
+                    'Each produced product represented by a product-centric thing model of its properties and sensors',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Embedded specs via IDO (GridForce)',
           description:
             'An ISO Industrial Data Ontology model embeds sensor calibration, register sizes and step-size resolution inside the TD for downstream consumers',
+          videos: [
+            {
+              meetupNumber: 11,
+              title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
+              fragments: [
+                {
+                  start: 935,
+                  timestamp: '15:35',
+                  label: 'IDO model embeds calibration, register sizes and resolution in the TD',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Lifecycle traceability (SICK)',
           description:
             'The Asset Hub relates digital twins to physical devices with lifecycle traceability via semantic annotations',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 8,
-          title: 'Web of Things for Digital Twins at Schaeffler',
-          fragments: [
+          videos: [
             {
-              start: 560,
-              timestamp: '9:20',
-              label: 'schema.org semantic annotations carry product model, serial number and version',
+              meetupNumber: 5,
+              title: 'Empowering Industrial Automation with WoT (SICK)',
+              fragments: [
+                { start: 859, timestamp: '14:19', label: 'Asset Hub tracks digital twins with lifecycle traceability' },
+              ],
             },
-          ],
-        },
-        {
-          meetupNumber: 11,
-          title: 'Industrial Data Ontology for IoT Operating Instructions (GridForce)',
-          fragments: [
-            {
-              start: 935,
-              timestamp: '15:35',
-              label: 'IDO model embeds calibration, register sizes and resolution in the TD',
-            },
-          ],
-        },
-        {
-          meetupNumber: 5,
-          title: 'Empowering Industrial Automation with WoT (SICK)',
-          fragments: [
-            { start: 608, timestamp: '10:08', label: 'Asset Hub tracks digital twins with lifecycle traceability' },
           ],
         },
       ],
@@ -1053,60 +1125,64 @@ export const USE_CASES: {
         {
           title: 'No-code autonomous agents (SERIA)',
           description: 'Functional blocks generated from TDs let non-programmers compose agent programs in AgentSpeak.',
+          videos: [
+            {
+              meetupNumber: 7,
+              title: 'Autonomous Agents on the Web of Things (SERIA)',
+              fragments: [
+                {
+                  start: 465,
+                  timestamp: '7:45',
+                  label: 'No-code blocks generated from TDs composed by domain experts in AgentSpeak',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Multi-agent conversational AI (Deutsche Telekom)',
           description:
             'A supervisor agent classifies intent and routes to specialized sub-agents described in TD format',
+          videos: [
+            {
+              meetupNumber: 25,
+              title: 'Agentic Systems (Deutsche Telekom)',
+              fragments: [
+                {
+                  start: 245,
+                  timestamp: '4:05',
+                  label: 'Hierarchical multi-agent architecture with a supervisor doing intent classification',
+                },
+              ],
+            },
+            {
+              meetupNumber: 33,
+              title: 'Multi-Agent Systems with Web of Things',
+              fragments: [
+                {
+                  start: 227,
+                  timestamp: '3:47',
+                  label: 'Agents map internal naming to shared ontologies for cross-agent execution',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'LLM device orchestration (Dashjoin)',
           description:
             "An LLM with access to TD schemas maps natural language such as 'huge coffee' to a device's structured API.",
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 7,
-          title: 'Autonomous Agents on the Web of Things (SERIA)',
-          fragments: [
+          videos: [
             {
-              start: 465,
-              timestamp: '7:45',
-              label: 'No-code blocks generated from TDs composed by domain experts in AgentSpeak',
-            },
-          ],
-        },
-        {
-          meetupNumber: 25,
-          title: 'Agentic Systems (Deutsche Telekom)',
-          fragments: [
-            {
-              start: 245,
-              timestamp: '4:05',
-              label: 'Hierarchical multi-agent architecture with a supervisor doing intent classification',
-            },
-          ],
-        },
-        {
-          meetupNumber: 33,
-          title: 'Multi-Agent Systems with Web of Things',
-          fragments: [
-            {
-              start: 227,
-              timestamp: '3:47',
-              label: 'Agents map internal naming to shared ontologies for cross-agent execution',
-            },
-          ],
-        },
-        {
-          meetupNumber: 23,
-          title: 'Web of Things Manager (Dashjoin)',
-          fragments: [
-            {
-              start: 889,
-              timestamp: '14:49',
-              label: "Voice command 'huge coffee' mapped to the coffee-machine schema enum 'large'",
+              meetupNumber: 23,
+              title: 'Web of Things Manager (Dashjoin)',
+              fragments: [
+                {
+                  start: 902,
+                  timestamp: '15:02',
+                  label: "Voice command 'huge coffee' mapped to the coffee-machine schema enum 'large'",
+                },
+              ],
             },
           ],
         },
@@ -1133,49 +1209,53 @@ export const USE_CASES: {
           title: 'Ontology mapping across agents',
           description:
             'Agents map internal naming conventions to shared WoT ontologies, enabling cross-agent semantic translation and plan execution',
+          videos: [
+            {
+              meetupNumber: 33,
+              title: 'Multi-Agent Systems with Web of Things',
+              fragments: [
+                {
+                  start: 227,
+                  timestamp: '3:47',
+                  label: 'Mapping internal naming to shared ontologies for cross-agent reasoning',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Schema-grounded LLM commands (Dashjoin)',
           description:
             "An LLM maps 'huge coffee' to the coffee-machine schema enum 'large', translating language to structured APIs using TD schemas.",
+          videos: [
+            {
+              meetupNumber: 23,
+              title: 'Web of Things Manager (Dashjoin)',
+              fragments: [
+                {
+                  start: 902,
+                  timestamp: '15:02',
+                  label: 'LLM translates natural language into a schema-valid device action',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Agent and tool descriptions (Deutsche Telekom)',
           description:
             "WoT's JSON-LD semantics describe conversational agent and tool capabilities in a standardized, machine-understandable way.",
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 33,
-          title: 'Multi-Agent Systems with Web of Things',
-          fragments: [
+          videos: [
             {
-              start: 227,
-              timestamp: '3:47',
-              label: 'Mapping internal naming to shared ontologies for cross-agent reasoning',
-            },
-          ],
-        },
-        {
-          meetupNumber: 23,
-          title: 'Web of Things Manager (Dashjoin)',
-          fragments: [
-            {
-              start: 889,
-              timestamp: '14:49',
-              label: 'LLM translates natural language into a schema-valid device action',
-            },
-          ],
-        },
-        {
-          meetupNumber: 25,
-          title: 'Agentic Systems (Deutsche Telekom)',
-          fragments: [
-            {
-              start: 387,
-              timestamp: '6:27',
-              label: 'Agent and tool descriptions expressed in WoT Thing Description format',
+              meetupNumber: 25,
+              title: 'Agentic Systems (Deutsche Telekom)',
+              fragments: [
+                {
+                  start: 387,
+                  timestamp: '6:27',
+                  label: 'Agent and tool descriptions expressed in WoT Thing Description format',
+                },
+              ],
             },
           ],
         },
@@ -1202,71 +1282,76 @@ export const USE_CASES: {
           title: 'Edge-cloud mediators (Munich Airport)',
           description:
             'An edge orchestrator with mediators maps device protocols and encodings to RDF/HTTP, creating a uniform API at both edge and cloud',
+          videos: [
+            {
+              meetupNumber: 17,
+              title: 'Web of Things + Solid at Munich Airport',
+              fragments: [
+                {
+                  start: 846,
+                  timestamp: '14:06',
+                  label: 'Mediators map device protocols to RDF/HTTP for a uniform edge and cloud API',
+                },
+              ],
+            },
+            {
+              meetupNumber: 28,
+              title: 'Virtual Object Stack (Nephele Project)',
+              fragments: [
+                {
+                  start: 132,
+                  timestamp: '2:12',
+                  label: 'Integrating IoT with the edge-cloud continuum for orchestration',
+                },
+              ],
+            },
+            {
+              meetupNumber: 18,
+              title: 'Digital Twins & WoT in Structural Monitoring',
+              fragments: [
+                {
+                  start: 643,
+                  timestamp: '10:43',
+                  label: 'Processing allocated dynamically across the edge-cloud continuum',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Local simulation feedback (SimIS)',
           description:
             'CoppeliaSim runs on a laptop talking to a Node-WoT server over WebSockets, giving instant feedback without cloud infrastructure',
+          videos: [
+            {
+              meetupNumber: 12,
+              title: 'Interactable Digital Twins Using WoT and Simulation (SimIS)',
+              fragments: [
+                {
+                  start: 1257,
+                  timestamp: '20:57',
+                  label:
+                    'A Node-WoT server communicates with the simulator over WebSockets for local, cloud-free feedback',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Edge hub without cloud (HiVoT)',
           description:
             'Devices connect to a local edge hub for privacy-preserving automation with no external dependency',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 17,
-          title: 'Web of Things + Solid at Munich Airport',
-          fragments: [
+          videos: [
             {
-              start: 507,
-              timestamp: '8:27',
-              label: 'Mediators map device protocols to RDF/HTTP for a uniform edge and cloud API',
-            },
-          ],
-        },
-        {
-          meetupNumber: 12,
-          title: 'Interactable Digital Twins Using WoT and Simulation (SimIS)',
-          fragments: [
-            {
-              start: 590,
-              timestamp: '9:50',
-              label: 'Local simulation talks to a Node-WoT server for instant feedback without cloud',
-            },
-          ],
-        },
-        {
-          meetupNumber: 26,
-          title: 'HiVoT Edge Device',
-          fragments: [
-            {
-              start: 274,
-              timestamp: '4:34',
-              label: 'An edge hub manages IoT devices without requiring a central cloud',
-            },
-          ],
-        },
-        {
-          meetupNumber: 28,
-          title: 'Virtual Object Stack (Nephele Project)',
-          fragments: [
-            {
-              start: 121,
-              timestamp: '2:01',
-              label: 'Integrating IoT with the edge-cloud continuum for orchestration',
-            },
-          ],
-        },
-        {
-          meetupNumber: 18,
-          title: 'Digital Twins & WoT in Structural Monitoring',
-          fragments: [
-            {
-              start: 643,
-              timestamp: '10:43',
-              label: 'Processing allocated dynamically across the edge-cloud continuum',
+              meetupNumber: 26,
+              title: 'HiVoT Edge Device',
+              fragments: [
+                {
+                  start: 274,
+                  timestamp: '4:34',
+                  label: 'An edge hub manages IoT devices without requiring a central cloud',
+                },
+              ],
             },
           ],
         },
@@ -1294,57 +1379,61 @@ export const USE_CASES: {
           title: 'Delegated authorization (NAMI)',
           description:
             'ACE-OAuth authorization servers grant clients scoped access credentials for constrained IoT resources',
+          videos: [
+            {
+              meetupNumber: 4,
+              title: 'Delegated Authorization in the Web of Things (NAMI)',
+              fragments: [
+                {
+                  start: 398,
+                  timestamp: '6:38',
+                  label: 'ACE-OAuth adapts OAuth 2 to constrained devices and delegates authorization',
+                },
+              ],
+            },
+            {
+              meetupNumber: 17,
+              title: 'Web of Things + Solid at Munich Airport',
+              fragments: [
+                { start: 352, timestamp: '5:52', label: 'Solid Access Control Lists enforce fine-grained permissions' },
+              ],
+            },
+          ],
         },
         {
           title: 'Hub-mediated access (HiVoT)',
           description:
             'No direct consumer access to devices; all traffic passes through a hub with centralized authentication',
+          videos: [
+            {
+              meetupNumber: 26,
+              title: 'HiVoT Edge Device',
+              fragments: [
+                {
+                  start: 614,
+                  timestamp: '10:14',
+                  label: 'All communication passes through a hub with centralized authentication',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Trustless oracle networks (ZoNa)',
           description:
             'Blockchain plus WoT aggregates independent sensors with reputation-based selection so trust rests on the network, not one source',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 4,
-          title: 'Delegated Authorization in the Web of Things (NAMI)',
-          fragments: [
+          videos: [
             {
-              start: 547,
-              timestamp: '9:07',
-              label: 'ACE-OAuth grants scoped access credentials for constrained resources',
+              meetupNumber: 32,
+              title: 'ZoNa: Zero Trust Oracle Networks for IoT',
+              fragments: [
+                {
+                  start: 1009,
+                  timestamp: '16:49',
+                  label: 'Reputation-based selection across independent sensors prevents manipulation',
+                },
+              ],
             },
-          ],
-        },
-        {
-          meetupNumber: 26,
-          title: 'HiVoT Edge Device',
-          fragments: [
-            {
-              start: 614,
-              timestamp: '10:14',
-              label: 'All communication passes through a hub with centralized authentication',
-            },
-          ],
-        },
-        {
-          meetupNumber: 32,
-          title: 'ZoNa: Zero Trust Oracle Networks for IoT',
-          fragments: [
-            {
-              start: 1009,
-              timestamp: '16:49',
-              label: 'Reputation-based selection across independent sensors prevents manipulation',
-            },
-          ],
-        },
-        {
-          meetupNumber: 17,
-          title: 'Web of Things + Solid at Munich Airport',
-          fragments: [
-            { start: 352, timestamp: '5:52', label: 'Solid Access Control Lists enforce fine-grained permissions' },
           ],
         },
       ],
@@ -1371,52 +1460,60 @@ export const USE_CASES: {
           title: 'Standard device description language (Siemens & Microsoft)',
           description:
             'A protocol-agnostic, extensible, W3C-governed TD becomes the common language across integration stacks',
+          videos: [
+            {
+              meetupNumber: 6,
+              title: 'Automated Industry Asset Onboarding (Siemens & Microsoft)',
+              fragments: [
+                {
+                  start: 527,
+                  timestamp: '8:47',
+                  label: 'WoT as a standard, protocol-agnostic, W3C-governed device description language',
+                },
+              ],
+            },
+            {
+              meetupNumber: 20,
+              title: 'Siemens Smart Connector & Thing Model Catalog',
+              fragments: [
+                {
+                  start: 585,
+                  timestamp: '9:45',
+                  label: 'A thing model catalog abstracts M-Bus, LoRaWAN and Modbus differences',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Auto-generated UIs (Dashjoin)',
           description:
             'Forms are generated from the JSON schema in a TD, so one platform manages any device without device-specific code',
+          videos: [
+            {
+              meetupNumber: 23,
+              title: 'Web of Things Manager (Dashjoin)',
+              fragments: [
+                {
+                  start: 603,
+                  timestamp: '10:03',
+                  label: 'Forms auto-generated from JSON schema in Thing Descriptions',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Agent-to-device mapping',
           description:
             'Agent acts such as tell, ask and achieve map to WoT interaction affordances for protocol-agnostic device control',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 6,
-          title: 'Automated Industry Asset Onboarding (Siemens & Microsoft)',
-          fragments: [
+          videos: [
             {
-              start: 527,
-              timestamp: '8:47',
-              label: 'WoT as a standard, protocol-agnostic, W3C-governed device description language',
-            },
-          ],
-        },
-        {
-          meetupNumber: 23,
-          title: 'Web of Things Manager (Dashjoin)',
-          fragments: [
-            { start: 603, timestamp: '10:03', label: 'Forms auto-generated from JSON schema in Thing Descriptions' },
-          ],
-        },
-        {
-          meetupNumber: 33,
-          title: 'Multi-Agent Systems with Web of Things',
-          fragments: [
-            { start: 1006, timestamp: '16:46', label: 'Agent acts map to WoT properties, actions and events' },
-          ],
-        },
-        {
-          meetupNumber: 20,
-          title: 'Siemens Smart Connector & Thing Model Catalog',
-          fragments: [
-            {
-              start: 585,
-              timestamp: '9:45',
-              label: 'A thing model catalog abstracts M-Bus, LoRaWAN and Modbus differences',
+              meetupNumber: 33,
+              title: 'Multi-Agent Systems with Web of Things',
+              fragments: [
+                { start: 1006, timestamp: '16:46', label: 'Agent acts map to WoT properties, actions and events' },
+              ],
             },
           ],
         },
@@ -1444,45 +1541,49 @@ export const USE_CASES: {
           title: 'Net-Zero building twins',
           description:
             'A building digital twin models energy and space utilization, targeting the billions in savings lost to underused buildings',
+          videos: [
+            {
+              meetupNumber: 14,
+              title: 'Smart Buildings & Digital Twins with WoT',
+              fragments: [
+                { start: 102, timestamp: '1:42', label: 'Net-Zero targets could save UK businesses £6 billion a year' },
+              ],
+            },
+          ],
         },
         {
           title: 'Energy dashboards (Dashjoin)',
           description:
             'Heterogeneous sensor formats (watts vs. power plus unit) are normalized into per-floor energy-consumption dashboards',
+          videos: [
+            {
+              meetupNumber: 23,
+              title: 'Web of Things Manager (Dashjoin)',
+              fragments: [
+                {
+                  start: 777,
+                  timestamp: '12:57',
+                  label: 'Energy dashboard normalizes heterogeneous sensor formats by floor',
+                },
+              ],
+            },
+          ],
         },
         {
           title: 'Power-meter insight (Process OPC)',
           description:
             'TDs enriched with OPC UA energy models turn raw registers into readable phase-level power data for optimization',
-        },
-      ],
-      videos: [
-        {
-          meetupNumber: 14,
-          title: 'Smart Buildings & Digital Twins with WoT',
-          fragments: [
-            { start: 77, timestamp: '1:17', label: 'Net-Zero targets could save UK businesses £6 billion a year' },
-          ],
-        },
-        {
-          meetupNumber: 23,
-          title: 'Web of Things Manager (Dashjoin)',
-          fragments: [
+          videos: [
             {
-              start: 1249,
-              timestamp: '20:49',
-              label: 'Energy dashboard normalizes heterogeneous sensor formats by floor',
-            },
-          ],
-        },
-        {
-          meetupNumber: 34,
-          title: 'Process OPC: WoT Device Onboarding',
-          fragments: [
-            {
-              start: 482,
-              timestamp: '8:02',
-              label: 'OPC UA energy model turns raw registers into readable power data',
+              meetupNumber: 34,
+              title: 'Process OPC: WoT Device Onboarding',
+              fragments: [
+                {
+                  start: 482,
+                  timestamp: '8:02',
+                  label: 'OPC UA energy model turns raw registers into readable power data',
+                },
+              ],
             },
           ],
         },

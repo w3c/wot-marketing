@@ -3,9 +3,16 @@
 import { Accordion, AccordionDetails, AccordionSummary, Box, Stack, Typography } from '@mui/joy';
 import { Testimonial } from '@/lib/use-cases/testimonials';
 
-export function TestimonialItem({ testimonial }: { testimonial: Testimonial }) {
+export function TestimonialItem({
+  testimonial,
+  defaultExpanded: defaultExpanded,
+}: {
+  testimonial: Testimonial;
+  defaultExpanded?: boolean;
+}) {
   return (
     <Accordion
+      defaultExpanded={defaultExpanded}
       sx={{
         border: '1px solid',
         borderColor: 'divider',

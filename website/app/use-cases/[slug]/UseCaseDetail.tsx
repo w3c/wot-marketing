@@ -55,25 +55,50 @@ export function UseCaseDetail({ slug }: { slug: string }) {
       </PageSection>
 
       <PageSection title="Real-World Use Cases" id="real-world-use-cases">
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
-            gap: 2,
-          }}
-        >
+        <Stack gap={6}>
           {entry.realWorldUseCases.map((useCase) => (
-            <Card key={useCase.title} variant="outlined">
-              <CardContent>
-                <Typography level="title-md" mb={1}>
+            <Stack key={useCase.title} gap={2}>
+              <Box>
+                <Typography level="title-lg" mb={0.5}>
                   {useCase.title}
                 </Typography>
-                <Typography level="body-sm">{useCase.description}</Typography>
-              </CardContent>
-            </Card>
+                <Typography level="body-md" sx={{ color: 'text.secondary' }}>
+                  {useCase.description}
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: 'grid',
+                  gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
+                  gap: 3,
+                }}
+              >
+                {useCase.videos.map((video) => (
+                  <VideoEmbed key={video.meetupNumber} video={video} />
+                ))}
+              </Box>
+            </Stack>
           ))}
-        </Box>
+        </Stack>
       </PageSection>
+
+      {testimonials.length > 0 && (
+        <PageSection title="Related Testimonials" id="testimonials">
+          <Typography level="body-md" mb={2}>
+            Leading organizations describe how the Web of Things supports work in this area. Select each to read their
+            testimonial.
+          </Typography>
+          <AccordionGroup disableDivider>
+            {testimonials.map((testimonial) => (
+              <TestimonialItem
+                key={testimonial.id}
+                testimonial={testimonial}
+                defaultExpanded={testimonials.length < 3}
+              />
+            ))}
+          </AccordionGroup>
+        </PageSection>
+      )}
 
       {standards.length > 0 && (
         <PageSection title="Relevant Standards" id="standards">
@@ -99,38 +124,6 @@ export function UseCaseDetail({ slug }: { slug: string }) {
           </Box>
         </PageSection>
       )}
-
-      {testimonials.length > 0 && (
-        <PageSection title="Related Testimonials" id="testimonials">
-          <Typography level="body-md" mb={2}>
-            Leading organizations describe how the Web of Things supports work in this area. Select each to read their
-            testimonial.
-          </Typography>
-          <AccordionGroup disableDivider>
-            {testimonials.map((testimonial) => (
-              <TestimonialItem key={testimonial.id} testimonial={testimonial} />
-            ))}
-          </AccordionGroup>
-        </PageSection>
-      )}
-
-      <PageSection title="From the Community Meetups" id="videos">
-        <Typography level="body-md" mb={2}>
-          The examples above are drawn from talks in the WoT Community Group meetups. Select a highlighted moment to
-          play that part of the recording directly.
-        </Typography>
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
-            gap: 3,
-          }}
-        >
-          {entry.videos.map((video) => (
-            <VideoEmbed key={video.meetupNumber} video={video} />
-          ))}
-        </Box>
-      </PageSection>
     </PageLayout>
   );
 }
@@ -184,7 +177,9 @@ function VideoEmbed({ video }: { video: UseCaseVideo }) {
               >
                 <Stack alignItems="flex-start">
                   <Typography level="title-sm">{fragment.timestamp}</Typography>
-                  <Typography level="body-xs">{fragment.label}</Typography>
+                  <Typography level="body-xs" textAlign="left">
+                    {fragment.label}
+                  </Typography>
                 </Stack>
               </Button>
             );
