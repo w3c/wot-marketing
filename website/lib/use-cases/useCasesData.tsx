@@ -546,13 +546,13 @@ export const USE_CASES: {
       ],
       realWorldUseCases: [
         {
-          title: 'Autonomous tractor (SERIA)',
+          title: 'Autonomous tractor (IntellIoT)',
           description:
             'A tractor follows GPS waypoints to harvest fields, controlled through TDs exposing its controller, waypoint service, AI obstacle avoidance and human-in-the-loop service',
           videos: [
             {
               meetupNumber: 7,
-              title: 'Autonomous Agents on the Web of Things (SERIA)',
+              title: 'Autonomous Agents on the Web of Things (IntellIoT)',
               fragments: [
                 {
                   start: 324,
@@ -1110,12 +1110,12 @@ export const USE_CASES: {
       ],
       realWorldUseCases: [
         {
-          title: 'No-code autonomous agents (SERIA)',
+          title: 'No-code autonomous agents (IntellIoT)',
           description: 'Functional blocks generated from TDs let non-programmers compose agent programs in AgentSpeak.',
           videos: [
             {
               meetupNumber: 7,
-              title: 'Autonomous Agents on the Web of Things (SERIA)',
+              title: 'Autonomous Agents on the Web of Things (IntellIoT)',
               fragments: [
                 {
                   start: 465,
