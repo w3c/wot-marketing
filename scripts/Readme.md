@@ -22,6 +22,15 @@ Generates `website/lib/generated/memberOrganizationsOutput.json`, the list of or
 - Walks each group's participations and collects the participating organizations (excluding individual participants).
 - Orders groups according to a predefined list and sorts organizations alphabetically.
 
+### `research-papers`
+
+Generates `website/lib/generated/researchPapers.json`, the list of research papers related to the Web of Things.
+
+- Reads the curated paper list (title → DOI) from [research-papers/researchPapersInput.ts](research-papers/researchPapersInput.ts).
+- For each DOI, fetches publication metadata from the [Crossref API](https://api.crossref.org/works).
+
+> Unlike `dev-tools` and `member-organizations`, this script is **not** run periodically/automatically. The relevant research papers change infrequently, so the list is maintained by hand and the script is run manually only when new papers need to be added. To add a paper, insert a new entry in [research-papers/researchPapersInput.ts](research-papers/researchPapersInput.ts) and run `npm run research-papers`.
+
 ## Setup
 
 ```bash
@@ -48,13 +57,16 @@ npm run dev-tools
 
 # Generate member organizations data
 npm run member-organizations
+
+# Generate research papers data (run manually, on demand)
+npm run research-papers
 ```
 
-Both scripts are run via [tsx](https://github.com/privatenumber/tsx), so no build step is required.
+The scripts are run via [tsx](https://github.com/privatenumber/tsx), so no build step is required.
 
 ## Automation
 
-These scripts run automatically through the [Weekly Script Updates](../.github/workflows/scripts.yml) GitHub workflow (scheduled weekly, or triggered manually via `workflow_dispatch`). The workflow:
+The `dev-tools` and `member-organizations` scripts run automatically through the [Weekly Script Updates](../.github/workflows/scripts.yml) GitHub workflow (scheduled weekly, or triggered manually via `workflow_dispatch`). The `research-papers` script is excluded from this automation and is run manually on demand. The workflow:
 
 1. Runs both scripts.
 2. Commits directly to `main` if only `lastUpdated` fields changed.

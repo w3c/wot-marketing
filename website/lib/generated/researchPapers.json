@@ -1,0 +1,295 @@
+[
+  {
+    "authors": [
+      "Gabriel Aznar Lapuente",
+      "Paula Morella Avinzano",
+      "Maria Pilar Lamban Castillo",
+      "Dammika Seneviratne"
+    ],
+    "date": "2026-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1016/j.future.2025.107997",
+    "publisher": "Elsevier BV",
+    "title": "Methodologies in digital twin for manufacturing industry: A systematic literature review",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Carlos Schmidt",
+      "Friedrich Volz",
+      "Ljiljana Stojanovic",
+      "Gerhard Sutschet"
+    ],
+    "date": "2023-09-07T00:00:00.000Z",
+    "link": "https://doi.org/10.3390/s23187742",
+    "publisher": "MDPI AG",
+    "title": "Increasing Interoperability between Digital Twin Standards and Specifications: Transformation of DTDL to AAS",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Mario San Emeterio de la Parte",
+      "José-Fernán Martínez-Ortega",
+      "Yiting Wang",
+      "Sara Lana Serrano"
+    ],
+    "date": "2026-07-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1016/j.array.2026.100942",
+    "publisher": "Elsevier BV",
+    "title": "Internet of Things: A comprehensive survey on syntactic and semantic interoperability for effective inter-entity communication",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Torben Miny",
+      "Michael Thies",
+      "Lina Lukic",
+      "Sebastian Käbisch",
+      "Kazeem Oladipupo",
+      "Christian Diedrich",
+      "Tobias Kleinert"
+    ],
+    "date": "2023-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/access.2023.3312286",
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "title": "Overview and Comparison of Asset Information Model Standards",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Salvador González-Gerpe",
+      "María Poveda-Villalón",
+      "Raúl García-Castro"
+    ],
+    "date": "2024-07-08T00:00:00.000Z",
+    "link": "https://doi.org/10.3390/app14135960",
+    "publisher": "MDPI AG",
+    "title": "DTAG: A Methodology for Aggregating Digital Twins Using the WoTDT Ontology",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Viktor Berchtenbreiter",
+      "Tizian Schröder",
+      "Fabian Gast",
+      "Oliver Kohn",
+      "Melanie Stolze",
+      "Matthias Weigold"
+    ],
+    "date": "2024-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1016/j.procir.2024.10.269",
+    "publisher": "Elsevier BV",
+    "title": "Machine component monitoring in data and service ecosystems enabled by the Asset Administration Shell",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Biagio Boi",
+      "Christian Esposito"
+    ],
+    "date": "2024-02-19T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/icnc59896.2024.10556086",
+    "publisher": "IEEE",
+    "title": "Decentralized Authentication for Web of Things: a Self-Sovereign Identity (SSI)-Based Solution",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Huansheng Ning",
+      "Lei Zhou",
+      "Jifar Wakuma Ayana",
+      "Shan Cui",
+      "Mahmoud Daneshmand",
+      "Jianguo Ding"
+    ],
+    "date": "2026-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/jiot.2026.3698940",
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "title": "Cyberlogic: A Foundational Framework for Cross-Space Logic in the Cyber-Physical-Social-Thinking Hyperspace",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Fady Salama",
+      "Idil Sezgin",
+      "Ege Korkan",
+      "Sebastian Käbisch",
+      "Sebastian Steinhorst"
+    ],
+    "date": "2024-09-22T00:00:00.000Z",
+    "link": "https://doi.org/10.1145/3652620.3688243",
+    "publisher": "ACM",
+    "title": "HoloWoT: A First Step Towards Mixed Reality Digital Twins for the Industrial Internet of Things",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Michael Freund",
+      "Justus Fries",
+      "Rene Dorsch",
+      "Peter Schiller",
+      "Andreas Harth"
+    ],
+    "date": "2023-11-07T00:00:00.000Z",
+    "link": "https://doi.org/10.1145/3627050.3627063",
+    "publisher": "ACM",
+    "title": "WoT2Pod: An Architecture enabling an Edge-to-Cloud Continuum",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Kurt Rothermel",
+      "Otthein Herzog",
+      "Siegfried Wu Zhiqiang"
+    ],
+    "date": "2025-02-20T00:00:00.000Z",
+    "link": "https://doi.org/10.1007/s43926-025-00103-x",
+    "publisher": "Springer Science and Business Media LLC",
+    "title": "Proximity-based service discovery for distributed digital twin systems",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Oskar Wintercorn",
+      "Jan van Deventer"
+    ],
+    "date": "2026-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/ojies.2026.3693084",
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "title": "The Arrowhead Framework Ontology",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Joel Aumedes",
+      "Xavier Celades",
+      "Josep Pijuan",
+      "Robert Sanfeliu"
+    ],
+    "date": "2026-04-07T00:00:00.000Z",
+    "link": "https://doi.org/10.21105/joss.09470",
+    "publisher": "The Open Journal",
+    "title": "WoT-Server: Combining the Web-Of-Things and SensorThings standards to build an IoT platform",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Fady Salama",
+      "Zucheng Han",
+      "Ege Korkan",
+      "Sebastian KäEbisch",
+      "Sebastian Steinhorst"
+    ],
+    "date": "2023-10-12T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/wf-iot58464.2023.10539381",
+    "publisher": "IEEE",
+    "title": "RobWoT: Generating Real-Time Digital Twin Simulations for the Robotic Web of Things",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Tiago A. Amorim",
+      "João Carlos N. Bittencourt",
+      "Daniel G. Costa",
+      "Paulo Portugal"
+    ],
+    "date": "2025-09-09T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/etfa65518.2025.11205783",
+    "publisher": "IEEE",
+    "title": "From Fragmentation to Integration: A Framework for Heterogeneous IoT-based Smart City Systems",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Roman Binkert",
+      "Abdullah Al-Hatem",
+      "Fady Salama",
+      "Ege Korkan",
+      "Sebastian Käbisch",
+      "Sebastian Steinhorst"
+    ],
+    "date": "2025-11-18T00:00:00.000Z",
+    "link": "https://doi.org/10.1145/3770501.3770526",
+    "publisher": "ACM",
+    "title": "RobWoTAR: Web of Things Approach to Universally Control Robots in Augmented Reality",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Gernot Steindl",
+      "Thomas Rapberger",
+      "Christoph Gehbauer"
+    ],
+    "date": "2025-09-09T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/etfa65518.2025.11205736",
+    "publisher": "IEEE",
+    "title": "Skill-Based Multi-Agent Systems for Building Control Using KNX IoT and Web of Things",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Manousos Boliotis",
+      "Aimilios Tzavaras",
+      "Chrisa Tsinaraki",
+      "Euripides G.M. Petrakis"
+    ],
+    "date": "2025-11-03T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/ictai66417.2025.00197",
+    "publisher": "IEEE",
+    "title": "Asynchronous Thing Descriptions for Crafting Applications in the Web of Things",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Rene Dorsch",
+      "Michael Freund",
+      "Kiara Marnitt Ascencion Arevalo",
+      "Andreas Harth"
+    ],
+    "date": "2024-11-19T00:00:00.000Z",
+    "link": "https://doi.org/10.1145/3703790.3703799",
+    "publisher": "ACM",
+    "title": "RetroWoT: A Method to Integrate Brownfield Devices in the Web of Things",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Kazushi Matsukura",
+      "Kentaro Noda",
+      "Yuki Hashimoto",
+      "Haruki Ishimaru",
+      "Manato Fujimoto",
+      "Shingo Ata"
+    ],
+    "date": "2026-01-09T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/ccnc65079.2026.11366376",
+    "publisher": "IEEE",
+    "title": "Vendor-Independent Data Platform Architecture in Smart Buildings",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Fady Salama",
+      "Ege Korkan",
+      "Sebastian Käbisch",
+      "Sebastian Steinhorst"
+    ],
+    "date": "2024-07-29T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/coins61597.2024.10622288",
+    "publisher": "IEEE",
+    "title": "Stateful-WoT: Capturing the Behavior of Highly Dynamic Cyber-Physical Systems",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Jan Romann",
+      "Hugo Hakim Damer",
+      "T M Rayhan Gias",
+      "Olaf Bergmann"
+    ],
+    "date": "2025-01-10T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/ccnc54725.2025.10976001",
+    "publisher": "IEEE",
+    "title": "Leveraging Information-Centric Edge Computing in Private 5G Cellular Networks via the W3C Web of Things",
+    "type": "Proceedings Article"
+  }
+]
