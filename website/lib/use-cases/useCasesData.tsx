@@ -195,13 +195,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Simulated robot cells (SIMIS)',
+          title: 'Simulated robot cells (SIEMENS)',
           description:
             'A virtual robot in CoppeliaSim moves in sync with the real robot through identical TDs, so control logic is tested in simulation and deployed without code changes',
           videos: [
             {
               meetupNumber: 12,
-              title: 'Interactable Digital Twins Using WoT and Simulation (SIMIS)',
+              title: 'Interactable Digital Twins Using WoT and Simulation (SIEMENS)',
               fragments: [
                 {
                   start: 510,
@@ -449,7 +449,7 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Construction digital twins (KOGITO)',
+          title: 'Construction digital twins (COGITO)',
           description:
             'The WoT Digital Twin Ontology represents construction-site twins built from satellite images, 3D scans and sensors across pilots in Austria, Denmark and Spain',
           videos: [
@@ -504,32 +504,19 @@ export const USE_CASES: {
       ],
       realWorldUseCases: [
         {
-          title: 'Malaria diagnostics (OpenFlexure)',
+          title: 'Malaria diagnostics & remote pathology (OpenFlexure)',
           description:
-            'An automated 3D-printed microscope supports quality assurance and technician training for malaria diagnosis in sub-Saharan Africa',
+            'An automated 3D-printed microscope supports malaria-diagnosis quality assurance and training, while whole-slide imaging lets remote experts diagnose samples without transporting them',
           videos: [
             {
               meetupNumber: 13,
-              title: 'Open Flexure Microscope & Web of Things',
+              title: 'OpenFlexure Microscope & Web of Things',
               fragments: [
                 {
                   start: 149,
                   timestamp: '2:29',
                   label: 'Automated microscope for malaria-diagnosis quality assurance and training',
                 },
-              ],
-            },
-          ],
-        },
-        {
-          title: 'Remote pathology',
-          description:
-            'The microscope acts as a whole-slide imager so experts in different locations provide diagnoses without transporting samples',
-          videos: [
-            {
-              meetupNumber: 13,
-              title: 'Open Flexure Microscope & Web of Things',
-              fragments: [
                 {
                   start: 406,
                   timestamp: '6:46',
@@ -576,7 +563,7 @@ export const USE_CASES: {
             },
             {
               meetupNumber: 13,
-              title: 'Open Flexure Microscope & Web of Things',
+              title: 'OpenFlexure Microscope & Web of Things',
               fragments: [
                 {
                   start: 460,
@@ -808,7 +795,7 @@ export const USE_CASES: {
           videos: [
             {
               meetupNumber: 13,
-              title: 'Open Flexure Microscope & Web of Things',
+              title: 'OpenFlexure Microscope & Web of Things',
               fragments: [
                 { start: 460, timestamp: '7:40', label: 'Soil-microbiome analysis and farmer education in Argentina' },
               ],
@@ -932,13 +919,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Simulated twins (SIMIS)',
+          title: 'Simulated twins (SIEMENS)',
           description:
             'The simulation computes a robot reachable workspace and runs collision-checked dry-runs before the same logic drives the real robot',
           videos: [
             {
               meetupNumber: 12,
-              title: 'Interactable Digital Twins Using WoT and Simulation (SIMIS)',
+              title: 'Interactable Digital Twins Using WoT and Simulation (SIEMENS)',
               fragments: [
                 {
                   start: 1550,
@@ -1319,13 +1306,13 @@ export const USE_CASES: {
           ],
         },
         {
-          title: 'Local simulation feedback (SIMIS)',
+          title: 'Local simulation feedback (SIEMENS)',
           description:
             'CoppeliaSim runs on a laptop talking to a Node-WoT server over WebSockets, giving instant feedback without cloud infrastructure',
           videos: [
             {
               meetupNumber: 12,
-              title: 'Interactable Digital Twins Using WoT and Simulation (SIMIS)',
+              title: 'Interactable Digital Twins Using WoT and Simulation (SIEMENS)',
               fragments: [
                 {
                   start: 1257,
