@@ -23,7 +23,7 @@ export function TestimonialItem({ testimonial, isAlwaysOpen }: { testimonial: Te
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Box sx={{ p: 2 }}>
+        <Box sx={{ p: 1, pt: 0.5 }}>
           {testimonial.isJoint ? (
             <Stack gap={3}>
               {testimonial.quotes?.map((q, idx) => (

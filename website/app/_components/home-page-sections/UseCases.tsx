@@ -21,8 +21,8 @@ export function UseCases() {
         title="Use Cases"
         sx={{
           width: {
-            sm: '100%',
-            md: '50%',
+            xs: '100%',
+            md: '40%',
           },
         }}
       >
@@ -36,7 +36,15 @@ export function UseCases() {
             Read testimonials from industry leaders and W3C members to see how they are adopting the Web of Things
             standard to drive interoperability and innovation.
           </Typography>
-          <LinkButton path="/use-cases" sx={{ mt: 4 }}>
+          <LinkButton
+            path="/use-cases"
+            sx={{
+              mt: {
+                xs: 2,
+                md: 4,
+              },
+            }}
+          >
             Explore WoT Use Cases
           </LinkButton>
         </Stack>
@@ -44,11 +52,11 @@ export function UseCases() {
       <Box
         sx={{
           width: {
-            sm: '100%',
-            md: '50%',
+            xs: '100%',
+            md: '60%',
           },
-          mt: { sm: 1, md: -2 },
-          maxHeight: '500px',
+          mt: { xs: 1, md: -2 },
+          maxHeight: '600px',
           position: 'relative',
         }}
       >
