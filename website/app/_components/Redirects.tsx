@@ -1,6 +1,6 @@
 'use client';
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, startTransition } from 'react';
 import { REDIRECTS } from '@/lib/redirects';
 import { Route } from 'next';
 
@@ -39,7 +39,11 @@ export function Redirects() {
           destination = destination.replace(`:${key}`, value) as Route;
         }
 
-        router.replace(destination);
+        // Defer into a transition so the navigation is never dispatched
+        // before the App Router action queue is initialized.
+        startTransition(() => {
+          router.replace(destination);
+        });
         return;
       }
     }
