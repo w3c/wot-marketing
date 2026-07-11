@@ -42,4 +42,4 @@ body:
   - type: textarea
     id: notes
     attributes:
-      label: Additional notes
+      label: Add any other context that may help reviewers.
