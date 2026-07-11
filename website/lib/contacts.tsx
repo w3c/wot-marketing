@@ -2,6 +2,7 @@ import GitHubIcon from '@/public/github.png';
 import { Mail } from 'lucide-react';
 import Image from 'next/image';
 import { ReactNode } from 'react';
+import DiscordIcon from '@/public/discord.png';
 
 interface Contact {
   title: string;
@@ -43,10 +44,11 @@ export const CONTACTS: Contact[] = [
     icon: <Mail />,
   },
   {
-    title: 'Mastodon',
-    description: 'General comments',
-    href: 'https://w3c.social/@wot',
-    icon: <Image src="https://www.cdnlogo.com/logos/m/33/mastodon.svg" alt="W3C" width={24} height={24} />,
+    title: 'Discord',
+    description:
+      'Join our community for general discussions and support. This space is managed by the WoT Community Group and is not a W3C service or endorsed by W3C.',
+    href: 'https://discord.gg/WP3MqCfKQ',
+    icon: <Image src={DiscordIcon} alt="Discord" width={24} />,
   },
   {
     title: 'Edit this Website',
