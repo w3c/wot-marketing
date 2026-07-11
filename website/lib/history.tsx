@@ -3,7 +3,7 @@ import { Link } from '@mui/joy';
 export const history = [
   {
     date: 'April 2026',
-    event: 'Discontinuation of the Interest Group',
+    event: 'Conclusion of the Interest Group',
     description: (
       <>
         The Web of Things Interest Group concludes its operations after successful transition to standardization at the
