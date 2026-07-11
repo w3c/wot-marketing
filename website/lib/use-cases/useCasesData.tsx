@@ -154,6 +154,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'Catalog-based device onboarding (Siemens)',
+          description:
+            'Siemens uses a Thing Model Catalog to give electrical, building and substation devices reusable, protocol-independent interfaces.',
+          videos: [
             {
               meetupNumber: 20,
               title: 'Siemens Smart Connector & Thing Model Catalog',
@@ -165,6 +172,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'Mapping manufacturing assets into OPC UA',
+          description:
+            'WoT Thing Descriptions bridge proprietary manufacturing interfaces into the OPC UA information model.',
+          videos: [
             {
               meetupNumber: 29,
               title: 'OPC UA and Web of Things Binding',
@@ -181,6 +195,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'Modbus device onboarding (Prosys OPC)',
+          description:
+            'A Thing Description replaces manual interpretation of Modbus register tables when onboarding equipment into Prosys Forge.',
+          videos: [
             {
               meetupNumber: 34,
               title: 'Prosys OPC: WoT Device Onboarding',
@@ -561,6 +582,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'Soil-microbiome analysis (OpenFlexure)',
+          description:
+            'Low-cost automated microscopy helps farmers study soil microbiomes and understand the effects of agrochemicals.',
+          videos: [
             {
               meetupNumber: 13,
               title: 'OpenFlexure Microscope & Web of Things',
@@ -876,6 +904,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'Product-centric digital twins at Schaeffler',
+          description:
+            'Schaeffler uses product-centric Thing Models to describe product properties, interactions and attached sensors.',
+          videos: [
             {
               meetupNumber: 8,
               title: 'Web of Things for Digital Twins at Schaeffler',
@@ -887,6 +922,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'Automatic OPC UA digital representations',
+          description:
+            'Prosys Forge uses a Thing Description to create a digital representation of an onboarded device in its OPC UA address space.',
+          videos: [
             {
               meetupNumber: 34,
               title: 'Prosys OPC: WoT Device Onboarding',
@@ -934,6 +976,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'Behavioural twins for structural monitoring',
+          description:
+            'What-Twins observes device interactions and generates behavioural Markov models for monitoring applications.',
+          videos: [
             {
               meetupNumber: 18,
               title: 'Digital Twins & WoT in Structural Monitoring',
@@ -1142,6 +1191,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'Ontology-aware cyber-physical agents',
+          description:
+            'Agents translate internal names through shared ontologies so independently developed agents can coordinate actions.',
+          videos: [
             {
               meetupNumber: 33,
               title: 'Multi-Agent Systems with Web of Things',
@@ -1281,6 +1337,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'IoT virtualization across the edge-cloud continuum',
+          description:
+            'The Nephele project virtualizes IoT devices so applications can orchestrate them consistently across edge and cloud infrastructure.',
+          videos: [
             {
               meetupNumber: 28,
               title: 'Virtual Object Stack (Nephele Project)',
@@ -1292,6 +1355,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'Adaptive edge-cloud structural monitoring',
+          description:
+            'A structural-monitoring architecture allocates processing dynamically across edge and cloud resources.',
+          videos: [
             {
               meetupNumber: 18,
               title: 'Digital Twins & WoT in Structural Monitoring',
@@ -1378,6 +1448,13 @@ export const USE_CASES: {
                 },
               ],
             },
+          ],
+        },
+        {
+          title: 'Fine-grained access control with Solid',
+          description:
+            'Solid access-control lists give stakeholders scoped permissions to IoT resources and their linked data.',
+          videos: [
             {
               meetupNumber: 17,
               title: 'Web of Things + Solid at Munich Airport',
