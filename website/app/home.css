@@ -86,16 +86,106 @@
   position: relative;
   aspect-ratio: 1;
 }
-.orbit {
+.domain-orbit {
   position: absolute;
+  inset: 8%;
+  border: 1px solid #9ce1e555;
   border-radius: 50%;
-}
-.orbit-outer {
-  position: absolute; inset: 8%; border: 1px solid #9ce1e555; border-radius: 50%;
   box-shadow: 0 0 80px #36b7c333;
 }
-.orbit-inner {
-  position: absolute; inset: 23%; border: 1px dashed #9ce1e566; border-radius: 50%;
+.wot-layer {
+  position: absolute;
+  inset: 20%;
+  border: 1px solid #82dce788;
+  border-radius: 50%;
+  background: #0a61743d;
+  box-shadow:
+    inset 0 0 45px #6edce51f,
+    0 0 30px #00152144;
+}
+.layer-label {
+  position: absolute;
+  z-index: 3;
+  padding: 5px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  font-size: 0.55rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.domain-label {
+  left: 50%;
+  top: -14px;
+  transform: translateX(-50%);
+  color: #a9dce2;
+  background: #06344b;
+}
+.wot-label {
+  left: 50%;
+  top: -50px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #06384c;
+  background: #91e1e3;
+}
+.wot-label svg {
+  width: 12px;
+  height: 12px;
+}
+.capability {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border: 1px solid #a5e7ea55;
+  border-radius: 7px;
+  background: #07394fee;
+  box-shadow: 0 8px 18px #00152155;
+  color: #e4f8f8;
+  font-size: 0.62rem;
+  line-height: 1.25;
+}
+.capability svg {
+  flex: 0 0 auto;
+  width: 15px;
+  color: #7ad5df;
+}
+.capability b {
+  text-align: center;
+}
+.capability span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.capability small {
+  max-width: 140px;
+  color: #a8cdd3;
+  font-size: 0.52rem;
+}
+.capability-td {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.capability-security {
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.capability-scripting {
+  top: 40%;
+  left: -40px;
+}
+.capability-bindings {
+  top: 40%;
+  right: -40px;
 }
 .core {
   position: absolute;
@@ -104,13 +194,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
   background: #d9f5f4;
   color: #075271;
   box-shadow: 0 0 70px #4fd0dc66;
+  text-align: center;
+  justify-content: center;
 }
-.core svg {
-  width: 38px;
+.core b {
+  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+  color: black;
+}
+.core small {
+  max-width: 86%;
+  margin-top: 4px;
+  font-size: clamp(0.5rem, 1vw, 0.68rem);
+  line-height: 1.35;
+  text-align: center;
 }
 .section,
 .features {
@@ -202,7 +303,7 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  padding: 9px 12px;
+  padding: 7px 10px;
   border: 1px solid #9ce1e555;
   border-radius: 7px;
   background: #06283de8;
@@ -215,28 +316,29 @@
   width: 18px;
   color: #7ad5df;
 }
-.orbit .visual-node { z-index: 2; }
-.node-industry { top: 11%; left: 11%; transform: translate(-50%, -50%); }
-.node-home { top: 11%; right: 11%; transform: translate(50%, -50%); }
-.node-energy { bottom: 11%; left: 11%; transform: translate(-50%, 50%); }
-.node-cities { right: 11%; bottom: 11%; transform: translate(50%, 50%); }
-.protocol-node {
-  position: absolute;
+.domain-orbit .visual-node {
   z-index: 2;
-  padding: 5px 8px;
-  border: 1px solid #9ce1e566;
-  border-radius: 999px;
-  background: #0a4660;
-  color: #bdebf0;
-  box-shadow: 0 6px 18px #00152155;
-  font: 700 0.62rem/1 monospace;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
 }
-.protocol-http { top: 15%; left: 15%; transform: translate(-50%, -50%); }
-.protocol-mqtt { top: 15%; right: 15%; transform: translate(50%, -50%); }
-.protocol-coap { bottom: 15%; left: 15%; transform: translate(-50%, 50%); }
-.protocol-opc { right: 15%; bottom: 15%; transform: translate(50%, 50%); }
+.node-industry {
+  top: 11%;
+  left: 11%;
+  transform: translate(-50%, -50%);
+}
+.node-home {
+  top: 11%;
+  right: 11%;
+  transform: translate(50%, -50%);
+}
+.node-energy {
+  bottom: 11%;
+  left: 11%;
+  transform: translate(-50%, 50%);
+}
+.node-cities {
+  right: 11%;
+  bottom: 11%;
+  transform: translate(50%, 50%);
+}
 .home > section:not(.hero) {
   content-visibility: auto;
   contain-intrinsic-size: auto 720px;
