@@ -1,8 +1,7 @@
-import { Stack, Typography, Box } from '@mui/joy';
+import { Stack, Box } from '@mui/joy';
 import { PropsWithChildren, ReactNode } from 'react';
 import { NavBreadcrumbs } from './NavBreadcrumbs';
 import { Route } from 'next';
-
 export function PageLayout({
   title,
   banner,
@@ -16,20 +15,20 @@ export function PageLayout({
   breadcrumbs?: { startingPath: Route };
 }>) {
   return (
-    <Stack alignItems="center" p={{ xs: 2, md: 4 }}>
-      <Stack sx={{ gap: 1, maxWidth: '1200px', width: '100%', mt: breadcrumbs ? -3 : 0 }}>
-        <Stack gap={1.5}>
+    <div className="inner-page">
+      <section className="page-hero">
+        <div className="page-hero-grid" />
+        <div className="page-shell">
           {breadcrumbs && <NavBreadcrumbs startingPath={breadcrumbs.startingPath} currentPageTitle={title} />}
-          <Stack gap={0.5}>
-            <Typography level="h1">{title}</Typography>
-            <Typography level="title-md">{subtitle}</Typography>
-          </Stack>
-          {banner && <Box mt={1}>{banner}</Box>}
-        </Stack>
-        <Stack gap={12} mt={4}>
-          {children}
-        </Stack>
+          <div className="page-kicker">W3C WEB OF THINGS</div>
+          <h1>{title}</h1>
+          <div className="page-subtitle">{subtitle}</div>
+          {banner && <Box className="page-banner">{banner}</Box>}
+        </div>
+      </section>
+      <Stack component="div" className="page-shell page-content" gap={{ xs: 8, md: 12 }}>
+        {children}
       </Stack>
-    </Stack>
+    </div>
   );
 }

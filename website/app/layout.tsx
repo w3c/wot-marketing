@@ -7,8 +7,9 @@ import { Box, Stack } from '@mui/joy';
 import { Redirects } from './_components/Redirects';
 
 export const metadata: Metadata = {
-  title: 'Web of Things',
-  description: 'Official W3C Web of Things Website',
+  title: { default: 'W3C Web of Things', template: '%s | W3C Web of Things' },
+  description: 'Open web standards for interoperable connected products, platforms, and services.',
+  keywords: ['W3C', 'Web of Things', 'WoT', 'IoT', 'interoperability', 'open standards'],
 };
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
