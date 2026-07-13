@@ -763,6 +763,190 @@
   flex: 0 0 auto;
   width: 14px;
 }
+.recent-activities {
+  background: #f8fbfb;
+}
+.activity-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.activity-column {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid #d8e5e8;
+  border-radius: 12px;
+  background: #fff;
+}
+.activity-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.activity-heading > svg {
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  border-radius: 9px;
+  background: #e2f3f4;
+  color: #007a99;
+}
+.activity-heading h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.activity-list {
+  display: grid;
+  flex: 1;
+  grid-template-rows: repeat(3, 1fr);
+  border-top: 1px solid #dce7e9;
+}
+.activity-list > a {
+  position: relative;
+  display: flex;
+  min-height: 92px;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 17px 32px 17px 2px;
+  border-bottom: 1px solid #dce7e9;
+  color: inherit;
+  text-decoration: none;
+}
+.activity-list > a:hover strong {
+  color: #00708e;
+}
+.activity-list > a > svg {
+  position: absolute;
+  top: 50%;
+  right: 3px;
+  width: 16px;
+  color: #6a858e;
+  transform: translateY(-50%);
+}
+.activity-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  color: #68818a;
+  font-size: 0.72rem;
+  font-weight: 650;
+}
+.activity-meta i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #87a0a8;
+}
+.activity-meta em {
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #daf2eb;
+  color: #13725f;
+  font-size: 0.65rem;
+  font-style: normal;
+  font-weight: 800;
+}
+.activity-list strong {
+  line-height: 1.45;
+  transition: color 180ms ease;
+}
+.activity-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 21px;
+  color: #075c83;
+  font-weight: 750;
+  text-decoration: none;
+}
+.activity-more:hover {
+  text-decoration: underline;
+}
+.activity-more svg {
+  width: 17px;
+}
+.why-join {
+  background: #fff;
+}
+.why-join-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.why-join-grid article {
+  display: flex;
+  min-height: 290px;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 30px;
+  border: 1px solid #d8e5e8;
+  border-radius: 12px;
+  background: #f7fafa;
+}
+.why-join-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 10px;
+  background: #e1f3f4;
+  color: #007a99;
+}
+.why-join-icon svg {
+  width: 23px;
+}
+.why-join-grid h3 {
+  margin: 25px 0 10px;
+  font-size: 1.22rem;
+}
+.why-join-grid p {
+  margin: 0 0 24px;
+  color: #58727c;
+  line-height: 1.65;
+}
+.why-join-grid a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  color: #075c83;
+  font-weight: 750;
+  text-decoration: none;
+}
+.why-join-grid a:hover {
+  text-decoration: underline;
+}
+.why-join-grid a svg {
+  width: 17px;
+  transition: transform 180ms ease;
+}
+.why-join-grid a:hover svg {
+  transform: translateX(3px);
+}
+.why-join-note {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 18px;
+  padding: 18px 22px;
+  border-radius: 9px;
+  background: #eaf5f5;
+  color: #365d69;
+}
+.why-join-note svg {
+  flex: 0 0 auto;
+  width: 21px;
+  color: #007a99;
+}
+.why-join-note p {
+  margin: 0;
+  line-height: 1.55;
+}
 .join {
   background: #075c83;
   color: #fff;
@@ -803,6 +987,12 @@
     display: block;
   }
   .ecosystem-layout {
+    grid-template-columns: 1fr;
+  }
+  .why-join-grid {
+    grid-template-columns: 1fr;
+  }
+  .activity-columns {
     grid-template-columns: 1fr;
   }
   .member-groups,
@@ -873,6 +1063,16 @@
   }
   .integration-note span {
     display: none;
+  }
+  .why-join-grid article {
+    min-height: 0;
+    padding: 25px;
+  }
+  .why-join-note {
+    align-items: flex-start;
+  }
+  .activity-column {
+    padding: 22px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
