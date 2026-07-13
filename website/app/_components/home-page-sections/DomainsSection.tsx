@@ -9,5 +9,27 @@ const domains: { title: string; description: string; Icon: LucideIcon }[] = [
 ];
 
 export function DomainsSection() {
-  return <section className="shell section domain-section"><header><label>ONE STANDARD, MANY WORLDS</label><h2>Turn connected systems into web systems.</h2><p>Use the same open application layer from the factory floor to the energy grid.</p></header><div className="domain-grid">{domains.map(({ title, description, Icon }) => <Link href="/use-cases" key={title}><Icon /><span><b>{title}</b><small>{description}</small></span><ArrowRight /></Link>)}</div></section>;
+  return (
+    <section className="shell section domain-section">
+      <header>
+        <label>ONE STANDARD, MANY WORLDS</label>
+        <h2>Turn connected systems into web systems.</h2>
+        <p>Use the same open application layer from the factory floor to the energy grid.</p>
+      </header>
+      <div className="domain-grid">
+        {domains.map(({ title, description, Icon }) => (
+          <article key={title}>
+            <Icon />
+            <span>
+              <b>{title}</b>
+              <small>{description}</small>
+            </span>
+          </article>
+        ))}
+      </div>
+      <Link className="domain-cta" href="/use-cases">
+        Explore use cases <ArrowRight />
+      </Link>
+    </section>
+  );
 }
