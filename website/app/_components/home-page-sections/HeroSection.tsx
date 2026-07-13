@@ -90,10 +90,10 @@ export function HeroSection() {
             protocols, and industries.
           </p>
           <div className="actions">
-            <Link href="/developers/documentation">
-              Start building <ArrowRight />
+            <Link href="/participate/working-group">
+              Participate <ArrowRight />
             </Link>
-            <Link href="/about/history" className="outline">
+            <Link href="/developers/documentation" className="outline">
               Discover how it works
             </Link>
           </div>
