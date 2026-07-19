@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-07-04T02:26:10Z",
+          "lastUpdated": "2026-07-18T12:50:51Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-06-13T13:32:50Z",
+          "lastUpdated": "2026-07-16T12:51:13Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-07-04T02:26:10Z",
+          "lastUpdated": "2026-07-18T12:50:51Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -216,7 +216,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-07-04T16:33:27Z",
+          "lastUpdated": "2026-07-11T18:53:42Z",
           "homepageUrl": "https://thingctx.com",
           "platforms": [
             "Library",
@@ -249,7 +249,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-06-13T13:32:50Z",
+          "lastUpdated": "2026-07-16T12:51:13Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -585,7 +585,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-06-27T06:32:21Z",
+          "lastUpdated": "2026-07-18T12:48:31Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-07-04T18:24:02Z",
+          "lastUpdated": "2026-07-18T11:26:15Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -703,7 +703,7 @@
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [],
-          "lastUpdated": "2026-06-29T09:12:16Z",
+          "lastUpdated": "2026-07-07T14:51:52Z",
           "homepageUrl": null,
           "platforms": [
             "Application"
