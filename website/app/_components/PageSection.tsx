@@ -9,11 +9,11 @@ export function PageSection({
   id,
 }: PropsWithChildren<{ title: ReactNode; sx?: SxProps; id?: string }>) {
   return (
-    <Stack sx={sx}>
-      <Typography level="h3" color="primary" id={id}>
+    <Stack className="content-section" sx={sx}>
+      <Typography className="section-title" level="h3" id={id}>
         {title}
       </Typography>
-      <Divider color="primary" sx={{ mt: 1, mb: 2 }} />
+      <Divider className="section-divider" sx={{ mt: 1.5, mb: 3 }} />
 
       {children}
     </Stack>

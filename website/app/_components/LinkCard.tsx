@@ -11,7 +11,7 @@ interface LinkCardProps {
   sx?: SxProps;
 }
 
-export function LinkCard({ label, description, icon, size = 'md', sx, ...linkProps }: LinkCardProps & LinkButtonProps ) {
+export function LinkCard({ label, description, icon, size = 'md', sx, ...linkProps }: LinkCardProps & LinkButtonProps) {
   const titleLevel = (
     {
       sm: 'title-sm',
@@ -34,12 +34,31 @@ export function LinkCard({ label, description, icon, size = 'md', sx, ...linkPro
       startDecorator={icon}
       {...linkProps}
       sx={{
-        p: 2,
+        p: 3,
         width: '100%',
         height: '100%',
         flexDirection: 'column',
         alignItems: 'flex-start',
         textAlign: 'left',
+        borderRadius: '10px',
+        backgroundColor: '#fff',
+        borderColor: '#d8e5e8',
+        transition: 'transform .2s ease, box-shadow .2s ease, border-color .2s ease',
+        '&:hover': {
+          transform: 'translateY(-4px)',
+          boxShadow: '0 16px 32px rgba(7,45,67,.09)',
+          borderColor: '#68adbc',
+          backgroundColor: '#fff',
+        },
+        '& .MuiButton-startDecorator': {
+          width: 44,
+          height: 44,
+          borderRadius: '8px',
+          background: '#e4f4f5',
+          color: '#007b99',
+          display: 'grid',
+          placeItems: 'center',
+        },
         underline: 'none',
         ...sx,
       }}
