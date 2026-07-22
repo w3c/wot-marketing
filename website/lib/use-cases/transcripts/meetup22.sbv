@@ -1,0 +1,1411 @@
+0:00:07.120,0:00:14.320
+so we without further Ado uh welcome vges today 
+we're going to have uh vges from the developer
+
+0:00:14.320,0:00:20.400
+Center of advanced leer application in Munich 
+uh he studied both physics and electronics and
+
+0:00:20.400,0:00:25.760
+he gain a solid knowledge of the artware uh his 
+main goal is to make scientific data acquisition
+
+0:00:25.760,0:00:31.840
+easy for the old python community and it's going 
+to also be in the next event in the what week and
+
+0:00:31.840,0:00:38.160
+to meet us and talk about the web things all 
+together so without further Ado VES the floor
+
+0:00:38.160,0:00:48.240
+is yours I think uh what I can best offer today is 
+uh perspective into what we do in data acquisition
+
+0:00:48.240,0:00:55.800
+uh in physics or science in general um and how we 
+do this with python and how you can have web web
+
+0:00:55.800,0:01:03.080
+of things in this so already you know a little 
+bit about me so something about kala or center
+
+0:01:03.080,0:01:10.720
+for advanced laser applications so kala is a pwat 
+peak power laser which means U laser facility it's
+
+0:01:10.720,0:01:17.760
+a R&D facility in at University of Munich it's 
+in gashing Germany what they do is they focus
+
+0:01:17.760,0:01:23.840
+very intense laser pulses Into Thin targets and 
+they generate ions from it so this is what is Ion
+
+0:01:23.840,0:01:31.160
+acceleration or laser driven ion acceleration uh 
+for this uh they have many many different types of
+
+0:01:31.160,0:01:37.960
+lasers and different targets different Diagnostics 
+which they want to measure the parameters of the
+
+0:01:37.960,0:01:44.520
+lasers or you have ions electrons you want to 
+measure the physical quantities and this is why
+
+0:01:44.520,0:01:51.240
+they do data acquisition and especially in kala uh 
+everything is remote because uh or most things are
+
+0:01:51.240,0:01:59.840
+remote uh because either the laser is too strong 
+or uh radiation is produced so you can't be there
+
+0:02:00.440,0:02:06.040
+where uh the experiment is happening you have to 
+you have to sit in some other place so that's why
+
+0:02:06.040,0:02:12.760
+we do remote control and you can and when you 
+do remote control uh you can do it uh you can
+
+0:02:12.760,0:02:21.160
+bring the web of things standards in it so data 
+position uh you know you have say a light pulse
+
+0:02:21.160,0:02:25.320
+you can measure the energy of this pulse or you 
+can measure the cross-section of this pulse yeah
+
+0:02:25.320,0:02:35.560
+can you do can you see my mouse yes we can you can 
+yes but yeah the laser works too yeah so you can
+
+0:02:35.560,0:02:42.840
+see the say cross-section of this pulse I can 
+show you some today uh and you can measure the
+
+0:02:42.840,0:02:50.600
+duration roughly or even accurately if you want 
+so the question is uh what physicists try to do is
+
+0:02:50.600,0:02:57.200
+they do this different Diagnostics and they try to 
+stitch together the data to U make some meaningful
+
+0:02:57.200,0:03:04.360
+physical quantity and when you say for example 
+just this uh laser beam cross-section if you know
+
+0:03:04.360,0:03:09.680
+the energy of the beam and if you know the width 
+of the beam which you can compute by measuring
+
+0:03:09.680,0:03:13.920
+with the camera and if you have a calibrated 
+camera you can tell how wide the beam is and if
+
+0:03:13.920,0:03:21.800
+you know how long the beam is you can tell what 
+is the energy per uh unit area for example and
+
+0:03:21.800,0:03:32.480
+uh they do de so you have data acquisition then 
+data analysis then uh um from that they extract
+
+0:03:32.480,0:03:36.880
+the physics then they do again the experiment 
+again they do data acquisition uh then they
+
+0:03:36.880,0:03:44.480
+do the data analysis so um it's a sort of a cycle 
+as well so this is why we do our data position in
+
+0:03:44.480,0:03:53.960
+a custom implemented way and um if you the way to 
+write this is like any iot device it's called Data
+
+0:03:53.960,0:03:59.440
+position but it's actually just iot in a stated 
+in a different way only because as I said data
+
+0:03:59.440,0:04:07.200
+position follows data analysis from data analysis 
+you get uh physics but what data qu is just iot
+
+0:04:07.200,0:04:14.080
+so or remote controlled you just capture the data 
+remotely uh so for each device you have uh you can
+
+0:04:14.080,0:04:18.760
+make a thing implementation for it and if you want 
+if you have a thing implementation of course with
+
+0:04:18.760,0:04:27.640
+web web of things you get the thing description so 
+the device or the hardware or the server serving
+
+0:04:27.640,0:04:33.600
+the hardware it can push the data to data storage 
+this is what we one part of our software uh one
+
+0:04:33.600,0:04:40.720
+is guis in control room or anywhere in a control 
+center within a lab uh so this is where I use a
+
+0:04:40.720,0:04:47.640
+lot of uh web of things or thing Des description 
+itself because I I know web development um or I
+
+0:04:47.640,0:04:53.680
+like to do web development for Hardware so then 
+you can also use uh you have scripting clients
+
+0:04:53.680,0:04:59.880
+computation post processing all these they 
+access our different Hardware to uh achieve
+
+0:04:59.880,0:05:09.320
+their goals um so a little bit before showing 
+the hardware um and showing you how what we have
+
+0:05:09.320,0:05:16.920
+implemented today so the we use what is called as 
+ultrafast lasers so ultrafast lasers they are if
+
+0:05:16.920,0:05:24.600
+you see the laser characteristics they are very 
+short pulses so PTO or PCO uh of the order so 1
+
+0:05:24.600,0:05:32.560
+second is like 32 million years for a fc so and 
+the pul per second the laser I show you today is
+
+0:05:32.560,0:05:38.760
+10 Herz but it can be many millions of Herz or 
+if it's of the order of millions of Hertz it's
+
+0:05:38.760,0:05:44.640
+called an ultrafast laser but um for high power 
+laser we you we usually do one Herz 10 Herz or
+
+0:05:44.640,0:05:50.560
+somewhere in the range you can do 5 Herz and even 
+less than one Herz if you want so this is pulses
+
+0:05:50.560,0:05:57.680
+pulse frequency how many pulses you get per second 
+uh they have many applications like atomic clocks
+
+0:05:57.680,0:06:04.240
+spectroscopy so for high power l lasers which what 
+we have we have here so how they how do you get a
+
+0:06:04.240,0:06:12.080
+high power laser from um uh Ultra fast laser so 
+say you have a laser source so it's giving some
+
+0:06:12.080,0:06:18.640
+pulse lasers uh so it will have some low energy 
+and it will have a short pulse with uh in time
+
+0:06:18.640,0:06:24.880
+so you can just ex stretch the pulse and then 
+you get a low low energy pulse and you have a
+
+0:06:24.880,0:06:29.560
+longer pulse in time so this can be in nanc or 
+microsc range Shadow I don't know exactly how
+
+0:06:30.320,0:06:35.760
+long it is but uh you can stretch it then you 
+do the pulse frequency reduction so to do high
+
+0:06:35.760,0:06:43.040
+power you can't amplify every single if you get 
+80 MHz pulse frequency count you can't amplify
+
+0:06:43.040,0:06:47.800
+every single pulse in it you have to cut the pulse 
+frequency especially if you're going to terawatts
+
+0:06:47.800,0:06:56.680
+or Ps for example so we cut the pulse frequency 
+to 10 Herz 1 Herz or whatever Herz we want then
+
+0:06:56.680,0:07:04.000
+we amplify it then we do uh the amplification 
+is where you get a high energy and but a long
+
+0:07:04.000,0:07:11.000
+pulse but after that you can compress it to 
+a short pulse so this is the rough sketch of
+
+0:07:11.000,0:07:18.600
+a high power laser and as I said we have many 
+Diagnostics just to like track track each part
+
+0:07:18.600,0:07:24.560
+of this uh section because it's all custom built 
+to our application there is no like one uh you
+
+0:07:24.560,0:07:28.840
+can't like buy the whole thing from some maybe 
+there's some company that gives it but usually
+
+0:07:28.840,0:07:34.440
+people buy different components they just buy sort 
+of amplifier they buy either the laser itself and
+
+0:07:34.440,0:07:41.760
+they just try to like mod modular they try to put 
+it together in a modularized modularized fashion
+
+0:07:41.760,0:07:48.960
+so I would like to quickly show what we have
+
+0:07:48.960,0:07:59.440
+um again uh this is let me just go to
+
+0:08:01.640,0:08:01.800
+this
+
+0:08:01.800,0:08:18.000
+is one sec so I hope you can see something um this 
+is our um this is our um this so the oscillator
+
+0:08:18.000,0:08:25.040
+is somewhere behind here or the Laser Source 
+itself and it comes uh to this part and this
+
+0:08:25.040,0:08:29.640
+part of the setup is called a stretcher so the 
+stretcher stretches the pulse as I said you get
+
+0:08:29.640,0:08:37.960
+a low energy short pulse you can you can 
+elongate it with this and [Music] to we uh
+
+0:08:37.960,0:08:41.760
+again you can see our monitoring diagnostics for 
+example there's a camera here there's one more
+
+0:08:41.760,0:08:48.200
+camera here and uh there is a pin hole somewhere 
+over there uh these are all meant for alignment
+
+0:08:48.200,0:08:54.600
+and checking what's on the uh you know what 
+you see so the stretcher this is hope there
+
+0:08:54.600,0:09:01.640
+okay there's no ah there is something so you can 
+this is the pulse that you see I think with this
+
+0:09:01.640,0:09:10.520
+camera here can you see my mouse yet yes yes we 
+can see everything and the m and all the cameras
+
+0:09:10.520,0:09:20.840
+so then after um after we uh stretch the pulse 
+today we are ending it uh somewhere before
+
+0:09:20.840,0:09:31.080
+the amplifier because it gets very bright I can 
+actually turn on the um turn on the laser itself
+
+0:09:31.080,0:09:44.520
+there so I think you can see some laser so this 
+is partly Amplified uh from the main oscillator
+
+0:09:44.520,0:09:52.960
+itself and um it goes to the stretcher and it 
+ends before the uh even higher there are many
+
+0:09:52.960,0:09:58.440
+layers of many what say there are many levels 
+of amplification so we stopped it with the first
+
+0:09:58.440,0:10:05.120
+amplification so here we are measuring uh there's 
+actually a camera over there and there is a you
+
+0:10:05.120,0:10:11.560
+can see this a this is a fiber that is measuring 
+the spectrum of the laser itself and when it's
+
+0:10:11.560,0:10:21.440
+here actually we have put a energy meter somewhere 
+over uh somewhere over ah it's the energy meters
+
+0:10:21.440,0:10:30.880
+the laser itself so this is a this is what 
+our setup is at least what we can show today
+
+0:10:30.880,0:10:42.000
+um and if you see the so for each device we as I 
+said we have a this is written notw or this it's
+
+0:10:42.000,0:10:52.640
+fully powered by uh know the thing description 
+and you nodeb creates the https client so uh if
+
+0:10:52.640,0:10:57.640
+you measure the Spectrum this is the Spectrum 
+you can see and this is the energy so it's 8.5
+
+0:10:57.640,0:11:05.120
+mle per pulse so usually it is um if you have 8.5 
+Mill per pulse you're already in in the when you
+
+0:11:05.120,0:11:13.360
+compress the whole pulse you will be uh close to 
+terawatts or of the order of terawatts of power or
+
+0:11:13.360,0:11:25.760
+uh really close to it above gigawatts but just not 
+terawatts so uh to set up this kind of guies is um
+
+0:11:25.760,0:11:32.360
+for example say one application why you might want 
+to use the thing descri description is say for
+
+0:11:32.360,0:11:43.400
+example I want to generate this u u input field 
+so I have um I can just pass the property of uh
+
+0:11:43.400,0:11:49.360
+property definition of this integration time and 
+uh I can say that if if if I can read the property
+
+0:11:49.360,0:11:56.720
+then I can give a refresh symbol if I can write 
+the property uh I can just um create this icon and
+
+0:11:56.720,0:12:01.760
+I can also observe this property which means if 
+the gole the value changes somewhere else then I
+
+0:12:01.760,0:12:10.680
+can um update this value here so uh you can just 
+pass the property uh description itself and you
+
+0:12:10.680,0:12:19.480
+can just autocreate this uh uh Bui element so that 
+that's where uh I use mostly the thing description
+
+0:12:19.480,0:12:29.160
+uh standards uh and node what um so again little 
+about let me just turn off the laser one sec
+
+0:12:32.240,0:12:41.000
+so just um coding implementation perspective 
+uh again so each device has properties actions
+
+0:12:41.000,0:12:46.040
+and events so properties can be like if you 
+have an oscilloscope that can be time res
+
+0:12:46.040,0:12:51.440
+resolution time interval and so on you know 
+resolution is how fast you want to measure so
+
+0:12:51.440,0:12:56.640
+it's like the individual individual it's 
+like ADC sampling frequency so and time
+
+0:12:56.640,0:13:01.000
+interval is how long you want to measure 
+so these are examples of properties and
+
+0:13:01.000,0:13:06.400
+actions are like start start measurement stop 
+measurement and events can be like okay after
+
+0:13:06.400,0:13:12.400
+the measurement has finished just push the uh 
+event to the client uh just tell the client
+
+0:13:12.400,0:13:16.640
+that the measurement is ready so the client 
+can just fetch the data so what you saw in
+
+0:13:16.640,0:13:29.120
+the previous GUI it largely Works um exactly 
+like this so most of the um most of the um say
+
+0:13:31.400,0:13:40.960
+one sec sorry so most of the um 
+data which I'm um plotting is
+
+0:13:40.960,0:13:45.320
+through events even this this is actually 
+the pulse count here you see and again the
+
+0:13:45.320,0:13:49.720
+Spectrum you can actually see even 
+hopefully some okay there's nothing
+
+0:13:49.720,0:13:59.400
+here yeah actually the camera is streaming but 
+there's no change that you don't see anything
+
+0:13:59.400,0:14:07.440
+so um but uh the once the measurement or any 
+data is ready it informs the client the client
+
+0:14:07.440,0:14:12.600
+just fetches the image or fetches the Spectrum 
+fetches the energy uh whatever required to be
+
+0:14:12.600,0:14:22.240
+fetch to be shown in a GUI [Music] so finally 
+apart from uh the um properties actions and
+
+0:14:22.240,0:14:27.840
+events I also use sometimes a state machine so 
+a state machine is supposed to say that say if
+
+0:14:27.840,0:14:34.720
+you're capturing a video don't allow to change 
+the exposure time so if you are or for example if
+
+0:14:34.720,0:14:40.360
+you're already running measurement you don't let 
+the measurement to be started again so this is a
+
+0:14:40.360,0:14:45.240
+purpose of State machine so uh we have so many 
+different devices from different manufacturers
+
+0:14:45.240,0:14:52.120
+manufacturer so it's hard to guess like what 
+is the how they exactly work so for example our
+
+0:14:52.120,0:14:58.120
+camp we have four different types of cameras 
+in our uh Institute so only one camera allows
+
+0:14:58.120,0:15:04.920
+changing trigger value when um when you when you 
+are running the measurement every other camera you
+
+0:15:04.920,0:15:10.760
+have to stop the measurement change the trigger 
+value then start again so if you want to tell
+
+0:15:10.760,0:15:16.000
+the user okay don't change the trigger value then 
+the best case or you can Implement a state machine
+
+0:15:16.000,0:15:24.240
+to control this so and uh finally um all these 
+things have to be written in such a way that you
+
+0:15:24.240,0:15:29.000
+know physicist can understand um students can 
+understand PhD students they should be able to
+
+0:15:29.000,0:15:36.440
+write these devices if they want you know uh we 
+keep changing a lot our uh experiment based on
+
+0:15:36.440,0:15:43.360
+uh what we did before so then they should be able 
+to read the code and understand and know how to
+
+0:15:43.360,0:15:49.240
+develop this further so for this it has to be easy 
+so we do it in Python and we do objectoriented
+
+0:15:49.240,0:15:57.240
+mostly objectoriented design for this and which 
+means each of the properties actions NE on uh
+
+0:15:57.240,0:16:07.680
+they become different aspects of uh they become 
+different aspects of um the of the objectoriented
+
+0:16:07.680,0:16:13.560
+uh what to say the class so for example uh if you 
+have properties how we can write this is say you
+
+0:16:13.560,0:16:18.720
+just create the camera class so you can write a 
+get and set function So within the get and set
+
+0:16:18.720,0:16:23.440
+function you can write the hardware side of the 
+thing so uh the hardware protocol or it can be
+
+0:16:23.440,0:16:30.160
+modbus or it can be any device any uh manufacturer 
+given Hardware protocol we don't always use modbus
+
+0:16:30.160,0:16:37.680
+or any standard industrial uh protocol but we our 
+devices many times have uh their own protocol uh
+
+0:16:37.680,0:16:44.080
+on the hardware side so what I mean how the data 
+is sent to the hardware so uh that you can write
+
+0:16:44.080,0:16:48.240
+in this get and set functions and you can just 
+encapsulate this in what is called as a descriptor
+
+0:16:48.240,0:16:54.320
+so this this descriptor is a special python 
+construct it has a get set and delete function
+
+0:16:54.320,0:17:01.640
+automatically uh taken care for you uh so you can 
+just instantiate the object and you can uh access
+
+0:17:01.640,0:17:10.200
+the property using the dot operator so same thing 
+on the if you uh if you if you read and um write
+
+0:17:10.200,0:17:18.600
+with the client so you can on the server you can 
+instruct your server to do this operation um and
+
+0:17:18.600,0:17:24.320
+as far as the protocol mapping is concerned so the 
+getter will be invoked say you have HTTP protocol
+
+0:17:24.320,0:17:31.360
+so the getter will be invoked for HTTP get method 
+the setter will be invoked for method and deleter
+
+0:17:31.360,0:17:36.520
+uh will be involved for delete method I think uh 
+in of course in web of things or thing description
+
+0:17:36.520,0:17:43.080
+the delete is not a part of the standard yet but 
+uh it's possible if you want mostly I also don't
+
+0:17:43.080,0:17:51.320
+use it uh so what from this you can go to the 
+thing description you can autogenerate it uh from
+
+0:17:51.320,0:17:58.160
+the descriptor or uh from this type of object so 
+say you can set the property to be observable you
+
+0:17:58.160,0:18:05.120
+can you can ask the you can tell the uh you know 
+the end user to give Supply the unit bounce and so
+
+0:18:05.120,0:18:10.680
+on you can just autogenerate this for them so that 
+they don't have to sit and fully understand what
+
+0:18:10.680,0:18:15.720
+the thing description is they just get it get the 
+thing description and again you you can give it
+
+0:18:15.720,0:18:20.680
+to a client and the client will just consume the 
+thing description and give a a client for them so
+
+0:18:20.680,0:18:32.000
+the standard is in the back back or it supports 
+the um um the drives the whole thing but um they
+
+0:18:32.000,0:18:39.720
+don't have to know how to they don't have to fully 
+understand what it means so this is why I mean
+
+0:18:39.720,0:18:44.280
+that's where what I aiming for because this thing 
+students can also understand they don't have to
+
+0:18:44.280,0:18:52.400
+learn everything up front so similarly for actions 
+just actions map to object methods so you can
+
+0:18:52.400,0:18:58.160
+write um action you can even have an input schema 
+for an action and output schema if you want and
+
+0:18:58.160,0:19:05.320
+uh within the you have to write again the device 
+driver cold so here I have snap function uh so
+
+0:19:05.320,0:19:11.400
+if the user says blocking snap or if they ask in 
+the GUI that you know give a blocking snap because
+
+0:19:11.400,0:19:19.520
+it finishes very quickly so you can just run a 
+snap function which just patches the uh image
+
+0:19:19.520,0:19:28.720
+or you can just make it asynchronous or uh make 
+it run in the background so it's all possible so
+
+0:19:29.680,0:19:36.680
+again from the action so this is a from the action 
+decorator you can again generate the action uh
+
+0:19:36.680,0:19:41.720
+description so I don't want to go further into 
+it because I think it's obvious and of course the
+
+0:19:41.720,0:19:49.480
+protocol will be the post HTP method and finally 
+for the events um again it's a descript um but
+
+0:19:49.480,0:19:55.400
+it returns a pop sub object which is based on you 
+can do pops up or you can people say you can use
+
+0:19:55.400,0:20:04.080
+some reactive Frameworks where call back is run 
+whenever you change a value um so I use pops up
+
+0:20:04.080,0:20:11.400
+which means um this pops up you can just push an 
+event or publish an event so all the subscriber of
+
+0:20:11.400,0:20:16.720
+subscribers of the event they can just subscribe 
+to the event so here I I have not shown the data
+
+0:20:16.720,0:20:23.880
+schema for the event uh but technically you have 
+to specify it so finally a state machine um it's
+
+0:20:23.880,0:20:29.880
+just a object which takes uh you have to specify 
+what initial States you want and what is a stop
+
+0:20:29.880,0:20:33.800
+I mean what initial state it is and what states 
+you want and in each state you can specify what
+
+0:20:33.800,0:20:41.440
+action it is that you want to execute or what um 
+uh what property it is that you want to write here
+
+0:20:41.440,0:20:47.480
+property is not there in this example but you 
+can specify that so then the state machine will
+
+0:20:47.480,0:20:55.480
+take care that um before executing the state is 
+checked if the the device is only in the set state
+
+0:20:55.480,0:21:00.720
+for example the device is only in the on state I 
+can run start video if the device is in on state
+
+0:21:00.720,0:21:05.520
+I can snap but if the device is in disconnect 
+disconnected State I can't snap an image because
+
+0:21:05.520,0:21:14.440
+there is no um there's no there's no uh camera 
+to snap U so you can set the state Mission State
+
+0:21:14.440,0:21:19.960
+simply by calling set state so for example snap 
+before you snap just set the state to capture
+
+0:21:19.960,0:21:30.280
+State and after you snap an image uh you can set 
+the state back to on state um so this is uh the
+
+0:21:30.280,0:21:36.960
+every single device which I showed you uh today 
+right from know all the cams from spectrometer you
+
+0:21:36.960,0:21:43.480
+know to the energy meter uh it's all implemented 
+like this so even the actually this GUI is in
+
+0:21:43.480,0:21:54.680
+the one sec so this qu is in the slightly old 
+control system but um technically every single
+
+0:21:54.680,0:22:00.560
+aspect of whatever you want to measure you can 
+capture it at in the the devices we which we
+
+0:22:00.560,0:22:08.440
+use we can capture it as an object with different 
+interactions as different parts of the object um
+
+0:22:08.440,0:22:18.120
+so uh for example I can change this is 
+a property this is implement this is I'm
+
+0:22:18.120,0:22:27.480
+changing the frames per second so so it actually 
+it's it got synchronized with the laser frequency
+
+0:22:27.480,0:22:32.360
+that's why you don't see anything changing in 
+um maybe I just put it to S so this is just
+
+0:22:32.360,0:22:37.720
+a it's made with the property descriptor and 
+you know these are all this above uh what to
+
+0:22:37.720,0:22:42.920
+say uh these are all actions I can start 
+acquisition stop acquisition and U same
+
+0:22:42.920,0:22:50.560
+thing with also you know the web GUI I have as 
+well it's working this so same thing so we can
+
+0:22:50.560,0:22:58.760
+start stop um these are properties again uh 
+I think I conveyed the point I want to convey
+
+0:22:58.760,0:23:07.320
+so especially uh with our laser uh there is one 
+important thing the question is how we want to
+
+0:23:07.320,0:23:13.840
+um how we want to stitch the data say we have 
+an energy meter we have a camera we we have a
+
+0:23:13.840,0:23:19.760
+spectrum or spectrometer we want to know how we 
+stitch the data for different um from different
+
+0:23:19.760,0:23:28.720
+devices for the same pulse so how this works 
+is um um since we use we are right right now
+
+0:23:28.720,0:23:34.000
+running the laser at 10 HZ as you might have 
+seen um so there is a hardware trigger that
+
+0:23:34.000,0:23:41.040
+comes before each pulse so when this Hardware 
+uh the first the hardware trigger comes then
+
+0:23:41.040,0:23:46.280
+the pulse comes just a short period after that so 
+and with this Hardware trigger you can actually
+
+0:23:46.280,0:23:51.560
+trigger each device uh and some devices can be 
+simply optically triggered so they don't need
+
+0:23:51.560,0:23:55.480
+a hardware trigger but they they can be optically 
+triggered and why this Hardware trigger is needed
+
+0:23:55.480,0:24:06.720
+is because uh you can synchronize the measure 
+measurement um say um say say the rising Edge so
+
+0:24:06.720,0:24:11.560
+at this Rising Edge you can start the measurement 
+of the camera so the pulse would have passed
+
+0:24:11.560,0:24:17.000
+because the pulse is very very short then at 
+the end um say you have 5 millisecond exposure
+
+0:24:17.000,0:24:21.560
+time so you got exactly the pulse and not any 
+garbage data and if you don't synchronize with
+
+0:24:21.560,0:24:28.360
+the hardware trigger you can already see once it 
+happened that when I kept 5 FPS um it's trying to
+
+0:24:28.960,0:24:33.560
+uh you couldn't see it refreshing in the screen 
+so these types of issues occur if you don't
+
+0:24:33.560,0:24:40.000
+synchronize with the trigger um so that's why 
+we do this uh triggered based reading and to do
+
+0:24:40.000,0:24:47.480
+this trigger based reading what uh each Hardware 
+trigger means that a false has arrived so you can
+
+0:24:47.480,0:24:54.280
+count the number of pulses by uh how many Hardware 
+triggers are arriving and you can just distribute
+
+0:24:54.280,0:25:01.840
+this Hardware trigger as a software event within 
+the system so say again en energy meter camera
+
+0:25:01.840,0:25:10.160
+spectrometer each are their own things they their 
+own servers but you can just uh distribute uh say
+
+0:25:10.160,0:25:14.920
+you have a trigger reader so what this this this 
+hard un say a trigger reader so at every Rising
+
+0:25:14.920,0:25:20.000
+age it will give a software event which says what 
+the short number is and what the short time is
+
+0:25:20.000,0:25:26.200
+short means laser short so uh the laser has just 
+arrived so one single pulse is called a shot so
+
+0:25:26.200,0:25:31.280
+you can assign a time stamp you can assign 
+number to do it so you can for example see
+
+0:25:31.280,0:25:45.400
+it say uh was one sec comp so we actually have 
+two computers which is why I'm little not able
+
+0:25:45.400,0:25:58.240
+to figure out where it's running where so 
+let's run it at 10 10 is not also enough so
+
+0:25:59.800,0:26:05.280
+so you can hopefully see it's running it is 
+actually running at 10 Herz so this is supposed
+
+0:26:05.280,0:26:13.720
+to count let me just refresh it sometimes not so 
+this trigger reader we have U we have an option
+
+0:26:13.720,0:26:21.040
+to count the shots and it just updates how many 
+shots have arrived um we go to the other computer
+
+0:26:21.040,0:26:27.120
+it's already running so actually I already kept 
+it running it's already in readout state so if
+
+0:26:27.120,0:26:32.920
+I turn it off I have idal state where there is 
+the trigger is not reading out anything so if I
+
+0:26:32.920,0:26:39.680
+go to read out State I can already see today 
+I had like 38,000 Hardware triggers and for
+
+0:26:39.680,0:26:46.560
+these many triggers I can have pulses so you can 
+assign based on this trigger one pulse number and
+
+0:26:46.560,0:26:54.440
+one p one number and time to each each pulse so 
+from that you can uh assign to each energy time
+
+0:26:54.440,0:27:01.280
+energy value or Spectrum Spectrum value what 
+is the pulse number and the pulse time so that
+
+0:27:01.280,0:27:06.880
+you can do by propagating this uh whatever this 
+uh short number and short time from the trigger
+
+0:27:06.880,0:27:12.360
+reader to each of the devices so they will 
+just catch this event uh since they're also
+
+0:27:12.360,0:27:17.720
+triggered uh along with the same trigger so 
+they can just assign the time stamp and the
+
+0:27:17.720,0:27:24.920
+number to that value say it measured 1.7 mwatt 
+say it can just say that for shot number 3,000
+
+0:27:24.920,0:27:32.520
+taken at 4 P.M 1.7 m was the energy and 
+this is the image for example so in this
+
+0:27:32.520,0:27:38.440
+way irrespective of whether you're running the 
+you can see our setup is somewhat uh distributed
+
+0:27:38.440,0:27:46.560
+uh we do we have Diagnostics running we have a 
+camera here we have a camera here we have some
+
+0:27:46.560,0:27:51.560
+energy meter there but we have the spectrometer 
+here so the question is uh the pulse is
+
+0:27:51.560,0:27:58.320
+traveling all through the entire setup so the the 
+stretcher the despite wherever the data is coming
+
+0:27:58.320,0:28:01.640
+from we should be able to correlate the data 
+and that happens by assigning the short number
+
+0:28:01.640,0:28:07.920
+in the short time by using the trigger event as 
+a reference event for the short number and short
+
+0:28:07.920,0:28:15.600
+time so I really can't show it today but I hope 
+uh if you see some energy data what we measure
+
+0:28:15.600,0:28:22.200
+say that whatever I showed you in the Bui if you 
+store it to a to a database or to a to a file
+
+0:28:22.200,0:28:28.240
+what it might look like is I have a short time 
+okay and then I have a short number and I have
+
+0:28:28.240,0:28:35.040
+value of the energy so this is not from today it's 
+from like six months back at least I think so uh
+
+0:28:35.040,0:28:39.760
+but this is for each device we actually get 
+the same short number and short time for each
+
+0:28:39.760,0:28:44.720
+measurement so we know okay this camera belong 
+to this energy or this camera image belong to
+
+0:28:44.720,0:28:51.640
+this energy or this uh uh you know Spectrum 
+belong to this energy for example um so this
+
+0:28:51.640,0:29:00.440
+is this is uh this is a specific uh uh this type 
+of data position is specific to pulse lasers so
+
+0:29:00.440,0:29:06.480
+that's why I I want to mention about this and 
+finally uh one thing I want to say is about
+
+0:29:06.480,0:29:11.200
+how to synchronize guis so we have you might 
+have seen we have different guis for example
+
+0:29:11.200,0:29:17.000
+one is running in pqt actually I'm using this 
+because it's a very scientific gu I can draw
+
+0:29:17.000,0:29:24.600
+some markers you know actually maybe let me just 
+set some value course that is already one running
+
+0:29:24.600,0:29:30.600
+with a marker so so this is already updating 
+some frames so this is the actual laser pulse
+
+0:29:30.600,0:29:36.080
+you can see so I can draw some marker like this 
+um and this is a very scientific or what to say
+
+0:29:36.080,0:29:41.400
+we made this G for scientific reasons because 
+I'm pitching the raw image which means uh this
+
+0:29:41.400,0:29:47.440
+is probably a 12 bit image not 8 bit so you can't 
+you're not making it to jpeg so if you compress if
+
+0:29:47.440,0:29:58.160
+you use a JPEG you have to compress it so maybe 
+so actually yeah sorry this is this is actually
+
+0:29:58.160,0:30:03.640
+live image you can't see it updating because 
+it's supposed to be almost as static as possible
+
+0:30:03.640,0:30:09.960
+but um this we are streaming with JPEG but uh 
+usually for some scientific applications you
+
+0:30:09.960,0:30:17.280
+need something a little more robust than uh a 
+JPEG which in JP because in jpeg you lose data
+
+0:30:17.280,0:30:23.720
+and we have some features like you can change 
+the maximum you can normalize the um image
+
+0:30:23.720,0:30:29.480
+value max value you can even let the Image Auto 
+normalize it and you can show the axis how many
+
+0:30:29.480,0:30:35.320
+pixels are there and you know you can draw some 
+Crosshair I don't think this will come because
+
+0:30:35.320,0:30:42.000
+it's somewhere else actually it's too big uh the 
+pixel sizes or the image frame size is somewhat
+
+0:30:42.000,0:30:52.080
+big uh so you can see in what pixel values this 
+particular uh image or uh particular laser beam
+
+0:30:52.080,0:31:00.200
+you can is being displayed so why we do that 
+is we want to they align the laser every day
+
+0:31:00.200,0:31:09.480
+so so you have to pass the laser through the 
+entire setup which means uh we for each camera we
+
+0:31:09.480,0:31:16.040
+show some alignment marks uh which are stored like 
+this the either within the camera or somewhere you
+
+0:31:16.040,0:31:21.360
+can just even store it in a file if you want so 
+and we place the camera marks and they adjust
+
+0:31:21.360,0:31:30.320
+the Optics to make sure that um so each Optics has 
+some screws uh you see small mirrors and you know
+
+0:31:30.320,0:31:36.080
+um you see all these mirrors these are all Optics 
+which you can just adjust to change the pointing
+
+0:31:36.080,0:31:44.480
+of this beam so I don't want to do it now but 
+um that's how you um what they do is before the
+
+0:31:44.480,0:31:51.880
+amplifi to the high power so say whatever this 
+Mill but again the power itself is already in
+
+0:31:51.880,0:31:58.320
+many gigawatts or close to terawatts so before you 
+do that you may want to align your entire laser
+
+0:31:58.320,0:32:04.720
+then you want to amplify so that's why this type 
+of um we use this type of special previews apart
+
+0:32:04.720,0:32:12.240
+from also web previews so we want to synchronize 
+these guis despite where they are running so again
+
+0:32:12.240,0:32:21.360
+that was my first point why I started with this 
+so say user say start measurement from one PC so
+
+0:32:21.360,0:32:27.840
+you the another user or same user if he's using 
+different computer he can stop the measurement so
+
+0:32:28.720,0:32:34.280
+you can again use a state mission for this um as 
+I said you're in on state start acis acquisition
+
+0:32:34.280,0:32:39.680
+go to go to an acquisition State and if you stop 
+the acquisition go back to non-state and if some
+
+0:32:39.680,0:32:45.920
+fault happened for example um if the actually 
+this cam one of this camera was running at
+
+0:32:45.920,0:32:52.920
+50 FPS today and we was keeping many frames so 
+this type of Falls happen whenever we actually
+
+0:32:52.920,0:32:59.800
+um when we apply some Wrong settings or uh even 
+that you know uh the camera is just misbehaving
+
+0:32:59.800,0:33:05.480
+that can also happen because we are using when 
+especially when there is ionizing radiation so
+
+0:33:05.480,0:33:13.040
+it disturbs electronics and the electronics don't 
+like this and they stop responding so that's when
+
+0:33:13.040,0:33:22.160
+you can use a false state to tell um to tell uh 
+to keep a reference that the the you cannot turn
+
+0:33:22.160,0:33:26.840
+back acquisition again so if the if it's in fault 
+state you only have to reset fault and go back to
+
+0:33:26.840,0:33:32.720
+on State or you have to go and unplug the camera 
+and put it back for example and finally you may
+
+0:33:32.720,0:33:38.720
+have enabl disabled state which says you can 
+you can use or cannot use the camera because
+
+0:33:38.720,0:33:44.320
+of some reasons um you know maybe it's dangerous 
+to use the camera it's too much energy you know
+
+0:33:44.320,0:33:48.600
+actually all of these cameras we have they are 
+heavily filtered um some of these cameras are not
+
+0:33:48.600,0:33:53.200
+but some some of them are very heavily filtered 
+you can't see anything which out without putting
+
+0:33:53.200,0:33:58.080
+the filter so you can use a disabled state 
+for this just for example many things I said
+
+0:33:58.080,0:34:05.560
+now it's like uh some argument sake kind of uh 
+it's for argument sake so it can mean it can
+
+0:34:05.560,0:34:15.320
+be something else also as well [Music] so when 
+you have the state machine you can instruct a
+
+0:34:15.320,0:34:24.720
+um you can use this state machine to tell uh the 
+user or a GUI how to show the screen how how to
+
+0:34:24.720,0:34:29.840
+like paint the current uh preview so when you 
+say start measurement someone clicked say this
+
+0:34:29.840,0:34:35.320
+is a preview for the spectrometer I have so 
+someone clicked on start measurement then uh
+
+0:34:35.320,0:34:40.800
+they can only click on stop stop measurement 
+so that means uh what you can do is you can
+
+0:34:40.800,0:34:44.880
+promote the state machine state to a property 
+and you can make the property observable which
+
+0:34:44.880,0:34:52.520
+means whenever uh say you went to acquisition 
+State send a change even to all the clients that
+
+0:34:52.520,0:34:58.120
+okay I have changed my State uh and you get this 
+automatically if you have an observable profile
+
+0:34:58.120,0:35:04.000
+and same thing with stop measurement whenever you 
+change U when whenever you isue stop measurement
+
+0:35:04.000,0:35:13.520
+issue a change even to all the clients okay I went 
+back to on state so then you can tell uh you can
+
+0:35:13.520,0:35:22.840
+inform the GUI uh say GUI components so this is 
+a button so you can tell in on State uh okay say
+
+0:35:22.840,0:35:27.400
+the stop button in on State this button should be 
+disabled because it's it's an on state it's not
+
+0:35:27.400,0:35:36.480
+measure me ing state so or if it's in measuring 
+state it should be enabled so disabl is false so
+
+0:35:36.480,0:35:41.760
+similarly say this disconnect PC and Hardware if 
+I'm in measuring State then I just disable this
+
+0:35:41.760,0:35:47.080
+button Al together so text is some dot dot dot 
+and actually the button should also be disabled
+
+0:35:47.080,0:35:54.880
+um and uh you don't even display anything here 
+so that they don't know what it is and if in on
+
+0:35:54.880,0:35:58.480
+state you can disconnect the hardware and if it's 
+in disconnected State you can connect the hardware
+
+0:35:58.480,0:36:06.120
+so so if you use especially react or some other 
+reactive framework like SP also you can do this
+
+0:36:06.120,0:36:13.600
+in context API or that's a use context hook which 
+you can and you can supply the state property in
+
+0:36:13.600,0:36:21.440
+this context hook or context value and you can 
+propagate this value down through all the elements
+
+0:36:21.440,0:36:27.720
+or all the GUI elements so and finally if you with 
+the use that's a use effect hook also it's just
+
+0:36:27.720,0:36:33.000
+value changes it repaints the screen so you can 
+just apply the state itself to the use effect hook
+
+0:36:33.000,0:36:44.880
+and it will repaint the screen so uh for example 
+um say um maybe I have this is this not computer
+
+0:36:44.880,0:36:57.520
+sorry yeah let me see if I have other go so yeah 
+it is R so you are capturing the Spectrum so
+
+0:36:58.360,0:37:02.520
+this is actually the same image it's just wrongly 
+calibrated that's why it's looking different but
+
+0:37:02.520,0:37:10.080
+it's actually same so you can let's say this guy 
+is in some computer one this is or this is in some
+
+0:37:10.080,0:37:17.240
+smartphone and this is in some some other computer 
+so I'm saying now that the state is measuring so
+
+0:37:17.240,0:37:26.720
+when I say stop so it went to uh it set the state 
+Mission state to on and uh you can see the state
+
+0:37:26.720,0:37:32.640
+Mission State I on this table also and um it 
+stopped here also and you see this button here
+
+0:37:32.640,0:37:38.240
+again I have I can control the acquisition 
+again with this button it's an action so
+
+0:37:38.240,0:37:50.240
+sorry just go back so if I click Start here just 
+it goes It goes back to stop so if I click stop
+
+0:37:50.240,0:37:54.680
+here it goes back to start so that because it 
+knows what is the state and it's receiving the
+
+0:37:54.680,0:37:59.760
+state as a change event and it's just repainting 
+whatever this Buton means and it's also changing
+
+0:37:59.760,0:38:06.600
+the action to be called so uh I start here so 
+I can stop here so that's why I didn't want to
+
+0:38:06.600,0:38:15.760
+show this but um you can see it went back to on 
+state so you not only I'm changing the text I'm
+
+0:38:15.760,0:38:21.720
+changing what action to call and I'm changing the 
+um okay here I'm not in this case I'm changing
+
+0:38:21.720,0:38:29.320
+the text uh disabled enabled or the text color 
+also so this is one way you can synchronize quiz
+
+0:38:29.320,0:38:34.440
+respective of wherever this uh thing is wherever 
+your things are running or wherever your previews
+
+0:38:34.440,0:38:39.760
+are running so every single preview I run here 
+is actually like this even the cameras actually
+
+0:38:39.760,0:38:48.720
+it doesn't even matter what um it doesn't even 
+actually matter uh which protocol you use uh
+
+0:38:48.720,0:38:57.440
+because um the properties actions events they're 
+independent of protocol uh in web of things uh
+
+0:38:59.360,0:39:05.520
+protocol web off so each property can be written 
+with its own protocol binding irrespective of uh
+
+0:39:05.520,0:39:12.840
+the prot protocol implementation itself so I can 
+do so this GUI is actually WR in zmq it's my own
+
+0:39:12.840,0:39:21.240
+C it's almost identical to the nodeb client but 
+in Python so just the protocol implementation is
+
+0:39:21.240,0:39:27.560
+slightly right now diverging from the standard 
+but someday I will uh I will try to merge it
+
+0:39:27.560,0:39:35.080
+with what's uh with what's uh already 
+available in the standard so anyway so
+
+0:39:35.080,0:39:41.720
+say this is overview re region camera so this 
+camera is in capture state so can CH some other
+
+0:39:41.720,0:39:57.480
+camera so this um this camera is in capture 
+State um and this is a button uh not this
+
+0:39:57.480,0:40:04.840
+just quickly go back stretcher guitar okay 
+stretcher guitar so I think this is a very
+
+0:40:04.840,0:40:10.520
+yeah this is this image and U this image 
+is actually the same it's just you know
+
+0:40:10.520,0:40:16.160
+it's very far away so now you can see it's 
+actually one and the same so if I press stop
+
+0:40:16.160,0:40:29.440
+here so if I press stop here it goes I can you 
+can already see it has changed here and I can
+
+0:40:29.440,0:40:36.120
+start here and it it will already go to capture 
+State here as well so you can see it's ch working
+
+0:40:36.120,0:40:41.960
+correctly or you can see it it has changed 
+correctly so that's how you can use St machines
+
+0:40:41.960,0:40:51.080
+to uh coordinate your guy elements or what you 
+want to show to the user I think that's all I
+
+0:40:51.080,0:40:57.240
+have for today uh if you have any questions 
+you can ask me I hope my audio was clear um
+
+0:40:57.880,0:41:05.000
+and special thanks to uh Professor York 
+he's the chat for this uh experimental
+
+0:41:05.000,0:41:10.000
+physics whatever laser you saw now and U 
+he allowed me to use the laser for this
+
+0:41:10.000,0:41:16.160
+uh demonstration and Anna as you know 
+she co-organized the whole laser side
+
+0:41:16.160,0:41:21.640
+of the thing so this is the some icons 
+some attribution I use today so any
+
+0:41:21.640,0:41:36.160
+question e

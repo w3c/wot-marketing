@@ -1,0 +1,1235 @@
+0:00:06.880,0:00:12.240
+it's my great pleasure to introduce you Marco 
+and Luca so Marco def fich is a full professor
+
+0:00:12.240,0:00:17.200
+at University of bologa where he founded the 
+iot prism lab he's also a faculty member of
+
+0:00:17.200,0:00:21.000
+the international PhD program in engineering 
+and information technology for structure and
+
+0:00:21.000,0:00:26.560
+environmental monitoring and risk management 
+and he also served as an associate editor for
+
+0:00:26.560,0:00:33.720
+I internal things uh journal and adoc Network 
+journal and he author more than 160 scientific
+
+0:00:33.720,0:00:40.960
+articles on wireless pervasive and mobile system 
+inability and I data processing and platforms and
+
+0:00:40.960,0:00:46.520
+together with him there also Luca Luka shulo uh 
+is a unior professor assistant professor who order
+
+0:00:46.520,0:00:53.120
+more than 30 papers in international conferences 
+and journals he was a visiting research at hwei
+
+0:00:53.120,0:00:58.360
+European research CER of Munich in Germany 
+and of course his thearch interested include
+
+0:00:58.360,0:01:05.680
+W system intern of things web of things digital 
+twin industry 4.0 and blockchains so guys the
+
+0:01:05.680,0:01:13.120
+floor is yours uh please so again thanks a lot 
+for for the invitation is a is a pleasure for
+
+0:01:13.120,0:01:20.440
+us and also is a I think is a great opportunity 
+uh this presentation we are going to Showcase uh
+
+0:01:20.440,0:01:30.160
+the research activity in our uh in our lab at 
+unibo uh of course focusing on focusing on uh
+
+0:01:30.160,0:01:41.800
+uh aspects of iot interoperability and and web of 
+things um as a uh as Christiano was saying before
+
+0:01:41.800,0:01:49.200
+I'm a full professor in computer science H and 
+in my department I uh I'm directing a a research
+
+0:01:49.200,0:01:57.000
+lab called iot Prisma uh in the iot Prisma we do 
+more or less we do research on the vertical of
+
+0:01:57.000,0:02:04.840
+autonomous iot systems where autonomous means 
+for instance capabilities of integrating data
+
+0:02:04.840,0:02:14.600
+from heterogeneous data sources heterogeneous uh 
+devices uh means possibility of um um offloading
+
+0:02:14.600,0:02:23.480
+task over the cloud Continuum or possibility of 
+running uh intelligent task M machine learning
+
+0:02:23.480,0:02:33.720
+task in distributed F Federated environment or 
+inside constrained trade iot devices so all these
+
+0:02:33.720,0:02:41.560
+icons here have been generated have been created 
+by using generative AI however in the iot prism
+
+0:02:41.560,0:02:49.920
+lab we have um biological biological brains so 
+this is uh this is a this is our group and of
+
+0:02:49.920,0:02:56.880
+course we are always open uh we're always 
+looking for collaborations and and project
+
+0:02:56.880,0:03:06.080
+participations uh so regarding the um the web 
+of things initiatives uh I have to say that we
+
+0:03:06.080,0:03:12.880
+um more or less we follow the initiatives of 
+the working group since the beginning and we
+
+0:03:12.880,0:03:20.600
+try to contribute in a unofficial way uh but 
+in different uh in an official way but um with
+
+0:03:20.600,0:03:27.360
+different with with different contributions for 
+instance um create developing uh uh investigating
+
+0:03:27.360,0:03:34.680
+and developing connectors uh between the web 
+of things and other interoperability standards
+
+0:03:34.680,0:03:42.280
+like RW Fireware trying to extend the plora of 
+supported devices for instance bringing the web
+
+0:03:42.280,0:03:51.160
+of things to constrain constrain iot uh devices 
+like microcontrollers or generally speaking uh
+
+0:03:51.160,0:03:56.640
+developing new tools for the web of things EOS 
+system and this is more or less the focus of
+
+0:03:56.640,0:04:04.320
+our presentation our presentation today because 
+um in uh today we are we are as you could could
+
+0:04:04.320,0:04:12.080
+see from the title uh we uh our our our our 
+presentation will mainly focus on digital twin
+
+0:04:12.080,0:04:19.560
+and in um in this slide I'm trying to summarize 
+the main concept behind uh the the digital twin
+
+0:04:19.560,0:04:26.320
+approach so without loss of generality we assume 
+to have a real system a physical ass physical aot
+
+0:04:26.320,0:04:36.320
+asset asset we will provide some example later 
+and um uh we U we collect data from the physical
+
+0:04:36.320,0:04:43.520
+assets by using uh heterogeneous heterogeneous 
+data sources can be ground sensors can be mobile
+
+0:04:43.520,0:04:51.360
+sensors can be uh can be robers or drones uh we 
+collect iot data from from the environment and
+
+0:04:51.360,0:04:57.960
+we integrate iot data with external knowledge 
+external knowledge can be uh simulators can be
+
+0:04:57.960,0:05:04.160
+machine learning models it in order to create 
+the digital twin so a virtual reproduction of
+
+0:05:04.160,0:05:10.680
+the physical asset and the viral reproduction can 
+be used in order to run wtif analysis in order
+
+0:05:10.680,0:05:17.360
+to understand the correlation between input and 
+output parameters of the of the of the physical
+
+0:05:17.360,0:05:24.800
+asset or to do prediction of the system State at 
+time t plus K where K can be one month one day one
+
+0:05:24.800,0:05:31.480
+week and so on so basically in our presentation 
+today we are going to show how we leverage the
+
+0:05:31.480,0:05:38.920
+uh web of things standard in both the stages of 
+the digital twin generation so in the first part
+
+0:05:38.920,0:05:45.320
+for the real-time monitoring of the physical 
+asset and in the second part for the for the
+
+0:05:45.320,0:05:54.120
+semi-automatic spawning of the digital twin of the 
+real of the real system so the first part covered
+
+0:05:54.120,0:06:02.120
+by me will be more uh uh uh um the first part 
+will be more related related to applied science
+
+0:06:02.120,0:06:09.200
+while the second part will be more scientific 
+research uh and um indeed in the last years
+
+0:06:09.200,0:06:18.160
+in our lab we have been involved in in different 
+projects uh focusing on U um different use cases
+
+0:06:18.160,0:06:26.800
+of theot from Smart agriculture healthare smart 
+building and um since we um we don't have so much
+
+0:06:26.800,0:06:33.280
+time today we are going to focus only on the last 
+use case so on Smart buildings and in particular
+
+0:06:33.280,0:06:39.600
+on application how we applied web of things 
+Technologies in the context of structural and
+
+0:06:39.600,0:06:48.720
+monitoring so in um in in in few words structural 
+monitoring is an interdisciplinary area uh which
+
+0:06:48.720,0:06:54.760
+try to assess the structural solidity of civil 
+buildings and critical infrastructure like for
+
+0:06:54.760,0:07:03.440
+instance Bridges by combining uh sensing uh data 
+data analytics techniques and of course domain
+
+0:07:03.440,0:07:11.800
+knowledge coming from the Civil uh coming from 
+the Civil uh engineer perspective um in Italy
+
+0:07:11.800,0:07:17.520
+there's lots of Interest not not just in Italy 
+but especially in Italy there's lots of interest
+
+0:07:17.520,0:07:23.760
+on the application of a hm solution uh first of 
+all because clearly because of the presence of
+
+0:07:23.760,0:07:31.640
+Civ of critical infrastructures and also because 
+of the cultural heritage uh uh because of cultural
+
+0:07:31.640,0:07:39.120
+heritage building uh I guess uh uh if you had the 
+opportunity to visit Italy or maybe if you are
+
+0:07:39.120,0:07:45.840
+planning to planning a journey to Italy maybe you 
+are planning to stop in Pisa uh to visit the the
+
+0:07:45.840,0:07:51.640
+famous Le Leaning Tower actually I don't want to 
+reduce your expectation but it seems I don't know
+
+0:07:51.640,0:07:59.440
+it's possible that the situation is improving so 
+the tower is tilting less than before while uh in
+
+0:08:00.040,0:08:07.240
+less famous but probably more critical in in 
+Bologna in our city there is another medieval
+
+0:08:07.240,0:08:16.600
+Tower and here there is an high risk an i 
+an high risk for um collapsing event um so
+
+0:08:16.600,0:08:21.720
+in the last years we have been involved on 
+different projects on structural monitoring
+
+0:08:21.720,0:08:29.680
+founded by different funded by different agency 
+uh for instance uh the project on the left are
+
+0:08:29.680,0:08:36.760
+tool this is a European project with focus on 
+interoperability uh this one the s24 pro are
+
+0:08:36.760,0:08:44.120
+two projects founded by uh the national government 
+specifically by the en agency which is the agency
+
+0:08:44.120,0:08:51.800
+for protection of uh protection of workers and 
+the focus was on sensing and Edge Computing and
+
+0:08:51.800,0:08:57.360
+the last one the last project is founded by a 
+private company that is one of the owner of the
+
+0:08:57.360,0:09:05.160
+Railway infrastructure and the here the focus was 
+on realtime analytics so in some of this in some
+
+0:09:05.160,0:09:13.760
+of the in some of these activities we were asked 
+to work on the creation work on the generation of
+
+0:09:13.760,0:09:20.680
+uh of a digital twin of a civil structure where 
+the digital twin should be able to get real data
+
+0:09:20.680,0:09:27.680
+in real time of course to process the data coming 
+from the sensors installed on the bridge to run
+
+0:09:27.680,0:09:34.280
+anomaly detection and classify the type of damage 
+so at the very beginning when we start working on
+
+0:09:34.280,0:09:42.440
+this field uh at least my initial impression was 
+okay this is mainly an implementation task and
+
+0:09:42.440,0:09:49.800
+uh the architecture is pretty straightforward 
+so we um we have some sensor installed on the
+
+0:09:49.800,0:09:56.520
+bridge we we get the data uh we store the data in 
+a database we run some machine learning algorithms
+
+0:09:56.520,0:10:06.080
+and then we get the alarm uh uh was it really 
+that simple uh I would say no uh because uh um
+
+0:10:06.080,0:10:13.240
+we had to face uh several technological and 
+scientific challenges for instance challenge
+
+0:10:13.240,0:10:21.360
+related to big data management because um in one 
+project one founded by RFI uh every single Bridge
+
+0:10:21.360,0:10:29.480
+was able to uh produce more than between five and 
+10 gigabytes per day uh and so of course we need
+
+0:10:29.480,0:10:37.920
+proper data management solution because in order 
+to cope with uh the scalability of our system um
+
+0:10:37.920,0:10:43.480
+uh then there is the problem of the processing so 
+where to run the processing uh we cannot run the
+
+0:10:43.480,0:10:49.440
+processing on the cloud because probably are going 
+to transfer too much data from the field we cannot
+
+0:10:49.440,0:10:55.480
+we cannot process the data uh on the edge because 
+we don't have enough computational resources so
+
+0:10:55.480,0:11:01.880
+we had to come out with a uh Solutions able to 
+allocate workload dynamically over the H Cloud
+
+0:11:01.880,0:11:08.800
+continum another big challenge was the training 
+because um we want to use machine learning we had
+
+0:11:08.800,0:11:15.880
+to use machine learning solutions to classify the 
+Ty type of damage however uh when we collect data
+
+0:11:15.880,0:11:23.640
+from the bridge we only collect data referrred to 
+a one specific um structural State and we cannot
+
+0:11:23.640,0:11:32.280
+pretend to damage the bridge just to collect to 
+collect level data refer to one damage uh and
+
+0:11:32.280,0:11:39.480
+the third the third challenge was the challenge 
+of interoperability because in a in a practical
+
+0:11:39.480,0:11:46.000
+in a practical scenario specially specifically 
+refer to bridge there may be um many different
+
+0:11:46.000,0:11:53.880
+sensors uh installed over the structure belonging 
+to different types and with different protocols
+
+0:11:53.880,0:12:00.720
+and different data format so for instance in a 
+in a typical uh structure monitoring setup we
+
+0:12:00.720,0:12:09.440
+may use accelerometer gyroscope string gauge 
+acoustic sensor inclinometer uh displacement
+
+0:12:09.440,0:12:15.880
+sensors temperature sensors and in some case 
+they are also they are provided by different by
+
+0:12:15.880,0:12:24.160
+different companies and the the the the uh The 
+Entity will take care of the processing of the
+
+0:12:24.160,0:12:29.160
+sensing data might be a different entity 
+of the one providing the sensor Network
+
+0:12:29.720,0:12:36.520
+so in a very preliminary very preliminary stage 
+of our research we we developed some pilots in
+
+0:12:36.520,0:12:43.760
+our Pilots we associate to every single sensors 
+on uh every single sensor installed on a on a
+
+0:12:43.760,0:12:52.720
+civil structure uh we provide every sensor with a 
+a web of things description um and in a simplified
+
+0:12:52.720,0:12:59.960
+this simplified uh this is the simplified data 
+model where the property uh uh refers to the
+
+0:12:59.960,0:13:05.240
+values we collect from the sensor the action 
+refers to the commands we can send to the to
+
+0:13:05.240,0:13:11.600
+the sensors in order to change the configuration 
+and the events refer to anomaly anomal events we
+
+0:13:11.600,0:13:20.520
+want to uh um uh we want to track uh this was the 
+initial this was the on the initial stage of our
+
+0:13:20.520,0:13:29.400
+of our research then after some months we come 
+out with a more I would say generic architecture
+
+0:13:29.400,0:13:36.320
+for structural monitoring uh rooted on the 
+utilization of the web of things in order
+
+0:13:36.320,0:13:42.520
+to cope with the problem of fragmentation of 
+sensors and data sources so in our architecture
+
+0:13:42.520,0:13:47.120
+there are four different layers the sensing 
+layer interoperability layer data management
+
+0:13:47.120,0:13:54.680
+layer and sensing layer and uh uh in the the 
+interoperability layer is The Logical layer
+
+0:13:54.680,0:14:02.680
+where we try to um abstract from the physical 
+characteristics of the sensing system and in
+
+0:14:02.680,0:14:08.200
+our proposal we were considering possibility 
+to deploy three classes of web thing sensor
+
+0:14:08.200,0:14:15.400
+related sensor sensor related web thing so web 
+thing Associated to each individual sensor uh
+
+0:14:15.400,0:14:22.800
+exposing the um the data produced by sensor as 
+reading on properties and supporting actions for
+
+0:14:22.800,0:14:29.160
+the configuration change then we have other 
+web thing Associated to every single sensor
+
+0:14:29.160,0:14:38.960
+sensor sensor network uh and in that case the webo 
+thing is uh includes all the uh all the individual
+
+0:14:38.960,0:14:47.320
+sensor web thing uh um referred to that Network 
+and then uh Pro uh processing related web thing
+
+0:14:47.320,0:14:53.440
+in in this case the web thing they are not 
+associated to a physical device but they are
+
+0:14:53.440,0:15:00.240
+associated with software software task that can 
+take data from multiple sense a sensor related
+
+0:15:00.240,0:15:07.120
+web thing and transform the row data into higher 
+layer information like features like for instance
+
+0:15:07.120,0:15:14.200
+in structural monitoring the civil engineers 
+rely a lot on operational mode analysis uh so
+
+0:15:14.200,0:15:21.320
+they uh extract the row data they combine the row 
+data from multiple accelerometer and they process
+
+0:15:21.320,0:15:27.560
+the the row data the accelerometer in order to 
+extract the vibrating frequency of the structure
+
+0:15:27.560,0:15:34.640
+as a wall this can be an example of processing 
+related web of things and uh for the for the data
+
+0:15:34.640,0:15:41.160
+management layer we create a new uh we create 
+a platform a data platform for the structural
+
+0:15:41.160,0:15:50.600
+monitoring this is called modon and uh modon uh 
+is a customization of customization for structural
+
+0:15:50.600,0:16:00.600
+monitoring of another platform develop by Lorenzo 
+Loreno Jil who is here in this uh in in this
+
+0:16:00.600,0:16:11.200
+chat so uh the what store is a a a platform and 
+very few words sorry L for my bad for um my bad
+
+0:16:11.200,0:16:19.240
+definition is a platform supporting the rendering 
+of think description inside a web application so
+
+0:16:19.240,0:16:29.160
+basically through a web dashboard we can uh um 
+uh we can interact with the properties of of a of
+
+0:16:29.160,0:16:38.040
+web thing we can send we can send commments and we 
+can monitor the trigger eventss this abstracting
+
+0:16:38.040,0:16:45.560
+from the physical content of the thing so only 
+based on the processing of the the web thing of
+
+0:16:45.560,0:16:53.120
+the thing descriptor and modon is a customization 
+of this generic platform for structural monior so
+
+0:16:53.120,0:17:02.520
+through the modern platform we can for instance uh 
+uh uh we can uh discover the available sensors uh
+
+0:17:02.520,0:17:10.880
+we can uh browse over the list of sensor uh check 
+the current prop readable and writable properties
+
+0:17:10.880,0:17:18.160
+uh uh change the configuration of one specific 
+sensors or browse the data visualize the data
+
+0:17:18.160,0:17:27.080
+produced by every single sensor uh these are two 
+examples of the uh deployment of our uh of our uh
+
+0:17:27.080,0:17:33.680
+architecture for two different use case one refer 
+to the uh monitoring of a concrete structure the
+
+0:17:33.680,0:17:41.320
+other case refer to the monitoring of an hydraulic 
+circuit and probably more than uh more than this
+
+0:17:41.320,0:17:49.560
+picture probably is uh uh I I think is the videos 
+are more effective and I have two videos with me
+
+0:17:49.560,0:17:58.440
+um the V the videos refer to some test we did 
+in a a research lab located close to Rome so in
+
+0:17:58.440,0:18:07.120
+Rome they have this unique and very expensive 
+equipment called called vibrating uh vibrating
+
+0:18:07.120,0:18:16.040
+vibrating table which is on the basement actually 
+and the Vib vibrating table is able to let's say
+
+0:18:16.040,0:18:25.600
+to reproduce the W form of a seismic sismic event 
+uh so on top of the vibr on top of the vibrating
+
+0:18:25.600,0:18:33.200
+table here there is a concrete structure that we 
+built exactly for this test and uh uh um there are
+
+0:18:33.200,0:18:38.960
+some sensors probably you cannot see from from 
+but here is One sensor here is another sensor
+
+0:18:38.960,0:18:46.600
+there are some sensors monitoring the behavior 
+of the of the of the of the structure and uh
+
+0:18:46.600,0:19:00.560
+uh and U in real time we uh were able to uh 
+collect the data from the web thing Associated to
+
+0:19:00.560,0:19:07.720
+that sensors and monitor and monitor the wave for 
+okay now the structure is for now the structure is
+
+0:19:07.720,0:19:15.720
+in quite condition here we are simulating they 
+are emulating the effect of an earthquake of a
+
+0:19:15.720,0:19:21.840
+real earthquake that happened in Italy in Umbria 
+more or less 10 years 10 years ago so you will
+
+0:19:21.840,0:19:32.440
+see now the the structure vibrating a lot and uh 
+yeah and uh the purpose the purpose of this test
+
+0:19:32.440,0:19:40.240
+was mainly to uh from one side uh to assess the 
+reliability of the sensing system because also
+
+0:19:40.240,0:19:47.480
+the Sens have been developed by our colleagues in 
+uh in unibo and on the other sides on the other
+
+0:19:47.480,0:19:55.120
+side assess the performance and relability of 
+the that acquisition based on the web of things
+
+0:19:55.120,0:20:04.040
+standard and this was also the last slide uh of 
+my part refer to the um sorry refer to the uh
+
+0:20:04.040,0:20:12.320
+applied science and now we can move to the second 
+part of the talk uh where we discuss uh um uh how
+
+0:20:12.320,0:20:20.280
+we can support the generation of the digital twin 
+by using the web of things Luca the floor is your
+
+0:20:20.280,0:20:28.520
+okay uh how Marco previously introduced this part 
+uh is more related um on the scientific research
+
+0:20:28.520,0:20:38.200
+with we uh did in the last years more precisely 
+since 2022 about the generation of digital twin
+
+0:20:38.200,0:20:48.720
+automatic generation of digital twin starting from 
+real data so we have uh we did a first attempt
+
+0:20:48.720,0:20:58.800
+called what wins uh where the idea was basically 
+uh to follow the the pipeline um that is depicted
+
+0:20:58.800,0:21:06.400
+here so we have an environment that is an iot 
+environment mapped through web of things and
+
+0:21:06.400,0:21:16.880
+the idea is that we can try to uh guess how the uh 
+model for our digital T is made uh observing the
+
+0:21:16.880,0:21:26.000
+interaction among the entities of the environment 
+so among the iot devices uh once we obtained a a
+
+0:21:26.000,0:21:34.600
+digital twin we can then interact uh with these 
+twins in order to have for instance wtif analysis
+
+0:21:34.600,0:21:43.440
+so basically we have the real system um that we 
+mapped in in this particular case we can think
+
+0:21:43.440,0:21:52.560
+about using some system API um then we monitor 
+the states how the states of the environment
+
+0:21:52.560,0:22:03.160
+evolve uh during the the life of the environment 
+um we basically build uh the transition among the
+
+0:22:03.160,0:22:15.320
+states and for this particular uh work we use um 
+mdp so Marco decision process um and then thanks
+
+0:22:15.320,0:22:22.720
+to this we can spawn the twin with the same API 
+and we can interact with it basically in the same
+
+0:22:22.720,0:22:34.720
+way so how um is the digital twin model basically 
+as I said through a Marco decision process we have
+
+0:22:34.720,0:22:46.720
+some states we have some actions the states are 
+basically um the we can say um the parameters
+
+0:22:46.720,0:22:58.720
+the variables of our um physical devices the 
+actions uh are exactly uh those actions that can
+
+0:22:58.720,0:23:04.680
+make the device move from one state to another 
+and I will be more precise in the next slides
+
+0:23:04.680,0:23:13.320
+then we have some transition probabilities that 
+is that are exactly um computed um Counting the
+
+0:23:13.320,0:23:20.480
+occurrences uh that happened for a specific 
+transition and then we can have some reward
+
+0:23:20.480,0:23:28.880
+function uh for instance in order to enable um 
+some kind of reinforcement learning if you we have
+
+0:23:28.880,0:23:37.880
+if we have for instance uh to achieve a specific 
+goal so um more in the details uh the states in
+
+0:23:37.880,0:23:45.960
+our case were some configurations of property 
+values so the combination of some properties
+
+0:23:45.960,0:23:58.840
+of the uh thing description H in this um let's 
+call investig investigative work we uh use some
+
+0:23:58.840,0:24:04.880
+discrete and finite values for our properties 
+of course this is a simplification but it was
+
+0:24:04.880,0:24:12.120
+a preliminary work uh and the actions were 
+basically some actions that uh performed
+
+0:24:12.120,0:24:19.760
+some kind of variation of the um properties 
+so for instance in this example we have the
+
+0:24:19.760,0:24:28.360
+uh simple counter thing description that 
+is online uh that you made online uh for
+
+0:24:28.880,0:24:35.200
+uh for us and we have the counter that is an 
+integer and we have the random action that
+
+0:24:35.200,0:24:45.280
+basically can um move the counter from one value 
+to another in particular from zero to two so the
+
+0:24:45.280,0:24:54.920
+states of the um of our thing uh basically 
+are zero one and two uh and if if we perform
+
+0:24:54.920,0:25:01.440
+the random action we can move from one state to 
+another uh now this is a very simple example for
+
+0:25:01.440,0:25:13.360
+the is um for the sake of is of course uh we use 
+this for having a very small complete diagraph um
+
+0:25:13.360,0:25:21.960
+as you can see by observing so um by taking the 
+values from the interactions that happened um
+
+0:25:21.960,0:25:28.560
+in the thing we can basically reconstruct the 
+mdp so uh we can reconstruct the probability
+
+0:25:28.560,0:25:34.440
+is of moving from one state to another simply 
+counting the currencies in a specific interval of
+
+0:25:34.440,0:25:46.680
+time um so basically the we uh compared three 
+different approaches one is frequency based
+
+0:25:46.680,0:25:54.800
+as I explained uh the probability T is estimated 
+from the currencies that happen for the transition
+
+0:25:54.800,0:26:02.240
+then we have a machine learning approach using in 
+particular um artificial n network that basically
+
+0:26:02.240,0:26:10.320
+was trained on the observ transition then we have 
+an hybrid approach that is used um that basically
+
+0:26:10.320,0:26:19.720
+uses both the frequency and the Machine learning 
+approaches uh the first only if we have a a good
+
+0:26:19.720,0:26:28.440
+number of samples uh for uh constructing 
+the mdp uh graph uh otherwise it uses the
+
+0:26:28.440,0:26:40.800
+learning approaches uh we um we evaluated this 
+uh proposal uh by using a ground Rover simul
+
+0:26:40.800,0:26:49.440
+simulator uh in particular through a grid scenario 
+that was perfect for our disc discrete case in
+
+0:26:49.440,0:26:58.360
+which our properties uh must be so discrete values 
+we had one property for the x coordinate one uh
+
+0:26:58.360,0:27:05.080
+property for the y coordinate and an action that 
+simply moved the ground Rover through the grid so
+
+0:27:05.080,0:27:14.720
+moving from one cell to another um here there are 
+some some um experiments of course we invite you
+
+0:27:14.720,0:27:22.320
+to read the paper if you are interested in more 
+details but the idea is that we compared on the
+
+0:27:22.320,0:27:28.880
+left the impact of the grid size for our frequency 
+based approach and of course the bigger is the
+
+0:27:28.880,0:27:41.000
+grid and less precise less accuracy we obtain from 
+from the um frequency based approach while on the
+
+0:27:41.000,0:27:47.280
+right we have the impact of the type of estimator 
+so basically um we compared our three approaches
+
+0:27:47.280,0:27:55.160
+and we see that the hybrid approach is performing 
+quite well compared to the others because of
+
+0:27:55.160,0:28:03.360
+course it can balance it it can balance the um 
+two others approaches um then we moved to a more
+
+0:28:03.360,0:28:11.960
+sophisticated approach this was a quite long work 
+um it's called relativistic digital twin bringing
+
+0:28:11.960,0:28:19.600
+the iot to the future why relativistic digital 
+twin we got inspired by the twin paradox in which
+
+0:28:19.600,0:28:31.600
+basically uh two twins could have uh different age 
+uh if one of these TW start traveling in the space
+
+0:28:31.600,0:28:41.680
+uh so our idea was uh to have the possibility to 
+uh automatically launch the Twins and possibly
+
+0:28:41.680,0:28:50.640
+to interact with them at different times of their 
+life in this sense um the same twin that basically
+
+0:28:50.640,0:28:58.280
+was created simultaneously W with another one 
+uh could behave in a very different way okay
+
+0:28:58.280,0:29:09.720
+because simply it um it is older um the pipeline 
+is more or less uh the same of the previous work
+
+0:29:09.720,0:29:19.760
+but in this case uh we worked a lot of the idea 
+that the thing description could uh could have a
+
+0:29:19.760,0:29:28.760
+domain knowledge um would have the possibility 
+to describe the Behavior Uh of the property so
+
+0:29:28.760,0:29:38.520
+we have the behavioral model inside in description 
+this approach is definitely application agnostic
+
+0:29:38.520,0:29:47.120
+it means that if we know how to model the uh 
+mathematically model the environment we can
+
+0:29:47.120,0:29:56.640
+uh describe basically every kind of um application 
+every kind of scenario um and the interesting part
+
+0:29:56.640,0:30:04.200
+is that we are able for each kind of scenario to 
+launch the digital twins to interact with them as
+
+0:30:04.200,0:30:15.240
+they uh wear uh physical devices so with the same 
+kind of um affordances uh so we started from an
+
+0:30:15.240,0:30:23.320
+iot system that is AOG genius we can have devices 
+that has that have only sensing capabilities that
+
+0:30:23.320,0:30:31.960
+have only um actuation capabilities or that can 
+have both of them uh then we map the scenario
+
+0:30:31.960,0:30:41.920
+into um a thing description uh and for each 
+device of the of the scenario we add some model
+
+0:30:41.920,0:30:49.120
+information and uh for the model information we 
+announced a bit the in description so we are here
+
+0:30:49.120,0:30:58.000
+also today for making some kind of proposal 
+to the working group um of course this is a a
+
+0:30:58.000,0:31:03.960
+scientific proposal but it is something that will 
+be really interesting especially I would say for
+
+0:31:03.960,0:31:13.520
+industrial scenario where you uh know quite well 
+the models of the machineries uh after the the
+
+0:31:13.520,0:31:22.360
+mapping phase we basically have the possibility 
+to um train the models basing of course on real
+
+0:31:22.360,0:31:30.160
+data and then we can spawn the the digital Twins 
+and we can interact with them uh as I said in
+
+0:31:30.160,0:31:41.360
+a normal way as they were the normal things the 
+architecture um I would say is not quite complex
+
+0:31:41.360,0:31:50.200
+we have the possibility to um collect data for 
+the training both from a simulator like the first
+
+0:31:50.200,0:31:58.080
+uh paper I presented or from physical devices 
+and then we have the possibility to train um
+
+0:31:58.080,0:32:06.520
+the models according to different techniques so uh 
+we use the uh optimization techniques in this in
+
+0:32:06.520,0:32:17.320
+this work but uh we could easily use also machine 
+learning or deep learning te techniques simply um
+
+0:32:17.320,0:32:27.840
+writing the the code of these approaches it's just 
+a a a replacement of of the uh code in the system
+
+0:32:29.360,0:32:39.920
+uh very briefly the Digital model formalization in 
+this case uh was made splitting the um variables
+
+0:32:39.920,0:32:47.920
+into readon and writeable variables so um each 
+readable property is associated with a set of
+
+0:32:47.920,0:32:56.280
+function that could be algebraic um equations 
+that means that uh we can have an instantaneous
+
+0:32:56.280,0:33:05.160
+value of a specific property or we can have a 
+differential uh equations that in that case uh
+
+0:33:05.160,0:33:12.240
+must consider also the time so in order to get a 
+value we have to basically integrate over the time
+
+0:33:12.240,0:33:23.440
+uh a physical quantity of course the parameter 
+of these equations um must be estimated from the
+
+0:33:23.440,0:33:31.960
+data and then from our um learning model module 
+uh another assumption very important assumption
+
+0:33:31.960,0:33:38.040
+is that we assume to have some knowledge about the 
+models but we can assume to have the the knowledge
+
+0:33:38.040,0:33:46.520
+because our idea was to propose this kind of 
+framework in in scenarios in which uh there
+
+0:33:46.520,0:33:54.400
+are Engineers that perfectly knows and perfectly 
+know the model in other cases like the evaluation
+
+0:33:54.400,0:34:03.920
+we uh perform for this work we used uh some very 
+welln physics laws okay like for instance for the
+
+0:34:03.920,0:34:11.480
+temperature of the room we used in the evaluation 
+uh we extended the the thing description syntax in
+
+0:34:11.480,0:34:19.920
+particularly with three terms uh the name space 
+here is just a proposal and of course it doesn't
+
+0:34:19.920,0:34:28.960
+exist but uh it could be definitely implemented 
+uh we have the model the model uh is is as the
+
+0:34:28.960,0:34:35.560
+word uh suggests the mathematical model of the 
+property inside the property affordance and it
+
+0:34:35.560,0:34:42.800
+is simply a string then we have a model input 
+that contains the inputs of the model because
+
+0:34:42.800,0:34:51.800
+a model could depend on other uh properties uh of 
+the thing if we think about a scenario in which we
+
+0:34:51.800,0:34:57.160
+have to model the temperature the temperature uh 
+of course Depends for instance on the heater and
+
+0:34:57.160,0:35:02.720
+for instance on the cooler on the window open 
+and so on and then we have the value from that
+
+0:35:02.720,0:35:14.520
+is a term that simply indicates uh whether we can 
+have we can take the volume from the read um read
+
+0:35:14.520,0:35:27.440
+property or we have to uh compute it because that 
+property it refers to uh contains a model as well
+
+0:35:27.440,0:35:37.200
+uh um we of course had also to propose a syntax 
+we got inspired by python so it is a python like
+
+0:35:37.200,0:35:47.360
+syntax um we have the behavior that as I said 
+could be an algebraic expression or a different
+
+0:35:47.360,0:35:54.600
+differential equation depending on the fact that 
+is a fixed value that does not depend on over the
+
+0:35:54.600,0:36:00.880
+time or the contrary uh a differential equation so 
+it depends over the time then we have the function
+
+0:36:00.880,0:36:10.920
+that is an arithmetical expression uh and for 
+this we had to of course added few keywords uh
+
+0:36:10.920,0:36:22.400
+let's say compar it to the the python uh set of 
+of words uh then we have some constraints um that
+
+0:36:22.400,0:36:27.560
+are the preconditions regarding the par of the 
+model and then some guess that can be provided
+
+0:36:28.160,0:36:36.440
+as initial value for um helping the the the 
+tuning of the model the optimization of the
+
+0:36:36.440,0:36:48.640
+model so if we have an idea about um which kind of 
+value values could be um found by the model uh we
+
+0:36:48.640,0:36:57.520
+can start from those values um the model input 
+is a list of other properties uh that uh the
+
+0:36:58.440,0:37:05.760
+web thing used uses within the model so we have a 
+title that is a friendly name we have the property
+
+0:37:05.760,0:37:15.280
+name that is the exact name of the property 
+uh of the we web thing that such uh input is
+
+0:37:15.280,0:37:24.920
+referring to then we have the type it is a Json um 
+LD type we have a model that is exactly following
+
+0:37:24.920,0:37:31.680
+the same syntax described in the previous slide 
+and uh the model type that is an optional field
+
+0:37:31.680,0:37:39.960
+denoting a class assigned to this input this is 
+useful whenever we have uh a property model that
+
+0:37:39.960,0:37:49.720
+uses a class of models so uh instead of using 
+just one single model it uses all the models
+
+0:37:49.720,0:37:57.680
+belonging to a certain class so for instance 
+the temperature uh will use all the models um
+
+0:37:57.680,0:38:06.840
+that of course affect the the temperature so 
+we use an input time of the of type temperature
+
+0:38:06.840,0:38:17.920
+um the value form um finally is a uh term for 
+describing as I said if a value could be provided
+
+0:38:17.920,0:38:23.280
+from the read property so directly from the sensor 
+or instead from a model and in that case it must
+
+0:38:23.280,0:38:33.600
+it must be computed uh this is a very very uh 
+um quick example we have um a model for for the
+
+0:38:33.600,0:38:44.600
+cooler uh we have a a physics law that uh was 
+coded in the model term uh that depends on the
+
+0:38:44.600,0:38:53.920
+cooler set point so the value of the cooler um the 
+cooler set point is described in the model input
+
+0:38:53.920,0:39:02.200
+and it is for instance a value between 0 and n and 
+then we have uh the guess and the the constraints
+
+0:39:02.200,0:39:12.360
+value in the the model this is uh the dashboard 
+the implementation part uh I don't know if you can
+
+0:39:12.360,0:39:20.560
+appreciate because it's quite it is quite small 
+but the idea is that very comfortably from a uh
+
+0:39:20.560,0:39:27.480
+dashboard you can train you can spawn you can make 
+the wtif analysis so here for instance you can see
+
+0:39:27.480,0:39:39.400
+some uh plots that show how the models the digital 
+twin uh perform over the real data uh in the last
+
+0:39:39.400,0:39:48.640
+uh screenshot here you have uh some wtif analysis 
+so here at the bottom you have the graph showing
+
+0:39:48.640,0:39:57.600
+the values obtained whenever you performed some 
+actions uh that you invoked from the dashboard uh
+
+0:39:57.600,0:40:05.880
+um I'm almost at the end of the presentation just 
+to tell you that we performed a lot of evaluations
+
+0:40:05.880,0:40:14.760
+for this work uh in particularly uh this was 
+for a quad copter that we mapped uh with some
+
+0:40:14.760,0:40:26.200
+right only properties uh the thror r elevator Aon 
+then we had we measured some read only properties
+
+0:40:26.200,0:40:34.280
+that were used to basically train the model the 
+models were a second order linear Dynamics um
+
+0:40:34.280,0:40:43.640
+quite famous models for quadcopters and we learned 
+the data um sorry we learned the parameters from
+
+0:40:43.640,0:40:51.320
+the data in order to obtain the digital twin We 
+performed some evaluations and uh of course the
+
+0:40:51.320,0:41:02.320
+more we observe the real data so the more data we 
+collect and uh more size uh will be our model um
+
+0:41:02.320,0:41:11.240
+I think that yes after 15 seconds of observation 
+we start to uh reach uh pretty good results if
+
+0:41:11.240,0:41:21.400
+you follow the lines here the red and the green 
+ones um for the future we are focusing on other
+
+0:41:21.400,0:41:30.440
+iot domains in particular Healthcare uh for two 
+national projects uh we are integrating behavioral
+
+0:41:30.440,0:41:40.160
+model learning and mdp parameters through uh deep 
+learning techniques uh and then we are extending
+
+0:41:40.160,0:41:46.760
+the relativistic W framework uh for federating 
+digital twin environments so instead of having
+
+0:41:46.760,0:41:55.640
+a single environment containing multiple uh 
+devices that could be represented as a single
+
+0:41:55.640,0:42:06.320
+uh entity uh um one enti one description for each 
+entity uh we start to work on this generalization
+
+0:42:06.320,0:42:13.640
+in which we have very different entities and we 
+try to arrange uh the relativistic what framework
+
+0:42:13.640,0:42:27.120
+for performing exactly the same the same thing oh 
+thank you and uh we are open to to your questions

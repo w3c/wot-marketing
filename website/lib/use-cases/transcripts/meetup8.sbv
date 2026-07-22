@@ -1,0 +1,708 @@
+0:00:10.860,0:00:16.560
+right so today we have two speakers from 
+Scheffler group so first Christoph kinster
+
+0:00:16.560,0:00:22.260
+who was an expert data architect at 
+Scheffler and he is very experienced
+
+0:00:22.260,0:00:25.260
+and data-driven product development 
+machine learning Automation and I.T
+
+0:00:25.800,0:00:30.240
+and and he leverages a unique combination 
+combination of filtration mechanical
+
+0:00:30.240,0:00:34.740
+engineering contemporary information and 
+communication Technologies and data methodologies
+
+0:00:35.400,0:00:40.200
+he's passionate about driving the digitization of 
+companies and fascinating their transitioning to
+
+0:00:40.200,0:00:48.480
+the digital era welcome Kristoff and second we 
+have swim pencil also from Scheffler and he is
+
+0:00:48.480,0:00:53.520
+a social architect at Scheffler and he posts a 
+carrier in software development over a range of
+
+0:00:53.520,0:00:58.320
+domains and has been involved with the development 
+of the digital twin offering of Scheffler
+
+0:01:00.180,0:01:07.080
+yeah welcome swen and with this we will 
+transition to the presentation session so
+
+0:01:08.340,0:01:14.460
+the floor is yours so Sven and I will give 
+you a presentation today about advantages
+
+0:01:14.460,0:01:21.900
+and challenges of the web of things for digital 
+twins at Scheffler um before we start uh yeah
+
+0:01:21.900,0:01:27.420
+I mean the introduction already happened um Sven 
+and I we both work in the digital twin Department
+
+0:01:28.860,0:01:33.900
+um or let's say in the Twin group where we 
+try to shape the digital twin at Scheffler
+
+0:01:35.220,0:01:42.480
+um this is kind of um yeah located in uh 
+Department which is called data science
+
+0:01:42.480,0:01:47.100
+and software Solutions so this is 
+basically also the umbrella where
+
+0:01:47.100,0:01:52.740
+we work and also where we in work and also 
+which kind of goals we work and missions
+
+0:01:54.360,0:02:01.920
+um before I jump into the topic um I will um 
+introduce shefra in a nutshell very quickly
+
+0:02:02.580,0:02:09.120
+um this is kind of mandatory and I will do 
+that so and then we come to the the up um of
+
+0:02:09.120,0:02:16.260
+the wot standard which we kind of implemented in 
+digital twins and Sven will then take over the
+
+0:02:16.260,0:02:22.740
+challenges uh which we have is currently with the 
+standard and then we phase out this q a session
+
+0:02:24.120,0:02:29.340
+so maybe not all of you know Scheffler 
+Scheffler is a company which is producing
+
+0:02:30.000,0:02:38.100
+um mainly metal Parts but also for show 
+components uh which are of mechatronic kind of
+
+0:02:38.100,0:02:43.920
+um nature um I think the most famous product you 
+know from Scheffler are the bearings this is what
+
+0:02:43.920,0:02:51.720
+you see on the very left side um usually these 
+products um isolate rotation so everything which
+
+0:02:51.720,0:02:56.220
+rotates or moves usually you find a shorter 
+product or you find a bearing which you lose
+
+0:02:56.220,0:03:03.300
+and that you can see that it it's going really 
+from a small size so very maybe the smallest
+
+0:03:03.300,0:03:10.080
+bearings you produce are in the tent is in the 
+drill of the dentist and the biggest one yeah
+
+0:03:10.080,0:03:17.280
+maybe you know London in the London Eye and the 
+Thames is next to um basically the London Eye
+
+0:03:17.280,0:03:21.720
+so the bearing in the London Eye this is also 
+being produced or being produced by Scheffler
+
+0:03:23.280,0:03:29.400
+um this is also the dimension you can imagine 
+so these this are really heavy and we all we
+
+0:03:29.400,0:03:34.020
+have a we produce these parts also in our 
+plants so this is the second image that
+
+0:03:34.020,0:03:38.520
+you can see uh this is heated and you 
+they apply heat treatments and anything
+
+0:03:38.520,0:03:45.060
+um to make this products last and um on the right 
+very right side you see it also um yeah in wind
+
+0:03:45.060,0:03:51.060
+turbines basically um so everywhere every 
+Everything which is rotating uh usually find
+
+0:03:51.060,0:04:01.860
+Shuffle products especially the bearings here as 
+an example of a wide range of products foreign er
+
+0:04:01.860,0:04:08.700
+um yeah we are roughly 80 000 employees worldwide 
+so we have 200 locations in 50 countries we have
+
+0:04:08.700,0:04:18.660
+76 plants um and 20 r d standards so you you see 
+that um Scheffler also focusing um basically not
+
+0:04:18.660,0:04:24.180
+only on producing and selling products but 
+also on the further development and also
+
+0:04:24.180,0:04:30.360
+um approaching new Fields um where also 
+we think that judgment is one of them
+
+0:04:31.020,0:04:37.080
+the sales in 2020 were roughly 
+60 billion and the Epic was 6.6
+
+0:04:37.080,0:04:41.460
+percent and we have this is something 
+also what Scheffler is pretty proud of
+
+0:04:42.240,0:04:53.340
+um we filed um and registered roughly two thousand 
+uh 1250 patents last year so this also means we
+
+0:04:53.340,0:04:59.400
+try to be Innovative and also inventive and um 
+yeah this is also about dry stuff in the end
+
+0:05:01.800,0:05:05.340
+this Set uh we jump into the topic of the children
+
+0:05:06.600,0:05:11.340
+and I will guide you a little bit 
+through the Journey we made with the WFT
+
+0:05:12.060,0:05:17.460
+um but before that I will quickly Define or 
+say of something about what Scheffler thinks
+
+0:05:17.460,0:05:24.960
+a digital twin is so if it comes to digital 
+twins um you hear a lot of passwords usually
+
+0:05:24.960,0:05:31.680
+and I like this this picture here the blind man 
+and the Elephant uh because this is that kind of
+
+0:05:31.680,0:05:38.700
+um picture which shows this discussion so if um 
+if if people stand in front of this big elephant
+
+0:05:38.700,0:05:44.520
+depending where you stand and what you see you you 
+interpret it differently so for instance the guy
+
+0:05:44.520,0:05:53.580
+here at the foot it depressed this this elephant 
+as a tree um the one in the front says this is a
+
+0:05:53.580,0:05:59.040
+spear and the guy here which is sitting on 
+top of it it's a fan and usually the same
+
+0:05:59.820,0:06:06.600
+um thing um it's also if it comes to the digital 
+twin itself so usually each company on each
+
+0:06:06.600,0:06:15.180
+environment defines it differently so it could be 
+a 3D model it is also um yeah often said it's a
+
+0:06:15.180,0:06:20.100
+stimulation so he applies simulation on top of 
+products and then you can predict the behavior
+
+0:06:20.100,0:06:25.920
+of products and this is exactly what a digital 
+tune is for many people it's also iot data so
+
+0:06:25.920,0:06:30.540
+you can only know how a product behaves if you 
+measure what is really going on in the field
+
+0:06:31.680,0:06:38.040
+so if you talk to other models to other people 
+again it's the data model so all the AAS
+
+0:06:38.040,0:06:45.300
+Community for instance they say that the student 
+is exactly that and if it's coming coming to um
+
+0:06:45.300,0:06:53.340
+yeah different domains they all stay this is the 
+digital twin and we tried um for Scheffler also to
+
+0:06:53.340,0:07:00.600
+Define this but before that what all of these kind 
+of definitions have in common is that we try to
+
+0:07:00.600,0:07:06.480
+create a create a kind of products that review to 
+cover the whole truck life cycle this is usually
+
+0:07:06.480,0:07:12.480
+the main main intention if it comes to a digital 
+twin or digital twin representation and why do we
+
+0:07:12.480,0:07:18.720
+do that this is not something we do because it 
+makes fun usually all of uh the people who are
+
+0:07:18.720,0:07:24.960
+working in these kind of fields do it to increase 
+their revenue so to get new business opportunity
+
+0:07:24.960,0:07:30.780
+opportunities and also the car to reduce the costs 
+to do a kind of internal optimization I mean this
+
+0:07:30.780,0:07:36.960
+is basically what you do if you apply new things 
+or if you if you develop new things in the end
+
+0:07:37.620,0:07:44.100
+but and that's why we also at shuffler we 
+defined a little twin for us as a digital
+
+0:07:44.100,0:07:53.100
+representation of a physical thing so to say I 
+mean this is a not concrete definition so to say
+
+0:07:53.820,0:07:59.640
+but this is exactly what we try to do and 
+did also with the wrt standard in the end
+
+0:08:01.440,0:08:09.300
+so um we do that because we still think that 
+the digital twin in this definition will be
+
+0:08:09.300,0:08:14.520
+a driver to optimize enhanced shifter products 
+in the end to increase revenue and reduce costs
+
+0:08:17.280,0:08:24.660
+and if you do so so imagine you you map all 
+let's say everything you know about a product
+
+0:08:24.660,0:08:31.440
+then you will create a kind of representation 
+of the products in the cloud associate visualize
+
+0:08:31.440,0:08:40.380
+with this nice mesh or network on top of it and 
+you can imagine what we basically also did we
+
+0:08:40.980,0:08:49.620
+um we really want to have each product which 
+is being produced kind of represented however
+
+0:08:49.620,0:08:53.820
+this looks like this will be available and 
+I will talk about that a little bit later
+
+0:08:55.320,0:09:01.560
+um so that we know everything about this product 
+either what kind of properties what kind of state
+
+0:09:01.560,0:09:08.700
+it currently has so that is product access in the 
+end so that we know about that it exists and maybe
+
+0:09:08.700,0:09:14.880
+if there are sensors attached we also want to 
+interact with the sensors and this is why we came
+
+0:09:14.880,0:09:23.700
+to the wsd wwot standard in the very beginning 
+this is a slide where I try to answer why we
+
+0:09:23.700,0:09:32.580
+really went with the wrt standard because it 
+reflected exactly that so we wanted to um um yeah
+
+0:09:32.580,0:09:40.200
+have our products Centric this is basically here 
+bearing in a in a winter Pine we wanted to map
+
+0:09:40.200,0:09:46.140
+all the properties of this product so we wanted to 
+know all these products of the properties and we
+
+0:09:46.140,0:09:51.960
+also wanted to interact with this property and 
+we also wanted to know what is really going on
+
+0:09:52.560,0:10:00.540
+um in this in this in this product in the end and 
+maybe if you think about this trivial so to say
+
+0:10:01.140,0:10:06.900
+um Big bearing which is living in a wind turbine 
+this is not only made of steel so this is what you
+
+0:10:06.900,0:10:11.220
+see on the left hand side there's an animation 
+also already going on hopefully this is pretty
+
+0:10:11.220,0:10:19.500
+fluent um or not chopping at your side we attach a 
+lot of sensors to this product um for instance we
+
+0:10:19.500,0:10:25.500
+wanted we wanted to to know about the lubrication 
+the condition of the lubrication we attached also
+
+0:10:25.500,0:10:31.200
+load sensors um so to measure the load which is 
+flowing through the bearing during the operation
+
+0:10:31.980,0:10:39.720
+and now this Source should kind of emphasize and 
+underline uh the WT standard kind of fits in a
+
+0:10:39.720,0:10:47.220
+sense of this I think what the initial standard 
+also was to to represent just um products which
+
+0:10:47.220,0:10:55.920
+you can for instance find on Amazon which are also 
+sensorized um so I iot devices and this is more II
+
+0:10:55.920,0:11:01.020
+OT device so to say but we we thought in the 
+very beginning that this is a good Niche the
+
+0:11:01.020,0:11:06.960
+standard and what we tried to get get from our 
+products to have it also in a standardized form
+
+0:11:09.660,0:11:16.380
+um this is where we really went in the beginning 
+and this went very well so we used the standard
+
+0:11:16.920,0:11:23.280
+um to to create a kind of virtual representation 
+of our products and usually how how does it look
+
+0:11:23.280,0:11:28.140
+like so um you have the life cycle on the left 
+hand side where our products are engineered
+
+0:11:28.140,0:11:32.040
+they're produced and they are unencent 
+to the customer this is the physical part
+
+0:11:32.700,0:11:40.800
+but we also um shipped so to say the data 
+uh to the customer so basically we had an
+
+0:11:40.800,0:11:46.980
+interface to each of our products which were 
+sent to the customer using the wot standard
+
+0:11:48.240,0:11:54.660
+um via a digital platform um and with that 
+the customers were really able to kind of
+
+0:11:54.660,0:11:59.340
+interact with the product from Scheffler 
+they were able to read the state they
+
+0:11:59.340,0:12:02.940
+were able to read the properties maybe 
+deviations during the production phase
+
+0:12:04.620,0:12:09.300
+um and I think the response in the beginning 
+was very good because for us it was also very
+
+0:12:09.300,0:12:13.620
+good because it's a standard so you just say 
+you use the standard and the customer can read
+
+0:12:13.620,0:12:18.780
+the docs and they immediately know how to 
+interact and use let's say uh the product
+
+0:12:20.040,0:12:25.200
+um and this was I think this went very 
+very well in the very very beginning until
+
+0:12:25.200,0:12:32.520
+customers started also to bring up um their own 
+requirements on top of it but this is something
+
+0:12:33.120,0:12:39.120
+um Sven will elaborate a little bit 
+more in in I think two or three slides
+
+0:12:40.380,0:12:47.340
+how maybe just from that perspective how did we 
+do that um for sure we had a data integration
+
+0:12:48.180,0:12:55.140
+um um let's say layer um where we yeah kind of 
+ingested all the data from the different light
+
+0:12:55.140,0:13:02.640
+phases we integrated it this is something we won't 
+go into detail today and then um this is explained
+
+0:13:02.640,0:13:11.040
+here we have developed a so-called botlip so 
+web of sync standard Library where we do a syncs
+
+0:13:11.040,0:13:16.680
+description although we create a sync description 
+as code and this botlab is kind of generating the
+
+0:13:16.680,0:13:26.160
+classes for it and we attach mappings to uh um to 
+a Spoke so basically the backend database and with
+
+0:13:26.160,0:13:33.000
+that we can expose a rest API um following the 
+web of sync standard the data integration part
+
+0:13:33.540,0:13:41.820
+um I mean this is not something the topic of day 
+this is exactly where what I mentioned in the
+
+0:13:41.820,0:13:46.920
+beginning um this is another drug Group which 
+is handling that to bring everything together
+
+0:13:48.240,0:13:55.200
+but this is the way at the moment how 
+we we expose uh and we create a web
+
+0:13:55.200,0:14:02.400
+of rest API so to say which follow 
+the web of sync standard and now um
+
+0:14:04.680,0:14:12.540
+Sven is taking over so let me know when I should 
+click here yeah thank you Christoph so yeah and
+
+0:14:12.540,0:14:18.840
+now we come to this um yeah we call it challenges 
+in this case uh because it's not really dealing
+
+0:14:18.840,0:14:23.160
+with the standard you have some as Christopher 
+mentioned some additional requirements from our
+
+0:14:23.160,0:14:29.940
+customers how we have response or offer the 
+data and maybe because of you can click to
+
+0:14:29.940,0:14:38.760
+the first stage here you see some products of of 
+our site as you see um they are the user has the
+
+0:14:38.760,0:14:47.460
+same properties but our main problem is maybe 
+we can with the first challenge is um that's a
+
+0:14:47.460,0:14:55.080
+customer normally not really want one special uh 
+thing he wants us to he want to to search in this
+
+0:14:55.080,0:15:00.600
+case during during the range or the bar uh the 
+barometer and so we offer normally we offer a list
+
+0:15:00.600,0:15:07.620
+so so our normal customer don't want to really 
+use special for a special thing the properties
+
+0:15:07.620,0:15:13.800
+he wants to say okay let's give this for this 
+just range and then returns a list this is one
+
+0:15:13.800,0:15:20.580
+uh challenge that we have to yeah to to check or 
+to or or or or or or to fit maybe Christoph you
+
+0:15:20.580,0:15:26.880
+can do the next part and this comes with multiple 
+multi things so let's review the customer want
+
+0:15:27.720,0:15:35.760
+um not really say yeah this case gazillion of rest 
+calls so if you if if as a some some customers
+
+0:15:35.760,0:15:43.380
+that buys uh buildings from us and they want to 
+get the properties and they buy many as they buy
+
+0:15:43.980,0:15:51.600
+maybe 10 000 but um the properties are really 
+the same only the identifier is different uh
+
+0:15:51.600,0:15:58.800
+and they say Okay um please we are not we are 
+we don't want to to uh call it ten thousand uh
+
+0:15:58.800,0:16:05.040
+times this the stress call if it possible 
+to get one rest call where we add all this
+
+0:16:05.640,0:16:12.540
+um properties that are special or or defined for 
+this and uh you you send us a whole list so only
+
+0:16:12.540,0:16:18.660
+that these change but the other part is is fixed 
+um this is uh one uh challenge we have to deal
+
+0:16:18.660,0:16:27.540
+with and please do the next part yeah and the 
+analysis part in this case um so um yeah uh one
+
+0:16:27.540,0:16:34.920
+one also one challenge is that the user won't be 
+yeah uh some analysis on different process so uh
+
+0:16:34.920,0:16:42.780
+or products so uh please send me some information 
+where the the board diameter is from maybe from
+
+0:16:42.780,0:16:51.360
+12 to 14 how many people have you have have I 
+bought this case and so on and this is yeah so
+
+0:16:51.360,0:16:56.340
+next please and the last one I think is for this 
+page yeah and um as I mentioned we have many many
+
+0:16:56.340,0:17:02.340
+products many many properties on many many things 
+so every bearing actually is a thing we have a
+
+0:17:02.340,0:17:07.560
+Constructor template where this wherever there's 
+a designer said okay the period has to looks in
+
+0:17:07.560,0:17:12.540
+this case and then every productive bearing is a 
+thing and this can to be a millions in this case
+
+0:17:14.160,0:17:19.740
+so please do the next page here and here's you'll 
+see this is a and then you need is the same and
+
+0:17:19.740,0:17:25.320
+um yeah the sinks property don't don't change we 
+have this is what I mentioned we have this this
+
+0:17:25.320,0:17:31.560
+uh templates just where we have really fixed 
+fixed values but only as I mentioned the ID
+
+0:17:31.560,0:17:38.640
+has changed and uh this is actually um yeah how to 
+deal with this this case virtual physical product
+
+0:17:38.640,0:17:44.280
+you have this product as it is this template 
+is our virtual product and then we have this
+
+0:17:44.280,0:17:51.000
+millions of of productive elements that is also 
+digital things but it's only yeah an instance
+
+0:17:51.000,0:17:55.620
+like in a we have we have a class definition and 
+we have an instance of a class in this case and
+
+0:17:55.620,0:18:01.860
+how we do is just actually it's very hard because 
+we have this millions of elements and um therefore
+
+0:18:01.860,0:18:07.980
+we just decided to go to this we have offer a 
+search and not uh direct equal to the special ID
+
+0:18:10.200,0:18:17.100
+yeah and uh is this the next part most of our 
+customers really uh use the sync subscription
+
+0:18:17.100,0:18:22.800
+and not the data in this case you really 
+want uh uh uh um yeah as I mentioned this
+
+0:18:22.800,0:18:29.460
+description and not not really this is it or 
+all the data and um now we have to think about
+
+0:18:29.460,0:18:33.300
+how to deal with this and since the next 
+question is normally from the developer is
+
+0:18:34.080,0:18:41.040
+um we have speaker or Swagger Channel or something 
+and um actually we um have not found any tool
+
+0:18:42.000,0:18:45.900
+um this created from the sync 
+description directly to Swagger uh
+
+0:18:45.900,0:18:53.220
+uh jumbo so actually we have implemented it 
+in this case but the next change is that we
+
+0:18:54.120,0:19:01.620
+um have to customize the Swagger so not every 
+customer has to see any all properties of a thing
+
+0:19:01.620,0:19:10.140
+so that we have really uh for maybe actually for 
+example we have five customers uh one as have to
+
+0:19:10.140,0:19:17.040
+see in all nc4 have special interpretations and we 
+are not allowed to say okay this property exists
+
+0:19:17.040,0:19:23.040
+to it so we have really to remove this property 
+from the sources from this journal and send
+
+0:19:23.040,0:19:28.260
+it uh to the customer this is the next problem 
+that we have we have really to not one we have
+
+0:19:28.260,0:19:33.060
+let's call it one thing description but 
+with different views for the customer
+
+0:19:36.720,0:19:44.220
+yeah and um the next next is our customer use 
+so what the the WT standard but they actually
+
+0:19:44.220,0:19:51.720
+they use it because it's a response that can 
+uh they can uh process it but nevertheless
+
+0:19:52.440,0:19:54.240
+um it has also be normal Json
+
+0:19:56.940,0:20:00.900
+yeah this was a quick view 
+of our challenges so feel
+
+0:20:00.900,0:20:05.280
+free for for answers of the questions so 
+hopefully that we can get an answer of it
+
+0:20:09.060,0:20:11.400
+so thank you for your attention

@@ -1,0 +1,721 @@
+0:00:06.840,0:00:13.280
+right so we have Christian Paul with us and 
+Christian is a tool lover of opof software and he
+
+0:00:13.280,0:00:19.640
+regularly attends conferences like postam and has 
+worked in various startups and for the last seven
+
+0:00:19.640,0:00:25.760
+years he has been working on the Matrix protocol 
+and but like you will see here he has he's
+
+0:00:25.760,0:00:29.960
+been looking at other standards like the web of 
+things or activity Pub which are brought from the
+
+0:00:30.680,0:00:35.720
+and he has been building interrogations and 
+prototype servers for the joy of experimenting
+
+0:00:35.720,0:00:42.120
+but he lives in in Berlin and is actually will 
+be here with us in the wat week so if you want
+
+0:00:42.120,0:00:48.800
+to meet him in person coming to Munich is a very 
+good opportunity and also to meet everyone else
+
+0:00:48.800,0:00:56.920
+um right and uh with this uh well if you just 
+ask the question briefly introduce yourself
+
+0:00:56.920,0:01:04.360
+and yeah the floor is now yours but we will 
+now hear about web of things for every yeah
+
+0:01:04.360,0:01:16.000
+uh web of things for every um let's start 
+I guess uh for me uh web of things has been
+
+0:01:16.000,0:01:23.280
+like a hobby for quite a long time uh like about 
+and I've always asked myself kind of like what
+
+0:01:23.280,0:01:30.080
+are the limits of I that's kind of like always 
+what I've been driven by and uh what I want to
+
+0:01:30.080,0:01:40.440
+share today what what that has become I guess 
+um it kind of started six years ago with like a
+
+0:01:40.440,0:01:51.520
+relatively harmless YouTube video of U me like 
+just building a new thing with this like web
+
+0:01:51.520,0:01:59.840
+or things protocol or like the the standard 
+in in typescript with an Express server um
+
+0:02:00.480,0:02:09.000
+just understanding what kind of end points are 
+there how can they be manipulated um and how can
+
+0:02:09.000,0:02:18.680
+I get things onto a onto a screen to actually like 
+transition from like a virtual countdown thing or
+
+0:02:18.680,0:02:25.240
+a virtual light bulb to like simulate what an 
+actual light bulb or an actual like countdown
+
+0:02:25.240,0:02:37.880
+would do um at that time uh there were a couple of 
+libraries already to do this um I started in the
+
+0:02:37.880,0:02:49.000
+Mozilla iot Community uh before then migrating 
+to the larger web of things Community um and I
+
+0:02:49.000,0:02:55.840
+think since about this year I think it's fairly 
+uncontroversial if you want to build um something
+
+0:02:55.840,0:03:03.600
+with JavaScript you would use node what from the 
+eclipse project um which is an awesome Library uh
+
+0:03:03.600,0:03:11.800
+you first uh create a serent for for server side 
+uh web of thing um so you define your server then
+
+0:03:11.800,0:03:19.640
+you define the thing um and then uh expose 
+the thing that's uh to reiterate Define the
+
+0:03:19.640,0:03:27.360
+server Define the thing let the server expose the 
+thing uh that's what makes the most sense if you
+
+0:03:27.360,0:03:35.040
+have an actual thing in front of you you want to 
+connect that to the internet and also uh if you
+
+0:03:35.040,0:03:40.440
+want the stability and all of the protocols that 
+I have implemented um it's it's awesome like how
+
+0:03:40.440,0:03:47.400
+many different uh protocols they already support 
+how many different output formats input formats
+
+0:03:47.400,0:03:55.360
+uh it's amazing um really good for production but 
+you're not here to listen to your line father are
+
+0:03:55.360,0:04:01.280
+you you're here to learn about that shadowy place 
+came with the question what are the limits of
+
+0:04:01.280,0:04:11.800
+iot uh so let's get closer to that one uh a year 
+after that YouTube video I proposed the idea hey
+
+0:04:11.800,0:04:18.200
+can we build a web thing for every element on open 
+street map open stre map is kind of like this free
+
+0:04:18.200,0:04:28.240
+alternative to uh something like Google Maps has a 
+lot of similar goals uh some are different but for
+
+0:04:28.240,0:04:34.720
+the most part you would use it for for hiking or 
+for uh printing a map of your local neighborhood
+
+0:04:34.720,0:04:41.160
+something like that um all of these are like all 
+of the elements like every path every store every
+
+0:04:41.160,0:04:51.160
+whatever is inside of this big big database um and 
+for example I was interested in the opening hours
+
+0:04:51.160,0:04:59.840
+of my local library um you can find that here 
+in the in the attributes of this um element um
+
+0:04:59.840,0:05:11.240
+but also yeah so I built that as a thing one of 
+the issues here is that every element on open
+
+0:05:11.240,0:05:20.840
+street map does not fit onto like a regular small 
+server it's over a terabyte uncompressed uh data
+
+0:05:20.840,0:05:29.920
+um the entire planet uh and neither will it fit 
+into your RAM if you create a thing for every like
+
+0:05:29.920,0:05:37.560
+for every element it's just way too much uh 
+programmers might already know what the answer
+
+0:05:37.560,0:05:44.120
+here is uh we need to switch around this like 
+step two and three so we Define our server then
+
+0:05:44.120,0:05:51.280
+we immediately start the server and we Define the 
+things on demand so only when somebody requests
+
+0:05:51.280,0:05:59.640
+the opening hours of the Vancouver Public Library 
+only then do we do we download that um data
+
+0:06:00.680,0:06:09.680
+uh so what this looks like in terms of a URL is 
+we have osm for open street map then uh what kind
+
+0:06:09.680,0:06:15.200
+of information are we interested in the opening 
+hours in this case uh open street map have has
+
+0:06:15.200,0:06:21.920
+three different types of elements uh one is called 
+away that's whenever something has like multiple
+
+0:06:21.920,0:06:29.760
+notes and this is the ID in the open street map 
+database for the Vancouver Public Library um
+
+0:06:29.760,0:06:39.680
+um to actually accomplish this is it open is 
+it not open uh it got quite complicated um I
+
+0:06:39.680,0:06:45.080
+first had to fetch the element from open street 
+map then resolve the address to a time zone uh
+
+0:06:45.080,0:06:52.200
+fetch the local holiday Days part the opening 
+hour string and then set timeouts in case you
+
+0:06:52.200,0:07:00.360
+subscribe to or like what is observe the property 
+uh it was fun to build it was not fun to maintain
+
+0:07:00.360,0:07:10.440
+in my free time I think it's still working but I'm 
+not exactly sure if if it still does uh the idea
+
+0:07:10.440,0:07:17.800
+of like building something like that has never 
+really left me uh so in the beginning fast forward
+
+0:07:17.800,0:07:22.960
+to this year in the beginning of the year I was 
+like Hey that with of street map that was pretty
+
+0:07:22.960,0:07:34.200
+cool uh I wonder if I now have enough experience 
+uh with web of things to kind of like find a way
+
+0:07:34.200,0:07:41.200
+to like a framework or some kind of server that I 
+can easily extend with like different things that
+
+0:07:41.200,0:07:50.160
+are not just built specifically for this one 
+purpose so that's how web of things anything
+
+0:07:50.160,0:08:01.760
+my own extensible server started uh it has much 
+of the same ideas just um it started again with
+
+0:08:01.760,0:08:08.920
+uh something that I could only find in an API 
+these are uh City bikes uh they have stations
+
+0:08:08.920,0:08:16.440
+um and the stations have a certain amount of bikes 
+available uh they also only have a certain amount
+
+0:08:16.440,0:08:24.800
+of uh parking slots available if you already 
+have a bike and want to park it so what does
+
+0:08:24.800,0:08:32.080
+it look like for a city bike station in web of uh 
+web of thingss anything um first we always have
+
+0:08:32.080,0:08:43.280
+an application ID for I need that to know what 
+where to route that request to so it's ubikes in
+
+0:08:43.280,0:08:52.120
+this case for the um operator of these uh bike 
+sharing stations and then an ID of the of the
+
+0:08:52.120,0:09:04.720
+station um we things anything matches these API 
+by operations directly to the operations um that
+
+0:09:04.720,0:09:12.120
+you know from web off things if you're a developer 
+um so we have direct matching to get description
+
+0:09:12.120,0:09:20.360
+get property get property event emitter this is 
+kind of like a translation for observe property
+
+0:09:20.360,0:09:28.400
+uh to JavaScript uh and then if if you need 
+the additional performance um you can also
+
+0:09:28.400,0:09:36.480
+get multiple properties get all properties um if 
+you're lazy this can also be handled by my server
+
+0:09:36.480,0:09:42.000
+just through get property and it will first get 
+the description and then iterate through all of
+
+0:09:42.000,0:09:51.240
+the properties that are readable um the neat thing 
+about dealing with it like this instead of first
+
+0:09:51.240,0:10:01.280
+defining your thing is that if I get a request on 
+any of those at any time um any of those functions
+
+0:10:01.280,0:10:07.280
+only then do I have to think about hey do I 
+already have this element created do I already
+
+0:10:07.280,0:10:14.240
+have this like the data for this element cached 
+uh so I don't know in which order you're going to
+
+0:10:14.240,0:10:18.880
+call this or like when you know like somebody 
+could be asking just for the property because
+
+0:10:18.880,0:10:22.760
+they already have the description somebody 
+could be asking for the description uh and
+
+0:10:22.760,0:10:29.600
+then ask for the property afterwards somebody 
+could be asking just for the event emitter um
+
+0:10:29.600,0:10:38.840
+um so here's that thing it's um the U stations 
+this is live data so we currently have available
+
+0:10:38.840,0:10:46.360
+bikes six bikes available here um in their 
+API they also had GPS coordinates so I
+
+0:10:46.360,0:10:54.680
+built this map that's that shows me where the 
+station is uh the total sparking spaces 45 and
+
+0:10:54.680,0:11:03.040
+then empty spaces yeah that's all coming 
+from an API uh theoretically there are I
+
+0:11:03.040,0:11:08.160
+think about 7,000 other stations we don't 
+need the data of those unless you ask for
+
+0:11:08.160,0:11:21.520
+them um in this summer we also found uh DMX 
+lights those are the lights on the far back
+
+0:11:21.520,0:11:29.240
+these like round black things that uh they can 
+light up the the wall and you can talk to them
+
+0:11:29.760,0:11:40.920
+over art net it's it's what musicians and like 
+State Technics work for doing big shows or if
+
+0:11:40.920,0:11:46.720
+you have like a a club you would use these 
+um like it's it has its own protocol and
+
+0:11:46.720,0:11:55.080
+whatnot um if done correctly um it kind 
+of looks like this where hey we have a
+
+0:11:55.080,0:12:04.880
+midi what is this like drum kit hooked up to 
+this uh laptop the laptop then converts this
+
+0:12:04.880,0:12:14.160
+to uh control the the lights um obviously 
+I wanted to tap in with the we things uh
+
+0:12:14.160,0:12:21.240
+so again we have to come up with a URL uh 
+that's artnet and then one for the universe
+
+0:12:21.240,0:12:29.520
+they have it's it's just an ID for the 
+universe uh every Universe has a 512
+
+0:12:29.520,0:12:37.920
+channels if you have a light it doesn't really oh 
+yeah this reset because I still working on this
+
+0:12:37.920,0:12:48.480
+um it's if if it has a a light can be on any of 
+those channels they're like not really like you
+
+0:12:48.480,0:12:52.760
+configure it on the light which Universe they 
+belong to and which channel they start with and
+
+0:12:52.760,0:13:01.400
+then they take up a certain length of channels 
+it's a very binary thinking for format um and
+
+0:13:01.400,0:13:13.080
+yeah long list of of channels here um so if we 
+want to just handle like this information for one
+
+0:13:13.080,0:13:20.640
+thing then we need to Define what channel does 
+this light start on and how many channels does
+
+0:13:20.640,0:13:29.240
+it take up so we have a light that I'm I just 
+say I'm I have configured it to Channel 19 and
+
+0:13:29.240,0:13:37.440
+and it takes up 10 channels that's like maybe uh 
+the brightness RGB panning or whatever something
+
+0:13:37.440,0:13:46.240
+like that so that gives me a different thing 
+here or a different URL in the for the web
+
+0:13:46.240,0:13:52.600
+of things um we see here it has channel one 
+uh but actually it informs me that this is
+
+0:13:52.600,0:13:59.080
+Channel 19 in the universe so these are all 
+mapped to different channels uh in in the
+
+0:13:59.080,0:14:08.320
+Universe um that's still not very helpful because 
+it just has numbers and I don't know what these
+
+0:14:08.320,0:14:19.000
+numbers mean for example if this is my light 
+uh I have a product number um which I can like
+
+0:14:19.000,0:14:27.920
+okay it's Universe one starts on Channel 19 and 
+it's this device so I get a different thing this
+
+0:14:27.920,0:14:34.760
+one now has names uh with oh this is the pan 
+this is the fine pan this is tilt uh we have
+
+0:14:34.760,0:14:42.600
+a color wheel inside we have strob uh dimmer 
+uh makes makes a lot more sense to control
+
+0:14:42.600,0:14:49.720
+it like this uh you might have noticed that 
+these different things that I presented all
+
+0:14:49.720,0:14:55.720
+have overlaps in in their properties they're 
+all called differently but in on the back end
+
+0:14:55.720,0:15:05.480
+these are controlling the same channels so 
+that's something I can just create an array
+
+0:15:05.480,0:15:14.520
+of integers and depending on which URL you go to 
+I map these differently onto the array and if I
+
+0:15:14.520,0:15:21.440
+have this event emitter it knows which channels 
+you're interested in and then we'll emit the
+
+0:15:21.440,0:15:29.440
+events related to those channels uh something 
+that I don't think would be possible with
+
+0:15:29.440,0:15:38.880
+other uh libraries that I have seen so far and 
+to visualize all of this and debug all of this uh
+
+0:15:38.880,0:15:46.280
+you've already seen it a couple of times uh that 
+that's the UI um I didn't only build an extensible
+
+0:15:46.280,0:15:59.120
+server I also build a client to to interact with 
+these things um so this client here uh is um
+
+0:15:59.120,0:16:07.720
+what range uh it has support for various 
+uh properties like integers numbers always
+
+0:16:07.720,0:16:15.040
+both as a as an input field as well as like a a 
+display of what the what the value is like on the
+
+0:16:15.040,0:16:28.920
+on the server uh string enum uh array of strings 
+array of integers yeah like a bunch um or objects
+
+0:16:32.160,0:16:42.960
+um also played around a little bit with base 64 
+inced media so that I can play videos or play
+
+0:16:42.960,0:16:55.200
+[Music] audio and then I built this 
+thing where I can upload an image
+
+0:16:55.200,0:17:05.040
+um uh and yeah for an eaper display I reduce it 
+to seven colors and a specific resolution and
+
+0:17:05.040,0:17:12.960
+so that I can like yeah get this eaper data 
+for like printing it directly onto my eaper
+
+0:17:12.960,0:17:23.640
+screen what else oh yeah a mood tracker I'm 
+uh in a longdistance relationship and it's
+
+0:17:23.640,0:17:31.440
+sometimes hard to keep up with what the other 
+is doing so it's lovely to every now and then um
+
+0:17:31.440,0:17:38.920
+give the other a little bit like of a hint that 
+you're still alive uh obviously other than like
+
+0:17:38.920,0:17:50.360
+calling them texting them uh so I built this like 
+mood tracker work and like o I'm feeling happy uh
+
+0:17:50.360,0:17:58.840
+and then uh we can both have this overview screen 
+this overview where we can see each other's mood
+
+0:18:00.400,0:18:09.720
+um and when it was last updated so um again 
+combining values of individual things and like
+
+0:18:09.720,0:18:16.000
+one thing that's that combines values I think 
+in this case it's actually containing both of
+
+0:18:16.000,0:18:23.280
+the URLs of the of the like the one thing and 
+then the other thing uh and fetching them and
+
+0:18:23.280,0:18:33.280
+just displaying them in one UI but it's also all 
+Dynamic of like they could be switched around by I
+
+0:18:33.280,0:18:40.080
+think the first one is a mood and the other one is 
+a mood collection which contains two or multiple
+
+0:18:40.080,0:18:50.040
+moods or mood things uh for kind of like playing 
+games I also built this like cahoot choice if if
+
+0:18:50.040,0:19:02.760
+you know that game where like with co-workers you 
+choose um like you have questions of hey um when
+
+0:19:02.760,0:19:09.320
+did this song came out and then you have four 
+choices and can answer this so there is like a
+
+0:19:09.320,0:19:15.120
+game that could be built with this I haven't 
+used it so far but I'm really keen on trying
+
+0:19:15.120,0:19:23.800
+it out pretty soon with my co-workers um speaking 
+speaking of games if you want to play DN here's a
+
+0:19:23.800,0:19:37.760
+dice D20 um and the entire character sheet of 
+of my DND character underneath um so that can
+
+0:19:37.760,0:19:50.800
+be build I guess with web of things um something 
+more practical uh this is uh Maps again um but
+
+0:19:50.800,0:20:01.320
+I'm now going to go like using buttons on on my 
+second uh screen uh and we'll click on hey let's
+
+0:20:01.320,0:20:08.920
+go to Taiwan and uh because I've lived there for 
+a while this year um and I want to tell you about
+
+0:20:08.920,0:20:15.920
+this bridge that I have here as like kind of like 
+a block model uh that's over here so I can place a
+
+0:20:15.920,0:20:22.880
+marker on this on this map um by the way this is 
+all controlled by uh the web of things here with
+
+0:20:22.880,0:20:32.200
+like where's the center of this map where's what's 
+the zoom and where's the markers um and then I can
+
+0:20:32.200,0:20:41.880
+yeah zoom into the town or zoom into that specific 
+place where that bridge is um plenty of people can
+
+0:20:41.880,0:20:51.800
+control this um at the same time I can change 
+the value over here and it will change life um
+
+0:20:51.800,0:21:03.160
+let's move it a little bit yeah um we of things 
+yay um I could control the entire presentation
+
+0:21:03.160,0:21:12.080
+this is built all in reveal JS I could hook that 
+into reveal Jazz and like put it put this entire
+
+0:21:12.080,0:21:19.320
+slideshow onto like as a as a thing as a pause 
+am I looking at the overview is it dark mode
+
+0:21:19.320,0:21:34.720
+yeah so uh what are the limits of iot um not sure 
+um Can somebody pick a number uh between zero and
+
+0:21:34.720,0:21:51.480
+255 32 32 32 32 32 um uh did did you know that the 
+gdo game engine has support for HTTP and websocket
+
+0:21:51.480,0:22:00.560
+so if you want to build a game that uses your web 
+of things uh feel free to um but yeah uh what are
+
+0:22:00.560,0:22:08.040
+the limits of I currently uh it feels like that's 
+we have reached a limit but not of iot but we have
+
+0:22:08.040,0:22:16.560
+reached the limit of what I can uh build so far 
+with my free time um what I have achieved is some
+
+0:22:16.560,0:22:27.480
+HB also web server sense events uh and web sockets 
+for properties and for actions uh getting setting
+
+0:22:27.480,0:22:34.600
+observing properties invoking synchronous actions 
+um basic types nullable properties and base 64
+
+0:22:34.600,0:22:43.480
+encoded media all of those are supported by both 
+um this project uh what anything and what wrench
+
+0:22:43.480,0:22:49.840
+but I haven't even longer wish list of where 
+things can go um optimistic UI you notice that
+
+0:22:49.840,0:22:56.520
+sometimes the values are resetting to their old 
+value and then they all of a sudden flip back to
+
+0:22:56.520,0:23:03.920
+what I set them to um that's because I'm currently 
+not optimistically trusting that yeah this has
+
+0:23:03.920,0:23:12.880
+arrived on the back end and has been accepted uh 
+observing events has been on my list for a while
+
+0:23:12.880,0:23:20.920
+uh asynchronous actions input selectors so that 
+if I want to have more control over how to set
+
+0:23:20.920,0:23:28.560
+this like um for example with the with the colors 
+I can now only use the color input but if I want
+
+0:23:28.560,0:23:35.280
+to input a color with like the string input for 
+whatever reason and I could hopefully switch this
+
+0:23:35.280,0:23:44.160
+around in the UI uh Yuri variables would be so 
+fun for like the the U bikes the bike sharing uh
+
+0:23:44.160,0:23:54.520
+instead of looking for it by their ID like look 
+for it by the um like uh geoc coordinates uh
+
+0:23:54.520,0:24:02.000
+supporting multiple languages thing models would 
+be fun Jason LD would be fun to properly support
+
+0:24:02.000,0:24:08.880
+and not just have a few hardcoded in there um 
+tests documentation security mechanisms that that
+
+0:24:08.880,0:24:17.560
+would all be great um how can you support this 
+endeavor if you want to um provide mentorship
+
+0:24:17.560,0:24:23.320
+for self-employment I would be interested in 
+working on this more or less official uh you
+
+0:24:23.320,0:24:31.320
+could also hire me to work on these projects um or 
+help with the ux design uh currently this is all
+
+0:24:31.320,0:24:39.080
+using uh standard material components if you have 
+like an idea of how to structure this better um
+
+0:24:39.080,0:24:50.200
+how to make a lot of properties on one thing more 
+accessible and um please get in touch um send me
+
+0:24:50.200,0:24:56.240
+your things both thing descriptions as well as do 
+you have an online thing that's accessible on uh
+
+0:24:56.240,0:25:04.440
+just on a public URL or behind some fairly triv 
+trivial authentication um please send me those
+
+0:25:04.440,0:25:11.720
+so I can um support them especially if you're 
+there at the what week so um I would love to
+
+0:25:11.720,0:25:18.960
+add support for more things um that we can have 
+at the plug Fest uh talk to me online or at mon
+
+0:25:18.960,0:25:23.720
+week thank you very much for your
+
+0:25:23.720,0:25:38.360
+attention e

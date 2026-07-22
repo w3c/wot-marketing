@@ -1,0 +1,727 @@
+0:00:05.440,0:00:13.360
+Yes, together with us today is actually the the 
+main act. So Sheriff Adah from Microsoft is a
+
+0:00:13.360,0:00:19.600
+principal software engineer architect at Microsoft 
+and is uh basically defining the architectural
+
+0:00:19.600,0:00:25.200
+direction for the multi- aent physical AI 
+platform which spans the the edge runtime
+
+0:00:25.200,0:00:30.960
+messaging AI life cycle surfaces and he actually 
+holds a hold a PhD in edge and IoT systems and
+
+0:00:30.960,0:00:36.000
+has already several patents under his belt in 
+distributed edge computing. So I don't think
+
+0:00:36.000,0:00:41.200
+there could be a better person to talk about all 
+of this than him. So Sheriff, thank you and yeah,
+
+0:00:41.200,0:00:47.920
+the floor is yours. Okay, thank you very much 
+uh for for having me today. Um so a quick
+
+0:00:47.920,0:00:53.680
+uh a quick disclaimer first that I'm going to 
+present things CTX. Uh it's my personal project
+
+0:00:53.680,0:00:59.040
+and it's open source under Apache license. 
+Um this is not really a Microsoft product uh
+
+0:00:59.040,0:01:06.560
+nor a Microsoft position. It's entirely my 
+my personal uh work. Um so the thesis here
+
+0:01:06.560,0:01:15.680
+u is actually in the title. So that agent 
+integration these days are effectively documents
+
+0:01:15.680,0:01:22.000
+uh and that thing description uh which 
+is the main concern of uh of this group
+
+0:01:22.000,0:01:28.720
+uh is already the integration that agents are 
+needed. an agent. It's basically a document
+
+0:01:28.720,0:01:37.360
+that the agent reads uh not really a server or a 
+middleware that you run. Uh this this group knows
+
+0:01:37.360,0:01:44.640
+uh web of things quite well. So I'm not really 
+going to explain uh what TD is. Uh but I will show
+
+0:01:44.640,0:01:53.280
+uh you how what what a TD becomes inside an agent 
+loop um and where the opportunity for an openspec
+
+0:01:53.280,0:02:04.480
+work uh might be. Um but first uh one minute on 
+why this this matters now. So next slide please.
+
+0:02:04.480,0:02:10.480
+So the web of things started with one simple 
+idea and that we have a thing description that
+
+0:02:10.480,0:02:17.760
+describes itself well enough uh that any program 
+can actually use it uh and essentially that
+
+0:02:17.760,0:02:25.680
+program reads the description and act on it. 
+So from for years uh what I have observed is
+
+0:02:25.680,0:02:33.200
+that the readers are pretty much like browsers or 
+gateways or other things that talk to each other.
+
+0:02:33.200,0:02:39.840
+Um so the idea that to have one single description 
+that any that describe a system remain pretty much
+
+0:02:39.840,0:02:46.960
+like theoretical on paper. But if you notice that 
+this pattern of having a description of a system
+
+0:02:46.960,0:02:55.280
+uh is quite not new. So it started with 
+XDR in uh some some micros systemystems
+
+0:02:55.280,0:03:05.280
+uh then wisd open API protobuff graphql so and the 
+caveat here is that the description of a system
+
+0:03:05.280,0:03:14.480
+always lives longer than the code that it actually 
+reads it. And what is really new today is the new
+
+0:03:14.480,0:03:21.520
+readers for these systems which is the agents. 
+Uh a language model can take a thing description
+
+0:03:21.520,0:03:31.200
+it really has never seen before and drive the 
+system behind it. Nobody wrote those TD actually
+
+0:03:31.200,0:03:38.720
+for a model but they can actually work anyway. 
+uh and the idea to have a thing description
+
+0:03:38.720,0:03:47.040
+for a system actually have a reader that 
+immediately act on that. Uh next slide please.
+
+0:03:47.040,0:03:54.160
+So how how do agents reach uh systems today? 
+Uh the answer is that we build actually every
+
+0:03:54.160,0:04:03.760
+integration by hand, one for each system and 
+sometimes it is an MCP server that you deploy,
+
+0:04:03.760,0:04:10.480
+keep running, manage all of the credentials for 
+it and sometimes it's just a tool definition or
+
+0:04:10.480,0:04:18.640
+what they call today skill. But in all of 
+these cases, someone needs to write each
+
+0:04:18.640,0:04:26.960
+integration by hand. And if you have end systems, 
+you will end up with integrations manage managing
+
+0:04:26.960,0:04:33.680
+in kind of integrations, different type of 
+integrations. And so for a fleet of devices,
+
+0:04:33.680,0:04:40.880
+so this means that we have one integration even 
+for I don't know a light bulb. So this is this
+
+0:04:40.880,0:04:49.040
+is the really the world we are in today and um 
+ironically what is not necessarily part of it
+
+0:04:49.040,0:04:59.280
+although that it is well positioned to describe 
+these systems pretty well. Next slide please.
+
+0:04:59.280,0:05:05.520
+So but let me take a step back and try to answer 
+one single question like why does everyone today
+
+0:05:05.520,0:05:12.640
+build these integrations by hand? Um and the 
+simple answer is that the agent and the systems
+
+0:05:12.640,0:05:20.960
+do not really have a shared contract. So there 
+is no agreed way to say what the system does,
+
+0:05:20.960,0:05:29.280
+who is allowed to call it, how to reach it on 
+a transport or what kind of events it emits.
+
+0:05:29.280,0:05:38.080
+So we end up having every single team answers 
+those four questions again and again by hand.
+
+0:05:38.080,0:05:46.160
+And the contract that we were talking about 
+ends up in code that is wired in the server
+
+0:05:46.160,0:05:54.560
+and ends up living there. But here is the term 
+is that a thing description actually answers
+
+0:05:54.560,0:06:02.720
+all the four part of a contract for them. 
+So the thing description has the typing,
+
+0:06:02.720,0:06:09.040
+it has security definitions, transport 
+definitions and events. So in other words,
+
+0:06:09.040,0:06:18.880
+like we already wrote the contract that an agent 
+may actually take u without rebuilding that it
+
+0:06:18.880,0:06:26.400
+just didn't we didn't really have a mechanism for 
+it to read it yet. Uh so in the next slides I will
+
+0:06:26.400,0:06:38.720
+show you how close a TD actually already is being 
+the agent tool itself. Uh so next slide please.
+
+0:06:38.720,0:06:45.760
+So if you look into a thing description like 
+everything we need is is already in the TD
+
+0:06:45.760,0:06:53.760
+um the typed actions the forms uh the security 
+definitions. So the description on the left
+
+0:06:53.760,0:07:00.080
+hand side of this slide and the tool model on 
+the right hand side are pretty much the same
+
+0:07:00.080,0:07:08.240
+object. Um and let me let me define two quick 
+terms here is that in case in case they are new
+
+0:07:08.240,0:07:17.120
+to anybody. So a tool call means that a model 
+outputs a name and a JSON arguments and there
+
+0:07:17.120,0:07:23.360
+is a runtime that's going to execute that. And 
+once the runtime executed the results come back
+
+0:07:23.360,0:07:33.120
+to the model and an MCP in fact is just a protocol 
+for delivering tools to an agent that you cannot
+
+0:07:33.120,0:07:40.800
+hand them to directly but the MCP does not define 
+the contract itself. Um on the next slide I will
+
+0:07:40.800,0:07:48.560
+show you why the TD fits with really nothing 
+added in the middle. So next slide please.
+
+0:07:52.640,0:07:59.200
+So when you put a TD action at an 
+and an LLM tool really side by side,
+
+0:07:59.200,0:08:07.280
+they have pretty much the [clears throat] same 
+shape. Uh both have a name, a description,
+
+0:08:07.280,0:08:16.080
+um an input schema for the typed input schema. 
+Um and the TD already has all the three.
+
+0:08:16.080,0:08:24.640
+So the form then carries the rest. It defines how 
+to reach the system over which transport and the
+
+0:08:24.640,0:08:32.800
+security definition how to authenticate to it. 
+So here is what happens on a call. So think ctx
+
+0:08:32.800,0:08:39.680
+which is the library that we're talking about 
+today takes the arguments from the model and
+
+0:08:39.680,0:08:48.480
+fills the URL template. Uh so it uses the method 
+from the form and it builds the body for the tool
+
+0:08:48.480,0:08:55.600
+and then it applies all the security scheme at 
+call time. Uh which means even from a security
+
+0:08:55.600,0:09:03.120
+perspective that the secrets and credentials 
+themselves never actually lives inside the TD
+
+0:09:03.120,0:09:10.480
+uh and can be handled securely uh in a unified 
+way. So, so the typing comes from the input
+
+0:09:10.480,0:09:18.640
+schema at the transport and the security comes 
+from the form and none of is really coded by
+
+0:09:18.640,0:09:27.520
+hand anymore. It's actually just described in 
+the TD. So now there is one claim I just want
+
+0:09:27.520,0:09:35.280
+to make carefully. Um this kind of projection 
+or resolution is pretty much deterministic.
+
+0:09:35.280,0:09:44.080
+So the same TD uh always produces the same code. 
+So if you give me the same TD just have exactly
+
+0:09:44.080,0:09:51.520
+the same tool tool spec. And that's exactly 
+what makes it possible to write this down
+
+0:09:51.520,0:10:00.400
+as a specification. So instead of it living only 
+inside my library. So if we have a specification
+
+0:10:00.400,0:10:09.200
+note that says this is how a TD action should be 
+mapped to tool specification. Um now we can have
+
+0:10:09.200,0:10:16.960
+like a kind of a portable way of of doing these 
+kind of projections. However on the other side
+
+0:10:16.960,0:10:25.760
+the naming like in this example github.create 
+create issue uh requires a different story and
+
+0:10:25.760,0:10:35.520
+which I would like to to explain it a little 
+bit in the next slide. Uh so next slide please.
+
+0:10:35.520,0:10:42.560
+So on the left side uh is the part that 
+is pretty much sold is that we can have
+
+0:10:42.560,0:10:52.000
+a deterministic mapping between TD and the two 
+codes. So the input schema maps to the parameters
+
+0:10:52.000,0:10:58.480
+uh the form maps to the call and the 
+security maps to authentication. It's
+
+0:10:58.480,0:11:05.040
+pretty much deterministic. So any conforming 
+consumer will get a repeatable results,
+
+0:11:05.040,0:11:14.560
+dependable results and this part is what already 
+written down on the right hand side. This one is
+
+0:11:14.560,0:11:24.240
+quite open question and this is related to name. 
+So TD today um the only promise that it makes is
+
+0:11:24.240,0:11:34.640
+that names are unique inside one TD one thing 
+but an agent will actually flattens many things
+
+0:11:34.640,0:11:41.840
+into a single list of tools and specifications 
+say nothing really about a situation like this.
+
+0:11:42.400,0:11:54.320
+Um so in thing cdx my naming I have chosen a thing 
+doaction as a default but it really can collide.
+
+0:11:54.320,0:12:02.240
+So so this is a kind of a gap and honestly 
+it is the best reason um why this group may
+
+0:12:02.240,0:12:13.200
+be interested to write down together as a note. 
+Um and there is one more open question to this.
+
+0:12:13.200,0:12:23.520
+Um a tool a tool list is actually shows the model 
+only a part of the thing and there is a a question
+
+0:12:23.520,0:12:32.240
+like how much of a thing or a TD should actually 
+reach the model is in its own an open question.
+
+0:12:32.240,0:12:40.240
+Um so so we do have a collision naming that uh 
+every implementation would need to either find
+
+0:12:40.240,0:12:50.960
+a way for it or we have a note that describes 
+it. And the other one is that um how much at TD
+
+0:12:50.960,0:13:00.160
+we can actually promise to reach the the tool uh 
+and in in an implementation. Next slide please.
+
+0:13:04.080,0:13:11.760
+Uh so now one can actually fairly say that okay 
+fine uh it can work on your own files I mean your
+
+0:13:11.760,0:13:21.520
+own TDS. Um and here is a test that I wanted 
+to to do to to actually see if things ctx can
+
+0:13:21.520,0:13:27.200
+work with TDs that it has never seen before. 
+So I've taken node walt which is a reference
+
+0:13:27.200,0:13:34.960
+implementation produce a TD and think ctx consume 
+it cold actually without any coordination between
+
+0:13:34.960,0:13:41.760
+node world and things cds and I've done exactly 
+the same with data which publishes its own dts
+
+0:13:41.760,0:13:53.760
+for digital twins and I was able to write 42 to 
+a digital twin to digital twin and read back 42
+
+0:13:53.760,0:14:03.200
+to from's API without any previous coordination 
+with DTO. like I I've never even seen the
+
+0:14:03.200,0:14:11.840
+the details of the code and either of those 
+projects have ever been integrated directly
+
+0:14:11.840,0:14:21.440
+or or coordinated with theme CTX which is just 
+just new and the only contract between them
+
+0:14:21.440,0:14:27.280
+uh was the TD that those tools have 
+written already and this is the power of
+
+0:14:27.280,0:14:33.680
+uh the web in the web of things definition that 
+specification And both examples run from the in
+
+0:14:33.680,0:14:40.240
+the rebel. Uh you can check this yourself and 
+uh instead of really taking my words for it. Uh
+
+0:14:40.240,0:14:52.640
+and you can find that examples in interop 
+uh folder in in think cdx. Uh next slide.
+
+0:14:52.640,0:15:00.400
+So the mapping works and the next question is 
+how does that reach the agent and there are a
+
+0:15:00.400,0:15:08.320
+couple of two cases in practice. Uh the simple 
+case is that you actually own the agent loop.
+
+0:15:08.320,0:15:14.400
+There's no bridge at all that you really need 
+in this case and thing ctx is just a library
+
+0:15:14.400,0:15:22.240
+uh that you consume in your agent process. It 
+hands you the tool specs. You pass them uh to
+
+0:15:22.240,0:15:29.760
+your model through something like light LLM 
+or VLM or even the open AI SDK and the model
+
+0:15:29.760,0:15:36.000
+picks a tool and you can call invoke which 
+is a function in the library and there is
+
+0:15:36.000,0:15:41.760
+no server there is nothing actually to deploy 
+at this point and so when you control actually
+
+0:15:41.760,0:15:51.040
+the loop the mapping alone is sufficient 
+and the bridge uh on the next slide uh is
+
+0:15:51.040,0:15:56.800
+only for the cases where you cannot really 
+do direct tool calling in the agent and the
+
+0:15:56.800,0:16:07.440
+agent has a mechanism for integration that you 
+do not really control. So next slide please.
+
+0:16:07.440,0:16:13.840
+The second case is that you have a closed agent 
+that only takes integrations through basically
+
+0:16:13.840,0:16:22.000
+doors that the vendor of that agent uh opens for 
+you. Uh one of those are pretty common with MCP
+
+0:16:22.000,0:16:32.880
+and the skills. So think CTX ships one generic MCP 
+server that serves a whole entire registry of TDS.
+
+0:16:32.880,0:16:37.840
+And so so you can think of it like just one single 
+process, one single bridge that you manage for
+
+0:16:37.840,0:16:46.320
+the whole entire fleet, not actually a server per 
+system. Um but MCP in fact is not necessarily the
+
+0:16:46.320,0:16:55.120
+only doors that we have. Uh the CMTDs can also 
+become invoked from a CLI with one command per
+
+0:16:55.120,0:17:04.240
+action. Uh and a skill which is just a markdown 
+file can drive the CLI. It's the same fleet for
+
+0:17:04.240,0:17:10.640
+TDS and there's no server at all. Um, and to be 
+clear about the skill, uh, the skill is still a
+
+0:17:10.640,0:17:18.240
+file that describes what needs to be done, but 
+uh, it only says what to do. Uh, it still needs
+
+0:17:18.240,0:17:25.840
+a runtime to do it. So, think CDX still does the 
+transport and the authentication using the TDS.
+
+0:17:25.840,0:17:32.720
+uh and the skill in this case is pretty much a 
+recipe but thing ctx is still uh the the runtime
+
+0:17:32.720,0:17:43.200
+underneath that that that recipe. Um so in closed 
+agent case the door is pretty much vendor choice
+
+0:17:43.200,0:17:50.480
+and MCP today maybe kills now or something else 
+tomorrow. uh but the integration remains the docu
+
+0:17:50.480,0:17:56.400
+the TD documents and it does not change when these 
+kind of doors or these kind of ways of integrating
+
+0:17:56.400,0:18:06.000
+with the agents uh change. So one one single spec 
+one single aspect here is events uh because events
+
+0:18:06.000,0:18:13.360
+like have a very specific shape in TDS and it 
+turns out that they also survive this integration
+
+0:18:13.360,0:18:22.640
+too. Uh so in a watt it's subscribe what subscribe 
+action becomes an MCP u resource update and in
+
+0:18:22.640,0:18:32.640
+think ctx I buffer it so that we burst of changes 
+don't really get lost. Um, next slide please.
+
+0:18:32.640,0:18:41.040
+[clears throat] Um so far you have seen 
+a mapping uh and the bridge and some few
+
+0:18:41.040,0:18:49.920
+extras and and a fair point at this point is 
+that which of these actually needs the stand
+
+0:18:49.920,0:18:53.920
+and I have been thinking through this 
+and I think the answer comes in three
+
+0:18:53.920,0:19:02.080
+layers in the first layer is the mapping 
+itself. So you need a TD and you get a two
+
+0:19:03.280,0:19:11.280
+uh it needs nothing actually new from the standard 
+and it's the only part I'm asking to write down is
+
+0:19:11.280,0:19:19.200
+one mapping uh for for this uh TD to the to the to 
+the tool code. Um the second layer is an optional
+
+0:19:19.200,0:19:27.280
+extension which thing CTX already have uh things 
+like um approvals uh or prompts that you find in
+
+0:19:27.280,0:19:34.080
+MCP servers. They use what own extension points. 
+So they are not really a new spec change that's
+
+0:19:34.080,0:19:40.800
+needed here and layer 3 is not what at all uh is 
+not web of things at all. The event buffering for
+
+0:19:40.800,0:19:49.760
+example is just handlers um and and MCP uh to 
+work around MCP limitation. So it's kind of a
+
+0:19:49.760,0:19:55.200
+consumer side handling if you have MC MCP or 
+skills or something else so that you you work
+
+0:19:55.200,0:20:02.480
+around their limitations. U so nothing I have 
+shown so far says that s the standard has any
+
+0:20:02.480,0:20:10.800
+limitation actually for this to happen and the 
+main headline is that uh the standard as it is
+
+0:20:10.800,0:20:22.960
+today really gives you that agent tool calling 
+that that that agents needs. Uh next slide please.
+
+0:20:24.000,0:20:31.280
+So I wanted to touch a little bit why we may need 
+a note uh not just like a mapping that lives in a
+
+0:20:31.280,0:20:40.560
+repo. Um and the reason I've been thinking through 
+is that TD is is a stable thing here is a stable
+
+0:20:40.560,0:20:47.280
+definition of the system and the mapping is a 
+layer underneath that that can actually keep
+
+0:20:47.280,0:20:55.920
+improving or evolving. So if the MCP spec changes 
+but compare this to MCP uh so MCP spec changes
+
+0:20:55.920,0:21:02.720
+like every server authors need to rewrite their 
+server if they have breaking changes but in the
+
+0:21:02.720,0:21:08.640
+mapping case even if the mapping changes nobody 
+touches the TD which is defines what the system
+
+0:21:08.640,0:21:16.640
+needs to do the integration lay a TD you write 
+today stays valid even if we evolve those mapping
+
+0:21:16.640,0:21:22.000
+but there is also a second reason why we need a 
+note um if the mapping only lives let's say in
+
+0:21:22.000,0:21:31.200
+my repo in Think CDS um it becomes a convention 
+that just one single project controls and when I
+
+0:21:31.200,0:21:40.160
+think through that it is quite the opposite of a 
+of web of things TD is supposed to be um in terms
+
+0:21:40.160,0:21:48.000
+of neutrality and interoperability. So I know it 
+keeps it neutral and and honestly I would rather
+
+0:21:49.040,0:21:55.680
+implement something that is specified 
+here over um like my own mapping even
+
+0:21:55.680,0:22:06.240
+if it just works and doesn't really 
+break anyone's TV. Next slide please.
+
+0:22:06.240,0:22:14.400
+Um so here is where things are uh and what's 
+actually open today. uh you can install it with
+
+0:22:14.400,0:22:20.240
+a paper install just one single command in Python 
+uh and then point it at something that you already
+
+0:22:20.240,0:22:28.080
+have tonight and see a model like an agent driving 
+a system that is described by a TD. Um and beyond
+
+0:22:28.080,0:22:34.320
+that there is probably a TD worth writing for a 
+system you already know well uh if you write it
+
+0:22:34.320,0:22:41.040
+once every single agent that reaches that system 
+can read it. And the open problems are the ones
+
+0:22:41.040,0:22:49.680
+that uh this specification group is is for and 
+things that we describe like naming across a fleet
+
+0:22:49.680,0:22:57.200
+um output schemas or events uh over MCP. Uh and 
+also if you read the mapping document that I have
+
+0:22:57.200,0:23:04.960
+in the in the repo and I have a reference for it 
+right there. Uh you can help by telling me where
+
+0:23:04.960,0:23:12.160
+it might be wrong today. And that's honestly 
+one of the most useful thing the community can
+
+0:23:12.160,0:23:18.800
+can give a project like this. Um, and there's 
+one last question that I would like to put on
+
+0:23:18.800,0:23:27.920
+the table. If if a model can read a TD and act, 
+uh, can a model actually also write a TD? Uh,
+
+0:23:27.920,0:23:35.200
+so if you if you already have a missy system, can 
+can uh, an AI write a TD for it? So we already do
+
+0:23:35.200,0:23:41.600
+this part kind of can do this part today. 
+So if I take like an open API specs uh we
+
+0:23:41.600,0:23:49.440
+can actually write a TD for it. But the hard part 
+for this is is trust. So have can we have a trust
+
+0:23:49.440,0:23:58.080
+layer? Uh because an autogenerated description 
+becomes only safe uh if you check it against a
+
+0:23:58.080,0:24:04.320
+real system. And this is also another open problem 
+that I'll be happy to dig into with the community
+
+0:24:04.320,0:24:16.960
+later. So to close um a TD as it already exists 
+today uh is an agent tool and writing that it
+
+0:24:16.960,0:24:26.240
+down how to consume it work worth doing together. 
+And that's pretty much it. Thank you very much.

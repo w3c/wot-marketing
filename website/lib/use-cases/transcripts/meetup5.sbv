@@ -1,0 +1,610 @@
+0:00:09.000,0:00:13.740
+uh yes as a software architect and developer 
+for the digital pin implementation based on
+
+0:00:13.740,0:00:19.620
+the web of things uh for the one that who 
+doesn't know what a seek is uh is one of
+
+0:00:19.620,0:00:23.460
+the world cleaning solution provided 
+for sensor-based applications in the
+
+0:00:23.460,0:00:31.860
+Dasa sector is is worldwide basically 
+so they have one 11 000 employees and
+
+0:00:31.860,0:00:37.140
+50 subsidiary so it's a big company and 
+thank you Matthias for being with us today
+
+0:00:49.340,0:00:50.340
+[Laughter]
+
+0:00:50.340,0:00:58.380
+perfect so thank you for the introduction um 
+as already mentioned my name is Matthias head
+
+0:00:58.380,0:01:04.140
+and I work for the business cluster 
+integrated automation of sick again
+
+0:01:04.860,0:01:12.060
+and today I will talk empowering Industrial 
+Automation with web of things before I dive
+
+0:01:12.060,0:01:17.220
+into the topic I would like to give you a short 
+overview of what I'm going to talk about today
+
+0:01:19.260,0:01:24.420
+um first I will give you an introduction 
+what a sick sensor intelligence means
+
+0:01:25.260,0:01:31.320
+and what challenge we faced with our use 
+cases in the context of digital twins
+
+0:01:32.040,0:01:39.360
+before I talk about how we are creating virtual 
+Twins and how we are using them in applications
+
+0:01:39.360,0:01:48.480
+followed by a summary and a discussion so what 
+does sensor intelligence intelligence means
+
+0:01:49.020,0:01:53.760
+on the one hand sensor intelligence 
+means using sensors in a smart way
+
+0:01:54.540,0:02:01.500
+we at sick have a portfolio of over 40 000 
+products that offer many different features
+
+0:02:01.500,0:02:07.920
+like fun and functionalities like sensors 
+that can detect identify measure protect
+
+0:02:07.920,0:02:15.600
+and control among many other things so sensor 
+intelligence means that we are combining all
+
+0:02:15.600,0:02:21.900
+these functionalities provided by the sensors 
+to create smart and connected overall concept
+
+0:02:22.980,0:02:28.860
+for our customers the solutions we provide 
+are open to them and to their systems
+
+0:02:30.120,0:02:39.840
+on the other hand sensor intelligence means making 
+sensors more intelligent so we turn sensor data
+
+0:02:39.840,0:02:47.340
+into valuable information by using computing 
+power at the production base or decentralized
+
+0:02:47.340,0:02:54.600
+at the edge of the network within the sensor 
+itself creating a network of all machines and
+
+0:02:54.600,0:03:00.660
+sensors to different data processing systems 
+opens up an unparalleled number of solutions
+
+0:03:01.320,0:03:06.900
+the challenge we faced during transforming 
+the sensor data into valuable information
+
+0:03:06.900,0:03:15.300
+and connecting all the machines and sensors can 
+be can be described with this a typical use case
+
+0:03:16.680,0:03:23.100
+for sensors are systems and factories which they 
+are integrated into for different kind of purposes
+
+0:03:23.700,0:03:30.720
+like detecting objects reading RFID tags 
+and measuring the distance to objects
+
+0:03:34.860,0:03:41.400
+as we want to enrich the data provided 
+by our sensors in custom applications
+
+0:03:41.400,0:03:46.320
+to offer valuable information for 
+our customers we need to connect
+
+0:03:46.320,0:03:52.680
+the operational technology which are the 
+sensors to the information technology at top
+
+0:03:54.060,0:04:02.400
+assuming we have an application with one 
+controller and four sensors we have the challenge
+
+0:04:02.400,0:04:10.200
+to transfer the data from The Edge to the cloud 
+including the information and functionality
+
+0:04:10.200,0:04:18.480
+provided by the application the controller and the 
+sensors in addition we want to provide information
+
+0:04:18.480,0:04:24.540
+about the sensors like the model the serial 
+number the product ID and the versions and so on
+
+0:04:25.080,0:04:31.260
+together with the relations between the 
+application the controller and the sensors
+
+0:04:32.280,0:04:37.800
+so how did we solve the challenge and 
+what part does web of things play in it
+
+0:04:39.240,0:04:46.200
+we are thick pursue the contract first approach 
+by starting to create a thing model for our
+
+0:04:46.200,0:04:53.820
+application like shown on the right side of the 
+slide typically we create these thing models
+
+0:04:53.820,0:05:00.600
+with the editor and the thing model contains 
+the interactions and volumes together with the
+
+0:05:00.600,0:05:07.620
+data schemas the title of the application and the 
+description and the version for the thing model
+
+0:05:08.220,0:05:13.980
+the thing models are stored in a database 
+for linking and evolving the same model
+
+0:05:14.820,0:05:20.400
+we are using this linking between thing 
+models so partial thing models to combine
+
+0:05:20.400,0:05:25.800
+thing models and vice versa and also from 
+the thing descriptions back to the thin model
+
+0:05:26.580,0:05:33.000
+we also link theme a new thing version 
+new thing model versions to the older ones
+
+0:05:33.000,0:05:39.180
+to have a history of the evolution 
+of the contract of our application
+
+0:05:40.680,0:05:47.460
+with these same models we create reusable 
+function blocks which we call building blocks
+
+0:05:48.300,0:05:54.300
+we start with our created thing model and 
+import it in our low code based toolkit
+
+0:05:54.300,0:06:00.720
+for developing the implementation of 
+the interactions of audiences these
+
+0:06:00.720,0:06:06.480
+typically consist of the communication 
+with the sensors systems and machines
+
+0:06:07.500,0:06:14.340
+during the development process we add protocols 
+to the interactions affordances to be able to
+
+0:06:14.340,0:06:22.680
+test and debug the implementation these Pro these 
+protocols are removed during the export process
+
+0:06:23.280,0:06:26.880
+which bundles the building block 
+and makes it protocol agnostic
+
+0:06:27.660,0:06:32.700
+the finished building block then contains 
+the implementation and the thing model
+
+0:06:34.020,0:06:41.160
+these building block which misses now the 
+protocols can be configured with the connect X
+
+0:06:42.000,0:06:48.960
+connect X Bridge was the shop floor and the it it 
+is the communication base for sick and customer
+
+0:06:48.960,0:06:57.120
+data applications interconnecting the OT and 
+it world by supporting standard protocols in
+
+0:06:57.120,0:07:05.160
+the ituber like HTTP and mqtt and also supporting 
+standard and proprietary protocols in the OT world
+
+0:07:05.160,0:07:13.980
+like IO link Json so why is this all necessary 
+our sensors which we call sources in the contact
+
+0:07:13.980,0:07:21.900
+of the connect X cannot fulfill the contract of 
+the application thus we enrich the source with the
+
+0:07:21.900,0:07:28.200
+building block to fulfill the contract and offer 
+the data via the configured standard protocols
+
+0:07:29.160,0:07:36.240
+as we can see in the image on the left side 
+where we have an example application which
+
+0:07:36.240,0:07:42.720
+uses the demo device as source and the building 
+block which is also called example application
+
+0:07:43.440,0:07:50.460
+is configured with HTTP and mqtt with 
+this building block and the configured
+
+0:07:50.460,0:07:55.740
+protocols we are able to generate the 
+thing descriptions for our application
+
+0:07:58.500,0:08:02.280
+as I described in the beginning 
+our application consists of One
+
+0:08:02.280,0:08:08.340
+controller and four sensors therefore 
+we generate multiple sync descriptions
+
+0:08:08.340,0:08:14.040
+that describe the relation between the 
+application the controller and the sensors
+
+0:08:16.200,0:08:21.180
+the thin description of the application 
+is the entry point to our hierarchy
+
+0:08:21.960,0:08:27.360
+with the same description of the controller as 
+a child and the thin descriptions of our sensors
+
+0:08:28.200,0:08:37.800
+are the Childs of the controller these relations 
+are represented in the thing descriptions as links
+
+0:08:37.800,0:08:46.980
+using collection and item as relation type we 
+also add the security definitions of our things to
+
+0:08:47.880,0:08:52.380
+uh to the thing descriptions in 
+this example it's a barrel security
+
+0:08:53.700,0:08:59.040
+in addition to that we add semantic 
+annotations with information about the
+
+0:08:59.040,0:09:05.220
+physical devices behind the things with the 
+version of the physical devices the serial
+
+0:09:05.220,0:09:12.840
+number the model the product number and 
+the product ID moreover we add the forms
+
+0:09:12.840,0:09:18.660
+to the interactions of for instance with the 
+endpoints of the properties events and actions
+
+0:09:20.340,0:09:29.340
+we faced One Challenge defining our 
+thing descriptions that was finding
+
+0:09:29.340,0:09:36.540
+a suitable steamer for our semantic annotations 
+currently we are using schema.org to provide all
+
+0:09:36.540,0:09:42.720
+the information about the physical devices 
+behind the things but we assume that in the
+
+0:09:42.720,0:09:52.140
+future schema.org will not offer enough keys to 
+provide all the information so we will create our
+
+0:09:52.140,0:10:00.420
+own schema to provide all the information 
+we need with this things on the edge side
+
+0:10:01.080,0:10:08.340
+we are able to bring our sensor data to the 
+cloud for this we are using seek live connect
+
+0:10:09.180,0:10:16.980
+sick live connect pairs the edge with the cloud 
+and create the digital twin of our real device
+
+0:10:18.720,0:10:24.480
+by this we are able to provide the data 
+to seek data application and dashboards
+
+0:10:24.480,0:10:29.700
+and also other third-party systems 
+data applications and dashboards
+
+0:10:30.840,0:10:39.180
+web of things plays also a huge role in sick 
+live connect because we have under on the edge
+
+0:10:39.180,0:10:44.040
+side we have in the local environment a thing 
+description directory for discovering the things
+
+0:10:44.760,0:10:51.180
+in the network this thing description 
+directory contains then the local things
+
+0:10:52.800,0:10:57.300
+in the cloud environment we have 
+also a thing description directory
+
+0:10:58.260,0:11:05.160
+together with two local intermediaries two 
+intermediaries one local intermediary and
+
+0:11:05.160,0:11:13.560
+one remote intermediary we are able to reverse the 
+client and server approach to a Traverse possible
+
+0:11:13.560,0:11:20.700
+firewalls between them using a custom tunneling 
+protocol based on secure web sockets with this we
+
+0:11:20.700,0:11:27.300
+are able to connect the local environment with the 
+remote environment during the initial connection
+
+0:11:28.260,0:11:34.200
+with the local intermediary is paired with the 
+remote intermediary and certificates are exchanged
+
+0:11:36.480,0:11:40.320
+after we paired the local environment 
+with the remote environment
+
+0:11:41.400,0:11:49.860
+the we synchronize both sync descriptions in 
+that way we have access to the digital twins
+
+0:11:49.860,0:11:57.780
+in the remote environment during this process we 
+update the references to our security definitions
+
+0:11:57.780,0:12:03.060
+interactions of audiences and relations 
+to the endpoints of the remote environment
+
+0:12:04.920,0:12:11.700
+once a client wants to interact with digital 
+with the digital twin we communicate with the
+
+0:12:11.700,0:12:16.440
+local thing via the both intermediaries 
+and provide the requested information
+
+0:12:19.020,0:12:25.140
+implementing this approach we've we had 
+multiple challenges the first challenge
+
+0:12:25.140,0:12:31.620
+was defining a custom tunneling protocol this 
+custom tunneling protocol is mentioned in the
+
+0:12:31.620,0:12:36.960
+web of things architecture description and 
+we search for reference implementation or an
+
+0:12:36.960,0:12:42.120
+example but couldn't find one so we started 
+implementing our own tunneling protocol
+
+0:12:43.080,0:12:50.880
+which evolved over the time and works based 
+on the interactions of audiences currently
+
+0:12:50.880,0:12:56.220
+this fits pretty well our needs but 
+we add some Fields over the time
+
+0:12:57.240,0:13:04.500
+the Second Challenge we faced was that we create 
+we recreated a read-only restricted implementation
+
+0:13:04.500,0:13:10.740
+of the thing description directory in the cloud 
+which excludes the functionality of editing or
+
+0:13:10.740,0:13:18.360
+creating new thing descriptions by this we can 
+assure that the things in the remote directory
+
+0:13:18.360,0:13:24.240
+are created by the synchronization process 
+and not by any other third-party client
+
+0:13:26.940,0:13:32.820
+the last challenge we faced was that the remote 
+environment and the local device environment
+
+0:13:32.820,0:13:40.860
+have a different set of supported protocols 
+so we are going to we are stripping the not
+
+0:13:40.860,0:13:46.380
+supported protocols from the sync descriptions 
+and translating them to the supported ones this
+
+0:13:46.380,0:13:52.740
+is possible by our custom tunneling protocol 
+uh which is protocol agnostic and basically
+
+0:13:52.740,0:14:03.780
+works on the actions properties and events so 
+we are able to um translate events which are
+
+0:14:03.780,0:14:11.100
+provided in a local environment via mqtt to events 
+provided by web sockets in the remote environment
+
+0:14:14.580,0:14:19.500
+these digital twins can be measured 
+managed in the thick asset hub
+
+0:14:20.100,0:14:25.860
+so the sick asset Hub gives the user 
+complete transparency over the assets
+
+0:14:26.520,0:14:35.160
+the assets are digital twins of our things and the 
+devices behind them these assets can be mapped to
+
+0:14:35.160,0:14:41.700
+different structural elements like we can see on 
+the left side there we have a demo company which
+
+0:14:41.700,0:14:47.700
+two have two locations one invite cage and one 
+in Cyborg and with two buildings below wild Curry
+
+0:14:48.240,0:14:55.800
+and two machines below the building one Below 
+in the machine one there are multiple assets
+
+0:14:57.120,0:15:02.220
+which are automatically created by 
+the relations provided by the things
+
+0:15:03.660,0:15:11.700
+and can then be mapped by the semantic annotations 
+to the physical devices behind them in that way we
+
+0:15:11.700,0:15:19.740
+can provide a wide range of product information 
+like documents product videos of the with of the
+
+0:15:19.740,0:15:29.340
+physical devices behind the things moreover with 
+the things and the web of things web of things
+
+0:15:29.340,0:15:36.660
+thing descriptions we are able to manage not 
+only thick devices we are also able to manage
+
+0:15:36.660,0:15:44.700
+any device which offers a thing description in 
+addition to that the acetab offers a history
+
+0:15:44.700,0:15:51.180
+and the traceability of digital interactions 
+along the life cycle of a thing or an asset
+
+0:15:53.160,0:15:59.460
+with the digital twins now available in in 
+thick asset Hub and therefore in the cloud
+
+0:15:59.460,0:16:08.880
+we are able to build applications based on the 
+digital twins some examples for applications are
+
+0:16:09.480,0:16:18.660
+the thick Dynamic data display which allows the 
+user to build the custom dashboards and to see
+
+0:16:18.660,0:16:28.920
+the the data and visualize them the second example 
+is monitoring box it gives the user transparent
+
+0:16:28.920,0:16:35.760
+insights into the productivity and availability 
+of devices that play and plans in addition to
+
+0:16:35.760,0:16:42.540
+that it gives the user intelligent predictions 
+based on application and sensor specific analysis
+
+0:16:43.260,0:16:52.200
+together with the optimize together with the 
+possibility to optimize the alignment of the
+
+0:16:52.200,0:16:59.820
+operating parameters and application settings 
+these both applications are directly connected
+
+0:16:59.820,0:17:07.020
+to the digital twins provided by Sig acetab 
+the third example the sick augmented reality
+
+0:17:07.020,0:17:13.920
+assistant is connected to the things provided 
+by sick connect X on the edge it is in software
+
+0:17:13.920,0:17:22.020
+ecosystem which gathers the data and merges it 
+with the camera picture of a mobile device so
+
+0:17:22.020,0:17:28.380
+the user can see the device data from the sensors 
+perspective projected into the real environment
+
+0:17:32.280,0:17:42.000
+so to summarize we created valuable information 
+by implementing the application contract in a
+
+0:17:42.000,0:17:50.160
+building block and configuring it with a source 
+and the protocols in the connectpix enabling us
+
+0:17:50.160,0:17:57.120
+to offer a web of things based interface this 
+interface is then used in sick live connect
+
+0:17:57.120,0:18:03.240
+to create digital twins in the cloud using 
+web of things and the architecture behind it
+
+0:18:04.140,0:18:09.120
+these digital twins can then be 
+managed in the thick asset hub
+
+0:18:09.120,0:18:14.580
+together with the additional information of 
+the things and the physical devices behind them
+
+0:18:17.100,0:18:24.120
+these digital Twins then can be consumed 
+in applications like I showed before to
+
+0:18:24.120,0:18:30.360
+seek data applications and dashboards and also 
+in third-party systems and data applications
+
+0:18:31.140,0:18:38.220
+with this approach we are able to offer the 
+valuable information of interconnected sensors
+
+0:18:38.220,0:18:46.020
+systems and machines instead of the raw data 
+to our customers in an open won't adaptable way
+
+0:18:47.220,0:18:53.100
+so thank you very much and I think we can 
+hope to the interesting part of the discussion

@@ -1,0 +1,847 @@
+0:00:08.480,0:00:14.080
+So with us today is Raman Minkat from the 
+technical university of Munich and he's a
+
+0:00:14.080,0:00:19.920
+PhD candidate and researcher at the image 
+systems and IoT professorship and he's
+
+0:00:19.920,0:00:24.240
+basically looking at cyber physical 
+IoT systems and is leveraging the web
+
+0:00:24.240,0:00:30.160
+of things and to basically integrate different 
+information sources and devices to the industry.
+
+0:00:30.160,0:00:37.200
+metaverse. And of course, the part that relates 
+to today's uh presentation is a central goal of
+
+0:00:37.200,0:00:42.320
+his work and it's to basically ensure that complex 
+system data is made intuitively understandable and
+
+0:00:42.320,0:00:50.960
+actionable for both autonomous agents and human 
+users. With this uh I will give it to Raman. I'll
+
+0:00:50.960,0:00:56.080
+start. Thank you for introducing me, Egger. 
+And um yeah like ego already mentioned today
+
+0:00:56.080,0:01:05.440
+I will be presenting an approach I developed to 
+yeah integrate or allow multi- aent systems to
+
+0:01:05.440,0:01:11.920
+interoperable communicating with cyber physical 
+devices and also other agents based on the web of
+
+0:01:11.920,0:01:18.720
+things. This is based on a paper we published uh 
+last year. So if you are interested even to read
+
+0:01:18.720,0:01:24.880
+further after today and the discussion afterwards 
+you can also visit that and read there. Um I also
+
+0:01:24.880,0:01:30.480
+prepared a small slide to introduce myself but 
+I already did this so I'll skip this for now.
+
+0:01:30.480,0:01:38.400
+Um so basically the motivation we had for 
+this approach is that for example in this
+
+0:01:38.400,0:01:45.920
+use case a manufacturing cell uh we might have a 
+robotics arm that is actually interested in moving
+
+0:01:45.920,0:01:52.480
+um an object as soon as it's somewhere and then 
+processing it to bring it somewhere else. Um but
+
+0:01:52.480,0:01:58.000
+to know if there is actually an object present 
+it needs to ask or needs to uh communicate with
+
+0:01:58.000,0:02:05.280
+a sensor to know if there is an object present. 
+And um as you might know u from if you're familiar
+
+0:02:05.280,0:02:11.360
+with the web of things and maybe also with other 
+manufacturing applications this can involve quite
+
+0:02:11.360,0:02:15.760
+a bit of a hassle to actually just get this 
+data because you can have a lot of different
+
+0:02:15.760,0:02:20.480
+um different protocols that you might need 
+to deal with different endpoints and so on.
+
+0:02:20.480,0:02:26.240
+I will get into details about that a bit later. 
+Um, but this is already where the web of things
+
+0:02:26.240,0:02:30.720
+and especially the thing description is already 
+quite helpful because it describes easily how
+
+0:02:30.720,0:02:36.800
+you can interact with a device and what kind 
+of information you can get from that device.
+
+0:02:38.160,0:02:44.240
+Um so basically once we have this already the 
+the robot arm can get the information from the
+
+0:02:44.240,0:02:51.520
+sensor and therefore and basically has have 
+this simple agentic um we will also get into
+
+0:02:51.520,0:02:58.640
+this how this works a bit later but this agentic 
+uh goal basically to if there is a sensor uh the
+
+0:02:58.640,0:03:04.880
+object detected by the sensor I want to take that 
+object and process it and then we might have more
+
+0:03:04.880,0:03:10.400
+than just one um object and we want to be a bit 
+faster. So, we might want to introduce another
+
+0:03:10.400,0:03:16.400
+robot arm. And again, this robot arm also needs 
+to contact the sensor and it needs to make sure
+
+0:03:16.400,0:03:23.280
+it wants if it um if there is a sensor detected 
+by the object, it wants to rip the object and
+
+0:03:23.280,0:03:31.360
+um then move it. And maybe the this object is is 
+the same starting point or the same gra pickup
+
+0:03:31.360,0:03:36.640
+point. So therefore maybe that the um robot 
+arms also need to communicate with each other
+
+0:03:36.640,0:03:43.520
+to make sure that um they not uh clash into 
+each other or make ask the other one if it's
+
+0:03:43.520,0:03:50.800
+currently moving or not and to ensure safety 
+there. And you might have noticed already that
+
+0:03:50.800,0:03:59.440
+um this robot arm on the left side is basically um 
+using moving and the other one is using the word
+
+0:03:59.440,0:04:06.880
+carrying. And then again a a is using take and and 
+the other one is using grip. So they use kind of
+
+0:04:06.880,0:04:15.520
+the same or similar words or the same describing 
+the same u manipulation but it's not the same
+
+0:04:15.520,0:04:20.560
+word. So just by programming or if we just have 
+these agent themselves they wouldn't be able to
+
+0:04:20.560,0:04:27.120
+understand what the other robot is doing. And this 
+is basically what we wanted to help solving with
+
+0:04:27.120,0:04:33.280
+this approach. And our idea was to also use the 
+web of things and the finger descriptions to um
+
+0:04:33.280,0:04:40.480
+solve this. And I will now explain how we do this 
+in few steps. Basically, let me sum up again what
+
+0:04:40.480,0:04:47.520
+the problem is. So we have multi- aent systems and 
+they are good for autonomy and self-organization
+
+0:04:47.520,0:04:54.640
+and they can provide a goal oriented programming 
+and communication but they are not that good at
+
+0:04:54.640,0:05:00.080
+um providing interability and this is where the 
+web of things comes into play because it provides
+
+0:05:00.080,0:05:08.160
+uniform this parallel capabilities of things 
+and also protocol agnostic communication. So
+
+0:05:08.160,0:05:17.520
+our idea is here to um again like I said use 
+the thing description to uh describe what the
+
+0:05:17.520,0:05:28.960
+agent is capable of and to also um basically 
+map the internal naming an agent is using to
+
+0:05:28.960,0:05:37.120
+uh bigger semantics with therefore um 
+to allow each agent to um reason on
+
+0:05:37.120,0:05:45.920
+its own by using its own uh naming its own 
+word. So um for example the it can ask for
+
+0:05:45.920,0:05:52.720
+um state or something and then based on the 
+thing description our approach can rem map
+
+0:05:52.720,0:05:59.280
+this to actually tell the other agent what this 
+agent actually wants to know and translate this
+
+0:05:59.280,0:06:08.880
+basically for example from grabbing to taking 
+and so on. And this is our idea. And since we
+
+0:06:08.880,0:06:13.200
+now have people from web offerings community 
+group and also the agents community group,
+
+0:06:13.200,0:06:20.160
+I want to briefly introduce post both concepts. 
+And I hope I don't bore you with it. Uh but I'll
+
+0:06:20.160,0:06:26.000
+try to introduce those briefly. So basically 
+the web of things the central part that we
+
+0:06:26.000,0:06:31.920
+um now use is here is the thing description. The 
+web of things itself is a amigation of standards
+
+0:06:31.920,0:06:37.360
+but the thing description is one part of it and 
+it is used for a standardized description of how
+
+0:06:37.360,0:06:45.520
+you can interact with a device. Um it allows you 
+to uh describe the interaction affordances data
+
+0:06:45.520,0:06:53.360
+schemas and also some other um additional stuff 
+like security configurations or protocol bindings.
+
+0:06:53.360,0:06:58.960
+Uh let me give you an example here of what the 
+web thinks basically tries to do. So here we have
+
+0:06:58.960,0:07:06.880
+a smart toaster. We have um a temperature sensor 
+and a smart light bulb. And basically if we reach
+
+0:07:06.880,0:07:11.040
+a certain temperature in the toaster, we know our 
+toast is ready. And then we want to turn on the
+
+0:07:11.040,0:07:18.080
+light bulb. And therefore we want to basically 
+get the current temperature from the temperature
+
+0:07:18.080,0:07:24.080
+sensor and then turn on the light bulb. Sounds 
+easy but actually can be not so easy if you if
+
+0:07:24.080,0:07:29.600
+you really try to do this because for example 
+in this case the temperature sensor might be
+
+0:07:29.600,0:07:37.840
+using Modbus as protocol and the lamp might be 
+using HTTP and then to actually get the actual
+
+0:07:37.840,0:07:41.520
+temperature data from the temperature sensor you 
+have to perform a lot of steps like finding the
+
+0:07:41.520,0:07:47.280
+API description then finding the concrete request 
+and then also finding request parameters like
+
+0:07:47.280,0:07:53.360
+the endpoint the scaling the Indian and then 
+you get some data but then you still need to
+
+0:07:53.360,0:07:58.240
+be able to interpret the data. So you get a 
+number for example but then you need to know
+
+0:07:58.240,0:08:04.160
+um if it's Celsius or is it if it's Fahrenheit 
+and so on and the same happens or similar thing
+
+0:08:04.160,0:08:08.720
+happens if you want to turn on the light bulb you 
+also need to go through all this information and
+
+0:08:08.720,0:08:14.480
+this um already leads to a lot of code that you 
+need to write and a lot of things that you need
+
+0:08:14.480,0:08:18.880
+to understand and with the web of things and 
+the finger description this will get a lot
+
+0:08:18.880,0:08:24.960
+easier because instead of having all this complex 
+step you just basically scan a QR code or somehow
+
+0:08:24.960,0:08:31.280
+link to the field description of that device. In 
+there you see in a standardized format what this
+
+0:08:31.280,0:08:35.920
+device is capable of, what it provides to us. 
+For example, the temperature sensor provides us
+
+0:08:35.920,0:08:41.680
+um a temperature in the unit Celsius and we get 
+a number not an object or something but just
+
+0:08:41.680,0:08:48.960
+a number as response and then all the protocol 
+stuff is in the forms part and the web of things
+
+0:08:48.960,0:08:53.840
+um therefore allows us with the protocol bindings 
+to directly send a request without knowing how
+
+0:08:53.840,0:08:59.760
+mobs in detail works and therefore we can just 
+say we want to read the property temperature and
+
+0:08:59.760,0:09:06.320
+then we get a temperature value. Similar it works 
+for the light bulb. We can easily find the correct
+
+0:09:06.320,0:09:12.320
+uh interaction, the correct request we need to 
+send and we can find the uh value that we need to
+
+0:09:12.320,0:09:19.120
+send to the light bulb to then invoke the action 
+set color with the input 60 to uh to yellow for
+
+0:09:19.120,0:09:27.840
+example. This is the idea and for that we have 
+three different um uh interaction affordance
+
+0:09:27.840,0:09:34.320
+classes properties action and events. property 
+basically describes a property of a device. So you
+
+0:09:34.320,0:09:39.440
+can as a consumer read the property and then you 
+get a response. So for example in this case from a
+
+0:09:39.440,0:09:47.520
+ventilator you can uh read the current um rotation 
+speed and then it will return you a number and you
+
+0:09:47.520,0:09:52.720
+uh this is yeah how a property is described. 
+Basically you can read this sometimes you can
+
+0:09:52.720,0:10:00.480
+also write it um or you can also observe it to 
+be notified when it changes. Another thing is an
+
+0:10:00.480,0:10:07.520
+action. So if you want to that thing to to start 
+do doing something then we send the request the
+
+0:10:07.520,0:10:14.240
+thing starts doing it and it might also send uh a 
+response back can be synchronous or asynchronous
+
+0:10:14.240,0:10:20.160
+and this can also be described but this is 
+basically an action and finally we have the
+
+0:10:20.160,0:10:26.400
+uh interaction the last interaction for this class 
+is the event. This is something more asynchronous.
+
+0:10:26.400,0:10:34.160
+So first we start to subscribe to the event 
+then nothing happens and if then on the thing
+
+0:10:34.160,0:10:41.280
+itself something happens then we get notified. 
+So for example if the thing itself is overheating
+
+0:10:41.280,0:10:46.080
+again like I mentioned we have a thing description 
+that can look somehow like this and this is
+
+0:10:46.080,0:10:54.800
+basically describing in a standardized form in a 
+JSON um file um how to interact with this device.
+
+0:10:54.800,0:11:01.920
+And you can also um add more information to that. 
+You can enrich the thing description by linking
+
+0:11:01.920,0:11:07.440
+for example through ontologies like for example 
+in this case to the serif ontology and therefore
+
+0:11:07.440,0:11:13.360
+we can say that this property is actually 
+serif property. So we can gain a more common
+
+0:11:13.360,0:11:21.360
+understanding of what this um property actually 
+means or what this turn on command actually means
+
+0:11:21.360,0:11:26.560
+and we can then link to the ontology and actually 
+read through it what and get more information what
+
+0:11:26.560,0:11:34.720
+it means. So much about the web of things um 
+background basically of what we need for this.
+
+0:11:34.720,0:11:44.720
+Let me now also briefly introduce agents system 
+and um yeah how agents in in this for this work
+
+0:11:44.720,0:11:54.080
+uh are are working and what you need to understand 
+there. Um agents in general are um a big uh word
+
+0:11:54.080,0:12:01.840
+at the moment. I guess a lot of people are using 
+it. Um but let me try to break it down what
+
+0:12:01.840,0:12:10.000
+uh we uh which kind of agents we used in this 
+work. So basically an agent or a gent programming
+
+0:12:10.000,0:12:17.120
+is a different kind of programming I would say 
+because um you don't have this classical if
+
+0:12:17.120,0:12:25.440
+else statements and like first asking what is the 
+current state and then you get some some value and
+
+0:12:25.440,0:12:33.680
+then based on that you have an if else or while 
+loop or something but you have a more agentic
+
+0:12:33.680,0:12:43.600
+um or more highle way of programming devices and 
+this results in a more autonomous device that can
+
+0:12:43.600,0:12:53.920
+also be more proactive and reactive. Basically 
+what we do is we program the agent with some uh
+
+0:12:53.920,0:13:01.520
+desires and some plans to reach that desires. And 
+basically as you can see on the right side this is
+
+0:13:01.520,0:13:08.000
+an agent reasoning cycle. So we start on the top 
+uh left here. We have some input from a sensor and
+
+0:13:08.000,0:13:15.120
+these then are perceptions. So what the agent uh 
+basically has its input values and then we have
+
+0:13:15.120,0:13:22.160
+some beliefs that the agent these perceptions lead 
+into beliefs that the agent thinks what is the
+
+0:13:22.160,0:13:29.280
+current state of its environment. based on these 
+beliefs. Then the agent compares these beliefs to
+
+0:13:29.280,0:13:35.440
+its desires that we have programmed to the agent 
+or that it can gain some other ways. We will talk
+
+0:13:35.440,0:13:41.040
+about this in a bit. Um but then it can have some 
+desire have some desires. This is basically what
+
+0:13:41.040,0:13:46.560
+it wants to reach. And it compares if the its 
+belief about the environment is different to
+
+0:13:46.560,0:13:54.880
+its desires. And if this is the case, it tries to 
+see if it can somehow um changed it to change the
+
+0:13:54.880,0:14:01.440
+environment more towards its desires and then it 
+has an intention to change it basically. And then
+
+0:14:01.440,0:14:09.680
+it goes through its plan library a collection 
+of functions basically on how to um change the
+
+0:14:09.680,0:14:17.840
+environment and prove someectors. How you program 
+this can be for example with the agent programming
+
+0:14:17.840,0:14:25.920
+language JSON as you can see here and there 
+you program a plan. In this case it would be
+
+0:14:25.920,0:14:34.320
+um once we get the desire to process some green 
+object in this case then we first print that we
+
+0:14:34.320,0:14:40.320
+all now actually are processing to just inform 
+us as a human basically and then this leads to
+
+0:14:40.320,0:14:46.000
+freeze up desires that first we want to move to a 
+certain position then we want to drop the object
+
+0:14:46.000,0:14:52.880
+and then we want to go home and this is basically 
+again other plans on how to reach that desire.
+
+0:14:52.880,0:15:00.160
+Uh I hope this makes it clear already or clear 
+enough. We will also get later into a bit more
+
+0:15:00.160,0:15:06.640
+details. I hope then it gets even clearer. But 
+this is basically how an agent system if with this
+
+0:15:06.640,0:15:14.160
+belief desire intention architecture um works and 
+reasons. And then if we have a multi- aent system,
+
+0:15:14.160,0:15:19.760
+we don't only have one agent but we have multi- 
+agents. And then we can also don't have just
+
+0:15:19.760,0:15:27.760
+sensors andectors but input and output can also 
+be communication from and to other agents or as
+
+0:15:27.760,0:15:33.360
+we will show also to other devices not agents 
+themselves and for this communication between
+
+0:15:33.360,0:15:40.720
+different agents they are so-called formatives 
+and they are basically um yeah describing what
+
+0:15:40.720,0:15:46.400
+the agent wants to achieve with this. So either 
+we for example we kind of have tell ask achieve
+
+0:15:46.400,0:15:55.920
+and ask how. Um tell is just to share a belief. 
+Ask is um basically read or get information about
+
+0:15:55.920,0:16:03.360
+um something. Asking another agent if it knows 
+something. Achieve is to ask the other agent to
+
+0:16:03.360,0:16:11.040
+um try to achieve a goal to delegate a goal. And 
+finally um something maybe bit different to what
+
+0:16:11.040,0:16:16.960
+we know from general programming is to ask how. 
+So we can also ask another agent if it has an
+
+0:16:16.960,0:16:24.480
+idea on how to reach certain goal that I have 
+but I don't know how to solve for myself. And
+
+0:16:24.480,0:16:33.360
+then again with based on all these uh background 
+information we can formulate again our approach to
+
+0:16:33.360,0:16:40.320
+um again uh create interable cyber physical 
+multi- aent systems with web of things by
+
+0:16:40.320,0:16:47.760
+um doing these three steps. We first um want 
+to match or map agents speak to web of things
+
+0:16:47.760,0:16:54.080
+interaction affordances and therefore allow 
+agents to use the web of things as communication
+
+0:16:54.080,0:17:01.600
+layer and also um easily interact with any 
+kind of web of things described device.
+
+0:17:01.600,0:17:11.440
+We also describe the agents capabilities itself 
+with a thing description and first to to um allow
+
+0:17:11.440,0:17:18.160
+other agents to know what this agent is capable of 
+and then lastly to also match the internal naming
+
+0:17:18.160,0:17:26.480
+of an agent to an ontology to a commontology to 
+then use this commontology to translate different
+
+0:17:26.480,0:17:37.680
+internal namings between different agents um to um 
+to another agent. Um for the mapping we basically
+
+0:17:37.680,0:17:46.400
+propose um this uh mapping schema. So basically if 
+an agent wants to ask something from another agent
+
+0:17:46.400,0:17:51.200
+this will result in reading a property observing 
+a property or subscribing to the event and then
+
+0:17:51.200,0:17:59.520
+this if the other side the other thing is also a 
+agent this will lead into adding a test goal to
+
+0:17:59.520,0:18:07.600
+the other agent. So then it knows I want to find 
+out if this exists or if this is this case or not
+
+0:18:07.600,0:18:12.880
+or if it's just a conventional thing it will just 
+read the property and then whatever you have from
+
+0:18:12.880,0:18:20.000
+the background there. Similar also for um the 
+achieve. This will just maps easily to invoking
+
+0:18:20.000,0:18:29.040
+an action and then um adding an achieve goal um to 
+the other agents um belief base or that the other
+
+0:18:29.040,0:18:37.920
+agents uh has the intention to achieve this goal. 
+Um a bit different doesn't map as perfectly is the
+
+0:18:37.920,0:18:44.000
+the tell performative because in this case either 
+we know we can map it to the right property then
+
+0:18:44.000,0:18:50.960
+again we add a belief um um according to that 
+property to the other agent but if there is no
+
+0:18:50.960,0:18:59.120
+according property um in the other agents um thing 
+description it's hard to map and then we propose
+
+0:18:59.120,0:19:05.920
+maybe just use a tell action as fallback um and 
+then add this to the belief base. Finally, the ask
+
+0:19:05.920,0:19:15.120
+how is to um uh is another action we propose to 
+add to any agents thing desercription to then um
+
+0:19:15.120,0:19:24.880
+see if the other agent has a plan to um knows how 
+to achieve this goal. Like this, we can already
+
+0:19:24.880,0:19:34.880
+um enable agents to interact on a web of things 
+space layer. basically and therefore we can also
+
+0:19:34.880,0:19:41.520
+get all the benefits from web of things regarding 
+the protocol agnostic um communication but we also
+
+0:19:41.520,0:19:47.440
+since using the fingercription are able to use 
+this semantic or introduce a symmetric translation
+
+0:19:47.440,0:19:55.360
+like I mentioned already and this again I want to 
+briefly show here. So the agent internally is has
+
+0:19:55.360,0:20:01.520
+this plan like on the right side. Um it wants to 
+move to a position. It wants to drop an object or
+
+0:20:01.520,0:20:09.040
+it wants to and then it wants to go home. This 
+is its internal naming. Um like this it's not
+
+0:20:09.040,0:20:17.840
+translatable to any other agent or any other 
+um device basically. And then we use the thing
+
+0:20:17.840,0:20:26.480
+description like here to add the annotation to 
+any autology that we want to have. Basically the
+
+0:20:26.480,0:20:33.840
+so for example here we can translate that our 
+internal naming go home from our agent maps to
+
+0:20:33.840,0:20:42.480
+um the go home action of the autotology. And then 
+again we can in the other agent also map another
+
+0:20:42.480,0:20:53.280
+similar named um action also to the go home um 
+ontology action and therefore then translate
+
+0:20:53.280,0:21:01.120
+between those this internal namings. And like 
+this we can also translate not just um single
+
+0:21:01.120,0:21:10.480
+action or single belief communication but we can 
+also um translate even more complex um plans um
+
+0:21:10.480,0:21:18.960
+at least if they um exist or if they only have 
+plan steps. the parts of the plan that are mapped
+
+0:21:18.960,0:21:28.000
+through the thing description to the um to the 
+general ontology and then they can also be mapped
+
+0:21:28.000,0:21:35.200
+to the other agent. Let me show you this and 
+evaluate this maybe with some examples. Um first
+
+0:21:35.200,0:21:43.440
+in this case we just demonstrate that we have some 
+agents that are now also able to communicate with
+
+0:21:43.440,0:21:53.280
+uh devices. Um so the robot arm itself is an 
+agent. It asks the conveyor belt agent if there
+
+0:21:53.280,0:21:59.760
+is a sensor. If there is an object in front of the 
+sensor once there is something then it knows okay
+
+0:21:59.760,0:22:06.080
+now I have to go to pick it up and then the other 
+agent is also moving it to the other conveyor
+
+0:22:06.080,0:22:13.920
+belt. I have another example where maybe gets a 
+bit more clear. Um again here we have two agents
+
+0:22:13.920,0:22:20.720
+that want to communicate with each other and that 
+also want to um exchange plans. So we have agent
+
+0:22:20.720,0:22:29.680
+A and agent B and the goal of these agents is 
+to move objects that are um arriving here to
+
+0:22:29.680,0:22:39.280
+the dedicated belt. Um so in this case we have a 
+red cube and this needs to go to the red belt but
+
+0:22:39.280,0:22:46.160
+um the agents themselves don't know this. So only 
+this agent knows what to do with blue cubes and
+
+0:22:46.160,0:22:52.800
+what to do with green cubes. And this agent only 
+knows what to do with red cubes. And therefore
+
+0:22:52.800,0:23:01.200
+um the agent on the left side doesn't know what 
+to do with um red cubes. Then it looks for example
+
+0:23:01.200,0:23:08.960
+something like this. So again here we have the 
+left hand um agent it knows that once an object
+
+0:23:08.960,0:23:15.360
+is detected um then I want to first pick up the 
+object and then I want to process the object but
+
+0:23:15.360,0:23:23.520
+I only in this here and this I have depicted only 
+that it knows how to move a object of color blue
+
+0:23:23.520,0:23:32.640
+and now we have a red object so it doesn't know 
+how to move this and it should ask the other agent
+
+0:23:32.640,0:23:40.720
+if it has a plan and this other agent actually has 
+a plan to uh move a red object. But as you can see
+
+0:23:40.720,0:23:48.160
+here um it uses different naming conventions. So 
+first the move add then the release and then the
+
+0:23:48.160,0:23:55.120
+homing instead of move to drop object and go home 
+and then we basically use the finger description
+
+0:23:55.120,0:24:03.600
+as I described to map the internal namings and 
+then to then translate the plan such that the
+
+0:24:03.600,0:24:13.760
+other agent gets a new plan in its own internal 
+naming and is able to process also the red cube.
+
+0:24:13.760,0:24:23.440
+Finally, I have also a video of this. Um, 
+basically here again we have the left agent not
+
+0:24:23.440,0:24:33.760
+being able to move the red object. Um, only knows 
+how to process a green object or green cube. Um,
+
+0:24:33.760,0:24:41.120
+it picks it up. Now the the right hand robot 
+doesn't know how to process a blue cube. We allow
+
+0:24:41.120,0:24:51.040
+it to ask. Now we wait a bit. We allow it to ask 
+the other agent who how to uh process this object.
+
+0:24:51.040,0:24:58.160
+It will then ask it and as I have shown previously 
+translate the plan from agent A to agent B
+
+0:24:58.160,0:25:10.000
+internal naming then it's able to um manipulate 
+this object. Yeah. so much about our idea of how
+
+0:25:10.000,0:25:19.120
+to use the web of things and especially the thing 
+description to allow agents to translate between
+
+0:25:19.120,0:25:26.080
+different concrete or internal namings based 
+ontologies while still allowing them to using
+
+0:25:26.080,0:25:35.040
+their their internal um naming schema. 
+Um yeah, thank you for your attention.

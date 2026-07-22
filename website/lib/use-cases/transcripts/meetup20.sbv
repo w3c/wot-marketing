@@ -1,0 +1,823 @@
+0:00:07.080,0:00:13.160
+so without further Ado let me introduce you 
+Andre from uh Simmons smart infrastructure in
+
+0:00:13.160,0:00:18.680
+Zig is's a lead of connectivity at Edge and 
+he focus on enabling uh businesses through a
+
+0:00:18.680,0:00:23.440
+platform that commoditize connectivity 
+challenges into accessable API is an
+
+0:00:23.440,0:00:29.960
+engineer by nature and also a lot of Open Source 
+projects so please R go ahead the floor is yours
+
+0:00:30.520,0:00:35.800
+so yeah I was thinking like how to basically 
+keep seimens is a huge company so firstly I
+
+0:00:35.800,0:00:40.200
+was thinking I will give you a rough introduction 
+about what cens is doing and basically where the
+
+0:00:40.200,0:00:45.680
+connectivity in belongs to because you might 
+find seens devices at your home you can find
+
+0:00:45.680,0:00:51.480
+it in in a train then also in the substation so 
+where basically we are using web both things and
+
+0:00:51.480,0:00:57.800
+it it may also happen that uh not that it happens 
+that not only we are using it as like the project
+
+0:00:57.800,0:01:04.520
+I'm leading but there are also different projects 
+which are using the weos thing so um uh you might
+
+0:01:04.520,0:01:12.320
+find very many people uh using this standard in 
+in a different maners so um where I come from is
+
+0:01:12.320,0:01:18.360
+I come from the smart infrastructure so I will 
+explain what does it mean so first of all the
+
+0:01:18.360,0:01:24.360
+seens is now focusing a lot into the in in the 
+digital transformation optimizing the resource
+
+0:01:24.360,0:01:30.240
+consumption on in all countries and and uh 
+vertical so that's also how we are organiz
+
+0:01:30.240,0:01:36.080
+and where do we see potential so we are we have 
+a group or like a it's not a business unit it's
+
+0:01:36.080,0:01:41.320
+a segment which is called digital Industries 
+then we have a smart infrastructure mobility and
+
+0:01:41.320,0:01:48.240
+Healthcare and these are um like very huge groups 
+within the seens um where I belong to that's about
+
+0:01:48.240,0:01:54.160
+the smart infrastructure and uh when you look at 
+only in the on the smart infrastructure then we
+
+0:01:54.160,0:02:02.280
+talk about like in 2023 now I think it's around 
+78,000 employees uh with the revenue about like
+
+0:02:02.280,0:02:10.800
+uh 20 billions so it's it's really a huge amount 
+of of of menow we have and also of like connected
+
+0:02:10.800,0:02:17.600
+devices and things we sell so when we talk about 
+a connectivity it can really scale to huge numbers
+
+0:02:17.600,0:02:24.000
+and also the pain we feel our engineers and uh 
+operational Engineers feel when onboarding so
+
+0:02:24.000,0:02:30.040
+many different protocols is is really huge and 
+this is what we are trying to look at as just
+
+0:02:30.040,0:02:36.560
+of the aspect of the connectivity and Edge how to 
+basically connect easier the the field devices to
+
+0:02:36.560,0:02:42.840
+the cloud or to different systems so but to make 
+it even more complicated the smart infrastructure
+
+0:02:42.840,0:02:47.800
+is split it again into different business units 
+we have something like Fast grown business and
+
+0:02:47.800,0:02:52.080
+business units and we have like three Core 
+Business units which is called Electrical
+
+0:02:52.080,0:02:57.640
+Products these are you you might know these 
+devices I will go into the details but these
+
+0:02:57.640,0:03:02.720
+are the protection devices and switches that then 
+we have like Building Products another group where
+
+0:03:02.720,0:03:09.880
+again like I am where I am currently located 
+and this is about like fire safety the the the
+
+0:03:09.880,0:03:16.720
+room automation sensors vves and so on and then 
+we have also electrification and automation uh
+
+0:03:16.720,0:03:24.320
+which is about medium voltage um switch gears and 
+uh different devices which you find in substations
+
+0:03:24.320,0:03:33.120
+on the streets power plants and so on so very 
+bright a very bright SC scope of what what what
+
+0:03:33.120,0:03:40.640
+we are working with um but there yeah probably 
+to give you also like bit of insights about what
+
+0:03:40.640,0:03:46.240
+devices are we talking about so yeah when we come 
+from seens and we go to smart infrastructure and
+
+0:03:46.240,0:03:52.160
+then we go to Electrical Products so talking 
+also about like 10 thousands of of employees
+
+0:03:52.160,0:03:57.240
+and huge Revenue we are talking here about like 
+serus and Centrum devices which you find in the
+
+0:03:57.240,0:04:02.480
+cabinets these are like a protection device 
+devices um like I think you you might know
+
+0:04:02.480,0:04:06.640
+these devices here in the Cent they are very 
+well known and you find them everywhere so it's
+
+0:04:06.640,0:04:11.720
+not only about buildings residential buildings 
+it's also some about industrial applications
+
+0:04:11.720,0:04:17.160
+substations um so for example parameters 
+this is what you might using from SS and so
+
+0:04:17.160,0:04:25.480
+on um from the from the electrification and 
+automation there we come to devices which you
+
+0:04:25.480,0:04:33.360
+don't like highend I would say for like switch 
+gears for for distributions and distribution
+
+0:04:33.360,0:04:41.040
+companies um here it it really depends what you 
+can connect because the customer are not always
+
+0:04:41.040,0:04:46.840
+willing to bring everything to the cloud but 
+also here we see the trend that customers are
+
+0:04:46.840,0:04:53.120
+changing their opinion mainly if they need to 
+scale and deliver security vulnerability fixes
+
+0:04:53.120,0:05:01.600
+um more often than than it was before and the 
+third um and the third um group or the business
+
+0:05:01.600,0:05:08.040
+unit of the semens is called Building Products 
+um there we have like devices from it's only
+
+0:05:08.040,0:05:14.760
+around building so it's about the fire detection 
+or the iot automation so automation devic is for
+
+0:05:14.760,0:05:20.160
+controlling of of the rooms or like whole floors 
+depends how you model it so everything what you
+
+0:05:20.160,0:05:27.360
+find in the in the business uh buildings is um is 
+like definitely in cement buildings is controlled
+
+0:05:27.360,0:05:36.200
+through our uh building management systems and 
+automation systems okay so um I I really try to
+
+0:05:36.200,0:05:41.600
+scope it try to scope it to this to this web of 
+things Meetup the question is uh which which we
+
+0:05:41.600,0:05:49.360
+always get asked also within seens how as easy as 
+possible we can connect these different devices
+
+0:05:49.360,0:05:55.400
+um to to different systems so on one side you 
+might have customers who wants to connect these
+
+0:05:55.400,0:06:03.080
+devices to the cloud bring the data to the Azure 
+uh storage or to AWS S3 or to other offerings like
+
+0:06:03.080,0:06:10.680
+Building G and electrification in and what is 
+the easy easiest way so if you come from these
+
+0:06:10.680,0:06:15.680
+different business units these devices are talking 
+completely different protocols it's not like um
+
+0:06:15.680,0:06:20.400
+seens has fun protocol for every device because 
+you have different regulations in different
+
+0:06:20.400,0:06:25.440
+domains so when we talk about a power Sub Station 
+we talk about completely different protocols than
+
+0:06:25.440,0:06:30.280
+when we are in the industry market and start to 
+talk about a Prof OPC way and then when we come
+
+0:06:30.280,0:06:37.640
+to the buildings domain we start to talk about 
+the bunet and or yeah our most famous modb so
+
+0:06:37.640,0:06:44.240
+it's really very hard to come to one thing and one 
+standardization how to talk to these devices and
+
+0:06:44.240,0:06:53.280
+this is basically where where the web of things is 
+is helping us so the the problem which we solve is
+
+0:06:53.280,0:06:59.760
+on on on kind of a digitalization journey of the 
+customer to as quick as possible bring him online
+
+0:06:59.760,0:07:06.520
+and start to talk with these devices which are 
+like industry devices so we are focused on one
+
+0:07:06.520,0:07:12.040
+side with the application we are developing 
+on the on the real customer problem to really
+
+0:07:12.040,0:07:18.760
+enable the like there are many offerings from 
+semens and how as fast as possible we can send
+
+0:07:18.760,0:07:24.440
+and offer them these offerings without having a 
+hassle on the connectivity layer how also give
+
+0:07:24.440,0:07:31.280
+him the possibility to integrate against the apis 
+we have on our Edge system how to support as much
+
+0:07:31.280,0:07:37.760
+as possible OT protocols or field protocols which 
+are out there and our CS devices are talking and
+
+0:07:37.760,0:07:44.560
+how to be able to run on different Edge platforms 
+because there are um couple of edge platforms we
+
+0:07:44.560,0:07:51.800
+have also and cens which are and also out of the 
+cement and it's you need to basically ship this
+
+0:07:51.800,0:07:57.800
+application in in a different formats let's say 
+so a customer has the same user experience and
+
+0:07:57.800,0:08:10.320
+can utilize it in the same way [Music] um um 
+and now coming directly to the point so um we
+
+0:08:10.320,0:08:15.400
+have a component I will basically show you the 
+demo afterwards these are just like high level
+
+0:08:15.400,0:08:21.040
+uh high level slides which is called smarted 
+connector this is the application which is uh
+
+0:08:21.040,0:08:28.440
+on one side connecting to the FI devices and it's 
+bringing the data to either like Cloud systems or
+
+0:08:28.440,0:08:32.560
+there is there might be some different system 
+or application running also at the edge which
+
+0:08:32.560,0:08:38.240
+directly communicates to these devices but these 
+application developers don't want to understand
+
+0:08:38.240,0:08:44.480
+these field protocols so the question is how to as 
+easy as possible enable the communication to field
+
+0:08:44.480,0:08:52.680
+world without necessity of understand all of these 
+protocols mainly if we as a semens are handling
+
+0:08:52.680,0:08:58.840
+every possible Market it it would be really 
+impossible um or you invest too much time into
+
+0:08:58.840,0:09:03.360
+commodity which is a connectivity so yeah that's 
+basically also our proposition we try to make out
+
+0:09:03.360,0:09:08.560
+of this connectivity to fill devices the commodity 
+so we basically get the revenue and build the
+
+0:09:08.560,0:09:16.000
+business uh somewhere else and not really in these 
+connectors so basically on this picture I think
+
+0:09:16.000,0:09:22.000
+Matias is also here this is from one one one a 
+conference presentation the the idea is simple
+
+0:09:22.000,0:09:26.480
+independently of the field device I have there 
+because if you come to a building you have there
+
+0:09:26.480,0:09:32.360
+everything you can find their opca device you'll 
+find a backnet device you find a modbus device
+
+0:09:32.360,0:09:39.080
+and you want to bring everything to your system to 
+have a to have overall big picture and have some
+
+0:09:39.080,0:09:45.840
+good business use case on top of that so how can I 
+simply bring all of these devices which are in the
+
+0:09:45.840,0:09:51.520
+building to my system so my application can talk 
+to these devices without knowing these protocols
+
+0:09:51.520,0:09:59.640
+or without having an expertise and profing at opu 
+and so on so there there is also another activity
+
+0:09:59.640,0:10:05.800
+in in the semens where um the devices we are 
+developing they have their own apis so here
+
+0:10:05.800,0:10:12.040
+we talk about for example EP electrical product 
+and they are developing this Centron and um yeah
+
+0:10:12.040,0:10:18.120
+Centron devices for example this is what used and 
+they have like internal database where they have
+
+0:10:18.120,0:10:24.160
+like all the apis documented so if if the device 
+speaks modbus or if it speaks the profinet We have
+
+0:10:24.160,0:10:29.320
+basically a they have basically a system where 
+they find all the documentation about the API
+
+0:10:30.080,0:10:35.160
+and they export it into different formats so 
+you can find the documentation for the device
+
+0:10:35.160,0:10:40.080
+in the PDF you can find like a different 
+configuration files and the first activity
+
+0:10:40.080,0:10:46.240
+we did that we we configure or we exported 
+this configuration also in the think models
+
+0:10:46.240,0:10:52.160
+so that was like a first activity we had to 
+to standardize it into the like web of things
+
+0:10:52.160,0:10:59.560
+formats or the think models and make it make use 
+of it in the smage connector the Second Step was
+
+0:10:59.560,0:11:06.880
+and um I I saw also pedram he's driving this 
+topic is to have like a think model catalog so
+
+0:11:06.880,0:11:14.880
+have like for semens centralized um a service or 
+like a system responsible for for our application
+
+0:11:14.880,0:11:20.720
+hosting all of the possible think models we can 
+work with as a system so on one side we have a
+
+0:11:20.720,0:11:27.520
+like a channel between like internal developers 
+in the cens developing the devices who are pushing
+
+0:11:27.520,0:11:34.200
+the think models to our think model catalog and 
+then we have like consumers for us for for example
+
+0:11:34.200,0:11:41.280
+us the SMART connector who is directly going to 
+this catalog so I I will show it to you at the
+
+0:11:41.280,0:11:47.720
+end and if customer is searching that yeah I want 
+I have I know that I have in my in my building the
+
+0:11:47.720,0:11:53.680
+the power center 1000 I can search for it I will 
+download it from the catalog and then I directly
+
+0:11:53.680,0:11:59.480
+know how to work with this device I don't have to 
+go to the PDF I don't have to copy paste the the
+
+0:11:59.480,0:12:08.400
+the documentation or even type it inside I'm sorry 
+I always have it in place and this is simplifying
+
+0:12:08.400,0:12:13.840
+really extremely the provisioning process for the 
+customers and bringing them the data to the cloud
+
+0:12:13.840,0:12:23.400
+or to the system where they need to have this data 
+um so yeah as as as I mentioned there are the this
+
+0:12:23.400,0:12:30.880
+is already like out of the context of of the of 
+the web of things but this is is basically where
+
+0:12:30.880,0:12:37.760
+our customers and how are they trying to use this 
+information simple provision because what matters
+
+0:12:37.760,0:12:43.880
+is how quick we can go through this Engineering 
+Process and bring the data to different platforms
+
+0:12:43.880,0:12:51.000
+like some AWS iot what means like mqtt broker 
+and do some processing there or bringing to the
+
+0:12:51.000,0:12:56.920
+building geks to to have to have the data in the 
+operational manager and so on or electrification
+
+0:12:56.920,0:13:03.640
+n to monitor what substations are in which version 
+and if there are any security vulnerabilities and
+
+0:13:03.640,0:13:09.400
+and so on and so forth so these are basically the 
+use cases we want to have as fast as possible with
+
+0:13:09.400,0:13:18.720
+as slow effort on the engineering side as as as 
+available yeah I will skip I will skip most of
+
+0:13:18.720,0:13:25.600
+the parts uh here basically the focus of the SMART 
+connector is really the interoperability providing
+
+0:13:25.600,0:13:32.320
+the commodity connectivity layer uh where the the 
+main crucial role on the on the southbound side
+
+0:13:32.320,0:13:38.320
+so on the field side is utilizing of the web of 
+things so making use of the think catalog which
+
+0:13:38.320,0:13:44.600
+is also like open source and uh using the content 
+which we get directly from us from seens from
+
+0:13:44.600,0:13:52.200
+from device producers and uh supporting the easy 
+provisioning and um enabling the the Fast Business
+
+0:13:52.200,0:13:59.040
+growth on on the side of the cloud and the 
+applications we are building good so that would be
+
+0:13:59.720,0:14:06.720
+uh crash uh course into how we are utilizing 
+the web of things I will show you now how
+
+0:14:06.720,0:14:11.040
+the applications looks like I I won't go 
+through every details because there are
+
+0:14:11.040,0:14:16.360
+um this that's just one part of it but if 
+you have any questions which I can answer
+
+0:14:16.360,0:14:21.600
+also during the demo I would welcome them 
+now until I also set up and authenticate
+
+0:14:21.600,0:14:29.040
+myself um but it's better to ask them at 
+the end so that we don't interrupt the
+
+0:14:30.320,0:14:36.760
+yeah thank you okay then let's let's make sure 
+to finish the the presentation and then if people
+
+0:14:36.760,0:14:43.120
+already have questions please just write them 
+in the chat or Q&A then we will basically um
+
+0:14:43.120,0:14:53.840
+direct them to Andre yeah yeah good no I am anyway 
+already online perfect I text it good so basically
+
+0:14:53.840,0:15:01.080
+this is um just the one of the applications we 
+have in the like connect activity NH platform
+
+0:15:01.080,0:15:08.680
+the the scope of this application is to as as I 
+described here to run on some Edge platform so run
+
+0:15:08.680,0:15:15.080
+on the customer side connect to the field devic is 
+available there and bring the data somewhere else
+
+0:15:15.080,0:15:20.960
+right so this is basically the scope of this one 
+component and what you see here is the UI running
+
+0:15:20.960,0:15:29.640
+on some Edge Gateway IPC whatever running on the 
+customer side um on on uh and where I am like
+
+0:15:29.640,0:15:37.840
+remotely connected so um okay I I was supposed to 
+delete this um so what we have here for example is
+
+0:15:37.840,0:15:46.000
+the uh Power Center 1000 just to give you how this 
+device looks like this this is the device where
+
+0:15:46.000,0:15:57.320
+I'm connected to over modb pass this is from seens 
+electrical products and um yeah so basically the
+
+0:15:57.320,0:16:04.200
+definition of this device is is all like uh like 
+think based so as you can see here we have the
+
+0:16:04.200,0:16:10.200
+thing description which is describing everything 
+as it was defined by this development team and we
+
+0:16:10.200,0:16:15.480
+are just taking this information I will show you 
+how and uh and connecting to this device so what I
+
+0:16:15.480,0:16:28.920
+just need to do because I didn't wrote it down is 
+the IP of this device because this is in the lab
+
+0:16:32.040,0:16:39.880
+okay so let me let me delete it yeah so as I 
+mentioned we are utilizing this think model
+
+0:16:39.880,0:16:45.840
+uh catalog there are two options customer can of 
+course import directly the think model uh or no no
+
+0:16:45.840,0:16:51.120
+no he can directly import the thing description 
+um for example if you have a repetitive setup
+
+0:16:51.120,0:16:56.080
+that you know that the each floor is the same 
+or it's it's not only for the building so for
+
+0:16:56.080,0:17:03.160
+example there is a customer uh which has a 10 
+thousand sites which are always the same there
+
+0:17:03.160,0:17:08.800
+is a there is a PV like the photo volter the 
+echarger there is a battery and so on and we
+
+0:17:08.800,0:17:13.640
+know how the setup exactly looks like so we can 
+have it already prepared and what happens if if
+
+0:17:13.640,0:17:18.680
+for example such a ak2 is installed we have the 
+predefined configuration for the Gateway ID or
+
+0:17:18.680,0:17:23.520
+the for the specific serial number and we already 
+know how to provision the system so it's a matter
+
+0:17:23.520,0:17:28.840
+of few clicks to basically have the whole system 
+online because it's kind it's it's always the same
+
+0:17:30.360,0:17:34.560
+um or if you're debuging something or what if you 
+have the set if you have this thing description
+
+0:17:34.560,0:17:40.360
+already available you can edit inside and then 
+edit it as a as a ro Json um another part is
+
+0:17:40.360,0:17:48.000
+the catalog which I just showed here so which 
+which I showed on the presentation so firstly
+
+0:17:48.000,0:17:52.200
+the this think model catalog we are using is 
+an open source implementation it's available
+
+0:17:52.200,0:17:57.480
+here on the GitHub and we are basically taking 
+this implementation and hosting it on our own we
+
+0:17:57.480,0:18:03.360
+behind the API Gateway secure and so on so you 
+can take it host your models there as well and
+
+0:18:03.360,0:18:10.600
+use it in your system so this is exactly what we 
+are using um what you can do is you can like okay
+
+0:18:10.600,0:18:16.280
+let's say I'm I'm an engineer of the building I 
+know that what I what do I have in the building
+
+0:18:16.280,0:18:27.240
+is like the the the the the Pok 1,000 from seens 
+so what I can do is like a search for seen devices
+
+0:18:27.240,0:18:32.280
+uh what I can do is specific I directly its 
+Bo okay here I have the device so this was
+
+0:18:32.280,0:18:38.320
+basically the query to the think model catalog 
+I can select this device go next what what am
+
+0:18:38.320,0:18:46.600
+I asked for is the IP address of the device so 
+this is why I copied it out and ID so basically
+
+0:18:46.600,0:18:51.200
+what we are doing we are instantiating this 
+think model so at the end we will have the uh
+
+0:18:51.200,0:18:58.720
+think description based on the think model from 
+the catalog I don't know what meet up PO 1000
+
+0:18:59.600,0:19:10.160
+um now basically this think model is is is 
+downloaded uh is um Extended by or is transformed
+
+0:19:10.160,0:19:17.040
+into the think description with the IP address 
+port and some some this ID and we have it now
+
+0:19:17.040,0:19:22.360
+available in the system so on one side you can now 
+go to devices you see that we were able to connect
+
+0:19:22.360,0:19:29.960
+to that device uh which I which IP I defined and 
+we connected there over modbus because that's what
+
+0:19:29.960,0:19:36.240
+this think model was defined for uh what I can do 
+is I can go to uh property so what you see here is
+
+0:19:36.240,0:19:41.840
+basically the visualized think description this 
+is the root part where you have the think ID uh
+
+0:19:41.840,0:19:47.120
+the the title types and description you can edit 
+everything you can go to properties here are all
+
+0:19:47.120,0:19:50.760
+the properties of the think description as you 
+see there is plenty of them because if you take
+
+0:19:50.760,0:19:55.240
+really the think model from the catalog you have 
+everything there if you don't need it you can of
+
+0:19:55.240,0:20:01.800
+course delete it whatever but also the edit is 
+uh very easy here so I can go these are not very
+
+0:20:01.800,0:20:09.880
+nice properties uh whatever it it doesn't matter 
+actually so I can go to this uh bluetoo State and
+
+0:20:09.880,0:20:16.160
+um this is the the definition of the property so 
+property ordance of in in the think model think
+
+0:20:16.160,0:20:22.040
+description I can go to southbound that's that's 
+basically our terminology where we have also the
+
+0:20:22.040,0:20:32.240
+UI for mod bus so what you can see here is the um 
+uh representation of the modbus form and uh if you
+
+0:20:32.240,0:20:36.800
+don't have a thing description you can use also 
+this thisi for creation of this thing description
+
+0:20:36.800,0:20:43.080
+so directly let's say there is a manufacturer 
+who doesn't provide it yet the think model for
+
+0:20:43.080,0:20:49.480
+his device but you have this huge PDF sheet so yes 
+you can go to PDF copy paste out the the address
+
+0:20:49.480,0:20:54.680
+unit ID and Define the think model on your own 
+of course then you can export it and import it
+
+0:20:54.680,0:21:00.680
+so it simplifies your life in the future but also 
+this UI is pretty pretty nice to to make the the
+
+0:21:00.680,0:21:10.000
+job fast um yeah the status is zero for whatever 
+reason um um yeah so that that that's basically
+
+0:21:10.000,0:21:15.040
+it what you can do here but this device is not 
+really configured so some values are not really
+
+0:21:15.040,0:21:21.240
+right um or some are encoded as strings because 
+we are not taking for example responsibility
+
+0:21:21.240,0:21:28.960
+for encoding it as as as uh as as the client 
+needs so we just read it from from the register
+
+0:21:28.960,0:21:41.920
+uh from from this regist Modas registry as 
+uh addresses as it is okay so [Music] um that
+
+0:21:41.920,0:21:48.000
+would be basically it right um the the whole 
+idea is as I mentioned already probably three
+
+0:21:48.000,0:21:54.720
+times simplify the life of Engineers navigate them 
+to one application whatever protocol the device
+
+0:21:54.720,0:22:01.760
+speaks whatever use case they have like sending 
+the data to other systems and simplify by having
+
+0:22:01.760,0:22:08.200
+the think model catalog integration searching 
+for devices they want and uh just with three
+
+0:22:08.200,0:22:14.880
+simple clicks provisioning the device having it 
+online and uh getting the values that that that's
+
+0:22:14.880,0:22:23.160
+basically the deal we have and that's where the 
+pl responsibility of of the this component not
+
+0:22:23.160,0:22:30.200
+of the whole connectivity enage platform um 
+that that's basically what we commit to and
+
+0:22:30.200,0:22:36.760
+what we deliver yeah um if you have any questions 
+please but that was like a a quick introduction
+
+0:22:36.760,0:22:55.800
+into how we utilize a think model catalog and how 
+it simplifies the life of of of of Sean engineers

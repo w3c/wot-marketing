@@ -6,7 +6,7 @@ import { LinkCard } from '../LinkCard';
 import { Route } from 'next';
 import { LinkButton } from '../LinkButton';
 
-export function UseCases() {
+export function HomePageUseCases() {
   return (
     <PageSection title="Use Cases">
       <Stack direction={{ sm: 'column', md: 'row' }} gap={{ xs: 2, md: 10 }}>

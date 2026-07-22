@@ -1,0 +1,1251 @@
+0:00:08.720,0:00:14.320
+So today with us is Ian who is a research fellow 
+at the University of Bolognia and he's a member of
+
+0:00:14.320,0:00:20.640
+IoT Prism lab. He received his PhD in structural 
+and environmental health monitoring and management
+
+0:00:20.640,0:00:27.120
+from uh the University of Bolognia in 2024. 
+Um during that time and he's still involved
+
+0:00:27.120,0:00:32.800
+in numerous national and European projects 
+all centered around IoT and of course apply to
+
+0:00:32.800,0:00:38.800
+different contexts and he is currently researching 
+on interperability for IoT edge computing and edge
+
+0:00:38.800,0:00:46.720
+caching. So Ian the floor is yours. Thank you for 
+joining us today. Nice. Okay. So today I'm going
+
+0:00:46.720,0:00:54.640
+to share um some some of the research that we do 
+in the University of Bologn which I'm um I work
+
+0:00:54.640,0:01:00.240
+there as a research fellow and the title of my 
+presentation is a little bit catchy from what to
+
+0:01:00.240,0:01:06.640
+chain and is the idea is to explore some scenarios 
+actually a particular scenario in a system that we
+
+0:01:06.640,0:01:14.800
+built uh that explore the intersection points from 
+internet of things in this case web of things and
+
+0:01:14.800,0:01:23.760
+blockchain uh and this our goal is to enable 
+like a zero trust application for IoT. Okay.
+
+0:01:23.760,0:01:31.600
+So in the University of Blay I work in the IoT 
+Prisma lab. The IoT Prisma lab is a a research
+
+0:01:31.600,0:01:37.360
+laboratory for the internet of things and we work 
+on several different verticals in the internet of
+
+0:01:37.360,0:01:46.480
+things. We have like a vertical for the uh IoT 
+computing continuum, the edge cloud stuff. We
+
+0:01:46.480,0:01:52.560
+have one for the uh edge AI. And the one that we 
+are particularly interested in the topic of this
+
+0:01:52.560,0:01:59.600
+talk is actually decentralized IoT decentralized 
+IoT applications. For the decentralized IoT
+
+0:01:59.600,0:02:05.520
+applications, uh well the head of the lab is like 
+professor Marco Deich and of course the work that
+
+0:02:05.520,0:02:11.760
+I'm presenting here. I'm just the face right but 
+uh we did like the research is a collaborator
+
+0:02:11.760,0:02:17.600
+effort and we I could not be here we could not 
+do the research without uh the cooperation of
+
+0:02:17.600,0:02:24.720
+my colleagues uh professor Fedric Monto which is 
+our group leader and also Dut Giggley which is our
+
+0:02:24.720,0:02:32.000
+blockchain expert which his technical expertise is 
+paramount for us to arrive here to make like this
+
+0:02:32.000,0:02:42.720
+uh these papers and working in those topics. Okay. 
+So in in that vertical what is our goal? Well, we
+
+0:02:42.720,0:02:50.560
+have a very ambitious goal that you narrow it down 
+a bit but is to enable a decentralized IoT global
+
+0:02:50.560,0:03:00.640
+market. What I mean by that? Well, when uh the IoT 
+let's say started remember in the beginning of the
+
+0:03:00.640,0:03:09.760
+2010 uh with uh some papers specifically regarding 
+like like the remember at paper the super site and
+
+0:03:09.760,0:03:17.440
+everybody talks about that back then and there 
+was a sharp vision uh that the IoT were going to
+
+0:03:17.440,0:03:25.440
+be an equivalent of the internet. So we are going 
+to have like this uh interconnect network of teams
+
+0:03:25.440,0:03:32.800
+that would talk between each other. We arrived at 
+partially there but not completely there. Uh there
+
+0:03:32.800,0:03:42.880
+are some factors that we I advocate that hinder 
+u the this vision. One is the centralization like
+
+0:03:42.880,0:03:50.320
+transparency because if we if we're going to 
+have an IoT data market somehow it currently
+
+0:03:50.320,0:03:58.480
+is centralized. So if it's centralized is blo with 
+some vendors based on specific technologies there
+
+0:03:58.480,0:04:05.360
+are entry barriers. Second is low trust in data 
+quality. Why? Well we are talk about IoT we're
+
+0:04:05.360,0:04:11.200
+talking usually about chip numerous right? So 
+you have many different sensors dispenser spread
+
+0:04:11.200,0:04:19.040
+through a huge geographic area and sensors can 
+can fail sens can produce like false values and
+
+0:04:19.040,0:04:27.440
+so on. So you cannot trust really the the data 
+of a single device uh you need to trust like
+
+0:04:27.440,0:04:33.360
+big numbers and third and this is something that 
+I think the this group knows a lot about it is
+
+0:04:33.360,0:04:38.400
+the interperability problems. If we're going to 
+talk about IoT data mark in general, we're going
+
+0:04:38.400,0:04:44.400
+to have many issues with interperability. 
+Just to have like a heads up, interability
+
+0:04:44.400,0:04:52.320
+we solve with the web of things. Actually, 
+it's a building block to solve interpret.
+
+0:04:52.320,0:05:02.960
+Okay. So, uh what is missing for realizing 
+uh this vision? Well, when we talking about
+
+0:05:02.960,0:05:09.840
+like uh traditional IoT uh traditional cloud 
+service cloud service in general, when you
+
+0:05:09.840,0:05:16.000
+are requesting something, this request is tightly 
+coupled with the service that you're requesting,
+
+0:05:16.000,0:05:22.400
+you're requesting for some data from a specific 
+data provider, right? In cloud, you are having
+
+0:05:22.400,0:05:30.720
+making a query for that service that uh on that 
+cloud server and that's it. In IoT is not exactly
+
+0:05:30.720,0:05:40.320
+like that. Usually uh consumers don't care too 
+much about who is given their data. They want
+
+0:05:40.320,0:05:47.200
+uh the a specific data point and it be needs to 
+be generalized somehow like okay I want to know
+
+0:05:47.200,0:05:54.480
+what is the temperature in the city of Bolog 
+right now. So it's a geocation and a specific
+
+0:05:54.480,0:06:00.800
+data point. I don't care who is providing 
+the data this specific device. However,
+
+0:06:00.800,0:06:06.320
+the data needs to be reliable this 
+like baseline. So the trust is not
+
+0:06:06.320,0:06:11.840
+uh is shifted from the single data sources 
+and it's placed on the marketplace. So you
+
+0:06:11.840,0:06:21.440
+need to have like this marketplace 
+needs to provide this trust. Then
+
+0:06:21.440,0:06:28.640
+ask like this research question uh that's based 
+on my previous slide. How can we enable like
+
+0:06:28.640,0:06:35.760
+a decoupling between user request and IoT data 
+provider? So we can give users what they want and
+
+0:06:35.760,0:06:45.520
+where they want it. However, without specifying 
+the uh specifically IoT data providers, we build
+
+0:06:45.520,0:06:51.600
+our solution on two main technology building 
+blocks. The first I think everybody here is
+
+0:06:51.600,0:06:59.120
+familiarized is the web of things while the second 
+is the blockchain. Well, why we adopted the web of
+
+0:06:59.120,0:07:07.040
+things? Why web of things? Uh we have like four 
+reasons I think uh for adopting it. The first and
+
+0:07:07.040,0:07:14.240
+uh is our own experience. We work of it. We're in 
+the past. We like it. We know it. Um the second
+
+0:07:14.240,0:07:19.280
+is because when you are talking about like a 
+marketplace in general for IoT, we need interface.
+
+0:07:19.280,0:07:25.760
+We need interface to communicate with things. 
+We need interface for thing directories. So
+
+0:07:25.760,0:07:31.280
+uh the web of things already provide us that. 
+And the third and the fourth reasons are tightly
+
+0:07:31.280,0:07:38.960
+connected which is uh when you are adding 
+like a device to any marketplace you need to
+
+0:07:38.960,0:07:44.400
+describe this device somehow. So we need to have 
+semantic description and if you have like a device
+
+0:07:44.400,0:07:50.480
+you need to find this device somehow. So this 
+discover capabilities specifically we leverage
+
+0:07:50.480,0:07:57.520
+the discover and descript specifications. So this 
+coverage to say okay uh we can do like some JSON
+
+0:07:57.520,0:08:05.760
+path queries to find specific thing descriptions 
+that are are the sensors that we want and then we
+
+0:08:05.760,0:08:14.160
+utilize the TD uh the TD uh structure to 
+consume this data and read the sensor values.
+
+0:08:14.160,0:08:23.120
+Uh here I I put some introduction slides about 
+like the blockchain because uh I'm not so familiar
+
+0:08:23.120,0:08:27.840
+uh if the audience is so familiar with it. 
+If there is any blockchain specialist here
+
+0:08:27.840,0:08:33.040
+is going to kill me because I'm going to butcher 
+it for sure but just to give an idea what's the
+
+0:08:33.040,0:08:39.920
+blockchain is like we can see it as a distribute 
+ledger for growing list of blocks and blocks are
+
+0:08:39.920,0:08:46.000
+linked together by cryptographic hashes. Okay. 
+And each block holds a set of transactions there
+
+0:08:46.000,0:08:52.000
+update and that's it. For a new block to be added 
+to the blockchain, the nodes on the chain needs to
+
+0:08:52.000,0:08:59.200
+uh perform a consensus on that block. So we can 
+see uh for this work as a distributed database.
+
+0:08:59.200,0:09:06.480
+Okay, distributed decentralized database. And the 
+interesting about the blockchain is not the crypto
+
+0:09:06.480,0:09:16.160
+market uh for at least for us in this context. 
+Uh however is like the advance of smart contracts
+
+0:09:16.160,0:09:24.400
+when Ethereum rised the rise also the idea of 
+smart cont which is the possibility to executed
+
+0:09:24.400,0:09:32.000
+code to do computation inside the blockchain. 
+So now you have not only a decentralized
+
+0:09:32.000,0:09:41.040
+distributed database but also a way to compute 
+on decentralized distributed um system. So this
+
+0:09:41.040,0:09:47.520
+is pretty interest because those smart contracts 
+they inherit the blockchain properties which is
+
+0:09:47.520,0:09:56.720
+immutability, security, transparency and so on. 
+Especially what are the features uh that made us
+
+0:09:56.720,0:10:03.600
+utilize the blockchain as a building block. So the 
+first one is the decentralized. The blockchain is
+
+0:10:03.600,0:10:10.320
+completely decentralized and it doesn't depend 
+of anyone. No central authority can control it.
+
+0:10:10.320,0:10:16.480
+Second is imitability. Once a block is added to 
+the blockchain, the data cannot be updated. The
+
+0:10:16.480,0:10:23.760
+data cannot be cancelled whatever. The third 
+is transparency. All the data that is in the
+
+0:10:23.760,0:10:30.880
+blockchain. All the transactions can be publicly 
+can be read by everyone and the logs of the
+
+0:10:30.880,0:10:38.960
+computation made is also fully outable. Uh and the 
+fourth is the permissions. So anyone can join and
+
+0:10:38.960,0:10:46.560
+leave the system without any gatekeeper. So those 
+are like fundamental aspects that motivate the
+
+0:10:46.560,0:10:56.560
+utilization of the blockchain in this context of 
+uh have an decentralized uh marketplace. Actually,
+
+0:10:56.560,0:11:01.600
+it's pretty interesting because if you want 
+you need a secure trusted IoT application,
+
+0:11:01.600,0:11:08.400
+you need to have like this kind of immutability 
+and a way to audit and you need to audit the the
+
+0:11:08.400,0:11:13.360
+data itself. So, if you're using the blockchain 
+like you can take those things as granted. So,
+
+0:11:13.360,0:11:22.000
+this is perfect. However, uh not everything 
+are flowers. The blockchain cannot read outside
+
+0:11:22.000,0:11:29.520
+information. So uh those smart contracts can do 
+computation only on data that's already in the
+
+0:11:29.520,0:11:36.960
+blockchain itself because they need to do like the 
+terminics the determinist code execution to solve
+
+0:11:36.960,0:11:45.920
+this problem there's uh there are data oracles 
+data oracles are applications uh applications
+
+0:11:45.920,0:11:54.800
+that work as a bridge from the outside board and 
+the blockchain. So in this case of IoT an oracle
+
+0:11:54.800,0:12:02.240
+uh the smart contour cannot read a sensor to 
+execute the a given computation. However an
+
+0:12:02.240,0:12:09.120
+oracle can go read this sensor and write this data 
+on the blockchain and then the smart contract can
+
+0:12:09.120,0:12:15.840
+read it and compute it. So those are uh this is 
+a very important piece of the puzzle here and the
+
+0:12:15.840,0:12:21.200
+Oracle is completely an offchain application as 
+a web server can work as a web surface everything
+
+0:12:21.200,0:12:32.240
+else doesn't have any particular uh feature 
+okay uh so uh I'm saying a lot about this IoT
+
+0:12:32.240,0:12:40.000
+uh data market marketplace so let's give an 
+example which uh we combine IoT and blockchain
+
+0:12:41.040,0:12:51.760
+for an application that needs trust. Uh so don't 
+know if you are familiar but uh in when you talk
+
+0:12:51.760,0:12:58.400
+about like uh agricultural scenarios there's 
+something that's called parametric insurance.
+
+0:12:58.400,0:13:08.800
+What is this? It's like farmers that go to a given 
+insurance company and they make an insurance not
+
+0:13:08.800,0:13:15.120
+based on the damage that they suffer from this on 
+their crop but actual own specific parameters. So
+
+0:13:15.120,0:13:23.280
+they can say okay uh insurance company if uh 
+there the rainfall reports drop like if that
+
+0:13:23.280,0:13:28.720
+doesn't rain for a specific period of time you're 
+going to pay me this value the insurance company.
+
+0:13:28.720,0:13:36.480
+Okay. And the farmer pay for the insurance. If 
+this event happens, the farmer gets monetary
+
+0:13:36.480,0:13:44.160
+compensation. So this is actually a trend that 
+farmers really like because it escapes some
+
+0:13:44.160,0:13:51.840
+of the auditing process that can be very uh 
+long and generate a lot of disputes. However,
+
+0:13:51.840,0:13:58.880
+the system still has many issues. So uh those 
+are usually generated based on some reports and
+
+0:13:58.880,0:14:08.000
+those reports can not reflect exactly the crop 
+that's being uh that is what is being insurance
+
+0:14:08.000,0:14:14.160
+is still the process to uh disputes ambiguity. 
+So the farmer say no no it didn't rain and the
+
+0:14:14.160,0:14:19.120
+insurance say no it rain a little bit so I'm 
+not going to pay you. So the and still like
+
+0:14:19.120,0:14:27.280
+uh a high administrative cost especially for 
+each of the payments. Okay. So if we're going to
+
+0:14:27.280,0:14:33.920
+uh step up from that, we have another scenario 
+when we have the same thing but now it's IoT
+
+0:14:33.920,0:14:42.960
+based in the sense that now we deploy a weather 
+station or some weather stations on the farmer
+
+0:14:42.960,0:14:52.160
+uh on the specific insurance farmer. Does 
+this resolve our problem? Is it okay? Well,
+
+0:14:52.160,0:14:59.680
+actually, we don't think so. Why? Because now 
+we have a single source of truth, which is this
+
+0:14:59.680,0:15:05.200
+weather station. And this weather station can 
+be manipulated because no matter who owns it,
+
+0:15:05.200,0:15:12.400
+if it's the insurance company, if it's the farmer, 
+it cannot be completely trusted also because it's
+
+0:15:12.400,0:15:20.160
+a single sensor there, a single and it can be 
+tempor uh so it's vulnerable and that's why
+
+0:15:20.160,0:15:27.600
+we reach to the third scenario is the one that 
+we advocate for which a blockchain based smart
+
+0:15:27.600,0:15:36.240
+insurance. In this scenario, we have farmers that 
+agree with the terms of the insurance but they
+
+0:15:36.240,0:15:41.920
+don't do on paper but on a smart contract and this 
+smart contract is deployed on the chain. So they
+
+0:15:41.920,0:15:48.960
+say okay if it is doesn't rain for this amount of 
+periods we are going to automatically issue some
+
+0:15:48.960,0:15:59.680
+funds that are going to be paid for the farmers. 
+Then uh this is smart will uh periodically read uh
+
+0:15:59.680,0:16:07.680
+a set of sensors uh this uh multiple independent 
+IoT sensors and based on the created value of
+
+0:16:07.680,0:16:15.360
+these sensors uh is going to check if the terms 
+of the contract are valid or not. if they are
+
+0:16:15.360,0:16:21.040
+uh if uh they are valid. Okay, if there if 
+something happens that triggers the payment,
+
+0:16:21.040,0:16:26.720
+it triggers the payment automatically. So, 
+it's pretty fast because once the terms
+
+0:16:26.720,0:16:34.000
+of the insurance are met, the payment is done 
+automatically. Nobody can do anything about it and
+
+0:16:34.000,0:16:40.160
+can be all steps of the process can be completed 
+audited. So this is a a very strong scenario that
+
+0:16:40.160,0:16:49.360
+you push forward when we are talking about uh IoT 
+applications with uh blockchain. Okay. However, I
+
+0:16:49.360,0:16:55.440
+don't know if you notice when I talking about this 
+last scenario that when I talk about Oracle, talk
+
+0:16:55.440,0:17:01.040
+about a network of oracle, not a single oracle. 
+Why? Because when you are using the blockchain,
+
+0:17:01.040,0:17:07.760
+you're using this mass decentralized system. This 
+all about like don't have a a single point and
+
+0:17:07.760,0:17:14.640
+now you're relying everything that you have on a 
+single node, a single oracle. This makes doesn't
+
+0:17:14.640,0:17:22.080
+make a lot of sense. This is known in literature 
+actually as an oracle problem. So how can you
+
+0:17:22.080,0:17:28.800
+uh trust on the data provided by a single or 
+that's why usually when you are dealing with
+
+0:17:28.800,0:17:35.760
+the solutions we propose not a single oracle but 
+a network of decentralized oracles and the same
+
+0:17:35.760,0:17:42.320
+analogy can be made for a data source. Well if 
+oracle can be compromised a data source can also
+
+0:17:42.320,0:17:50.720
+be compromised. So we are also uh working with 
+a decentralized uh data source. So not one but
+
+0:17:50.720,0:17:57.440
+multiple data sources to be aggregated and try 
+to extract knowledge, extract information. Okay.
+
+0:17:57.440,0:18:06.160
+So in literature uh actually uh data orles and 
+data oracles for IoT are kind of a hot topic and
+
+0:18:06.160,0:18:12.800
+the current state of fire we see many solutions 
+that still work with uh centralized oracles uh
+
+0:18:12.800,0:18:18.320
+or oracles that depend on specific hardware 
+conditions like first execution environments
+
+0:18:18.320,0:18:24.080
+and many of those especially for IoT I don't know 
+why they say okay we can write sensors and that's
+
+0:18:24.080,0:18:28.720
+it like everything is homogeneous everything 
+is perfect and the rewards not exactly like
+
+0:18:28.720,0:18:34.960
+that. Our proposal and because some papers 
+uh on it is to have a fully decentralized
+
+0:18:34.960,0:18:41.600
+uh system that is completely permissions. Everyone 
+everyone can connect no matter the hardware that
+
+0:18:41.600,0:18:50.000
+it has and we also uh have interoperability 
+support built in in the system itself.
+
+0:18:50.000,0:18:56.640
+We call our solution that's built on this two 
+big technology blocks web things and blockchain
+
+0:18:56.640,0:19:03.600
+zon zone is an acronym is a fun acronym that stand 
+for zero trust oral networks for IoT applications
+
+0:19:03.600,0:19:12.400
+which is this decentralized oracle system for 
+retrieving uh IoT data. Well, our application has
+
+0:19:12.400,0:19:19.120
+uh very interesting features. So is a public 
+and permission assistant in the sense that you
+
+0:19:19.120,0:19:28.640
+or anyone can join and participate in the system 
+by adding like a data source by being an oracle
+
+0:19:28.640,0:19:38.480
+and contribute to the network of Oracle or being 
+an indexer. That's it. That's aggregating and uh
+
+0:19:38.480,0:19:46.960
+as being a repository, a directory for things. 
+Okay, we have uh advanced request systems which
+
+0:19:46.960,0:19:57.040
+means that users can uh specify what they want and 
+where they went. So semantic just uh data the node
+
+0:19:57.040,0:20:04.320
+selection the system every time the user makes the 
+request nodes are selected randomly based also on
+
+0:20:04.320,0:20:12.800
+the weighted reputation. So it's random and fair 
+way of selecting nodes and we decoupled specific
+
+0:20:12.800,0:20:20.720
+data sources from the ones that are asking for 
+it the big thing that we first is the uh high
+
+0:20:20.720,0:20:26.640
+level picture of the zonia architecture and those 
+are the main actors. Uh it starts with uh we have
+
+0:20:26.640,0:20:31.520
+like the consumers. The consumers are the ones 
+that initiate the data request and they pay for
+
+0:20:31.520,0:20:40.400
+the data. I want the data CO2 data is in New York 
+City something like that. Then we have like the
+
+0:20:40.400,0:20:48.320
+producers which are the sensors that give the data 
+and they are paid for it. Uh and those sensors
+
+0:20:48.320,0:20:56.480
+are read by leveraging the web uh web of things 
+description uh interface. Then we have indexers
+
+0:20:56.480,0:21:07.760
+in indexers in our systems are thing uh are TDDs 
+for for me in the web of things literature is very
+
+0:21:07.760,0:21:17.040
+hard work thing descriptions directories right so 
+they keep track of the producers in the systems
+
+0:21:17.040,0:21:24.240
+and they implement like a discover interface for 
+the other nodes in the systems to okay identify
+
+0:21:24.240,0:21:32.480
+what are the specific producers for a given 
+query. So if I went then we have the oracles
+
+0:21:32.480,0:21:38.320
+and the oracles are the core of the season 
+like they process the request they uh talk to
+
+0:21:38.320,0:21:45.040
+the English to get the specific device they read 
+the data from the devices and they validate the
+
+0:21:45.040,0:21:53.200
+data and return it uh for the specific consumer 
+and every step of the process is logged on the
+
+0:21:53.200,0:22:00.080
+blockchain. So it's fully auditable. Further all 
+of the system specific oracles and indexer have
+
+0:22:00.080,0:22:07.680
+a reputation based on how good they are doing 
+and this reputation impacts uh in if they are
+
+0:22:07.680,0:22:22.000
+select for subsequent queries. So now we know the 
+actors of the system. Let's see how does it works.
+
+0:22:22.000,0:22:29.680
+Here we have like a stepbystep example of the 
+request resolution flow. So the resolution of a
+
+0:22:29.680,0:22:36.720
+single request in this case the Zen is which is 
+the sale two level the New York system city. So
+
+0:22:36.720,0:22:43.920
+a consumer makes this query in the blockchain. 
+This query uh the first step is triggers like a
+
+0:22:43.920,0:22:52.640
+request. Why? Well, the idea is that I mentioned 
+that smart contracts are deterministic. So they
+
+0:22:52.640,0:22:58.720
+cannot generate from nowhere like random data. So 
+there's like a process for oracles for oracle to
+
+0:22:58.720,0:23:07.120
+generate a random number on seed and this number 
+is utilized as a seed for all subsequent process
+
+0:23:07.120,0:23:14.400
+in this uh request resolution flow. Then we have 
+like our oracle selection for that particular
+
+0:23:14.400,0:23:23.600
+query. the CO2 level in New York City a group a 
+subset of oracles will become a committee that
+
+0:23:23.600,0:23:28.320
+will resolve this query. So not all all oracles 
+participate in all queries because it's not very
+
+0:23:28.320,0:23:32.880
+scalable. So they are going to be selected a 
+subset of then is going to be select participate
+
+0:23:32.880,0:23:40.880
+in this query. This selection is deterministic 
+because it's B on the request C that was written
+
+0:23:40.880,0:23:52.320
+before and nodes and it's random. A the weight of 
+each or to be selected is based on its reputation.
+
+0:23:52.320,0:23:57.680
+So if you're being good, you have a you you have 
+high chance to participate in quaries. If you're
+
+0:23:57.680,0:24:04.240
+being bad, for not doing so, you would you don't 
+have so so much chance to participate in queries.
+
+0:24:04.240,0:24:11.440
+Uh and because and because the request seed was 
+already written on the chain, this process doesn't
+
+0:24:11.440,0:24:17.200
+require the communication between nodes because 
+then each node can compute by itself if he's part
+
+0:24:17.200,0:24:23.920
+of this query and which are the other nodes that 
+are part of this query as well. At the same time
+
+0:24:23.920,0:24:33.280
+when the request submitted a slide in the window 
+starts uh to say okay indexers do you have data
+
+0:24:33.280,0:24:40.400
+do you have device that reply for that query? If 
+you do let me know. So indexers need to register
+
+0:24:40.400,0:24:47.200
+from the blockchain to say okay I have a device 
+that reply uh one or more device to reply for
+
+0:24:47.200,0:24:53.760
+the CO2 lab in the New York City in this case. 
+Then analogous process of the oracle selection
+
+0:24:53.760,0:24:59.120
+is done with the indexer the indexer selection. 
+So we have a weighted random process based on the
+
+0:24:59.120,0:25:07.520
+indexer reputation or then utilize the web of 
+thing discover to read the thing descriptions
+
+0:25:07.520,0:25:15.600
+uh of each select indexer and then they read 
+the uh specific device through the web thinking
+
+0:25:15.600,0:25:22.080
+description. Okay. So they go there and consume 
+the things of the device and read their data.
+
+0:25:22.080,0:25:29.200
+Uh in this case we have here uh three oracles 
+and those three oracles are reading data of
+
+0:25:29.200,0:25:35.360
+uh two producers. Okay. So each oracle reads the 
+data of each producer. So in this case we have six
+
+0:25:35.360,0:25:45.680
+data points. uh those data those data points are 
+then writing in the chain and uh uh truth discover
+
+0:25:45.680,0:25:52.800
+algorith is executed to understand okay based 
+on the metric of usually it's usually a metric
+
+0:25:52.800,0:25:59.440
+of distance so based on the six points which 
+is the inferred truth okay so based on that we
+
+0:25:59.440,0:26:07.200
+extract a single value that is the truth and then 
+we write uh this truth on the chain which is then
+
+0:26:07.200,0:26:19.040
+uh returned for the consumer. Okay. So once that's 
+done uh there is a reputation update and each node
+
+0:26:19.040,0:26:26.720
+that participate in the query. So mainly oracles 
+and indexers get amount of tokens uh based on its
+
+0:26:26.720,0:26:38.320
+participation which is a monitor uh reward. So the 
+reputation update that that uh happens it's it's
+
+0:26:38.320,0:26:46.640
+done every time that a us request is made and each 
+oracle an index in the system is based on how they
+
+0:26:46.640,0:26:54.480
+are fast or slow consistent and accuracy on the 
+data provided and if you have high reputation you
+
+0:26:54.480,0:27:01.200
+have a prioritization in selection. Okay. And if 
+your reputation drops below a certain threshold,
+
+0:27:01.200,0:27:08.640
+you're banned from the system. So you need to do 
+a good job. Okay, I already mentioned a little bit
+
+0:27:08.640,0:27:15.360
+what are the how we utilize web of things in this 
+project. How we utilize web of things in zona.
+
+0:27:15.360,0:27:20.560
+Let's dive a little bit deeper into it because I 
+think it's the interesting of this group. Right.
+
+0:27:20.560,0:27:29.120
+So there the main aspect of zone that we explore 
+with the web of things is actually the indexer.
+
+0:27:29.120,0:27:38.160
+So it's the TDD and our TDD does two different uh 
+most different things that uh usually is not done
+
+0:27:38.160,0:27:46.480
+inside the web of things uh the receipt which of 
+course is related to zonia uh operations. First is
+
+0:27:46.480,0:27:51.440
+the blockchain registration. So the indexer needs 
+to register themselves to the blockchain. Second,
+
+0:27:51.440,0:27:57.040
+they need to have some modifications to 
+participate in that query resolution flow
+
+0:27:57.040,0:28:03.520
+that I just mentioned. Okay. So the features 
+that basically utilize is like the index they
+
+0:28:03.520,0:28:13.040
+still index web things the index. uh we do uh base 
+a lot on the Zion uh JSON path discover Zion's uh
+
+0:28:13.040,0:28:21.120
+open source TDD and also implement like some very 
+simple spatial carry and we integrate a blockchain
+
+0:28:21.120,0:28:29.040
+wallet address in the indexer for so when the 
+indexer register in the system so the thing
+
+0:28:29.040,0:28:37.600
+directory the indexer needs to take amount of zona 
+tokens which is manual in the for the eligible for
+
+0:28:37.600,0:28:44.880
+registration. Why is that? This is like a standard 
+blockchain practice because um you just take
+
+0:28:44.880,0:28:51.040
+something because if you misbehave and get burned, 
+you lost something. Okay, it's not for free. U so
+
+0:28:51.040,0:28:58.560
+this is uh very standard practice also when the 
+indexer register it uh generate it registers a
+
+0:28:58.560,0:29:06.560
+deal that it points for uh its wallet address. So 
+the blockchain wallet address to get paid and an
+
+0:29:06.560,0:29:18.640
+API end point for uh the orers to uh make queries. 
+Next like the uh how the indexer participate in
+
+0:29:18.640,0:29:26.160
+the query resolution flow. So first in the request 
+submission is a user saying okay I want this data
+
+0:29:26.160,0:29:34.480
+point in specific geographic area in when all 
+uh index register in the system receive an event
+
+0:29:34.480,0:29:44.240
+for the request they then do like a look up uh if 
+they have specifically device specific TDs that uh
+
+0:29:44.240,0:29:52.160
+match this uh that request and if they have they 
+cache those TDs in memory sorry with a mapping for
+
+0:29:52.160,0:29:59.600
+the request ID that generate the event. Okay, so 
+they have like they're in cash this amount of TDS
+
+0:29:59.600,0:30:07.360
+that reply for that query. If they have a sensor 
+that reply to the query they also need to apply
+
+0:30:07.360,0:30:13.040
+to the request for doing that they need to call a 
+smart contract function which makes a transaction
+
+0:30:13.040,0:30:19.840
+in the blockchain. And if they are selected for 
+the query because there's like this random reputa
+
+0:30:19.840,0:30:27.600
+this weighted random reputation selection each 
+oracle will in the query will hold the API of
+
+0:30:27.600,0:30:36.640
+the indexer saying okay I want the query 81 okay 
+and then the indexer needs to reply with the given
+
+0:30:36.640,0:30:43.440
+uh thing descriptions for those uh for that 
+specific query it's important to reply always with
+
+0:30:43.440,0:30:52.640
+the same set of indexer. Uh so this is paramount. 
+This is basically finish the cycle of the indexer
+
+0:30:52.640,0:30:58.560
+on the per resolution flow. Uh of course this 
+is a passive thing. The last one is that after
+
+0:30:58.560,0:31:06.960
+the oracles read the TDS consume them read their 
+values extract the truth and write the true uh
+
+0:31:06.960,0:31:22.080
+the infer a true value on the blockchain. the the 
+indexer is paid with some amount of tokens. Okay,
+
+0:31:22.080,0:31:29.440
+we uh let's go. So this is basically how zonia 
+works and how the web of things is utilizing
+
+0:31:29.440,0:31:36.880
+zonia. Uh and we did so just to illustrate a 
+specific scenario, we did some uh experiments spec
+
+0:31:36.880,0:31:45.280
+specific with parametric insurance. uh we have a 
+project which we monitor uh some crops here nearby
+
+0:31:45.280,0:31:51.360
+in Maloya. We have eight weather stations deployed 
+and we use the trace of this weather station to
+
+0:31:51.360,0:31:58.400
+do some experiments some simulations of parametric 
+insurance which is our scenario. Well, we actually
+
+0:31:58.400,0:32:05.680
+imagine okay what happened if we have like this 
+those we have those 12 crops. What happen if a
+
+0:32:05.680,0:32:12.880
+subset of the farmers they collude and say okay 
+no let's get the money of the insurance so let's
+
+0:32:12.880,0:32:22.640
+uh fake temper the data in this case let they fake 
+like the temperature has been 80° so it's huge and
+
+0:32:22.640,0:32:28.720
+they uh the insurance that they made so the smart 
+contract deploying the chain triggers the payment
+
+0:32:28.720,0:32:39.120
+if the temperature is above uh 50° for five 
+consecutive queries Uh we utilize like a week of
+
+0:32:39.120,0:32:48.400
+um traces of the weather stations and the 
+collusion uh random occurs after u a random period
+
+0:32:48.400,0:32:56.800
+of time and lasted for an hour and we compared uh 
+those with zonia which is our solution with two
+
+0:32:56.800,0:33:02.320
+baselines. The first is just reading the sensor is 
+doing average and the second is doing the median.
+
+0:33:02.320,0:33:08.880
+It seems like quite naive, but basically if 
+you don't have like a specific system for
+
+0:33:08.880,0:33:17.040
+um blockchain and IoT, basically what you end up 
+doing is going for one of those two solutions. One
+
+0:33:17.040,0:33:22.000
+thing that's important to add is you want to 
+simulate the idea of having the coupling data
+
+0:33:22.000,0:33:27.920
+source with clients. So in this experiments, we 
+also add the concept of virtual data sources. What
+
+0:33:27.920,0:33:34.320
+are those? like they represent honest third 
+party data providers that are nearby. Why?
+
+0:33:34.320,0:33:39.840
+Because you can imagine like a scenario there's a 
+farmer nearby that has like a weather station but
+
+0:33:39.840,0:33:46.000
+uh and wants to monetize his data somehow. So 
+we just uh part say okay I want to participate
+
+0:33:46.000,0:33:56.160
+in in season and it can be occasionally being 
+called for reporting data value. We evaluated
+
+0:33:56.160,0:34:04.800
+this collusion scenario, this attack scenario with 
+0, two, four and six of these honest data. Okay,
+
+0:34:04.800,0:34:12.480
+those of the results, each experiment outputed 
+a binary number if the attack was success or not
+
+0:34:12.480,0:34:20.400
+and we tested like increasing number of attackers. 
+here is like uh with four no attackers is actually
+
+0:34:20.400,0:34:26.640
+uh very important metrics because we have like 
+eight weather stations. So this is a very high
+
+0:34:26.640,0:34:35.280
+number of attackers. So we see the average 
+median or almost in more than half the times
+
+0:34:35.280,0:34:43.680
+issue like a susceptible for attack while zona 
+is much much less uh zon even with zero other
+
+0:34:43.680,0:34:49.200
+sources and it's interesting if further 
+increase the number of our trackers if we
+
+0:34:49.200,0:34:56.720
+utilize if we have like opportunistically 
+honest data sources nearby we can further
+
+0:34:56.720,0:35:04.000
+uh reduce the success of this attacks of this 
+collusion. So there also are really nice results
+
+0:35:04.000,0:35:14.640
+for for for us and this is just to showcase a 
+little bit u uh an experiment and the reputation
+
+0:35:14.640,0:35:21.440
+dynamics. So in the right hand side we have the 
+temperature of the weather station while in the
+
+0:35:21.440,0:35:27.520
+left hand side we have the reputation on the top 
+arm scenario in the bottom the attack scenario. We
+
+0:35:27.520,0:35:32.880
+can see that even a normal scenario because IoT is 
+susceptible to many different things. We have some
+
+0:35:32.880,0:35:38.160
+drops in reputation because I'm saying first like 
+some other stations failed somehow because they
+
+0:35:38.160,0:35:46.240
+could not communicate and they issue like they 
+have uh loss in reputation and they're momentary
+
+0:35:46.240,0:35:54.880
+not prioritized by the season. So they are very 
+less. However, we see here that when the data
+
+0:35:54.880,0:36:01.920
+source collude and report like a fake temperature 
+is almost immediately that the reputation drops a
+
+0:36:01.920,0:36:08.640
+lot and they are deprioritized from the system and 
+basically not participate in the query solution.
+
+0:36:08.640,0:36:16.080
+It can be even banned. So just to finalize we 
+also test the zoning performance itself just
+
+0:36:16.080,0:36:23.600
+to see if it scales. I'm not going to uh give many 
+details but if you're interested uh you can ask me
+
+0:36:23.600,0:36:29.440
+uh we vary the number of oracles involved in the 
+request vary the number of index involved in the
+
+0:36:29.440,0:36:35.600
+request and the number of requests per second 
+what deployed actually the system on blockchain
+
+0:36:35.600,0:36:42.160
+to check what's uh what is the performance 
+and actually scales uh it scales well so even
+
+0:36:42.160,0:36:52.640
+uh we just said when you have 106 uh requests per 
+second which is a lot for a system uh like so and
+
+0:36:52.640,0:37:00.080
+uh the second evaluation is always a question that 
+being asked when I talk about IoT and blockchain
+
+0:37:00.080,0:37:06.480
+say okay but how the how much it costs right 
+because blockchain is not free you need to pay
+
+0:37:06.480,0:37:16.480
+so those are like the transaction costs for z of a 
+single query in zonia for a very varying number of
+
+0:37:16.480,0:37:24.160
+uh ko it's oracles in a committee and K is 
+indexers in the committee right so uh we
+
+0:37:24.160,0:37:31.280
+have three blockchain like polygon avalanch and 
+binance there are uh chains that are blockchains
+
+0:37:31.280,0:37:39.040
+that are highly used and we see of course it cost 
+a little bit of money but especially for polygon
+
+0:37:39.040,0:37:45.920
+um if we use like five oracles and five 
+indexers is three cents and in the worst case
+
+0:37:45.920,0:37:52.880
+It's like 8 cents. So, okay, cost money, 
+but if you want like trust IoT applications,
+
+0:37:52.880,0:38:00.160
+uh we think that's a reasonable value. 
+Lastly, for share some future works,
+
+0:38:00.160,0:38:07.600
+uh I talk a little bit about parametric insurance 
+scenario, but of course, this pro concept and real
+
+0:38:07.600,0:38:11.920
+deploy is way way more challenged. There's many 
+open challenge when you're talking about this
+
+0:38:11.920,0:38:19.840
+specific use case and um I actually get a very 
+nice feedback from the farm itself. They seem
+
+0:38:19.840,0:38:26.240
+interesting but they a little bit afraid about the 
+IoT devices but there's many research questions
+
+0:38:26.240,0:38:32.640
+like if is the crop and climate depending on the 
+parametric parameters that we choose we do we need
+
+0:38:32.640,0:38:38.320
+to have a minimum number of device and owners of 
+those device and there's also like domain specific
+
+0:38:38.320,0:38:47.360
+questions about uh the soil articulture and so on 
+uh we are currently expanding this area preparing
+
+0:38:47.360,0:38:56.160
+to submit European project uh about it and you're 
+always open to collaborations. Okay. Uh thank you
+
+0:38:56.160,0:39:06.480
+for hearing me. I hope I was clear enough and I 
+will be very glad to answer questions if they are.

@@ -1,0 +1,1143 @@
+0:00:07.320,0:00:14.560
+so with us here is Robert wickler from do 
+Telecom and is one of the drivers of the
+
+0:00:14.560,0:00:21.320
+eclipse Elmos project and Robert is an Enterprise 
+and solution architect at do Telecom and he is
+
+0:00:21.320,0:00:27.480
+focused on distributed systems cloud computing 
+intern intern of things and conversational AI
+
+0:00:27.480,0:00:32.960
+well he's a solution architect at day and G at 
+night and since it's the day today right now we
+
+0:00:32.960,0:00:42.400
+will see that side um so with this said uh yeah 
+robat you can now take the floor right so today
+
+0:00:42.400,0:00:52.560
+I want to show you what we're doing at DT what 
+we open source is Eclipse Elmos um I want to talk
+
+0:00:52.560,0:00:58.960
+about Eclipse Elmo in detail but uh I just want to 
+highlight what we're doing also with weapo things
+
+0:00:58.960,0:01:06.000
+and web thing protocol call in Eclipse Elmos 
+itself so AA already told something about me I'm
+
+0:01:06.000,0:01:13.000
+also a committer of several open source Solutions 
+so Eclipse Elmos and Eclipse thing web now things
+
+0:01:13.000,0:01:18.560
+uh my project just joined several days ago and 
+also resilience for J is one of my open source
+
+0:01:18.560,0:01:25.280
+tools but today I want to talk what we're doing at 
+DT and at DT I'm part of an in international team
+
+0:01:25.280,0:01:31.960
+which is building the digital assistant uh at the 
+te which is uh um running in multiple countries
+
+0:01:31.960,0:01:38.320
+so not only Germany but also Austria and Greece 
+and soon other countries it's a multi CH Channel
+
+0:01:38.320,0:01:44.560
+solution so it's integrated into the web uh into 
+the app and also hotline and soon we also have
+
+0:01:44.560,0:01:52.480
+a direct voice integration into the app so there 
+are also different kind of challenges um to create
+
+0:01:52.480,0:01:59.840
+uh a digital assistant uh since it's also need 
+to be multilingual and um this digital assist
+
+0:02:00.920,0:02:08.280
+is now created based on large language model 
+based agents so when we talk about an agent
+
+0:02:08.280,0:02:16.920
+we are talking about a um Software System it's is 
+currently using llms for doing um some sort of of
+
+0:02:16.920,0:02:22.200
+course natural language understanding and natural 
+language generation but also we're using it for
+
+0:02:22.200,0:02:29.840
+reasoning and planning so our old digital system 
+system had huge flows Jason and yaml flows which
+
+0:02:30.400,0:02:36.880
+were driving the digital assistant and it was just 
+it was just uh too much effort to maintain them so
+
+0:02:36.880,0:02:44.280
+now we're trying to build a new new gentic system 
+where AI or the llm is basically driving the
+
+0:02:44.280,0:02:53.840
+conversation and you can give llms certain tools 
+and tools can be um functions they can call like
+
+0:02:53.840,0:03:00.640
+uh third party services for example and the H the 
+LM itself is doing some reasoning Pro process and
+
+0:03:00.640,0:03:08.200
+um yeah basically tell telling us what need to 
+be called and then we are performing uh actions
+
+0:03:08.200,0:03:15.640
+calling tools and returning data back to the llm 
+llm also has access to some memory um short-term
+
+0:03:15.640,0:03:21.400
+memory so that means it can store some information 
+about the current conversation but it also has
+
+0:03:21.400,0:03:29.520
+access to long term but as said I won't dig too 
+deep into the details how we develop agents I
+
+0:03:29.520,0:03:36.480
+want to talk about the process uh our learnings 
+and where we use uh for example web of things so
+
+0:03:36.480,0:03:44.320
+over time um when we created the the the digital 
+assistant we needed to add more and more apis to
+
+0:03:44.320,0:03:50.240
+it to retrieve billing information to retrieve 
+information about the contract so maybe just fq
+
+0:03:50.240,0:03:57.600
+data how do I cancel my contract and the more 
+tools we added the worse the reasoning process
+
+0:03:57.600,0:04:05.240
+was uh when when we used the LS so we needed to 
+split agents into multiple agents which are more
+
+0:04:05.240,0:04:15.040
+specialized into specific topics um because when 
+you add like seven to 15 tools to an agent the
+
+0:04:15.040,0:04:23.800
+performance uh was decreasing so we spiled now 
+our architecture in some sort of multi-agent uh
+
+0:04:23.800,0:04:30.720
+architecture more in a hierar approach like a tree 
+structure where we have a super supervisor agent
+
+0:04:30.720,0:04:37.400
+which is retrieving a query then doing some sort 
+of intent classification I will show you later
+
+0:04:37.400,0:04:44.280
+how it's working in detail and then deciding uh 
+which of the agents should handle the call or the
+
+0:04:44.280,0:04:51.840
+query or maybe even multiple agents we don't yet 
+allow uh communication between agents because it's
+
+0:04:51.840,0:04:58.520
+more than difficult to prevent Loops so we are 
+currently testing the hierle solution but which
+
+0:04:58.520,0:05:06.200
+doesn't mean we might test different strategies 
+in the future and every agent uh itself has of
+
+0:05:06.200,0:05:13.600
+course then access to tools which are mostly apis 
+to retrieve information personal information from
+
+0:05:13.600,0:05:21.600
+the customer and of course if if you think it 
+now further already at DT other departments are
+
+0:05:21.600,0:05:28.320
+creating agents not apis anymore which we need 
+to integrate they also experimenting with agent
+
+0:05:28.320,0:05:35.920
+Technologies um but also other organizations 
+are creating agents so soon uh you will have an
+
+0:05:35.920,0:05:41.160
+internet of Agents basically where you integrate 
+agents into a multi-agent system and not only
+
+0:05:41.160,0:05:50.480
+tools anymore so the API is natural language 
+uh and not API cuse but uh if you go into this
+
+0:05:50.480,0:05:57.680
+direction many topics will arrive like how do you 
+discover hent how are hent described in terms of
+
+0:05:57.680,0:06:04.880
+metadata who's the wend of an agent what is the 
+idea how can I access it connectivity protocols
+
+0:06:04.880,0:06:11.200
+so what kind of Protocols are used how are the 
+agents secured interoperability like an Internet
+
+0:06:11.200,0:06:18.520
+of Things is of course also important what are 
+the data schemes how can you group agents now if
+
+0:06:18.520,0:06:27.400
+you have such a harle structure for example how 
+can you group agents uh for different tenants
+
+0:06:27.400,0:06:33.880
+for example in Germany uh solution Germany 
+would be a tenant Austria is a tenant and we
+
+0:06:33.880,0:06:40.680
+might want to have different kind of uh agent 
+groups serving the needs of the customers then
+
+0:06:40.680,0:06:48.320
+of course versioning and Canary roll out so there 
+are a lot of problems which need to be solved and
+
+0:06:48.320,0:06:56.920
+um with Eclipse Elmos and Eclipse Elmos protocol 
+we're trying to tackle uh all of these problems
+
+0:06:56.920,0:07:04.320
+at DT and we're not trying to revent the wheel 
+we making use of Technologies like web of things
+
+0:07:04.320,0:07:11.920
+or the web thing protocol which we're trying to 
+implement and the eclipse Elmos protocol now is
+
+0:07:11.920,0:07:20.800
+um now looking into the AI domain and it's now as 
+I said applying web of things technology to define
+
+0:07:20.800,0:07:28.960
+a discovery specification agent description format 
+um we also making use of a websocket subprotocol I
+
+0:07:28.960,0:07:35.880
+said the web think protocol is something which 
+is inspiring for us the to we trying to define
+
+0:07:35.880,0:07:42.040
+a tool description format so tools which are used 
+by agents A semantic data model for conversational
+
+0:07:42.040,0:07:48.920
+agents but maybe future also for other kind of 
+Agents so that they're interruptable protocol
+
+0:07:48.920,0:07:53.160
+negotiation is an important topic I will 
+show you this also in a second why this is
+
+0:07:53.160,0:07:59.440
+the case and of course authentication 
+authorization and endtoend decryption
+
+0:08:00.560,0:08:06.680
+um so there was last time there was also 
+quite interesting talk about the agent Network
+
+0:08:06.680,0:08:13.720
+protocol and they're using the distributed 
+identity protocol um did which is also quite
+
+0:08:13.720,0:08:21.440
+interesting yeah so what we're doing now is 
+that uh whenever we Implement an agent or a
+
+0:08:21.440,0:08:26.880
+tool uh we can describe the tool with a web 
+of things thing description so we have agent
+
+0:08:26.880,0:08:32.400
+descriptions we have tool descriptions with slight 
+differences I will also show in a second how they
+
+0:08:32.400,0:08:38.640
+look in detail and from a consumer perspective 
+so for example the sub visor agent could talk
+
+0:08:38.640,0:08:44.280
+to agents in different protocols which are 
+spe specialized for the needs we also have
+
+0:08:44.280,0:08:51.920
+agents which perform long running tasks like 
+doing diagnostic for fix line uh connectivity
+
+0:08:51.920,0:08:59.760
+and they long running tasks then we need more um 
+messaging protocols than request reply protocol
+
+0:08:59.760,0:09:07.000
+like HTTP so we can now use web sockets for 
+some agents HTTP for others and maybe messaging
+
+0:09:07.000,0:09:14.920
+protocols soon for other type of uh communication 
+patterns and the consumer can now discover agents
+
+0:09:14.920,0:09:22.280
+which uh are registered in directories so tools 
+and agents can register themselves or the just the
+
+0:09:22.280,0:09:29.080
+idea or also the thing description and consumers 
+can query the directory to retrieve information
+
+0:09:29.080,0:09:37.080
+about the agents and how does it look like in 
+Eclipse AOS right now so Eclipse AOS has it roots
+
+0:09:37.080,0:09:46.920
+in the jvm cotlon ecosystem so not python when we 
+started the python um um obour Solutions were not
+
+0:09:46.920,0:09:54.000
+yet Enterprise ready so we started something by 
+our own but uh soon I hope we also provide python
+
+0:09:54.000,0:10:02.760
+s case so that we can also make use of python AI 
+libraries like link chain but uh in our ecosystem
+
+0:10:02.760,0:10:08.920
+we are currently building so I I need to say 
+Eclipse OS the first release is still ongoing so
+
+0:10:08.920,0:10:18.320
+it takes some time to migrate our propior software 
+from DT to Eclipse open source so first release is
+
+0:10:18.320,0:10:25.360
+still ongoing but we're working on the Elmos 
+cotland SDK so consumers and also servers who
+
+0:10:25.360,0:10:34.040
+are implementing agents can use this SDK which 
+is based on Eclipse thing web I can also share
+
+0:10:34.040,0:10:42.320
+the link but also EGA can share it so um you can 
+now plug in it's like a plugin play System you can
+
+0:10:42.320,0:10:50.960
+plug in protocol bindings into consumers and also 
+into um agent providers uh so that the servers
+
+0:10:50.960,0:10:57.160
+can use the protocols to provide the agent on a 
+certain protocol maybe even multiple in parallel
+
+0:10:57.160,0:11:05.040
+and consumers can use multiple and parel I will 
+also show on a second how this looks in detail
+
+0:11:05.040,0:11:11.440
+and things and agents have identifiers for example 
+you could use a decentralized identifier and even
+
+0:11:11.440,0:11:20.960
+use this to then resolve dynamically where the did 
+documents for authentication and verification of
+
+0:11:20.960,0:11:28.720
+the agent are recited and you can also use it to 
+discover the web of things description for agent
+
+0:11:28.720,0:11:38.480
+and tools dynamically even without a registry if 
+you have access to the ID and the elos cotland SDK
+
+0:11:38.480,0:11:45.320
+how does it look like in detail so if you if your 
+background is in jvm I'll be using spring boot as
+
+0:11:45.320,0:11:52.240
+the base framework then we have a developed an 
+in-house framework called Arc so Elmos Arc is
+
+0:11:52.240,0:12:00.440
+a cotland framework and it's providing a domain 
+specific language to De to develop agents um we
+
+0:12:00.440,0:12:06.000
+have developed the framework called cotland WT 
+it's now part of the eclipse thing Weare project
+
+0:12:06.000,0:12:13.400
+to serve as a client and server framework which 
+is extendable by new protocol bindings to enhance
+
+0:12:13.400,0:12:21.160
+other protocols or provide um protocols in the 
+future for amqp or mqtt and then of course we're
+
+0:12:21.160,0:12:29.720
+using open Telemetry to um send logs metrics and 
+traces in into some observability solutions and
+
+0:12:29.720,0:12:35.560
+how does the thing description look like from our 
+point of view it contains some ancient metadata
+
+0:12:35.560,0:12:41.000
+so like the identity some version information 
+security information but it's also describing
+
+0:12:41.000,0:12:48.360
+the API of an agent in terms of properties the 
+state of an agent or tool it can have actions
+
+0:12:48.360,0:12:55.240
+how do I communicate with an agent an agent can 
+also publish events which then allows also event
+
+0:12:55.240,0:13:04.080
+driven architectures and uh this is is one of the 
+extensions of Elmos which we need at DT since the
+
+0:13:04.080,0:13:10.200
+API of Agents like an action might consume 
+natural uh language as an input and produce
+
+0:13:10.200,0:13:18.360
+natural language as an output the API itself does 
+not describe the capabilities of an agent anymore
+
+0:13:18.360,0:13:27.360
+there's no view builds action or function there's 
+no uh view contract action anymore but uh from an
+
+0:13:27.360,0:13:31.800
+inte Creator point of view the the supervisor 
+agent for example definitely needs to know the
+
+0:13:31.800,0:13:38.600
+capabilities of Agents so this is how a thingle 
+description look like you have some context
+
+0:13:38.600,0:13:46.200
+information we have some ELO specific extensions 
+for example new types to differentiate between
+
+0:13:46.200,0:13:52.520
+agents and tools we might introduce different kind 
+of categories if it's a conversation agent or if
+
+0:13:52.520,0:13:59.200
+it's an agent which is maybe cons generating 
+images um so over time similar to Smart Home
+
+0:13:59.200,0:14:04.200
+iot domain there might be different kind of 
+categories or types for different kind of agents
+
+0:14:04.200,0:14:14.000
+and tools um the the agents can also have links 
+to additional information like manuals but we
+
+0:14:14.000,0:14:23.320
+are use we use links to uh link to the capability 
+files which you tell you more about the internals
+
+0:14:23.320,0:14:31.600
+of AG I will also show how does it look like and 
+then of course you can also add digital metadata
+
+0:14:31.600,0:14:38.640
+who's the wendor does the agent comply to gdpr 
+compliance requirements and so on so this is just
+
+0:14:38.640,0:14:48.160
+an example um from security perspective um web of 
+things provides different security schemes like
+
+0:14:48.160,0:14:58.040
+basic e Bureau Worth to so it's also extendable 
+at um in order to talk to agents you need two
+
+0:14:58.040,0:15:03.480
+kind of tokens one is a machine to machine token 
+you can nicely describe this and web of things and
+
+0:15:03.480,0:15:13.240
+you also need the user token uh so it could also 
+show how you could uh or a customer can retrieve
+
+0:15:13.240,0:15:20.520
+uh its access token to give us the permission to 
+retrieve personal information about himself and
+
+0:15:20.520,0:15:30.360
+then um this is an example of of States this is 
+um I said also just a simple example describe the
+
+0:15:30.360,0:15:37.880
+capability so an agent could have um a property 
+which tells how the agent is configured or let's
+
+0:15:37.880,0:15:44.960
+say the llm is configured and which llm is used 
+how's the temperature um configured can be read
+
+0:15:44.960,0:15:52.480
+only or even writable properties and this form 
+section is the most interesting part which makes
+
+0:15:52.480,0:15:59.200
+web of things The Meta protocol protocol agnostic 
+from a client perspective the client is looking
+
+0:15:59.200,0:16:07.240
+into the form and sees okay um this tool or agent 
+is accessible via one or multiple protocols and
+
+0:16:07.240,0:16:13.920
+the scheme here for example HTTP and tells the 
+client okay I need a HTTP protocol binding to
+
+0:16:13.920,0:16:20.960
+communicate with this agent and it can also have 
+protocol specific extension which tell okay you
+
+0:16:20.960,0:16:29.320
+need to do a get call on this Ur to retrieve 
+the uh property called Model configuration and
+
+0:16:29.320,0:16:35.400
+similar it works for actions you can have actions 
+like for example it's also simplified example in
+
+0:16:35.400,0:16:43.440
+in our system it's looking more complicated but 
+you can have a simple example here call an agent
+
+0:16:43.440,0:16:50.480
+with a natural language question outputs also 
+natural language and here it's a form it's a post
+
+0:16:50.480,0:16:59.280
+request on a certain Endo then you can have also 
+events for example maybe as part of conversation
+
+0:16:59.280,0:17:06.120
+the customer can also rate and give feedback how 
+the conversation went this question does it was
+
+0:17:06.120,0:17:13.080
+it solved and then agents could also publish 
+events which can be consumed by other systems
+
+0:17:13.080,0:17:20.480
+and here it's interesting you could also now use 
+a websocket um protocol for uh retime Eventing
+
+0:17:20.480,0:17:27.480
+of events you could also use the websocket for 
+properties and actions what we are currently doing
+
+0:17:27.480,0:17:34.240
+and um here we're using the Elmos protocol I said 
+it's heavily inspired by the web protocol so as
+
+0:17:34.240,0:17:41.320
+soon as the web thing protocol is ready we might 
+migrate to it uh right now it's still called Elmos
+
+0:17:41.320,0:17:50.280
+protocol so this is the application Level protocol 
+to to send messages um to to the agents so that
+
+0:17:50.280,0:17:58.880
+they understood that it's here maybe subscription 
+to events or unsubscribe action so it's quite uh
+
+0:17:58.880,0:18:11.120
+complicated and um if you're familiar with spring 
+boot or J the jvm ecosystem you usually just write
+
+0:18:11.120,0:18:19.560
+classes with functions and then you annotate them 
+um for example with additional information like uh
+
+0:18:19.560,0:18:28.080
+this is an action and you can uh give descriptions 
+to the input and output or this is a an event you
+
+0:18:28.080,0:18:36.080
+annotate it with an event and since it's a flow 
+it's a it's a stream reactive stream of events
+
+0:18:36.080,0:18:44.920
+and as a develop I don't care if it's web so or 
+mqtt or amqp this is handled by the framework um
+
+0:18:44.920,0:18:49.520
+so even the thing description is automatically 
+generated by the framework you don't need to
+
+0:18:49.520,0:18:58.720
+maintain it by your hand uh you basally it's um 
+like code first uh and then the API is generated
+
+0:19:00.080,0:19:06.880
+and from the client perspective with the estd 
+cas you can create some sort of uh web of things
+
+0:19:06.880,0:19:13.440
+conversion agent you point it to the web of thing 
+description or maybe even to a directory I will
+
+0:19:13.440,0:19:17.960
+show you in a second how it could look like if 
+you point it to a directory and then it could
+
+0:19:17.960,0:19:26.120
+potentially discover all um things or agents 
+which are stored in this directory and then
+
+0:19:26.120,0:19:33.320
+you can start communicating with this uh agent you 
+can consume events or you can subscribe to events
+
+0:19:33.320,0:19:39.560
+and handle them and even then call other agents 
+or you can chat with an agent or do other things
+
+0:19:39.560,0:19:47.320
+in the future if it's a image generating agent 
+and from the code perspective here everything
+
+0:19:47.320,0:19:52.680
+is asychronous in cotland so it could also 
+be web so connection uh as a developer you
+
+0:19:52.680,0:19:59.120
+basically don't see it you only have to add some 
+additional libraries like the protocol binding
+
+0:19:59.120,0:20:04.840
+was talking about like HTTP and websocket and 
+then the framework is wiring everything for you
+
+0:20:04.840,0:20:12.320
+and at runtime the client is doing the protocol 
+negotiation telling yeah I support websocket let's
+
+0:20:12.320,0:20:19.640
+communicate why websockets and before I show the 
+Elmos PL platform itself I just want to show you
+
+0:20:19.640,0:20:25.800
+so Eclipse Elmos there's a documentation if 
+you're interested in in more details uh this
+
+0:20:25.800,0:20:32.080
+is the documentation of eclipse thing map so these 
+are the underlying libraries which we're using for
+
+0:20:32.080,0:20:38.520
+the sdks hopefully soon we also have a python 
+library and now I want to show you an example
+
+0:20:38.520,0:20:46.920
+which is based on web things so web things is also 
+nice project which is um providing a Gateway which
+
+0:20:46.920,0:20:55.880
+you can use to connect smart home um devices 
+to it and here for example thanks to and I have
+
+0:20:55.880,0:21:03.040
+access to a plug Fest Gateway where a lot of viral 
+devices are connected to and I just tested it uh
+
+0:21:03.040,0:21:13.760
+to to connect um to this directory to retrieve all 
+the the uh things and automatically convert them
+
+0:21:13.760,0:21:20.920
+into tools which then can be called by an agent 
+so when you query for example the directory URL
+
+0:21:20.920,0:21:30.120
+of a directory what you get is also sort of of 
+thing description so um which is describing how
+
+0:21:30.120,0:21:36.560
+you can um retrieve all the things so things 
+themselves are just property or the state a
+
+0:21:36.560,0:21:43.360
+state of a directory and if the client is then 
+querying automatically the things it's getting
+
+0:21:43.360,0:21:52.040
+an array of all the uh um devices here which 
+are described it's a for example it's an onoff
+
+0:21:52.040,0:21:58.680
+switch or color control and all the properties 
+like how do you turn an device on and this this
+
+0:21:58.680,0:22:06.280
+is not dynamically converted to functions llm 
+understanding so llms can also understand what
+
+0:22:06.280,0:22:14.360
+uh what is a function get an description and 
+the input is Json schema and without adding
+
+0:22:14.360,0:22:21.640
+any specific smart home um functionality 
+I just really converted to tools uh which
+
+0:22:21.640,0:22:29.000
+the llm is than getting I can ask a question 
+even if it's a multi- intent question like
+
+0:22:29.000,0:22:34.280
+set all my color lights to green and afterwards 
+turn on all the lights you would see it's not
+
+0:22:34.280,0:22:41.360
+working perfectly but it's just basically without 
+doing anything I point this to my agent the agent
+
+0:22:41.360,0:22:48.320
+is reading all the things from the directory 
+and you can see now um it's turning all lights
+
+0:22:48.320,0:22:58.440
+red and uh then afterwards turning the lights 
+on and this just by using the descriptions um
+
+0:22:59.000,0:23:09.000
+of the devices um which are then converted into 
+llm functions uh so quite quite powerful and I
+
+0:23:09.000,0:23:16.800
+mean if you really spend time into it you can 
+quickly yeah um do something which was much
+
+0:23:16.800,0:23:25.200
+more complicated uh when you had to develop 
+uh skills for Amazon Alexa or Google home and
+
+0:23:25.200,0:23:32.840
+this is the Elma platform which were also made um 
+open source so whenever you deploy now an agent
+
+0:23:32.840,0:23:39.560
+or tool as a micros service so into a kubernetes 
+environment we have added something which we call
+
+0:23:39.560,0:23:46.160
+the Elmos control plane so additional components 
+which are tightly integrated into kubernetes so
+
+0:23:46.160,0:23:54.120
+the OS operator is now doing the the life cycle 
+management so whenever an application installed
+
+0:23:54.120,0:24:01.680
+it is notified and is then fetching the thing 
+script destion of the applications and basically
+
+0:24:01.680,0:24:07.600
+storing in in our kubernetes registry yeah 
+so the kubernetes registry is currently used
+
+0:24:07.600,0:24:15.800
+as the storage mechanism and the operator itself 
+is also providing the directory API from repb of
+
+0:24:15.800,0:24:23.680
+things so that you can discover which agents are 
+currently installed in the kubernetes environment
+
+0:24:23.680,0:24:30.320
+and it's also our goal that we can even uh include 
+external agent which are not running in our own
+
+0:24:30.320,0:24:36.520
+kubernetes environment we can fetch the single 
+description running anywhere but still maintain
+
+0:24:36.520,0:24:43.080
+them and include them into our uh agent groups 
+and hopefully soon we have an Elmo pyth s DEC
+
+0:24:43.080,0:24:50.720
+where you can even develop agents in in Python 
+and L chain and that the agents are providing
+
+0:24:50.720,0:24:57.680
+additionally uh the capability so capability 
+has also identifier um a name versioning and
+
+0:24:57.680,0:25:05.360
+a description and examples and this is what 
+a agent is capable of internally yeah so if I
+
+0:25:05.360,0:25:11.640
+have integrated apis which allow me to retrieve 
+uh billing information about the customer the
+
+0:25:11.640,0:25:19.280
+agent is providing this information in additional 
+Jason file this is a really simple example of a
+
+0:25:19.280,0:25:26.760
+single capability but this file is linked uh 
+in the thing description so the operator can
+
+0:25:26.760,0:25:34.400
+fetch the capabilities of the agent which is 
+also providing examples of of customer queries
+
+0:25:34.400,0:25:42.160
+so example utterances and it's it's using it 
+now and additionally we have now implemented
+
+0:25:42.160,0:25:47.160
+something which we call Channel management this 
+is like a dynamic grouping of Agents so we have
+
+0:25:47.160,0:25:52.560
+different channels like web and app and and 
+voice and we want to do Canary roll outs so
+
+0:25:52.560,0:26:00.720
+not publish agent capabilities on a single Big 
+Bang to all uh channels we want to test certain
+
+0:26:00.720,0:26:08.440
+functionality only on a sub subset of the customer 
+so we are inspired by something which is called
+
+0:26:08.440,0:26:16.120
+the requirements capability model from occi 
+so a channel can require certain capabilities
+
+0:26:16.120,0:26:22.280
+and then the operator is acting as a resolver 
+and checking is there any agent installed in
+
+0:26:22.280,0:26:28.240
+the cetus environment which is providing me the 
+capabilities like it's like a dependency manager
+
+0:26:29.360,0:26:38.160
+uh in in with libraries and then it's it's telling 
+you if uh yeah like the group is resolved or not
+
+0:26:38.160,0:26:46.760
+if you need to do something or and and install 
+other agents and then it's basically generating
+
+0:26:46.760,0:26:52.080
+I will show this here so the I said the operator 
+is listening for deployments and then installing
+
+0:26:52.080,0:26:58.240
+them in the recory as a new custom resource 
+in kubernetes which is an agent resource
+
+0:26:58.880,0:27:06.640
+and when I now a cube apply so when I apply 
+a channel it's now loading all uh information
+
+0:27:06.640,0:27:11.560
+about the agent and it's generating a channel 
+routing which is basically like a like routing
+
+0:27:11.560,0:27:17.880
+information like a usual router would use but now 
+we need to do routing based on natural language
+
+0:27:17.880,0:27:23.080
+we cannot use IST or kubernetes anymore to do 
+smart routing decisions we need to do routing
+
+0:27:23.080,0:27:32.000
+on on T on intent classific uh natural language 
+intent classification level this is how a channel
+
+0:27:32.000,0:27:37.960
+definition looks like so basically I I Define 
+what kind of requ requirements I need you can also
+
+0:27:37.960,0:27:46.240
+use White cards and and um then the resolver is 
+generating this General routing and and tells us
+
+0:27:46.240,0:27:55.720
+hey I've discovered certain capabilities so these 
+are the capil abilities which I've uh discovered
+
+0:27:55.720,0:28:01.680
+and also telling us um what is the agent so 
+the agent identifier which is providing the
+
+0:28:01.680,0:28:12.560
+capabilities so that a component so the supervisor 
+U who is doing the uh orchestration knows uh where
+
+0:28:12.560,0:28:18.120
+to for which agent identities I need to fetch 
+the thing description in order to understand
+
+0:28:18.120,0:28:24.320
+how I can communicate with this agent so when a 
+query comes in um the supervisor is doing some
+
+0:28:24.320,0:28:30.960
+pre-processing anonymization for example something 
+thing which is important and then fetching the
+
+0:28:30.960,0:28:36.920
+channel routing information from the operator for 
+this conversation and it's caching it providing to
+
+0:28:36.920,0:28:43.560
+component which is called the OS router and the 
+OS router is currently using llms and soon also
+
+0:28:43.560,0:28:51.480
+Vector data basis to understand the intent of the 
+customer it's providing the capabilities which are
+
+0:28:51.480,0:28:58.320
+currently enabled for a certain channel in this 
+example it's the Web Channel then it's checking
+
+0:28:58.320,0:29:04.640
+yeah is it an alpha customer or just usual 
+production customer then based on the question
+
+0:29:04.640,0:29:10.200
+it's generating a subset of the capabilities 
+which somehow kind to match the intent of the
+
+0:29:10.200,0:29:17.480
+customer and then the subset of the capabilities 
+is provided to an llm to do the rooting decision
+
+0:29:17.480,0:29:24.680
+which of the agents seem to be able to handle 
+um the the problem of the customer and then the
+
+0:29:24.680,0:29:30.960
+runtime is communicating with currently just 
+the single agent but soon we will also allow
+
+0:29:30.960,0:29:39.040
+in parallel communication to multiple agent and 
+then aggregate the responses back so I also want
+
+0:29:39.040,0:29:46.480
+to show you how does it look like um so for 
+example uh here we have in system kubernetes
+
+0:29:46.480,0:29:52.880
+system as you can see um the only a weather 
+agent is installed which can tell you what is
+
+0:29:52.880,0:29:58.880
+the weather in a certain area the operator the 
+runtime is installed the runtime is also Library
+
+0:29:58.880,0:30:06.800
+here it it acts as a supervisor you can see that 
+agents are now a native resource of kubernetes I
+
+0:30:06.800,0:30:13.480
+can query which agent are installed and can also 
+add get additional information about the agent I
+
+0:30:13.480,0:30:18.720
+can see which channels are currently installed 
+in the system so here it's just a channel for
+
+0:30:18.720,0:30:25.880
+Germany it's an app and it's the stable Channel 
+which is used for all production users and when
+
+0:30:25.880,0:30:33.040
+I for example ask uh how the weather in London 
+it can answer you but when I ask a different
+
+0:30:33.040,0:30:38.680
+question for example summarize me the content 
+of a certain web page it says I cannot help you
+
+0:30:38.680,0:30:43.600
+because the capability is currently not provided 
+in production we would usually hand over the
+
+0:30:43.600,0:30:51.440
+customer out to the service hotline and it looks 
+nicer this is just a test UI of course but now I
+
+0:30:51.440,0:30:58.040
+could basically rein install a different agent 
+as a Helm chart so as a kubernetes environment
+
+0:30:58.040,0:31:04.760
+now the operator is fetching uh the capabilities 
+of the agent and now when I apply now let's say
+
+0:31:04.760,0:31:13.040
+a new channel configuration which now says now I 
+also want to use the capabilities of the new agent
+
+0:31:13.040,0:31:20.040
+it's now generating a new you can see now uh it 
+sets it's resolved so all capabilities are found
+
+0:31:20.040,0:31:31.640
+in this system I can ask agent both agents seem to 
+be installed um now um yeah usually uh as soon as
+
+0:31:31.640,0:31:39.120
+the application is running the router is able to 
+route now um questions to this new agent so when I
+
+0:31:39.120,0:31:45.560
+now repeat my question you can see now the system 
+is able to respond to it and this is basically now
+
+0:31:45.560,0:31:54.000
+the D dynamic system which we need at production 
+that we whenever we need can install additional
+
+0:31:54.000,0:32:02.640
+agents into the system and roll it out to certain 
+customer base and as I said in in our system it's
+
+0:32:02.640,0:32:08.960
+a bit more complex so um the message itself of 
+course it's not just the question we also uh
+
+0:32:08.960,0:32:14.480
+clients also can provide us additional information 
+about the user so we call it user context
+
+0:32:14.480,0:32:20.960
+the touch Point already knows maybe it's a B2B 
+customer b2c customer is it just a mobile customer
+
+0:32:20.960,0:32:26.800
+it can also already provide the information to 
+us or maybe the customer identifier but system
+
+0:32:26.800,0:32:32.880
+can also provide system context information so 
+now we we are in a multi- channel environment so
+
+0:32:32.880,0:32:40.600
+web can render nice UI widgets but in the hotline 
+of course cannot render UI widgets and it might
+
+0:32:40.600,0:32:49.040
+need shorter answers and links can also not be 
+presented uh and WhatsApp has even different uh
+
+0:32:49.040,0:32:55.520
+requirements um cannot Rend markdown for example 
+so the touch points can send us additional
+
+0:32:55.520,0:33:02.280
+information what kind of technically capabilities 
+they have so that our agent can also generate the
+
+0:33:02.280,0:33:09.480
+responses how the touch point is requiring it 
+so the supervisor agent is then getting a system
+
+0:33:09.480,0:33:16.280
+prompt and telling it how to to act it's getting 
+information about the user about the system what
+
+0:33:16.280,0:33:23.080
+kind of capabilities are currently available 
+for this channel then the conversation history
+
+0:33:23.080,0:33:29.680
+then the supervisor is doing the decision picking 
+multiple agents and forwarding the information to
+
+0:33:29.680,0:33:35.760
+the agent so also the agent has information about 
+the user and system context and the conversation
+
+0:33:35.760,0:33:44.080
+history and then the agents have um all the use 
+cases implemented like flows use cases are not
+
+0:33:44.080,0:33:52.040
+prompts they are more like workflow descriptions 
+so if you're asking Bill of course the agent does
+
+0:33:52.040,0:33:57.760
+not know what you mean it might ask you and query 
+first of all what kind of contracts do you have
+
+0:33:57.760,0:34:03.520
+and then ask the customer do you mean your mobile 
+contract bills or your fixed land bills from which
+
+0:34:03.520,0:34:10.680
+year so it's um this the use case is basically 
+described like in handbook how the agent should
+
+0:34:10.680,0:34:18.400
+behave to retrieve additional information to not 
+over fetch data and just fetch the information
+
+0:34:18.400,0:34:26.200
+which is needed to solve the customer query 
+yeah so that's basically a very very quick
+
+0:34:26.200,0:34:32.880
+introduction so I hope we have more more time to 
+uh for for question anwers so we have also Discord
+
+0:34:32.880,0:34:40.720
+Channel feel free to join we we just started so 
+last year maybe September October we started um
+
+0:34:40.720,0:34:51.600
+making everything public open source so U I think 
+the solution is still bit etchy or is ety no has
+
+0:34:51.600,0:35:11.920
+as a lot of Corners so um we are still working 
+on the release but I hope you find interesting

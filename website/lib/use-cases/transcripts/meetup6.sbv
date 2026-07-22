@@ -1,0 +1,991 @@
+0:00:10.980,0:00:18.720
+right so today we have three speakers so first of 
+all um Eric bastard from Microsoft um so Eric has
+
+0:00:18.720,0:00:23.220
+worked in various engineering roles at Microsoft 
+for 20 years and initially in the windows team
+
+0:00:23.220,0:00:29.520
+and later in the azure and because he worked 
+in automotive and Manufacturing verticals and
+
+0:00:29.520,0:00:35.640
+is the founder of both windows and air industrial 
+iot teams and recently he has he has shifted his
+
+0:00:35.640,0:00:40.800
+work to support Open Standards Microsoft as well 
+as commitments to open source and consortia work
+
+0:00:40.800,0:00:46.500
+as Microsoft as Chief Architect and his order 
+of various activated patents and has a bachelor
+
+0:00:46.500,0:00:50.940
+and two master's degree in computer science 
+from Trinity College Dublin so welcome Eric
+
+0:00:53.220,0:00:54.420
+um next thank you
+
+0:00:56.520,0:01:01.800
+all right next up we have Sebastian kibish 
+and from Siemens and he's a senior key expert
+
+0:01:01.800,0:01:07.020
+at CMS technology in Munich Germany his work 
+focused on the efficient realization and usage
+
+0:01:07.020,0:01:11.520
+of standardized internet web Technologies for the 
+International Industrial Internet of Things domain
+
+0:01:11.520,0:01:14.160
+thereby he drives strategic initiatives research
+
+0:01:14.160,0:01:18.000
+and development for Siemens business units 
+such as industrial and building automation
+
+0:01:18.660,0:01:24.240
+Sebastian is an active member and contributor of 
+standardization groups such as E-class industrial
+
+0:01:24.240,0:01:30.660
+digital twin Association and of course the w3c 
+web of things and in the letter he is co-chair
+
+0:01:30.660,0:01:34.560
+and coordinates topics around the thing 
+description standard so welcome Sebastian
+
+0:01:37.920,0:01:46.260
+and lately we have Felix Paolini from evosoft 
+and FedEx is a software developer since 2014 with
+
+0:01:46.260,0:01:50.820
+a strong interest in smart automation systems 
+he started with automation of software quality
+
+0:01:50.820,0:01:54.900
+assurance and quickly changed the develop 
+software solutions for optimization problems
+
+0:01:55.560,0:02:00.000
+he then developed a lot of quantities sessions and 
+he got into contact with a level of things in 2019
+
+0:02:00.780,0:02:07.380
+and actually since 2021 he is the product owner 
+for the Siemens inner Source implementation say
+
+0:02:07.380,0:02:13.680
+what and enthusiastically spreading the idea 
+of what in software Solutions welcome Felix
+
+0:02:17.400,0:02:22.500
+um right I guess Stan with 
+this weekend transition to the
+
+0:02:23.100,0:02:29.880
+uh presentations so I will 
+stop my screen sharing and
+
+0:02:33.420,0:02:41.580
+yes yeah you can then take over and and I can take 
+over and I say hello to everyone here in the round
+
+0:02:41.580,0:02:51.960
+and thank you very much for uh having us here uh 
+in the community group of the web W receiver both
+
+0:02:51.960,0:03:00.240
+things um yeah the topic will be um automated 
+industry asset onboarding using open standard
+
+0:03:00.840,0:03:06.360
+and uh yeah we got already an introduction 
+maybe one guy is missing in the introduction
+
+0:03:06.360,0:03:15.360
+that's actually we plan to have four percent of 
+for this presentation namely also a colleague
+
+0:03:15.360,0:03:24.480
+of mine Petra machichan however we did not 
+checked up the the vacation time when we
+
+0:03:24.480,0:03:30.300
+are agreed on the date of the presentation 
+so unfortunately petram is not available
+
+0:03:30.300,0:03:36.240
+today to also be part of the presentation 
+I will more or less take over its part
+
+0:03:36.900,0:03:43.980
+and yeah and all other guys was already introduced 
+and yeah and I would like to start a presentation
+
+0:03:43.980,0:03:53.100
+and to give you the motivation uh what is it about 
+and I like to start why um is interoperability
+
+0:03:53.100,0:04:03.120
+is very very important uh for uh different iot 
+solution and as you know uh there are multiple use
+
+0:04:03.120,0:04:14.280
+cases out there like optimization sustainability 
+and so on that is very important to get data from
+
+0:04:14.280,0:04:23.040
+from the field yeah and as you know data coming 
+from the field is not a very easy task because
+
+0:04:24.120,0:04:31.800
+um the field level it's typical very very 
+heterogeneous yeah so we have multiple different
+
+0:04:31.800,0:04:37.980
+devices from different vendors which come with 
+different data models with different protocols
+
+0:04:37.980,0:04:47.580
+with different security requirements and and 
+this is always a very big problem in today's iot
+
+0:04:47.580,0:04:59.280
+solution in iot integration efforts to bring this 
+information in your target iot applications yeah
+
+0:05:00.000,0:05:07.800
+and when we have a more detailed look how this 
+look like when we say let's take a one project
+
+0:05:07.800,0:05:16.980
+and we would like to use for example the Azure iot 
+stack to integrate a feed device uh uh in in in
+
+0:05:16.980,0:05:25.080
+into the cloud and you want to see the data from 
+the field feed data how the steps look like and uh
+
+0:05:25.080,0:05:32.640
+typically you would use that with describing the 
+devices on the very bottom then you need to do the
+
+0:05:32.640,0:05:42.180
+protocol protocol translation yeah like um uh you 
+have to go for modbus to Opus UA then you need to
+
+0:05:42.180,0:05:48.960
+configure your connection to the cloud and within 
+the cloud you need to do a mapping to your digital
+
+0:05:48.960,0:05:55.320
+twin and then you are able to create your to 
+drink twin craft and then finally on the top you
+
+0:05:55.320,0:06:03.180
+can create your application or you can use your 
+application with the data that is coming from the
+
+0:06:03.180,0:06:11.580
+feed level right and in between typical a lot of 
+manual steps have to be done to make this happen
+
+0:06:12.540,0:06:21.000
+and if we take a example of for example from the 
+manufacturing domain um then maybe it looks like
+
+0:06:21.000,0:06:31.800
+uh what we see here so on the left hand side you 
+see uh some snippet from a configuration window
+
+0:06:31.800,0:06:42.240
+that is be used to configure uh your devices then 
+this information is then took to capture and to
+
+0:06:42.240,0:06:50.940
+to configure the cap wear then the next step is to 
+bring this to to the connection to the cloud here
+
+0:06:50.940,0:06:58.320
+there's always some tooling use that is doing 
+already are automatic mapping to opencuaa here
+
+0:06:58.320,0:07:06.540
+however when it comes to the um to the cloud and 
+map to the Detroit device twin then you have also
+
+0:07:06.540,0:07:15.000
+to to do some configuration and so on until you 
+go to the to the craft level where you can then
+
+0:07:15.000,0:07:21.540
+write your application on the top well and when we 
+go to the to another scenario and use a different
+
+0:07:21.540,0:07:28.500
+stack because you are using examples uh from the 
+building domain and you have to use for example a
+
+0:07:28.500,0:07:34.860
+stack that is based on the Agata then you will 
+see you have to face different configuration
+
+0:07:36.060,0:07:44.700
+um um windows and you have to use different 
+settings there which makes everything complicated
+
+0:07:44.700,0:07:51.180
+again that you have to understand what I have 
+to enter there do I do I have to copy and paste
+
+0:07:51.180,0:07:58.380
+my my information from the device manual in 
+this platform and so on and this is I think
+
+0:07:58.380,0:08:04.500
+one of the big problems today what we have on 
+the market we have a lot of integration Stacks
+
+0:08:04.500,0:08:12.120
+however which are working always in a different 
+approach and of course they are also not yeah
+
+0:08:12.900,0:08:18.540
+um compatible to each other yeah so if you're 
+using Stacks from Microsoft or Bosch digital
+
+0:08:18.540,0:08:24.600
+for example uh all of them you have a different 
+approach they're doing actually the same steps and
+
+0:08:24.600,0:08:32.700
+the same integration process however uh developer 
+or the user have always to understand individual
+
+0:08:32.700,0:08:40.200
+how the steps looks like and how to use the 
+steps and they cannot be used for assets yeah
+
+0:08:41.040,0:08:47.580
+and yeah and the question is how we can 
+overcome this situation and here's a big
+
+0:08:47.580,0:08:55.980
+answer uh namely the web of things as you know 
+web of things brings a lot of cool uh building
+
+0:08:55.980,0:09:04.260
+blocks which can help here to simplify the usage 
+of this iot Stacks as you know it comes with
+
+0:09:04.260,0:09:12.720
+a standard size device description language 
+it's it friendly it's protocol agnostic it's
+
+0:09:12.720,0:09:20.520
+extensible for any protocols and as you know we 
+have already a huge community that supports this
+
+0:09:20.520,0:09:28.200
+um this standard and yeah and it's providing 
+a governance on a common ground edit.3c
+
+0:09:28.740,0:09:37.560
+and I would not suggest to go a little bit more 
+deeper how we can benefit of the building block
+
+0:09:37.560,0:09:47.160
+of uh web of things and of uh the technology uh 
+um with the thing description when we consider on
+
+0:09:47.160,0:09:53.700
+concrete scenario namely with energy meter 
+from Siemens that's called Central Park
+
+0:09:54.300,0:09:59.940
+and here I would like to ask Felix to take 
+over here and explain us here the details
+
+0:10:02.280,0:10:08.220
+okay so uh yeah I think Sebastian already 
+motivated why it's a good thing to have a common
+
+0:10:09.120,0:10:15.840
+description language for devices so let's have 
+a look at the explicit example of the pack 4200
+
+0:10:15.840,0:10:21.360
+that we see here first of all we need to describe 
+the device that is what we've seen in our pipeline
+
+0:10:21.360,0:10:25.860
+what everybody does everybody does does it in 
+their own way and with the web of things we
+
+0:10:25.860,0:10:30.960
+have a common understanding of how to do that 
+we'll use a thing description on the left side
+
+0:10:30.960,0:10:36.600
+you can see we can just describe our device we 
+can describe the properties that it offers us so
+
+0:10:36.600,0:10:43.920
+easy step for I think at least the guys who are in 
+this call the guys and girls are in this call and
+
+0:10:43.920,0:10:51.960
+um yeah easy approach how to do that then the 
+next step was you need to define the protocol
+
+0:10:52.860,0:10:58.080
+specifics that you need to get data from 
+the device there's also a way to do this
+
+0:10:58.080,0:11:03.960
+for example in the web of things we have The 
+Binding templates that are describing which
+
+0:11:03.960,0:11:09.960
+keywords you can use to get the data from that 
+so this is also fixed then the next step would be
+
+0:11:11.820,0:11:18.540
+um to enable the stacks to understand also The 
+Binding templates this is quite an easy one
+
+0:11:18.540,0:11:27.360
+since we have a Json or a Json LD file which can 
+be passed um quite easily normally all of these
+
+0:11:27.360,0:11:34.560
+Stacks have their own format of how to describe 
+the binding templates in their case if they
+
+0:11:34.560,0:11:40.320
+would just to just parsing in these keywords 
+that the standard is standardizing we could
+
+0:11:41.100,0:11:49.020
+um share the description of the device and reuse 
+it now one step or no not once that the next step
+
+0:11:49.020,0:11:55.620
+would be that we want to map this whole device 
+model to a common understanding and we can use
+
+0:11:55.620,0:12:03.000
+for example an OPC UA companion specification 
+for this which would um which we could also
+
+0:12:03.000,0:12:10.020
+embed in our thing description to enhance the 
+thing description with the common understanding
+
+0:12:11.220,0:12:15.660
+um we can see that here on the left side which 
+would mean we extend the context of the thing
+
+0:12:15.660,0:12:25.440
+description and add the add type at the specific 
+place which would then also enhance not only the
+
+0:12:27.240,0:12:34.020
+um understanding but could also if 
+we go to the next slide map to the
+
+0:12:35.520,0:12:43.620
+yeah maybe to the cloud protocol that we want to 
+use which in our example we'll get um employment
+
+0:12:45.180,0:12:49.440
+um last but not least we had in our 
+pipeline that Sebastian described we
+
+0:12:49.440,0:12:56.100
+want to create a digital twin so or 
+no a digital twin graph which would
+
+0:12:56.100,0:13:00.000
+mean we need to understand the topology 
+and the semantics of our devices that we
+
+0:13:00.000,0:13:04.200
+have and for this there's also in the 
+thing description a separate separate
+
+0:13:06.240,0:13:11.760
+um place where we can put this I think there's 
+some discussion around this if this is the correct
+
+0:13:11.760,0:13:18.480
+place to do it like that but still there is a 
+place where we can put it and there we can map
+
+0:13:18.480,0:13:24.660
+out some relations between things and if we have 
+a look at the whole pipeline then in the end which
+
+0:13:24.660,0:13:31.740
+we had also in the beginning we can um enable a 
+lot of Stacks with the same model that we have
+
+0:13:31.740,0:13:38.640
+created now so let's say we have for example a 
+tool like the editor which is open source where we
+
+0:13:38.640,0:13:44.760
+can create our thing description every stack could 
+share this effort and not every stack would have
+
+0:13:44.760,0:13:51.300
+to reinvent that thing then there are two places 
+which um are maybe proprietary or could even be
+
+0:13:52.020,0:13:57.420
+which is then the protocol translation and 
+the connection to the cloud but these can be
+
+0:13:57.420,0:14:02.820
+done by any stack and if they even share the 
+underlying data model like thing description
+
+0:14:03.540,0:14:09.120
+they could even share the common understanding 
+and share maybe some code blocks of serializing
+
+0:14:09.120,0:14:14.940
+and deserializing then in our pipeline 
+we had the mapping to the device to the
+
+0:14:14.940,0:14:19.200
+twin which could be also done maybe with 
+the editor maybe with another tool like
+
+0:14:20.460,0:14:25.140
+um yeah that is not out there but we can base 
+it on the thing description so we could also
+
+0:14:25.140,0:14:31.260
+use share the effort of creating such a tool 
+maintaining such a tool and so on and in the end
+
+0:14:31.860,0:14:41.400
+um we have the creation of the twin graph 
+which could be just an import in the
+
+0:14:43.920,0:14:52.020
+Target architecture where we want to place it 
+and with that we cannot enable only one stack
+
+0:14:52.020,0:15:00.300
+like we've seen it um on the last slide of the 
+Bastion but we can enable maybe even every stack
+
+0:15:00.300,0:15:07.560
+that we have out there here for example we can 
+enable Microsoft and Posh maybe and today we
+
+0:15:07.560,0:15:15.840
+want to show you an example of how we can enable 
+Two Stacks with the same thing description before
+
+0:15:15.840,0:15:24.600
+we get to that the interesting part that we've 
+seen here is um if we share the effort to uh
+
+0:15:25.320,0:15:31.260
+to create these sync descriptions or the effort 
+to maintain the tools around thing descriptions
+
+0:15:31.260,0:15:38.520
+we can share the common basis that everybody has 
+to do we can do this split it up everybody in his
+
+0:15:38.520,0:15:43.860
+own stack or we can share the effort with our 
+tools like maybe the editor or something else
+
+0:15:44.460,0:15:48.240
+uh since I don't have the boss stack 
+with me we'll start with the inner Source
+
+0:15:48.240,0:15:55.320
+implementation from Siemens which is called 
+say what um for that let me share my screen
+
+0:15:56.700,0:16:04.740
+okay so the thing we have right now is a stack 
+called say what um which is capable of um
+
+0:16:05.280,0:16:10.140
+parsing thing descriptions that you place 
+in there and then talking to the devices
+
+0:16:10.140,0:16:16.560
+in our pipeline you have seen the steps that 
+were called protocol translation and Cloud
+
+0:16:16.560,0:16:24.000
+connection so the same what stack is capable of 
+doing that first of all so I'm not fooling you
+
+0:16:24.720,0:16:30.600
+we only have two things in our running say what 
+instance and no pack meters in here these are
+
+0:16:30.600,0:16:39.060
+just the software Parts itself um now let's have 
+a look at our finger script that we have in here
+
+0:16:41.700,0:16:47.700
+um yeah I think we had the example of a Siemens 
+Central Park I am using the editor here to create
+
+0:16:47.700,0:16:54.780
+such a thing and we have different properties in 
+here which we can use to talk to that we've also
+
+0:16:54.780,0:17:03.360
+got some modbus specifics to get the data from the 
+device directly and talk to the device [Music] um
+
+0:17:06.780,0:17:11.880
+yeah this is so to say our mapping 
+to our device and now we can just
+
+0:17:12.420,0:17:17.280
+save the thing description to 
+our running say what instance
+
+0:17:17.880,0:17:23.220
+which would would mean um instantiating 
+the device and now if I go back
+
+0:17:30.540,0:17:36.960
+we have a new thing in here which is called 
+exactly the same like in our thing description
+
+0:17:36.960,0:17:44.940
+the title is and if we have a look at our 
+device we even see that we get some data from it
+
+0:17:45.480,0:17:52.740
+and now we say we have our protocol translation 
+finished with a implementation that is already
+
+0:17:52.740,0:17:58.080
+there and but what about the cloud connectivity 
+and the interesting part now is if we
+
+0:17:59.220,0:18:06.600
+um yeah if we have such a stack and we have 
+this meta model we can reuse it in different
+
+0:18:06.600,0:18:11.580
+tools that are already out there to leverage Some 
+Cloud connectivity for example what we have done
+
+0:18:11.580,0:18:20.640
+is also put a Time series database in this case 
+a influx database on top of our say what stack
+
+0:18:21.360,0:18:28.140
+to not only display it but also to analyze some of 
+the things and if we have a look here you can see
+
+0:18:28.800,0:18:36.000
+I already prepared this um you can see that 
+we had no data before and right now where I
+
+0:18:36.000,0:18:41.640
+put in the thing description we can just 
+see the input of our total active power
+
+0:18:41.640,0:18:44.880
+which is a property that comes from 
+our thing description and we can just
+
+0:18:46.200,0:18:54.360
+use that in our whole stack and with that we 
+can even um yeah use that time series database
+
+0:18:54.360,0:19:01.500
+maybe to enable batch uploading to a cloud 
+service so to say or even and we also have
+
+0:19:01.500,0:19:09.060
+the possibility of streaming that data via 
+some mqtt broker or so on to another cloud
+
+0:19:11.220,0:19:13.740
+and I hope now that I've talked enough
+
+0:19:16.260,0:19:21.480
+is it already that time Eric yes yes
+
+0:19:23.760,0:19:29.220
+perfect then I will hand over to Eric 
+who will show you how he on boards
+
+0:19:29.220,0:19:35.580
+with the same thing description in his own 
+stack to the Azure Cloud also a park 4200.
+
+0:19:37.740,0:19:38.460
+correct
+
+0:19:42.240,0:19:49.620
+so first of all um let me introduce the 
+UAH translator so we actually contributed
+
+0:19:49.620,0:19:58.260
+that to the OPC Foundation but it's using the 
+same Concepts that the say what stack uses so
+
+0:19:58.260,0:20:05.940
+fundamentally it's uh well it's open source first 
+of all and fundamentally it it allows you to map
+
+0:20:07.440,0:20:14.820
+bot-based devices to OPC way so similar to 
+what Phillies just showed we have the same
+
+0:20:14.820,0:20:23.880
+thing description here it's also the pack 4200 
+and you can see that we've added the download
+
+0:20:23.880,0:20:33.360
+location of the OPC way companion specification in 
+the say what in the what file and we've added one
+
+0:20:33.360,0:20:40.080
+more thing to the actual mapping of the modbus 
+address so you can see here for example we have
+
+0:20:40.080,0:20:47.580
+the voltage here's the modbus address and down 
+here we have a new opcoa type so this is the type
+
+0:20:48.360,0:20:58.680
+that is in a companion specification from the 
+OPC Foundation it's the profi energy measurement
+
+0:20:58.680,0:21:09.600
+companion specification pnem and that means we can 
+map a device that used to be just modbus capable
+
+0:21:09.600,0:21:17.460
+to opcoa with a standardized information model 
+so all the types then are standardized data so
+
+0:21:17.460,0:21:25.980
+somebody who understands OPC way and has built 
+the companion specifications into their software
+
+0:21:25.980,0:21:34.500
+can automatically understand this device so 
+automatic onboarding so now let me show you
+
+0:21:36.720,0:21:45.000
+so here is the um here's a Docker environment 
+that I have created before as you can see it's
+
+0:21:45.000,0:21:51.060
+Docker desktop which is a download it's 
+a licensed product but you can download
+
+0:21:51.060,0:21:57.960
+it from the web from the docker website 
+and now let me run the edge translator
+
+0:22:00.660,0:22:02.580
+just have to find the right command
+
+0:22:11.520,0:22:16.980
+this one here so what I'm doing is 
+I'm running two containers the first
+
+0:22:16.980,0:22:25.500
+one is The Edge translator so this is going um 
+straight um should be OPC Foundation actually
+
+0:22:31.740,0:22:32.240
+um
+
+0:22:34.680,0:22:42.060
+this is basically just binding a port to The 
+Host this is the standard OPC waveboard 4840
+
+0:22:44.220,0:22:45.660
+oh let me just run that
+
+0:22:54.360,0:22:58.200
+so I can run it on the docker
+
+0:23:00.240,0:23:00.740
+um
+
+0:23:03.540,0:23:10.140
+so it's now running you can 
+see here it's running on the
+
+0:23:10.860,0:23:19.200
+on the docker environment right and it's 
+bound to Port 4840. so with my opcoa client
+
+0:23:24.240,0:23:33.540
+is here I can now um simply go to localhost 
+because it's bound to my local port
+
+0:23:34.440,0:23:43.140
+connect and connect to it yes it's giving me 
+certificate error that's normal so here you
+
+0:23:43.140,0:23:50.100
+can see what a UAH translator looks like 
+so there is a asset management interface
+
+0:23:50.700,0:23:58.080
+where you can call OPC way methods configure 
+asset delete asset and get assets and with
+
+0:23:58.080,0:24:06.540
+configure asset you can actually pass a what thing 
+description as an argument and then uas translator
+
+0:24:06.540,0:24:14.340
+will automatically look for that device on the 
+network it will um map it to OPC way based on
+
+0:24:14.340,0:24:20.520
+the what thing description that we just talked 
+about and then the mapping will automatically
+
+0:24:20.520,0:24:30.660
+show up here so for this to work I have another 
+Docker application that we call UA Cloud publisher
+
+0:24:32.460,0:24:37.620
+um we can run it with this command here so 
+basically what it does is it says it uses
+
+0:24:37.620,0:24:45.660
+the Kafka communication protocol to the cloud um 
+it's storing logs in a certain place and then it
+
+0:24:46.260,0:24:52.440
+um stores its settings in a certain place 
+and it binds to Port 80. the port 80 on
+
+0:24:52.440,0:24:58.200
+my machine and then this is the command to 
+download the docker image so I can run this
+
+0:25:00.600,0:25:01.860
+on the same command
+
+0:25:04.380,0:25:08.160
+and now that container is running 
+as you can see here we have
+
+0:25:09.360,0:25:19.020
+um as translator and Cloud publisher running 
+so now if I go to localhost localhost
+
+0:25:20.460,0:25:25.440
+uh no not like this http localhost
+
+0:25:27.360,0:25:31.020
+I can see that I'm connected 
+to the cloud publisher
+
+0:25:32.580,0:25:41.520
+the cloud publisher um is also available open 
+source and it allows for publishing OPC way
+
+0:25:41.520,0:25:49.920
+data to the cloud either to a Kafka broker or 
+an mqtt broker um and I can see here that this
+
+0:25:49.920,0:25:57.540
+is actually an older version so let me just do 
+one thing real quick go to images and I go to
+
+0:25:59.520,0:26:04.320
+publisher and I just need to pull that image
+
+0:26:09.840,0:26:13.500
+okay so I have the newer image now um
+
+0:26:15.660,0:26:17.580
+back to Containers I can
+
+0:26:19.800,0:26:23.760
+do this one and run it one more time
+
+0:26:28.080,0:26:34.680
+now if I hit refresh here it's a newer image and 
+I can see there's a new Edge translator tab if I
+
+0:26:34.680,0:26:45.360
+click on that it actually allows me to pass 
+in um a a what file from the local hard disk
+
+0:26:45.360,0:26:54.960
+so if I go to desktops this is the um this is 
+the pack what file that we just talked about
+
+0:26:55.920,0:27:00.120
+so let me just make sure that 
+this one is in fact correct
+
+0:27:02.880,0:27:07.740
+because it also includes the IP address of the
+
+0:27:07.740,0:27:13.080
+device so you can see here 
+it's set to 192.168.0.100
+
+0:27:14.040,0:27:22.500
+that's however not the right IP address on my 
+network I can quickly find out what IP address
+
+0:27:23.820,0:27:34.200
+I'm running go to my work oh yeah because 
+I have this dialogue open so the Siemens
+
+0:27:34.200,0:27:44.700
+PLC must be somewhere in here uh 
+that's it's 23 I'm pretty sure 192.
+
+0:27:45.780,0:27:50.040
+something else uh so
+
+0:27:52.680,0:28:00.900
+it possibly changes the IP address 
+because it's DHCP it's probably 86.
+
+0:28:06.360,0:28:10.200
+no it's not right so which mode is it
+
+0:28:14.280,0:28:19.560
+180 no not gonna be right either 
+interesting to see your smart
+
+0:28:19.560,0:28:26.460
+home equipment yes I got a lot on here 
+but where is this here women's device
+
+0:28:28.320,0:28:36.480
+I can't see it has anybody see it should be 
+connected to the land right yeah it's totally nice
+
+0:28:37.500,0:28:42.600
+probably 39. yes 39. so here's the uh here's the
+
+0:28:43.140,0:28:47.820
+um actually the the central pack 
+has a web uh interface to it
+
+0:28:49.080,0:28:56.880
+um so if I go to energy sorry details um the 
+only thing that is currently getting measured is
+
+0:28:57.600,0:29:04.080
+um L3 so it's a three-phase energy meter but only 
+L3 is getting measured I'm actually measuring the
+
+0:29:04.080,0:29:10.740
+power supply that it has so you can see here it's 
+240 volts and it's beginning measured so this is
+
+0:29:10.740,0:29:20.280
+the IP address we're looking for right so all we 
+have to do is put this into the say what file here
+
+0:29:26.040,0:29:36.780
+like so without the Slash and then we 
+can pass in this IP address um to the
+
+0:29:38.280,0:29:49.860
+to the edge transmitter so we pass in the file 
+itself or is it gone let's talk let's see emails
+
+0:29:51.240,0:29:58.500
+here's the file and then we need to basically 
+also give a dip address of the edge translator
+
+0:29:58.500,0:30:07.680
+right so the in OPC TCP format so OPC TCP 
+colon slash slash and then the IP address
+
+0:30:08.760,0:30:18.060
+um is actually my IP address because I'm obviously 
+running it on my machine so it's this one
+
+0:30:24.180,0:30:30.480
+and then I hit send and now it says UA Edge 
+translator configures successfully right so
+
+0:30:30.480,0:30:38.040
+I've now basically called that method on the 
+OPC server interface and in five seconds this
+
+0:30:38.040,0:30:46.980
+thing will go dark and then reboot or restart 
+it'll restart the OPC away server and then so
+
+0:30:46.980,0:30:52.200
+it says now bad communication so it's gone dark 
+and in five seconds it'll come back and the
+
+0:30:53.700,0:31:00.720
+um Central unpack will show up here there it 
+is so here we have the C1 Central and pack
+
+0:31:00.720,0:31:07.440
+now now mapped to OPC UA you can see here 
+all the tags that the central pack provides
+
+0:31:09.120,0:31:18.060
+um are now mapped and you can see here for 
+example voltage if I subscribe to the voltage um
+
+0:31:18.720,0:31:26.880
+you can see here uh the values okay it's 
+waiting for data it's taking a little but
+
+0:31:26.880,0:31:33.600
+eventually the data will come through 
+here so um so that's it that's a demo
+
+0:31:37.020,0:31:43.500
+any questions yeah um thank you I I missed a 
+little bit on the very beginning to mention
+
+0:31:43.500,0:31:51.780
+that this the demos are kind of spontaneous 
+that we already did the presentation on site
+
+0:31:51.780,0:31:59.160
+a few weeks ago and and of course having 
+everything physical on the table it was
+
+0:31:59.160,0:32:04.020
+everything works mostly there but we have 
+not tested before if everything is working
+
+0:32:04.020,0:32:11.100
+via a Web Conference but as you can see it 
+worked also very well so thank you very much
+
+0:32:11.100,0:32:19.440
+Eric and Felix for showcasing this and yeah 
+um I think we cannot go over to the to q a

@@ -1,0 +1,982 @@
+0:00:06.600,0:00:13.960
+basically today we welcome Tim till from do 
+Telecom and since 2020 till is working as part
+
+0:00:13.960,0:00:21.960
+of the magos House app in do Telecom um and he 
+initially worked with thread and then with matter
+
+0:00:21.960,0:00:27.640
+which he has like analyzed and then came up with 
+a proof of concept and how it can be integrated
+
+0:00:27.640,0:00:32.720
+into the magto architecture and yeah in this 
+process he realized that web of things would be
+
+0:00:32.720,0:00:40.240
+a good abstraction and uh we should actually make 
+uh things more resource efficient and lightweight
+
+0:00:40.240,0:00:47.040
+in addition to becoming standardized as well with 
+this I'm giving the floor to till where we will
+
+0:00:47.040,0:00:53.320
+hear about um the matter and web of things so 
+the Beyond local connectivity bridging web of
+
+0:00:53.320,0:01:03.640
+things and matter so till the floor is yours so 
+the and uh it's my turn welcome everyone to uh
+
+0:01:03.640,0:01:11.800
+this week's uh Meetup session today um yeah as 
+eek said about bridging web things and uh meta
+
+0:01:11.800,0:01:19.600
+first another introduction from from my side um 
+my name is till I'm a du student at do Telecom
+
+0:01:19.600,0:01:26.800
+um started working in the smart home domain 
+in 2020 and since then I'm working on threat
+
+0:01:26.800,0:01:33.960
+and especially meta and now this this topic 
+I'm talking about today was also part of my
+
+0:01:33.960,0:01:41.800
+bachelor thesis but uh about the agenda I first 
+start with smart home at do Telecom maybe giving
+
+0:01:41.800,0:01:48.320
+some introduction into our architecture and also 
+talking about the motivation which was behind my
+
+0:01:48.320,0:01:57.480
+idea um with this topic after that I will give 
+an introduction to meta um yeah basic stuff but
+
+0:01:57.480,0:02:04.400
+uh maybe not known about everyone and uh it's 
+needed to to understand the further concept I
+
+0:02:04.400,0:02:10.120
+will talk about after that and in the end I will 
+give a yeah short look at my implementation which
+
+0:02:10.120,0:02:19.920
+was like a proof of concept about um yeah these uh 
+yeah shown concept first of all the architecture
+
+0:02:19.920,0:02:26.800
+we are developing a smart home platform and our 
+scope was never to be uh mainly a manufacturer but
+
+0:02:26.800,0:02:33.880
+instead working with different manufacturers and 
+all of that leaded to an architecture where we had
+
+0:02:33.880,0:02:42.520
+like a lot of data models from different devices 
+which are locally bridged to a standardized local
+
+0:02:42.520,0:02:51.480
+uh model and after that abstracted to our Cloud 
+infrastructure where we are using web of things
+
+0:02:51.480,0:02:58.200
+and my idea behind it was okay why are we doing a 
+two abstraction two mapping process first locally
+
+0:02:58.200,0:03:04.840
+and then for the cloud infrastructure so I came 
+up with the idea how would it be to directly map a
+
+0:03:04.840,0:03:13.040
+data model to the web of things and yeah meta was 
+the the best data model to start since it's very
+
+0:03:13.040,0:03:26.160
+popular now um yeah the basic stuff about meta 
+um introduction um first generally uh it's an
+
+0:03:26.160,0:03:33.560
+open standard so the source code is available 
+in the uh GitHub uh it's all a working group
+
+0:03:33.560,0:03:40.840
+of the connectivity standard lines so they 
+are standardizing the uh specification and
+
+0:03:40.840,0:03:47.760
+yeah meta aims for an higher connectivity for 
+I devices in a local domain um even though they
+
+0:03:47.760,0:03:58.320
+are using IPv6 the scope is just local The 
+Meta layer architecture looks like meta is
+
+0:03:58.320,0:04:06.160
+only specifying the layer and uh yeah for a 
+seamless integration into the current local
+
+0:04:06.160,0:04:13.920
+home network mattera uses well-known Network 
+protocols as shown here in this uh diagram you
+
+0:04:13.920,0:04:21.280
+probably will know all of these these names 
+and on top of the different protocols used on
+
+0:04:21.280,0:04:29.760
+the link and media layer meta forms in Virtual 
+Network called fabric yeah so fabric is like
+
+0:04:29.760,0:04:36.160
+like this meta Network we are talking about and 
+uh they are also maybe more than one fabric but
+
+0:04:36.160,0:04:43.320
+it's not important for the data model the 
+data model in general starts with of course
+
+0:04:43.320,0:04:51.080
+the physical device and the first abstraction 
+layer of this phys physical device is uh note
+
+0:04:51.080,0:04:59.840
+a note is yeah an addressable element which 
+has an IPv6 address and a note can uh yeah
+
+0:04:59.840,0:05:09.360
+consist of more than one note so in this case 
+I have shown here two nodes and after the note
+
+0:05:09.360,0:05:16.040
+we have the next abstraction layer which is an 
+endpoint an endpoint implements a device type
+
+0:05:16.040,0:05:22.000
+which is an encapsulation of functionality and 
+it's also the end point of the communication so
+
+0:05:22.000,0:05:26.520
+if you are talking with a with meta device 
+you're always talking with a node and then
+
+0:05:26.520,0:05:33.560
+an endpoint you can maybe think about something 
+like an IP address in a port and in this case you
+
+0:05:33.560,0:05:45.360
+have a note and an endpoint and yeah after the 
+endpoint it contains cluster these cluster are
+
+0:05:45.360,0:05:51.440
+also specified by a cluster specification and 
+they are implementing the uh the functionality
+
+0:05:51.440,0:05:59.640
+um and all of this um is also specified by 
+some requirements from the uh device type
+
+0:06:02.680,0:06:11.760
+The Meta device type represents functionality from 
+a category and uh uh defines cluster requirements
+
+0:06:11.760,0:06:16.520
+these requirements are also needed for the 
+certification process so if you think of an
+
+0:06:16.520,0:06:21.880
+smart plug which is implementing the smart 
+plug device type uh in the certification uh
+
+0:06:21.880,0:06:27.280
+process uh the connectivity standard Alliance 
+can make sure that the device supports all of
+
+0:06:27.280,0:06:33.840
+the Clusters and with that all of the interf 
+cases which are specified and device type
+
+0:06:33.840,0:06:40.880
+has have the scope endpoint or scope node 
+uh I will talk about that in a few slides
+
+0:06:40.880,0:06:45.640
+and in general I have this sentence down 
+there which is a meta device type defines
+
+0:06:45.640,0:06:50.960
+the Clusters that an endpoint must Implement 
+because uh everything is coming down through
+
+0:06:50.960,0:06:58.640
+uh this fact that the device type just defines 
+the cluster which you have to use an example
+
+0:06:58.640,0:07:05.760
+for an device type be dimmable light as shown 
+down there in the table we can see the cluster
+
+0:07:05.760,0:07:11.280
+requirements uh in this case yeah on off 
+level control you can uh think about the
+
+0:07:11.280,0:07:17.240
+functionality which is behind that but just 
+that you have an idea um how this uh could
+
+0:07:17.240,0:07:33.200
+look the um root node device type is yeah Special 
+device type which has the no scope as I said there
+
+0:07:33.200,0:07:39.360
+is the scope endpoint and scope node uh both 
+device types are implemented by an endpoint so
+
+0:07:39.360,0:07:47.320
+that's not the difference the difference is that 
+an device type which uh has the note scope is only
+
+0:07:47.320,0:07:55.120
+implemented once per note so also in this case 
+the end point0 is always the root note and every
+
+0:07:55.120,0:08:03.400
+note has one root note and yeah this is implement 
+M menting yeah basic information clusters are like
+
+0:08:03.400,0:08:09.440
+basic information or general commissioning 
+clusters so really uh yeah information like
+
+0:08:09.440,0:08:16.280
+the manufacturer name the serial number and 
+information you may uh be seeking for like that
+
+0:08:16.280,0:08:24.040
+are implemented in the root node and the root node 
+also contains uh a list with every name or every
+
+0:08:24.040,0:08:30.880
+endpoint which is also implemented uh under the 
+notes so the root notes like the entrance of of a
+
+0:08:30.880,0:08:40.920
+node uh meta cluster implements functionality 
+uh is it it is also specified by a cluster
+
+0:08:40.920,0:08:48.240
+specification and yeah it concludes the 
+characteristics like attribute comment and
+
+0:08:48.240,0:08:56.520
+event but also specified cluster response codes 
+in some cases and examples would be onoff level
+
+0:08:56.520,0:09:03.440
+control color control and door lock and uh this 
+had this has the advantage for an example the
+
+0:09:03.440,0:09:10.840
+onoff cluster which may be used by the smart plug 
+device type and the dimmable light device type and
+
+0:09:10.840,0:09:18.120
+so on so a cluster is reused by different device 
+types and then referred that can support this uh
+
+0:09:18.120,0:09:26.440
+functionality summarizing with an example you 
+can see there on the picture we have a normal
+
+0:09:26.440,0:09:32.520
+light bul with an onoff functionality How would 
+you model this this light bulb first of all of
+
+0:09:32.520,0:09:39.960
+course we have a note which is the first element 
+with an IPv6 address and underneath we have two
+
+0:09:39.960,0:09:47.120
+endpoints one implementing the root node because 
+the root no is always implementing implemented and
+
+0:09:47.120,0:09:54.680
+.0 and after that the .1 which is the onoff 
+light with the functionality the light bub
+
+0:09:54.680,0:10:02.680
+has down there of course we have the cluster 
+requirements from the device type which uh
+
+0:10:02.680,0:10:10.520
+which are implemented uh yeah just a few examples 
+as you can see cluster onoff for the functionality
+
+0:10:10.520,0:10:17.720
+and a general information cluster um on the root 
+node with informations like uh yeah manufacturer
+
+0:10:17.720,0:10:26.800
+serial number little bit more complex is the 
+endpoint composition functionality this is a
+
+0:10:26.800,0:10:35.240
+relation between endpoints uh so an endpoint can 
+refer to another endpoint with a given context
+
+0:10:35.240,0:10:42.160
+uh this leads to more complex device types and 
+allows to be more adaptable for driv use cases
+
+0:10:42.160,0:10:49.960
+an example for an uh composed device type is 
+the refrigerator as you can see in the table the
+
+0:10:49.960,0:10:56.760
+refrigerator contains of at least one temperature 
+controlled cabinet uh you may think okay what is
+
+0:10:56.760,0:11:05.000
+the um advantage of that but uh yeah it's clear 
+if you take a look at this one uh there we can
+
+0:11:05.000,0:11:13.120
+see we have .0 which contains the list of every 
+endpoint uh which is under the node and then we
+
+0:11:13.120,0:11:20.320
+have endpoint one which is the refrigerator 
+and it has it contains a list of the n.1 and
+
+0:11:20.320,0:11:28.320
+n12 these are temperature control cabinet and by 
+looking at the semantic tag which is given here
+
+0:11:28.320,0:11:34.960
+we can see that there are different definitions or 
+contexts of the temperature controlled cabinet so
+
+0:11:34.960,0:11:43.280
+we have one refrigerator and one freezer so it's a 
+separated uh zones of the of the refrigerator and
+
+0:11:43.280,0:11:52.680
+if another manufacturer may have an Zer degre 
+zone or included wine cooler whatever uh it's
+
+0:11:52.680,0:12:00.160
+uh able to module this uh with the data model 
+using the refrigerator uh device type so that's
+
+0:12:00.160,0:12:10.600
+the advantage of of this but import composition 
+also allows things like um meta bridging so um
+
+0:12:10.600,0:12:17.040
+it's a functionality for non-meta devices which 
+can be Bri bridged into a meta fabric allowing
+
+0:12:17.040,0:12:25.800
+old Hardware support or other network protocols 
+uh in this case one physical device acts as an
+
+0:12:25.800,0:12:35.280
+meta Bridge um with the device type aggregator 
+and um the bridge in this case is then referring
+
+0:12:35.280,0:12:43.680
+to other endpoints and every bridge device is then 
+uh yeah mapped to one endpoint which is under the
+
+0:12:43.680,0:12:51.000
+Noe of the aggregator and as we can see here we 
+have an aggregator in n.1 which is referring to
+
+0:12:51.000,0:13:00.560
+n.1 n12 um in this case extended collar lights 
+and uh they are bridged meta devices also uh
+
+0:13:00.560,0:13:07.440
+you can see that n.1 n12 have two device types 
+bridged note so with the hint that the device
+
+0:13:07.440,0:13:13.240
+typ is bridged node we can see okay this is 
+a bridg device and it's not supporting meta
+
+0:13:13.240,0:13:22.160
+native the last thing I want to talk about 
+is the meta AIS control So Meta is defining
+
+0:13:22.160,0:13:29.560
+the axis in three wres so read write and 
+invoke uh for every characteristic it's
+
+0:13:29.560,0:13:36.640
+defined so for the attribute comment and 
+event and besides that we have privileges
+
+0:13:36.640,0:13:44.640
+um shown here operate manage and administer 
+and uh these uh Privileges and access rights
+
+0:13:44.640,0:13:51.000
+also imply each other so if you say okay 
+we have a characteristic like in comment
+
+0:13:51.000,0:13:59.040
+um with the excess right and voke then we 
+need an operate privilege to uh to exit it
+
+0:14:03.160,0:14:09.840
+next on we uh come to the concept so now I 
+will talk about okay we we heard about the
+
+0:14:09.840,0:14:16.920
+characteristics from from meta how it's moduled 
+but how can we can we abstract it to an thing
+
+0:14:16.920,0:14:24.240
+description to to web of things we uh start 
+with creating a thing description in general
+
+0:14:24.240,0:14:30.320
+the first question is okay are we creating a thing 
+description for a note for an endpoint for every
+
+0:14:30.320,0:14:37.960
+cluster um I came up with the idea that the best 
+way to do it is an abstraction for every endpoint
+
+0:14:37.960,0:14:44.760
+we are creating a thing description because this 
+provides a good separation of the functionality
+
+0:14:44.760,0:14:51.520
+and we also have uh two other things which we 
+have to think about the first thing is um that
+
+0:14:51.520,0:14:59.360
+different endpoints of a node um could implement 
+the same device type and uh we then think of one
+
+0:14:59.360,0:15:07.360
+thing description for every note we would have 
+uh naming problems and have used I have to uh
+
+0:15:07.360,0:15:15.880
+use prefix and uh it would also lead to confusing 
+files because they are very long and uh yeah also
+
+0:15:15.880,0:15:22.000
+Bridge meta devices are with this concept uh in 
+one thing description so we have a separation
+
+0:15:22.000,0:15:32.160
+like in the real world uh with different physical 
+devices an example again um for the onoff light
+
+0:15:32.160,0:15:39.520
+we have two endpoints root Noe and onoff light 
+so we are creating uh two thing descriptions for
+
+0:15:39.520,0:15:46.760
+the root note and for the onoff light like this 
+this leads to the loss uh of the belonging to a
+
+0:15:46.760,0:15:52.840
+note so when you have these two thing description 
+uh thing description you can't say that they are
+
+0:15:52.840,0:16:01.480
+both from node one but I also have a solution for 
+that coming up in a few slides because in general
+
+0:16:01.480,0:16:09.800
+the abstraction from uh of the relations uh is a 
+interesting topic we uh heard about three type of
+
+0:16:09.800,0:16:16.800
+relations first thing is the root node which is 
+referring to every Endo next is the aggregator
+
+0:16:16.800,0:16:25.440
+so the meta Bridge um that is referring to their 
+Bridge devices and uh last one is the uh composed
+
+0:16:25.440,0:16:35.240
+device type relation um like the refrigerator um 
+that is referring to um the components um and all
+
+0:16:35.240,0:16:42.080
+of the uh them can be yeah described in the links 
+array of a thing description the only thing which
+
+0:16:42.080,0:16:48.840
+we have to to choose is the relation type um 
+down there you can see the sentence from the
+
+0:16:48.840,0:16:56.680
+uh specification so link context has a relation 
+type resource at link Target so we have to come
+
+0:16:56.680,0:17:05.400
+up with a link relation that is matching for 
+that in general uh in meta the relations are
+
+0:17:05.400,0:17:14.120
+unilateral but in web of things we have to model 
+them belatal um quite simple because if we think
+
+0:17:14.120,0:17:24.000
+of the root note uh which is referring to every 
+other endpoint we can then go in this direction
+
+0:17:24.000,0:17:30.920
+but if we are in an .2 for an example and we 
+want to know the root node we can't go back in
+
+0:17:30.920,0:17:37.840
+in the case of the metadata data model we always 
+know okay UT zero is implementing the root note
+
+0:17:37.840,0:17:45.440
+but um yeah if the thing description have other 
+locations and we can't go back uh because of that
+
+0:17:45.440,0:17:55.160
+we have to model bilateral from the root note to 
+end. one I was using a context extension of the
+
+0:17:55.160,0:18:02.480
+meta specification and they are referring to the 
+element of the parts list attribute and in this
+
+0:18:02.480,0:18:10.200
+case we have the uh relation type which is the 
+part list attribute from meta in combination with
+
+0:18:10.200,0:18:19.960
+the root note we then know okay this is a list 
+um which contains every endpoint of the note in
+
+0:18:19.960,0:18:26.960
+the other direction we can't refer to an element 
+of the meta specification in this case I took a
+
+0:18:26.960,0:18:36.200
+look at the link relation from from yenna and uh 
+I was going for the describe by relation because
+
+0:18:36.200,0:18:42.360
+uh yeah I have the sentence right there refers 
+to a resource providing providing information
+
+0:18:42.360,0:18:48.320
+about the links context which is exactly what 
+the root node is doing so this relation type
+
+0:18:48.320,0:18:56.560
+is perfectly matching for this use case is 
+the aggregator so the meta Bridge which is
+
+0:18:56.560,0:19:03.080
+also referring to to the brid devices in this 
+case same as the root node we are going for a
+
+0:19:03.080,0:19:09.200
+context extension of the meta specification and 
+then referring to the paths list attribute in
+
+0:19:09.200,0:19:16.040
+combination with the device type we then know okay 
+uh this is a list of every uh Bridge note of the
+
+0:19:16.040,0:19:23.560
+aggregator in the other direction it was a 
+little bit harder to find a link relation um
+
+0:19:23.560,0:19:30.440
+yeah Yen has no matching relation type and we 
+also can't refer to the meta specification so
+
+0:19:30.440,0:19:37.520
+I came up with an relation type like aggregator 
+so with that we know that these bridged node
+
+0:19:37.520,0:19:43.840
+has to have one aggregator and yeah this 
+is the link um that is referring to the
+
+0:19:43.840,0:19:53.240
+resource the relation of composed device 
+type we D have an simple composition and
+
+0:19:53.240,0:19:59.400
+there we can also use a link relation from 
+yenna collection and item um there was an
+
+0:19:59.400,0:20:06.080
+example I think with electric Drive in the 
+thing description specification example 29
+
+0:20:06.080,0:20:12.800
+and 30 and yeah this is exactly what this 
+relation is so we can use the link relation
+
+0:20:12.800,0:20:20.600
+in in this case conclusion of the metha 
+relation relations are that we have to
+
+0:20:20.600,0:20:27.320
+model them bilateral and we are using the 
+links array and using relation type types
+
+0:20:27.320,0:20:33.960
+as described in this table right here where I 
+have summarized what I talked about in the last
+
+0:20:33.960,0:20:44.040
+minutes the access control of meta can also be 
+described uh of course when we are describing
+
+0:20:44.040,0:20:50.240
+properties we can make you use of the read 
+only and write only attribute besides that
+
+0:20:50.240,0:20:57.520
+I took a look at the o two uh security 
+scheme and I thought of maybe defining a
+
+0:20:57.520,0:21:04.400
+meta security scheme scheme um which defines 
+Scopes and we can then use the Scopes uh for
+
+0:21:04.400,0:21:12.760
+the Privileges which are defined by meta and 
+uh yeah Define them in the forms array as we
+
+0:21:12.760,0:21:20.760
+can see here in this example we have an onoff 
+toggle um comment from meta and we are using a
+
+0:21:20.760,0:21:28.520
+scope or defining a scope for the privilege um 
+that is needed to to invoke this this action
+
+0:21:32.960,0:21:40.600
+then we have yeah now abstracted the general 
+model of of meta into an thing description
+
+0:21:40.600,0:21:47.840
+the uh last big part that is needed is 
+the characteristic from the uh cluster
+
+0:21:47.840,0:21:55.160
+so we have attribute comments and events uh 
+quite easy attributes will be abstracted to
+
+0:21:55.160,0:22:04.680
+properties comments to actions and events will 
+be events same name and uh General we can have
+
+0:22:04.680,0:22:12.240
+the naming with a prefix of the cluster name and 
+after that the name of the characteristic we can
+
+0:22:12.240,0:22:19.680
+make use of the additional response attribute 
+of the thing description to uh Define cluster
+
+0:22:19.680,0:22:28.520
+specific response codes and as I said in the 
+security case we can Define these scope for the
+
+0:22:28.520,0:22:37.760
+privilege the attribute extraction uh yeah 
+we use the right uh readon and write only
+
+0:22:37.760,0:22:42.920
+attribute the observable attribute 
+is always a false since mattera is
+
+0:22:42.920,0:22:49.200
+implementing a pool communication and 
+the uh operate attribute of the form
+
+0:22:49.200,0:22:58.440
+has to be read property um here's an 
+example simple one just that you have
+
+0:23:01.280,0:23:07.920
+have an example how this could look we see they 
+observable as false read only right only set for
+
+0:23:07.920,0:23:16.280
+the um xes that we have we have here the uh 
+first of all the cluster name and then the uh
+
+0:23:16.280,0:23:25.440
+in this case attribute name and yeah same goes 
+for the comments um the synchronous attribute
+
+0:23:25.440,0:23:33.160
+is uh always true because the calling is taking 
+place synchronously we can use the input field to
+
+0:23:33.160,0:23:39.640
+describe the input we have to um provide for 
+invoking the action the operate attribute is
+
+0:23:39.640,0:23:48.840
+invoke action and the uh Ed poent attribute has 
+to be chosen for every comment itself depending
+
+0:23:48.840,0:23:59.600
+on if it's uh Ed poent here's another ex example 
+um yeah looks a little bit like the attribute
+
+0:23:59.600,0:24:08.040
+one events are a little bit harder the only 
+thing that is changing for every cluster is
+
+0:24:08.040,0:24:15.560
+the data that is returned in the data field 
+besides that we have to model the event life
+
+0:24:15.560,0:24:22.400
+cycle of meta we can describe that with the 
+subscription data response and cancellation
+
+0:24:22.400,0:24:31.080
+attribute and yeah in general um this leads to a 
+really long description because of that I have no
+
+0:24:31.080,0:24:38.520
+uh example provided here but uh yeah the only 
+attribute which is changing is the is the data
+
+0:24:38.520,0:24:47.640
+attribute besides the general abstraction 
+we can also Define the the context with
+
+0:24:47.640,0:24:57.280
+the type attribute we can there make use of 
+the XML specification of of meta and we can
+
+0:24:57.280,0:25:05.840
+also Define the uh description attribute in a 
+human readable readable way for that we can copy
+
+0:25:05.840,0:25:13.480
+the definition from The Meta specification 
+here's an example uh we can see there that
+
+0:25:13.480,0:25:20.880
+we have here the context extension of the XML 
+specification of the cluster and here we have
+
+0:25:20.880,0:25:28.520
+the element ID of the uh matching comment in 
+this case because because it's an action and
+
+0:25:28.520,0:25:35.440
+besides that we have here in the description 
+attribute in a human readable way uh the
+
+0:25:35.440,0:25:42.520
+definition from The Meta specification which can 
+be provided here and gives um a little bit more
+
+0:25:42.520,0:25:53.960
+information the next thing I want to talk about 
+is a protocol binding so in the end uh protocal
+
+0:25:53.960,0:26:02.160
+binding provides every information that we need 
+to uh yeah make a request in the specified in the
+
+0:26:02.160,0:26:09.760
+specified protocol in this case I was looking at 
+the commment line tool of meta the chip tool and
+
+0:26:09.760,0:26:15.040
+I I took a look at what information do we need 
+and I came up with this four information we need
+
+0:26:15.040,0:26:21.160
+the cluster name the interaction affordance 
+name or characteristic name the note ID and
+
+0:26:21.160,0:26:29.440
+the endpoint ID so these are the four information 
+that we uh in every case need and and if we then
+
+0:26:29.440,0:26:38.320
+take a look at an example of a read request 
+with the chip tool we can then yeah translate
+
+0:26:38.320,0:26:48.520
+it to an H attribute and an kind of URL format 
+using first of all the meta prefix and then in a
+
+0:26:48.520,0:26:53.840
+little bit different order the information that 
+are needed um this could be an adri attribute
+
+0:26:53.840,0:27:01.240
+of an form object and is providing all of the 
+information we we then need to make a request
+
+0:27:01.240,0:27:10.400
+with the commment line tool um of meta same 
+goes for the invoke and the subscription uh
+
+0:27:10.400,0:27:16.680
+only difference is there that we have parameters 
+that are defined uh in this case I was going for
+
+0:27:16.680,0:27:28.240
+an yeah um uh definition like that so this could 
+be a way to describe an atra attribute with a meta
+
+0:27:28.240,0:27:40.640
+protocol last uh point of the concept is the 
+use of thing models so in general I think as
+
+0:27:40.640,0:27:49.440
+meta is yeah in general in construction kit Z 
+meta is providing specifications for clusters
+
+0:27:49.440,0:27:56.800
+and for device types but in the end it is uh 
+once defined and reused by a lot of devices
+
+0:27:56.800,0:28:04.240
+so we can make use of the thing model TM 
+sub model and TM extend function uh as I
+
+0:28:04.240,0:28:10.400
+said for the cluster specification and device 
+type but also for the event life cycle and the
+
+0:28:10.400,0:28:21.040
+status codes defined by meta and yeah in general 
+I think a library of the meta specification with
+
+0:28:21.040,0:28:27.560
+thing model so library of thing models that 
+are describing the meta spe specification can
+
+0:28:27.560,0:28:36.760
+then be used used to uh yeah Define every uh thing 
+description so yeah would be good to uh use this
+
+0:28:36.760,0:28:47.840
+dysfunctionality that's um the end of the concept 
+uh in the next uh topic I want to talk about my
+
+0:28:47.840,0:28:58.120
+implementation it was uh kind of proof of concept 
+of what I did in first implementation I was using
+
+0:28:58.120,0:29:05.560
+using the node web of things library with 
+typescript maybe a few of you uh read my
+
+0:29:05.560,0:29:11.440
+messages in the Discord when I had questions 
+about the the library uh yeah it was a first
+
+0:29:11.440,0:29:18.640
+implementation of the concept and I was focusing 
+on the extended color light device type because I
+
+0:29:18.640,0:29:26.040
+had to use one device type it would be too much to 
+to implement more than that and I also implemented
+
+0:29:26.040,0:29:33.560
+a simple Discovery where I was uh first stepping 
+through every noes and then inside the note I was
+
+0:29:33.560,0:29:38.960
+stepping through the endpoint taking a look 
+at the implemented device type checking if
+
+0:29:38.960,0:29:45.520
+it's the device type that I'm implementing that 
+I implemented the extended color light and uh if
+
+0:29:45.520,0:29:51.560
+it was an extended color light I was creating 
+a thing description for that and uh in the end
+
+0:29:51.560,0:30:00.120
+I has had a restful interface that I was able 
+to call with the um HTTP uh protocol and yeah
+
+0:30:00.120,0:30:08.280
+we're able to to read invoke and and everything I 
+have a short demo video um after the slide um the
+
+0:30:08.280,0:30:14.600
+implementation was on top of the Telecom meta 
+controller so was calling the interface from
+
+0:30:14.600,0:30:22.760
+from our implementation uh yeah besides that the 
+implementation can be reused um it's in my GitHub
+
+0:30:22.760,0:30:29.240
+profile um you can take a look at it and maybe 
+get an idea what I did uh you won't be able to
+
+0:30:29.240,0:30:36.640
+use it because as I said uh you I was using the 
+uh Telecom meta controller but uh yeah it's easy
+
+0:30:36.640,0:30:46.440
+to adapt if you have other implementation of the 
+of the controller here I have a short demo video
+
+0:30:46.440,0:30:55.480
+uh I don't want to show the whole video it was 
+just to get an an idea uh how it it looks as you
+
+0:30:55.480,0:31:04.800
+can see there I have a normal route and can do 
+a get request and getting a thing description
+
+0:31:04.800,0:31:13.560
+and uh this thing description contains here um 
+every characteristic with the uh yeah with the
+
+0:31:13.560,0:31:22.040
+cluster prefix and then the um the comment I 
+think attribute in this case and I was also
+
+0:31:22.040,0:31:30.160
+able [Music] to then with this abstraction 
+um invoke comments like toggle in this case
+
+0:31:30.160,0:31:38.000
+here toggle the the LED and I think I'm 
+also changing the brightness and also
+
+0:31:38.000,0:31:47.160
+the color so as you can see it's a normal 
+restful um interface that I'm using and
+
+0:31:47.160,0:31:57.880
+yeah that's the end of my my presentation 
+I'm now open for questions thanks everyone
+
+0:31:57.880,0:32:13.080
+for

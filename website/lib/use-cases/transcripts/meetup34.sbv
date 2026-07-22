@@ -1,0 +1,703 @@
+0:00:08.400,0:00:14.240
+So without further ado, it's my pleasure to 
+introduce you Evo Eurola. Uh is a lead engineer
+
+0:00:14.240,0:00:19.280
+at prois OPC working in the customer support 
+and integration with a strong focus on IT and OT
+
+0:00:19.280,0:00:24.560
+integration solution. He specialized in process 
+force application helping customer modernize
+
+0:00:24.560,0:00:30.640
+existing system and and design scalable future 
+proof architecture together within the yonyi arrow
+
+0:00:30.640,0:00:36.320
+uh is the CTO of process opc and leads opca 
+product development as the chief architect
+
+0:00:36.320,0:00:42.080
+of pro opca products uh he has deep expertise 
+in interoperable and future proof industrial
+
+0:00:42.080,0:00:49.680
+connectivity and is a long-standing contributor 
+to the opcua ecosystem through the opcu foundation
+
+0:00:49.680,0:00:57.600
+working groups. and technical advisor concept. 
+So um uni and he uh the floor is yours. Okay.
+
+0:00:57.600,0:01:08.640
+Yeah. So uh we are from process OPC and uh in 
+this uh presentation uh you will be showing how
+
+0:01:08.640,0:01:22.480
+uh you can utilize this web of things device on 
+boarding using our application process forge and
+
+0:01:22.480,0:01:30.960
+uh I will start with short company intro. So if 
+there's someone uh that doesn't know proc which
+
+0:01:30.960,0:01:37.760
+is not like yeah so we go through quickly 
+the company intro uh then I will jump into
+
+0:01:37.760,0:01:47.920
+the demonstration itself uh I will do that in a 
+perspective of uh end user so I'm not going to
+
+0:01:47.920,0:01:55.920
+uh go into detail what kind of uh stuff you 
+have in the thing description or uh kind of
+
+0:01:55.920,0:02:07.120
+uh study the the technology itself but rather uh 
+give an example how an end user would would uh
+
+0:02:07.120,0:02:19.360
+use this concept. uh I will give you a live demo 
+of uh on boarding a seaman's uh power meter and
+
+0:02:19.360,0:02:28.080
+uh in the end of the presentation we are going to 
+give a short uh uh demonstration of other features
+
+0:02:28.080,0:02:37.680
+that forge has since web of things is just one 
+part of of the product. Uh so my name is Eva Ula.
+
+0:02:37.680,0:02:45.600
+Uh I'm master of uh science from Alder University 
+uh as mentioned lead engineer at process OPC and
+
+0:02:45.600,0:02:54.480
+uh working on customer support and integration uh 
+mainly uh regarding uh process forge application
+
+0:02:54.480,0:03:03.280
+and I also I'm joined here with the yonyi arrow 
+our CTO. Would you like to say a few words? Yeah.
+
+0:03:03.280,0:03:10.240
+So I'm Yonyi. I've uh I've worked at process 
+uh actually at the moment 30 years. So I joined
+
+0:03:10.240,0:03:18.000
+already 1996. The company was established 95. So 
+I'm still a newcomer in that sense. But uh I've
+
+0:03:18.000,0:03:23.680
+been uh responsible of the uh of the product 
+development here and we started working on OPC
+
+0:03:23.680,0:03:31.200
+uh technology very early on and then worked on 
+uh on building components uh for uh different
+
+0:03:31.200,0:03:37.040
+programming environments and Java became the 
+main main platform and and now we also have this
+
+0:03:37.040,0:03:45.360
+uh end user applications that you will explain 
+shortly. that my my responsibility is is to uh
+
+0:03:45.360,0:03:52.640
+run the developer team here and and I'm also very 
+active at the obvious foundation working groups as
+
+0:03:52.640,0:04:00.480
+uh uh as the representative of of the company 
+for example I I was involved in the web of
+
+0:04:00.480,0:04:08.240
+things connectivity working group that that was 
+defining how a web of things maps uh to a PCA
+
+0:04:11.600,0:04:18.080
+Okay. Yeah, thank you. So, basically that 
+covers quite well also the company slide.
+
+0:04:18.080,0:04:28.720
+So we are global experts on OPCU solutions 
+overall also on IT integrations and uh giving
+
+0:04:28.720,0:04:39.200
+a lot of focus on industrial security too also we 
+are active members of uh these organizations. So
+
+0:04:39.200,0:04:48.640
+we are not just developing our own products but 
+also giving our uh knowledge for the uh community
+
+0:04:48.640,0:05:01.200
+to develop better standards and such and uh yeah 
+overall global business that we do. uh product
+
+0:05:01.200,0:05:11.840
+family includes develop developer developer 
+tools like Java SDK and uh central SDK for Deli.
+
+0:05:11.840,0:05:23.120
+uh now also this uh production uh software like 
+Forge but also uh simulation and testing tools
+
+0:05:23.120,0:05:32.640
+like simulation server basic OPC UI server that 
+you can use for uh testing uh demonstration and
+
+0:05:32.640,0:05:41.440
+learning purposes for example and also uh browser 
+which is a generic OPCI client that I'm going
+
+0:05:41.440,0:05:54.320
+to also use in this demonstration uh uh for some 
+some part and uh but main focus will be on forge
+
+0:05:54.320,0:06:03.840
+uh few or just one slide just uh to 
+gather the focus for this presentation. So
+
+0:06:03.840,0:06:14.000
+uh I will have this Modbus device Simmons 
+power meter and basically for the basic
+
+0:06:14.000,0:06:20.640
+integration I would need this manual 
+work to understand the registers read
+
+0:06:20.640,0:06:27.840
+them from Excel file or something then do 
+the custom integration to forge and this
+
+0:06:27.840,0:06:34.400
+would mean a lot of custom engineering 
+and slow deployment. ment but with this
+
+0:06:34.400,0:06:43.760
+uh vote uh I don't need to get into the excel 
+files and understand all the registers but rather
+
+0:06:43.760,0:06:57.040
+let the devices and machines understand each other 
+and configure the interface uh automatically.
+
+0:06:57.040,0:07:04.400
+So um yeah I can already tell that with this 
+demonstration I can see that how this helps
+
+0:07:04.400,0:07:14.480
+with the scaling the integration work for 
+much faster deployment. Uh the demonstration
+
+0:07:14.480,0:07:22.240
+will have the following components. So this 
+seaman's power monitoring device that uh is
+
+0:07:22.240,0:07:31.360
+the data source basically and we have received 
+this uh web of things thing description from the
+
+0:07:31.360,0:07:41.040
+uh vendor so I haven't touched that at all myself 
+basically then forge which will be the integration
+
+0:07:41.040,0:07:52.560
+platform where we uh write the thing description 
+in and then we are not just going to use
+
+0:07:52.560,0:08:02.800
+uh the structure coming from the uh web of things 
+but also we are going to demonstrate how to even
+
+0:08:02.800,0:08:14.160
+enrich the metadata by implementing OPCU company 
+specifications on top of the web of things.
+
+0:08:14.160,0:08:26.080
+uh then I will use browser uh to show the 
+values and data of forge and then you will
+
+0:08:26.080,0:08:34.560
+well the influx DP won't be too much present 
+but that is used to history buffering the data
+
+0:08:34.560,0:08:46.640
+and finally graphana is our uh tool to kind 
+of present the data in the dashboard board.
+
+0:08:46.640,0:08:56.000
+Um this setup will be running on containerized 
+environment. Um I have the SMS device here in
+
+0:08:56.000,0:09:05.280
+local network and also I have a connection 
+to a public internet so that I can access
+
+0:09:05.280,0:09:16.400
+uh this cloud library which is a opcua thing 
+that I will demonstrate on the live demo
+
+0:09:16.400,0:09:24.000
+and in a picture it looks like this. So we start 
+from the bottom where we have the SIMs device with
+
+0:09:24.000,0:09:31.440
+thing description. We are able to write that into 
+the forge which makes the data available. We will
+
+0:09:31.440,0:09:37.760
+be storing that to influx just to be able 
+to have the historical access for the data.
+
+0:09:37.760,0:09:47.280
+uh then we are going to create the mapping of 
+the data into this energy consumption management
+
+0:09:47.280,0:09:55.440
+information model that we are going to receive 
+from cloud library. And finally we are going to
+
+0:09:55.440,0:10:06.080
+uh present the data on Grafana 
+where we have a connector to forge
+
+0:10:06.080,0:10:13.840
+and yeah well the key points of of this 
+presentation are that the uh the on boarding
+
+0:10:13.840,0:10:21.840
+of the device will be very fast and also 
+when we use the OPCUA company specification
+
+0:10:22.720,0:10:31.760
+we can add the value for further integrations.
+
+0:10:31.760,0:10:43.440
+Okay. So uh now I jump to the live demonstration. 
+Uh this is now graphana uh dashboard graphana user
+
+0:10:43.440,0:10:51.760
+interface. And here we have now the data. So I 
+will first show the end result that we have and
+
+0:10:51.760,0:10:57.760
+then we are going to jump to the beginning 
+how to do it and in a sense if we look this
+
+0:10:57.760,0:11:06.480
+yeah it's nothing too special like people have had 
+dashboards all the time and basically this is not
+
+0:11:06.480,0:11:14.480
+the fancy part of it but how we can get to this 
+point how much does it need engineering work and
+
+0:11:14.480,0:11:26.320
+all that will be the key point. But before jumping 
+to the beginning, I will also give you a short
+
+0:11:26.320,0:11:36.160
+idea of why the information models will be useful 
+to have and why the context is nowadays extremely
+
+0:11:36.160,0:11:46.880
+important. Uh this window that I opened here is a 
+cloud desktop and uh what's special here is that
+
+0:11:46.880,0:11:54.240
+uh we released a new version of forge today and 
+in that we have a MCP server available. So I have
+
+0:11:54.240,0:12:02.880
+connected this cloud uh cloud desktop to forge 
+and if we start looking my prompts that I did
+
+0:12:02.880,0:12:14.080
+this morning we can see that I am able to just 
+request energy related name spaces. Yeah it can
+
+0:12:14.080,0:12:22.800
+find it. I can even just request energy related 
+devices. And if we take a look to the answer,
+
+0:12:22.800,0:12:34.800
+we can see that it can recognize the uh device. 
+It can even recognize that it's actually
+
+0:12:34.800,0:12:44.160
+uh following a OPCA standard. it finds the 
+different measurements and uh yeah so with this
+
+0:12:44.160,0:12:54.480
+context I am able to also make the AI understand 
+the data without uh teaching it any further
+
+0:12:54.480,0:13:03.600
+and uh the magic happens in this application 
+process forge that I have running right here and
+
+0:13:03.600,0:13:16.800
+uh yeah at this point I I will now reset my whole 
+configuration so we can start from the beginning.
+
+0:13:16.800,0:13:21.040
+Just like that.
+
+0:13:21.040,0:13:30.400
+Um first a short intro to Forge. We have a use 
+a web user interface. So I'm using Firefox to
+
+0:13:30.400,0:13:37.520
+configure Forge. main navigation bar up here 
+that you can change the different modules in
+
+0:13:37.520,0:13:45.840
+forge. Uh we have just one installation material 
+that includes all the different features that we
+
+0:13:45.840,0:13:54.080
+have available. So it's a long list already 
+and you can control the installations and the
+
+0:13:54.080,0:14:00.000
+different modules by license. So you don't need 
+to purchase the whole forge, but you can just
+
+0:14:00.000,0:14:06.000
+uh pick whatever features you would like to 
+have and then use the same installation. If
+
+0:14:06.000,0:14:13.920
+you want to upgrade Forge, get a new license and 
+no need to install uh different uh components or
+
+0:14:13.920,0:14:24.160
+add-ons to Forge. But to start the demonstration 
+itself, I will look into the VOT module which
+
+0:14:24.160,0:14:34.640
+I start up now. So we have VT model running. 
+Then I will jump into the OBCI client called
+
+0:14:34.640,0:14:45.920
+browser. I have connection to forge and here 
+we can do the uh web of things on boarding.
+
+0:14:47.840,0:14:55.760
+So as defined in the specs, we 
+first need to create the asset.
+
+0:14:55.760,0:15:04.720
+Let's call this Simmons 
+energy meter one and call it.
+
+0:15:04.720,0:15:14.080
+And now we have created a new asset. Next 
+thing is that we need to do is to write the
+
+0:15:14.080,0:15:24.160
+thing description. and I have received 
+it from CMS. It's right here opened and
+
+0:15:24.160,0:15:33.200
+uh uh I don't need to understand much from this 
+as an end user. Only thing basically what I need
+
+0:15:33.200,0:15:39.920
+to do is to check that the connection 
+parameter IP address is correct and I
+
+0:15:39.920,0:15:51.760
+have changed it here and that's now correct. 
+So I can just select the file and say write
+
+0:15:51.760,0:16:02.880
+file just like that. Refresh this device and 
+boom we have the whole whole device now on
+
+0:16:02.880,0:16:17.840
+boarded to forge to UI. We can see there is a 
+measurements coming through. Let's see if that
+
+0:16:17.840,0:16:25.600
+so data is flowing to forge and basically 
+this is already the vote on boarding part.
+
+0:16:25.600,0:16:38.160
+So extremely fast to get data out of it and the 
+the great benefit can be seen right here. So in
+
+0:16:38.160,0:16:46.560
+left panel in the in the structure we can see that 
+this is kind of understandable I means current. So
+
+0:16:46.560,0:16:53.520
+I guess these are different phase uh like currents 
+that we have but if I would need to do it from the
+
+0:16:53.520,0:17:00.560
+mod bus registers I wouldn't understand at all 
+where they are and how to handle. So yeah, but
+
+0:17:00.560,0:17:12.480
+we don't leave the modeling part only to this but 
+we are going to make it even further with forge.
+
+0:17:13.440,0:17:23.360
+So next uh I want to use these OP 
+standard OPCUA models. And what
+
+0:17:23.360,0:17:40.480
+I do I select the model that let me 
+just quickly hide this for a while.
+
+0:17:40.480,0:17:45.360
+So I will
+
+0:17:45.360,0:17:53.040
+select this one. Yeah. And now we get 
+to the cloud library part. So I can
+
+0:17:53.040,0:18:01.600
+see that this information model says that 
+it's also dependent on another model. But
+
+0:18:01.600,0:18:07.680
+because we have the access to the public 
+internet, I'm able to access this cloud
+
+0:18:07.680,0:18:14.560
+library hosting all the other standard 
+models. So now I can just click load,
+
+0:18:14.560,0:18:22.720
+confirm, and it doesn't just load the file that 
+I wanted, but also all the dependencies if they
+
+0:18:22.720,0:18:34.320
+are available in the cloud library. So now we have 
+the models forge. We can continue to create some
+
+0:18:34.320,0:18:38.400
+instances for
+
+0:18:38.400,0:18:41.680
+for our device. So basically what I would
+
+0:18:41.680,0:18:50.880
+do I want to have few folders 
+just to create some structure.
+
+0:18:50.880,0:18:58.320
+Let's create under other folder.
+
+0:18:58.320,0:19:04.960
+So kind of a ISA 95 style structure. 
+And underneath that now we want to
+
+0:19:04.960,0:19:20.080
+have an energy meter. So I'll use my 
+energy measurement type. Let's say
+
+0:19:20.080,0:19:27.680
+and just like that we have created 
+a standard object following the OPCA
+
+0:19:27.680,0:19:33.520
+information model having the different 
+energy measurement variables available
+
+0:19:33.520,0:19:41.200
+here. And next we need to connect 
+now the data into this model. That's
+
+0:19:41.200,0:19:53.040
+done by mapping. So I need to do a 
+structure uh structure mapping where
+
+0:19:53.040,0:20:03.040
+we connect the different phases 
+into the seams energy meter.
+
+0:20:10.160,0:20:24.240
+Same thing for the L2. I will show this 
+later for you. And same thing for L3.
+
+0:20:27.440,0:20:33.600
+So if we take a look from the 
+client side, we see our folders,
+
+0:20:33.600,0:21:02.640
+we see the device and we have our variable 
+right here. Missing some parameter of course.
+
+0:21:02.640,0:21:11.920
+Yeah, there we have it. So that's the 
+current P having the measurements in it
+
+0:21:11.920,0:21:20.800
+now from the what device and this 
+way we can now also contextualize
+
+0:21:20.800,0:21:41.520
+the BT data into UA standard model. And 
+not only we are able to do that, but um
+
+0:21:41.520,0:21:52.560
+in forge you can also get to create uh 
+how to say additional enhanced data by
+
+0:21:52.560,0:22:02.400
+expressions. So for example, this active power 
+is not just a one-on-one mapping, but it it's
+
+0:22:02.400,0:22:13.680
+uh calculation of of the different variables. So 
+we can still create this by combining the data.
+
+0:22:13.680,0:22:24.800
+So I need to have the voltage data. And all 
+this mapping can be done quite easily since
+
+0:22:24.800,0:22:39.120
+the data is in understandable format. 
+And then we need uh the current. So this
+
+0:22:39.120,0:22:48.880
+and finally we need the power factor 
+to finish this uh calculation.
+
+0:22:55.760,0:23:04.640
+And then if we look the data through 
+this we did it on the active and
+
+0:23:04.640,0:23:18.240
+uh let's put it here if we are able. Oh.
+
+0:23:18.240,0:23:26.000
+So we are not only doing one-on-one mapping from 
+the V description to the company specification
+
+0:23:26.000,0:23:38.160
+but we can also use expressions to uh get uh 
+more kind of a data enhance the data. But uh
+
+0:23:38.160,0:23:48.320
+without going further with these configurations, 
+I will now take my restore my backup to kind of
+
+0:23:48.320,0:23:59.280
+uh finish the configuration. So I 
+will restore my backup from here.
+
+0:23:59.280,0:24:05.840
+Needs restart.
+
+0:24:05.840,0:24:19.760
+Great. And uh what we have now here additionally 
+is that we have enabled history module that
+
+0:24:19.760,0:24:27.440
+we can historiize the measurements. So this 
+configuration just needs uh influx DP to be
+
+0:24:27.440,0:24:36.560
+running and then some information from your influx 
+and then create collector with items. So you just
+
+0:24:36.560,0:24:48.880
+say that okay historiize this variable and you 
+will have it in the history and uh yeah so now
+
+0:24:48.880,0:24:59.920
+we have created the the complete mapping from the 
+or on boarding. So we have the modbus device on
+
+0:24:59.920,0:25:09.760
+boarded and also mapped to the understandable data 
+so that uh it's now easy to understand with the
+
+0:25:09.760,0:25:21.040
+tag names having the metadata type definitions 
+and such. Uh yeah and finally I think I will
+
+0:25:21.040,0:25:44.320
+restart my cloud and see whether we can have a 
+short analysis of of the energy measurements.
+
+0:26:02.000,0:26:11.920
+So with the new MCP server, cloud is able 
+to do historical reads and also browse nodes
+
+0:26:11.920,0:26:18.320
+uh get the data out of it. And when we 
+have done the modeling in forge with
+
+0:26:18.320,0:26:25.680
+uh using the different information models having 
+the uh bot description, it will also understand
+
+0:26:25.680,0:26:40.080
+the context of the different variables and it can 
+give you then uh analysis of of uh of the values.
+
+0:26:47.520,0:26:55.200
+So now we can see that it's starting gather stuff. 
+But basically yeah that's the live part of of the
+
+0:26:55.200,0:27:06.800
+planned presentation and uh then I will jump 
+back to the slides just to quickly go through
+
+0:27:06.800,0:27:17.920
+what else we have in forge because it's not just 
+a VOT platform but uh oh in in Forge we have
+
+0:27:17.920,0:27:25.520
+uh if we start from the southbound we We have 
+different connectors in forge so that you can
+
+0:27:25.520,0:27:35.680
+uh get data from various of sources including OT 
+devices such as Modbus, specs but also you can
+
+0:27:35.680,0:27:45.520
+connect forge to SQL databases to query data. 
+You can read data from files. uh with MQTT you
+
+0:27:45.520,0:27:54.640
+can subscribe data into forge and uh then when 
+you have this data available it will be in OPCUA
+
+0:27:54.640,0:28:04.480
+server always. So we are not uh kind of a vendor 
+locking you when you get data into forge that you
+
+0:28:04.480,0:28:13.840
+need to use only our pro uh protocol proprietary 
+pro protocol but you can still use any UA client
+
+0:28:13.840,0:28:24.320
+to access the data and do the modeling in in these 
+uh global standards. Uh in forge you can then also
+
+0:28:24.320,0:28:34.000
+handle the data like do the different expressions 
+to have additional data uh complete your device
+
+0:28:34.000,0:28:42.480
+uh descriptions with static mappings like tag 
+names and such. And on the northbound uh you have
+
+0:28:42.480,0:28:56.240
+uh multiple interfaces like the MQTT F nowadays 
+MCP OPC that pops up to deliver the data further.
+
+0:28:56.240,0:29:08.640
+Um yeah, so that's basically 
+uh my presentation and uh yeah.

@@ -5,13 +5,15 @@ import { Route } from 'next';
 
 export function PageLayout({
   title,
-  banner,
   subtitle,
+  chip,
   breadcrumbs,
+  banner,
   children,
 }: PropsWithChildren<{
   title: string;
   subtitle: ReactNode;
+  chip?: ReactNode;
   banner?: ReactNode;
   breadcrumbs?: { startingPath: Route };
 }>) {
@@ -21,7 +23,10 @@ export function PageLayout({
         <Stack gap={1.5}>
           {breadcrumbs && <NavBreadcrumbs startingPath={breadcrumbs.startingPath} currentPageTitle={title} />}
           <Stack gap={0.5}>
-            <Typography level="h1">{title}</Typography>
+            <Stack direction="row" gap={2} alignItems="center">
+              <Typography level="h1">{title}</Typography>
+              {chip}
+            </Stack>
             <Typography level="title-md">{subtitle}</Typography>
           </Stack>
           {banner && <Box mt={1}>{banner}</Box>}

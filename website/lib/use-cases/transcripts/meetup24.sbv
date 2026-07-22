@@ -1,0 +1,902 @@
+0:00:07.360,0:00:12.360
+so as a pleasure to me to introduce you 
+fed salaman Roman Bard fed is a resarch
+
+0:00:12.360,0:00:17.840
+associate in the profession of the embeded 
+system and iot at tum he began his research
+
+0:00:17.840,0:00:22.040
+journey by explorative Innovative approaches 
+to integrating the web of things with complex
+
+0:00:22.040,0:00:26.400
+cyber and physical systems and Roman is 
+a resarch associate at the same research
+
+0:00:26.400,0:00:31.120
+group as paty he's interested in the web of 
+things and how to apply it to manufacturing
+
+0:00:31.120,0:00:36.960
+so without further Ado fedie and Roman 
+the floor is yours so our topic today
+
+0:00:36.960,0:00:48.720
+is how we used the web of things to build up 
+immersive mixed reality applications so um next
+
+0:00:48.720,0:01:00.760
+slides yeah so the mo our motivation is yeah 
+basically normally when you have iot for example
+
+0:01:00.760,0:01:08.520
+in smart home you use your mobile phone to to 
+access your devices to see how to how what is
+
+0:01:08.520,0:01:16.360
+their status how you can interact with them and 
+so on and that is nice but if you look for example
+
+0:01:16.360,0:01:24.680
+into in in the industry for example this is not 
+as easy if you have a robot arm for example in
+
+0:01:24.680,0:01:34.760
+front of you usually these robot arms don't have 
+a nice interface inside them and you don't you
+
+0:01:34.760,0:01:42.440
+you can of course use your laptop your tablet to 
+maybe view the information about the device but
+
+0:01:42.440,0:01:51.640
+it is yeah not as easy and not as immersive 
+as having augmenting your eyes to be able
+
+0:01:51.640,0:02:00.200
+to communicate and interact with the device and 
+you can even go further and if you like in a in
+
+0:02:00.200,0:02:06.600
+in in a factory it's easy to have like devices 
+but maybe you are on the field in agricultural
+
+0:02:06.600,0:02:13.520
+scenario where it's basically you have sensors 
+that are distributed and you don't have any
+
+0:02:13.520,0:02:19.880
+way of communicating with them um or interacting 
+with them or even initiating them because there's
+
+0:02:19.880,0:02:26.240
+nothing other other than your devices that you 
+have on with you and of course you can do that
+
+0:02:26.240,0:02:37.360
+with a with um a phone or a mobile or a tablet but 
+having augmenting your how you see the devices is
+
+0:02:37.360,0:02:47.720
+our goal so to sum it up our problem statement is 
+basically across all these different domains uh
+
+0:02:47.720,0:02:57.560
+in agricultural smart home or smart factories you 
+don't have this one immersive XR application that
+
+0:02:57.560,0:03:08.240
+allows you to interact with any any kind of device 
+that you have in front of you and this laack is
+
+0:03:08.240,0:03:16.600
+basically because of course there is a such a huge 
+fragmentation in the it environment that you would
+
+0:03:16.600,0:03:23.600
+basically need for for every group of devices 
+you would need your own uh implementation and
+
+0:03:23.600,0:03:35.000
+how to connect your immersive de application to 
+that device so to discuss then our approach or we
+
+0:03:35.000,0:03:44.160
+wanted to implement an mixed reality application 
+called holot which is immersive seamless so
+
+0:03:44.160,0:03:53.360
+there's no like there's as little clicks needed as 
+possible to be able to interact with your device
+
+0:03:53.360,0:04:02.600
+it is uh our aim was to have it crossplatform 
+compatible so on top of for example open XR to
+
+0:04:02.600,0:04:12.960
+allow the use basically with any kind of mixed 
+reality headset and the idea is that you would
+
+0:04:12.960,0:04:21.800
+basically you have your um mixer headset which 
+scans for example a QR code that QR code points
+
+0:04:21.800,0:04:29.720
+to the thing description describing the device 
+that you are that you want to interact with and
+
+0:04:30.600,0:04:38.600
+that device and that uh think description is 
+then able to be used to dynamically generate
+
+0:04:38.600,0:04:47.400
+some kind of UI uh that you can see in front of 
+you inside the device that you can use to um to
+
+0:04:47.400,0:04:56.120
+interact with the device read its status or invoke 
+some actions that it can do and that you wanted to
+
+0:04:56.120,0:05:03.640
+make sure that there's no need for an intermediary 
+or anything like that so there is no Cloud needed
+
+0:05:03.640,0:05:08.680
+of course you can still access devices even if 
+they are in the cloud because there of things
+
+0:05:08.680,0:05:18.240
+allows for that but uh you like in our application 
+is all inside of the headset basically um and of
+
+0:05:18.240,0:05:27.400
+course the connectivity is established using 
+the web of things so the project has two parts
+
+0:05:27.400,0:05:35.320
+the communication and and the interaction and 
+to introduce the communication we will need to
+
+0:05:35.320,0:05:41.320
+introduce the web of things to also those people 
+here that have are exposed to the web of things
+
+0:05:41.320,0:05:51.320
+for the first time and This Is Where I Leave the 
+give the helm to Oman yes exactly since we hear
+
+0:05:51.320,0:05:57.200
+that some people might not know about the we 
+things some people from the XR group of from
+
+0:05:57.200,0:06:02.160
+WFC I will briefly talk the introduce the web 
+of things and then also some background to the
+
+0:06:02.160,0:06:07.680
+hollow lens and yeah how to program for that so 
+basically what the web of things is about is to
+
+0:06:07.680,0:06:13.000
+enhance the iot inability by applying standardized 
+web Technologies for example like eger mentioned
+
+0:06:13.000,0:06:17.480
+already we have a controlling device and we want 
+to control the robot arm but we don't only want
+
+0:06:17.480,0:06:24.880
+to control the robot arm but maybe also a drone or 
+some wind farming like agricultural stuff and they
+
+0:06:24.880,0:06:30.880
+all might use different protocols to interact with 
+them and to make the interaction with all these
+
+0:06:30.880,0:06:38.120
+unique this is basically the goal of the of the 
+web of things the one of the most Central parts
+
+0:06:38.120,0:06:43.640
+of the web of things is the so-call web of things 
+thing description and it basically is what you can
+
+0:06:43.640,0:06:50.000
+see on the on the right side this is actually one 
+thing description we have for a little robot arm
+
+0:06:50.000,0:06:58.120
+and it uses interaction affordances to describe 
+different ways of interacting with a device you
+
+0:06:58.120,0:07:05.760
+can have properties which are some some statuses 
+or something that you you can read and actions
+
+0:07:05.760,0:07:11.040
+that you can invoke to yeah in do something 
+make the device doing something and finally
+
+0:07:11.040,0:07:16.800
+some events that kind of can be pushed by the 
+device to you once you subscribed so you can get
+
+0:07:16.800,0:07:23.880
+notified when something changes there um of course 
+you can also since it's a Jason document you can
+
+0:07:23.880,0:07:29.840
+also enable enrich it with General metadata 
+like of course a title some description or a
+
+0:07:29.840,0:07:38.720
+or also some security information and also 
+what we um see here on on the right side is
+
+0:07:38.720,0:07:46.440
+like this this type thing here is called soal 
+Data schemas so they really describe okay what
+
+0:07:46.440,0:07:52.040
+an action that we call in this case go what 
+what kind of input it takes so in this case
+
+0:07:52.040,0:08:00.800
+it takes a speed Json object with speed X Y 
+and Z values as inputs and then we need to
+
+0:08:00.800,0:08:09.400
+send these values in this format to the device to 
+that can understand us and then the second part
+
+0:08:09.400,0:08:16.360
+that is important there is the so-called forms 
+so like I mentioned that we things tries to be
+
+0:08:16.360,0:08:23.960
+where is um protocol agnostic and based on these 
+forms we match one interaction of forance to an
+
+0:08:23.960,0:08:29.440
+actual protocol specific requests so down here we 
+can see how something how this request would be
+
+0:08:30.080,0:08:39.760
+which match to http or to mqtt for example and 
+finally we of things has also more so we saw the
+
+0:08:39.760,0:08:46.720
+finger scription which is here on the left side 
+but um it also offers binding templates which
+
+0:08:46.720,0:08:54.200
+yeah are like these templates for how to bind 
+these forms we just saw in the recent picture
+
+0:08:54.200,0:09:00.640
+to different um concrete templates and then also 
+it has like for example the scripting API which
+
+0:09:00.640,0:09:08.360
+Cristiano mentioned before this note what which um 
+helps you implement devices and things with web of
+
+0:09:08.360,0:09:19.640
+things and now to the more um background for 
+our topic today so we use the Microsoft hland
+
+0:09:19.640,0:09:27.160
+2 which is an AR headset so it's similar to 
+different VR headsets you might know like for
+
+0:09:27.160,0:09:33.000
+example the Apple Vision Pro or also the meta 
+Quest but the biggest difference here is that
+
+0:09:33.000,0:09:38.560
+it's an AR so augumented reality headset so 
+as you can see on the bottom left um it has
+
+0:09:38.560,0:09:46.920
+actually some see through um goggles so you can 
+see like here on the right side not an image or
+
+0:09:46.920,0:09:52.400
+video live stream recorded by cameras of the real 
+world but you can actually see the real world
+
+0:09:52.400,0:09:59.440
+through it and get like an holographic overlay of 
+the information you want to to put there and you
+
+0:09:59.440,0:10:04.880
+can interact with um the hland Via Gest boys 
+or ey tracking as said cameras I think you
+
+0:10:04.880,0:10:13.000
+can maybe see them here here and also here 
+that yeah also um capture the environment
+
+0:10:13.000,0:10:19.360
+also from this your hands and this therefore 
+you can interact with hand gestures and also
+
+0:10:19.360,0:10:24.560
+talk of course and it also tracks your eyes 
+so can we can know where you look and what
+
+0:10:24.560,0:10:31.520
+you want to focus on maybe lastly it also Maps 
+the environment so you know exactly where in
+
+0:10:31.520,0:10:38.800
+space you are it knows where in space you are 
+and where room you are and therefore you you
+
+0:10:38.800,0:10:44.320
+as a programmer can put anchors somewhere in the 
+room and something stays in the room at the same
+
+0:10:44.320,0:10:53.440
+position so to program for doal Lance we use 
+Unity you can also use unhe engine but Unity
+
+0:10:53.440,0:11:00.840
+is quite popular here it's a crossplatform game 
+engine it came from gaming developing games but
+
+0:11:00.840,0:11:08.160
+now it's also widely used for XR development 
+and basically as you can see on the right it
+
+0:11:08.160,0:11:13.800
+has some game objects and scenes so this is like 
+the visual part how this is structured so you
+
+0:11:13.800,0:11:21.480
+have this different objects like an assets like 
+an a ball or whatever and then you can have she
+
+0:11:21.480,0:11:32.840
+Shar scripts to um control or yeah act on these 
+on these assets and the mix vality toolkit from
+
+0:11:32.840,0:11:40.640
+Microsoft is what is used to yeah capture all this 
+spatial awareness and gesture recognition what I
+
+0:11:40.640,0:11:46.680
+talked about before and give it to the programmer 
+so then that we can interact and program on this
+
+0:11:46.680,0:11:53.200
+and also the open XR plugin which is which is 
+also um from the mix reality toolkit it's it's
+
+0:11:53.200,0:11:58.640
+it's a plugin that allows you not to only develop 
+for the hollow lens but also be able to execute
+
+0:11:58.640,0:12:07.240
+this on other Dev deves that that support open 
+XR and with that we'll hand over back to for more
+
+0:12:07.240,0:12:15.960
+details coming back to the project um so now that 
+we know how what the environment we were dealing
+
+0:12:15.960,0:12:25.240
+with uh we needed um so we wanted to communicate 
+using the H lens with web of things enabled iot
+
+0:12:25.240,0:12:33.880
+devices um but of course um if to do this and 
+if you're programming in unity you need the
+
+0:12:33.880,0:12:41.640
+scripting API implemented in C and sadly there 
+was no other implementation before so we had to
+
+0:12:41.640,0:12:53.360
+do it ourselves um so we started w.net which is a 
+implementation of the scripting API which allows
+
+0:12:53.360,0:13:02.960
+it to ser deserialize and part thing descriptions 
+hand till now just only HTTP or htps requests but
+
+0:13:02.960,0:13:11.520
+uh more in the future hopefully uh we can handle 
+security mostly basic security also digest and
+
+0:13:11.520,0:13:20.960
+stock and API Keys anything that you can put 
+in the header is usually easy to use net it's
+
+0:13:20.960,0:13:33.360
+um built upon the net standard 2.0 which makes it 
+widely available for many devices um it's totally
+
+0:13:33.360,0:13:43.240
+open source you can find it here and there's also 
+a q code if you want uh to have a look and yeah
+
+0:13:43.240,0:13:56.200
+the project is built in in such a way that you 
+have [Music] basically a core library and that
+
+0:13:56.200,0:14:06.760
+core library is just a definition of all the yeah 
+all the things that are as basically that are
+
+0:14:06.760,0:14:13.000
+described in the web of things what is the thing 
+description the different schemas the different
+
+0:14:13.000,0:14:22.280
+interfaces that you would expect and then as 
+similar to how the web of things is structured
+
+0:14:22.280,0:14:30.280
+we also has this cord standard and then there 
+different protocol bindings so uh now the the
+
+0:14:30.280,0:14:37.640
+wood. net binding. HTP this is already implemented 
+but in the future you can have wood. net binding
+
+0:14:37.640,0:14:45.200
+COA or mqtt or XYZ whatever you want you just 
+need to implement the interfaces are described
+
+0:14:45.200,0:14:53.080
+in wood. net. core and that is very similar 
+to already what is defined in NW so are not
+
+0:14:53.080,0:15:01.640
+Reinventing the wheel but rather just making sure 
+that we can we have a c Port of the scripting API
+
+0:15:01.640,0:15:14.520
+um yeah and in as I said in wood. net core you can 
+already see for like it describes the definitions
+
+0:15:14.520,0:15:23.160
+if you want to have a look at the documentation 
+it is there in the through this QR code or maybe
+
+0:15:23.160,0:15:31.160
+EG will put the link in the chat and the idea is 
+basically that m P between what is defined in the
+
+0:15:31.160,0:15:40.360
+scripting API and c and for example if like there 
+are these recent schema types that we are that we
+
+0:15:40.360,0:15:46.760
+use when you are talking in the context of the 
+web of things but of course some of them are not
+
+0:15:46.760,0:15:56.080
+defined as such in C so we need to do that mapping 
+ourselves um then and it's very briefly described
+
+0:15:56.080,0:16:04.480
+here for example that a null in Jason schema is 
+null in C Boolean is a Bo integer is an integer
+
+0:16:04.480,0:16:11.920
+a number is a double spring is seen as a string 
+an array is a list of a certain type so we cannot
+
+0:16:11.920,0:16:21.040
+have arrays of multiple types as inent schema for 
+example or an object is basically a dictionary
+
+0:16:21.040,0:16:30.560
+with a string and a certain type attached to it 
+um and of course there are other interfaces if
+
+0:16:30.560,0:16:39.520
+you go to the actual uh yeah links you will find 
+the full description of all the interfaces that
+
+0:16:39.520,0:16:46.480
+we described in what that uh net. binding we 
+are basically implementing the interfaces it's
+
+0:16:46.480,0:16:57.240
+a similar to the interfaces defined in node what 
+for example um the how what is a an H client and
+
+0:16:57.240,0:17:05.120
+the client Factory which is basically building 
+the clients um these are the ones that needs
+
+0:17:05.120,0:17:12.760
+to be implemented as well as all or security 
+schemas that are defined for that binding for
+
+0:17:12.760,0:17:23.080
+that yeah for that protocol so again you can have 
+a look at the actual um documentation through that
+
+0:17:23.080,0:17:34.680
+link so that was the first part which is the 
+communication and the second part is of course
+
+0:17:34.680,0:17:41.880
+the actual UI and the actual interaction so the 
+XR application that we built we built using in
+
+0:17:41.880,0:17:53.480
+unity and C um and we built it on top of the mrtk 
+toolkit Microsoft mixity toolkit which in which
+
+0:17:53.480,0:18:03.520
+pleasantly also is built in its third iteration on 
+top of open XR making it possible to use that yeah
+
+0:18:03.520,0:18:13.400
+application that we built in any mixity headset of 
+course it's an augmented reality application so it
+
+0:18:13.400,0:18:22.400
+is not going to work well in VR headset because 
+you in a way you also need the QR code scanning
+
+0:18:22.400,0:18:33.400
+and all that to be able to actually see any kind 
+of device or UI for the device um we use canvas
+
+0:18:33.400,0:18:43.600
+based UI elements so it's basically menus uh that 
+are defined by in unity but of course are adopted
+
+0:18:43.600,0:18:58.720
+in open XR in mrtk QR code detection and tracking 
+is built in using the H lenses cameras and uh
+
+0:18:59.440,0:19:08.200
+for each kind of interaction we build specific 
+prefabs which you can see in the next slide so you
+
+0:19:08.200,0:19:19.480
+can see here for example for properties uh you can 
+can read them so you have you have a UI which just
+
+0:19:19.480,0:19:28.320
+allows you to read if you can write them you can 
+write them if it's a Boolean we um we for example
+
+0:19:28.320,0:19:35.160
+use switch if it is a number with a minimum and 
+a maximum defined in the data schema you have a
+
+0:19:35.160,0:19:44.480
+slider if it's a string we write we offer a text 
+field although writing in m is not the best thing
+
+0:19:44.480,0:19:51.600
+um you can observe and unobserved properties you 
+can invoke actions or even and if that action has
+
+0:19:51.600,0:20:01.000
+an certain input again we put in the specific 
+UI element that that corresponds to the kind of
+
+0:20:01.000,0:20:08.120
+input that you have enms are lists numbers that 
+have a minimum maximums are on the slider uh if
+
+0:20:08.120,0:20:15.600
+it's something generic we can use a text field 
+and similar to again subcribing into events and
+
+0:20:15.600,0:20:22.120
+so on by the way that UI that you see here is 
+the first iteration because we have another
+
+0:20:22.120,0:20:28.760
+iteration afterwards which we'll talk about in 
+a second but basically the application flow is a
+
+0:20:28.760,0:20:37.400
+as follows you first have your device in front 
+of you which has a QR code pointing to the thing
+
+0:20:37.400,0:20:48.200
+description of that device you scan it using 
+the hold lens you can see then the um the yeah
+
+0:20:48.200,0:20:58.600
+the URL that is pointing to the resource TD and 
+then fetch the TD which then allows you to yeah
+
+0:21:00.240,0:21:07.280
+see that inspector view which you can which shows 
+you the thing description on the left all the
+
+0:21:07.280,0:21:13.440
+properties and actions and events on the right and 
+you can then click on the certain interaction you
+
+0:21:13.440,0:21:22.000
+want to have and then you will see its descri its 
+name its description what kind of uh operations
+
+0:21:22.000,0:21:28.720
+you can do on top if you want to scan the UR 
+code again you can scan it that UI and also
+
+0:21:28.720,0:21:34.600
+move so you can pin it to a certain place in 
+the space but you can also unpin it and move
+
+0:21:34.600,0:21:44.800
+it around as you want um but so that was the first 
+iteration and I hope in the next video it will not
+
+0:21:44.800,0:21:55.400
+be very choppy and you can see at least something 
+so yeah this is how it looks um and you can then
+
+0:21:55.400,0:22:05.280
+yeah click you click on the the properties or 
+yeah invoking a certain action by the way the
+
+0:22:05.280,0:22:15.080
+device is just underneath it's not you will see 
+it in a moment this one yeah and then if you if
+
+0:22:15.080,0:22:20.600
+you invoke the action you see the leads not very 
+clear but they are actually showing a certain
+
+0:22:20.600,0:22:31.040
+message so that that was the first iteration where 
+you basically have just a an immersive menu where
+
+0:22:31.040,0:22:40.440
+you can interact with your of course this was not 
+enough our next question was how could we design
+
+0:22:40.440,0:22:47.720
+an accessible scalable low code iot orchestration 
+framework using the web of things inside the
+
+0:22:47.720,0:22:59.960
+holens so basically we want to yeah build a 
+certain meshup certain inter orchest or rated
+
+0:22:59.960,0:23:15.200
+yeah uh stepwise action that you can basically use 
+to perform a certain yeah certain functionality
+
+0:23:15.200,0:23:30.120
+[Music] so to do this we needed to also improve 
+the actual uh UI we had uh for some feedback for
+
+0:23:30.120,0:23:41.120
+for the first iteration which we tried to uh yeah 
+solve the first was scrolling is not was not that
+
+0:23:41.120,0:23:48.400
+nice so we need we scrolled better and then we 
+had a a separation of concerns in which in the way
+
+0:23:48.400,0:23:56.960
+that basically whenever you want to the inspector 
+is only there just to inspect only to show and if
+
+0:23:56.960,0:24:04.920
+you want to do some kind of writing or some kind 
+of input you get a smaller menu which is basically
+
+0:24:04.920,0:24:11.760
+just concerned with giving the putting the inputs 
+and that menu is in front of you so you don't
+
+0:24:11.760,0:24:23.040
+need to run to always do a certain interaction 
+um yeah reading is then on the right side and
+
+0:24:23.040,0:24:30.760
+then what whatever happens is uh if something is 
+successful ful or if there's an error we don't
+
+0:24:30.760,0:24:39.000
+we at first we showed it in the same inspector 
+now we have us like a small window underneath
+
+0:24:39.000,0:24:48.680
+um other improvements were to uh the scroll panel 
+to make sure that you can scroll nicely it's not
+
+0:24:48.680,0:24:54.280
+just scrolling with a finger which sometimes was 
+not working correctly but you can also have like
+
+0:24:54.280,0:25:06.200
+errors up and down um yeah you can see here then 
+uh we also in if you had an object for example
+
+0:25:06.200,0:25:12.520
+it was very hard to show the whole object if 
+it's a big object um but so you can see here
+
+0:25:12.520,0:25:22.200
+the object before was just a similar to a list 
+and you had each key would be inside that list
+
+0:25:22.200,0:25:32.680
+now what we get is a um like a nested structure 
+we can basically go like as if it was a tree and
+
+0:25:32.680,0:25:42.760
+you would go in each element VI wise and then the 
+last thing uh here is how to select the input it
+
+0:25:42.760,0:25:51.080
+was not very nice sometimes it was not responsive 
+and we improved that by as we showed before the
+
+0:25:51.080,0:25:59.080
+smaller panel where selecting um an input is much 
+easier you have the arrows to make sure that you
+
+0:25:59.080,0:26:07.720
+selected the correct input uh and it's sticky and 
+it's not going to to yeah it will need less clicks
+
+0:26:07.720,0:26:19.720
+maybe but the big thing that we did is actual the 
+mashup creation the mashup creation is where you
+
+0:26:19.720,0:26:28.240
+can basically imagine you are in the factory 
+and you want to yeah the do some testing or
+
+0:26:29.120,0:26:39.280
+you have an idea and you won't just yeah test that 
+idea and interact with the devices in that way so
+
+0:26:39.280,0:26:46.040
+to the idea was here that you in that factory 
+you would see the all the devices having their
+
+0:26:46.040,0:26:54.600
+QR codes you go to them you then can you see 
+dashboards describing each device and that uh
+
+0:26:54.600,0:27:01.800
+and then you can combine these devices and intera 
+actions to perform a certain functionality so we
+
+0:27:01.800,0:27:11.960
+had a uh we have a small fish Technic simulation 
+Factory in uh in the university and um it consists
+
+0:27:11.960,0:27:21.840
+of a sorting line uh an oven and a grip robot 
+which has which can grip um certain products
+
+0:27:21.840,0:27:28.760
+from a warehouse then can put them in certain 
+positions and so on so you would start from
+
+0:27:28.760,0:27:37.800
+the gber robot here which can uh check um like can 
+fetch the product from the from the warehouse put
+
+0:27:37.800,0:27:47.360
+them in the oven and you you can start baking that 
+product for example if it's wood or if it's metal
+
+0:27:47.360,0:27:53.800
+or whatever you would put them in the oven it will 
+bake for a certain amount of time that you input
+
+0:27:53.800,0:28:03.120
+for example 5 seconds and then based on the the 
+type of product you would put them in a certain
+
+0:28:03.120,0:28:12.560
+uh sorting line and if the product is readed you 
+put them back into the warehouse so that was like
+
+0:28:12.560,0:28:23.160
+that there is a some kind of condition on top of 
+uh your actions and we can see it also here in
+
+0:28:23.160,0:28:34.600
+the next video so now you can see hopefully it's 
+not choppy uh it will be quite fast but the idea
+
+0:28:34.600,0:28:44.000
+is here you can see there are certain dashboards 
+and the dashboards uh allow you to to uh see the
+
+0:28:44.000,0:28:52.000
+device and interact with it and then based on the 
+interaction that are available you can choose um
+
+0:28:52.000,0:29:00.560
+yeah that this is you want this action to happen 
+and once it finished you can want that next action
+
+0:29:00.560,0:29:10.440
+to happen and that next action can be uh or 
+interaction can be in the on the like one of um
+
+0:29:10.440,0:29:20.520
+yeah from the same device or from a other device 
+and yeah if Roman if you can go back a little bit
+
+0:29:20.520,0:29:28.040
+so you can pause it
+
+0:29:30.200,0:29:36.600
+I cannot pause it for some reason okay then it 
+will repeat itself but basically you already see
+
+0:29:36.600,0:29:45.840
+it you can see um the the actual uh dashboards 
+and on top of them the the numbering of the
+
+0:29:45.840,0:29:56.600
+interactions that are going to happen and um yeah 
+and then step by step once an an interaction is
+
+0:29:56.600,0:30:03.200
+finished you can see around it that it's going 
+it's becoming green so it has this these small
+
+0:30:03.200,0:30:11.840
+green markers showing interaction has been done 
+successfully or has been performed successfully
+
+0:30:11.840,0:30:23.560
+um yeah and you the inter you would then have a 
+full loop uh and it was performed quite nicely
+
+0:30:23.560,0:30:33.480
+and that's the first step in our Yeah in our 
+immersive application using the web of things
+
+0:30:33.480,0:30:42.760
+I think a nice teaser would be the next video that 
+you can show Roman she's basically going one step
+
+0:30:42.760,0:30:54.840
+ahead and looking at complex devices that have a 
+much higher probably like much uh higher actuation
+
+0:30:54.840,0:31:04.920
+uh capabilities like a robot arm for example and 
+overlaying it you can see here you can interact
+
+0:31:04.920,0:31:10.320
+with the robot and the nice thing about that 
+application that we are yeah going to I'm teasing
+
+0:31:10.320,0:31:18.600
+here is that because of the web of things you can 
+basically do the same use the same application for
+
+0:31:18.600,0:31:28.320
+any robot on if it's basically finding like a 
+certain interface which is described all things
+
+0:31:28.320,0:31:38.200
+so this comes later um yeah I think we 
+already done thank you for your attention
+
+0:31:38.200,0:31:47.200
+uh the homepage of our of the university is 
+here you can also have both of our emails
+
+0:31:47.200,0:31:57.840
+and uh for contact and yeah thank you 
+for listening and open to any questions

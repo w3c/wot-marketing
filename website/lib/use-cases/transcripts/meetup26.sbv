@@ -1,0 +1,2375 @@
+0:00:06.800,0:00:13.120
+So uh it's my pleasure to introduce you Angie. 
+He is a retired senior software engineer and a
+
+0:00:13.120,0:00:18.720
+development manager. He was educated as electronic 
+senior electronic engineer and has over 30 years
+
+0:00:18.720,0:00:24.800
+of software development experience in embedded 
+industrial and c customer solutions. So it's
+
+0:00:24.800,0:00:30.240
+my pleasure to give you the floor ank. Well 
+welcome everyone. Uh it's quite a few slides.
+
+0:00:30.240,0:00:36.320
+I'll probably go through it fairly quickly 
+and a few slides a bit longer. Um at the end
+
+0:00:36.320,0:00:43.360
+of this presentation, you should have a good 
+idea what Hivot means, what it's intended for,
+
+0:00:43.360,0:00:52.160
+and how it uses uh the what uh TD to make things 
+uh go around. I'll have a little demo in the
+
+0:00:52.160,0:00:59.440
+middle near the end and then uh it closes off with 
+a set of challenges that I've encountered while
+
+0:00:59.440,0:01:08.960
+developing uh IoT. They uh apply mostly to TD my 
+favorite topic forms. Um so they will be quite
+
+0:01:08.960,0:01:15.680
+interesting for those uh that would like to know 
+more about those topics. So let's start with the
+
+0:01:15.680,0:01:24.880
+introduction. Uh I'm the author of IoT. That's 
+for me is a started as a side project. Um as
+
+0:01:24.880,0:01:30.000
+uh Cristiano said educator as electronics 
+engineer that was in the early days but I kind
+
+0:01:30.000,0:01:37.680
+of defected to software development quite early 
+on and somewhere further down the road ended up
+
+0:01:37.680,0:01:45.520
+in management. Yeah, if anyone offers you that 
+and think twice unless you really enjoy it. Um,
+
+0:01:45.520,0:01:52.640
+speaking of enjoying it, I love the coffee. 
+Uh, IoT has always been my favorite uh, uh,
+
+0:01:52.640,0:01:59.440
+favorite topic. Open source software Linux and 
+Golang is my favorite programming language. I've
+
+0:01:59.440,0:02:04.480
+had quite a few over time, but Golang gives 
+me the least headaches and gets things going
+
+0:02:04.480,0:02:12.080
+fast. And of course, now the web of things 
+is uh, is very popular. So I've started that
+
+0:02:12.080,0:02:20.720
+uh two years ago diving into that but it is not 
+uh not my first foray in IoT. So why why did
+
+0:02:20.720,0:02:29.040
+this come about? Um, well, this actually this was 
+actually happening. Uh, I bought a piece of land,
+
+0:02:29.040,0:02:34.640
+had a pump house, build a pump house on it, 
+the one you see in the picture. And of course,
+
+0:02:34.640,0:02:39.280
+your uh the house itself is a bit further away. 
+And if something goes wrong in that pump house,
+
+0:02:39.280,0:02:47.760
+then uh well, I rather be ahead of the game than 
+finding out that the water is frozen. U it's also
+
+0:02:47.760,0:02:55.360
+a little bit out of sight so it' be nice to know 
+if if it has any visitors animal or otherwise. So
+
+0:02:55.360,0:03:02.320
+well of course what do you do as a as a software 
+developer? You you build stuff to make to solve
+
+0:03:02.320,0:03:11.200
+these questions. So it actually started with other 
+projects. is there's been several iterations and
+
+0:03:11.200,0:03:18.080
+initially it was more driven by curiosity as what 
+is possible what technologies are available what
+
+0:03:18.080,0:03:25.040
+uh communication protocols what standards so it 
+started off I couldn't find anything in the early
+
+0:03:25.040,0:03:34.160
+days that was around 2015 um and then I started 
+basically using MQTT my zone I used that version
+
+0:03:34.160,0:03:43.120
+quite a while locally so for personal use but 
+that was still MQTT uh sending messages around and
+
+0:03:43.120,0:03:53.680
+there's no standardization. So then in 21 I found 
+NGSILD that was my first standardized version
+
+0:03:53.680,0:04:02.080
+iteration. uh went basically between messaging 
+based message bus based to API based which is
+
+0:04:02.080,0:04:10.800
+and gsi a gRPC and cap and proto or RPC based and 
+now what I really like about what is that you're
+
+0:04:10.800,0:04:16.400
+not tied to a single protocol so it's protocol 
+agnostic so you can plug in any protocol adapter
+
+0:04:16.400,0:04:27.120
+and work with the stuff that you uh do um so and 
+that's the final version so what is Hivo? Well,
+
+0:04:27.120,0:04:34.080
+it's an edge device intended as an edge device, 
+not as a central server that connects consumers
+
+0:04:34.080,0:04:43.200
+with IoT devices. I don't know if you guys can 
+see a cursor. I assume not uh in the diagram on
+
+0:04:43.200,0:04:49.440
+the Oh, good. Yes, we can. The IoT devices can 
+be anything. I'll get a bit deeper into that in
+
+0:04:49.440,0:04:55.200
+a minute. It doesn't have to be a what device. 
+In fact, the assumption is that most of them are
+
+0:04:55.200,0:05:02.800
+not. So it'll accommodate many more and of course 
+ideally there's many many W compatible devices to
+
+0:05:02.800,0:05:10.080
+come. The hub itself acts as a hub not as a so 
+the consumer connects to the hub and the hub
+
+0:05:10.080,0:05:18.880
+talks to the IoT devices uh and and services. 
+At the moment there is no internet gateway but
+
+0:05:18.880,0:05:25.040
+that is planned for the future to be able to join 
+multiple hubs hubs where desired and share select
+
+0:05:25.040,0:05:32.000
+information. Um the idea is that consumers connect 
+directly to the hub through web browser or command
+
+0:05:32.000,0:05:40.560
+line interface or other services connect to the 
+hub to get access to IoT devices. So what's the
+
+0:05:40.560,0:05:46.640
+what's the goal here? while sharing information 
+between IoT devices and services and consumers
+
+0:05:46.640,0:05:52.000
+whether that is a BI system or whether it's 
+just a simple web browser or something that
+
+0:05:52.000,0:05:58.000
+sits on the uh coffee table that shows you 
+the current uh weather forecast or anything
+
+0:05:58.000,0:06:04.880
+uh along those lines could be anything but it is 
+about information sharing um it's currently based
+
+0:06:04.880,0:06:15.680
+on the the one TD 1.1 specification including 
+support for discovery and now more focused on
+
+0:06:15.680,0:06:26.320
+various protocol bindings. The latest uh Ben 
+Francis proposal for the uh websocket based
+
+0:06:26.320,0:06:32.560
+protocol which is currently working but of course 
+that specification is in draft and and things are
+
+0:06:32.560,0:06:40.240
+fluid. Um the other interesting bit about it, 
+it has a digital twin representation. So it
+
+0:06:40.240,0:06:45.840
+doesn't really connect consumers directly to the 
+device. It consumers actually talk to a digital
+
+0:06:45.840,0:06:54.800
+twin. And I'll get a bit more into that itself 
+that uh gives you a lot more capabilities and uh
+
+0:06:54.800,0:07:02.640
+and interesting options. Uh another objective is 
+it's lightweights and minimal dependency. The core
+
+0:07:02.640,0:07:08.560
+itself is written in Golang and it's basically 
+just a binary that you run. Um it doesn't have
+
+0:07:08.560,0:07:17.920
+any further dependencies except at build time 
+of course. The uh the binary is about 10 meg
+
+0:07:17.920,0:07:24.800
+uh and then each service as well and that comes 
+from mostly the Golang runtime. It's extensible
+
+0:07:24.800,0:07:30.560
+because as you see in the picture the services 
+plug into the the hub but you can put add any
+
+0:07:30.560,0:07:38.400
+services at any location on the network. So these 
+services can talk to uh things on the digital
+
+0:07:38.400,0:07:48.160
+twin things and send actions uh get updates on 
+properties and events. Um and it is intended
+
+0:07:48.160,0:07:53.280
+to be secure and I'll get that into that a bit 
+more as well. But the bottom line is the biggest
+
+0:07:53.280,0:07:59.760
+aspect of security is you can't talk directly to 
+the things devices themselves. And this is where
+
+0:07:59.760,0:08:07.280
+uh you kind of little deviate from what the Watt 
+normally does or assumes and correct me if I'm
+
+0:08:07.280,0:08:15.520
+wrong but uh the current design of what is focused 
+around devices um running a server and and expose
+
+0:08:15.520,0:08:22.720
+a thing and their TD and interaction. What uh HYT 
+is centered around is that consumers only connect
+
+0:08:22.720,0:08:28.720
+to the HY to the digital twin hub and the hub 
+connects and communicates with all the devices.
+
+0:08:28.720,0:08:35.440
+So you can put these devices behind a firewall or 
+on a hidden on the local network and reduce the
+
+0:08:35.440,0:08:42.960
+footprint and therefore the security risk. The 
+other benefit we'll get to in a bit, but u it's
+
+0:08:42.960,0:08:51.360
+nice for consumers. You only have to deal with one 
+endpoint. So I touched a bit on security. There
+
+0:08:51.360,0:09:00.000
+are concerns that everyone I'm sure will share and 
+it is the the ability for many existing devices to
+
+0:09:00.000,0:09:10.080
+be uh hacked. So um um the attack service if you 
+have a billion IoT devices accessible directly or
+
+0:09:10.080,0:09:16.560
+indirectly from the internet I think I'm a bit 
+concerned. This is a big problem in the making
+
+0:09:16.560,0:09:24.240
+especially once you get behind the the initial 
+firewall and have access to IoT devices and a lot
+
+0:09:24.240,0:09:30.720
+of them are weak in in terms of security. Security 
+is not something you just tag on. It's it's quite
+
+0:09:30.720,0:09:38.240
+complicated. Um and the other concern is that 
+a lot of these devices you're lucky if they get
+
+0:09:38.240,0:09:43.600
+firmware updates. Now the W does a good thing 
+in standardizing the behavior around firmware
+
+0:09:43.600,0:09:49.840
+updates. So hopefully that will help. Quite often 
+authentication is weak like hard-coded passwords
+
+0:09:49.840,0:09:57.520
+and that stuff. Security cameras are the worst. 
+Um the lack of encryption and and there's there's
+
+0:09:57.520,0:10:05.920
+many concerns that relate to existing world of 
+IoT devices. The best example I thought was uh
+
+0:10:05.920,0:10:12.560
+a casino database of a hack is that the casino 
+database was hacked through a smart fish tank
+
+0:10:12.560,0:10:18.880
+thermometer. That actually happened. I got the 
+link to the article, but it just shows you that
+
+0:10:18.880,0:10:25.440
+once you have an IoT device to the network, 
+connected to the network, um yeah, you better
+
+0:10:25.440,0:10:31.920
+take a close look at security, especially 
+on a company side or a casino in this case.
+
+0:10:37.440,0:10:44.480
+Sorry. So what does het what approach hi takes? 
+Well, the main thing is that in hive things don't
+
+0:10:44.480,0:10:50.080
+run service or if they have to if they do then 
+you put them behind a network and no one else
+
+0:10:50.080,0:11:00.560
+can touch them. Um the model is that IoT devices 
+connect to the hub and this is this is only one
+
+0:11:00.560,0:11:06.720
+way to connect to the hub but that's the ideal 
+mode so that the IoT devices don't have to run a
+
+0:11:06.720,0:11:16.480
+server. Now there's pretty much uh in the future 
+I suspect that most IT devices will run servers.
+
+0:11:16.480,0:11:23.200
+Um I have got a solution for that embedded in and 
+that is through the services capabilities. We'll
+
+0:11:23.200,0:11:29.360
+get to that uh in the following slides. 
+But if you don't have to run a server,
+
+0:11:29.360,0:11:33.840
+you you use less memory. Your devices can 
+be cheaper. You don't have to worry about
+
+0:11:33.840,0:11:41.840
+security as much. The only thing you have to do is 
+discover a directory and um and connect to a hub.
+
+0:11:43.040,0:11:49.200
+Um so the benefit is that the attack surface 
+of all these IoT devices are greatly reduced.
+
+0:11:49.200,0:11:55.120
+Uh there's simply no access to the device. So 
+it can't be hacked that way. Doesn't mean it's
+
+0:11:55.120,0:12:04.240
+fully hackproof but it uh it really helps and 
+everything on with HT is always encrypted SSL.
+
+0:12:04.240,0:12:12.720
+So the uh just the use of the hub adds some 
+uh benefits. you centralize authentication
+
+0:12:12.720,0:12:17.280
+and authorization. So rather than having to 
+figure that out for every single device, you
+
+0:12:17.280,0:12:24.160
+can centralize that. Um, and as a consumer, you 
+only have access to the to the hub and you need
+
+0:12:24.160,0:12:32.160
+uh your access credentials and that's it. 
+Your connectivity is simply with a hub as I
+
+0:12:32.160,0:12:38.320
+mentioned before. So there's one set of security 
+protocols. Firmware updates can be centralized.
+
+0:12:38.320,0:12:43.680
+um the user interface and all the 
+interaction experience is is uniform
+
+0:12:43.680,0:12:49.680
+whereas if you have different devices from 
+different makes um you will encounter a lot
+
+0:12:49.680,0:12:57.520
+of different varieties in the user interface 
+and how they are set up and provisioned etc.
+
+0:12:57.520,0:13:04.800
+So I mentioned earlier that HIV hub is an edge 
+device. So it just means that you not doesn't
+
+0:13:04.800,0:13:12.480
+have to sit in a big server room. You can have 
+multiple spread around on the on the network and
+
+0:13:12.480,0:13:22.320
+uh have them connect to each other. So what does 
+this exist of? So as a as a ecosystem ho you have
+
+0:13:22.320,0:13:29.920
+IoT devices that are connected the run there is 
+the hub itself which has transport protocols and
+
+0:13:29.920,0:13:36.400
+a runtime. Um there are some services that 
+plug in that provide essential services. Of
+
+0:13:36.400,0:13:45.120
+course there is a digital twin um with the 
+TD of the device and the digital twin TD.
+
+0:13:45.120,0:13:50.400
+So the the think description document there some 
+middleware to handle communication and of course
+
+0:13:50.400,0:13:58.880
+there's consumers the transport protocols on both 
+ends. So the consumer has a choice of transport
+
+0:13:58.880,0:14:04.960
+protocols and so do the devices. So that means 
+that you don't as a consumer you don't really
+
+0:14:04.960,0:14:13.280
+care about what the protocols the devices use. 
+You just connect to the hub. Um now you also see
+
+0:14:13.280,0:14:18.960
+on the on the left here on the protocol plugins 
+you have of course the web of things but you also
+
+0:14:18.960,0:14:27.200
+have things like Zwave inst one wire and that's 
+basically you have bindings protocol bindings
+
+0:14:27.200,0:14:34.960
+that transfer or map between the native protocols 
+of these devices like Zwave uh you have those USB
+
+0:14:34.960,0:14:41.520
+sticks you plug those in and then the service 
+connects to it and then translate that to uh a
+
+0:14:41.520,0:14:48.480
+description document and events uh actions 
+and properties. So th that's the role of
+
+0:14:48.480,0:14:56.320
+these drivers so that consumers can talk to any 
+basically any protocol as if it was a thing using
+
+0:14:56.320,0:15:04.800
+the thing the what standards. Now that's same 
+goes for what devices that have servers. So a
+
+0:15:04.800,0:15:12.320
+binding will simply uh do the discovery on 
+the network, find things, extract their TD
+
+0:15:12.320,0:15:19.760
+and communicate with them as if it was a consumer. 
+So the the runtime here has two two faces. There
+
+0:15:19.760,0:15:26.720
+is the consumerf facing site in which it acts as 
+a server and exposes multiple things through its
+
+0:15:26.720,0:15:33.680
+directory and there is a it's a consumer itself 
+of all the things it can find on the network.
+
+0:15:35.920,0:15:42.240
+Um the services they basically connect to the 
+runtime through the standard API through the
+
+0:15:42.240,0:15:50.880
+the the exposed protocols and they can offer 
+capabilities expand capabilities like the a
+
+0:15:50.880,0:15:58.160
+little I'll have a little quick demo with the web 
+browser uh to provide a user interface that has a
+
+0:15:58.160,0:16:04.080
+history service that uh tracks all the events 
+that are emitted. So you can go back in time
+
+0:16:04.080,0:16:08.000
+and see what happened in the past. There's 
+a launcher through which you can start and
+
+0:16:08.000,0:16:14.320
+stop in the individual services and bindings. 
+Excuse me. There's a provisioning services for
+
+0:16:14.320,0:16:20.560
+automatic adopting devices on the network. a 
+certificate management that could need a bit
+
+0:16:20.560,0:16:27.120
+more work but the whole idea is that eventually 
+if you want to expose uh over the internet or a
+
+0:16:27.120,0:16:32.480
+port and you want to have a proper certificate 
+for the SSL connection then that service can
+
+0:16:32.480,0:16:37.920
+take that role and then there is a monitoring 
+you could add simulation because now you have
+
+0:16:37.920,0:16:43.680
+a digital twin you could kind of substitute an 
+existing thing with a simulated thing at least
+
+0:16:43.680,0:16:48.480
+that's the capability that's part of the vision 
+it's currently not implemented In case you wonder
+
+0:16:48.480,0:16:55.680
+and the monitoring things can get g statistics on 
+how interact what interaction has taken place with
+
+0:16:55.680,0:17:03.360
+the things exposed via the hub. So when I say 
+it's an a device this can run anywhere. So you
+
+0:17:03.360,0:17:09.680
+could have in a large environment you could have 
+localized instances of each of these hubs and then
+
+0:17:09.680,0:17:17.520
+connect to them from uh from the headquarters or 
+you can just place one in the headquarters and
+
+0:17:17.520,0:17:25.360
+manage your network so the hub can find all the 
+devices. So the configuration is whatever uh you
+
+0:17:25.360,0:17:35.840
+need. So what does it mean? What's a what's 
+a digital twin runtime mean? Well, it has a
+
+0:17:35.840,0:17:43.680
+digital twin store which basically manages the 
+storage of all the dig the status the state and
+
+0:17:43.680,0:17:49.360
+the the description of each of the things on the 
+network and the description of each of the things
+
+0:17:49.360,0:17:55.920
+on the network actually that's there's two of 
+them u the first one is the device itself so
+
+0:17:55.920,0:18:05.920
+the device creates a TD for that device uh it 
+could be a Zwave or NDON or any of these other
+
+0:18:05.920,0:18:15.040
+third party protocols that whose bindings creates 
+a TD to describe uh the device um and it could be
+
+0:18:15.040,0:18:21.360
+discovered what device on the network. The 
+second one TD is that of the digital twin.
+
+0:18:21.360,0:18:29.600
+So basically it's a copy of the device TD but all 
+the protocol information is modified because the
+
+0:18:29.600,0:18:36.160
+consumer connects to the digital twin and not to 
+the device. So all interaction takes place using
+
+0:18:36.160,0:18:44.000
+uh forms and and other stuff that the uh 
+digital twin describes. Now it also allows
+
+0:18:44.000,0:18:50.720
+the potentially the ability to to route the 
+digital twin to a different external device.
+
+0:18:50.720,0:18:56.720
+So you can do AB testing, you can do simulations, 
+you can do other stuff. That's the potential that
+
+0:18:56.720,0:19:04.080
+uh having a digital twin offers. The other thing 
+is that you can add hooks for uh for monitoring
+
+0:19:04.080,0:19:11.680
+and other uh and simulation and other features of 
+the device or you can just create virtual devices
+
+0:19:11.680,0:19:20.640
+don't really exist in a physical space uh like 
+an AI as a service that could interact as it as a
+
+0:19:20.640,0:19:33.360
+thing. Um this is just the boring bit. So this is 
+just basically a little detailed snapshot a few
+
+0:19:33.360,0:19:38.800
+I won't go over everything it's way too much but 
+gives you if you're interested in how the message
+
+0:19:38.800,0:19:45.600
+flow works between consumers and and devices then 
+this picture describes it and in this particular
+
+0:19:45.600,0:19:51.680
+example it's how actions are flowing. So what you 
+see on the left here is that you have consumers
+
+0:19:51.680,0:19:59.840
+u it can use any W compatible client because 
+the the hub consumerf facing site is uh what
+
+0:19:59.840,0:20:08.800
+compatible uh so it uh with a TD in hand which 
+you have to acquire beforehand through discovery
+
+0:20:08.800,0:20:16.320
+um you invoke an action on and that uh arrives 
+as through the client at the transport server
+
+0:20:16.320,0:20:22.240
+and the transport server of course implements 
+a particular protocol and that can be any many
+
+0:20:22.240,0:20:30.080
+uh currently implemented is HTTP basic with 
+SSC which is a variant we'll get to it and
+
+0:20:30.080,0:20:36.640
+the websocket draft the plan is of course not 
+to leave MQTT out and there's a bunch more the
+
+0:20:36.640,0:20:44.160
+planning once once the core is fully stable uh the 
+intent is to load up with a b bunch more transport
+
+0:20:44.160,0:20:51.040
+protocols the server is the transport server 
+is responsible for managing the connections.
+
+0:20:51.040,0:21:00.000
+Most of these protocols are connection based and 
+it will forward the uh basically it converts the
+
+0:21:00.000,0:21:06.240
+messages sent by the consumer into uh one of three 
+messages. Actions are stored captured in a request
+
+0:21:06.240,0:21:12.800
+message. So all actions from all protocols all 
+are all converted to the same request message.
+
+0:21:12.800,0:21:20.960
+So that means that the core doesn't really 
+care what transport protocol is used. Um it
+
+0:21:20.960,0:21:26.800
+uh arrives the request arrives at the router 
+that then decides based on the request message
+
+0:21:26.800,0:21:34.880
+u it can do some validation whether uh the 
+consumer is authorized to access this thing.
+
+0:21:34.880,0:21:41.360
+uh it can run through hooks and the actions are 
+then updated in the digital twin store which can
+
+0:21:41.360,0:21:47.440
+keep a queue or a history of actions and then 
+passed on to the actual agent that manages
+
+0:21:47.440,0:21:54.400
+the device that is addressed in the request. So 
+that goes through a second transport server the
+
+0:21:54.400,0:22:01.280
+out into uh over the network back to the agent 
+that manages the device. And this again can be
+
+0:22:01.280,0:22:11.840
+a protocol binding such as a Zwave or it can be 
+an actual uh W device. Um the agent then responds
+
+0:22:11.840,0:22:17.760
+with a result or an action status update that 
+the transport server converts back to a response
+
+0:22:17.760,0:22:24.240
+message similar to request messages. The response 
+messages are standardized univide. There's one
+
+0:22:24.240,0:22:32.880
+type that handles captures the responses of all 
+agents of all type of responses. It's basically
+
+0:22:32.880,0:22:39.280
+just a message envelope that carries a payload 
+but it allows the router again to store the result
+
+0:22:39.280,0:22:46.160
+update the digital twin store and then converts 
+it back to the consumer. Now one thing of note
+
+0:22:46.160,0:22:51.760
+on the right side here the communication with the 
+agent uses the TED that is provided by the agent
+
+0:22:51.760,0:22:56.960
+while the communication through the consumer 
+uses the TD that's provided by the digital
+
+0:22:56.960,0:23:07.200
+twin. [Music] Um so that's the action flow. Now 
+if you like sequence diagrams knock yourself
+
+0:23:07.200,0:23:14.800
+out. It's basically the same story. Um the 
+event flow is the is another type of flow
+
+0:23:14.800,0:23:20.240
+instead of request and response events and 
+also that includes property updates. It's
+
+0:23:20.240,0:23:26.960
+something you subscribe to as a consumer. So 
+on the right hand side the consumer subscribes
+
+0:23:26.960,0:23:34.400
+to uh using the what compatible ways to using 
+and the transport server to the digital twin
+
+0:23:34.400,0:23:44.080
+uh subscribe to event or observe property updates. 
+Again the same idea u the transport server is
+
+0:23:44.080,0:23:48.960
+responsible for managing the sessions and the 
+subscriptions for that as as they are managed
+
+0:23:48.960,0:23:56.000
+through that particular protocol. Um it performs 
+authorization to make sure that the consumer is
+
+0:23:56.000,0:24:02.960
+indeed allowed access to the events from that 
+thing and then it passes it to the digital
+
+0:24:02.960,0:24:11.440
+twin router. Sorry, the uh subscription sites 
+ends at the transport server. The agent sends
+
+0:24:11.440,0:24:20.800
+uh publishes events or property value updates. Um 
+the digital twin has subscribes to all of them.
+
+0:24:20.800,0:24:28.000
+So all property updates and all events are sent 
+by the agent to the transport server and are all
+
+0:24:28.000,0:24:33.360
+of them are received by the digital twin that 
+uses it to update the state of the device of
+
+0:24:33.360,0:24:42.800
+its digital twin. Um then it passes any events 
+and property updates to the transport manager.
+
+0:24:42.800,0:24:48.800
+The transport manager just simply has a list 
+of all the transport protocols that are active
+
+0:24:48.800,0:24:55.840
+and passes the events to them all and then 
+only subscribers to the will receive the uh
+
+0:24:55.840,0:25:03.200
+the notification messages. So inside similar to 
+action the request message and response messages
+
+0:25:03.200,0:25:10.400
+in internally everything is just encapsulated in 
+a message envelope of the notification message
+
+0:25:10.400,0:25:18.480
+that carries the uh thing ID the the type of 
+notification the name the payload the time stamp
+
+0:25:18.480,0:25:29.600
+uh etc. So um what was I going to say else about 
+this? This this whole mechanism the especially the
+
+0:25:29.600,0:25:36.560
+protocol bindings and messages are a standalone 
+package. So you could actually use them to build
+
+0:25:36.560,0:25:43.520
+things with you don't need to the the hub and 
+that's that's at least how the design is uh
+
+0:25:43.520,0:25:52.640
+intended. Uh again for sequence diagram people 
+that uh really enjoy these it kind of describes
+
+0:25:52.640,0:25:56.400
+step by step all the interactions 
+that take place when an event is
+
+0:25:56.400,0:26:06.080
+sent. So I mentioned earlier about services. So 
+just a quick foray into some of them and this is
+
+0:26:06.080,0:26:14.400
+just a a snapshot and the ideas the plugin so you 
+can add to infinity or basically more dependent on
+
+0:26:14.400,0:26:19.280
+how many people are actually contributing 
+services. What is currently included is a
+
+0:26:19.280,0:26:27.120
+launch of services allows you to launch start 
+and stop services. A history it gives you event
+
+0:26:27.120,0:26:34.320
+uh past events. Currently, it only captures 
+events, but u it there's nothing stopping it from
+
+0:26:34.320,0:26:42.400
+capturing property updates or actions as well. 
+Uh Hivo view is a little web browser, web- based
+
+0:26:42.400,0:26:50.240
+uh UI, which I'll give a little a quick demo 
+further on a certificate services for managing
+
+0:26:50.240,0:26:55.600
+uh uh hub certificates because the hub has 
+a couple of servers inside. So those have
+
+0:26:55.600,0:27:03.680
+certificate currently they're all self-signed. So 
+the hub on startup generates a CA first startup
+
+0:27:03.680,0:27:13.040
+that signs all the certificates for the servers. 
+Um provisioning this is currently probably needs
+
+0:27:13.040,0:27:18.720
+a bit more work. It uh intent is that devices 
+if you have many devices you're not going to
+
+0:27:18.720,0:27:24.640
+go to every single one to provision them. So 
+the idea is to load the list of devices with
+
+0:27:24.640,0:27:30.960
+their credentials and then they automatically 
+provision that mechanism have to look into
+
+0:27:30.960,0:27:38.560
+what the what currently has specified. The 
+current mechanism is purely based on HTTP and
+
+0:27:38.560,0:27:44.560
+uh should be adjusted to whatever the 
+what standard is going to be for this
+
+0:27:44.560,0:27:49.360
+uh a monitor which is not implemented. That's 
+a future plan, but it's nice to have a bit of
+
+0:27:49.360,0:27:54.240
+a view on the status of all things and their 
+interactions and load and all that sort of
+
+0:27:54.240,0:28:05.440
+stuff. And then there's a bunch of uh options 
+to extend this. This is just a beginning. Um the
+
+0:28:05.440,0:28:14.640
+uh the other type of plugins besides services. So 
+services address many apply to all the things. The
+
+0:28:14.640,0:28:24.080
+IoT protocol bindings expose things. So the Zwave, 
+Incion, Bon Wire, Ziggby, COA, Laura, there's a
+
+0:28:24.080,0:28:30.480
+whole bunch of existing technologies that can be 
+uh integrated through these protocol bindings, the
+
+0:28:30.480,0:28:38.080
+IoT protocol bindings. The actual web of things 
+compatible devices will also be incorporated
+
+0:28:38.080,0:28:43.440
+through the IoT protocol binding. But it should 
+be a fairly straightforward implementation because
+
+0:28:43.440,0:28:49.760
+any x published TD will just go uh straight 
+into the digital twin. Whereas all the other
+
+0:28:49.760,0:28:58.320
+ones they have construct uh TD and and events and 
+property updates and handling of actions through
+
+0:28:58.320,0:29:06.080
+uh a mapping for that listens to the messages to 
+the request applies them to the actual device and
+
+0:29:06.080,0:29:14.880
+the underlying protocol and then it converts 
+the result into events and property updates.
+
+0:29:20.480,0:29:27.680
+Um the hub has some command line utilities 
+included. The uh there's three at the moment.
+
+0:29:27.680,0:29:32.640
+The hub CLI is basically a command line interface 
+to the hub itself on the right. I don't know if
+
+0:29:32.640,0:29:39.680
+you guys can read that but uh it has commands for 
+authentication. So you can add users, services,
+
+0:29:39.680,0:29:46.400
+list them, remove them. Um it has support for 
+the certificate. So all the services basically
+
+0:29:46.400,0:29:53.920
+uh if they expose the actions there's some 
+command line uh options to integrate to uh to
+
+0:29:53.920,0:30:01.200
+uh communicate with them like listing directories 
+subscribing to event publishing subscribing to
+
+0:30:01.200,0:30:12.960
+TD updates etc. The second uh command line 
+utility I use generate golan code from a TD
+
+0:30:12.960,0:30:19.280
+uh particularly the client side interface 
+so you can get a native API to interact
+
+0:30:19.280,0:30:28.080
+with devices that publish a TD uh or services 
+and uh a server an agent side so that if you
+
+0:30:28.080,0:30:33.600
+implement a service or a thing then basically 
+it does all the mapping between the messaging
+
+0:30:34.160,0:30:40.960
+and the native call to the server that actually 
+implements the actions and image events. This is
+
+0:30:40.960,0:30:48.320
+currently used in the runtime. I'll uh can show 
+you there's a TD for the the digital twin and
+
+0:30:48.320,0:30:54.560
+the directory service and and the service that 
+manages all the values uh authentication as well
+
+0:30:54.560,0:31:02.480
+and authorization. So the t the the hub defines 
+the TD and then generates an API for it. This was
+
+0:31:02.480,0:31:06.960
+an experiment, but I found it actually works quite 
+well and gets rid of all the boiler plate. You
+
+0:31:06.960,0:31:16.000
+don't have to worry about it too much. Um, then 
+the third utility is the vocabulary generator. It
+
+0:31:16.000,0:31:23.440
+um it generates a vocabulary definition set of 
+definitions into three languages at the moment and
+
+0:31:23.440,0:31:31.280
+that helps with standardization. There's a it's 
+a bit of a uh I think a limitation currently of
+
+0:31:31.280,0:31:37.040
+the ecosystem of the what as well that there is no 
+standardization for for vocabulary like how do you
+
+0:31:37.040,0:31:43.360
+identify a thermometer? Most people just call 
+them thermometer or temperature as a sensor or
+
+0:31:43.360,0:31:50.480
+or humidity but there's no standardization in the 
+vocabulary. So this what this does is uh it takes
+
+0:31:50.480,0:31:56.160
+a bunch of vocabulary and and generates coder for 
+them and then they can be used in in make building
+
+0:31:56.160,0:32:05.680
+TDs. Um all right enough talk let's do a little 
+demo and this is will be quick but it kind of
+
+0:32:05.680,0:32:11.200
+shows you what's currently functional and 
+um and the TDs that are involved. So in
+
+0:32:11.200,0:32:18.720
+the services this is provided through the hyo 
+view service which is actually implemented in
+
+0:32:18.720,0:32:29.120
+oops in golang and it uses html and 
+uh htmx for interaction. So let's
+
+0:32:29.120,0:32:36.880
+just now I hope this is not uh too small. I've got
+
+0:32:36.880,0:32:43.920
+a 4K screen. So what you see here is 
+the dashboard. It basically picks from
+
+0:32:43.920,0:32:53.040
+um properties or events from a TD and displays 
+the value it receives. So for properties
+
+0:32:53.040,0:32:59.760
+u there is an API that says read uh read 
+basically read values. So you can just
+
+0:32:59.760,0:33:06.800
+pull up the value there and that's standard 
+uh exposed in the in the digital twin. So you
+
+0:33:06.800,0:33:12.400
+would could literally click on the value here. You 
+get the past history. This comes from the history
+
+0:33:12.400,0:33:24.400
+service and you can go to the actual thing like 
+the porch here is u a thing. It's a multi sensor
+
+0:33:24.400,0:33:33.360
+on the porch. It's a one wire device. Um it has 
+an ID. This is the thing ID from the digital twin.
+
+0:33:33.360,0:33:40.640
+It start with DTW. That's just a convention. 
+The OW server is the agent that exposes the
+
+0:33:40.640,0:33:50.960
+device and the C10 Z etc. is actually the 
+the one wire device ID. So this is the way
+
+0:33:50.960,0:34:00.400
+all things all digital twins are constructed 
+whose ids are constructed. So the agent for the
+
+0:34:00.400,0:34:09.440
+uh the OE ow server which is the one wire server 
+um it just exposes the thing ID with the native ID
+
+0:34:09.440,0:34:15.040
+while the runtime converts to a digital twin 
+ID because the consumer talks to the to the
+
+0:34:15.040,0:34:22.240
+digital twin and not to the native thing. Uh this 
+lists all the aspects you can find in the TD. It
+
+0:34:22.240,0:34:28.640
+has attributes the value and when it's updated. It 
+has configuration settings, the basically writable
+
+0:34:28.640,0:34:35.440
+properties you find in a TD. It has events. This 
+is a whole story about when to choose events and
+
+0:34:35.440,0:34:40.880
+attributes. So, we'll get to that in challenges, 
+but as you can see, every event has a history. So,
+
+0:34:40.880,0:34:47.280
+if you want to see history, make it an event. 
+That's kind of one of the rules. Um, and it
+
+0:34:47.280,0:34:52.880
+has an action. In this case, this device is quite 
+simple, but it has a relay that you can control.
+
+0:34:53.920,0:35:02.160
+Now there's direct access here to the TD. I'll 
+see if we can zoom in a bit. So this is a TD that
+
+0:35:02.160,0:35:09.280
+is generated by the protocol binding for for the 
+one wire service. And that what comes out of it.
+
+0:35:09.280,0:35:17.680
+And yes, I know it's not fully uh compliant yet 
+because the forums are a topic of discussion and
+
+0:35:17.680,0:35:24.480
+um right now you don't really need them if you 
+use the websocket protocols, but we'll get into
+
+0:35:24.480,0:35:29.520
+that for a bit. There's nothing stopping here 
+to add a full-blown form as per specification,
+
+0:35:29.520,0:35:33.920
+and that is the intent with the option to 
+turn that off because it does kind of blow
+
+0:35:33.920,0:35:41.760
+the uh the TDs somewhat. So there's a context 
+section like a Navi TD that indicates there's
+
+0:35:41.760,0:35:51.520
+a version 1.1. There is an extension with a 
+vocabulary for Hivo. Um the at type contains
+
+0:35:51.520,0:35:58.880
+all the vocabulary terms that Hate has defined. 
+In this case it standardizes on a format to
+
+0:35:58.880,0:36:06.000
+identify a multi-ensor. That means the 
+prefix is the the vocabulary domain.
+
+0:36:06.000,0:36:12.080
+It is the uh it indicates it defines a thing. The 
+thing is a sensor and then more detail come it's
+
+0:36:12.080,0:36:21.120
+a multi sensor. Um it has an actions as you saw 
+before the action currently is the relay state.
+
+0:36:21.120,0:36:27.520
+It is a type again from the vocabulary. It's an 
+onoff switch. The idea there is now you know if
+
+0:36:27.520,0:36:33.040
+you just want to find onoff switches then you can 
+just filter all the things that have an on-off
+
+0:36:33.040,0:36:40.400
+switch based on this vocabulary type. That's the 
+intent but without standardization this uh won't
+
+0:36:40.400,0:36:55.120
+go far is my concern. Um it has an input which is 
+um an integer because uh the type actually I think
+
+0:36:55.120,0:37:01.520
+yeah it has an integer type because this input can 
+handle multiple values. Uh the TD was created as a
+
+0:37:01.520,0:37:08.480
+certain time with all the the standard TD stuff. 
+It has a description. There's a bunch of events
+
+0:37:08.480,0:37:14.320
+that are emitted with a type with the data it 
+carries and a description of each of these.
+
+0:37:14.320,0:37:22.960
+Each of these have a type again environmental 
+sensor. It's a property um of the device. It
+
+0:37:22.960,0:37:30.800
+has a humidex, humidity and and etc etc. I've 
+got one form section that indicates this is a uh
+
+0:37:30.800,0:37:38.880
+websocket protocol sub protocol and in this case 
+for all operations I'm not sure this is standard
+
+0:37:38.880,0:37:50.960
+but that's a separate discussion the whole form 
+section um is uh probably a thing of evolution
+
+0:37:50.960,0:37:55.360
+um now this thing is in alphabetical order so 
+now we get the ID here you see it's a actually
+
+0:37:55.360,0:38:04.560
+a digital twin uh thing. It has properties um 
+and then you get a whole rack of properties.
+
+0:38:04.560,0:38:11.920
+I'll get to that into the a bit more detail into 
+u into the challenges but um I was struggling with
+
+0:38:11.920,0:38:20.240
+enums and right now I'm cho choosing to use 
+oneoff of the TD definition specification to
+
+0:38:20.240,0:38:26.240
+identify enumerations because enums is just a 
+value and you cannot add things like default
+
+0:38:26.240,0:38:32.320
+values or or the constant value with a title 
+especially the lack of description the ability
+
+0:38:32.320,0:38:40.160
+to add a title that you and present is uh 
+means you cannot use enams where you need a
+
+0:38:40.160,0:38:51.920
+presentation. Um yeah, these all properties 
+of uh security definitions down below here is
+
+0:38:51.920,0:38:58.800
+uh something I still need to fill in. 
+So not fully finished as you can see,
+
+0:38:58.800,0:39:06.720
+but it's getting there. The hive also the 
+UI here hive view also has a directory that
+
+0:39:06.720,0:39:13.280
+shows you all the things and services. Now 
+near I'm struggling with some challenges for
+
+0:39:13.280,0:39:19.520
+presentation the information you need. I need 
+to distinguish services from protocol bindings
+
+0:39:19.520,0:39:26.560
+and from things for ideally you group things here 
+by their capabilities like sensors and activators
+
+0:39:26.560,0:39:33.360
+and services. So there's no standardization 
+on this. So I'll have to switch to the ht
+
+0:39:33.360,0:39:40.640
+vocabulary to distinguish these and present them 
+a little bit better than than what you see here.
+
+0:39:40.640,0:39:49.840
+So here currently this is grouped by agents both 
+services like authentication has a a service for
+
+0:39:49.840,0:39:56.800
+uh administration and for user services. 
+The administration again this is just a
+
+0:39:56.800,0:40:02.320
+thing presented as an a service as a thing 
+which has attributes configuration not in
+
+0:40:02.320,0:40:09.040
+this case a bunch of events like your user has 
+been added and removed as an event and you can
+
+0:40:09.040,0:40:18.640
+perform actions that you can also see in the 
+CLI. [Music] Um now of course it's not just
+
+0:40:18.640,0:40:29.280
+services back to the directory like uh uh 
+the one wire protocol binding shows you
+
+0:40:29.280,0:40:37.120
+all the one wire devices it has discovered 
+that is the the service itself. The the IP
+
+0:40:37.120,0:40:43.840
+gateway that is the one the device I use 
+the gateway is pretty straightforward.
+
+0:40:43.840,0:40:48.640
+just plugs in a bunch of one wire devices. 
+It has channels. You can see what the data
+
+0:40:48.640,0:40:54.880
+errors are and all the statistics it 
+provides and of course you have the devices
+
+0:40:54.880,0:41:08.560
+themselves which in this case a 
+simple thermometer temperature sensor.
+
+0:41:08.560,0:41:17.920
+some some type of uh protocol bindings work with 
+a lot more properties like the the Zwave binding
+
+0:41:17.920,0:41:26.000
+is rather extensive. Some of these devices like 
+the the the multi- sensor has 120 properties and
+
+0:41:26.000,0:41:35.120
+a bunch of events and actions and if you 
+let's zoom out a bit go to the TD of that
+
+0:41:35.120,0:41:43.520
+thinga. So there's a whole rack of stuff in 
+here that's just massive and that is without
+
+0:41:43.520,0:41:49.920
+forms. If I would add forms it probably double. 
+So you might wonder well how do you interact
+
+0:41:49.920,0:41:58.400
+if you don't have forms? Well, depends on the 
+protocol if you use um actually do I have that in
+
+0:41:58.400,0:42:02.160
+here
+
+0:42:02.160,0:42:06.720
+probably just look for
+
+0:42:06.720,0:42:18.000
+forms this dis this connects uh using websockets. 
+So that's web socket protocol doesn't need all the
+
+0:42:18.000,0:42:23.600
+uh forms individually assuming you make 
+some assumptions on the operations and
+
+0:42:23.600,0:42:29.920
+this is something that's currently we have some 
+discussions on and uh I'm making a lot of people
+
+0:42:29.920,0:42:34.880
+unhappy by saying we should remove forms from TD 
+which of course is never going to happen but at
+
+0:42:34.880,0:42:40.960
+least we can reduce the amount of form information 
+to what is necessary for the protocol you use.
+
+0:42:40.960,0:42:47.760
+That's my hope. But at the same time, I'll uh I'll 
+add support for forums as intended and especially
+
+0:42:47.760,0:42:55.440
+if you use the HTTP basic protocol, you might need 
+to um most of because we're talking basically all
+
+0:42:55.440,0:43:01.520
+the consumers talk to this hub. So there's only 
+one way to connect and all the protocols are the
+
+0:43:01.520,0:43:09.440
+same for all the devices exposed through that 
+hub. So the amount the sheer amount of power
+
+0:43:09.440,0:43:17.360
+that forms brings are not needed here. So that is 
+uh the reason I've left them out for now but I'll
+
+0:43:17.360,0:43:28.880
+uh the intent is to put them in. Um now let's see 
+I mentioned the hub CLI. So just as an example I
+
+0:43:28.880,0:43:38.080
+hope you guys can see this. Um if you just run 
+the hub CLI you'll see a bunch of commands off
+
+0:43:38.080,0:43:44.720
+certificate directory. So oh look at directory are 
+you showing are you showing the CLI because we are
+
+0:43:44.720,0:43:56.240
+not seeing it. Ah so so you need to switch. 
+Yeah. Yeah. See for that I stop sharing share
+
+0:43:56.240,0:44:14.560
+window. Uh do you see a console? Yes. That's all 
+right. Yeah. So the hub CLI is more intended for
+
+0:44:14.560,0:44:22.480
+administrators or if you don't have a browser 
+handy. So if you access the hub on the server,
+
+0:44:22.480,0:44:27.760
+this will provide some tools to get have 
+some insights what's going on. So a simple
+
+0:44:27.760,0:44:36.080
+ls command list you call all the running services 
+currently that's the history the web browser the
+
+0:44:36.080,0:44:43.520
+uh the SC uh this is the end stay on uh 
+protocol binding the one wire protocol
+
+0:44:43.520,0:44:51.920
+binding the ex core runtime itself uh the 
+two zwave instances so you can run multiple
+
+0:44:51.920,0:44:58.240
+instances of of the same protocol binding as 
+long is they have a different ID. So in this
+
+0:44:58.240,0:45:04.320
+case they are in two different locations. One is 
+at the house here and the other one runs in the
+
+0:45:04.320,0:45:10.960
+uh uh in the shelter where the horses are. So 
+keep track of the tech room and the pump house
+
+0:45:10.960,0:45:14.960
+uh well back to the pump house and from 
+the beginning that has a Zwave sensor
+
+0:45:14.960,0:45:23.360
+and to indicate what the temperature is, motion 
+detection and the ability to control the heaters.
+
+0:45:23.360,0:45:31.520
+Um now for example if you want to see 
+list the directory you get everything
+
+0:45:31.520,0:45:36.160
+but if you want to list the directory of uh let's
+
+0:45:36.160,0:45:39.440
+see
+
+0:45:39.440,0:45:52.160
+device this is the shelter let's see I want to 
+see the the tech room multi sensor then this
+
+0:45:52.160,0:45:59.840
+shows you the basically the status. This is 
+also an overview of all the TD of the sensor.
+
+0:45:59.840,0:46:05.200
+This is a multi sensor. So you'll see a lot 
+of attributes here. These are the internal
+
+0:46:05.200,0:46:10.080
+ids is generated by the uh protocol 
+binding the description. There's of
+
+0:46:10.080,0:46:16.480
+course more fields but uh we get 
+a bit crowded. the current value
+
+0:46:16.480,0:46:17.840
+uh configuration and
+
+0:46:17.840,0:46:25.040
+events and then for example if you want 
+to subscribe to events from the command
+
+0:46:25.040,0:46:30.320
+line sorry history of
+
+0:46:30.320,0:46:37.280
+events I might have to pick an All
+
+0:46:44.960,0:46:48.480
+right. But example, maybe I should
+
+0:46:48.480,0:46:53.840
+pick a different
+
+0:46:53.840,0:47:05.600
+device. There's a workshop sensor.
+
+0:47:07.360,0:47:08.960
+Oh, demo gremlin don't do
+
+0:47:08.960,0:47:16.160
+this. I think the history 
+service uh is this the current
+
+0:47:16.160,0:47:20.800
+status history
+
+0:47:20.800,0:47:35.040
+event. Yeah, that should have worked.
+
+0:47:35.680,0:47:38.560
+Well, this is this isn't a proper 
+demo if something wouldn't go
+
+0:47:38.560,0:47:49.920
+wrong. I'll switch back to the uh the web browser.
+
+0:47:49.920,0:47:55.840
+We can try it again. Yeah, no worries.
+
+0:47:55.840,0:48:00.080
+Yeah, everything. There we go.
+
+0:48:01.200,0:48:10.560
+This is back to the U web browser. So 
+what I wanted to show you is is the Zpap
+
+0:48:10.560,0:48:24.160
+device stall sensor workshop. There we go. You 
+can see the events from the workshop, temperature
+
+0:48:24.160,0:48:29.200
+fluctuations, etc. So this is visible from 
+the command line. I'll just have to figure out
+
+0:48:29.200,0:48:47.840
+why it was acting up. All right, that is it for 
+demo. Um, I'll switch back to the presentation.
+
+0:48:47.840,0:48:52.080
+Can you see this?
+
+0:48:52.080,0:49:01.040
+Yes. Yep. All right. Thank you. So the next 
+section is about TD challenges. So there's
+
+0:49:01.040,0:49:06.080
+a lot here and um I don't want to go into 
+too much too many details but I'm happy to
+
+0:49:06.080,0:49:12.640
+discuss in discord or something a bit further 
+if there is uh some more additional curiosity.
+
+0:49:12.640,0:49:23.200
+I'll leave 15 minutes for any questions. So we 
+have 15 minutes to go through these. One sec.
+
+0:49:23.200,0:49:31.280
+Yes, that's coffee. Um, so these were the 
+challenges encountered during implementation
+
+0:49:31.280,0:49:38.640
+and design or actually a rework of one of the 
+prior iterations. And the gist of of it is
+
+0:49:38.640,0:49:44.400
+if you have any prior or existing system that 
+you want to rework, my advice is to leave your
+
+0:49:44.400,0:49:50.640
+opinions at the door. Uh because that has really 
+bugged me. I had expectations and sometimes you
+
+0:49:50.640,0:49:58.480
+don't really realize them about how things expect 
+to work and that is a hindrance. I think you're
+
+0:49:58.480,0:50:06.560
+better off just take the time to read through the 
+specs, which I did, but with a clean sh slate. No
+
+0:50:06.560,0:50:15.440
+preconceived ideas about how it should work. And 
+a is working on the uh the how to use and how to
+
+0:50:15.440,0:50:23.360
+documentation a and other people. And that's uh 
+probably going to be a great help especially if
+
+0:50:23.360,0:50:29.840
+you're developing uh things like IoT devices or 
+hubs or gateways or or any other bot compatible
+
+0:50:29.840,0:50:38.560
+devices or clients for that matter. So some of 
+these challenges um were because of ignorance
+
+0:50:38.560,0:50:44.480
+and some of them because the what currently 
+doesn't really address these these issues and
+
+0:50:44.480,0:50:49.360
+then you can you can have a discussion on whether 
+it should or not. that's really outside of the
+
+0:50:49.360,0:50:56.960
+scope here although doesn't stop me from pushing 
+a little bit because I think to address some of
+
+0:50:56.960,0:51:04.080
+these concerns would help adoption to a big extent 
+all right so I kind of have in three categories
+
+0:51:04.080,0:51:11.520
+one of relates to the affordances listed in the 
+uh TD so meaning all the properties actions and
+
+0:51:11.520,0:51:19.760
+events definitions the first question I run into 
+is what is the correlation between properties,
+
+0:51:19.760,0:51:24.560
+actions and events in the fores because you can 
+have three types of affordances with the same
+
+0:51:24.560,0:51:35.920
+name. The answer I got is there isn't any. It's 
+okay. Uh so with that answer the question becomes
+
+0:51:35.920,0:51:42.080
+what does it mean if they have or can they have 
+the same name or would that what would that mean?
+
+0:51:42.080,0:51:48.400
+So the what and correct me if I'm wrong you 
+guys because you know better than I do but
+
+0:51:48.400,0:51:54.880
+uh it basically means there is no convention no 
+standardization you're on your own if you choose
+
+0:51:54.880,0:52:00.880
+to link the create a relationship between these 
+affordances don't expect any interoperability
+
+0:52:00.880,0:52:12.560
+or compatibility with clients so with that said 
+I'm using this uh actually because uh it's needed
+
+0:52:12.560,0:52:18.560
+to solve a problem and there is no alternative 
+to my knowledge. We had some discussion on it.
+
+0:52:18.560,0:52:24.320
+Uh but this is actually an interesting topic 
+because every consumer will have to deal with
+
+0:52:24.320,0:52:34.960
+this problem like um if you have an an action 
+how do you get the result? How do you see the
+
+0:52:34.960,0:52:40.400
+uh action actions that affect the state 
+of a device? How do you get the result?
+
+0:52:40.400,0:52:47.280
+So or how do you present the current state of 
+that uh related to that action like if you have
+
+0:52:47.280,0:52:55.520
+a switch yeah how do you show the current state 
+of a switch? One option is when you present it to
+
+0:52:55.520,0:53:02.480
+uh to read uh to read use read action to get 
+the last uh action status and you read its
+
+0:53:02.480,0:53:10.240
+output assuming that the output actually shows a 
+state. Um the problem with that is if that state
+
+0:53:10.240,0:53:16.240
+changes through another means especially switches 
+they they have a manual often a manual component
+
+0:53:16.240,0:53:21.360
+uh a lot of activators do. You can have a manual 
+button on the device itself and that would not be
+
+0:53:21.360,0:53:29.760
+reflected in the action but it would be reflected 
+in a property that reflects the state. So uh as
+
+0:53:29.760,0:53:36.720
+an example the switch you would have a switch in 
+the property an onoff state or whatever label you
+
+0:53:36.720,0:53:47.120
+give it. Um but then there is also an action that 
+controls that state through the uh through the TD
+
+0:53:47.120,0:53:54.080
+but there's also an option to control that switch 
+manually. Now the only way I found to link that
+
+0:53:54.080,0:54:02.080
+together is to use the same name for the property 
+and for the action. Uh the same so so I kind of
+
+0:54:02.080,0:54:08.480
+nicknamed that twin affordances. Um if you have 
+twin affordances that means they have the and the
+
+0:54:08.480,0:54:16.560
+same name they apply to the same state or the same 
+action affects that same state uh of the device.
+
+0:54:16.560,0:54:23.360
+This is a choice in hivo. We'll see where it goes. 
+It's a bit of an experiment and I actually hope
+
+0:54:23.360,0:54:28.320
+this use case is adopted because it's a problem 
+that has no other existing solutions. There are
+
+0:54:28.320,0:54:39.280
+some discussions about linking actions and um and 
+properties but nothing is specified. Um the other
+
+0:54:39.280,0:54:44.640
+reason to do it this way is that it would be kind 
+of confusing to say well I've got this property
+
+0:54:44.640,0:54:49.680
+with this name and then I've got an action with 
+the same name that does something different.
+
+0:54:49.680,0:54:55.600
+You would probably avoid it in altogether. So in 
+that case it makes more sense to adopt it embrace
+
+0:54:55.600,0:55:02.640
+it and say let's make use of this to improve the 
+interaction the capabilities of the interaction.
+
+0:55:03.760,0:55:12.560
+So this is what uh high fat does. But again as a 
+warning this is not a standard as a a side effect
+
+0:55:12.560,0:55:18.560
+uh sorry as and a point aside there is no 
+standard all whatsoever. So this is still
+
+0:55:18.560,0:55:25.360
+compatible with consumers that don't make 
+that assumption because these consumers can
+
+0:55:25.360,0:55:32.880
+uh present the the property and and invoke the 
+action. there is just no standardization that the
+
+0:55:32.880,0:55:36.560
+action affects the state of that property. 
+So you can use representing the current
+
+0:55:36.560,0:55:39.840
+state.
+
+0:55:39.840,0:55:53.760
+Um let's see. So yeah this is my my talk about 
+actions actually. Um this is another discussion
+
+0:55:53.760,0:55:59.520
+related to the same thing. If you have action, 
+when do you choose actions versus properties?
+
+0:55:59.520,0:56:06.640
+Because there's two ways to control u an input. 
+Again, let's go back to that switch. The switch
+
+0:56:06.640,0:56:10.080
+has an input. You can turn it on and off. 
+Simply put, you have dimmer and you have
+
+0:56:10.080,0:56:17.680
+all sorts of actuators that have input controls 
+right up to valves or air codes or fans or all
+
+0:56:17.680,0:56:25.040
+sorts of other controls. when do you make 
+a control of these activators an action
+
+0:56:25.040,0:56:31.280
+and when you make them a property. So we had 
+some discussions on as well and going back and
+
+0:56:31.280,0:56:40.640
+forth. There's no no standardization on this 
+and there's no guidance. So I had to make up
+
+0:56:40.640,0:56:46.400
+some rules and you hear different recommendations. 
+Some people say well just make use actions sorry
+
+0:56:46.400,0:56:55.520
+just use properties and a recurring theme in 
+this it depends on state the effect state. So
+
+0:56:55.520,0:57:04.000
+what makes it uh an action? The the rules I have 
+is if it triggers an activator, it's an action. I
+
+0:57:04.000,0:57:10.000
+don't know what the original uh terminology, the 
+people that defined it had that in mind, but it
+
+0:57:10.000,0:57:17.680
+kind of makes sense purely on the v vocabulary 
+name. If people performs a person performs an
+
+0:57:17.680,0:57:28.560
+action on a device, it's an action. So let's call 
+it an action, not a property. [Music] Um similarly
+
+0:57:28.560,0:57:34.560
+if you would have chosen properties to control an 
+activator well some activators just have like a
+
+0:57:34.560,0:57:39.920
+push button there is no really no input and some 
+activators have multiple inputs you can't expose
+
+0:57:39.920,0:57:48.160
+you can't ex uh do this through a property at 
+least not intuitively. Um so those have would
+
+0:57:48.160,0:57:54.960
+have to be an action anyways. So the very clear 
+choice here if it's an action for the user it's an
+
+0:57:54.960,0:58:05.120
+action in the TD for all the H high of T uh things 
+uh it mimics behavior in the real world users act
+
+0:58:05.120,0:58:12.400
+etc. But it doesn't mean they have a property. 
+No. Well, yes or no property. All internal state
+
+0:58:12.400,0:58:17.520
+of a device is represented through a property. 
+That is the other rule. So if you have an action
+
+0:58:17.520,0:58:23.920
+that affects the internal state, there will be 
+a property that presents that state. And in this
+
+0:58:23.920,0:58:31.360
+case, if it's a single property, it will have the 
+same name as the action. Um and again switches
+
+0:58:31.360,0:58:41.120
+most activators uh would have events generated 
+or state updates if they are manually controlled.
+
+0:58:41.120,0:58:48.720
+Um now a related discussion oh now we have 
+events but when when is something an event
+
+0:58:48.720,0:58:54.320
+when is something a property see both you 
+subscribe to in a in a way and both you have
+
+0:58:54.320,0:58:59.520
+state the only difference is in the TD prop 
+you can read property values but you cannot
+
+0:58:59.520,0:59:05.920
+read event state or the last events although 
+some protocol bindings do but there is no
+
+0:59:05.920,0:59:14.640
+operation in the TD defined for this purpose 
+So, and that raises all sorts of questions,
+
+0:59:14.640,0:59:23.360
+right? When when does a light stiff light switch 
+status change a property or or an event? So, if
+
+0:59:23.360,0:59:28.240
+you control everything through the TD or through 
+the thing, you could do a property because there's
+
+0:59:28.240,0:59:35.600
+no magic here. But in case of a switch that 
+has also has a manual control, a status update,
+
+0:59:35.600,0:59:42.640
+is that relevant? Should it be an event or just 
+a property? the same at temperature sensors. So
+
+0:59:42.640,0:59:49.280
+there's no right and wrong or black and white 
+here. It's just a choice. So in IoT have said
+
+0:59:49.280,0:59:57.040
+the distinction between an event and a property 
+is that an event uh shows external state changes
+
+0:59:57.040,1:00:04.400
+whereas properties reflect an internal state. They 
+can coexist. So you can have both. At the moment
+
+1:00:04.400,1:00:11.280
+an external state exists and like temperature 
+sensor is an example. The temperature is an
+
+1:00:11.280,1:00:18.880
+state of the environment. So it's not the state of 
+the device. So therefore a change in temperature
+
+1:00:18.880,1:00:29.200
+is an event. The same with a light switch. A light 
+switch that has a manual control by a consumer is
+
+1:00:29.200,1:00:39.040
+uh is changed for it for the manual control 
+would be an event and that leads to a triple
+
+1:00:39.040,1:00:45.680
+affordances because you currently have not 
+implemented but um because I thought well maybe
+
+1:00:45.680,1:00:52.160
+this is a little bit over the top but it does 
+it's logical and I haven't found any reason not to
+
+1:00:53.200,1:00:59.360
+So it's if you can apply this consistent it makes 
+a lot of sense and that goes for all environmental
+
+1:00:59.360,1:01:04.960
+sensors and activators would that are manually 
+controllable would have an event a property
+
+1:01:04.960,1:01:10.080
+and for activators an action is anything wrong 
+with that some people might find it overkill but
+
+1:01:10.080,1:01:17.520
+on the other hand if you consume a TD it's for a 
+consumer very logical and I think we need to make
+
+1:01:17.520,1:01:25.520
+the design decisions to facilitate the consumer 
+not the device developer. Not that there's so much
+
+1:01:25.520,1:01:35.760
+extra work. Um, so we're already at 15 minute 
+mark. I'll just sneak in five more minutes.
+
+1:01:35.760,1:01:44.320
+Um, yeah, don't worry. I think we can go on. 
+Okay. So, there's also a discussion of how do
+
+1:01:44.320,1:01:51.120
+you get a result of an action? So there is depends 
+currently it depends on the protocol binding and I
+
+1:01:51.120,1:02:00.240
+didn't like that because as a hub um you have to 
+propose something consistently to the consumer.
+
+1:02:00.240,1:02:07.040
+Yes it can be done but it would be a different 
+exposure different interface to the consumer. So
+
+1:02:07.040,1:02:14.400
+um the other thing is that actions can have trans 
+transient states. an action has a rest state and
+
+1:02:14.400,1:02:22.160
+then it has a a state where it's transferring to 
+the intended result and like valves and blinds
+
+1:02:22.160,1:02:28.720
+they don't switch immediately like switches even 
+switches can take some time and by the way this
+
+1:02:28.720,1:02:35.040
+only applies to actions that affect stateful 
+things uh like an RPC call like for example read
+
+1:02:35.040,1:02:44.080
+the TD is is an action that has instant result so 
+this doesn't uh doesn't have the state aspect. So
+
+1:02:44.080,1:02:50.320
+and that's the second point any read data requests 
+would have no state affected on the device. So in
+
+1:02:50.320,1:02:56.720
+both cases you can have output uh for stateless 
+actions you that's your whole purpose of the
+
+1:02:56.720,1:03:05.600
+action to retrieve results. Um so the hyd solution 
+is to standardize the action status object. The
+
+1:03:05.600,1:03:12.000
+uh the HTTP basic protocol definition has 
+defined one. So that's the basically what
+
+1:03:12.000,1:03:17.760
+it's derived from. But in this case I'm adding 
+a little bit more and that's a discussion with
+
+1:03:17.760,1:03:25.040
+Ben as well on the websocket protocol. Um 
+whether we need an action status or you can
+
+1:03:25.040,1:03:32.240
+just simply return the result. Um so I think 
+that's still a little bit fluid in this case.
+
+1:03:32.240,1:03:40.160
+Hi says as a consumer you always get to see the uh 
+action status result although the protocol in the
+
+1:03:40.160,1:03:46.000
+interim might do something different to it. So 
+that means that the sport protocol binding will
+
+1:03:46.000,1:03:52.240
+have to do some mapping but internally within the 
+hub and externally through generated APIs you have
+
+1:03:52.240,1:04:00.480
+consistent interface that the result of an action 
+is always an action status. That means that if you
+
+1:04:00.480,1:04:06.320
+uh and the same goes for reading action, if you 
+read an action, you get an action status that
+
+1:04:06.320,1:04:13.920
+contains the input, output, and the uh the um the 
+status whether it was failed, an error or nothing.
+
+1:04:13.920,1:04:20.880
+The only discussion left here to me is should 
+the output the immediately output of an action
+
+1:04:20.880,1:04:27.120
+just contain the output value or an error 
+or or should it contain the action status
+
+1:04:27.120,1:04:32.320
+that I'm on the fence on. Uh one thing 
+though in order to correlate actions
+
+1:04:32.320,1:04:36.800
+uh request with the results you would need 
+something and that is the correlation ID.
+
+1:04:36.800,1:04:44.960
+So that's unfortunately it's protocol dependent 
+um but um As long as all protocol supports it,
+
+1:04:44.960,1:04:52.480
+which HTTP basically doesn't define, that means 
+that you cannot return asynchronous results,
+
+1:04:52.480,1:04:59.280
+which HTTP doesn't support anyways. But then you 
+could use SSE, which is even more limited. So I'm
+
+1:04:59.280,1:05:05.280
+more thinking towards websocket and MQTT and 
+other connection based protocols that have the
+
+1:05:05.280,1:05:12.320
+ability to return results. This is a long topic 
+of discussion and we don't have time for this.
+
+1:05:12.880,1:05:21.680
+to go into further depth. Um my preference is 
+to standardize this at the what level similar
+
+1:05:21.680,1:05:27.840
+to how you define the TD. It's a I think it's 
+okay to define standard standardization like
+
+1:05:27.840,1:05:35.120
+message envelopes for requests, responses, 
+notifications and action status. And this is
+
+1:05:35.120,1:05:40.800
+something that uh you guys can probably 
+consider out of scope but uh within the
+
+1:05:40.800,1:05:47.280
+hive TF standardized this. So that means that 
+they act as these all these message envelopes
+
+1:05:47.280,1:05:55.680
+are simply a payload. You send over HTTP, MQTT 
+or websocket. You might ending up with a new
+
+1:05:55.680,1:06:03.680
+uh unofficial protocol binding that just does 
+that and then leaves the message format as is.
+
+1:06:03.680,1:06:08.400
+the hub GitHub has the has them defined. So if you 
+want to know more, let me know. I'll send you a
+
+1:06:08.400,1:06:16.080
+link. Um the other big challenge was I've 
+touched on that before what's the meaning
+
+1:06:16.080,1:06:21.760
+of a property and this is where vocabulary 
+come in comes in. So I've defined some but
+
+1:06:21.760,1:06:28.880
+ideally we the hive the hub sorry the what the 
+recommends some standard of vocabularies to be
+
+1:06:28.880,1:06:35.760
+used so that all devices that implement that 
+are what compatible has support for these it's
+
+1:06:35.760,1:06:42.720
+it's otherwise everyone does their own thing 
+and then you still have no interoperability
+
+1:06:42.720,1:06:47.120
+um enums I touched on that 
+multi-line descriptions yeah
+
+1:06:47.120,1:06:49.760
+there's some improvement can be done currently
+
+1:06:49.760,1:06:57.280
+Each affordance can only have oneline description. 
+Sometimes that's not enough. Um, same for comment
+
+1:06:57.280,1:07:06.240
+fields. Uh, maps. This is a bit of a pet peeve. 
+I was trying to figure out how to define a map in
+
+1:07:06.240,1:07:13.440
+the output of it of a TD schema. And u this is 
+what I figured out it has to do. You define it
+
+1:07:13.440,1:07:19.520
+as an object that has property and it's only one 
+property which an empty key. This this was like
+
+1:07:19.520,1:07:26.960
+holy holy cow. So I kind of really propose to add 
+a map type. You have an array type already. Why
+
+1:07:26.960,1:07:32.240
+not add a map type? And then the properties 
+can just be the uh object that is mapped and
+
+1:07:32.240,1:07:39.840
+the key is implicit or something like it. But 
+anything a bit more intuitive than this please.
+
+1:07:39.840,1:07:44.080
+um how to read the last event value 
+that's not supported but in HertX
+
+1:07:44.080,1:07:48.240
+added some operations to say read event 
+just like you have read property read
+
+1:07:48.240,1:07:56.160
+action yeah it's non-standard but if you talk to 
+the hub you'll have it the other option is that
+
+1:07:56.160,1:08:03.120
+if you subscribe to events to always send the 
+latest one but that's not a standard either so
+
+1:08:03.120,1:08:11.520
+uh that's a bit of aundendum or have a property 
+for every event then read basically you just read
+
+1:08:11.520,1:08:20.640
+the property that's also an option. So there's 
+options and things that are not quite settled yet.
+
+1:08:20.640,1:08:29.120
+um instance yeah anything shared that also goes 
+for data schemas there's no way to share between
+
+1:08:29.120,1:08:36.400
+even between affordances I kind of used the 
+schema definitions in the TD to uh reuse it
+
+1:08:36.400,1:08:42.080
+and then instead of data type the native types and 
+affordance would be able to use the the name of a
+
+1:08:42.080,1:08:49.120
+schema definition not standard but very easy very 
+useful if you have an action or properties that or
+
+1:08:49.120,1:08:57.600
+events that return the same data type object then 
+it's you can put schema definitions in it. This is
+
+1:08:57.600,1:09:02.560
+something I think it might be worth considering or 
+you guys might think yeah that's way too much for
+
+1:09:02.560,1:09:11.520
+a what thing. Okay, all good. I find it useful 
+and then maybe you could find a way to do the
+
+1:09:11.520,1:09:19.920
+same but then between schemas sorry between TDs 
+because all the TDs uh pro provided by a protocol
+
+1:09:19.920,1:09:25.520
+binding but might have some stuff in common and 
+it would be nice to be able to share that schema
+
+1:09:25.520,1:09:33.280
+definition. All right, next section forms. Well, 
+I think we're out of time just in time to be out
+
+1:09:33.280,1:09:38.880
+of time. This is a very interesting discussion. 
+I have created an issue that says get rid of
+
+1:09:38.880,1:09:44.720
+forums. That made a lot of people unhappy. Um 
+so I toned it down a bit and say let's find a
+
+1:09:44.720,1:09:50.640
+way to move it out of the TD or limit it to what 
+is necessary for the protocol binding you use.
+
+1:09:50.640,1:09:56.160
+And I think there's merit there as long as it's 
+backwards compatible with all and that basically
+
+1:09:56.160,1:10:04.080
+means that the HTTP basic would still be able to 
+have formed for every affordance and that's fine.
+
+1:10:04.080,1:10:10.000
+But uh if you have a web soocket connection 
+any connectionbased protocol typically have one
+
+1:10:10.000,1:10:16.800
+connection for a device. So you wouldn't need to 
+create affordances uh forms for every affordance
+
+1:10:16.800,1:10:24.960
+especially if you use thing level operations. Um 
+the ability to uh to do something like that which
+
+1:10:24.960,1:10:33.200
+is currently not supported in TD 1.1 and probably 
+I I doubt TD2 will have that fully hashed out but
+
+1:10:33.200,1:10:39.360
+I think there's room for simplification there. 
+It's very powerful forms. you can basically define
+
+1:10:39.360,1:10:44.800
+a whole protocol binding for every single 
+affordance. Uh I haven't there probably are
+
+1:10:44.800,1:10:50.160
+use cases because there reason that that's 
+possible. I think many cases for the devices
+
+1:10:50.160,1:10:57.760
+I've encountered it's way overkill unfortunately 
+it really complicates both the consumer side and
+
+1:10:57.760,1:11:07.200
+the thing side having to do this. So I think 
+there's some room for uh simplification there.
+
+1:11:08.640,1:11:16.640
+SSE. Yeah, that's I've got an SSE version that 
+works with HTTP basis basic that returns basically
+
+1:11:16.640,1:11:22.800
+a that that transfers a request response and 
+notification message envelope as the payload to
+
+1:11:22.800,1:11:31.520
+be able to support multiple events and multiple 
+afordance messages over a single SSE connection
+
+1:11:31.520,1:11:39.840
+because uh it's the same same issue. So this 
+obviously is not in accordance to the SSC standard
+
+1:11:39.840,1:11:46.720
+specification what specification. So hence there 
+was a challenge here I worked around it. It
+
+1:11:46.720,1:11:52.000
+doesn't mean everything is what compatible right 
+now but it's see more as an evolution to become
+
+1:11:52.000,1:12:01.040
+this way. Let's see what else. Um yeah, there's a 
+lot related to forms and a discussion on message
+
+1:12:01.040,1:12:08.880
+envelopes which I I kind of really propose to to 
+have message envelopes and just use that as the
+
+1:12:08.880,1:12:18.080
+payload for uh for transport protocols or message 
+protocols. Let's see. I just quickly go through
+
+1:12:18.080,1:12:24.720
+because of ran out of time. Um authorization. 
+So yeah, there's there's some more stuff to do.
+
+1:12:25.920,1:12:32.320
+um to really make it fully interactive. 
+But I think I've got a core now in hid
+
+1:12:32.320,1:12:38.800
+that lends itself to be to evolve towards fully 
+interoperability. I think the main focus now is
+
+1:12:38.800,1:12:44.560
+provide interoperability with consumers. So that 
+will be the the next steps and then start adding
+
+1:12:44.560,1:12:50.000
+services once everything is solidified. I made 
+a lot of iterations. So there's a lot of changes
+
+1:12:50.000,1:12:54.800
+and there's a lot of rework and all the test 
+cases have to be adapted. I've kind of think
+
+1:12:54.800,1:13:02.400
+that's happened enough now to uh to really to 
+to know that what I've settled on now with HTT
+
+1:13:02.400,1:13:14.880
+is a a decent uh ways of approaching this. 
+All right, that uh ends the presentation.
