@@ -22,7 +22,7 @@
           "description": "Eclipse ediTDor - A tool for simply designing W3C Thing Descriptions",
           "repoUrl": "https://github.com/eclipse-editdor/editdor",
           "languages": [],
-          "lastUpdated": "2026-06-11T11:54:25Z",
+          "lastUpdated": "2026-07-24T07:48:54Z",
           "homepageUrl": "https://eclipse-editdor.github.io/editdor/",
           "platforms": [
             "Browser"
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-07-18T12:50:51Z",
+          "lastUpdated": "2026-07-24T09:11:50Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-07-16T12:51:13Z",
+          "lastUpdated": "2026-07-24T13:23:03Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-07-18T12:50:51Z",
+          "lastUpdated": "2026-07-24T09:11:50Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -201,7 +201,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-06-19T09:31:03Z",
+          "lastUpdated": "2026-07-19T06:01:36Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
@@ -211,12 +211,12 @@
         },
         {
           "name": "thingctx",
-          "description": "Drive any agent against any W3C WoT Thing from its description. No per-integration server.",
+          "description": "Agent tools for any API, device, or local process, from a description you write or compile from OpenAPI. HTTP, MQTT, RTSP, in-process, subprocess, or your own protocol. Authorized per operation; the agent never holds your keys.",
           "repoUrl": "https://github.com/thingctx/thingctx",
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-07-11T18:53:42Z",
+          "lastUpdated": "2026-07-26T00:51:40Z",
           "homepageUrl": "https://thingctx.com",
           "platforms": [
             "Library",
@@ -249,7 +249,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-07-16T12:51:13Z",
+          "lastUpdated": "2026-07-24T13:23:03Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -355,7 +355,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-06-19T09:31:03Z",
+          "lastUpdated": "2026-07-19T06:01:36Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
@@ -585,7 +585,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-07-18T12:48:31Z",
+          "lastUpdated": "2026-07-23T11:13:56Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-07-18T11:26:15Z",
+          "lastUpdated": "2026-07-22T15:40:32Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
