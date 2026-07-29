@@ -72,9 +72,12 @@ export function Navbar() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          boxShadow: 'sm',
-          px: 2,
-          py: 1,
+          boxShadow: '0 8px 30px rgba(7, 29, 43, .08)',
+          borderRadius: 0,
+          borderBottom: '1px solid #dbe7ea',
+          backgroundColor: '#fff',
+          px: { xs: 1.5, md: 3 },
+          py: 1.25,
           position: 'relative',
           zIndex: 10, // Ensures the Card stays above the subnavigation
           minHeight: '67.5px',
@@ -84,7 +87,7 @@ export function Navbar() {
           direction="row"
           justifyContent="space-between"
           alignItems="baseline"
-          sx={{ width: '100%', maxWidth: '1800px' }}
+          sx={{ width: '100%', maxWidth: '1440px' }}
         >
           <Link
             href="/"

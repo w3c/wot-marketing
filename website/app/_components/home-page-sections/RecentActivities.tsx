@@ -1,82 +1,70 @@
 import { ARTICLES } from '@/lib/articles';
 import { EVENTS } from '@/lib/events';
-import { Typography, Stack, Chip, Box } from '@mui/joy';
-import { PageSection } from '../PageSection';
-import { LinkButton } from '../LinkButton';
+import { ArrowRight, CalendarDays, ExternalLink, Newspaper } from 'lucide-react';
+import Link from 'next/link';
+
+const currentDate = new Date();
+currentDate.setHours(0, 0, 0, 0);
 
 export function RecentActivities() {
   return (
-    <PageSection title="Recent Activities">
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
-          gap: 2,
-        }}
-      >
-        <Typography level="title-lg" sx={{ gridColumn: { md: '1' }, gridRow: { md: '1' } }}>
-          Latest Articles
-        </Typography>
-        {ARTICLES.slice(0, 3).map((article, index) => (
-          <LinkButton
-            key={article.title + index}
-            external_url={article.url}
-            sx={{ gridColumn: { md: '1' }, gridRow: { md: String(index + 2) }, textAlign: 'left' }}
-          >
-            <Stack sx={{ width: '100%', gap: 4, alignItems: 'flex-start', py: 2, px: 1 }}>
-              <Typography level="title-lg">{article.title}</Typography>
-              <Typography level="body-sm">{`${article.publisher} | ${article.type} | ${article.date}`}</Typography>
-            </Stack>
-          </LinkButton>
-        ))}
-        <LinkButton
-          path="/about/articles"
-          sx={{
-            gridColumn: { md: '1' },
-            gridRow: { md: '5' },
-            fontSize: 'md',
-            height: 'min-content',
-            minHeight: '0',
-          }}
-        >
-          See All
-        </LinkButton>
+    <section className="recent-activities section">
+      <div className="shell">
+        <header>
+          <label>RECENT ACTIVITIES</label>
+          <h2>See what&apos;s happening across Web of Things.</h2>
+          <p>Explore recent coverage, announcements, and opportunities to meet the community.</p>
+        </header>
 
-        <Typography level="title-lg" sx={{ gridColumn: { md: '2' }, gridRow: { md: '1' }, mt: { xs: 4, md: 0 } }}>
-          Latest Events
-        </Typography>
-        {EVENTS.slice(0, 3).map((event, index) => (
-          <LinkButton
-            key={event.name + index}
-            external_url={event.url}
-            sx={{ gridColumn: { md: '2' }, gridRow: { md: String(index + 2) } }}
-          >
-            <Stack sx={{ width: '100%', gap: 4, alignItems: 'flex-start', py: 2, px: 1 }}>
-              <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ width: '100%' }}>
-                <Typography level="title-lg">{event.name}</Typography>
-                {new Date(event.date) > new Date() && (
-                  <Chip color="primary" variant="soft">
-                    Upcoming
-                  </Chip>
-                )}
-              </Stack>
-              <Typography level="body-sm">{`${event.date_display}`}</Typography>
-            </Stack>
-          </LinkButton>
-        ))}
-        <LinkButton
-          path="/participate/working-group/events"
-          sx={{
-            gridColumn: { md: '2' },
-            gridRow: { md: '5' },
-            fontSize: 'md',
-            height: 'min-content',
-            minHeight: '0',
-          }}
-        >
-          See All
-        </LinkButton>
-      </Box>
-    </PageSection>
+        <div className="activity-columns">
+          <div className="activity-column">
+            <div className="activity-heading">
+              <Newspaper aria-hidden="true" />
+              <h3>Latest publications</h3>
+            </div>
+            <div className="activity-list">
+              {ARTICLES.slice(0, 3).map((article) => (
+                <a href={article.url} target="_blank" rel="noreferrer" key={article.url}>
+                  <span className="activity-meta">
+                    {article.publisher} <i aria-hidden="true" /> {article.type} <i aria-hidden="true" /> {article.date}
+                  </span>
+                  <strong>{article.title}</strong>
+                  <ExternalLink aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+            <Link className="activity-more" href="/about/articles">
+              View all publications <ArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="activity-column">
+            <div className="activity-heading">
+              <CalendarDays aria-hidden="true" />
+              <h3>Latest events</h3>
+            </div>
+            <div className="activity-list">
+              {EVENTS.slice(0, 3).map((event) => {
+                const isUpcoming = new Date(event.date) >= currentDate;
+
+                return (
+                  <a href={event.url} target="_blank" rel="noreferrer" key={event.url}>
+                    <span className="activity-meta">
+                      {event.date_display}
+                      {isUpcoming && <em>Upcoming</em>}
+                    </span>
+                    <strong>{event.name}</strong>
+                    <ExternalLink aria-hidden="true" />
+                  </a>
+                );
+              })}
+            </div>
+            <Link className="activity-more" href="/participate/working-group/events">
+              View all events <ArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -1,25 +1,24 @@
-import { PageLayout } from './_components/PageLayout';
-import { WoTInANutshell } from './_components/home-page-sections/WoTInANutshell';
-import { Members } from './_components/home-page-sections/Members';
-import { Liaisons } from './_components/home-page-sections/Liaisons';
-import { WhyJoin } from './_components/home-page-sections/WhyJoin';
+import './home.css';
+import { CommunityCallToAction } from './_components/home-page-sections/CommunityCallToAction';
+import { DomainsSection } from './_components/home-page-sections/DomainsSection';
+import { EcosystemSection } from './_components/home-page-sections/EcosystemSection';
+import { FeaturesSection } from './_components/home-page-sections/FeaturesSection';
+import { HeroSection } from './_components/home-page-sections/HeroSection';
+import { IntegrationSection } from './_components/home-page-sections/IntegrationSection';
 import { RecentActivities } from './_components/home-page-sections/RecentActivities';
-import { UseCases } from './_components/home-page-sections/UseCases';
-import { MastodonFeed } from './_components/home-page-sections/MastodonFeed';
+import { WhyJoin } from './_components/home-page-sections/WhyJoin';
 
 export default function HomePage() {
   return (
-    <PageLayout
-      title="W3C Web of Things"
-      subtitle="The mission of the W3C Web of Things (WoT) is to define a universal application layer for the Internet of Things (IoT) built on web technologies, to counter fragmentation and enable seamless integration across IoT platforms and application domains"
-    >
-      <WoTInANutshell />
-      <UseCases />
-      <Members />
-      <Liaisons />
+    <main className="home">
+      <HeroSection />
+      <IntegrationSection />
+      <FeaturesSection />
+      <DomainsSection />
+      <EcosystemSection />
       <WhyJoin />
       <RecentActivities />
-      <MastodonFeed />
-    </PageLayout>
+      <CommunityCallToAction />
+    </main>
   );
 }
