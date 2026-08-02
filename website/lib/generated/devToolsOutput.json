@@ -195,7 +195,7 @@
           "affiliation": "SIFIS-HOME"
         },
         {
-          "name": "Introduction",
+          "name": "Eclipse Thingweb wotpy",
           "description": "A WoT runtime in Python for Thing and Consumer applications",
           "repoUrl": "https://github.com/eclipse-thingweb/wotpy",
           "languages": [
@@ -216,7 +216,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-07-28T11:27:15Z",
+          "lastUpdated": "2026-08-02T16:48:30Z",
           "homepageUrl": "https://thingctx.com",
           "platforms": [
             "Library",
@@ -286,6 +286,21 @@
           ],
           "license": "Apache License 2.0",
           "affiliation": "OpenJS Foundation"
+        },
+        {
+          "name": "Eclipse Thingweb wotpy",
+          "description": "A WoT runtime in Python for Thing and Consumer applications",
+          "repoUrl": "https://github.com/eclipse-thingweb/wotpy",
+          "languages": [
+            "Python"
+          ],
+          "lastUpdated": "2026-07-30T08:59:41Z",
+          "homepageUrl": "https://thingweb.io",
+          "platforms": [
+            "Library"
+          ],
+          "license": "MIT License",
+          "affiliation": null
         },
         {
           "name": "dart_wot",

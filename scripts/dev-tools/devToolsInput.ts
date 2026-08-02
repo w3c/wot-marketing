@@ -86,6 +86,7 @@ export const devToolsInput: DevToolsInput = {
         },
         {
           repoUrl: 'https://github.com/eclipse-thingweb/wotpy',
+          name: 'Eclipse Thingweb wotpy',
           description: 'A WoT runtime in Python for Thing and Consumer applications',
           platforms: ['Library'],
         },
@@ -116,6 +117,12 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: 'https://github.com/node-red/node-red-nodegen',
           platforms: ['CLI'],
           affiliation: 'OpenJS Foundation',
+        },
+        {
+          repoUrl: 'https://github.com/eclipse-thingweb/wotpy',
+          name: 'Eclipse Thingweb wotpy',
+          description: 'A WoT runtime in Python for Thing and Consumer applications',
+          platforms: ['Library'],
         },
         {
           homepageUrl: 'https://pub.dev/packages/dart_wot',
