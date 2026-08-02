@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-07-03T09:28:22Z",
+          "lastUpdated": "2026-07-28T11:15:54Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -22,7 +22,7 @@
           "description": "Eclipse ediTDor - A tool for simply designing W3C Thing Descriptions",
           "repoUrl": "https://github.com/eclipse-editdor/editdor",
           "languages": [],
-          "lastUpdated": "2026-07-24T07:48:54Z",
+          "lastUpdated": "2026-07-27T16:35:23Z",
           "homepageUrl": "https://eclipse-editdor.github.io/editdor/",
           "platforms": [
             "Browser"
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-07-24T09:11:50Z",
+          "lastUpdated": "2026-08-02T01:58:28Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-07-24T09:11:50Z",
+          "lastUpdated": "2026-08-02T01:58:28Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -195,14 +195,14 @@
           "affiliation": "SIFIS-HOME"
         },
         {
-          "name": "wotpy",
-          "description": "wotpy is an experimental asynchronous implementation of a W3C Web of Things runtime",
-          "repoUrl": "https://github.com/eclipse-thingweb/wot-py",
+          "name": "Eclipse Thingweb wotpy",
+          "description": "A WoT runtime in Python for Thing and Consumer applications",
+          "repoUrl": "https://github.com/eclipse-thingweb/wotpy",
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-07-19T06:01:36Z",
-          "homepageUrl": null,
+          "lastUpdated": "2026-07-30T08:59:41Z",
+          "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
           ],
@@ -216,7 +216,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-07-26T00:51:40Z",
+          "lastUpdated": "2026-08-02T16:48:30Z",
           "homepageUrl": "https://thingctx.com",
           "platforms": [
             "Library",
@@ -288,6 +288,21 @@
           "affiliation": "OpenJS Foundation"
         },
         {
+          "name": "Eclipse Thingweb wotpy",
+          "description": "A WoT runtime in Python for Thing and Consumer applications",
+          "repoUrl": "https://github.com/eclipse-thingweb/wotpy",
+          "languages": [
+            "Python"
+          ],
+          "lastUpdated": "2026-07-30T08:59:41Z",
+          "homepageUrl": "https://thingweb.io",
+          "platforms": [
+            "Library"
+          ],
+          "license": "MIT License",
+          "affiliation": null
+        },
+        {
           "name": "dart_wot",
           "description": "Framework to build Web of Things applications in Dart and Flutter.",
           "repoUrl": "https://github.com/eclipse-thingweb/dart_wot",
@@ -347,21 +362,6 @@
           ],
           "license": "MIT License",
           "affiliation": "TUM ESI"
-        },
-        {
-          "name": "wotpy",
-          "description": "wotpy is an experimental asynchronous implementation of a W3C Web of Things runtime",
-          "repoUrl": "https://github.com/agmangas/wot-py",
-          "languages": [
-            "Python"
-          ],
-          "lastUpdated": "2026-07-19T06:01:36Z",
-          "homepageUrl": null,
-          "platforms": [
-            "Library"
-          ],
-          "license": "MIT License",
-          "affiliation": null
         },
         {
           "name": "WoTCpp",
@@ -487,7 +487,7 @@
           "description": "A CLI Client for ThingModel Catalogs",
           "repoUrl": "https://github.com/wot-oss/tmc",
           "languages": [],
-          "lastUpdated": "2026-06-22T11:51:56Z",
+          "lastUpdated": "2026-07-30T09:39:57Z",
           "homepageUrl": "https://wot-oss.github.io/tmc/",
           "platforms": [
             "CLI"
@@ -585,7 +585,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-07-23T11:13:56Z",
+          "lastUpdated": "2026-08-01T12:07:25Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-07-22T15:40:32Z",
+          "lastUpdated": "2026-08-01T07:07:19Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -703,7 +703,7 @@
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [],
-          "lastUpdated": "2026-07-07T14:51:52Z",
+          "lastUpdated": "2026-07-28T10:17:16Z",
           "homepageUrl": null,
           "platforms": [
             "Application"
