@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-07-31T08:52:16Z",
+          "lastUpdated": "2026-08-02T01:58:28Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-07-31T08:52:16Z",
+          "lastUpdated": "2026-08-02T01:58:28Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -197,7 +197,7 @@
         {
           "name": "Introduction",
           "description": "A WoT runtime in Python for Thing and Consumer applications",
-          "repoUrl": "https://github.com/eclipse-thingweb/wot-py",
+          "repoUrl": "https://github.com/eclipse-thingweb/wotpy",
           "languages": [
             "Python"
           ],
@@ -347,21 +347,6 @@
           ],
           "license": "MIT License",
           "affiliation": "TUM ESI"
-        },
-        {
-          "name": "Introduction",
-          "description": "A WoT runtime in Python for Thing and Consumer applications",
-          "repoUrl": "https://github.com/agmangas/wot-py",
-          "languages": [
-            "Python"
-          ],
-          "lastUpdated": "2026-07-30T08:59:41Z",
-          "homepageUrl": "https://thingweb.io",
-          "platforms": [
-            "Library"
-          ],
-          "license": "MIT License",
-          "affiliation": null
         },
         {
           "name": "WoTCpp",
