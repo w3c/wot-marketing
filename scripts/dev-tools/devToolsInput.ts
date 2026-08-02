@@ -85,7 +85,8 @@ export const devToolsInput: DevToolsInput = {
           affiliation: 'SIFIS-HOME',
         },
         {
-          repoUrl: 'https://github.com/eclipse-thingweb/wot-py',
+          repoUrl: 'https://github.com/eclipse-thingweb/wotpy',
+          description: 'A WoT runtime in Python for Thing and Consumer applications',
           platforms: ['Library'],
         },
         {
@@ -137,10 +138,6 @@ export const devToolsInput: DevToolsInput = {
           repoUrl: 'https://github.com/tum-esi/wot.net',
           platforms: ['Library'],
           affiliation: 'TUM ESI',
-        },
-        {
-          repoUrl: 'https://github.com/agmangas/wot-py',
-          platforms: ['Library'],
         },
         {
           repoUrl: 'https://github.com/boobalkrishnan/wotcpp',
