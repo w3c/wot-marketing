@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-08-05T20:11:49Z",
+          "lastUpdated": "2026-08-11T08:56:03Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -35,7 +35,7 @@
           "description": "VS Code extension for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/td-code",
           "languages": [],
-          "lastUpdated": "2026-02-27T17:35:15Z",
+          "lastUpdated": "2026-08-10T22:32:06Z",
           "homepageUrl": "https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code",
           "platforms": [
             "IDE Extension"
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-08-08T02:13:19Z",
+          "lastUpdated": "2026-08-12T14:40:44Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-08-06T06:37:40Z",
+          "lastUpdated": "2026-08-10T09:24:55Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-08-08T02:13:19Z",
+          "lastUpdated": "2026-08-12T14:40:44Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -201,7 +201,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-08-05T20:06:58Z",
+          "lastUpdated": "2026-08-15T09:45:33Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
@@ -216,7 +216,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-08-04T15:37:13Z",
+          "lastUpdated": "2026-08-14T03:40:37Z",
           "homepageUrl": "https://thingctx.com",
           "platforms": [
             "Library",
@@ -249,7 +249,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-08-06T06:37:40Z",
+          "lastUpdated": "2026-08-10T09:24:55Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -294,7 +294,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-08-05T20:06:58Z",
+          "lastUpdated": "2026-08-15T09:45:33Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
@@ -309,7 +309,7 @@
           "languages": [
             "Dart"
           ],
-          "lastUpdated": "2025-10-06T09:12:17Z",
+          "lastUpdated": "2026-08-10T22:02:50Z",
           "homepageUrl": "https://pub.dev/packages/dart_wot",
           "platforms": [
             "Library"
@@ -340,7 +340,7 @@
           "languages": [
             "Kotlin"
           ],
-          "lastUpdated": "2026-04-04T13:48:09Z",
+          "lastUpdated": "2026-08-15T06:09:52Z",
           "homepageUrl": null,
           "platforms": [
             "Library"
@@ -415,7 +415,7 @@
           "description": "Semantic storage for device metadata based on W3C Thing Description information model",
           "repoUrl": "https://github.com/eclipse-thingweb/domus-tdd-api",
           "languages": [],
-          "lastUpdated": "2026-04-15T12:24:18Z",
+          "lastUpdated": "2026-08-10T10:49:23Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Service"
@@ -461,7 +461,7 @@
           "description": "WoT Application Manager - a CLI to quickly build a Web of Things application.",
           "repoUrl": "https://github.com/eclipse-thingweb/wam",
           "languages": [],
-          "lastUpdated": "2026-01-06T12:06:49Z",
+          "lastUpdated": "2026-08-10T22:34:51Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "CLI"
@@ -585,7 +585,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-08-01T12:07:25Z",
+          "lastUpdated": "2026-08-14T11:43:26Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-08-08T22:23:25Z",
+          "lastUpdated": "2026-08-14T22:22:54Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -703,7 +703,7 @@
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [],
-          "lastUpdated": "2026-07-28T10:17:16Z",
+          "lastUpdated": "2026-08-12T13:09:55Z",
           "homepageUrl": null,
           "platforms": [
             "Application"
