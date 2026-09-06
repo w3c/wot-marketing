@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-08-21T00:45:58Z",
+          "lastUpdated": "2026-09-03T10:52:44Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -19,10 +19,10 @@
         },
         {
           "name": "Eclipse edi{TD}or",
-          "description": "Eclipse ediTDor - A tool for simply designing W3C Thing Descriptions",
+          "description": "A tool for easily creating and designing W3C Thing Descriptions and Thing Models",
           "repoUrl": "https://github.com/eclipse-editdor/editdor",
           "languages": [],
-          "lastUpdated": "2026-07-27T16:35:23Z",
+          "lastUpdated": "2026-09-01T14:11:38Z",
           "homepageUrl": "https://eclipse-editdor.github.io/editdor/",
           "platforms": [
             "Browser"
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-08-27T16:25:50Z",
+          "lastUpdated": "2026-09-03T17:13:28Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-08-10T09:24:55Z",
+          "lastUpdated": "2026-09-03T15:12:22Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-08-27T16:25:50Z",
+          "lastUpdated": "2026-09-03T17:13:28Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -172,7 +172,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-04-28T11:48:37Z",
+          "lastUpdated": "2026-09-05T16:16:02Z",
           "homepageUrl": null,
           "platforms": [
             "Library",
@@ -201,7 +201,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-08-29T16:41:15Z",
+          "lastUpdated": "2026-09-04T10:20:41Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
@@ -216,7 +216,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-08-14T03:40:37Z",
+          "lastUpdated": "2026-09-02T19:20:16Z",
           "homepageUrl": "https://thingctx.com",
           "platforms": [
             "Library",
@@ -249,7 +249,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-08-10T09:24:55Z",
+          "lastUpdated": "2026-09-03T15:12:22Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -279,7 +279,7 @@
           "description": "Command line tool to convert Node-RED function node, Swagger document, or WoT Thing Description to a custom Node.",
           "repoUrl": "https://github.com/node-red/node-red-nodegen",
           "languages": [],
-          "lastUpdated": "2026-08-22T15:23:31Z",
+          "lastUpdated": "2026-09-01T09:57:27Z",
           "homepageUrl": null,
           "platforms": [
             "CLI"
@@ -294,7 +294,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-08-29T16:41:15Z",
+          "lastUpdated": "2026-09-04T10:20:41Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
@@ -324,7 +324,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-04-28T11:48:37Z",
+          "lastUpdated": "2026-09-05T16:16:02Z",
           "homepageUrl": null,
           "platforms": [
             "Library",
@@ -513,7 +513,7 @@
           "description": "Block Applications For Things",
           "repoUrl": "https://github.com/wintechis/blast/",
           "languages": [],
-          "lastUpdated": "2025-12-09T14:48:20Z",
+          "lastUpdated": "2026-08-31T11:05:30Z",
           "homepageUrl": "https://wintechis.github.io/blast/",
           "platforms": [
             "Browser"
@@ -585,7 +585,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-08-14T11:43:26Z",
+          "lastUpdated": "2026-09-04T19:29:21Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-08-23T19:35:57Z",
+          "lastUpdated": "2026-09-05T20:34:37Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
