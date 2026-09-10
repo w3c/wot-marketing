@@ -8,16 +8,22 @@ interface Event {
 
 export const EVENTS: Event[] = [
   {
+    name: 'WoT Open Day and hands-on in Shenzhen China',
+    url: 'https://www.w3.org/events/happenings/2027/w3c-web-of-things-event-in-china-2027/',
+    date: '2027-01-14',
+    date_display: '14-15 January 2027',
+  },
+  {
     name: 'W3C TPAC 2026',
     url: 'https://www.w3.org/wiki/TPAC/2026',
     date: '2026-10-26',
     date_display: '26-30 October 2026',
   },
   {
-    name: 'W3C WoT PlugFest & Workshop in China',
-    url: 'https://www.w3.org/WoT/IG/wiki/Main_WoT_WebConf#Quick_Items_and_Notices_(Informative):~:text=Planning%3A%20W3C%20WoT%20PlugFest%20%26%20Workshop%20in%20China',
-    date: '2026-06-15',
-    date_display: '15-18 June 2026',
+    name: 'The Things Conference 2026',
+    url: 'https://www.thethingsconference.com/',
+    date: '2026-09-22',
+    date_display: '22-23 September 2026',
   },
   {
     name: 'W3C TPAC 2025',
