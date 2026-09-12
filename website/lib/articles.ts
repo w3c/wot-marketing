@@ -1,4 +1,15 @@
-export const ARTICLES = [
+// If changed, adapt the .github/ISSUE_TEMPLATE/article.yaml dropdown options accordingly
+type Type = 'Blog Post' | 'Press Release' | 'Article' | 'Social Media Post' | 'News';
+
+interface Article {
+  title: string;
+  url: string;
+  type: Type;
+  publisher: string;
+  date: string;
+}
+
+export const ARTICLES: Article[] = [
   {
     title: 'W3C Web of Things (WoT) support in Azure IoT Operations',
     url: 'https://techcommunity.microsoft.com/blog/iotblog/w3c-web-of-things-wot-support-in-azure-iot-operations/4511215',
