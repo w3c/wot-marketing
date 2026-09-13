@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-09-03T10:52:44Z",
+          "lastUpdated": "2026-09-09T06:59:53Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-09-03T17:13:28Z",
+          "lastUpdated": "2026-09-10T15:05:16Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-09-03T15:12:22Z",
+          "lastUpdated": "2026-09-10T08:10:39Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-09-03T17:13:28Z",
+          "lastUpdated": "2026-09-10T15:05:16Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -249,7 +249,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-09-03T15:12:22Z",
+          "lastUpdated": "2026-09-10T08:10:39Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -585,7 +585,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-09-04T19:29:21Z",
+          "lastUpdated": "2026-09-10T05:45:20Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-09-05T20:34:37Z",
+          "lastUpdated": "2026-09-12T21:27:09Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
