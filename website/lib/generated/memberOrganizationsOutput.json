@@ -1,100 +1,12 @@
 {
   "Web of Things Working Group": [
     {
-      "title": "|pipe|",
-      "homepage": "https://pi.pe"
-    },
-    {
-      "title": "ACCESS CO., LTD.",
-      "homepage": "http://www.access-company.com/"
-    },
-    {
-      "title": "ByteDance",
-      "homepage": "https://bytedance.com/"
-    },
-    {
-      "title": "Conexxus",
-      "homepage": "http://www.conexxus.org"
-    },
-    {
-      "title": "Ecole Mohammadia d'Ingenieurs Rabat (EMI)",
-      "homepage": "http://www.emi.ac.ma"
-    },
-    {
-      "title": "Electronics and Telecommunications Research Institute (ETRI)",
-      "homepage": "http://www.etri.re.kr"
-    },
-    {
-      "title": "ERICSSON",
-      "homepage": "https://www.ericsson.com"
-    },
-    {
-      "title": "Fraunhofer Gesellschaft",
-      "homepage": "https://www.fraunhofer.de/en.html"
-    },
-    {
-      "title": "Fujitsu Limited",
-      "homepage": "http://www.fujitsu.com"
-    },
-    {
-      "title": "Fundacion CTIC",
-      "homepage": "http://www.fundacionctic.org"
-    },
-    {
       "title": "Hitachi, Ltd.",
       "homepage": "https://www.hitachi.com/"
     },
     {
-      "title": "Ignite Retail Technology",
-      "homepage": "http://ignite-retail.com"
-    },
-    {
-      "title": "Institut Mines-Télécom",
-      "homepage": "https://www.imt.fr/"
-    },
-    {
-      "title": "Institut National de Recherche en Informatique et en Automatique (Inria)",
-      "homepage": "https://www.inria.fr/"
-    },
-    {
-      "title": "Intel Corporation",
-      "homepage": "http://www.intel.com/"
-    },
-    {
-      "title": "Internet Research Institute, Inc.",
-      "homepage": "http://www.iri.co.jp/"
-    },
-    {
-      "title": "MEDIA DO Co., Ltd.",
-      "homepage": "https://www.mediado.jp/english/"
-    },
-    {
-      "title": "Microsoft Corporation",
-      "homepage": "https://www.microsoft.com/"
-    },
-    {
-      "title": "OpenLink Software Inc.",
-      "homepage": "http://www.openlinksw.com"
-    },
-    {
-      "title": "Oracle Corporation",
-      "homepage": "http://www.oracle.com/"
-    },
-    {
-      "title": "Rakuten Group, Inc.",
-      "homepage": "https://global.rakuten.com/corp/"
-    },
-    {
       "title": "Siemens AG",
       "homepage": "http://www.siemens.com"
-    },
-    {
-      "title": "Universidad Politécnica de Madrid",
-      "homepage": "https://www.upm.es"
-    },
-    {
-      "title": "Voyager Japan, Inc.",
-      "homepage": "https://www.voyager.co.jp"
     }
   ],
   "Web of Things Community Group": [

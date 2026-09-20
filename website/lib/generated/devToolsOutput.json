@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-09-10T15:05:16Z",
+          "lastUpdated": "2026-09-19T00:41:48Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-09-10T08:10:39Z",
+          "lastUpdated": "2026-09-19T00:42:13Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-09-10T15:05:16Z",
+          "lastUpdated": "2026-09-19T00:41:48Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -249,7 +249,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-09-10T08:10:39Z",
+          "lastUpdated": "2026-09-19T00:42:13Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-09-12T21:27:09Z",
+          "lastUpdated": "2026-09-19T04:55:20Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
