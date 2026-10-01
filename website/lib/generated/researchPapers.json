@@ -101,7 +101,7 @@
       "Mahmoud Daneshmand",
       "Jianguo Ding"
     ],
-    "date": "2026-01-01T00:00:00.000Z",
+    "date": "2026-07-15T00:00:00.000Z",
     "link": "https://doi.org/10.1109/jiot.2026.3698940",
     "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
     "title": "Cyberlogic: A Foundational Framework for Cross-Space Logic in the Cyber-Physical-Social-Thinking Hyperspace",
@@ -291,5 +291,18 @@
     "publisher": "IEEE",
     "title": "Leveraging Information-Centric Edge Computing in Private 5G Cellular Networks via the W3C Web of Things",
     "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Julia Robles",
+      "Sergio Infante",
+      "Cristian Martin",
+      "Manuel Diaz"
+    ],
+    "date": "2026-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/tse.2026.3727063",
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "title": "Composite Digital Twins: From Formalization to a Scalable, Semantic Graph-Based Architecture with OpenTwins",
+    "type": "Journal Article"
   }
 ]

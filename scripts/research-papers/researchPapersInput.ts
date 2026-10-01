@@ -21,4 +21,5 @@ export const RESEARCH_PAPERS = [
   '10.1109/ccnc65079.2026.11366376', // Vendor-Independent Data Platform Architecture in Smart Buildings
   '10.1109/coins61597.2024.10622288', // Stateful-WoT: Capturing the Behavior of Highly Dynamic Cyber-Physical Systems
   '10.1109/ccnc54725.2025.10976001', // Leveraging Information-Centric Edge Computing in Private 5G Cellular Networks via the W3C Web of Things
+  '10.1109/TSE.2026.3727063', // Composite Digital Twins: From Formalization to a Scalable, Semantic Graph-Based Architecture with OpenTwins
 ] as const;
