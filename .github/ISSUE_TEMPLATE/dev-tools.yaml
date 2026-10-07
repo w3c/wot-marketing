@@ -1,0 +1,45 @@
+name: Developer Tools
+description: Submit a developer tool for the W3C WoT website
+title: '[Dev Tool]: '
+labels: ['issue-form']
+body:
+  - type: markdown
+    attributes:
+      value: Please provide details about the tool you would like us to add to the developer tools directory on the W3C WoT website.
+  - type: input
+    attributes:
+      label: Repository URL
+      placeholder: https://github.com/organization/project-name
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Affiliation
+      description: The organization, company, institution, or group affiliated with the tool.
+  - type: dropdown
+    attributes:
+      label: Automatically fetch data
+      description: When enabled, tool details are fetched from the repository each week, so the fields below are optional. You can still provide values to override specific details. Currently, only GitHub and GitLab repositories are supported.
+      default: 0
+      options:
+        - On
+        - Off
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Tool name
+  - type: textarea
+    attributes:
+      label: Description
+  - type: input
+    attributes:
+      label: Programming languages
+      description: List the programming languages the tool supports, separated by commas.
+  - type: input
+    attributes:
+      label: Homepage URL
+  - type: textarea
+    id: notes
+    attributes:
+      label: Add any other context that may help reviewers.
