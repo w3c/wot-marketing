@@ -12,7 +12,7 @@ export const CARD_LINKS = [
     icon: <FileText />,
     label: 'WG Charter',
     description: 'Official group mandate and timeline',
-    external_url: 'https://www.w3.org/2023/10/wot-wg-2023.html',
+    external_url: 'https://www.w3.org/2026/09/wot-wg-2026.html',
   },
   {
     icon: <Mail />,
