@@ -36,7 +36,7 @@ export function WhyJoin() {
           <LinkButton
             fullWidth
             startDecorator={<Image src={DiscordIcon} alt="Discord" width={24} />}
-            external_url="https://discord.gg/WP3MqCfKQ"
+            external_url="https://discord.com/invite/RJNYJsEgnb"
           >
             Join the discussion
           </LinkButton>
