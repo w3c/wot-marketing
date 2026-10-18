@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-10-10T22:48:27Z",
+          "lastUpdated": "2026-10-12T11:35:57Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-10-08T17:16:08Z",
+          "lastUpdated": "2026-10-15T15:01:33Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-10-06T13:44:37Z",
+          "lastUpdated": "2026-10-16T08:44:54Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-10-08T17:16:08Z",
+          "lastUpdated": "2026-10-15T15:01:33Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -216,7 +216,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-10-09T08:42:33Z",
+          "lastUpdated": "2026-10-11T16:35:36Z",
           "homepageUrl": "https://thingctx.com",
           "platforms": [
             "Library",
@@ -249,7 +249,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-10-06T13:44:37Z",
+          "lastUpdated": "2026-10-16T08:44:54Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -461,7 +461,7 @@
           "description": "WoT Application Manager - a CLI to quickly build a Web of Things application.",
           "repoUrl": "https://github.com/eclipse-thingweb/wam",
           "languages": [],
-          "lastUpdated": "2026-08-10T22:34:51Z",
+          "lastUpdated": "2026-10-14T00:35:18Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "CLI"
@@ -585,7 +585,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-10-08T00:53:03Z",
+          "lastUpdated": "2026-10-14T12:44:23Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-10-10T04:09:45Z",
+          "lastUpdated": "2026-10-17T20:58:51Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
