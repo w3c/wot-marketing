@@ -8,7 +8,7 @@
           "description": "Browser application for validating and designing W3C Thing Descriptions and Thing Models.",
           "repoUrl": "https://github.com/eclipse-thingweb/playground",
           "languages": [],
-          "lastUpdated": "2026-10-12T11:35:57Z",
+          "lastUpdated": "2026-10-18T13:50:35Z",
           "homepageUrl": "https://playground.thingweb.io/",
           "platforms": [
             "Browser",
@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-10-15T15:01:33Z",
+          "lastUpdated": "2026-10-23T07:09:02Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -141,7 +141,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-10-16T08:44:54Z",
+          "lastUpdated": "2026-10-22T08:07:41Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-10-15T15:01:33Z",
+          "lastUpdated": "2026-10-23T07:09:02Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -201,7 +201,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-10-09T17:04:06Z",
+          "lastUpdated": "2026-10-21T09:02:10Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
@@ -249,7 +249,7 @@
           "languages": [
             "TypeScript"
           ],
-          "lastUpdated": "2026-10-16T08:44:54Z",
+          "lastUpdated": "2026-10-22T08:07:41Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library",
@@ -294,7 +294,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-10-09T17:04:06Z",
+          "lastUpdated": "2026-10-21T09:02:10Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
@@ -487,7 +487,7 @@
           "description": "A CLI Client for ThingModel Catalogs",
           "repoUrl": "https://github.com/wot-oss/tmc",
           "languages": [],
-          "lastUpdated": "2026-09-29T22:42:42Z",
+          "lastUpdated": "2026-10-19T19:32:07Z",
           "homepageUrl": "https://wot-oss.github.io/tmc/",
           "platforms": [
             "CLI"
@@ -513,7 +513,7 @@
           "description": "Block Applications For Things",
           "repoUrl": "https://github.com/wintechis/blast/",
           "languages": [],
-          "lastUpdated": "2026-08-31T11:05:30Z",
+          "lastUpdated": "2026-10-21T14:19:58Z",
           "homepageUrl": "https://wintechis.github.io/blast/",
           "platforms": [
             "Browser"
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-10-17T20:58:51Z",
+          "lastUpdated": "2026-10-24T20:58:58Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
