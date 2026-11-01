@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-10-23T07:09:02Z",
+          "lastUpdated": "2026-10-30T11:15:42Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-10-23T07:09:02Z",
+          "lastUpdated": "2026-10-30T11:15:42Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -201,7 +201,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-10-21T09:02:10Z",
+          "lastUpdated": "2026-10-26T23:23:44Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
@@ -216,7 +216,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-10-11T16:35:36Z",
+          "lastUpdated": "2026-10-26T06:33:33Z",
           "homepageUrl": "https://thingctx.com",
           "platforms": [
             "Library",
@@ -265,7 +265,7 @@
           "languages": [
             "Go"
           ],
-          "lastUpdated": "2026-09-27T17:30:13Z",
+          "lastUpdated": "2026-10-31T16:23:15Z",
           "homepageUrl": null,
           "platforms": [
             "Library",
@@ -294,7 +294,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-10-21T09:02:10Z",
+          "lastUpdated": "2026-10-26T23:23:44Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-10-24T20:58:58Z",
+          "lastUpdated": "2026-10-31T08:46:48Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -612,7 +612,7 @@
           "description": "A a multi-layer software framework that virtualizes IoT devices into interoperable Virtual Objects, enabling standardized management, semantic abstraction, service composition, and seamless integration with edge/coud technologies",
           "repoUrl": "https://gitlab.eclipse.org/eclipse/vostack/vostack",
           "languages": [],
-          "lastUpdated": "2026-06-02T15:28:02.101Z",
+          "lastUpdated": "2026-10-25T16:44:15.982Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -703,7 +703,7 @@
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [],
-          "lastUpdated": "2026-10-04T10:34:06Z",
+          "lastUpdated": "2026-10-25T06:30:23Z",
           "homepageUrl": null,
           "platforms": [
             "Application"
