@@ -304,5 +304,295 @@
     "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
     "title": "Composite Digital Twins: From Formalization to a Scalable, Semantic Graph-Based Architecture with OpenTwins",
     "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Andrea Iannoli",
+      "Lorenzo Gigli",
+      "Luca Sciullo",
+      "Angelo Trotta",
+      "Marco Di Felice"
+    ],
+    "date": "2026-06-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/wowmom69805.2026.00027",
+    "publisher": "IEEE",
+    "title": "Say the Mission, Execute the Swarm: Agent-Enhanced LLM Reasoning in the Web-of-Drones",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Alberto De Marchi",
+      "Angelo Trotta",
+      "Federico Montori",
+      "Luciano Bononi",
+      "Marco Di Felice"
+    ],
+    "date": "2024-04-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1016/j.future.2023.12.016",
+    "publisher": "Elsevier BV",
+    "title": "Relativistic Digital Twin: Bringing the IoT to the future",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Federico Montori",
+      "Ivan Zyrianoff",
+      "Lorenzo Gigli",
+      "Alessandro Calvio",
+      "Riccardo Venanzi",
+      "Simone Sindaco",
+      "Luca Sciullo",
+      "Federica Zonzini",
+      "Matteo Zauli",
+      "Nicola Testoni",
+      "Alessandro Bertacchini",
+      "Elisa Londero",
+      "Enrico Alessi",
+      "Marco Di Felice",
+      "Luciano Bononi",
+      "Paolo Bellavista",
+      "Luca De Marchi",
+      "Alessandro Marzani",
+      "Paolo Azzoni",
+      "Tullio Salmon Cinotti"
+    ],
+    "date": "2023-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/access.2023.3237971",
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "title": "An IoT Toolchain Architecture for Planning, Running and Managing a Complete Condition Monitoring Scenario",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Federico Montori",
+      "Ivan Zyrianoff",
+      "Lorenzo Gigli",
+      "Davide Tinti",
+      "Marco Di Felice"
+    ],
+    "date": "2023-06-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/smartcomp58114.2023.00081",
+    "publisher": "IEEE",
+    "title": "Designing a Hybrid Push-Pull Architecture for Mobile Crowdsensing using the Web of Things",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Lorenzo Bacchiani",
+      "Giuseppe De Palma",
+      "Luca Sciullo",
+      "Mario Bravetti",
+      "Marco Di Felice",
+      "Maurizio Gabbrielli",
+      "Gianluigi Zavattaro",
+      "Roberto Della Penna"
+    ],
+    "date": "2022-09-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/iotm.001.2200120",
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "title": "Low-Latency Anomaly Detection on the Edge-Cloud Continuum for Industry 4.0 Applications: the SEAWALL Case Study",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Lorenzo Gigli",
+      "Federico Montori",
+      "Angelo Trotta",
+      "Marco Di Felice"
+    ],
+    "date": "2022-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/access.2022.3171575",
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "title": "A Survey on the Web of Things",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Cristian Castiglione",
+      "Angelo Trotta",
+      "Marco Di Felice"
+    ],
+    "date": "2022-10-26T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/wf-iot54382.2022.10152179",
+    "publisher": "IEEE",
+    "title": "WoT on The Extreme Edge (WoTTEE): Enabling W3C Web of Things for Micro-controllers",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Angelo Trotta",
+      "Federico Montori",
+      "Luciano Bononi",
+      "Marco Di Felice"
+    ],
+    "date": "2022-06-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/wowmom54355.2022.00095",
+    "publisher": "IEEE",
+    "title": "WoTwins: Automatic Digital Twin Generator for the Web of Things",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Lorenzo Bacchiani",
+      "Giuseppe De Palma",
+      "Luca Sciullo",
+      "Mario Bravetti",
+      "Marco De Felice",
+      "Maurizio Gabbrielli",
+      "Gianluigi Zavattaro",
+      "Roberto Della Penna",
+      "Corrado Iorizzo",
+      "Andrea Livaldi",
+      "Luca Magnotta",
+      "Mirko Orsini"
+    ],
+    "date": "2022-03-28T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/ciot53061.2022.9766643",
+    "publisher": "IEEE",
+    "title": "SEAWALL: Seamless Low Latency Cloud Platforms for the Industry 4.0",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Lorenzo Gigli",
+      "Luca Sciullo",
+      "Federico Montori",
+      "Alessandro Marzani",
+      "Marco Di Felice"
+    ],
+    "date": "2022-01-08T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/ccnc49033.2022.9700679",
+    "publisher": "IEEE",
+    "title": "Blockchain and Web of Things for Structural Health Monitoring Applications: A Proof of Concept",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Ivan Dimitry Ribeiro Zyrianoff",
+      "Angelo Trotta",
+      "Marco Di Felice"
+    ],
+    "date": "2021-08-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/smartcomp52413.2021.00042",
+    "publisher": "IEEE",
+    "title": "WoT Micro Servient: Bringing the W3C Web of Things to Resource Constrained Edge Devices",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Ivan Zyrianoff",
+      "Alexandre Heideker",
+      "Luca Sciullo",
+      "Carlos Kamienski",
+      "Marco Di Felice"
+    ],
+    "date": "2021-08-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/smartcomp52413.2021.00043",
+    "publisher": "IEEE",
+    "title": "Interoperability in Open IoT Platforms: WoT-FIWARE Comparison and Integration",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Cristiano Aguzzi",
+      "Lorenzo Gigli",
+      "Luca Sciullo",
+      "Angelo Trotta",
+      "Federica Zonzini",
+      "Luca De Marchi",
+      "Marco Di Felice",
+      "Alessandro Marzani",
+      "Tullio Salmon Cinotti"
+    ],
+    "date": "2021-01-09T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/ccnc49032.2021.9369492",
+    "publisher": "IEEE",
+    "title": "MODRON: A Scalable and Interoperable Web of Things Platform for Structural Health Monitoring",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Cristiano Aguzzi",
+      "Lorenzo Gigli",
+      "Luca Sciullo",
+      "Angelo Trotta",
+      "Marco Di Felice"
+    ],
+    "date": "2020-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/access.2020.3045632",
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "title": "From Cloud to Edge: Seamless Software Migration at the Era of the Web of Things",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Lorenzo Gigli",
+      "Angelo Trotta",
+      "Marco Di Felice"
+    ],
+    "date": "2020-03-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1016/j.iot.2020.100164",
+    "publisher": "Elsevier BV",
+    "title": "WoT Store: Managing resources and applications on the web of things",
+    "type": "Journal Article"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Sushmit Bhattacharjee",
+      "Matthias Kovatsch"
+    ],
+    "date": "2020-10-06T00:00:00.000Z",
+    "link": "https://doi.org/10.1145/3410992.3410997",
+    "publisher": "ACM",
+    "title": "Bringing deterministic industrial networking to the W3C web of things with TSN and OPC UA",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Federico Montori",
+      "Angelo Trotta",
+      "Marco Di Felice",
+      "Tullio Salmon Cinotti"
+    ],
+    "date": "2020-06-10T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/icps48405.2020.9274694",
+    "publisher": "IEEE",
+    "title": "Discovering Web Things as Services within the Arrowhead Framework",
+    "type": "Proceedings Article"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Angelo Trotta",
+      "Lorenzo Gigli",
+      "Marco Di Felice"
+    ],
+    "date": "2019-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1007/978-3-030-30523-9_1",
+    "publisher": "Springer International Publishing",
+    "title": "Deploying W3C Web of Things-Based Interoperable Mash-up Applications for Industry 4.0: A Testbed",
+    "type": "Book Chapter"
+  },
+  {
+    "authors": [
+      "Luca Sciullo",
+      "Cristiano Aguzzi",
+      "Marco Di Felice",
+      "Tullio Salmon Cinotti"
+    ],
+    "date": "2019-01-01T00:00:00.000Z",
+    "link": "https://doi.org/10.1109/ccnc.2019.8651786",
+    "publisher": "IEEE",
+    "title": "WoT Store: Enabling Things and Applications Discovery for the W3C Web of Things",
+    "type": "Proceedings Article"
   }
 ]
