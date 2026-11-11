@@ -1,0 +1,24 @@
+name: Research Paper
+description: Submit a WoT-related research paper for the W3C WoT website
+title: '[Research Paper]: '
+labels: ['issue-form']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please submit a research paper related to the Web of Things. Publication metadata will be fetched automatically from Crossref using its DOI.
+
+  - type: input
+    id: doi
+    attributes:
+      label: DOI
+      description: Enter the paper's DOI, without the https://doi.org/ prefix.
+      placeholder: 10.1234/example.5678
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Add any other context that may help reviewers.

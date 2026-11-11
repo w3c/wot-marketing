@@ -1,0 +1,60 @@
+name: Article
+description: Submit a WoT-related article for the W3C WoT website
+title: '[Article]: '
+labels: ['issue-form']
+body:
+  - type: markdown
+    attributes:
+      value: Please provide details about the article you would like us to add to the W3C WoT website.
+  - type: input
+    id: title
+    attributes:
+      label: Article title
+      placeholder: W3C Web of Things in practice
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Article URL
+      placeholder: https://example.com/article
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Article type
+      options:
+        - Article
+        - Blog Post
+        - News
+        - Press Release
+        - Social Media Post
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: publisher
+    attributes:
+      label: Publisher
+      description: The organization or person that published the article.
+      placeholder: W3C
+    validations:
+      required: true
+
+  - type: input
+    id: date
+    attributes:
+      label: Publication date
+      description: Use the month and year shown by the publisher.
+      placeholder: January 2026
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Add any other context that may help reviewers.

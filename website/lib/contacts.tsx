@@ -15,7 +15,7 @@ export const CONTACTS: Contact[] = [
   {
     title: 'GitHub',
     description: 'Create issues for discussions on the overall WoT',
-    href: 'https://github.com/w3c/wot/issues',
+    href: 'https://github.com/w3c/wot/issues/new/choose',
     icon: <Image src={GitHubIcon} alt="GitHub" width={24} height={24} />,
   },
   {
@@ -53,7 +53,7 @@ export const CONTACTS: Contact[] = [
   {
     title: 'Edit this Website',
     description: 'Help us improve this website by editing it directly or reporting an issue',
-    href: 'https://github.com/w3c/wot-marketing',
+    href: 'https://github.com/w3c/wot-marketing/issues/new/choose',
     icon: <Image src={GitHubIcon} alt="GitHub" width={24} height={24} />,
   },
 ];
