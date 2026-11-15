@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-11-06T13:53:55Z",
+          "lastUpdated": "2026-11-14T09:33:52Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-11-06T13:53:55Z",
+          "lastUpdated": "2026-11-14T09:33:52Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -201,7 +201,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-10-26T23:23:44Z",
+          "lastUpdated": "2026-11-08T15:05:07Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
@@ -265,7 +265,7 @@
           "languages": [
             "Go"
           ],
-          "lastUpdated": "2026-11-01T11:03:11Z",
+          "lastUpdated": "2026-11-12T08:24:34Z",
           "homepageUrl": null,
           "platforms": [
             "Library",
@@ -279,7 +279,7 @@
           "description": "Command line tool to convert Node-RED function node, Swagger document, or WoT Thing Description to a custom Node.",
           "repoUrl": "https://github.com/node-red/node-red-nodegen",
           "languages": [],
-          "lastUpdated": "2026-09-01T09:57:27Z",
+          "lastUpdated": "2026-11-12T06:42:24Z",
           "homepageUrl": null,
           "platforms": [
             "CLI"
@@ -294,7 +294,7 @@
           "languages": [
             "Python"
           ],
-          "lastUpdated": "2026-10-26T23:23:44Z",
+          "lastUpdated": "2026-11-08T15:05:07Z",
           "homepageUrl": "https://thingweb.io",
           "platforms": [
             "Library"
@@ -585,7 +585,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-11-05T20:58:41Z",
+          "lastUpdated": "2026-11-14T10:21:24Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-11-06T23:00:47Z",
+          "lastUpdated": "2026-11-13T03:20:47Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
@@ -703,7 +703,7 @@
           "description": "AASX Package Explorer",
           "repoUrl": "https://github.com/eclipse-aaspe/package-explorer",
           "languages": [],
-          "lastUpdated": "2026-10-25T06:30:23Z",
+          "lastUpdated": "2026-11-11T20:49:06Z",
           "homepageUrl": null,
           "platforms": [
             "Application"
