@@ -50,7 +50,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-11-14T09:33:52Z",
+          "lastUpdated": "2026-11-20T23:03:26Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -157,7 +157,7 @@
           "languages": [
             "Java"
           ],
-          "lastUpdated": "2026-11-14T09:33:52Z",
+          "lastUpdated": "2026-11-20T23:03:26Z",
           "homepageUrl": "https://eclipse.dev/ditto/",
           "platforms": [
             "Library"
@@ -585,7 +585,7 @@
           "description": "WebThings Gateway - a self-hosted web application for monitoring and controlling a building over the web",
           "repoUrl": "https://github.com/WebThingsIO/gateway/",
           "languages": [],
-          "lastUpdated": "2026-11-14T10:21:24Z",
+          "lastUpdated": "2026-11-20T23:13:09Z",
           "homepageUrl": "http://webthings.io/gateway",
           "platforms": [
             "Service",
@@ -599,7 +599,7 @@
           "description": "An industrial connectivity edge application translating from proprietary protocols to OPC UA leveraging the W3C Web of Things (WoT) thing descriptions.",
           "repoUrl": "https://github.com/OPCFoundation/UA-EdgeTranslator",
           "languages": [],
-          "lastUpdated": "2026-11-13T03:20:47Z",
+          "lastUpdated": "2026-11-21T15:32:16Z",
           "homepageUrl": null,
           "platforms": [
             "Service"
